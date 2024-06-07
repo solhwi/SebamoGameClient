@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: e30857b716beae5479b313fde1a5efaf
+timeCreated: 1551006436
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 84992
+  packageName: Haon SD series Bundle
+  packageVersion: 3.1
+  assetPath: Assets/SD Unity-Chan Haon Custom/Shader/Unity-chan Toon Shader Ver 2.0.6/Editor/CopyMaterialParameter.cs
+  uploadId: 418201
