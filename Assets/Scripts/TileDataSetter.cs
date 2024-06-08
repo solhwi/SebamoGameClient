@@ -34,8 +34,8 @@ public class TileDataSetter : MonoBehaviour
 
 	private void SetCameraData()
 	{
-		Camera.current.transparencySortMode = TransparencySortMode.CustomAxis;
-		Camera.current.transparencySortAxis = tileDataContainer.transparencySortAxis;
+		Camera.main.transparencySortMode = TransparencySortMode.CustomAxis;
+		Camera.main.transparencySortAxis = tileDataContainer.transparencySortAxis;
 	}
 
 	private void SetGridData()
