@@ -1,11 +1,35 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CharacterState
+{
+    Idle = 0,
+    Jump = 1,
+}
+
 /// <summary>
-/// Ä³¸¯ÅÍ ½ºÅ×ÀÌÆ® °ü¸®
+/// ìºë¦­í„° ìŠ¤í…Œì´íŠ¸ ê´€ë¦¬
 /// </summary>
 public class PlayerCharacterController : MonoBehaviour
 {
-    
+    [SerializeField] private Animator animator = null;
+
+    private CharacterState currentState = CharacterState.Idle;
+
+    public void TryChangeState(CharacterState state)
+    {
+        if (currentState == state)
+            return;
+
+        animator.Play(state.ToString());
+	}
+
+	private void Update()
+	{
+		if (currentState == CharacterState.Jump)
+        {
+            // ì—¬ê¸°ì„œ ëª©ì ì§€ê¹Œì§€ ì´ë™í•œë‹¤.
+        }
+	}
 }
