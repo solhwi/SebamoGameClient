@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9697d3cf13c27d849adc1f00db504f5f, type: 3}
   m_Name: TileDataContainer
   m_EditorClassIdentifier: 
-  gridCellSize: {x: 1, y: 0.51, z: 1}
+  transparencySortAxis: {x: 0, y: 0.1, z: -0.26}
+  isometricGridCellSize: {x: 1, y: 0.57735, z: 1}
+  dimetricGridCellSize: {x: 1, y: 0.51, z: 1}
+  isometricTileAnchor: {x: 0, y: 0, z: 0}
+  dimetricTileAnchor: {x: 0.15, y: 0.15, z: 0}
   gridCellGap: {x: 0, y: 0, z: 0}
   layOutType: 3
   SwizzleType: 0
-  tileAnchor: {x: 0.15, y: 0.15, z: 0}
   OrientationType: 0
-  tileRenderMode: 0
+  tileRenderMode: 1
   sortingOrderType: 3
+  tileAnimationFrameRate: 1
