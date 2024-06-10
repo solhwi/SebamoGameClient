@@ -844,7 +844,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: -0.3068441, y: -0.10027064, z: -14.88987}
     speed: 2
-    m_Value: {x: -0.31290877, y: -0.095599204, z: -14.890393}
+    m_Value: {x: -0.3068441, y: -0.10027064, z: -14.88987}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -896,7 +896,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 1.1113905
     speed: 2
-    m_Value: 1.1637597
+    m_Value: 1.1113905
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -949,7 +949,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 73
+    y: 19
     width: 375
     height: 665
   m_SerializedDataModeController:
@@ -1014,8 +1014,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 376
-    y: 73
+    x: 377
+    y: 19
     width: 954
     height: 665
   m_SerializedDataModeController:
@@ -1255,7 +1255,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 759
+    y: 705
     width: 1331
     height: 240
   m_SerializedDataModeController:
@@ -1299,7 +1299,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 260}
     m_SelectedIDs: 1ea20000
     m_LastClickedID: 41502
-    m_ExpandedIDs: 000000007494000076940000789400007a9400007c9400007e94000080940000829400008494000086940000889400008a9400008c9400008e9400009094000092940000949400009694000098940000eaa10000f8a1000000ca9a3b
+    m_ExpandedIDs: 00000000829400008494000086940000889400008a9400008c9400008e94000090940000929400009494000096940000989400009a9400009c9400009e940000a0940000a2940000a4940000a6940000a8940000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1328,7 +1328,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007494000076940000789400007a9400007c9400007e94000080940000829400008494000086940000889400008a9400008c9400008e9400009094000092940000949400009694000098940000
+    m_ExpandedIDs: 00000000829400008494000086940000889400008a9400008c9400008e94000090940000929400009494000096940000989400009a9400009c9400009e940000a0940000a2940000a4940000a6940000a8940000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1443,8 +1443,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1332
-    y: 73
+    x: 1333
+    y: 19
     width: 587
     height: 926
   m_SerializedDataModeController:
