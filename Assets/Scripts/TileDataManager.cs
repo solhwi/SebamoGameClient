@@ -4,17 +4,27 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public struct CustomTileData
+public struct WorldTileData
 {
-	public Vector3 tilePosition;
+	public Vector2 tileWorldPosition;
+	public Vector3Int tilePosition;
 	public TileData tileData;
 	public TileBase tileBase;
 
-	public CustomTileData(int x, int y, TileData tileData, TileBase tileBase)
+	public WorldTileData(Vector3Int tilePos, TileData tileData, TileBase tileBase)
 	{
-		this.tilePosition = new Vector3(x, y);
+		this.tileWorldPosition = ConvertWorldPos(tilePos);
+		this.tilePosition = tilePos;
 		this.tileData = tileData;
 		this.tileBase = tileBase;
+	}
+
+	private static Vector2 ConvertWorldPos(Vector3Int tilePos)
+	{
+		float x = tilePos.y * -1 + tilePos.x * -1; // y에 1을 더하면 -1, x에 1을 더하면 -1
+		float y = tilePos.y * 0.5f + tilePos.x * -0.5f; // y에 1을 더하면 0.5, x에 1을 더하면 -0.5 
+
+		return new Vector2(x, y);
 	}
 }
 
@@ -22,29 +32,46 @@ public class TileDataManager : MonoBehaviour
 {
 	[SerializeField] private Tilemap tilemap;
 
-	private List<CustomTileData> tileBoardDatas = new List<CustomTileData>();
+	private List<WorldTileData> tileBoardDatas = new List<WorldTileData>();
 
 	private void Awake()
 	{
 		tileBoardDatas = MakeBoardData().ToList();
 	}
 
-	private IEnumerable<CustomTileData> MakeBoardData()
+	private IEnumerable<WorldTileData> MakeBoardData()
 	{
-		for (int y = tilemap.cellBounds.yMin; y < tilemap.cellBounds.yMax; y++)
+		for (int x = tilemap.cellBounds.xMax; x >= tilemap.cellBounds.xMin; x--)
 		{
-			for (int x = tilemap.cellBounds.xMin; x < tilemap.cellBounds.xMax; x++)
+			for (int y = tilemap.cellBounds.yMax; y >= tilemap.cellBounds.yMin; y--)
 			{
-				TileBase curTile = tilemap.GetTile(new Vector3Int(x, y));
+				var tilePos = new Vector3Int(x, y);
+				TileBase curTile = tilemap.GetTile(tilePos);
 				if (curTile != null)
 				{
 					TileData data = default;
-					curTile.GetTileData(new Vector3Int(x, y), tilemap, ref data);
+					curTile.GetTileData(tilePos, tilemap, ref data);
 
-					CustomTileData customData = new CustomTileData(x, y, data, curTile);
-					yield return customData;
+					yield return new WorldTileData(tilePos, data, curTile);
 				}
 			}
+		}
+	}
+
+	/// <summary>
+	/// 현재 위치부터, 목표 위치까지 경로 반환
+	/// </summary>
+	/// <param name="currentIndex"></param>
+	/// <param name="nextIndex"></param>
+	/// <returns></returns>
+	public IEnumerable<WorldTileData> GetTilePath(int currentIndex, int nextIndex)
+	{
+		for(int i = currentIndex + 1; i < nextIndex; i++)
+		{
+			if (i >= tileBoardDatas.Count)
+				yield break;
+
+			yield return tileBoardDatas[i];
 		}
 	}
 }
