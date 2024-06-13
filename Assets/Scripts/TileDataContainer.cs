@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName = "TileDataContainer")]
 public class TileDataContainer : ScriptableObject
 {
-    // ������
+    // 고정값
 	// https://docs.unity3d.com/kr/2020.3/Manual/Tilemap-Isometric-CreateIso.html
 	public Vector3 transparencySortAxis = new Vector3(0, 0.1f, -0.26f);
 	public Vector3 isometricGridCellSize = new Vector3(1, 0.57735f, 1);
@@ -25,6 +26,15 @@ public class TileDataContainer : ScriptableObject
     public TilemapRenderer.SortOrder sortingOrderType = TilemapRenderer.SortOrder.TopRight;
     public float tileAnimationFrameRate = 1.0f;
 
+	/// <summary>
+	/// 타일의 진행 순서 리스트
+	/// </summary>
+	public List<int> tileOrderList = new List<int>();
+
+	public void SetTileIndices(IEnumerable<int> orders)
+	{
+		tileOrderList = orders.ToList();
+	}
 
     public Vector3 GetGridCellSize(TileType type)
     {

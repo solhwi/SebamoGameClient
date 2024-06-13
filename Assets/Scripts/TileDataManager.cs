@@ -21,8 +21,8 @@ public struct WorldTileData
 
 	private static Vector2 ConvertWorldPos(Vector3Int tilePos)
 	{
-		float x = tilePos.y * -1 + tilePos.x * -1; // y에 1을 더하면 -1, x에 1을 더하면 -1
-		float y = tilePos.y * 0.5f + tilePos.x * -0.5f; // y에 1을 더하면 0.5, x에 1을 더하면 -0.5 
+		float x = tilePos.y * -1 + tilePos.x; // y에 1을 더하면 -1, x에 1을 더하면 1
+		float y = tilePos.y * 0.5f + tilePos.x * 0.5f; // y에 1을 더하면 0.5, x에 1을 더하면 0.5 
 
 		return new Vector2(x, y);
 	}
@@ -39,7 +39,7 @@ public class TileDataManager : MonoBehaviour
 		tileBoardDatas = MakeBoardData().ToList();
 	}
 
-	private IEnumerable<WorldTileData> MakeBoardData()
+	public IEnumerable<WorldTileData> MakeBoardData()
 	{
 		for (int x = tilemap.cellBounds.xMax; x >= tilemap.cellBounds.xMin; x--)
 		{

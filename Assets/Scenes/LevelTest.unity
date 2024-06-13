@@ -1034,7 +1034,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1848805233}
   - component: {fileID: 1848805232}
-  - component: {fileID: 1848805231}
   m_Layer: 0
   m_Name: Character Camera
   m_TagString: Untagged
@@ -1042,14 +1041,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1848805231
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848805230}
-  m_Enabled: 1
 --- !u!20 &1848805232
 Camera:
   m_ObjectHideFlags: 0
@@ -1244,7 +1235,7 @@ Transform:
   m_GameObject: {fileID: 2146376109}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
