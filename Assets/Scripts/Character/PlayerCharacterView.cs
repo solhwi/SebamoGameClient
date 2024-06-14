@@ -6,7 +6,7 @@ public class PlayerCharacterView : MonoBehaviour
 {
 	[SerializeField] private SpriteRenderer view = null;
 	[SerializeField] private Camera playerViewCamera = null;
-	
+
 	private RenderTexture renderTexture = null;
 	private Texture2D texture = null;
 	private Rect rect;
@@ -39,5 +39,15 @@ public class PlayerCharacterView : MonoBehaviour
 		texture.Apply();
 
 		return Sprite.Create(texture, rect, new Vector2(0.5f, 0.5f));
+	}
+
+	public void SetPosition(Vector2 pos)
+	{
+		transform.position = new Vector3(pos.x, pos.y, transform.position.z);
+	}
+
+	public void FlipX(bool flipX)
+	{
+		view.flipX = flipX;
 	}
 }

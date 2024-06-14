@@ -31,12 +31,13 @@ public struct WorldTileData
 public class TileDataManager : MonoBehaviour
 {
 	[SerializeField] private Tilemap tilemap;
+	[SerializeField] private TileDataContainer dataContainer;
 
-	private List<WorldTileData> tileBoardDatas = new List<WorldTileData>();
+	public WorldTileData[] tileBoardDatas = null;
 
 	private void Awake()
 	{
-		tileBoardDatas = MakeBoardData().ToList();
+		tileBoardDatas = MakeBoardData().ToArray();
 	}
 
 	public IEnumerable<WorldTileData> MakeBoardData()
@@ -68,10 +69,51 @@ public class TileDataManager : MonoBehaviour
 	{
 		for(int i = currentIndex + 1; i < nextIndex; i++)
 		{
-			if (i >= tileBoardDatas.Count)
+			if (i >= tileBoardDatas.Length)
 				yield break;
 
 			yield return tileBoardDatas[i];
 		}
+	}
+
+	/// <summary>
+	/// 현재 타일 순서에 맞는 타일 인덱스 가져오기
+	/// </summary>
+	/// <param name="currentOrderIndex"></param>
+	/// <returns></returns>
+	public int GetTileIndexByOrder(int currentOrderIndex)
+	{
+		if (dataContainer == null)
+			return 0;
+
+		var orderMap = dataContainer.tileOrders;
+
+		for(int i = 0; i < orderMap.Length; i++)
+		{
+			if (orderMap[i] == currentOrderIndex)
+			{
+				return i;
+			}
+		}
+
+		return 0;
+	}
+
+	/// <summary>
+	/// 현재 타일 순서에 맞는 타일 데이터 가져오기
+	/// </summary>
+	/// <param name="currentOrderIndex"></param>
+	/// <returns></returns>
+	public WorldTileData GetTileDataByOrder(int currentOrderIndex)
+	{
+		int tileIndex = GetTileIndexByOrder(currentOrderIndex);
+
+		if (tileBoardDatas.Length <= tileIndex)
+		{
+			Debug.LogError($"{currentOrderIndex}가 타일 데이터 인덱스를 넘어감");
+			return default;
+		}	
+
+		return tileBoardDatas[tileIndex];
 	}
 }

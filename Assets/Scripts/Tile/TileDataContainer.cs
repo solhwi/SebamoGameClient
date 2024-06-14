@@ -29,11 +29,11 @@ public class TileDataContainer : ScriptableObject
 	/// <summary>
 	/// 타일의 진행 순서 리스트
 	/// </summary>
-	public List<int> tileOrderList = new List<int>();
+	public int[] tileOrders = null;
 
-	public void SetTileIndices(IEnumerable<int> orders)
+	public void SetTileOrder(IEnumerable<int> orders)
 	{
-		tileOrderList = orders.ToList();
+		tileOrders = orders.ToArray();
 	}
 
     public Vector3 GetGridCellSize(TileType type)
