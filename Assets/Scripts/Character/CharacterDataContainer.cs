@@ -19,6 +19,7 @@ public enum CharacterMeshType
 	FrontHair = 4,
 	BackHair = 5,
 	Face = 6,
+	Max = 7,
 }
 
 [CreateAssetMenu(fileName = "CharacterDataContainer")]

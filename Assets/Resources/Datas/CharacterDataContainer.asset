@@ -13,34 +13,34 @@ MonoBehaviour:
   m_Name: CharacterDataContainer
   m_EditorClassIdentifier: 
   characterAvatars:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 9000000, guid: 193a954f66f3cf943bceaccec7ce331e, type: 3}
+  - {fileID: 9000000, guid: dd4802cc7972ecb4699ed0b29916793f, type: 3}
+  - {fileID: 9000000, guid: e2425d323ad15a14db2323ecd7b462ac, type: 3}
   characterCostumeMeshes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4860543694222199854, guid: 193a954f66f3cf943bceaccec7ce331e, type: 3}
+  - {fileID: -5174016732203986430, guid: dd4802cc7972ecb4699ed0b29916793f, type: 3}
+  - {fileID: -8602266167455642192, guid: e2425d323ad15a14db2323ecd7b462ac, type: 3}
   characterCostumeSkinMeshes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 703659944855237304, guid: 193a954f66f3cf943bceaccec7ce331e, type: 3}
+  - {fileID: -3452502965246254427, guid: dd4802cc7972ecb4699ed0b29916793f, type: 3}
+  - {fileID: 2077188694223577012, guid: e2425d323ad15a14db2323ecd7b462ac, type: 3}
   characterLeftEyeMeshes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -3134119897553228021, guid: ddd8fa7b3e90f5a47ac055791c33cd33, type: 3}
+  - {fileID: 4679016109297790664, guid: 2f676b8f712ef0f40825ad6df2132f8d, type: 3}
+  - {fileID: -7787716041982792169, guid: 9ce156784ef209045be338a368e13d9d, type: 3}
   characterRightEyeMeshes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -7488457189028680795, guid: 1916394ce5d6072439e502357a407567, type: 3}
+  - {fileID: -3114929069507835603, guid: 3c36a19694fa33d4f8972df9cab583c5, type: 3}
+  - {fileID: -924531996176917912, guid: bd27e7964625c84449f2ac3e445385f3, type: 3}
   characterFaceMeshes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2702065095120395984, guid: 207f23503b6a22448a7c7139ed5e8286, type: 3}
+  - {fileID: -6049393248465384088, guid: 19b3520048fec7345982be6761526df3, type: 3}
+  - {fileID: -6711069399571395035, guid: 8f615bae3b4fc944cae59f91b568747f, type: 3}
   characterFrontHairMeshes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5201906885779925002, guid: ba08044b46b9d274191503b96449b16e, type: 3}
+  - {fileID: 462075268017951818, guid: 731ecf5991c41524e81af48795bf9092, type: 3}
+  - {fileID: -7004879751381978865, guid: cade0cf166c5da34681e0c24647b45a1, type: 3}
   characterBackHairMeshes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -7066848086114522073, guid: 2e82b72d6ee6004469434238fcc4887a, type: 3}
+  - {fileID: -8040143008482305411, guid: 0001e8f856c67ce4cbd40fee65534082, type: 3}
+  - {fileID: -2990022481035809148, guid: a146594ebbaebc84a801b8e87505f844, type: 3}

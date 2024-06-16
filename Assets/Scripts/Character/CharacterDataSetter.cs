@@ -8,12 +8,11 @@ public enum AccessoryType
 }
 
 /// <summary>
-/// Ä³¸¯ÅÍ ¾Æ¹ÙÅ¸, ¾Ö´Ï¸ŞÀÌÅÍ, ¸Ş½Ã, ¾Ç¼¼»ç¸® µîÀ» ¼¼ÆÃ
+/// ìºë¦­í„° ì•„ë°”íƒ€, ì• ë‹ˆë©”ì´í„°, ë©”ì‹œ, ì•…ì„¸ì‚¬ë¦¬ ë“±ì„ ì„¸íŒ…
 /// </summary>
 public class CharacterDataSetter : MonoBehaviour
 {
-	[SerializeField] private CharacterType characterType;
-
+	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private CharacterDataContainer dataContainer = null;
 
 	[SerializeField] private SkinnedMeshRenderer costumeRenderer = null;
@@ -29,21 +28,37 @@ public class CharacterDataSetter : MonoBehaviour
 
 	[SerializeField] private List<GameObject> accessories = new List<GameObject>();
 
+	private void Awake()
+	{
+		playerDataContainer.onChangeCharacterMeshType += SetMeshData;
+	}
+
+	private void OnDestroy()
+	{
+		playerDataContainer.onChangeCharacterMeshType -= SetMeshData;
+	}
+
 	/// <summary>
-	/// ³ªÁß¿¡ ºÎÀ§¸¶´Ù °¢ÀÚ Ä³¸¯ÅÍ Å¸ÀÔÀ» ÀúÀåÇÏ¿© ºÒ·¯¿Àµµ·Ï ¼öÁ¤
+	/// ë‚˜ì¤‘ì— ë¶€ìœ„ë§ˆë‹¤ ê°ì ìºë¦­í„° íƒ€ì…ì„ ì €ì¥í•˜ì—¬ ë¶ˆëŸ¬ì˜¤ë„ë¡ ìˆ˜ì •
 	/// </summary>
 	private void SetMeshData()
 	{
-		costumeRenderer.sharedMesh = dataContainer.GetMesh(characterType, CharacterMeshType.Costume);
-		costumeSkinRenderer.sharedMesh = dataContainer.GetMesh(characterType, CharacterMeshType.CostumeSkin);
+		costumeRenderer.sharedMesh = GetMesh(CharacterMeshType.Costume);
+		costumeSkinRenderer.sharedMesh = GetMesh(CharacterMeshType.CostumeSkin);
 
-		leftEyeRenderer.mesh = dataContainer.GetMesh(characterType, CharacterMeshType.LeftEye);
-		rightEyeRenderer.mesh = dataContainer.GetMesh(characterType, CharacterMeshType.RightEye);
+		leftEyeRenderer.mesh = GetMesh(CharacterMeshType.LeftEye);
+		rightEyeRenderer.mesh = GetMesh(CharacterMeshType.RightEye);
 
-		faceRenderer.sharedMesh = dataContainer.GetMesh(characterType, CharacterMeshType.Face);
+		faceRenderer.sharedMesh = GetMesh(CharacterMeshType.Face);
 
-		frontHairRenderer.sharedMesh = dataContainer.GetMesh(characterType, CharacterMeshType.FrontHair);
-		backHairRenderer.sharedMesh = dataContainer.GetMesh(characterType, CharacterMeshType.BackHair);
+		frontHairRenderer.sharedMesh = GetMesh(CharacterMeshType.FrontHair);
+		backHairRenderer.sharedMesh = GetMesh(CharacterMeshType.BackHair);
+	}
+
+	private Mesh GetMesh(CharacterMeshType meshType)
+	{
+		CharacterType characterType = playerDataContainer.GetCharacterTypeByMeshType(meshType);
+		return dataContainer.GetMesh(characterType, meshType);
 	}
 
 }

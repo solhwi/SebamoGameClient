@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCharacterView : MonoBehaviour
+public class CharacterView : MonoBehaviour
 {
 	[SerializeField] private SpriteRenderer view = null;
 	[SerializeField] private Camera playerViewCamera = null;
+	[SerializeField] private Transform originPlayerTransform = null;
 
 	private RenderTexture renderTexture = null;
 	private Texture2D texture = null;
@@ -44,5 +45,12 @@ public class PlayerCharacterView : MonoBehaviour
 	public void FlipX(bool flipX)
 	{
 		view.flipX = flipX;
+	}
+
+	public void FlipY(bool flipY)
+	{
+		float yRot = flipY ? 180 : 0;
+
+		originPlayerTransform.localEulerAngles = new Vector3(0, yRot, 0);
 	}
 }

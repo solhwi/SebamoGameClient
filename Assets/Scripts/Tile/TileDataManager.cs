@@ -72,7 +72,7 @@ public class TileDataManager : MonoBehaviour
 		for(int i = currentOrderIndex + 1; i <= currentOrderIndex + progressCount; i++)
 		{
 			int tileIndex = GetTileIndexByOrder(i);
-			if (tileIndex >= tileBoardDatas.Length)
+			if (tileIndex < 0 || tileIndex >= tileBoardDatas.Length)
 				yield break;
 
 			yield return tileBoardDatas[tileIndex];
@@ -86,16 +86,16 @@ public class TileDataManager : MonoBehaviour
 	/// <returns></returns>
 	public int GetTileIndexByOrder(int currentOrderIndex)
 	{
+		if (currentOrderIndex < 0)
+			return -1;
+
 		if (dataContainer == null)
-			return 0;
+			return -1;
 
 		var orderMap = dataContainer.tileOrders;
 
-		// 오더 인덱스가 아웃 오브 레인지인 경우 보정
 		if (currentOrderIndex >= orderMap.Length)
-		{
-			currentOrderIndex = orderMap.Length - 1;
-		}
+			return -1;
 
 		if (orderToTileIndexMap.ContainsKey(currentOrderIndex))
 			return orderToTileIndexMap[currentOrderIndex];
@@ -109,7 +109,7 @@ public class TileDataManager : MonoBehaviour
 			}
 		}
 
-		return 0;
+		return -1;
 	}
 
 	/// <summary>
@@ -121,7 +121,7 @@ public class TileDataManager : MonoBehaviour
 	{
 		int tileIndex = GetTileIndexByOrder(currentOrderIndex);
 
-		if (tileBoardDatas.Length <= tileIndex)
+		if (tileBoardDatas.Length <= tileIndex || tileIndex < 0)
 		{
 			Debug.LogError($"{currentOrderIndex}가 타일 데이터 인덱스를 넘어감");
 			return default;

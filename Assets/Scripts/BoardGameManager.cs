@@ -49,7 +49,7 @@ public class BoardGameManager : MonoBehaviour
 	[SerializeField] private TileDataManager tileDataManager;
 
 	[SerializeField] private CharacterMoveComponent characterMoveComponent;
-	[SerializeField] private PlayerCharacterController characterController;
+	[SerializeField] private CharacterAnimationController characterController;
 
 	[SerializeField] private BoardGameSubscriber[] subscribers;
 
