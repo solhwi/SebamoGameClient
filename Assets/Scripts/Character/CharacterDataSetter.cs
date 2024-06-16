@@ -18,41 +18,54 @@ public class CharacterDataSetter : MonoBehaviour
 	[SerializeField] private SkinnedMeshRenderer costumeRenderer = null;
 	[SerializeField] private SkinnedMeshRenderer costumeSkinRenderer = null;
 
-	[SerializeField] private MeshFilter leftEyeRenderer = null;
-	[SerializeField] private MeshFilter rightEyeRenderer = null;
+	[SerializeField] private MeshFilter leftEyeFilter = null;
+	[SerializeField] private MeshFilter rightEyeFilter = null;
+
+	[SerializeField] private MeshRenderer leftEyeRenderer = null;
+	[SerializeField] private MeshRenderer rightEyeRenderer = null;
+
+	[SerializeField] private MeshFilter leftEyeCoverFilter = null;
+	[SerializeField] private MeshFilter rightEyeCoverFilter = null;
 
 	[SerializeField] private SkinnedMeshRenderer faceRenderer = null;
 
 	[SerializeField] private SkinnedMeshRenderer frontHairRenderer = null;
 	[SerializeField] private SkinnedMeshRenderer backHairRenderer = null;
 
+	[SerializeField] private Animator animator = null;
+
 	[SerializeField] private List<GameObject> accessories = new List<GameObject>();
 
-	private void Awake()
+	public void SetAvatar()
 	{
-		playerDataContainer.onChangeCharacterMeshType += SetMeshData;
+		CharacterType characterType = playerDataContainer.GetCharacterTypeByMeshType(CharacterMeshType.Costume);
+		animator.avatar = dataContainer.characterAvatars[(int)characterType];
 	}
 
-	private void OnDestroy()
-	{
-		playerDataContainer.onChangeCharacterMeshType -= SetMeshData;
-	}
-
-	/// <summary>
-	/// 나중에 부위마다 각자 캐릭터 타입을 저장하여 불러오도록 수정
-	/// </summary>
-	private void SetMeshData()
+	public void SetMeshData()
 	{
 		costumeRenderer.sharedMesh = GetMesh(CharacterMeshType.Costume);
 		costumeSkinRenderer.sharedMesh = GetMesh(CharacterMeshType.CostumeSkin);
 
-		leftEyeRenderer.mesh = GetMesh(CharacterMeshType.LeftEye);
-		rightEyeRenderer.mesh = GetMesh(CharacterMeshType.RightEye);
+		leftEyeFilter.mesh = GetMesh(CharacterMeshType.LeftEye);
+		rightEyeFilter.mesh = GetMesh(CharacterMeshType.RightEye);
+
+		leftEyeCoverFilter.mesh = GetMesh(CharacterMeshType.LeftEyeCover);
+		rightEyeCoverFilter.mesh = GetMesh(CharacterMeshType.RightEyeCover);
 
 		faceRenderer.sharedMesh = GetMesh(CharacterMeshType.Face);
 
 		frontHairRenderer.sharedMesh = GetMesh(CharacterMeshType.FrontHair);
 		backHairRenderer.sharedMesh = GetMesh(CharacterMeshType.BackHair);
+	}
+
+	public void SetMaterial()
+	{
+		CharacterType characterType = playerDataContainer.GetCharacterTypeByMeshType(CharacterMeshType.LeftEye);
+		leftEyeRenderer.material = dataContainer.GetMaterial(characterType);
+
+		characterType = playerDataContainer.GetCharacterTypeByMeshType(CharacterMeshType.RightEye);
+		rightEyeRenderer.material = dataContainer.GetMaterial(characterType);
 	}
 
 	private Mesh GetMesh(CharacterMeshType meshType)

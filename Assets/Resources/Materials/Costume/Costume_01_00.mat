@@ -258,7 +258,7 @@ Material:
     - _ZWrite: 1
     - _simpleUI: 2
     - _utsTechnique: 1
-    - _utsVersion: 2.06
+    - _utsVersion: 2.075
     m_Colors:
     - _1st_ShadeColor: {r: 0.74860954, g: 0.6468049, b: 0.8962264, a: 1}
     - _2nd_ShadeColor: {r: 0.60595405, g: 0.67670935, b: 0.8396226, a: 1}

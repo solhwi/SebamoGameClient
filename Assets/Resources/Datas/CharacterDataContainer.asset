@@ -44,3 +44,15 @@ MonoBehaviour:
   - {fileID: -7066848086114522073, guid: 2e82b72d6ee6004469434238fcc4887a, type: 3}
   - {fileID: -8040143008482305411, guid: 0001e8f856c67ce4cbd40fee65534082, type: 3}
   - {fileID: -2990022481035809148, guid: a146594ebbaebc84a801b8e87505f844, type: 3}
+  characterLeftEyeCoverMeshes:
+  - {fileID: -9088539578488081303, guid: ddd8fa7b3e90f5a47ac055791c33cd33, type: 3}
+  - {fileID: 2877169855824967236, guid: 2f676b8f712ef0f40825ad6df2132f8d, type: 3}
+  - {fileID: -73836007254521431, guid: 9ce156784ef209045be338a368e13d9d, type: 3}
+  characterRightEyeCoverMeshes:
+  - {fileID: 8063393956034085565, guid: 1916394ce5d6072439e502357a407567, type: 3}
+  - {fileID: 4366584332833615291, guid: 3c36a19694fa33d4f8972df9cab583c5, type: 3}
+  - {fileID: -1625239767572881056, guid: bd27e7964625c84449f2ac3e445385f3, type: 3}
+  characterEyeMaterials:
+  - {fileID: 2100000, guid: 0abb7812f3946c042bb64628c9d54d70, type: 2}
+  - {fileID: 2100000, guid: 88421aee3ec89704bbbcb5fa2e4dac3f, type: 2}
+  - {fileID: 2100000, guid: e2224e89cc1e56d4cae3c4928f7a3259, type: 2}

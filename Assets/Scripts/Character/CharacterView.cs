@@ -6,7 +6,13 @@ public class CharacterView : MonoBehaviour
 {
 	[SerializeField] private SpriteRenderer view = null;
 	[SerializeField] private Camera playerViewCamera = null;
-	[SerializeField] private Transform originPlayerTransform = null;
+	[SerializeField] private GameObject playerOriginPrefab = null;
+
+	private Vector3 characterSpawnLocalPos = new Vector3(0.05f, -0.5f, 10.0f);
+	private Vector3 characterSpawnLocalRot = new Vector3(15, 150, -15);
+
+	private Transform originCharacterTransform = null;
+	private CharacterAnimationController characterAnimationController = null;
 
 	private RenderTexture renderTexture = null;
 	private Texture2D texture = null;
@@ -23,6 +29,21 @@ public class CharacterView : MonoBehaviour
 		texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
 
 		playerViewCamera.targetTexture = renderTexture;
+
+		var dataSetter = playerOriginPrefab.GetComponent<CharacterDataSetter>();
+		dataSetter.SetAvatar();
+		dataSetter.SetMeshData();
+		dataSetter.SetMaterial();
+
+		var playerOrigin = Instantiate(playerOriginPrefab, playerViewCamera.transform);
+		playerOrigin.transform.localPosition = characterSpawnLocalPos;
+		playerOrigin.transform.localEulerAngles = characterSpawnLocalRot;
+
+		characterAnimationController = playerOrigin.GetComponent<CharacterAnimationController>();
+
+		// 애니메이터가 달려있는 곳이 제어할 위치
+		var characterOrigin = playerOrigin.GetComponentInChildren<Animator>();
+		originCharacterTransform = characterOrigin.transform;
 	}
 
 	private void Update()
@@ -51,6 +72,11 @@ public class CharacterView : MonoBehaviour
 	{
 		float yRot = flipY ? 180 : 0;
 
-		originPlayerTransform.localEulerAngles = new Vector3(0, yRot, 0);
+		originCharacterTransform.localEulerAngles = new Vector3(0, yRot, 0);
+	}
+
+	public void TryChangeState(CharacterState newState)
+	{
+		characterAnimationController.ChangeState(newState);
 	}
 }

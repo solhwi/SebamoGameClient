@@ -13,8 +13,6 @@ public class PlayerDataContainer : ScriptableObject
 
 	public CharacterType[] characterMeshTypes = new CharacterType[(int)CharacterMeshType.Max];
 
-	public event Action onChangeCharacterMeshType = null;
-
 	public void SaveCurrentOrderIndex(int currentTileOrderIndex)
 	{
 		if (tileDataContainer.tileOrders.Length > currentTileOrderIndex)
@@ -27,16 +25,6 @@ public class PlayerDataContainer : ScriptableObject
 		}
 
 		AssetDatabase.SaveAssetIfDirty(this);
-	}
-
-	public void ResetCharacterMeshType(CharacterType characterType)
-	{
-		for(int i = 0; i < characterMeshTypes.Length; i++)
-		{
-			characterMeshTypes[i] = characterType;
-		}
-
-		onChangeCharacterMeshType?.Invoke();
 	}
 
 	public CharacterType GetCharacterTypeByMeshType(CharacterMeshType meshType)

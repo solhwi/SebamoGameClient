@@ -9,17 +9,10 @@ public class BoardGameCanvas : BoardGameSubscriber
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Text statusText = null;
 
-	public CharacterType currentCharacterType = CharacterType.Misaki;
-
-	private void Awake()
-	{
-		playerDataContainer.ResetCharacterMeshType(currentCharacterType);
-	}
-
 	public override IEnumerator OnMove(int currentOrderIndex, int diceCount)
 	{
 		yield return null;
-		statusText.text = $"{diceCount}칸 만큼 이동";
+		statusText.text = $"현재 위치 : {playerDataContainer.currentTileOrderIndex}";
 	}
 
 	public override IEnumerator OnRollDice(int diceCount)
@@ -31,13 +24,5 @@ public class BoardGameCanvas : BoardGameSubscriber
 	public void OnClickRollDice()
 	{
 		boardGameManager.OnClickRollDice();
-	}
-
-	public void OnClickChangeAvatar()
-	{
-		int nextType = ((int)currentCharacterType + 1) % (int)CharacterType.Max;
-
-		currentCharacterType = (CharacterType)nextType;
-		playerDataContainer.ResetCharacterMeshType(currentCharacterType);
 	}
 }

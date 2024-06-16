@@ -19,6 +19,8 @@ public enum CharacterMeshType
 	FrontHair = 4,
 	BackHair = 5,
 	Face = 6,
+	LeftEyeCover = 7,
+	RightEyeCover = 8,
 	Max = 7,
 }
 
@@ -37,6 +39,10 @@ public class CharacterDataContainer : ScriptableObject
 	public Mesh[] characterFaceMeshes = new Mesh[(int)CharacterType.Max];
 	public Mesh[] characterFrontHairMeshes = new Mesh[(int)CharacterType.Max];
 	public Mesh[] characterBackHairMeshes = new Mesh[(int)CharacterType.Max];
+	public Mesh[] characterLeftEyeCoverMeshes = new Mesh[(int)CharacterType.Max];
+	public Mesh[] characterRightEyeCoverMeshes = new Mesh[(int)CharacterType.Max];
+
+	public Material[] characterEyeMaterials = new Material[(int)CharacterType.Max];
 
 	public Mesh GetMesh(CharacterType characterType, CharacterMeshType meshType)
 	{
@@ -62,8 +68,19 @@ public class CharacterDataContainer : ScriptableObject
 
 			case CharacterMeshType.Face:
 				return characterFaceMeshes[(int)characterType];
+
+			case CharacterMeshType.LeftEyeCover:
+				return characterLeftEyeCoverMeshes[(int)characterType];
+
+			case CharacterMeshType.RightEyeCover:
+				return characterRightEyeCoverMeshes[(int)characterType];
 		}
 
 		return null;
+	}
+
+	public Material GetMaterial(CharacterType characterType)
+	{
+		return characterEyeMaterials[(int)characterType];
 	}
 }

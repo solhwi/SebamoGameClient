@@ -5,7 +5,6 @@ using UnityEngine;
 public class CharacterMoveComponent : BoardGameSubscriber 
 {
 	[SerializeField] private TileDataManager tileDataManager = null;
-	[SerializeField] private CharacterAnimationController characterController = null;
 	[SerializeField] private CharacterView characterView = null;
 	[SerializeField] private PlayerDataContainer playerDataContainer = null;
 
@@ -16,7 +15,7 @@ public class CharacterMoveComponent : BoardGameSubscriber
 
 	public override IEnumerator OnMove(int currentOrderIndex, int diceCount)
 	{
-		characterController.ChangeState(CharacterState.Run);
+		characterView.TryChangeState(CharacterState.Run);
 
 		var tiles = tileDataManager.GetTilePath(currentOrderIndex, diceCount);
 		foreach (var tile in tiles)
@@ -44,7 +43,7 @@ public class CharacterMoveComponent : BoardGameSubscriber
 			Debug.Log($"end move {startPos} > {tile.tileWorldPosition} [{Time.time}]");
 		}
 
-		characterController.ChangeState(CharacterState.Idle);
+		characterView.TryChangeState(CharacterState.Idle);
 	}
 
 	private void ProcessFlip(Vector3 startPos, Vector3 endPos)
