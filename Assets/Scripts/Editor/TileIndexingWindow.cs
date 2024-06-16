@@ -88,8 +88,8 @@ public class TileIndexingWindow : CustomEditorWindow
 	{
 		tileDataContainer.SetTileOrder(tileOrders);
 
-		AssetDatabase.SaveAssets();
-		AssetDatabase.Refresh();
+		AssetDatabase.SaveAssetIfDirty(tileDataContainer);
+		// AssetDatabase.Refresh();
 	}
 
 	protected override void DrawAll()

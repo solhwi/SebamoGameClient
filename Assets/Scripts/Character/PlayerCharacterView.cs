@@ -41,11 +41,6 @@ public class PlayerCharacterView : MonoBehaviour
 		return Sprite.Create(texture, rect, new Vector2(0.5f, 0.5f));
 	}
 
-	public void SetPosition(Vector2 pos)
-	{
-		transform.position = new Vector3(pos.x, pos.y, transform.position.z);
-	}
-
 	public void FlipX(bool flipX)
 	{
 		view.flipX = flipX;

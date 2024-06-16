@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5010f4fc3e47a4cb59944dfaf5a81a, type: 3}
   m_Name: PlayerDataContainer
   m_EditorClassIdentifier: 
+  tileDataContainer: {fileID: 11400000, guid: 6bff3bcc2db60844cb56ca069bb23b8c, type: 2}
   currentTileOrderIndex: 0

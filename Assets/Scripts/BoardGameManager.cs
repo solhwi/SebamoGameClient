@@ -1,29 +1,195 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public abstract class BoardGameSubscriber : MonoBehaviour
+{
+	public abstract IEnumerator OnRollDice(int diceCount);
+	public abstract IEnumerator OnMove(int currentOrderIndex, int diceCount);
+}
+
 public class BoardGameManager : MonoBehaviour
 {
+	public enum GameState
+	{
+		None = 0,
+		RollDice = 1,
+		MoveCharacter = 2,
+	}
+
+	public interface IStateParam
+	{
+
+	}
+
+	public class RollDiceStateParam : IStateParam
+	{
+		public readonly int currentOrderIndex = -1;
+
+		public RollDiceStateParam(int currentOrderIndex)
+		{
+			this.currentOrderIndex = currentOrderIndex;
+		}
+	}
+
+	public class MoveCharacterStateParam : IStateParam
+	{
+		public readonly int currentOrderIndex = 0;
+		public readonly int diceCount = 0;
+
+		public MoveCharacterStateParam(int currentOrderIndex, int diceCount)
+		{
+			this.currentOrderIndex = currentOrderIndex;
+			this.diceCount = diceCount;
+		}
+	}
+
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private TileDataManager tileDataManager;
 
-	[SerializeField] private PlayerCharacterView playerCharacterView;
+	[SerializeField] private CharacterMoveComponent characterMoveComponent;
 	[SerializeField] private PlayerCharacterController characterController;
 
-    private IEnumerator Start()
+	[SerializeField] private BoardGameSubscriber[] subscribers;
+
+	private Coroutine boardGameRoutine = null;
+	private GameState currentGameState = GameState.None;
+
+	private Dictionary<GameState, Func<IEnumerator>> stateFuncMap = new Dictionary<GameState, Func<IEnumerator>>();
+	private Dictionary<GameState, Func<bool>> stateCheckFuncMap = new Dictionary<GameState, Func<bool>>();
+
+	private IStateParam currentStateParam = null;
+
+	private void Awake()
 	{
-		yield return null;
+		stateFuncMap = new Dictionary<GameState, Func<IEnumerator>>()
+		{
+			{ GameState.None, null },
+			{ GameState.RollDice, ProcessRollDice },
+			{ GameState.MoveCharacter, ProcessMoveCharacter }
+		};
+
+		stateCheckFuncMap = new Dictionary<GameState, Func<bool>>()
+		{
+			{ GameState.None, () => true },
+			{ GameState.RollDice, CanRollDice },
+			{ GameState.MoveCharacter, CanMoveCharacter }
+		};
+	}
+
+	private void OnDestroy()
+	{
+		ExitGame();
+	}
+
+	private void ExitGame()
+	{
+		if (boardGameRoutine != null)
+		{
+			StopCoroutine(boardGameRoutine);
+		}
+	}
+
+	private void StartGame()
+	{
+		ExitGame();
+
+		boardGameRoutine = StartCoroutine(ProcessBoardGame());
+	}
+
+	private IEnumerator Start()
+	{
+		characterMoveComponent.gameObject.SetActive(false);
 
 		// 데이터 기반 3D 모델 세팅
-
 		yield return null;
 
 		// 플레이어 캐릭터 뷰 타일 위로 배치
-
 		Vector2 playerPos = GetPlayerPos();
-		playerCharacterView.SetPosition(playerPos);
+		characterMoveComponent.SetPosition(playerPos);
+
+		characterMoveComponent.gameObject.SetActive(true);
 
 		yield return null;
+
+		// 보드 게임 시작
+		StartGame();
+	}
+
+	public void OnClickRollDice()
+	{
+		int currentOrderIndex = playerDataContainer.currentTileOrderIndex;
+		TryChangeState(GameState.RollDice, new RollDiceStateParam(currentOrderIndex));
+	}
+
+	private void TryChangeState(GameState newState, IStateParam param = null)
+	{
+		if (stateCheckFuncMap.TryGetValue(newState, out var func))
+		{
+			currentGameState = newState;
+			currentStateParam = param;
+		}
+	}
+
+	private bool CanRollDice()
+	{
+		return currentGameState == GameState.None;
+	}
+
+	private bool CanMoveCharacter()
+	{
+		return currentGameState == GameState.RollDice;
+	}
+
+	private IEnumerator ProcessBoardGame()
+	{
+		while(true)
+		{
+			yield return stateFuncMap[currentGameState]?.Invoke();
+		}
+	}
+
+	private IEnumerator ProcessRollDice()
+	{
+		if (currentStateParam is RollDiceStateParam param)
+		{
+			int currentOrderIndex = param.currentOrderIndex;
+			int diceCount = UnityEngine.Random.Range(1, 7); // 1 ~ 6 생성
+
+			playerDataContainer.SaveCurrentOrderIndex(currentOrderIndex + diceCount); // 주사위를 굴리는 시점에 반영한다.
+
+			foreach (var subscriber in subscribers)
+			{
+				yield return subscriber?.OnRollDice(diceCount); // 주사위 굴리기 연출
+			}
+			
+			TryChangeState(GameState.MoveCharacter, new MoveCharacterStateParam(currentOrderIndex, diceCount));
+		}
+		else
+		{
+			yield break;
+		}
+	}
+
+	private IEnumerator ProcessMoveCharacter()
+	{
+		if (currentStateParam is MoveCharacterStateParam param)
+		{
+			int currentOrderIndex = param.currentOrderIndex;
+			int diceCount = param.diceCount;
+
+			foreach (var subscriber in subscribers)
+			{
+				yield return subscriber?.OnMove(currentOrderIndex, diceCount); // 캐릭터 움직임 관련 연출
+			}
+
+			TryChangeState(GameState.None);
+		}
+		else
+		{
+			yield break;
+		}
 	}
 
 	private Vector2 GetPlayerPos()

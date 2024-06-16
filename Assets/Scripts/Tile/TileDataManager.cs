@@ -63,16 +63,17 @@ public class TileDataManager : MonoBehaviour
 	/// 현재 위치부터, 목표 위치까지 경로 반환
 	/// </summary>
 	/// <param name="currentIndex"></param>
-	/// <param name="nextIndex"></param>
+	/// <param name="progressCount"></param>
 	/// <returns></returns>
-	public IEnumerable<WorldTileData> GetTilePath(int currentIndex, int nextIndex)
+	public IEnumerable<WorldTileData> GetTilePath(int currentOrderIndex, int progressCount)
 	{
-		for(int i = currentIndex + 1; i < nextIndex; i++)
+		for(int i = currentOrderIndex + 1; i <= currentOrderIndex + progressCount; i++)
 		{
-			if (i >= tileBoardDatas.Length)
+			int tileIndex = GetTileIndexByOrder(i);
+			if (tileIndex >= tileBoardDatas.Length)
 				yield break;
 
-			yield return tileBoardDatas[i];
+			yield return tileBoardDatas[tileIndex];
 		}
 	}
 
@@ -87,6 +88,20 @@ public class TileDataManager : MonoBehaviour
 			return 0;
 
 		var orderMap = dataContainer.tileOrders;
+
+		// 넘어간 경우 오더가 가장 큰 타일 인덱스 돌려주기
+		if (currentOrderIndex >= orderMap.Length)
+		{
+			int maxOrder = orderMap.Max();
+
+			for (int i = 0; i < orderMap.Length; i++)
+			{
+				if (orderMap[i] == maxOrder)
+				{
+					return i;
+				}
+			}
+		}
 
 		for(int i = 0; i < orderMap.Length; i++)
 		{
