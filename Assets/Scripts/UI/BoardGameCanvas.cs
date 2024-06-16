@@ -16,7 +16,7 @@ public class BoardGameCanvas : BoardGameSubscriber
 	public override IEnumerator OnRollDice(int diceCount)
 	{
 		yield return null;
-		diceText.text = diceCount.ToString();
+		diceText.text = $"나온 주사위 눈 : {diceCount.ToString()}";
 	}
 
 	public void OnClickRollDice()

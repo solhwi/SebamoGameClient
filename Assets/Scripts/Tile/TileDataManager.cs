@@ -35,6 +35,8 @@ public class TileDataManager : MonoBehaviour
 
 	public WorldTileData[] tileBoardDatas = null;
 
+	private Dictionary<int, int> orderToTileIndexMap = new Dictionary<int, int>();
+
 	private void Awake()
 	{
 		tileBoardDatas = MakeBoardData().ToArray();
@@ -89,24 +91,20 @@ public class TileDataManager : MonoBehaviour
 
 		var orderMap = dataContainer.tileOrders;
 
-		// 넘어간 경우 오더가 가장 큰 타일 인덱스 돌려주기
+		// 오더 인덱스가 아웃 오브 레인지인 경우 보정
 		if (currentOrderIndex >= orderMap.Length)
 		{
-			int maxOrder = orderMap.Max();
-
-			for (int i = 0; i < orderMap.Length; i++)
-			{
-				if (orderMap[i] == maxOrder)
-				{
-					return i;
-				}
-			}
+			currentOrderIndex = orderMap.Length - 1;
 		}
 
-		for(int i = 0; i < orderMap.Length; i++)
+		if (orderToTileIndexMap.ContainsKey(currentOrderIndex))
+			return orderToTileIndexMap[currentOrderIndex];
+
+		for (int i = 0; i < orderMap.Length; i++)
 		{
 			if (orderMap[i] == currentOrderIndex)
 			{
+				orderToTileIndexMap[currentOrderIndex] = i;
 				return i;
 			}
 		}
