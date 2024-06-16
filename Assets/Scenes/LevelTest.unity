@@ -237,9 +237,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardGameManager: {fileID: 1999650911}
-  playerDataContainer: {fileID: 0}
-  statusText: {fileID: 0}
-  currentCharacterType: 0
+  playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
+  statusText: {fileID: 247788781}
+  currentCharacterType: 2
 --- !u!1 &65808975
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1197,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 43098288}
         m_TargetAssemblyTypeName: BoardGameCanvas, Assembly-CSharp
-        m_MethodName: OnClickRollDice
+        m_MethodName: OnClickChangeAvatar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -9,7 +9,7 @@ public class BoardGameCanvas : BoardGameSubscriber
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Text statusText = null;
 
-	public CharacterType currentCharacterType = CharacterType.UnityChan;
+	public CharacterType currentCharacterType = CharacterType.Misaki;
 
 	private void Awake()
 	{
@@ -19,7 +19,7 @@ public class BoardGameCanvas : BoardGameSubscriber
 	public override IEnumerator OnMove(int currentOrderIndex, int diceCount)
 	{
 		yield return null;
-		statusText.text = $"{diceCount}칸 만큼 이동 중...";
+		statusText.text = $"{diceCount}칸 만큼 이동";
 	}
 
 	public override IEnumerator OnRollDice(int diceCount)
@@ -35,7 +35,7 @@ public class BoardGameCanvas : BoardGameSubscriber
 
 	public void OnClickChangeAvatar()
 	{
-		int nextType = (int)currentCharacterType + 1 % (int)CharacterType.Max;
+		int nextType = ((int)currentCharacterType + 1) % (int)CharacterType.Max;
 
 		currentCharacterType = (CharacterType)nextType;
 		playerDataContainer.ResetCharacterMeshType(currentCharacterType);
