@@ -39,6 +39,8 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: 4f603373e0a26094182053027300dbc2, type: 3}
   - {fileID: -927199367670048503, guid: 3e8bab9e323b2514192d52b0cb710510, type: 3}
   - {fileID: -927199367670048503, guid: 4af84749dae5b5c4d87038ca37a860a6, type: 3}
+  - {fileID: -927199367670048503, guid: 9a198bea6d4318d498bb767996f7d68d, type: 3}
+  - {fileID: -927199367670048503, guid: 8373282ff8d105641bcaf7860943b400, type: 3}
   characterLeftEyePrefab: {fileID: 1759795511024753857, guid: 29ab8931567e29c438cf7150f34392ac, type: 3}
   characterRightEyePrefab: {fileID: 4460414000342211378, guid: d38a2ac6dc2629d4cb26f4f686828062, type: 3}
   characterFacePrefab: {fileID: 4568109121797955698, guid: 1970ec7f92222b94d98a2eb4d30ee4f2, type: 3}
