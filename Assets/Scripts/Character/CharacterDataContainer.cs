@@ -19,9 +19,21 @@ public enum CharacterPartsType
 	RightEye = 4,
 	Face = 5,
 	Accessory = 6,
-	Prop = 7,
-	Max = 6,
+	Max,
 }
+
+public enum PropType
+{
+	None = -1,
+	GreatSword = 0,
+	TwinDagger_L = 1,
+	TwinDagger_R = 2,
+	Axe = 3,
+	PickAx = 4,
+	Shovel = 5,
+	Max,
+}
+
 
 [CreateAssetMenu(fileName = "CharacterDataContainer")]
 public class CharacterDataContainer : ScriptableObject
@@ -35,7 +47,7 @@ public class CharacterDataContainer : ScriptableObject
 	public GameObject[] characterBackHairPrefabs = new GameObject[(int)CharacterType.Max];
 	public GameObject[] characterFrontHairPrefabs = new GameObject[(int)CharacterType.Max];
 	public GameObject[] characterHeadAccessoryPrefabs = new GameObject[(int)CharacterType.Max];
-	public GameObject[] characterPropPrefabs = new GameObject[(int)CharacterType.Max];
+	public GameObject[] characterPropPrefabs = new GameObject[(int)PropType.Max];
 
 	public GameObject characterLeftEyePrefab = null;
 	public GameObject characterRightEyePrefab = null;
@@ -71,12 +83,14 @@ public class CharacterDataContainer : ScriptableObject
 
 			case CharacterPartsType.Accessory:
 				return characterHeadAccessoryPrefabs[(int)characterType];
-
-			case CharacterPartsType.Prop:
-				return characterPropPrefabs[(int)characterType];
 		}
 
 		return null;
+	}
+
+	public GameObject GetPropObject(PropType propType)
+	{
+		return characterPropPrefabs[(int)propType];
 	}
 
 	public Mesh GetMesh(CharacterType characterType, CharacterPartsType partsType)

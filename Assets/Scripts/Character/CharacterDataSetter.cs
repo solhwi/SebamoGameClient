@@ -43,16 +43,10 @@ public static class TransformExtension
 		}
 	}
 }
+
 /// <summary>
 /// 캐릭터 아바타, 애니메이터, 메시, 악세사리 등을 세팅
 /// </summary>
-/// 
-public enum AccessoryType
-{
-	Head,
-	Prop
-
-}
 public class CharacterDataSetter : MonoBehaviour
 {
 	[SerializeField] private PlayerDataContainer playerDataContainer;
@@ -138,9 +132,19 @@ public class CharacterDataSetter : MonoBehaviour
 		var rightEyeObj = Instantiate(rightEyePrafab, rightEyeTransform);
 
 		// 소품
-		Transform propTransform = GetPropTransform();
-		var propPrefab = GetParts(CharacterPartsType.Prop);
-		var propObj = Instantiate(propPrefab, propTransform);
+		foreach(var propType in playerDataContainer.characterPropTypes)
+		{
+			// 하나라도 있으면 무효
+			if (propType == PropType.None)
+				break;
+
+			Transform propTransform = GetPropTransform(propType);
+			var propPrefab = dataContainer.GetPropObject(propType);
+			var propObj = Instantiate(propPrefab, propTransform);
+
+			propObj.transform.localPosition = Vector3.zero;
+			propObj.transform.localRotation = Quaternion.identity;
+		}
 	}
 
 	private Transform GetHeadTransform()
@@ -158,8 +162,11 @@ public class CharacterDataSetter : MonoBehaviour
 		return GetTransform("Eye_R");
 	}
 
-	private Transform GetPropTransform()
+	private Transform GetPropTransform(PropType type)
 	{
+		if (type == PropType.TwinDagger_L)
+			return GetTransform("Prop_L");
+
 		return GetTransform("Prop_R");
 	}
 

@@ -33,9 +33,12 @@ MonoBehaviour:
   - {fileID: 5974052531037669691, guid: d663c872b6764c148ad7427348fe7511, type: 3}
   - {fileID: 4048546889843440793, guid: abe0fa6ddf3a84b4d828a8959218062c, type: 3}
   characterPropPrefabs:
-  - {fileID: 4826168374097883952, guid: 3f5c2f3308223ea4cab367b9b1138998, type: 3}
-  - {fileID: 5149197688643915035, guid: 2ac73b15156e1bc4fb0bc81c81f69bd1, type: 3}
-  - {fileID: 5149197688643915035, guid: 2ac73b15156e1bc4fb0bc81c81f69bd1, type: 3}
+  - {fileID: -927199367670048503, guid: 00ee1ce116088f34f8e78f315f67212e, type: 3}
+  - {fileID: -927199367670048503, guid: 50ac0be924e355245b643db100ca996e, type: 3}
+  - {fileID: -927199367670048503, guid: c0ebdb230c595b04cb736b16f37c59c4, type: 3}
+  - {fileID: -927199367670048503, guid: 4f603373e0a26094182053027300dbc2, type: 3}
+  - {fileID: -927199367670048503, guid: 3e8bab9e323b2514192d52b0cb710510, type: 3}
+  - {fileID: -927199367670048503, guid: 4af84749dae5b5c4d87038ca37a860a6, type: 3}
   characterLeftEyePrefab: {fileID: 1759795511024753857, guid: 29ab8931567e29c438cf7150f34392ac, type: 3}
   characterRightEyePrefab: {fileID: 4460414000342211378, guid: d38a2ac6dc2629d4cb26f4f686828062, type: 3}
   characterFacePrefab: {fileID: 4568109121797955698, guid: 1970ec7f92222b94d98a2eb4d30ee4f2, type: 3}
