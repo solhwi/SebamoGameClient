@@ -18,6 +18,8 @@ public enum CharacterPartsType
 	LeftEye = 3,
 	RightEye = 4,
 	Face = 5,
+	Accessory = 6,
+	Prop = 7,
 	Max = 6,
 }
 
@@ -32,6 +34,8 @@ public class CharacterDataContainer : ScriptableObject
 	public GameObject[] characterBodyPrefabs = new GameObject[(int)CharacterType.Max];
 	public GameObject[] characterBackHairPrefabs = new GameObject[(int)CharacterType.Max];
 	public GameObject[] characterFrontHairPrefabs = new GameObject[(int)CharacterType.Max];
+	public GameObject[] characterHeadAccessoryPrefabs = new GameObject[(int)CharacterType.Max];
+	public GameObject[] characterPropPrefabs = new GameObject[(int)CharacterType.Max];
 
 	public GameObject characterLeftEyePrefab = null;
 	public GameObject characterRightEyePrefab = null;
@@ -64,6 +68,12 @@ public class CharacterDataContainer : ScriptableObject
 
 			case CharacterPartsType.Face:
 				return characterFacePrefab;
+
+			case CharacterPartsType.Accessory:
+				return characterHeadAccessoryPrefabs[(int)characterType];
+
+			case CharacterPartsType.Prop:
+				return characterPropPrefabs[(int)characterType];
 		}
 
 		return null;

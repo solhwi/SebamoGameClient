@@ -46,6 +46,13 @@ public static class TransformExtension
 /// <summary>
 /// 캐릭터 아바타, 애니메이터, 메시, 악세사리 등을 세팅
 /// </summary>
+/// 
+public enum AccessoryType
+{
+	Head,
+	Prop
+
+}
 public class CharacterDataSetter : MonoBehaviour
 {
 	[SerializeField] private PlayerDataContainer playerDataContainer;
@@ -87,16 +94,20 @@ public class CharacterDataSetter : MonoBehaviour
 
 	public void SetParts()
 	{
+		// 바디
 		var bodyPrefab = GetParts(CharacterPartsType.Body);
 		var bodyObj = Instantiate(bodyPrefab, bodyRoot);
 		bodyObj.transform.localPosition = Vector3.zero;
 		bodyObj.transform.localRotation = Quaternion.identity;
 
+		// 머리
 		Transform headRoot = GetHeadTransform();
 
+		// 얼굴
 		var facePrefab = GetParts(CharacterPartsType.Face);
 		var faceObj = Instantiate(facePrefab, headRoot);
 
+		// 뒷머리
 		var backHairPrefab = GetParts(CharacterPartsType.BackHair);
 		var backHairObj = Instantiate(backHairPrefab, headRoot);
 
@@ -104,6 +115,7 @@ public class CharacterDataSetter : MonoBehaviour
 		backHairRootHead.localPosition = Vector3.zero;
 		backHairRootHead.localRotation = Quaternion.identity;
 
+		// 앞머리
 		var frontHairPrefab = GetParts(CharacterPartsType.FrontHair);
 		var frontHairObj = Instantiate(frontHairPrefab, headRoot);
 
@@ -111,15 +123,24 @@ public class CharacterDataSetter : MonoBehaviour
 		frontHairRootHead.localPosition = Vector3.zero;
 		frontHairRootHead.localRotation = Quaternion.identity;
 
-		Transform leftEyeTransform = GetLeftEyeTransform();
+		// 머리 악세사리
+		var headAccessoryPrefab = GetParts(CharacterPartsType.Accessory);
+		var headAccessoryObj = Instantiate(headAccessoryPrefab, headRoot);
 
+		// 왼쪽 눈
+		Transform leftEyeTransform = GetLeftEyeTransform();
 		var leftEyePrafab = GetParts(CharacterPartsType.LeftEye);
 		var leftEyeObj = Instantiate(leftEyePrafab, leftEyeTransform);
 
+		// 오른쪽 눈
 		Transform rightEyeTransform = GetRightEyeTransform();
-
 		var rightEyePrafab = GetParts(CharacterPartsType.RightEye);
 		var rightEyeObj = Instantiate(rightEyePrafab, rightEyeTransform);
+
+		// 소품
+		Transform propTransform = GetPropTransform();
+		var propPrefab = GetParts(CharacterPartsType.Prop);
+		var propObj = Instantiate(propPrefab, propTransform);
 	}
 
 	private Transform GetHeadTransform()
@@ -135,6 +156,11 @@ public class CharacterDataSetter : MonoBehaviour
 	private Transform GetRightEyeTransform()
 	{
 		return GetTransform("Eye_R");
+	}
+
+	private Transform GetPropTransform()
+	{
+		return GetTransform("Prop_R");
 	}
 
 	private Transform GetTransform(string name)

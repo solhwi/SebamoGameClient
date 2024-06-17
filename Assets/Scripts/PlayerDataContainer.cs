@@ -11,9 +11,9 @@ public class PlayerDataContainer : ScriptableObject
 	public int currentTileOrderIndex = 0;
 	public float moveTimeByOneTile = 1.0f;
 
-	[Header("[(0) 바디 / (1) 머리 / (2) 눈 / (3) 얼굴]")]
+	[Header("[(0) 바디 / (1) 머리 / (2) 눈 / (3) 얼굴 / (4) 악세사리 / (5) 소품]")]
 	[Space]
-	public CharacterType[] characterMeshTypes = new CharacterType[4];
+	public CharacterType[] characterMeshTypes = new CharacterType[6];
 
 	public void SaveCurrentOrderIndex(int currentTileOrderIndex)
 	{
@@ -31,6 +31,12 @@ public class PlayerDataContainer : ScriptableObject
 
 	public CharacterType GetCharacterTypeByPartsType(CharacterPartsType partsType)
 	{
+		if(partsType == CharacterPartsType.Prop)
+			return characterMeshTypes[5];
+
+		if (partsType == CharacterPartsType.Accessory)
+			return characterMeshTypes[4];
+
 		if (partsType == CharacterPartsType.Face)
 			return characterMeshTypes[3];
 
