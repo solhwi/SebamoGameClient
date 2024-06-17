@@ -11,10 +11,9 @@ public class PlayerDataContainer : ScriptableObject
 	public int currentTileOrderIndex = 0;
 	public float moveTimeByOneTile = 1.0f;
 
-	[Header("[(0) 바디 / (1) 바디 피부 / (2) 왼쪽 눈 / (3) 오른쪽 눈 / (4) 앞 머리]")]
-	[Header("[(5) 뒷 머리, (6) 얼굴, (7) 왼쪽 눈 커버 / (8) 오른쪽 눈 커버]")]
+	[Header("[(0) 바디 / (1) 머리 / (2) 눈 / (3) 얼굴]")]
 	[Space]
-	public CharacterType[] characterMeshTypes = new CharacterType[(int)CharacterMeshType.Max];
+	public CharacterType[] characterMeshTypes = new CharacterType[4];
 
 	public void SaveCurrentOrderIndex(int currentTileOrderIndex)
 	{
@@ -30,8 +29,20 @@ public class PlayerDataContainer : ScriptableObject
 		AssetDatabase.SaveAssetIfDirty(this);
 	}
 
-	public CharacterType GetCharacterTypeByMeshType(CharacterMeshType meshType)
+	public CharacterType GetCharacterTypeByPartsType(CharacterPartsType partsType)
 	{
-		return characterMeshTypes[(int)meshType];
+		if (partsType == CharacterPartsType.Face)
+			return characterMeshTypes[3];
+
+		if (partsType == CharacterPartsType.RightEye || partsType == CharacterPartsType.LeftEye)
+			return characterMeshTypes[2];
+
+		if(partsType == CharacterPartsType.BackHair || partsType == CharacterPartsType.FrontHair) 
+			return characterMeshTypes[1];
+
+		if (partsType == CharacterPartsType.Body)
+			return characterMeshTypes[0];
+
+		return CharacterType.UnityChan;
 	}
 }

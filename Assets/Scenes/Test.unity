@@ -1679,7 +1679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   view: {fileID: 2146376110}
   playerViewCamera: {fileID: 1848805232}
-  playerOriginPrefab: {fileID: 1497807919844545091, guid: 05a285f00f4a54849b30ffb1a6a91c51, type: 3}
+  playerOriginPrefab: {fileID: 3970889969417992201, guid: 05a285f00f4a54849b30ffb1a6a91c51, type: 3}
 --- !u!114 &2146376113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1693,7 +1693,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileDataManager: {fileID: 547121921}
-  characterController: {fileID: 0}
   characterView: {fileID: 2146376112}
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
 --- !u!1660057539 &9223372036854775807

@@ -6,7 +6,7 @@ public class CharacterView : MonoBehaviour
 {
 	[SerializeField] private SpriteRenderer view = null;
 	[SerializeField] private Camera playerViewCamera = null;
-	[SerializeField] private GameObject playerOriginPrefab = null;
+	[SerializeField] private CharacterDataSetter playerOriginPrefab = null;
 
 	private Vector3 characterSpawnLocalPos = new Vector3(0.05f, -0.5f, 10.0f);
 	private Vector3 characterSpawnLocalRot = new Vector3(15, 150, -15);
@@ -30,16 +30,15 @@ public class CharacterView : MonoBehaviour
 
 		playerViewCamera.targetTexture = renderTexture;
 
-		var dataSetter = playerOriginPrefab.GetComponent<CharacterDataSetter>();
-		dataSetter.SetAvatar();
-		dataSetter.SetMeshData();
-		dataSetter.SetMaterial();
-
-		var playerOrigin = Instantiate(playerOriginPrefab, playerViewCamera.transform);
+		var playerOrigin = Instantiate<CharacterDataSetter>(playerOriginPrefab, playerViewCamera.transform);
 		playerOrigin.transform.localPosition = characterSpawnLocalPos;
 		playerOrigin.transform.localEulerAngles = characterSpawnLocalRot;
 
-		characterAnimationController = playerOrigin.GetComponent<CharacterAnimationController>();
+		playerOrigin.SetParts();
+		playerOrigin.SetMeshs();
+		playerOrigin.SetAvatar();
+
+		characterAnimationController = playerOrigin.GetComponentInChildren<CharacterAnimationController>();
 
 		// 애니메이터가 달려있는 곳이 제어할 위치
 		var characterOrigin = playerOrigin.GetComponentInChildren<Animator>();

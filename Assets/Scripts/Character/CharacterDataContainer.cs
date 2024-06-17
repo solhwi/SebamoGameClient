@@ -10,18 +10,15 @@ public enum CharacterType
 	Max = 3,
 }
 
-public enum CharacterMeshType
+public enum CharacterPartsType
 {
-	Costume = 0,
-	CostumeSkin = 1,
-	LeftEye = 2,
-	RightEye = 3,
-	FrontHair = 4,
-	BackHair = 5,
-	Face = 6,
-	LeftEyeCover = 7,
-	RightEyeCover = 8,
-	Max = 7,
+	Body = 0,
+	BackHair = 1,
+	FrontHair = 2,
+	LeftEye = 3,
+	RightEye = 4,
+	Face = 5,
+	Max = 6,
 }
 
 [CreateAssetMenu(fileName = "CharacterDataContainer")]
@@ -32,55 +29,74 @@ public class CharacterDataContainer : ScriptableObject
 
     public Avatar[] characterAvatars = new Avatar[(int)CharacterType.Max];
 
-	public Mesh[] characterCostumeMeshes = new Mesh[(int)CharacterType.Max];
-	public Mesh[] characterCostumeSkinMeshes = new Mesh[(int)CharacterType.Max];
+	public GameObject[] characterBodyPrefabs = new GameObject[(int)CharacterType.Max];
+	public GameObject[] characterBackHairPrefabs = new GameObject[(int)CharacterType.Max];
+	public GameObject[] characterFrontHairPrefabs = new GameObject[(int)CharacterType.Max];
+
+	public GameObject characterLeftEyePrefab = null;
+	public GameObject characterRightEyePrefab = null;
+	public GameObject characterFacePrefab = null;
+
 	public Mesh[] characterLeftEyeMeshes = new Mesh[(int)CharacterType.Max];
 	public Mesh[] characterRightEyeMeshes = new Mesh[(int)CharacterType.Max];
 	public Mesh[] characterFaceMeshes = new Mesh[(int)CharacterType.Max];
-	public Mesh[] characterFrontHairMeshes = new Mesh[(int)CharacterType.Max];
-	public Mesh[] characterBackHairMeshes = new Mesh[(int)CharacterType.Max];
-	public Mesh[] characterLeftEyeCoverMeshes = new Mesh[(int)CharacterType.Max];
-	public Mesh[] characterRightEyeCoverMeshes = new Mesh[(int)CharacterType.Max];
 
 	public Material[] characterEyeMaterials = new Material[(int)CharacterType.Max];
 
-	public Mesh GetMesh(CharacterType characterType, CharacterMeshType meshType)
+	public GameObject GetPartsObject(CharacterType characterType, CharacterPartsType meshType)
 	{
-		switch(meshType)
+		switch (meshType)
 		{
-			case CharacterMeshType.Costume:
-				return characterCostumeMeshes[(int)characterType];
+			case CharacterPartsType.Body:
+				return characterBodyPrefabs[(int)characterType];
 
-			case CharacterMeshType.CostumeSkin:
-				return characterCostumeSkinMeshes[(int)characterType];
+			case CharacterPartsType.BackHair:
+				return characterBackHairPrefabs[(int)characterType];
 
-			case CharacterMeshType.LeftEye:
-				return characterLeftEyeMeshes[(int)characterType];
+			case CharacterPartsType.FrontHair:
+				return characterFrontHairPrefabs[(int)characterType];
 
-			case CharacterMeshType.RightEye:
-				return characterRightEyeMeshes[(int)characterType];
+			case CharacterPartsType.LeftEye:
+				return characterLeftEyePrefab;
 
-			case CharacterMeshType.FrontHair:
-				return characterFrontHairMeshes[(int)characterType];
+			case CharacterPartsType.RightEye:
+				return characterRightEyePrefab;
 
-			case CharacterMeshType.BackHair:
-				return characterBackHairMeshes[(int)characterType];
-
-			case CharacterMeshType.Face:
-				return characterFaceMeshes[(int)characterType];
-
-			case CharacterMeshType.LeftEyeCover:
-				return characterLeftEyeCoverMeshes[(int)characterType];
-
-			case CharacterMeshType.RightEyeCover:
-				return characterRightEyeCoverMeshes[(int)characterType];
+			case CharacterPartsType.Face:
+				return characterFacePrefab;
 		}
 
 		return null;
 	}
 
-	public Material GetMaterial(CharacterType characterType)
+	public Mesh GetMesh(CharacterType characterType, CharacterPartsType partsType)
 	{
-		return characterEyeMaterials[(int)characterType];
+		switch(partsType)
+		{
+			case CharacterPartsType.LeftEye:
+				return characterLeftEyeMeshes[(int)characterType];
+
+			case CharacterPartsType.RightEye:
+				return characterRightEyeMeshes[(int)characterType];
+
+			case CharacterPartsType.Face:
+				return characterFaceMeshes[(int)characterType];
+		}
+
+		return null;
+	}
+
+	public Material GetMaterial(CharacterType characterType, CharacterPartsType partsType)
+	{
+		switch (partsType)
+		{
+			case CharacterPartsType.LeftEye:
+				return characterEyeMaterials[(int)characterType];
+
+			case CharacterPartsType.RightEye:
+				return characterEyeMaterials[(int)characterType];
+		}
+
+		return null;
 	}
 }
