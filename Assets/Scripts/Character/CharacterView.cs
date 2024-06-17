@@ -34,8 +34,8 @@ public class CharacterView : MonoBehaviour
 		playerOrigin.transform.localPosition = characterSpawnLocalPos;
 		playerOrigin.transform.localEulerAngles = characterSpawnLocalRot;
 
-		playerOrigin.SetParts();
-		playerOrigin.SetMeshs();
+		playerOrigin.MakeParts();
+		playerOrigin.SetMeshes();
 		playerOrigin.SetAvatar();
 
 		characterAnimationController = playerOrigin.GetComponentInChildren<CharacterAnimationController>();
@@ -74,8 +74,13 @@ public class CharacterView : MonoBehaviour
 		originCharacterTransform.localEulerAngles = new Vector3(0, yRot, 0);
 	}
 
-	public void TryChangeState(CharacterState newState)
+	public void DoIdle()
 	{
-		characterAnimationController.ChangeState(newState);
+		characterAnimationController.DoIdle();
+	}
+
+	public void DoRun()
+	{
+		characterAnimationController.DoRun();
 	}
 }

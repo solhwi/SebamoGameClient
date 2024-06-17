@@ -31,6 +31,8 @@ public enum PropType
 	Axe = 3,
 	PickAx = 4,
 	Shovel = 5,
+	Umbrella = 6,
+	Net = 7,
 	Max,
 }
 
@@ -47,6 +49,9 @@ public class CharacterDataContainer : ScriptableObject
 	public GameObject[] characterBackHairPrefabs = new GameObject[(int)CharacterType.Max];
 	public GameObject[] characterFrontHairPrefabs = new GameObject[(int)CharacterType.Max];
 	public GameObject[] characterHeadAccessoryPrefabs = new GameObject[(int)CharacterType.Max];
+
+	[Header("[0 : 대검 / 1, 2 : 쌍검 /  3 : 도끼 / 4 : 곡괭이 / 5 : 삽 / 6 : 우산 / 7 : 잠자리채]")]
+	[Space]
 	public GameObject[] characterPropPrefabs = new GameObject[(int)PropType.Max];
 
 	public GameObject characterLeftEyePrefab = null;

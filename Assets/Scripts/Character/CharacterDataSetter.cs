@@ -64,7 +64,7 @@ public class CharacterDataSetter : MonoBehaviour
 		animationController.SetAvatar(avatar);
 	}
 
-	public void SetMeshs()
+	public void SetMeshes()
 	{
 		Transform leftEye = GetLeftEyeTransform();
 		var leftEyeFilter = leftEye.GetComponentInChildren<MeshFilter>();
@@ -86,7 +86,7 @@ public class CharacterDataSetter : MonoBehaviour
 		faceRenderer.sharedMesh = GetMesh(CharacterPartsType.Face);
 	}
 
-	public void SetParts()
+	public void MakeParts()
 	{
 		// 바디
 		var bodyPrefab = GetParts(CharacterPartsType.Body);
@@ -134,9 +134,8 @@ public class CharacterDataSetter : MonoBehaviour
 		// 소품
 		foreach(var propType in playerDataContainer.characterPropTypes)
 		{
-			// 하나라도 있으면 무효
 			if (propType == PropType.None)
-				break;
+				continue;
 
 			Transform propTransform = GetPropTransform(propType);
 			var propPrefab = dataContainer.GetPropObject(propType);

@@ -15,7 +15,7 @@ public class CharacterMoveComponent : BoardGameSubscriber
 
 	public override IEnumerator OnMove(int currentOrderIndex, int diceCount)
 	{
-		characterView.TryChangeState(CharacterState.Run);
+		characterView.DoRun();
 
 		var tiles = tileDataManager.GetTilePath(currentOrderIndex, diceCount);
 		foreach (var tile in tiles)
@@ -43,7 +43,7 @@ public class CharacterMoveComponent : BoardGameSubscriber
 			Debug.Log($"end move {startPos} > {tile.tileWorldPosition} [{Time.time}]");
 		}
 
-		characterView.TryChangeState(CharacterState.Idle);
+		characterView.DoIdle();
 	}
 
 	private void ProcessFlip(Vector3 startPos, Vector3 endPos)
