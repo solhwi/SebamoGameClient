@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerDataContainer
   m_EditorClassIdentifier: 
   tileDataContainer: {fileID: 11400000, guid: 6bff3bcc2db60844cb56ca069bb23b8c, type: 2}
-  currentTileOrderIndex: 9
+  currentTileOrderIndex: 0
   moveTimeByOneTile: 1
-  characterMeshTypes: 02000000010000000000000002000000
+  characterMeshTypes: 00000000000000000000000000000000

@@ -139,7 +139,7 @@ public class CharacterDataSetter : MonoBehaviour
 
 	private Transform GetTransform(string name)
 	{
-		return bodyRoot.transform.RecursiveFindChild(name);
+		return bodyRoot.RecursiveFindChild(name);
 	}
 
 	private GameObject GetParts(CharacterPartsType partsType)
