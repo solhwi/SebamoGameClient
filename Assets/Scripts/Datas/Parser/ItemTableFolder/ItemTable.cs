@@ -11,24 +11,44 @@ public partial class ItemTable : ScriptParser
 {
 	public override void Parser()
 	{
-		itemDataDictionary.Clear();
-		foreach(var value in itemDataList)
+		partsItemDataDictionary.Clear();
+		foreach(var value in partsItemDataList)
 		{
-			itemDataDictionary.Add(value.key, value);
+			partsItemDataDictionary.Add(value.key, value);
+		}
+		propItemDataDictionary.Clear();
+		foreach(var value in propItemDataList)
+		{
+			propItemDataDictionary.Add(value.key, value);
 		}
 	}
 
 	[Serializable]
-	public class ItemData
+	public class PartsItemData
 	{
 		public string key;
 		public string assetPath;
+		public CharacterPartsType partsType;
+		public CharacterType characterType;
 	}
 
-	public List<ItemData> itemDataList = new List<ItemData>();
+	public List<PartsItemData> partsItemDataList = new List<PartsItemData>();
 	[System.Serializable]
-	public class ItemDataDictionary : SerializableDictionary<string, ItemData> {}
-	public ItemDataDictionary itemDataDictionary = new ItemDataDictionary();
+	public class PartsItemDataDictionary : SerializableDictionary<string, PartsItemData> {}
+	public PartsItemDataDictionary partsItemDataDictionary = new PartsItemDataDictionary();
+
+	[Serializable]
+	public class PropItemData
+	{
+		public string key;
+		public string assetPath;
+		public PropType propType;
+	}
+
+	public List<PropItemData> propItemDataList = new List<PropItemData>();
+	[System.Serializable]
+	public class PropItemDataDictionary : SerializableDictionary<string, PropItemData> {}
+	public PropItemDataDictionary propItemDataDictionary = new PropItemDataDictionary();
 
 
 }

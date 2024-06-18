@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ItemFactory
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
+  itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}

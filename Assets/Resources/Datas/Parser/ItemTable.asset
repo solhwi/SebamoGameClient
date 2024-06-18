@@ -12,12 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba44a1e47b4875e4aa04070dc03fa532, type: 3}
   m_Name: ItemTable
   m_EditorClassIdentifier: 
-  itemDataList:
-  - key: Dummy
+  partsItemDataList:
+  - key: UnityChanAccessory
     assetPath: Assets/Resources/Sprites/Dummy.png
-  itemDataDictionary:
+    partsType: 6
+    characterType: 0
+  partsItemDataDictionary:
     m_keys:
-    - Dummy
+    - UnityChanAccessory
     m_values:
-    - key: Dummy
+    - key: UnityChanAccessory
       assetPath: Assets/Resources/Sprites/Dummy.png
+      partsType: 6
+      characterType: 0
+  propItemDataList:
+  - key: GreatSword
+    assetPath: Assets/Resources/Sprites/Dummy.png
+    propType: 0
+  propItemDataDictionary:
+    m_keys:
+    - GreatSword
+    m_values:
+    - key: GreatSword
+      assetPath: Assets/Resources/Sprites/Dummy.png
+      propType: 0

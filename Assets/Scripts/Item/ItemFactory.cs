@@ -6,13 +6,15 @@ using UnityEngine;
 public class ItemFactory : ScriptableObject
 {
 	[SerializeField] private Inventory inventory = null;
+	[SerializeField] private ItemTable itemTable = null;
 
-    public ItemBase Make(ItemTable.ItemData rawData)
+	public ItemBase Make(string itemKeyCode)
 	{
-		switch(rawData.key)
+		switch(itemKeyCode)
 		{
-			case "Coin":
-				return new DropItem(inventory, rawData);
+			case "UnityChanAccessory":
+			case "GreatSword":
+				return new DropItem(inventory, itemTable, itemKeyCode);
 		}
 
 		return null;
