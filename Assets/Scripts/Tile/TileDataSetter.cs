@@ -23,13 +23,19 @@ public class TileDataSetter : MonoBehaviour
 		SetData();
 	}
 
-	[ContextMenu("Å¸ÀÏ¸Ê µ¥ÀÌÅÍ ¼¼ÆÃ")]
+	[ContextMenu("íƒ€ì¼ë§µ ë°ì´í„° ì„¸íŒ…")]
 	private void SetData()
 	{
 		SetGridData();
 		SetTileData();
 		SetTileMapRendererData();
 		SetCameraData();
+		SetZPos();
+	}
+
+	private void SetZPos()
+	{
+		transform.position = new Vector3(0, 0, (int)LayerConfig.Tile);
 	}
 
 	private void SetCameraData()

@@ -81,6 +81,6 @@ public class CharacterMoveComponent : BoardGameSubscriber
 
 	public void SetPosition(Vector2 pos)
 	{
-		transform.position = new Vector3(pos.x, pos.y, transform.position.z);
+		transform.position = new Vector3(pos.x, pos.y, (int)LayerConfig.Character);
 	}
 }

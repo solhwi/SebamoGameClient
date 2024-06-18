@@ -8,14 +8,19 @@ using UnityEngine;
 public class PlayerDataContainer : ScriptableObject
 {
 	public TileDataContainer tileDataContainer;
+
+	[Header("[현재 타일 내 위치]")]
 	public int currentTileOrderIndex = 0;
+
+	[Header("[타일 당 이동 시간]")]
 	public float moveTimeByOneTile = 1.0f;
 
+	[Header("[장착 중인 바디 파츠]")]
 	[Header("[(0) 바디 / (1) 머리 / (2) 눈 / (3) 얼굴 / (4) 악세사리]")]
 	[Space]
-	public CharacterType[] characterMeshTypes = new CharacterType[6];
+	public CharacterType[] characterMeshTypes = new CharacterType[5];
 
-	[Header("[장착할 소품]")]
+	[Header("[장착 중인 소품]")]
 	[Space]
 	public PropType[] characterPropTypes = null;
 
