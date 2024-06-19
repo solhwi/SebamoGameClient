@@ -12,9 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba44a1e47b4875e4aa04070dc03fa532, type: 3}
   m_Name: ItemTable
   m_EditorClassIdentifier: 
+  itemDataList:
+  - key: UnityChanAccessory
+    fieldIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Assets/Resources/
+  - key: GreatSword
+    fieldIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Assets/Resources/
+  itemDataDictionary:
+    m_keys:
+    - UnityChanAccessory
+    - GreatSword
+    m_values:
+    - key: UnityChanAccessory
+      fieldIconAssetPath: Assets/Resources/
+      shopIconAssetPath: Assets/Resources/
+    - key: GreatSword
+      fieldIconAssetPath: Assets/Resources/
+      shopIconAssetPath: Assets/Resources/
   partsItemDataList:
   - key: UnityChanAccessory
-    assetPath: Assets/Resources/Sprites/Dummy.png
     partsType: 6
     characterType: 0
   partsItemDataDictionary:
@@ -22,17 +39,25 @@ MonoBehaviour:
     - UnityChanAccessory
     m_values:
     - key: UnityChanAccessory
-      assetPath: Assets/Resources/Sprites/Dummy.png
       partsType: 6
       characterType: 0
   propItemDataList:
   - key: GreatSword
-    assetPath: Assets/Resources/Sprites/Dummy.png
     propType: 0
   propItemDataDictionary:
     m_keys:
     - GreatSword
     m_values:
     - key: GreatSword
-      assetPath: Assets/Resources/Sprites/Dummy.png
       propType: 0
+  dropItemDataList:
+  - key: Box
+    dropActionType: 0
+    recipeCode: 0
+  dropItemDataDictionary:
+    m_keys:
+    - Box
+    m_values:
+    - key: Box
+      dropActionType: 0
+      recipeCode: 0

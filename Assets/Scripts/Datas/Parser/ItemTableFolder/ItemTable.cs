@@ -11,6 +11,16 @@ public partial class ItemTable : ScriptParser
 {
 	public override void Parser()
 	{
+		shopItemDataDictionary.Clear();
+		foreach(var value in shopItemDataList)
+		{
+			shopItemDataDictionary.Add(value.key, value);
+		}
+		dropItemDataDictionary.Clear();
+		foreach(var value in dropItemDataList)
+		{
+			dropItemDataDictionary.Add(value.key, value);
+		}
 		partsItemDataDictionary.Clear();
 		foreach(var value in partsItemDataList)
 		{
@@ -24,10 +34,35 @@ public partial class ItemTable : ScriptParser
 	}
 
 	[Serializable]
+	public class ShopItemData
+	{
+		public string key;
+		public string shopIconAssetPath;
+	}
+
+	public List<ShopItemData> shopItemDataList = new List<ShopItemData>();
+	[System.Serializable]
+	public class ShopItemDataDictionary : SerializableDictionary<string, ShopItemData> {}
+	public ShopItemDataDictionary shopItemDataDictionary = new ShopItemDataDictionary();
+
+	[Serializable]
+	public class DropItemData
+	{
+		public string key;
+		public DropActionType dropActionType;
+		public string fieldIconAssetPath;
+		public int recipeCode;
+	}
+
+	public List<DropItemData> dropItemDataList = new List<DropItemData>();
+	[System.Serializable]
+	public class DropItemDataDictionary : SerializableDictionary<string, DropItemData> {}
+	public DropItemDataDictionary dropItemDataDictionary = new DropItemDataDictionary();
+
+	[Serializable]
 	public class PartsItemData
 	{
 		public string key;
-		public string assetPath;
 		public CharacterPartsType partsType;
 		public CharacterType characterType;
 	}
@@ -41,7 +76,6 @@ public partial class ItemTable : ScriptParser
 	public class PropItemData
 	{
 		public string key;
-		public string assetPath;
 		public PropType propType;
 	}
 

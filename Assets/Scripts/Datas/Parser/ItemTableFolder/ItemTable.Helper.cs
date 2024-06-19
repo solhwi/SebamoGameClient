@@ -1,35 +1,15 @@
 
-public class ItemRawData
-{
-	public readonly string keyCode;
-	public readonly string assetPath;
-	public readonly string assetPathWithoutResources;
+using Unity.VisualScripting;
 
-	public ItemRawData(string keyCode, string assetPath)
+public static class ItemTableExtension
+{
+	public static string GetAssetPathWithoutResources(this ItemTable.DropItemData dropItemData)
 	{
-		this.keyCode = keyCode;
-		this.assetPath = assetPath;
-		this.assetPathWithoutResources = assetPath.Replace("Assets/Resources/", "");
+		return dropItemData.fieldIconAssetPath.Replace("Assets/Resources", "");
 	}
 }
 
 public partial class ItemTable
 {
-	public ItemRawData GetItemRawData(string keyCode)
-	{
-		if (propItemDataDictionary.ContainsKey(keyCode))
-		{
-			var propItem = propItemDataDictionary[keyCode];
-
-			return new ItemRawData(propItem.key, propItem.assetPath);
-		}
-		else if(partsItemDataDictionary.ContainsKey(keyCode))
-		{
-			var partsItem = partsItemDataDictionary[keyCode];
-
-			return new ItemRawData(partsItem.key, partsItem.assetPath);
-		}
-
-		return null;
-	}
+	
 }

@@ -92,8 +92,11 @@ public class ScriptParserEditor : AssetPostprocessor
 			ISheet sheet = workBook[i];
 			string className = sheet.SheetName;
 
+			StringBuilder classFieldNameBuilder = new StringBuilder(className);
+
 			var firstChar = className.FirstOrDefault();
-			var classFieldName = className.Replace(firstChar, Char.ToLower(firstChar));
+			classFieldNameBuilder[0] = Char.ToLower(firstChar);
+			var classFieldName = classFieldNameBuilder.ToString();
 
 			builder.Append($"\t\t{classFieldName}Dictionary.Clear();\n");
 			builder.Append($"\t\tforeach(var value in {classFieldName}List)\n");
@@ -141,8 +144,11 @@ public class ScriptParserEditor : AssetPostprocessor
 
 	private static void SheetToClass(string className, IRow typeRow, IRow nameRow, ref StringBuilder builder)
 	{
+		StringBuilder classFieldNameBuilder = new StringBuilder(className);
+		
 		var firstChar = className.FirstOrDefault();
-		var classFieldName = className.Replace(firstChar, Char.ToLower(firstChar));
+		classFieldNameBuilder[0] = Char.ToLower(firstChar);
+		var classFieldName = classFieldNameBuilder.ToString();
 
 		builder.Append("\t[Serializable]\n");
 		builder.Append($"\tpublic class {className}\n");
