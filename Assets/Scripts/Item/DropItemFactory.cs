@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ItemFactory")]
+[CreateAssetMenu(fileName = "DropItemFactory")]
 public class DropItemFactory : ScriptableObject
 {
 	[SerializeField] private Inventory inventory = null;

@@ -30,12 +30,23 @@ public class PlayerDataContainer : ScriptableObject
 		{
 			this.currentTileOrderIndex = currentTileOrderIndex;
 		}
+		else if(currentTileOrderIndex <= 0)
+		{
+			this.currentTileOrderIndex = 0;
+		}
 		else
 		{
 			this.currentTileOrderIndex = tileDataContainer.tileOrders.Length - 1;
 		}
 
+#if UNITY_EDITOR
 		AssetDatabase.SaveAssetIfDirty(this);
+#endif
+	}
+
+	public void AddCurrentOrderIndex(int addOrderCount)
+	{
+		SaveCurrentOrderIndex(currentTileOrderIndex + addOrderCount);
 	}
 
 	public CharacterType GetCharacterTypeByPartsType(CharacterPartsType partsType)

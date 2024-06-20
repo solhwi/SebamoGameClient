@@ -11,12 +11,13 @@ public enum DropActionType
 public abstract class DropItem
 {
 	protected Inventory inventory = null;
-	protected ItemTable itemTable = null;
 	protected DropRecipeTable dropRecipeTable = null;
 	protected ItemTable.DropItemData rawData = null;
 	protected Sprite itemSprite = null;
 
 	private GameObject obj;
+
+	public string dropItemCode { get; protected set; }
 
 	public DropItem(DropRecipeTable dropRecipeTable, Inventory inventory, ItemTable.DropItemData rawData)
 	{
@@ -49,6 +50,7 @@ public abstract class DropItem
 
 	public virtual void Use()
 	{
+		inventory.PushItem(dropItemCode);
 		Destroy();
 	}
 }
@@ -57,34 +59,18 @@ public class NormalDropItem : DropItem
 {
 	public NormalDropItem(DropRecipeTable dropRecipeTable, Inventory inventory, ItemTable.DropItemData rawData) : base(dropRecipeTable, inventory, rawData)
 	{
-
-	}
-
-	public override void Use()
-	{
-		base.Use();
-
-		inventory.PushItem(rawData.key);
+		dropItemCode = rawData.key;
 	}
 }
 
 public class RandomDropItem : DropItem
 {
-	Dictionary<string, int> dropRecipeDictionary = new Dictionary<string, int>();
-	
 	public RandomDropItem(DropRecipeTable dropRecipeTable, Inventory inventory, ItemTable.DropItemData rawData) : base(dropRecipeTable, inventory, rawData)
 	{
 		if (dropRecipeTable.recipeDataDictionary.TryGetValue(rawData.recipeCode, out var recipeData))
 		{
-			dropRecipeDictionary = DropRecipeTable.ParseDropRecipeData(recipeData.recipe);
+			var dropRecipeDictionary = DropRecipeTable.ParseDropRecipeData(recipeData.recipe);
+			dropItemCode = DropRecipeTable.GetDropItemCode(dropRecipeDictionary);
 		}	
-	}
-
-	public override void Use()
-	{
-		base.Use();
-
-		string itemCode = DropRecipeTable.GetDropItemCode(dropRecipeDictionary);
-		inventory.PushItem(itemCode);
 	}
 }

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 4
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ee815d481c75046bc45ad0791eec87, type: 3}
+  m_Name: TileTable
+  m_EditorClassIdentifier: 
+  tileDataList:
+  - key: Jump2
+    tileAssetPath: Assets/Resources/
+    tileActionType: 0
+    tileActionParameter: 2
+  - key: RollBack2
+    tileAssetPath: Assets/Resources/
+    tileActionType: 1
+    tileActionParameter: 2
+  tileDataDictionary:
+    m_keys:
+    - Jump2
+    - RollBack2
+    m_values:
+    - key: Jump2
+      tileAssetPath: Assets/Resources/
+      tileActionType: 0
+      tileActionParameter: 2
+    - key: RollBack2
+      tileAssetPath: Assets/Resources/
+      tileActionType: 1
+      tileActionParameter: 2
