@@ -26,14 +26,23 @@ public class TileDataContainer : ScriptableObject
     public TilemapRenderer.SortOrder sortingOrderType = TilemapRenderer.SortOrder.TopRight;
     public float tileAnimationFrameRate = 1.0f;
 
-	/// <summary>
-	/// 타일의 진행 순서 리스트
-	/// </summary>
 	public int[] tileOrders = null;
+	public string[] tileItems = null;
+	public string[] tileKinds = null;
 
 	public void SetTileOrder(IEnumerable<int> orders)
 	{
 		tileOrders = orders.ToArray();
+	}
+
+	public void SetTileItems(IEnumerable<string> items)
+	{
+		tileItems = items.ToArray();
+	}
+
+	public void SetTileKinds(IEnumerable<string> kinds)
+	{
+		tileKinds = kinds.ToArray();
 	}
 
     public Vector3 GetGridCellSize(TileType type)

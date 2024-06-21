@@ -55,6 +55,11 @@ public class CustomEditorWindow : EditorWindow
 		
 	}
 
+	protected bool DrawToggle(float width, float height, bool toggle, string buttonName)
+	{
+		return GUILayout.Toggle(toggle, buttonName, GUILayout.Width(width), GUILayout.Height(height));
+	}
+
 	protected void DrawButton(float width, float height, Action onClickButton, string buttonName, Texture2D normalTexture, Texture2D activeTexture)
 	{
 		GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);

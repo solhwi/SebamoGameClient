@@ -4,44 +4,23 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-
-public class TileIndexingWindow : CustomEditorWindow
+public class TileIndexingWindow : TileEditorWindow
 {
-	private static List<WorldTileData> boardTileDatas = new List<WorldTileData>();
-
-	private static TileDataContainer tileDataContainer;
-	private const string TileDataContainerPath = "Assets/Resources/Datas/TileDataContainer.asset";
-
 	private static int[] tileOrders = null;
 
-	private static Vector2 windowCenterPos = new Vector2(300, 150);
-	private static float tileButtonSize = 30.0f;
-
-	[MenuItem("Tools/TileIndexingWindow %#I")]
+	[MenuItem("Tools/타일 인덱싱 도우미 %I")]
 	public static void OpenWindow()
 	{
-		tileDataContainer = AssetDatabase.LoadAssetAtPath<TileDataContainer>(TileDataContainerPath);
-		if (tileDataContainer == null)
-		{
-			Debug.LogError($"{TileDataContainerPath}에 타일 컨테이너 데이터 없음");
-			return;
-		}
+		InitializeTileData();
+		InitializeTileOrder();
 
-		var tileDataManager = FindAnyObjectByType<TileDataManager>();
-		if (tileDataManager == null)
-		{
-			Debug.LogError($"타일 매니저가 현재 씬에 없음");
-			return;
-		}
+		EditorName = "타일 인덱싱 도우미";
+		OnOpenWindow<TileIndexingWindow>();
+	}
 
-		boardTileDatas = tileDataManager.MakeBoardData().ToList();
-		if (boardTileDatas == null || boardTileDatas.Count == 0)
-		{
-			Debug.LogError($"타일맵 내 그려진 타일이 없음");
-			return;
-		}
-
-		if (tileDataContainer.tileOrders == null)
+	private static void InitializeTileOrder()
+	{
+		if (tileDataContainer.tileOrders == null || tileDataContainer.tileOrders.Any() == false)
 		{
 			tileOrders = new int[boardTileDatas.Count];
 			ClearTileOrderData();
@@ -50,21 +29,8 @@ public class TileIndexingWindow : CustomEditorWindow
 		{
 			tileOrders = tileDataContainer.tileOrders.ToArray();
 		}
-
-		var window = GetWindow<TileIndexingWindow>();
-		if (window != null)
-		{
-			window.titleContent = new GUIContent("타일 인덱싱 도우미");
-
-			var size = GetBoardSize(boardTileDatas);
-			var safeSize = size * 1.5f;
-
-			window.position = new Rect(100, 100, safeSize.x, safeSize.y);
-
-			window.Show();
-		}
 	}
-
+	
 	private static void ClearTileOrderData()
 	{
 		for (int i = 0; i < tileOrders.Length; i++)
@@ -73,55 +39,22 @@ public class TileIndexingWindow : CustomEditorWindow
 		}
 	}
 
-	private static Vector2 GetBoardSize(List<WorldTileData> tileDatas)
-	{
-		float maxX = tileDatas.Max(d => d.tileWorldPosition.x);
-		float maxY = tileDatas.Max(d => d.tileWorldPosition.y);
-
-		float minX = tileDatas.Min(d => d.tileWorldPosition.x);
-		float minY = tileDatas.Min(d => d.tileWorldPosition.y);
-
-		return new Vector2(tileButtonSize * (maxX - minX) + windowCenterPos.x, tileButtonSize * (maxY - minY) + windowCenterPos.y);
-	}
-
 	protected override void SaveData()
 	{
 		tileDataContainer.SetTileOrder(tileOrders);
 
-		AssetDatabase.SaveAssetIfDirty(tileDataContainer);
-		// AssetDatabase.Refresh();
+		base.SaveData();
 	}
 
-	protected override void DrawAll()
+	protected override void OnClickClear()
 	{
-		DrawSpace(10);
+		base.OnClickClear();
 
-		DrawAxis(Axis.Horizontal, () =>
-		{
-			DrawLabel("center x:", 50, 20);
-			windowCenterPos.x = (float)DrawField(FieldType.Float, windowCenterPos.x, 30, 20);
-
-			DrawSpace(5);
-
-			DrawLabel("center y:", 50, 20);
-			windowCenterPos.y = (float)DrawField(FieldType.Float, windowCenterPos.y, 30, 20);
-		});
-
-		DrawSpace(15);
-
-		DrawAxis(Axis.Horizontal, () =>
-		{
-			DrawButton(50, 30, OnClickSave, "저장", null, null);
-
-			DrawSpace(5);
-
-			DrawButton(50, 30, OnClickClear, "초기화", null, null);
-		});
-
-		DrawBoardIndexingHelper();
+		ClearTileOrderData();
 	}
 
-	private void DrawBoardIndexingHelper()
+
+	protected override void DrawBoard()
 	{
 		DrawAxis(Axis.Vertical, () =>
 		{
@@ -143,16 +76,6 @@ public class TileIndexingWindow : CustomEditorWindow
 				}, buttonName, null, null);
 			}
 		});
-	}
-
-	private void OnClickSave()
-	{
-		SaveData();
-	}
-
-	private void OnClickClear()
-	{
-		ClearTileOrderData();
 	}
 
 	private void OnClickIndex(int index)
