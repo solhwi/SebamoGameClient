@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -33,16 +34,19 @@ public class TileDataContainer : ScriptableObject
 	public void SetTileOrder(IEnumerable<int> orders)
 	{
 		tileOrders = orders.ToArray();
+		EditorUtility.SetDirty(this);
 	}
 
 	public void SetTileItems(IEnumerable<string> items)
 	{
 		tileItems = items.ToArray();
+		EditorUtility.SetDirty(this);
 	}
 
 	public void SetTileKinds(IEnumerable<string> kinds)
 	{
 		tileKinds = kinds.ToArray();
+		EditorUtility.SetDirty(this);
 	}
 
     public Vector3 GetGridCellSize(TileType type)

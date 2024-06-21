@@ -32,14 +32,45 @@ public class TileDataManager : MonoBehaviour
 {
 	[SerializeField] private Tilemap tilemap;
 	[SerializeField] private TileDataContainer dataContainer;
+	[SerializeField] private TileTable tileTable;
+	[SerializeField] private ItemTable itemTable;
+	[SerializeField] private DropItemFactory dropItemFactory;
+	[SerializeField] private TileActionFactory tileActionFactory;
 
 	public WorldTileData[] tileBoardDatas = null;
 
 	private Dictionary<int, int> orderToTileIndexMap = new Dictionary<int, int>();
+	private Dictionary<string, DropItem> fieldDropItemDictionary = new Dictionary<string, DropItem>();
+	private Dictionary<string, SpriteRenderer> fieldDropItemRendererDictionary = new Dictionary<string, SpriteRenderer>();
+
+	private Dictionary<string, TileAction> tileActionDictionary = new Dictionary<string, TileAction>();
 
 	private void Awake()
 	{
 		tileBoardDatas = MakeBoardData().ToArray();
+	}
+
+	public IEnumerator PrepareTile()
+	{
+		for (int i = 0; i < dataContainer.tileItems.Length; i++)
+		{
+			var itemCode = dataContainer.tileItems[i];
+			if (itemCode == string.Empty)
+				continue;
+
+			var dropItem = dropItemFactory.Make(itemCode);
+			if (dropItem == null)
+				continue;
+
+			fieldDropItemDictionary[itemCode] = dropItem;
+
+			var boardData = tileBoardDatas[i];
+			var itemRenderer = dropItem.Create(boardData);
+
+			yield return null;
+
+			fieldDropItemRendererDictionary[itemCode] = itemRenderer;
+		}
 	}
 
 	public IEnumerable<WorldTileData> MakeBoardData()
@@ -59,6 +90,54 @@ public class TileDataManager : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	public DropItem GetCurrentTileItem(int currentOrderIndex)
+	{
+		string itemCode = GetCurrentTileItemCode(currentOrderIndex);
+		if (itemCode == string.Empty)
+			return null;
+
+		if (fieldDropItemDictionary.TryGetValue(itemCode, out var data))
+			return data;
+
+		var dropItem = dropItemFactory.Make(itemCode);
+		fieldDropItemDictionary[itemCode] = dropItem;
+
+		return dropItem;
+	}
+
+	public TileAction GetCurrentTileAction(int currentOrderIndex)
+	{
+		string tileCode = GetCurrentTileCode(currentOrderIndex);
+		if (tileCode == string.Empty)
+			return null;
+
+		if (tileActionDictionary.TryGetValue(tileCode, out var a))
+			return a;
+
+		var tileAction = tileActionFactory.Make(tileCode);
+		tileActionDictionary[tileCode] = tileAction;
+
+		return tileAction;
+	}
+
+	public string GetCurrentTileItemCode(int currentOrderIndex)
+	{
+		int tileIndex = GetTileIndexByOrder(currentOrderIndex);
+		if (tileIndex < 0 || tileIndex >= dataContainer.tileItems.Length)
+			return string.Empty;
+
+		return dataContainer.tileItems[tileIndex];
+	}
+
+	public string GetCurrentTileCode(int currentOrderIndex)
+	{
+		int tileIndex = GetTileIndexByOrder(currentOrderIndex);
+		if (tileIndex < 0 || tileIndex >= dataContainer.tileKinds.Length)
+			return string.Empty;
+
+		return dataContainer.tileKinds[tileIndex];
 	}
 
 	/// <summary>

@@ -7,6 +7,7 @@ public class DropItemFactory : ScriptableObject
 {
 	[SerializeField] private Inventory inventory = null;
 	[SerializeField] private DropRecipeTable dropRecipeTable = null;
+	[SerializeField] private ItemTable itemTable = null;
 
 	public DropItem Make(ItemTable.DropItemData data)
 	{
@@ -17,5 +18,15 @@ public class DropItemFactory : ScriptableObject
 		}
 
 		return new NormalDropItem(dropRecipeTable, inventory, data);
+	}
+
+	public DropItem Make(string itemCode)
+	{
+		if (itemTable.dropItemDataDictionary.TryGetValue(itemCode, out var data))
+		{
+			return Make(data);
+		}
+
+		return null;
 	}
 }

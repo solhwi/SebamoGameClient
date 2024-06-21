@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: TileActionFactory
   m_EditorClassIdentifier: 
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
+  tileTable: {fileID: 11400000, guid: f25ee782aa7438d44845c85f9b1fa4f3, type: 2}

@@ -70,7 +70,6 @@ public abstract class TileEditorWindow : CustomEditorWindow
 	protected override void SaveData()
 	{
 		AssetDatabase.SaveAssetIfDirty(tileDataContainer);
-		AssetDatabase.Refresh();
 	}
 
 	protected override void DrawAll()

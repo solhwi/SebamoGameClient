@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a048d28a0865b4f48a0049375621a3ed, type: 3}
   m_Name: Inventory
   m_EditorClassIdentifier: 
+  table: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
   hasItemCodes: []
   coinCount: 0

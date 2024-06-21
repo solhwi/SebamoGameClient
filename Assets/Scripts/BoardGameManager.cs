@@ -7,8 +7,8 @@ public abstract class BoardGameSubscriber : MonoBehaviour
 {
 	public virtual IEnumerator OnRollDice(int diceCount) { yield return null; }
 	public virtual IEnumerator OnMove(int currentOrderIndex, int diceCount) { yield return null; }
-	public virtual IEnumerator OnGetItem(string itemCode) { yield return null; }
-	public virtual IEnumerator OnDoTileAction(int currentOrderIndex, int nextOrderIndex) { yield return null; }
+	public virtual IEnumerator OnGetItem(DropItem dropItem) { yield return null; }
+	public virtual IEnumerator OnDoTileAction(string tileCode, int currentOrderIndex, int nextOrderIndex) { yield return null; }
 }
 
 public class BoardGameManager : MonoBehaviour
@@ -46,7 +46,6 @@ public class BoardGameManager : MonoBehaviour
 
 	[SerializeField] private BoardGameSubscriber[] subscribers;
 
-	private Coroutine boardGameRoutine = null;
 	private GameState currentGameState = GameState.None;
 
 	private Dictionary<GameState, Func<IEnumerator>> stateFuncMap = new Dictionary<GameState, Func<IEnumerator>>();
@@ -75,40 +74,34 @@ public class BoardGameManager : MonoBehaviour
 		};
 	}
 
-	private void OnDestroy()
-	{
-		ExitGame();
-	}
-
-	private void ExitGame()
-	{
-		if (boardGameRoutine != null)
-		{
-			StopCoroutine(boardGameRoutine);
-		}
-	}
-
-	private void StartGame()
-	{
-		ExitGame();
-
-		boardGameRoutine = StartCoroutine(ProcessBoardGame());
-	}
-
 	private IEnumerator Start()
 	{
+		// 타일 위 아이템 이미지 배치
+		yield return PrepareItem();
+
+		// 캐릭터 준비
+		yield return PrepareCharacter();
+
+		// 보드 게임 시작
+		yield return ProcessBoardGame();
+	}
+
+	private IEnumerator PrepareItem()
+	{
+		yield return tileDataManager.PrepareTile();
+	}
+
+	private IEnumerator PrepareCharacter()
+	{
 		characterMoveComponent.gameObject.SetActive(false);
+
+		yield return null;
 
 		// 플레이어 캐릭터 뷰 타일 위로 배치
 		Vector2 playerPos = GetPlayerPos();
 		characterMoveComponent.SetPosition(playerPos);
 
 		characterMoveComponent.gameObject.SetActive(true);
-
-		yield return null;
-
-		// 보드 게임 시작
-		StartGame();
 	}
 
 	public void OnClickRollDice()
@@ -190,35 +183,38 @@ public class BoardGameManager : MonoBehaviour
 
 	private IEnumerator ProcessGetItem()
 	{
-		// 1. 현재 타일 위치에 해당하는 아이템 코드를 가져온다. - 에디터로 저장한 so
-		// 1-1. 없는 경우 TileAction으로 이동
-		// 2. 아이템 코드로 드롭 아이템을 가져온다 - 드롭 아이템 팩토리
-		// 3. 드롭 아이템을 사용한다
-		// 4. 드롭 아이템으로부터 실제로 얻은 아이템 코드를 가져올 수 있다
+		int currentOrderIndex = playerDataContainer.currentTileOrderIndex;
 
-		foreach (var subscriber in subscribers)
+		DropItem item = tileDataManager.GetCurrentTileItem(currentOrderIndex);
+		if (item != null)
 		{
-			yield return subscriber?.OnGetItem(""); // 얻은 아이템 코드를 뿌림
+			item.Use();
+
+			foreach (var subscriber in subscribers)
+			{
+				yield return subscriber?.OnGetItem(item);
+			}
 		}
 
 		TryChangeState(GameState.TileAction);
-
 	}
 
 	private IEnumerator ProcessTileAction()
 	{
 		int currentOrderIndex = playerDataContainer.currentTileOrderIndex;
 
-		// 1. 현재 타일 위치로 타일 코드를 가져온다. - 에디터로 저장한 so
-		// 1-1. 특수 타일이 아닌 경우 None으로 이동
-		// 2. 타일 코드로 타일 액션을 가져온다 - 타일 액션 팩토리
-		// 3. 타일 액션을 수행한다
-
-		int nextOrderIndex = playerDataContainer.currentTileOrderIndex;
-
-		foreach (var subscriber in subscribers)
+		var tileCode = tileDataManager.GetCurrentTileCode(currentOrderIndex);
+		var tileAction = tileDataManager.GetCurrentTileAction(currentOrderIndex);
+		if (tileAction != null)
 		{
-			yield return subscriber?.OnDoTileAction(currentOrderIndex, nextOrderIndex); // 이동
+			tileAction.Invoke();
+
+			int nextOrderIndex = playerDataContainer.currentTileOrderIndex;
+
+			foreach (var subscriber in subscribers)
+			{
+				yield return subscriber?.OnDoTileAction(tileCode, currentOrderIndex, nextOrderIndex);
+			}
 		}
 
 		TryChangeState(GameState.None);

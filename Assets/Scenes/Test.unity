@@ -449,6 +449,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 1789805607}
   dataContainer: {fileID: 11400000, guid: 6bff3bcc2db60844cb56ca069bb23b8c, type: 2}
+  tileTable: {fileID: 11400000, guid: f25ee782aa7438d44845c85f9b1fa4f3, type: 2}
+  itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
+  dropItemFactory: {fileID: 11400000, guid: a6e06216073cb404eb58dd2ea48f4cee, type: 2}
+  tileActionFactory: {fileID: 11400000, guid: 8eb6dadb604fda149886656396d56f17, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,6 +1525,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   tileDataManager: {fileID: 547121921}
+  itemFactory: {fileID: 11400000, guid: a6e06216073cb404eb58dd2ea48f4cee, type: 2}
+  tileActionFactory: {fileID: 11400000, guid: 8eb6dadb604fda149886656396d56f17, type: 2}
   characterMoveComponent: {fileID: 2146376113}
   subscribers:
   - {fileID: 2146376113}

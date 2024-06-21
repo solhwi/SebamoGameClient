@@ -38,10 +38,6 @@ public class PlayerDataContainer : ScriptableObject
 		{
 			this.currentTileOrderIndex = tileDataContainer.tileOrders.Length - 1;
 		}
-
-#if UNITY_EDITOR
-		AssetDatabase.SaveAssetIfDirty(this);
-#endif
 	}
 
 	public void AddCurrentOrderIndex(int addOrderCount)

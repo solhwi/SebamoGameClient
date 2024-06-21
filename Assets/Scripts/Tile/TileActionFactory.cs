@@ -6,6 +6,7 @@ using UnityEngine;
 public class TileActionFactory : ScriptableObject
 {
 	[SerializeField] private PlayerDataContainer playerDataContainer;
+	[SerializeField] private TileTable tileTable;
 
 	public TileAction Make(TileTable.TileData rawData)
 	{
@@ -16,6 +17,16 @@ public class TileActionFactory : ScriptableObject
 
 			case TileActionType.RollBack:
 				return new TileRollBackAction(playerDataContainer, rawData.tileActionParameter);
+		}
+
+		return null;
+	}
+
+	public TileAction Make(string tileCode)
+	{
+		if(tileTable.tileDataDictionary.TryGetValue(tileCode, out var tileData))
+		{
+			return Make(tileData);
 		}
 
 		return null;
