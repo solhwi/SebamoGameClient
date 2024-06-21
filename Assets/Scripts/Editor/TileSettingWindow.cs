@@ -15,7 +15,7 @@ public class TileSettingWindow : TileEditorWindow
 	protected const string TileTablePath = "Assets/Resources/Datas/Parser/TileTable.asset";
 
 
-	[MenuItem("Tools/타일 종류 배치 도우미 %#S")]
+	[MenuItem("Tools/타일 종류 배치 도우미 %#T")]
 	public static void OpenWindow()
 	{
 		InitializeTileData();
