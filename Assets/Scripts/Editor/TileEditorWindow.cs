@@ -79,13 +79,18 @@ public abstract class TileEditorWindow : CustomEditorWindow
 
 		DrawAxis(Axis.Horizontal, () =>
 		{
-			DrawLabel("Center X :", 80, 20);
+			DrawLabel("Center X :", 60, 20);
 			windowCenterPos.x = (float)DrawField(FieldType.Float, windowCenterPos.x, 30, 20);
 
 			DrawSpace(5);
 
-			DrawLabel("Center Y :", 80, 20);
+			DrawLabel("Center Y :", 60, 20);
 			windowCenterPos.y = (float)DrawField(FieldType.Float, windowCenterPos.y, 30, 20);
+
+			DrawSpace(5);
+
+			DrawLabel("Button Size :", 70, 20);
+			tileButtonSize = (float)DrawField(FieldType.Float, tileButtonSize, 30, 20);
 		});
 
 		DrawSpace(15);
