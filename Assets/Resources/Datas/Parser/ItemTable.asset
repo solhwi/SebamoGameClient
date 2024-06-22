@@ -29,7 +29,7 @@ MonoBehaviour:
   dropItemDataList:
   - key: Box
     dropActionType: 1
-    fieldIconAssetPath: Assets/Resources/Ryo.jpg
+    fieldIconAssetPath: Assets/Resources/Sprites/Ryo.jpg
     recipeCode: 0
   dropItemDataDictionary:
     m_keys:
@@ -37,7 +37,7 @@ MonoBehaviour:
     m_values:
     - key: Box
       dropActionType: 1
-      fieldIconAssetPath: Assets/Resources/Ryo.jpg
+      fieldIconAssetPath: Assets/Resources/Sprites/Ryo.jpg
       recipeCode: 0
   partsItemDataList:
   - key: UnityChanAccessory

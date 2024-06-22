@@ -16,5 +16,20 @@ public static class ItemTableExtension
 
 public partial class ItemTable
 {
-	
+	public bool IsValidItem(string itemCode)
+	{
+		if (dropItemDataDictionary.ContainsKey(itemCode))
+			return true;
+
+		if (partsItemDataDictionary.ContainsKey(itemCode))
+			return true;
+
+		if(propItemDataDictionary.ContainsKey(itemCode))
+			return true;
+
+		if (shopItemDataDictionary.ContainsKey(itemCode))
+			return true;
+
+		return false;
+	}
 }

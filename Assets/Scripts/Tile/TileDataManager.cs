@@ -6,13 +6,15 @@ using UnityEngine.Tilemaps;
 
 public struct WorldTileData
 {
+	public int index;
 	public Vector2 tileWorldPosition;
 	public Vector3Int tilePosition;
 	public TileData tileData;
 	public TileBase tileBase;
 
-	public WorldTileData(Vector3Int tilePos, TileData tileData, TileBase tileBase)
+	public WorldTileData(int index, Vector3Int tilePos, TileData tileData, TileBase tileBase)
 	{
+		this.index = index;
 		this.tileWorldPosition = ConvertWorldPos(tilePos);
 		this.tilePosition = tilePos;
 		this.tileData = tileData;
@@ -40,10 +42,10 @@ public class TileDataManager : MonoBehaviour
 	public WorldTileData[] tileBoardDatas = null;
 
 	private Dictionary<int, int> orderToTileIndexMap = new Dictionary<int, int>();
-	private Dictionary<string, DropItem> fieldDropItemDictionary = new Dictionary<string, DropItem>();
-	private Dictionary<string, SpriteRenderer> fieldDropItemRendererDictionary = new Dictionary<string, SpriteRenderer>();
+	private Dictionary<int, DropItem> fieldDropItemDictionary = new Dictionary<int, DropItem>();
+	private Dictionary<int, SpriteRenderer> fieldDropItemRendererDictionary = new Dictionary<int, SpriteRenderer>();
 
-	private Dictionary<string, TileAction> tileActionDictionary = new Dictionary<string, TileAction>();
+	private Dictionary<int, TileAction> tileActionDictionary = new Dictionary<int, TileAction>();
 
 	private void Awake()
 	{
@@ -62,19 +64,21 @@ public class TileDataManager : MonoBehaviour
 			if (dropItem == null)
 				continue;
 
-			fieldDropItemDictionary[itemCode] = dropItem;
+			fieldDropItemDictionary[i] = dropItem;
 
 			var boardData = tileBoardDatas[i];
 			var itemRenderer = dropItem.Create(boardData);
 
 			yield return null;
 
-			fieldDropItemRendererDictionary[itemCode] = itemRenderer;
+			fieldDropItemRendererDictionary[i] = itemRenderer;
 		}
 	}
 
 	public IEnumerable<WorldTileData> MakeBoardData()
 	{
+		int i = 0;
+
 		for (int x = tilemap.cellBounds.xMax; x >= tilemap.cellBounds.xMin; x--)
 		{
 			for (int y = tilemap.cellBounds.yMax; y >= tilemap.cellBounds.yMin; y--)
@@ -86,7 +90,7 @@ public class TileDataManager : MonoBehaviour
 					TileData data = default;
 					curTile.GetTileData(tilePos, tilemap, ref data);
 
-					yield return new WorldTileData(tilePos, data, curTile);
+					yield return new WorldTileData(i++, tilePos, data, curTile);
 				}
 			}
 		}
@@ -98,11 +102,15 @@ public class TileDataManager : MonoBehaviour
 		if (itemCode == string.Empty)
 			return null;
 
-		if (fieldDropItemDictionary.TryGetValue(itemCode, out var data))
+		int tileIndex = GetTileIndexByOrder(currentOrderIndex);
+		if (tileIndex == -1)
+			return null;
+
+		if (fieldDropItemDictionary.TryGetValue(tileIndex, out var data))
 			return data;
 
 		var dropItem = dropItemFactory.Make(itemCode);
-		fieldDropItemDictionary[itemCode] = dropItem;
+		fieldDropItemDictionary[tileIndex] = dropItem;
 
 		return dropItem;
 	}
@@ -113,11 +121,15 @@ public class TileDataManager : MonoBehaviour
 		if (tileCode == string.Empty)
 			return null;
 
-		if (tileActionDictionary.TryGetValue(tileCode, out var a))
+		int tileIndex = GetTileIndexByOrder(currentOrderIndex);
+		if (tileIndex == -1)
+			return null;
+
+		if (tileActionDictionary.TryGetValue(tileIndex, out var a))
 			return a;
 
 		var tileAction = tileActionFactory.Make(tileCode);
-		tileActionDictionary[tileCode] = tileAction;
+		tileActionDictionary[tileIndex] = tileAction;
 
 		return tileAction;
 	}

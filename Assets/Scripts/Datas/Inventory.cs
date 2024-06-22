@@ -11,11 +11,12 @@ public class Inventory : ScriptableObject
 
 	public void PushItem(string itemCode)
 	{
-		// 존재하는 아이템인 지 확인하고 넣자
+		if (table.IsValidItem(itemCode) == false)
+			return;
 
-		if (hasItemCodes.Contains(itemCode) == false)
-		{
-			hasItemCodes.Add(itemCode);
-		}
+		if (hasItemCodes.Contains(itemCode))
+			return;
+
+		hasItemCodes.Add(itemCode);
 	}
 }

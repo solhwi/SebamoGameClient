@@ -35,8 +35,9 @@ public abstract class DropItem
 	// 월드 타일 위에만 생성이 가능함
 	public virtual SpriteRenderer Create(WorldTileData worldTileData)
 	{
-		obj = new GameObject($"{rawData.key}");
+		obj = new GameObject($"{rawData.key} ({worldTileData.index})");
 		obj.transform.position = new Vector3(worldTileData.tileWorldPosition.x, worldTileData.tileWorldPosition.y, (int)LayerConfig.Item);
+		obj.SetActive(true);
 
 		var renderer = obj.AddComponent<SpriteRenderer>();
 		renderer.sprite = itemSprite;
@@ -47,7 +48,10 @@ public abstract class DropItem
 	public virtual void Destroy()
 	{
 		Resources.UnloadAsset(itemSprite);
-		MonoBehaviour.Destroy(obj);
+
+		// 삭제가 안되는 중
+		obj.SetActive(false);
+		// MonoBehaviour.DestroyImmediate(obj);
 	}
 
 	public virtual void Use()
