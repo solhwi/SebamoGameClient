@@ -6,6 +6,12 @@ using UnityEngine;
 
 public class CustomEditorWindow : EditorWindow
 {
+	protected static Texture2D pressOffTexture;
+	protected static Texture2D pressOnTexture;
+	protected static Texture2D hoverTexture;
+
+	protected bool isOnTextureMode = true;
+
 	public enum Axis
 	{
 		Horizontal,
@@ -25,12 +31,16 @@ public class CustomEditorWindow : EditorWindow
 
 	protected virtual void SaveData()
 	{
-		
+		EditorPrefs.SetBool("isOnTextureMode", isOnTextureMode);
 	}
 
 	protected virtual void LoadData()
 	{
-		
+		isOnTextureMode = EditorPrefs.GetBool("isOnTextureMode");
+
+		pressOffTexture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Edit/PressOff.png");
+		pressOnTexture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Edit/PressOn.png");
+		hoverTexture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Edit/Hover.png");
 	}
 
 	private void OnEnable()
@@ -43,6 +53,14 @@ public class CustomEditorWindow : EditorWindow
 	private void OnDisable()
 	{
 		SaveData();
+	}
+
+	private void Update()
+	{
+		if (isOnTextureMode)
+		{
+			Repaint();
+		}
 	}
 
 	private void OnGUI()
@@ -80,27 +98,40 @@ public class CustomEditorWindow : EditorWindow
 		}
 	}
 
-	protected void DrawTileButton(float x, float y, float width, float height, Vector2 centerPos, Action onClickButton, string buttonName, Texture2D normalTexture, Texture2D activeTexture)
+	protected void DrawTileButton(float x, float y, float width, float height, Vector2 centerPos, Action onClickButton, string buttonName)
 	{
 		GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);
 
 		float buttonWidth = width;
 		float buttonHeight = height;
 
-		if (normalTexture != null)
-		{
-			buttonStyle.normal.background = normalTexture;
-			buttonWidth = normalTexture.width;
-			buttonHeight = normalTexture.height;
-		}
+		float adjustValue = 0.0f;
 
-		if (normalTexture != null)
+		if (isOnTextureMode)
 		{
-			buttonStyle.active.background = activeTexture;
+			if (pressOffTexture != null)
+			{
+				buttonStyle.normal.background = pressOffTexture;
+				buttonWidth = pressOffTexture.width;
+				buttonHeight = pressOffTexture.height;
+			}
+
+			if (pressOnTexture != null)
+			{
+				buttonStyle.active.background = pressOnTexture;
+			}
+
+			if (hoverTexture != null)
+			{
+				buttonStyle.hover.background = hoverTexture;
+			}
+
+			// 마름모 텍스처로 인한 보정 값
+			adjustValue = y * buttonWidth / 2;
 		}
 
 		// y는 좌표계가 반대라서 -
-		if (GUI.Button(new Rect(centerPos.x + x * buttonWidth, centerPos.y - y * buttonHeight, buttonWidth, buttonHeight), buttonName, buttonStyle))
+		if (GUI.Button(new Rect(centerPos.x + x * buttonWidth, centerPos.y - (y * buttonHeight + adjustValue), buttonWidth, buttonHeight), buttonName, buttonStyle))
 		{
 			onClickButton?.Invoke();
 		}

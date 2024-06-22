@@ -94,6 +94,10 @@ public class TileSettingWindow : TileEditorWindow
 
 	protected override void DrawBoard()
 	{
+		var _pressOnTexture = isOnTextureMode ? pressOnTexture : null;
+		var _pressOffTexture = isOnTextureMode ? pressOffTexture : null;
+		var _focusOnTexture = isOnTextureMode ? hoverTexture : null;
+
 		DrawAxis(Axis.Vertical, () =>
 		{
 			var tileDataList = boardTileDatas.ToList();
@@ -110,7 +114,7 @@ public class TileSettingWindow : TileEditorWindow
 				DrawTileButton(xPos, yPos, tileButtonSize, tileButtonSize, windowCenterPos, () =>
 				{
 					OnClickIndex(i);
-				}, tileKinds[i], null, null);
+				}, tileKinds[i]);
 			}
 		});
 	}

@@ -73,7 +73,7 @@ public class TileIndexingWindow : TileEditorWindow
 				DrawTileButton(xPos, yPos, tileButtonSize, tileButtonSize, windowCenterPos, () =>
 				{
 					OnClickIndex(i);
-				}, buttonName, null, null);
+				}, buttonName);
 			}
 		});
 	}

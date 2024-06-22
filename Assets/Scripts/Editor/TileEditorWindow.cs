@@ -12,7 +12,7 @@ public abstract class TileEditorWindow : CustomEditorWindow
 	protected const string TileDataContainerPath = "Assets/Resources/Datas/TileDataContainer.asset";
 
 	protected static Vector2 windowCenterPos = new Vector2(300, 150);
-	protected static float tileButtonSize = 30.0f;
+	protected static float tileButtonSize = 50.0f;
 
 	protected static string EditorName;
 
@@ -69,7 +69,26 @@ public abstract class TileEditorWindow : CustomEditorWindow
 
 	protected override void SaveData()
 	{
+		base.SaveData();
+
+		EditorPrefs.SetFloat("windowCenterPosX", windowCenterPos.x);
+		EditorPrefs.SetFloat("windowCenterPosY", windowCenterPos.y);
+		EditorPrefs.SetFloat("tileButtonSize", tileButtonSize);
+
+
 		AssetDatabase.SaveAssetIfDirty(tileDataContainer);
+	}
+
+	protected override void LoadData()
+	{
+		base.LoadData();
+
+		float x = EditorPrefs.GetFloat("windowCenterPosX");
+		float y = EditorPrefs.GetFloat("windowCenterPosY");
+
+		windowCenterPos = new Vector2(x, y);
+
+		tileButtonSize = EditorPrefs.GetFloat("tileButtonSize");
 	}
 
 	protected override void DrawAll()
@@ -90,6 +109,14 @@ public abstract class TileEditorWindow : CustomEditorWindow
 
 			DrawLabel("Button Size :", 70, 20);
 			tileButtonSize = (float)DrawField(FieldType.Float, tileButtonSize, 30, 20);
+			
+		});
+
+		DrawSpace(15);
+
+		DrawAxis(Axis.Horizontal, () =>
+		{
+			isOnTextureMode = DrawToggle(80, 30, isOnTextureMode, "버튼 텍스처 사용 여부");
 		});
 
 		DrawSpace(15);
