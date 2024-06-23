@@ -10,7 +10,7 @@ public class CustomEditorWindow : EditorWindow
 	protected static Texture2D pressOnTexture;
 	protected static Texture2D hoverTexture;
 
-	protected bool isOnTextureMode = true;
+	protected bool isIsometric = true;
 
 	public enum Axis
 	{
@@ -31,12 +31,12 @@ public class CustomEditorWindow : EditorWindow
 
 	protected virtual void SaveData()
 	{
-		EditorPrefs.SetBool("isOnTextureMode", isOnTextureMode);
+		EditorPrefs.SetBool("isIsometric", isIsometric);
 	}
 
 	protected virtual void LoadData()
 	{
-		isOnTextureMode = EditorPrefs.GetBool("isOnTextureMode");
+		isIsometric = EditorPrefs.GetBool("isIsometric");
 
 		pressOffTexture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Edit/PressOff.png");
 		pressOnTexture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Edit/PressOn.png");
@@ -57,7 +57,7 @@ public class CustomEditorWindow : EditorWindow
 
 	private void Update()
 	{
-		if (isOnTextureMode)
+		if (isIsometric)
 		{
 			Repaint();
 		}
@@ -107,7 +107,7 @@ public class CustomEditorWindow : EditorWindow
 
 		float adjustValue = 0.0f;
 
-		if (isOnTextureMode)
+		if (isIsometric)
 		{
 			if (pressOffTexture != null)
 			{

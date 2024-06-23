@@ -8,6 +8,7 @@ public struct WorldTileData
 {
 	public int index;
 	public Vector2 tileWorldPosition;
+	public Vector2 tilePlaneWorldPosition;
 	public Vector3Int tilePosition;
 	public TileData tileData;
 	public TileBase tileBase;
@@ -16,6 +17,7 @@ public struct WorldTileData
 	{
 		this.index = index;
 		this.tileWorldPosition = ConvertWorldPos(tilePos);
+		this.tilePlaneWorldPosition = ConvertPlaneWorldPos(tilePos);
 		this.tilePosition = tilePos;
 		this.tileData = tileData;
 		this.tileBase = tileBase;
@@ -25,6 +27,14 @@ public struct WorldTileData
 	{
 		float x = tilePos.y * -1 + tilePos.x; // y에 1을 더하면 -1, x에 1을 더하면 1
 		float y = tilePos.y * 0.5f + tilePos.x * 0.5f; // y에 1을 더하면 0.5, x에 1을 더하면 0.5 
+
+		return new Vector2(x, y);
+	}
+
+	private static Vector3 ConvertPlaneWorldPos(Vector3Int tilePos)
+	{
+		float x = tilePos.y * -1; // x에 1 더하면 위로 한 칸
+		float y = tilePos.x; // y에 1을 더하면 왼 쪽으로 한 칸
 
 		return new Vector2(x, y);
 	}

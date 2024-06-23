@@ -99,8 +99,19 @@ public class TileItemSettingWindow : TileEditorWindow
 			{
 				var data = tileDataList[i];
 
-				float xPos = data.tileWorldPosition.x;
-				float yPos = data.tileWorldPosition.y;
+				float xPos = 0.0f;
+				float yPos = 0.0f;
+
+				if (isIsometric)
+				{
+					xPos = data.tileWorldPosition.x;
+					yPos = data.tileWorldPosition.y;
+				}
+				else
+				{
+					xPos = data.tilePlaneWorldPosition.x;
+					yPos = data.tilePlaneWorldPosition.y;
+				}
 
 				string currentItemCode = tileItems[i];
 

@@ -94,9 +94,9 @@ public class TileSettingWindow : TileEditorWindow
 
 	protected override void DrawBoard()
 	{
-		var _pressOnTexture = isOnTextureMode ? pressOnTexture : null;
-		var _pressOffTexture = isOnTextureMode ? pressOffTexture : null;
-		var _focusOnTexture = isOnTextureMode ? hoverTexture : null;
+		var _pressOnTexture = isIsometric ? pressOnTexture : null;
+		var _pressOffTexture = isIsometric ? pressOffTexture : null;
+		var _focusOnTexture = isIsometric ? hoverTexture : null;
 
 		DrawAxis(Axis.Vertical, () =>
 		{
@@ -106,8 +106,19 @@ public class TileSettingWindow : TileEditorWindow
 			{
 				var data = tileDataList[i];
 
-				float xPos = data.tileWorldPosition.x;
-				float yPos = data.tileWorldPosition.y;
+				float xPos = 0.0f;
+				float yPos = 0.0f;
+
+				if (isIsometric)
+				{
+					xPos = data.tileWorldPosition.x;
+					yPos = data.tileWorldPosition.y;
+				}
+				else
+				{
+					xPos = data.tilePlaneWorldPosition.x;
+					yPos = data.tilePlaneWorldPosition.y;
+				}
 
 				string currentItemCode = tileKinds[i];
 

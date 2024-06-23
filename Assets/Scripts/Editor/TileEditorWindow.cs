@@ -116,7 +116,7 @@ public abstract class TileEditorWindow : CustomEditorWindow
 
 		DrawAxis(Axis.Horizontal, () =>
 		{
-			isOnTextureMode = DrawToggle(80, 30, isOnTextureMode, "버튼 텍스처 사용 여부");
+			isIsometric = DrawToggle(200, 30, isIsometric, " Isometric 적용 여부");
 		});
 
 		DrawSpace(15);
