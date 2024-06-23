@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-public class TileSettingWindow : TileEditorWindow
+public class SpecialTileSettingWindow : TileEditorWindow
 {
 	private static string[] tileKinds = null;
 
@@ -15,7 +15,7 @@ public class TileSettingWindow : TileEditorWindow
 	protected const string TileTablePath = "Assets/Resources/Datas/Parser/TileTable.asset";
 
 
-	[MenuItem("Tools/타일 종류 배치 도우미 %#T")]
+	[MenuItem("Tools/특수 타일 배치 도우미 %#T")]
 	public static void OpenWindow()
 	{
 		InitializeTileData();
@@ -28,12 +28,12 @@ public class TileSettingWindow : TileEditorWindow
 			return;
 		}
 
-		EditorName = "타일 종류 배치 도우미";
+		EditorName = "특수 타일 배치 도우미";
 
 		windowCenterPos = new Vector2(450, 200);
 		tileButtonSize = 50.0f;
 
-		OnOpenWindow<TileSettingWindow>();
+		OnOpenWindow<SpecialTileSettingWindow>();
 	}
 
 	private static void InitializeTileItems()

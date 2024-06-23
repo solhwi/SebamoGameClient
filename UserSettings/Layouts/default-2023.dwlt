@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -968,7 +968,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: b8faffff94900000a0900000b090000000910000
+      m_ExpandedIDs: 5afaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1060,7 +1060,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
     m_HSlider: 0
-    m_VSlider: 1
+    m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -1073,18 +1073,18 @@ MonoBehaviour:
       y: 21
       width: 768
       height: 642
-    m_Scale: {x: 0.40918908, y: 0.40918908}
-    m_Translation: {x: 384, y: 353.44278}
+    m_Scale: {x: 0.334375, y: 0.334375}
+    m_Translation: {x: 384, y: 321}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -938.44147
-      y: -863.764
-      width: 1876.8829
-      height: 1568.9568
+      x: -1148.4113
+      y: -960
+      width: 2296.8225
+      height: 1920
     m_MinimalGUI: 1
   m_defaultScale: 0.334375
   m_LastWindowPixelSize: {x: 768, y: 663}
@@ -1348,7 +1348,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Edit
+    - Assets/Scripts/Editor
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1358,16 +1358,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Edit
+  - Assets/Scripts/Editor
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Work\SebamoClient
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 2}
-    m_SelectedIDs: 8cb20000
-    m_LastClickedID: 45708
-    m_ExpandedIDs: 0000000000990000029900000499000006990000089900000a9900000c9900000e99000010990000129900001499000016990000189900001a9900001c9900001e9900002099000022990000
+    scrollPos: {x: 0, y: 34}
+    m_SelectedIDs: 90a60000
+    m_LastClickedID: 42640
+    m_ExpandedIDs: 00000000ec980000ee980000f0980000f2980000f4980000f6980000f8980000fa980000fc980000fe98000000990000029900000499000006990000089900000a9900000c990000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1396,7 +1396,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000000990000029900000499000006990000089900000a9900000c9900000e99000010990000129900001499000016990000189900001a9900001c9900001e9900002099000022990000
+    m_ExpandedIDs: 00000000ec980000ee980000f0980000f2980000f4980000f6980000f8980000fa980000fc980000fe98000000990000029900000499000006990000089900000a9900000c990000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
