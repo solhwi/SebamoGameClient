@@ -65,7 +65,14 @@ public class CustomEditorWindow : EditorWindow
 
 	private void OnGUI()
 	{
-		DrawAxis(Axis.Vertical, DrawAll);
+		if (EditorApplication.isPlaying)
+		{
+			EditorGUILayout.LabelField("재생 중...");
+		}
+		else
+		{
+			DrawAxis(Axis.Vertical, DrawAll);
+		}
 	}
 
 	protected virtual void DrawAll()
