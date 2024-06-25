@@ -13,24 +13,60 @@ MonoBehaviour:
   m_Name: TileTable
   m_EditorClassIdentifier: 
   tileDataList:
+  - key: Jump1
+    tileAssetPath: Assets/Resources/
+    tileActionType: 0
+    tileActionParameter: 1
   - key: Jump2
     tileAssetPath: Assets/Resources/
     tileActionType: 0
     tileActionParameter: 2
+  - key: Jump3
+    tileAssetPath: Assets/Resources/
+    tileActionType: 0
+    tileActionParameter: 3
+  - key: RollBack1
+    tileAssetPath: Assets/Resources/
+    tileActionType: 1
+    tileActionParameter: 1
   - key: RollBack2
     tileAssetPath: Assets/Resources/
     tileActionType: 1
     tileActionParameter: 2
+  - key: RollBack3
+    tileAssetPath: Assets/Resources/
+    tileActionType: 1
+    tileActionParameter: 3
   tileDataDictionary:
     m_keys:
+    - Jump1
     - Jump2
+    - Jump3
+    - RollBack1
     - RollBack2
+    - RollBack3
     m_values:
+    - key: Jump1
+      tileAssetPath: Assets/Resources/
+      tileActionType: 0
+      tileActionParameter: 1
     - key: Jump2
       tileAssetPath: Assets/Resources/
       tileActionType: 0
       tileActionParameter: 2
+    - key: Jump3
+      tileAssetPath: Assets/Resources/
+      tileActionType: 0
+      tileActionParameter: 3
+    - key: RollBack1
+      tileAssetPath: Assets/Resources/
+      tileActionType: 1
+      tileActionParameter: 1
     - key: RollBack2
       tileAssetPath: Assets/Resources/
       tileActionType: 1
       tileActionParameter: 2
+    - key: RollBack3
+      tileAssetPath: Assets/Resources/
+      tileActionType: 1
+      tileActionParameter: 3
