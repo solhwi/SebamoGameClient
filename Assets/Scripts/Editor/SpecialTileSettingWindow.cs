@@ -38,7 +38,7 @@ public class SpecialTileSettingWindow : TileEditorWindow
 
 	private static void InitializeTileItems()
 	{
-		if (tileDataContainer.tileKinds == null || tileDataContainer.tileKinds.Any() == false)
+		if (tileDataContainer.tileKinds == null || tileDataContainer.tileKinds.Length != boardTileDatas.Count)
 		{
 			tileKinds = new string[boardTileDatas.Count];
 			ClearTileItemData();

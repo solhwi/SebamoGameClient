@@ -20,7 +20,7 @@ public class TileIndexingWindow : TileEditorWindow
 
 	private static void InitializeTileOrder()
 	{
-		if (tileDataContainer.tileOrders == null || tileDataContainer.tileOrders.Any() == false)
+		if (tileDataContainer.tileOrders == null || tileDataContainer.tileOrders.Length != boardTileDatas.Count)
 		{
 			tileOrders = new int[boardTileDatas.Count];
 			ClearTileOrderData();
