@@ -22,7 +22,6 @@ public partial class TileTable : ScriptParser
 	public class TileData
 	{
 		public string key;
-		public string tileAssetPath;
 		public TileActionType tileActionType;
 		public string tileActionParameter;
 	}
