@@ -28,17 +28,17 @@ MonoBehaviour:
       shopIconAssetPath: Assets/Resources/
   dropItemDataList:
   - key: Box
-    dropActionType: 1
     fieldIconAssetPath: Assets/Resources/Sprites/Ryo.jpg
-    recipeCode: 0
+    dropActionType: 1
+    actionParameter: UnityChanAccessory:30/GreatSword:70
   dropItemDataDictionary:
     m_keys:
     - Box
     m_values:
     - key: Box
-      dropActionType: 1
       fieldIconAssetPath: Assets/Resources/Sprites/Ryo.jpg
-      recipeCode: 0
+      dropActionType: 1
+      actionParameter: UnityChanAccessory:30/GreatSword:70
   partsItemDataList:
   - key: UnityChanAccessory
     partsType: 6

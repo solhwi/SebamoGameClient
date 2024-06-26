@@ -11,7 +11,6 @@ public enum DropActionType
 public abstract class DropItem
 {
 	protected Inventory inventory = null;
-	protected DropRecipeTable dropRecipeTable = null;
 	protected ItemTable.DropItemData rawData = null;
 	protected Sprite itemSprite = null;
 
@@ -19,9 +18,8 @@ public abstract class DropItem
 
 	public string dropItemCode { get; protected set; }
 
-	public DropItem(DropRecipeTable dropRecipeTable, Inventory inventory, ItemTable.DropItemData rawData)
+	public DropItem(Inventory inventory, ItemTable.DropItemData rawData)
 	{
-		this.dropRecipeTable = dropRecipeTable;
 		this.inventory = inventory;
 		this.rawData = rawData;
 
@@ -63,7 +61,7 @@ public abstract class DropItem
 
 public class NormalDropItem : DropItem
 {
-	public NormalDropItem(DropRecipeTable dropRecipeTable, Inventory inventory, ItemTable.DropItemData rawData) : base(dropRecipeTable, inventory, rawData)
+	public NormalDropItem(Inventory inventory, ItemTable.DropItemData rawData) : base(inventory, rawData)
 	{
 		dropItemCode = rawData.key;
 	}
@@ -71,12 +69,9 @@ public class NormalDropItem : DropItem
 
 public class RandomDropItem : DropItem
 {
-	public RandomDropItem(DropRecipeTable dropRecipeTable, Inventory inventory, ItemTable.DropItemData rawData) : base(dropRecipeTable, inventory, rawData)
+	public RandomDropItem(Inventory inventory, ItemTable.DropItemData rawData) : base(inventory, rawData)
 	{
-		if (dropRecipeTable.recipeDataDictionary.TryGetValue(rawData.recipeCode, out var recipeData))
-		{
-			var dropRecipeDictionary = DropRecipeTable.ParseDropRecipeData(recipeData.recipe);
-			dropItemCode = DropRecipeTable.GetDropItemCode(dropRecipeDictionary);
-		}	
+		var dropRecipeDictionary = ItemTable.ParseDropRecipeData(rawData.actionParameter);
+		dropItemCode = ItemTable.GetDropItemCode(dropRecipeDictionary);
 	}
 }

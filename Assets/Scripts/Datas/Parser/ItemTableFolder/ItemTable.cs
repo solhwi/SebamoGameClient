@@ -49,9 +49,9 @@ public partial class ItemTable : ScriptParser
 	public class DropItemData
 	{
 		public string key;
-		public DropActionType dropActionType;
 		public string fieldIconAssetPath;
-		public int recipeCode;
+		public DropActionType dropActionType;
+		public string actionParameter;
 	}
 
 	public List<DropItemData> dropItemDataList = new List<DropItemData>();

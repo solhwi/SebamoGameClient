@@ -6,7 +6,6 @@ using UnityEngine;
 public class DropItemFactory : ScriptableObject
 {
 	[SerializeField] private Inventory inventory = null;
-	[SerializeField] private DropRecipeTable dropRecipeTable = null;
 	[SerializeField] private ItemTable itemTable = null;
 
 	public DropItem Make(ItemTable.DropItemData data)
@@ -14,10 +13,10 @@ public class DropItemFactory : ScriptableObject
 		switch (data.dropActionType)
 		{
 			case DropActionType.Random:
-				return new RandomDropItem(dropRecipeTable, inventory, data);
+				return new RandomDropItem(inventory, data);
 		}
 
-		return new NormalDropItem(dropRecipeTable, inventory, data);
+		return new NormalDropItem(inventory, data);
 	}
 
 	public DropItem Make(string itemCode)
