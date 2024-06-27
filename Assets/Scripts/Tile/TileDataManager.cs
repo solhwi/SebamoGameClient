@@ -135,10 +135,6 @@ public class TileDataManager : MonoBehaviour
 
 	public SpecialTileBase GetCurrentSpecialTile(int currentOrderIndex)
 	{
-		string tileCode = GetCurrentTileCode(currentOrderIndex);
-		if (tileCode == string.Empty)
-			return null;
-
 		int tileIndex = GetTileIndexByOrder(currentOrderIndex);
 		if (tileIndex == -1)
 			return null;
@@ -153,15 +149,6 @@ public class TileDataManager : MonoBehaviour
 			return string.Empty;
 
 		return dataContainer.tileItems[tileIndex];
-	}
-
-	public string GetCurrentTileCode(int currentOrderIndex)
-	{
-		int tileIndex = GetTileIndexByOrder(currentOrderIndex);
-		if (tileIndex < 0 || tileIndex >= dataContainer.tileKinds.Length)
-			return string.Empty;
-
-		return dataContainer.tileKinds[tileIndex];
 	}
 
 	/// <summary>

@@ -29,7 +29,6 @@ public class TileDataContainer : ScriptableObject
 
 	public int[] tileOrders = null;
 	public string[] tileItems = null;
-	public string[] tileKinds = null;
 
 	public void SetTileOrder(IEnumerable<int> orders)
 	{
@@ -40,12 +39,6 @@ public class TileDataContainer : ScriptableObject
 	public void SetTileItems(IEnumerable<string> items)
 	{
 		tileItems = items.ToArray();
-		EditorUtility.SetDirty(this);
-	}
-
-	public void SetTileKinds(IEnumerable<string> kinds)
-	{
-		tileKinds = kinds.ToArray();
 		EditorUtility.SetDirty(this);
 	}
 
