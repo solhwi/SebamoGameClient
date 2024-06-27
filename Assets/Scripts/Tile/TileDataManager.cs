@@ -38,16 +38,24 @@ public struct WorldTileData
 
 		return new Vector2(x, y);
 	}
+
+	public TTile GetTile<TTile>() where TTile : TileBase
+	{
+		if(tileBase is TTile t)
+		{
+			return t;
+		}
+
+		return null;
+	}
 }
 
 public class TileDataManager : MonoBehaviour
 {
 	[SerializeField] private Tilemap tilemap;
 	[SerializeField] private TileDataContainer dataContainer;
-	[SerializeField] private TileTable tileTable;
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private DropItemFactory dropItemFactory;
-	[SerializeField] private TileActionFactory tileActionFactory;
 
 	public WorldTileData[] tileBoardDatas = null;
 
@@ -55,7 +63,7 @@ public class TileDataManager : MonoBehaviour
 	private Dictionary<int, DropItem> fieldDropItemDictionary = new Dictionary<int, DropItem>();
 	private Dictionary<int, SpriteRenderer> fieldDropItemRendererDictionary = new Dictionary<int, SpriteRenderer>();
 
-	private Dictionary<int, TileAction> tileActionDictionary = new Dictionary<int, TileAction>();
+	private Dictionary<int, TileBase> tileDictionary = new Dictionary<int, TileBase>();
 
 	private void Awake()
 	{
@@ -125,7 +133,7 @@ public class TileDataManager : MonoBehaviour
 		return dropItem;
 	}
 
-	public TileAction GetCurrentTileAction(int currentOrderIndex)
+	public SpecialTileBase GetCurrentSpecialTile(int currentOrderIndex)
 	{
 		string tileCode = GetCurrentTileCode(currentOrderIndex);
 		if (tileCode == string.Empty)
@@ -135,13 +143,7 @@ public class TileDataManager : MonoBehaviour
 		if (tileIndex == -1)
 			return null;
 
-		if (tileActionDictionary.TryGetValue(tileIndex, out var a))
-			return a;
-
-		var tileAction = tileActionFactory.Make(tileCode);
-		tileActionDictionary[tileIndex] = tileAction;
-
-		return tileAction;
+		return tileBoardDatas[tileIndex].tileBase as SpecialTileBase;
 	}
 
 	public string GetCurrentTileItemCode(int currentOrderIndex)
