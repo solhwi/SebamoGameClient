@@ -95,6 +95,12 @@ public class ResourceManager : MonoBehaviour
 
 	public void Destroy(GameObject obj)
 	{
+		if (obj == null)
+		{
+			Debug.LogError("삭제를 시도한 오브젝트가 이미 null입니다.");
+			return;
+		}
+
 		RecyclingObject recyclingObj = obj.GetComponent<RecyclingObject>();
 
 		if (recyclingObj != null)
@@ -106,7 +112,7 @@ public class ResourceManager : MonoBehaviour
 		}
 		else
 		{
-			Destroy(obj);
+			MonoBehaviour.Destroy(obj);
 		}
 	}
 

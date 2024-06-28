@@ -33,7 +33,8 @@ public abstract class DropItem
 	// 월드 타일 위에만 생성이 가능함
 	public virtual GameObject Create(WorldTileData worldTileData)
 	{
-		return ResourceManager.Instance.GetDropItemObject(rawData, worldTileData);
+		obj = ResourceManager.Instance.GetDropItemObject(rawData, worldTileData);
+		return obj;
 	}
 
 	public virtual void Destroy()
