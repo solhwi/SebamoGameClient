@@ -8,8 +8,6 @@ public class DropItemFactory : ScriptableObject
 	[SerializeField] private Inventory inventory = null;
 	[SerializeField] private ItemTable itemTable = null;
 
-	[SerializeField] private GameObject dropItemPrefab = null;
-
 	public DropItem Make(ItemTable.DropItemData data)
 	{
 		switch (data.dropActionType)

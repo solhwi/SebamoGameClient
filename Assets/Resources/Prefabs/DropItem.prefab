@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7634028503398072259}
   - component: {fileID: 857458254632778296}
-  - component: {fileID: 5604350978797562701}
   - component: {fileID: 347732877584814496}
+  - component: {fileID: 5415159394052761496}
   m_Layer: 0
   m_Name: DropItem
   m_TagString: Untagged
@@ -82,13 +82,26 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.1531532}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5604350978797562701
+--- !u!114 &347732877584814496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3577156646238378619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abebd3726c8879498597c43de0d0661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+--- !u!95 &5415159394052761496
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -110,16 +123,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &347732877584814496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3577156646238378619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4abebd3726c8879498597c43de0d0661, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0

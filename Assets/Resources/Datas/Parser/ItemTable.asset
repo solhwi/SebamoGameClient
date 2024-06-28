@@ -27,16 +27,25 @@ MonoBehaviour:
     - key: GreatSword
       shopIconAssetPath: Assets/Resources/
   dropItemDataList:
+  - key: Coin
+    fieldIconAssetPath: Assets/Resources/Sprites/Coin.asset
+    dropActionType: 0
+    actionParameter: -1
   - key: Box
-    fieldIconAssetPath: Assets/Resources/Sprites/Ryo.jpg
+    fieldIconAssetPath: Assets/Resources/AnimationController/DropItem/Box.controller
     dropActionType: 1
     actionParameter: UnityChanAccessory:30/GreatSword:70
   dropItemDataDictionary:
     m_keys:
+    - Coin
     - Box
     m_values:
+    - key: Coin
+      fieldIconAssetPath: Assets/Resources/Sprites/Coin.asset
+      dropActionType: 0
+      actionParameter: -1
     - key: Box
-      fieldIconAssetPath: Assets/Resources/Sprites/Ryo.jpg
+      fieldIconAssetPath: Assets/Resources/AnimationController/DropItem/Box.controller
       dropActionType: 1
       actionParameter: UnityChanAccessory:30/GreatSword:70
   partsItemDataList:
