@@ -61,9 +61,6 @@ public class TileDataManager : MonoBehaviour
 
 	private Dictionary<int, int> orderToTileIndexMap = new Dictionary<int, int>();
 	private Dictionary<int, DropItem> fieldDropItemDictionary = new Dictionary<int, DropItem>();
-	private Dictionary<int, SpriteRenderer> fieldDropItemRendererDictionary = new Dictionary<int, SpriteRenderer>();
-
-	private Dictionary<int, TileBase> tileDictionary = new Dictionary<int, TileBase>();
 
 	private void Awake()
 	{
@@ -85,11 +82,9 @@ public class TileDataManager : MonoBehaviour
 			fieldDropItemDictionary[i] = dropItem;
 
 			var boardData = tileBoardDatas[i];
-			var itemRenderer = dropItem.Create(boardData);
+			dropItem.Create(boardData);
 
 			yield return null;
-
-			fieldDropItemRendererDictionary[i] = itemRenderer;
 		}
 	}
 
@@ -136,7 +131,7 @@ public class TileDataManager : MonoBehaviour
 	public SpecialTileBase GetCurrentSpecialTile(int currentOrderIndex)
 	{
 		int tileIndex = GetTileIndexByOrder(currentOrderIndex);
-		if (tileIndex == -1)
+		if (tileIndex == -1 || tileBoardDatas.Length <= tileIndex)
 			return null;
 
 		return tileBoardDatas[tileIndex].tileBase as SpecialTileBase;
