@@ -6,17 +6,23 @@ using UnityEngine;
 public class Inventory : ScriptableObject
 {
 	[SerializeField] private ItemTable table;
-	public List<string> hasItemCodes = new List<string>();
-	public int coinCount;
+
+	[System.Serializable]
+	public class HasItemDataDictionary : SerializableDictionary<string, int> { }
+	public HasItemDataDictionary hasItemCodes = new HasItemDataDictionary();
 
 	public void PushItem(string itemCode)
 	{
 		if (table.IsValidItem(itemCode) == false)
 			return;
 
-		if (hasItemCodes.Contains(itemCode))
-			return;
-
-		hasItemCodes.Add(itemCode);
+		if (hasItemCodes.ContainsKey(itemCode))
+		{
+			hasItemCodes[itemCode]++;
+		}
+		else
+		{
+			hasItemCodes[itemCode] = 1;
+		}
 	}
 }

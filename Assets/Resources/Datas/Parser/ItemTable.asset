@@ -30,7 +30,7 @@ MonoBehaviour:
   - key: Coin
     fieldIconAssetPath: Assets/Resources/Sprites/Coin.asset
     dropActionType: 0
-    actionParameter: -1
+    actionParameter: 3
   - key: Box
     fieldIconAssetPath: Assets/Resources/AnimationController/DropItem/Box.controller
     dropActionType: 1
@@ -43,7 +43,7 @@ MonoBehaviour:
     - key: Coin
       fieldIconAssetPath: Assets/Resources/Sprites/Coin.asset
       dropActionType: 0
-      actionParameter: -1
+      actionParameter: 3
     - key: Box
       fieldIconAssetPath: Assets/Resources/AnimationController/DropItem/Box.controller
       dropActionType: 1

@@ -29,7 +29,7 @@ public class ResourceManager : MonoBehaviour
 	
 	private Dictionary<string, Object> cachedObjectDictionary = new Dictionary<string, Object>();
 
-	private void Awake()
+	private void Start()
 	{
 		for(int i = 0; i < 10; i++)
 		{

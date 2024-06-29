@@ -13,6 +13,7 @@ public abstract class DropItem
 	protected Inventory inventory = null;
 	protected ItemTable.DropItemData rawData = null;
 	protected Sprite itemSprite = null;
+	protected int dropCount;
 
 	private GameObject obj;
 
@@ -44,7 +45,11 @@ public abstract class DropItem
 
 	public virtual void Use()
 	{
-		inventory.PushItem(dropItemCode);
+		for(int i = 0; i < dropCount; i++)
+		{
+			inventory.PushItem(dropItemCode);
+		}
+
 		Destroy();
 	}
 }
@@ -54,6 +59,7 @@ public class NormalDropItem : DropItem
 	public NormalDropItem(Inventory inventory, ItemTable.DropItemData rawData) : base(inventory, rawData)
 	{
 		dropItemCode = rawData.key;
+		dropCount = int.Parse(rawData.actionParameter);
 	}
 }
 
@@ -63,5 +69,6 @@ public class RandomDropItem : DropItem
 	{
 		var dropRecipeDictionary = ItemTable.ParseDropRecipeData(rawData.actionParameter);
 		dropItemCode = ItemTable.GetDropItemCode(dropRecipeDictionary);
+		dropCount = 1;
 	}
 }
