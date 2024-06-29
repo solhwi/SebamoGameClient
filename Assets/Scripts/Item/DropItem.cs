@@ -47,7 +47,7 @@ public abstract class DropItem
 	{
 		for(int i = 0; i < dropCount; i++)
 		{
-			inventory.PushItem(dropItemCode);
+			inventory.AddItem(dropItemCode);
 		}
 
 		Destroy();

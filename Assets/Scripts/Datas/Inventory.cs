@@ -9,20 +9,28 @@ public class Inventory : ScriptableObject
 
 	[System.Serializable]
 	public class HasItemDataDictionary : SerializableDictionary<string, int> { }
-	public HasItemDataDictionary hasItemCodes = new HasItemDataDictionary();
+	public HasItemDataDictionary hasItems = new HasItemDataDictionary();
 
-	public void PushItem(string itemCode)
+	public void AddItem(string itemCode)
 	{
 		if (table.IsValidItem(itemCode) == false)
 			return;
 
-		if (hasItemCodes.ContainsKey(itemCode))
+		if (hasItems.ContainsKey(itemCode))
 		{
-			hasItemCodes[itemCode]++;
+			hasItems[itemCode]++;
 		}
 		else
 		{
-			hasItemCodes[itemCode] = 1;
+			hasItems[itemCode] = 1;
 		}
+	}
+
+	public int GetHasCoinCount()
+	{
+		if(hasItems.ContainsKey("Coin") == false)
+			return 0;
+
+		return hasItems["Coin"];
 	}
 }
