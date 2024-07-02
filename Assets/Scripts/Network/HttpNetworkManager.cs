@@ -1,55 +1,95 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Networking;
 
+[System.Serializable]
+public class PlayerPacketData : PacketData
+{
+	public PlayerSyncPacketData syncData;
+
+	public string[] hasItems; // 가진 아이템
+	public string[] appliedBuffItems; // 적용 중인 버프 아이템
+}
+
+[System.Serializable]
+public class PlayerSyncPacketData : PacketData
+{
+	public int playerTileIndex; // 현재 타일 인덱스
+	public int hasDiceCount; // 가진 주사위 개수
+
+	public string[] equippedItems; // 장착 중인 아이템
+
+}
+
+[System.Serializable]
+public class PacketData
+{ 
+
+}
+
 public class HttpNetworkManager : MonoBehaviour
 {
-	public void TryGet()
+	private string BaseURL = "http://localhost:8000/";
+
+	public async Task<PlayerPacketData> TryGetMyPlayerData()
 	{
-		StartCoroutine(GetRoutine(""));
+		return await TryGet<PlayerPacketData>();
 	}
 
-	public void TryPost()
+	public async Task<PlayerSyncPacketData[]> TryGetOtherPlayerDatas()
 	{
-		StartCoroutine(PostRoutine("", ""));
+		return await TryGet<PlayerSyncPacketData[]>();
 	}
 
-	public void TryPut()
+	public async Task<PlayerPacketData> TryPostMyPlayerData(PlayerPacketData data)
 	{
-		StartCoroutine(PutRoutine("", ""));
+		return await TryPost<PlayerPacketData>(data);
 	}
 
-	private IEnumerator PutRoutine(string url, string data)
+	public async Task<T> TryGet<T>()
 	{
-		UnityWebRequest www = UnityWebRequest.Put(url, data);
-		yield return OnRequest(www);
+		string responseData = await GetRoutine(BaseURL);
+		if (responseData == null)
+			return default;
+
+		return JsonUtility.FromJson<T>(responseData);
 	}
 
-	private IEnumerator PostRoutine(string url, string data)
+	public async Task<T> TryPost<T>(PacketData requestData)
+	{
+		string requestJsonData = JsonUtility.ToJson(requestData);
+		string responseJsonData = await PostRoutine(BaseURL, requestJsonData);
+
+		return JsonUtility.FromJson<T>(responseJsonData);
+	}
+
+	private Task<string> PostRoutine(string url, string data)
 	{
 		UnityWebRequest www = UnityWebRequest.PostWwwForm(url, data);
-		yield return OnRequest(www);
+		return OnRequest(www);
 	}
 
-	private IEnumerator GetRoutine(string url)
+	private Task<string> GetRoutine(string url)
 	{
 		UnityWebRequest www = UnityWebRequest.Get(url);
-		yield return OnRequest(www);
+		return OnRequest(www);
 	}
 
-	private IEnumerator OnRequest(UnityWebRequest request)
+	private async Task<string> OnRequest(UnityWebRequest request)
 	{
-		yield return request.SendWebRequest();
+		await request.SendWebRequest();
 
 		if (request.error == null)
 		{
-			Debug.Log(request.downloadHandler.text);
+			return request.downloadHandler.text;
 		}
 		else
 		{
-			Debug.Log(request.error);
+			return request.error;
 		}
 	}
 

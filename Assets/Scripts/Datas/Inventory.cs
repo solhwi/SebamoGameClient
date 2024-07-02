@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Inventory")]
@@ -24,6 +25,10 @@ public class Inventory : ScriptableObject
 		{
 			hasItems[itemCode] = 1;
 		}
+
+#if UNITY_EDITOR
+		EditorUtility.SetDirty(this);
+#endif
 	}
 
 	public int GetHasCoinCount()

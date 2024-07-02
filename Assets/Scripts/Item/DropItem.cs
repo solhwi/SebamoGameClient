@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public enum DropActionType
@@ -49,6 +50,10 @@ public abstract class DropItem
 		{
 			inventory.AddItem(dropItemCode);
 		}
+
+#if UNITY_EDITOR
+		AssetDatabase.SaveAssetIfDirty(inventory);
+#endif
 
 		Destroy();
 	}
