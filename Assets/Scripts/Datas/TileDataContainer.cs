@@ -30,6 +30,8 @@ public class TileDataContainer : ScriptableObject
 	public int[] tileOrders = null;
 	public string[] tileItems = null;
 
+	private Dictionary<int, int> orderToTileIndexMap = new Dictionary<int, int>();
+
 	public void SetTileOrder(IEnumerable<int> orders)
 	{
 		tileOrders = orders.ToArray();
@@ -68,5 +70,28 @@ public class TileDataContainer : ScriptableObject
 		}
 
 		return Vector3.zero;
+	}
+
+	public int GetTileIndexByOrder(int currentOrder)
+	{
+		if (currentOrder < 0)
+			return -1;
+
+		if (currentOrder >= tileOrders.Length)
+			return -1;
+
+		if (orderToTileIndexMap.ContainsKey(currentOrder))
+			return orderToTileIndexMap[currentOrder];
+
+		for (int i = 0; i < tileOrders.Length; i++)
+		{
+			if (tileOrders[i] == currentOrder)
+			{
+				orderToTileIndexMap[currentOrder] = i;
+				return i;
+			}
+		}
+
+		return -1;
 	}
 }

@@ -16,6 +16,7 @@ MonoBehaviour:
   hasItems:
     m_keys:
     - Coin
-    m_values: 03000000
+    - UnityChanAccessory
+    m_values: 0300000001000000
   characterMeshTypes: 0000000000000000000000000000000000000000
   characterPropTypes: 00000000

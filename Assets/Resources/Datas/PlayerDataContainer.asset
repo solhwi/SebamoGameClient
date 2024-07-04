@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: PlayerDataContainer
   m_EditorClassIdentifier: 
   tileDataContainer: {fileID: 11400000, guid: 6bff3bcc2db60844cb56ca069bb23b8c, type: 2}
-  currentTileOrderIndex: 0
+  playerName: "\uC194\uD718"
+  currentTileOrder: 10
+  currentTileIndex: 3
+  hasDiceCount: 0
   moveTimeByOneTile: 1
-  characterMeshTypes: 0000000000000000000000000000000000000000
-  characterPropTypes: 05000000
+  otherPlayerPacketDatas:
+  - playerName: 
+    playerTileIndex: 0
+    hasDiceCount: 0
+    equippedItems: []

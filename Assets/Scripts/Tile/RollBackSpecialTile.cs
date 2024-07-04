@@ -9,6 +9,6 @@ public class RollBackSpecialTile : SpecialTileBase
 
 	public override void DoAction()
 	{
-		playerDataContainer.AddCurrentOrderIndex(-count);
+		playerDataContainer.AddCurrentOrder(-count);
 	}
 }

@@ -13,11 +13,11 @@ public class CharacterMoveComponent : BoardGameSubscriber
 		yield return null;
 	}
 
-	public override IEnumerator OnMove(int currentOrderIndex, int diceCount)
+	public override IEnumerator OnMove(int currentOrder, int diceCount)
 	{
 		characterView.DoRun();
 
-		var tiles = tileDataManager.GetTilePath(currentOrderIndex, diceCount);
+		var tiles = tileDataManager.GetTilePath(currentOrder, diceCount);
 		foreach (var tile in tiles)
 		{
 			Vector3 startPos = transform.position;

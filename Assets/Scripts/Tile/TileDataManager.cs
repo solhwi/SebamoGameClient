@@ -59,7 +59,6 @@ public class TileDataManager : MonoBehaviour
 
 	public WorldTileData[] tileBoardDatas = null;
 
-	private Dictionary<int, int> orderToTileIndexMap = new Dictionary<int, int>();
 	private Dictionary<int, DropItem> fieldDropItemDictionary = new Dictionary<int, DropItem>();
 
 	private void Awake()
@@ -109,13 +108,13 @@ public class TileDataManager : MonoBehaviour
 		}
 	}
 
-	public DropItem GetCurrentTileItem(int currentOrderIndex)
+	public DropItem GetCurrentTileItem(int currentOrder)
 	{
-		string itemCode = GetCurrentTileItemCode(currentOrderIndex);
+		string itemCode = GetCurrentTileItemCode(currentOrder);
 		if (itemCode == string.Empty)
 			return null;
 
-		int tileIndex = GetTileIndexByOrder(currentOrderIndex);
+		int tileIndex = GetTileIndexByOrder(currentOrder);
 		if (tileIndex == -1)
 			return null;
 
@@ -128,18 +127,18 @@ public class TileDataManager : MonoBehaviour
 		return dropItem;
 	}
 
-	public SpecialTileBase GetCurrentSpecialTile(int currentOrderIndex)
+	public SpecialTileBase GetCurrentSpecialTile(int currentOrder)
 	{
-		int tileIndex = GetTileIndexByOrder(currentOrderIndex);
+		int tileIndex = GetTileIndexByOrder(currentOrder);
 		if (tileIndex == -1 || tileBoardDatas.Length <= tileIndex)
 			return null;
 
 		return tileBoardDatas[tileIndex].tileBase as SpecialTileBase;
 	}
 
-	public string GetCurrentTileItemCode(int currentOrderIndex)
+	public string GetCurrentTileItemCode(int currentOrder)
 	{
-		int tileIndex = GetTileIndexByOrder(currentOrderIndex);
+		int tileIndex = GetTileIndexByOrder(currentOrder);
 		if (tileIndex < 0 || tileIndex >= dataContainer.tileItems.Length)
 			return string.Empty;
 
@@ -152,9 +151,9 @@ public class TileDataManager : MonoBehaviour
 	/// <param name="currentIndex"></param>
 	/// <param name="progressCount"></param>
 	/// <returns></returns>
-	public IEnumerable<WorldTileData> GetTilePath(int currentOrderIndex, int progressCount)
+	public IEnumerable<WorldTileData> GetTilePath(int currentOrder, int progressCount)
 	{
-		for(int i = currentOrderIndex + 1; i <= currentOrderIndex + progressCount; i++)
+		for(int i = currentOrder + 1; i <= currentOrder + progressCount; i++)
 		{
 			int tileIndex = GetTileIndexByOrder(i);
 			if (tileIndex < 0 || tileIndex >= tileBoardDatas.Length)
@@ -167,48 +166,28 @@ public class TileDataManager : MonoBehaviour
 	/// <summary>
 	/// 현재 타일 순서에 맞는 타일 인덱스 가져오기
 	/// </summary>
-	/// <param name="currentOrderIndex"></param>
+	/// <param name="currentOrder"></param>
 	/// <returns></returns>
-	public int GetTileIndexByOrder(int currentOrderIndex)
+	public int GetTileIndexByOrder(int currentOrder)
 	{
-		if (currentOrderIndex < 0)
-			return -1;
-
 		if (dataContainer == null)
 			return -1;
 
-		var orderMap = dataContainer.tileOrders;
-
-		if (currentOrderIndex >= orderMap.Length)
-			return -1;
-
-		if (orderToTileIndexMap.ContainsKey(currentOrderIndex))
-			return orderToTileIndexMap[currentOrderIndex];
-
-		for (int i = 0; i < orderMap.Length; i++)
-		{
-			if (orderMap[i] == currentOrderIndex)
-			{
-				orderToTileIndexMap[currentOrderIndex] = i;
-				return i;
-			}
-		}
-
-		return -1;
+		return dataContainer.GetTileIndexByOrder(currentOrder);
 	}
 
 	/// <summary>
 	/// 현재 타일 순서에 맞는 타일 데이터 가져오기
 	/// </summary>
-	/// <param name="currentOrderIndex"></param>
+	/// <param name="currentOrder"></param>
 	/// <returns></returns>
-	public WorldTileData GetTileDataByOrder(int currentOrderIndex)
+	public WorldTileData GetTileDataByOrder(int currentOrder)
 	{
-		int tileIndex = GetTileIndexByOrder(currentOrderIndex);
+		int tileIndex = GetTileIndexByOrder(currentOrder);
 
 		if (tileBoardDatas.Length <= tileIndex || tileIndex < 0)
 		{
-			Debug.LogError($"{currentOrderIndex}가 타일 데이터 인덱스를 넘어감");
+			Debug.LogError($"{currentOrder}가 타일 데이터 인덱스를 넘어감");
 			return default;
 		}	
 

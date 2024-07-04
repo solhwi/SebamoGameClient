@@ -14,8 +14,11 @@ public class PlayerDataContainer : ScriptableObject
 	[Header("[현재 플레이어 이름]")]
 	public string playerName = "솔휘";
 
-	[Header("[현재 타일 내 위치]")]
-	public int currentTileOrderIndex = 0;
+	[Header("[현재 위치한 타일 순서]")]
+	public int currentTileOrder = 0;
+
+	[Header("[현재 위치한 타일 인덱스]")]
+	public int currentTileIndex = 0;
 
 	[Header("[가지고 있는 주사위 수]")]
 	public int hasDiceCount = 0;
@@ -26,30 +29,34 @@ public class PlayerDataContainer : ScriptableObject
 	[Header("[다른 플레이어들 정보]")]
 	public PlayerPacketData[] otherPlayerPacketDatas = null;
 
-	public void SaveCurrentOrderIndex(int currentTileOrderIndex)
+	public void SaveCurrentTile(int currentTileOrder)
 	{
-		if (tileDataContainer.tileOrders.Length > currentTileOrderIndex)
+		if (tileDataContainer.tileOrders.Length > currentTileOrder)
 		{
-			this.currentTileOrderIndex = currentTileOrderIndex;
+			this.currentTileOrder = currentTileOrder;
 		}
-		else if(currentTileOrderIndex <= 0)
+		else if (currentTileOrder <= 0)
 		{
-			this.currentTileOrderIndex = 0;
+			this.currentTileOrder = 0;
 		}
 		else
 		{
-			this.currentTileOrderIndex = tileDataContainer.tileOrders.Length - 1;
+			this.currentTileOrder = tileDataContainer.tileOrders.Length - 1;
 		}
+
+		currentTileIndex = tileDataContainer.GetTileIndexByOrder(currentTileOrder);
 	}
 
-	public void AddCurrentOrderIndex(int addOrderCount)
+	public void AddCurrentOrder(int addOrderCount)
 	{
-		SaveCurrentOrderIndex(currentTileOrderIndex + addOrderCount);
+		SaveCurrentTile(currentTileOrder + addOrderCount);
 	}
 
 	public void SetMyPacketData(MyPlayerPacketData myData)
 	{
-		currentTileOrderIndex = myData.playerData.playerTileIndex;
+		currentTileIndex = myData.playerData.playerTileIndex;
+		currentTileOrder = tileDataContainer.tileOrders[currentTileIndex];
+
 		hasDiceCount = myData.playerData.hasDiceCount;
 		playerName = myData.playerData.playerName;
 	}

@@ -6,9 +6,9 @@ using UnityEngine;
 public abstract class BoardGameSubscriber : MonoBehaviour
 {
 	public virtual IEnumerator OnRollDice(int diceCount) { yield return null; }
-	public virtual IEnumerator OnMove(int currentOrderIndex, int diceCount) { yield return null; }
+	public virtual IEnumerator OnMove(int currentOrder, int diceCount) { yield return null; }
 	public virtual IEnumerator OnGetItem(DropItem dropItem) { yield return null; }
-	public virtual IEnumerator OnDoTileAction(SpecialTileBase tile, int currentOrderIndex, int nextOrderIndex) { yield return null; }
+	public virtual IEnumerator OnDoTileAction(SpecialTileBase tile, int currentOrder, int nextOrderIndex) { yield return null; }
 }
 
 public class BoardGameManager : MonoBehaviour
@@ -29,12 +29,12 @@ public class BoardGameManager : MonoBehaviour
 
 	public class MoveStateParam : IStateParam
 	{
-		public readonly int currentOrderIndex = 0;
+		public readonly int currentOrder = 0;
 		public readonly int diceCount = 0;
 
-		public MoveStateParam(int currentOrderIndex, int diceCount)
+		public MoveStateParam(int currentOrder, int diceCount)
 		{
-			this.currentOrderIndex = currentOrderIndex;
+			this.currentOrder = currentOrder;
 			this.diceCount = diceCount;
 		}
 	}
@@ -151,17 +151,17 @@ public class BoardGameManager : MonoBehaviour
 
 	private IEnumerator ProcessRollDice()
 	{
-		int currentOrderIndex = playerDataContainer.currentTileOrderIndex;
+		int currentOrder = playerDataContainer.currentTileOrder;
 		int diceCount = UnityEngine.Random.Range(1, 7); // 1 ~ 6 생성
 
-		playerDataContainer.SaveCurrentOrderIndex(currentOrderIndex + diceCount); // 주사위를 굴리는 시점에 반영한다.
+		playerDataContainer.SaveCurrentTile(currentOrder + diceCount); // 주사위를 굴리는 시점에 반영한다.
 
 		foreach (var subscriber in subscribers)
 		{
 			yield return subscriber?.OnRollDice(diceCount); // 주사위 굴리기 연출
 		}
 
-		TryChangeState(GameState.MoveCharacter, new MoveStateParam(currentOrderIndex, diceCount));
+		TryChangeState(GameState.MoveCharacter, new MoveStateParam(currentOrder, diceCount));
 	}
 
 	private IEnumerator ProcessMoveCharacter()
@@ -169,12 +169,12 @@ public class BoardGameManager : MonoBehaviour
 		var param = currentStateParam as MoveStateParam;
 		if (param != null)
 		{
-			int currentOrderIndex = param.currentOrderIndex;
+			int currentOrder = param.currentOrder;
 			int diceCount = param.diceCount;
 
 			foreach (var subscriber in subscribers)
 			{
-				yield return subscriber?.OnMove(currentOrderIndex, diceCount); // 캐릭터 움직임 관련 연출
+				yield return subscriber?.OnMove(currentOrder, diceCount); // 캐릭터 움직임 관련 연출
 			}
 		}
 
@@ -183,9 +183,9 @@ public class BoardGameManager : MonoBehaviour
 
 	private IEnumerator ProcessGetItem()
 	{
-		int currentOrderIndex = playerDataContainer.currentTileOrderIndex;
+		int currentOrder = playerDataContainer.currentTileOrder;
 
-		DropItem item = tileDataManager.GetCurrentTileItem(currentOrderIndex);
+		DropItem item = tileDataManager.GetCurrentTileItem(currentOrder);
 		if (item != null)
 		{
 			item.Use();
@@ -201,18 +201,18 @@ public class BoardGameManager : MonoBehaviour
 
 	private IEnumerator ProcessTileAction()
 	{
-		int currentOrderIndex = playerDataContainer.currentTileOrderIndex;
+		int currentOrder = playerDataContainer.currentTileOrder;
 
-		var specialTile = tileDataManager.GetCurrentSpecialTile(currentOrderIndex);
+		var specialTile = tileDataManager.GetCurrentSpecialTile(currentOrder);
 		if (specialTile != null)
 		{
 			specialTile.DoAction();
 
-			int nextOrderIndex = playerDataContainer.currentTileOrderIndex;
+			int nextOrderIndex = playerDataContainer.currentTileOrder;
 
 			foreach (var subscriber in subscribers)
 			{
-				yield return subscriber?.OnDoTileAction(specialTile, currentOrderIndex, nextOrderIndex);
+				yield return subscriber?.OnDoTileAction(specialTile, currentOrder, nextOrderIndex);
 			}
 		}
 
@@ -228,7 +228,7 @@ public class BoardGameManager : MonoBehaviour
 		}
 
 		// 내 타일이 몇 번째 순서인 지
-		int currentPlayerTileOrderIndex = playerDataContainer.currentTileOrderIndex;
+		int currentPlayerTileOrderIndex = playerDataContainer.currentTileOrder;
 
 		if (tileDataManager == null)
 		{

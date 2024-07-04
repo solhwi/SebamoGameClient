@@ -15,10 +15,10 @@ public class BoardGameCanvas : BoardGameSubscriber
 	[SerializeField] private RectTransform rankingBoard = null;
 	public bool isRankingBoardToggleOn = false;
 
-	public override IEnumerator OnMove(int currentOrderIndex, int diceCount)
+	public override IEnumerator OnMove(int currentOrder, int diceCount)
 	{
 		yield return null;
-		statusText.text = $"현재 위치 : {playerDataContainer.currentTileOrderIndex}";
+		statusText.text = $"현재 위치 : {playerDataContainer.currentTileOrder}";
 	}
 
 	public override IEnumerator OnRollDice(int diceCount)
