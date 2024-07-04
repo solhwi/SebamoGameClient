@@ -6,48 +6,46 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Networking;
 
-[System.Serializable]
-public class PlayerPacketData : PacketData
-{
-	public PlayerSyncPacketData syncData;
-
-	public string[] hasItems; // 가진 아이템
-	public string[] appliedBuffItems; // 적용 중인 버프 아이템
-}
-
-[System.Serializable]
-public class PlayerSyncPacketData : PacketData
-{
-	public int playerTileIndex; // 현재 타일 인덱스
-	public int hasDiceCount; // 가진 주사위 개수
-
-	public string[] equippedItems; // 장착 중인 아이템
-
-}
-
-[System.Serializable]
-public class PacketData
-{ 
-
-}
-
 public class HttpNetworkManager : MonoBehaviour
 {
-	private string BaseURL = "http://localhost:8000/";
+	[SerializeField] private PlayerDataContainer playerDataContainer;
+	[SerializeField] private Inventory inventory;
 
-	public async Task<PlayerPacketData> TryGetMyPlayerData()
+	private string BaseURL = "http://localhost:8001/";
+
+	public async Task<MyPlayerPacketData> TryGetMyPlayerData()
 	{
-		return await TryGet<PlayerPacketData>();
+		var data = await TryGet<MyPlayerPacketData>();
+
+		playerDataContainer.SetMyPacketData(data);
+		inventory.SetMyPacketData(data);
+
+		return data;
 	}
 
-	public async Task<PlayerSyncPacketData[]> TryGetOtherPlayerDatas()
+	public async Task<PlayerPacketData[]> TryGetOtherPlayerDatas()
 	{
-		return await TryGet<PlayerSyncPacketData[]>();
+		var otherDatas = await TryGet<PlayerPacketData[]>();
+
+		playerDataContainer.SetOtherPacketData(otherDatas);
+
+		return otherDatas;
 	}
 
-	public async Task<PlayerPacketData> TryPostMyPlayerData(PlayerPacketData data)
+	public async Task<MyPlayerPacketData> TryPostMyPlayerData()
 	{
-		return await TryPost<PlayerPacketData>(data);
+		var sendData = MakePlayerPacketData();
+		var receiveData = await TryPost<MyPlayerPacketData>(sendData);
+
+		playerDataContainer.SetMyPacketData(receiveData);
+		inventory.SetMyPacketData(receiveData);
+
+		return receiveData;
+	}
+
+	private MyPlayerPacketData MakePlayerPacketData()
+	{
+		return new MyPlayerPacketData();
 	}
 
 	public async Task<T> TryGet<T>()

@@ -364,6 +364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df36c252b3f84d64b9a2dee80592addc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
+  inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
 --- !u!1 &65808975
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,9 @@ public class Inventory : ScriptableObject
 
 	[System.Serializable]
 	public class HasItemDataDictionary : SerializableDictionary<string, int> { }
+
+	[Header("[보유 중인 아이템]")]
+	[Space]
 	public HasItemDataDictionary hasItems = new HasItemDataDictionary();
 
 	[Header("[장착 중인 바디 파츠]")]
@@ -66,5 +69,18 @@ public class Inventory : ScriptableObject
 			return characterMeshTypes[0];
 
 		return CharacterType.UnityChan;
+	}
+
+	public void SetMyPacketData(MyPlayerPacketData myData)
+	{
+		for (int i = 0; i < myData.hasItems.Length; i++)
+		{
+			string itemCode = myData.hasItems[i];
+			int itemCount = myData.hasItemCounts[i];
+
+			hasItems[itemCode] = itemCount;
+		}
+
+		// 장착 중인 아이템, 적용 중인 버프 아이템도 반영
 	}
 }
