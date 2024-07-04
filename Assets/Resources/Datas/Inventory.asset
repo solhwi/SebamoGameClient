@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   table: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
-  hasItemCodes: []
-  coinCount: 0
+  hasItems:
+    m_keys:
+    - Coin
+    m_values: 03000000
+  characterMeshTypes: 0000000000000000000000000000000000000000
+  characterPropTypes: 00000000

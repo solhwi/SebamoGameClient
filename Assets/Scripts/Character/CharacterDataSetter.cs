@@ -49,7 +49,7 @@ public static class TransformExtension
 /// </summary>
 public class CharacterDataSetter : MonoBehaviour
 {
-	[SerializeField] private PlayerDataContainer playerDataContainer;
+	[SerializeField] private Inventory inventory;
 	[SerializeField] private CharacterDataContainer dataContainer = null;
 
 	[SerializeField] private CharacterAnimationController animationController = null;
@@ -58,7 +58,7 @@ public class CharacterDataSetter : MonoBehaviour
 
 	public void SetAvatar()
 	{
-		CharacterType characterType = playerDataContainer.GetCharacterTypeByPartsType(CharacterPartsType.Body);
+		CharacterType characterType = inventory.GetCharacterTypeByPartsType(CharacterPartsType.Body);
 		var avatar = dataContainer.characterAvatars[(int)characterType];
 
 		animationController.SetAvatar(avatar);
@@ -132,7 +132,7 @@ public class CharacterDataSetter : MonoBehaviour
 		var rightEyeObj = Instantiate(rightEyePrafab, rightEyeTransform);
 
 		// 소품
-		foreach(var propType in playerDataContainer.characterPropTypes)
+		foreach(var propType in inventory.characterPropTypes)
 		{
 			if (propType == PropType.None)
 				continue;
@@ -176,19 +176,19 @@ public class CharacterDataSetter : MonoBehaviour
 
 	private GameObject GetParts(CharacterPartsType partsType)
 	{
-		CharacterType characterType = playerDataContainer.GetCharacterTypeByPartsType(partsType);
+		CharacterType characterType = inventory.GetCharacterTypeByPartsType(partsType);
 		return dataContainer.GetPartsObject(characterType, partsType);
 	}
 
 	private Mesh GetMesh(CharacterPartsType partsType)
 	{
-		CharacterType characterType = playerDataContainer.GetCharacterTypeByPartsType(partsType);
+		CharacterType characterType = inventory.GetCharacterTypeByPartsType(partsType);
 		return dataContainer.GetMesh(characterType, partsType);
 	}
 
 	private Material GetMaterial(CharacterPartsType partsType)
 	{
-		CharacterType characterType = playerDataContainer.GetCharacterTypeByPartsType(partsType);
+		CharacterType characterType = inventory.GetCharacterTypeByPartsType(partsType);
 		return dataContainer.GetMaterial(characterType, partsType);
 	}
 

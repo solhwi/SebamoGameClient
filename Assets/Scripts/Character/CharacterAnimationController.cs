@@ -28,7 +28,7 @@ public enum CharacterState
 public class CharacterAnimationController : MonoBehaviour
 {
 	[SerializeField] private RuntimeAnimatorController controller = null;
-	[SerializeField] private PlayerDataContainer playerDataContainer = null;
+	[SerializeField] private Inventory inventory = null;
 
 	private Animator Animator
 	{
@@ -58,13 +58,13 @@ public class CharacterAnimationController : MonoBehaviour
 
 	public void DoIdle()
 	{
-		if (playerDataContainer.characterPropTypes == null || playerDataContainer.characterPropTypes.Length <= 0)
+		if (inventory.characterPropTypes == null || inventory.characterPropTypes.Length <= 0)
 		{
 			ChangeState(CharacterState.Idle);
 		}
 		else
 		{
-			var propType = playerDataContainer.characterPropTypes[0];
+			var propType = inventory.characterPropTypes[0];
 			if (propType == PropType.GreatSword)
 			{
 				ChangeState(CharacterState.Idle_GreatSword);
@@ -94,13 +94,13 @@ public class CharacterAnimationController : MonoBehaviour
 
 	public void DoRun()
 	{
-		if (playerDataContainer.characterPropTypes == null || playerDataContainer.characterPropTypes.Length <= 0)
+		if (inventory.characterPropTypes == null || inventory.characterPropTypes.Length <= 0)
 		{
 			ChangeState(CharacterState.Run);
 		}
 		else
 		{
-			var propType = playerDataContainer.characterPropTypes[0];
+			var propType = inventory.characterPropTypes[0];
 			if (propType == PropType.GreatSword)
 			{
 				ChangeState(CharacterState.Run_GreatSword);
@@ -130,10 +130,10 @@ public class CharacterAnimationController : MonoBehaviour
 
 	public void DoAttack()
 	{
-		if (playerDataContainer.characterPropTypes == null || playerDataContainer.characterPropTypes.Length <= 0)
+		if (inventory.characterPropTypes == null || inventory.characterPropTypes.Length <= 0)
 			return;
 
-		var propType = playerDataContainer.characterPropTypes[0];
+		var propType = inventory.characterPropTypes[0];
 		if (propType == PropType.GreatSword)
 		{
 			ChangeState(CharacterState.Attack_GreatSword);
