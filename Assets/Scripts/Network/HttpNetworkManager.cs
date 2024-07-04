@@ -8,30 +8,48 @@ using UnityEngine.Networking;
 
 public class HttpNetworkManager : MonoBehaviour
 {
+	[SerializeField] private string BaseURL = "http://localhost:8001/";
+
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Inventory inventory;
 
-	private string BaseURL = "http://localhost:8001/";
+	[SerializeField] private float updateFrequency = 60.0f;
 
-	public async Task<MyPlayerPacketData> TryGetMyPlayerData()
+	private float t = 0.0f;
+
+	//private async void Start()
+	//{
+	//	await TryGetMyPlayerData();
+	//}
+	
+	//private async void Update()
+	//{
+	//	t += Time.deltaTime;
+	//	if (t > updateFrequency)
+	//	{
+	//		await TryGetOtherPlayerDatas();
+	//		t = 0.0f;
+	//	}
+	//}
+
+	// 최초 1회
+	private async Task TryGetMyPlayerData()
 	{
 		var data = await TryGet<MyPlayerPacketData>();
 
 		playerDataContainer.SetMyPacketData(data);
 		inventory.SetMyPacketData(data);
-
-		return data;
 	}
 
-	public async Task<PlayerPacketData[]> TryGetOtherPlayerDatas()
+	// 주기적으로 다른 플레이어 정보 가져옴
+	private async Task TryGetOtherPlayerDatas()
 	{
 		var otherDatas = await TryGet<PlayerPacketData[]>();
 
 		playerDataContainer.SetOtherPacketData(otherDatas);
-
-		return otherDatas;
 	}
 
+	// 자신의 정보가 변경될 때마다 업데이트쳐줌
 	public async Task<MyPlayerPacketData> TryPostMyPlayerData()
 	{
 		var sendData = MakePlayerPacketData();
