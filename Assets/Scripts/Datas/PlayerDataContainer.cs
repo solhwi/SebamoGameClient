@@ -12,6 +12,9 @@ public class PlayerDataContainer : ScriptableObject
 {
 	public TileDataContainer tileDataContainer;
 
+	[Header("현재 플레이어 그룹")]
+	public string playerGroup = "Kahlua";
+
 	[Header("[현재 플레이어 이름]")]
 	public string playerName = "솔휘";
 
@@ -79,15 +82,29 @@ public class PlayerDataContainer : ScriptableObject
 
 	public void SetMyPacketData(MyPlayerPacketData myData)
 	{
+		if (myData == null)
+			return;
+
+		if (myData.playerData.playerName != playerName)
+			return;
+
+		if (myData.playerData.playerGroup != playerGroup)
+			return;
+
 		currentTileIndex = myData.playerData.playerTileIndex;
 		currentTileOrder = tileDataContainer.tileOrders[currentTileIndex];
 
 		hasDiceCount = myData.playerData.hasDiceCount;
-		playerName = myData.playerData.playerName;
 	}
 
-	public void SetOtherPacketData(IEnumerable<PlayerPacketData> otherDatas)
+	public void SetOtherPacketData(PlayerPacketDataCollection playerDataCollection)
 	{
-		otherPlayerPacketDatas = otherDatas.ToArray();
+		if (playerDataCollection == null)
+			return;
+
+		if (playerDataCollection.playerDatas == null)
+			return;
+
+		otherPlayerPacketDatas = playerDataCollection.playerDatas.ToArray();
 	}
 }

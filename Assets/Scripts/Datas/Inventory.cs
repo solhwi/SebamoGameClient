@@ -263,6 +263,9 @@ public class Inventory : ScriptableObject
 		equippedItems = new string[6];
 		equippedBodyTypes = new CharacterType[5];
 
+		if (myData == null)
+			return;
+
 		for (int i = 0; i < myData.hasItems.Length; i++)
 		{
 			string itemCode = myData.hasItems[i];

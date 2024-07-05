@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -11,32 +12,47 @@ using UnityEngine.Networking;
 
 public class HttpNetworkManager : Singleton<HttpNetworkManager>
 {
-	[SerializeField] private string BaseURL = "http://localhost:8001/";
+	[SerializeField] private string BaseURL = "http://localhost:8001";
 
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Inventory inventory;
 
 	[SerializeField] private float updateFrequency = 60.0f;
 
+	[SerializeField] private bool isOnNetworkMode = false;
+
 	public bool IsLoaded { get; private set; }
 	private float t = 0.0f;
 
+	private void Awake()
+	{
+		playerDataContainer.playerGroup = "Exp";
+		playerDataContainer.playerName = "지현";
+	}
+
 	private async void Start()
 	{
-		//IsLoaded = false;
-		//await TryGetMyPlayerData();
-		//await TryGetOtherPlayerDatas();
-		//IsLoaded = true;
+		if (isOnNetworkMode)
+		{
+			IsLoaded = false;
+			await TryGetMyPlayerData();
+			await TryGetOtherPlayerDatas();
+		}
+
+		IsLoaded = true;
 	}
 
 	private async void Update()
 	{
-		//t += Time.deltaTime;
-		//if (t > updateFrequency)
-		//{
-		//	await TryGetOtherPlayerDatas();
-		//	t = 0.0f;
-		//}
+		if (isOnNetworkMode)
+		{
+			t += Time.deltaTime;
+			if (t > updateFrequency)
+			{
+				t = 0.0f;
+				await TryGetOtherPlayerDatas();
+			}
+		}
 	}
 
 	// 최초 1회
@@ -51,7 +67,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	// 주기적으로 다른 플레이어 정보 가져옴
 	private async Task TryGetOtherPlayerDatas()
 	{
-		var otherDatas = await TryGet<PlayerPacketData[]>("Other");
+		var otherDatas = await TryGet<PlayerPacketDataCollection>("Other");
 
 		playerDataContainer.SetOtherPacketData(otherDatas);
 	}
@@ -59,11 +75,14 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	// 자신의 정보가 변경될 때마다 업데이트쳐줌
 	public async Task TryPostMyPlayerData()
 	{
-		//var sendData = MakePlayerPacketData();
-		//var receiveData = await TryPost<MyPlayerPacketData>(sendData, "My");
+		if (isOnNetworkMode == false)
+			return;
 
-		//playerDataContainer.SetMyPacketData(receiveData);
-		//inventory.SetMyPacketData(receiveData);
+		var sendData = MakePlayerPacketData();
+		var receiveData = await TryPost<MyPlayerPacketData>(sendData);
+
+		playerDataContainer.SetMyPacketData(receiveData);
+		inventory.SetMyPacketData(receiveData);
 	}
 
 	private MyPlayerPacketData MakePlayerPacketData()
@@ -72,6 +91,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		data.playerData = new PlayerPacketData();
 
 		data.playerData.playerName = playerDataContainer.playerName;
+		data.playerData.playerGroup = playerDataContainer.playerGroup;
 		data.playerData.hasDiceCount = playerDataContainer.hasDiceCount;
 		data.playerData.playerTileIndex = playerDataContainer.currentTileIndex;
 
@@ -86,17 +106,21 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	public async Task<T> TryGet<T>(string urlParameter)
 	{
-		string responseData = await GetRoutine(BaseURL + urlParameter);
+		string group = playerDataContainer.playerGroup;
+		string name = playerDataContainer.playerName;
+
+		string responseData = await GetRoutine($"{BaseURL}/{group}?p1={name}&p2={urlParameter}");
 		if (responseData == null)
 			return default;
 
 		return JsonUtility.FromJson<T>(responseData);
 	}
 
-	public async Task<T> TryPost<T>(PacketData requestData, string urlParameter)
+	public async Task<T> TryPost<T>(PacketData requestData)
 	{
 		string requestJsonData = JsonUtility.ToJson(requestData);
-		string responseJsonData = await PostRoutine(BaseURL + urlParameter, requestJsonData);
+
+		string responseJsonData = await PostRoutine(BaseURL, requestJsonData);
 
 		return JsonUtility.FromJson<T>(responseJsonData);
 	}
@@ -104,6 +128,13 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	private Task<string> PostRoutine(string url, string data)
 	{
 		UnityWebRequest www = UnityWebRequest.PostWwwForm(url, data);
+
+		byte[] jsonToSend = new UTF8Encoding().GetBytes(data);
+		www.uploadHandler = new UploadHandlerRaw(jsonToSend);
+
+		//json 헤더 추가
+		www.SetRequestHeader("Content-Type", "application/json");
+
 		return OnRequest(www);
 	}
 
@@ -134,7 +165,10 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	{
 		var data = new MyPlayerPacketData();
 		data.playerData = new PlayerPacketData();
+
 		data.playerData.playerName = "지현";
+		data.playerData.playerGroup = "Exp";
+
 		data.playerData.hasDiceCount = 3;
 		data.playerData.playerTileIndex = 0;
 
