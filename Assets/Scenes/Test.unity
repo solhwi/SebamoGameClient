@@ -369,8 +369,8 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   updateFrequency: 60
   isOnNetworkMode: 0
-  playerGroup: 0
-  playerName: "\uC720\uC9C4"
+  playerGroup: 1
+  playerName: "\uC194\uD718"
 --- !u!1 &65808975
 GameObject:
   m_ObjectHideFlags: 0

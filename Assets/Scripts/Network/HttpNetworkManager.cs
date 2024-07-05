@@ -34,12 +34,6 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	public bool IsLoaded { get; private set; }
 	private float t = 0.0f;
 
-	private void Awake()
-	{
-		playerDataContainer.playerGroup = playerGroup.ToString();
-		playerDataContainer.playerName = playerName;
-	}
-
 	private async void Start()
 	{
 		if (isOnNetworkMode)
@@ -176,8 +170,8 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		var data = new MyPlayerPacketData();
 		data.playerData = new PlayerPacketData();
 
-		data.playerData.playerName = "지현";
-		data.playerData.playerGroup = "Exp";
+		data.playerData.playerGroup = playerGroup.ToString();
+		data.playerData.playerName = playerName;
 
 		data.playerData.hasDiceCount = 3;
 		data.playerData.playerTileIndex = 0;
@@ -189,6 +183,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		
 		playerDataContainer.SetMyPacketData(data);
 		inventory.SetMyPacketData(data);
+		playerDataContainer.SetOtherPacketData(null);
 		
 		EditorUtility.SetDirty(playerDataContainer);
 		EditorUtility.SetDirty(inventory);

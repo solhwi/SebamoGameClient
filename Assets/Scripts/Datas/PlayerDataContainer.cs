@@ -85,12 +85,8 @@ public class PlayerDataContainer : ScriptableObject
 		if (myData == null)
 			return;
 
-		if (myData.playerData.playerName != playerName)
-			return;
-
-		if (myData.playerData.playerGroup != playerGroup)
-			return;
-
+		playerName = myData.playerData.playerName;
+		playerGroup = myData.playerData.playerGroup;
 		currentTileIndex = myData.playerData.playerTileIndex;
 		currentTileOrder = tileDataContainer.tileOrders[currentTileIndex];
 
@@ -99,12 +95,12 @@ public class PlayerDataContainer : ScriptableObject
 
 	public void SetOtherPacketData(PlayerPacketDataCollection playerDataCollection)
 	{
-		if (playerDataCollection == null)
+		if (playerDataCollection == null || playerDataCollection.playerDatas == null)
+		{
+			otherPlayerPacketDatas = null;
 			return;
-
-		if (playerDataCollection.playerDatas == null)
-			return;
-
+		}
+			
 		otherPlayerPacketDatas = playerDataCollection.playerDatas.ToArray();
 	}
 }
