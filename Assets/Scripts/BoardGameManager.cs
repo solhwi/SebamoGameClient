@@ -154,7 +154,7 @@ public class BoardGameManager : MonoBehaviour
 		int currentOrder = playerDataContainer.currentTileOrder;
 		int diceCount = UnityEngine.Random.Range(1, 7); // 1 ~ 6 생성
 
-		playerDataContainer.SaveCurrentTile(currentOrder + diceCount); // 주사위를 굴리는 시점에 반영한다.
+		yield return playerDataContainer.SaveCurrentOrder(currentOrder + diceCount); // 주사위를 굴리는 시점에 반영한다.
 
 		foreach (var subscriber in subscribers)
 		{
@@ -206,7 +206,7 @@ public class BoardGameManager : MonoBehaviour
 		var specialTile = tileDataManager.GetCurrentSpecialTile(currentOrder);
 		if (specialTile != null)
 		{
-			specialTile.DoAction();
+			yield return specialTile.DoAction();
 
 			int nextOrderIndex = playerDataContainer.currentTileOrder;
 

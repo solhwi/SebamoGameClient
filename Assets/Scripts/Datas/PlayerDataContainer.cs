@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Unity.Collections;
 using UnityEditor;
 using UnityEngine;
@@ -29,7 +30,9 @@ public class PlayerDataContainer : ScriptableObject
 	[Header("[다른 플레이어들 정보]")]
 	public PlayerPacketData[] otherPlayerPacketDatas = null;
 
-	public void SaveCurrentTile(int currentTileOrder)
+	private const int MaxDiceCount = 10;
+
+	public async Task SaveCurrentOrder(int currentTileOrder)
 	{
 		if (tileDataContainer.tileOrders.Length > currentTileOrder)
 		{
@@ -45,11 +48,33 @@ public class PlayerDataContainer : ScriptableObject
 		}
 
 		currentTileIndex = tileDataContainer.GetTileIndexByOrder(currentTileOrder);
+
+		await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
-	public void AddCurrentOrder(int addOrderCount)
+	public async Task AddCurrentOrder(int addOrderCount)
 	{
-		SaveCurrentTile(currentTileOrder + addOrderCount);
+		await SaveCurrentOrder(currentTileOrder + addOrderCount);
+	}
+
+	public async Task UseDiceCount()
+	{
+		if (hasDiceCount <= 0)
+			return;
+
+		hasDiceCount--;
+
+		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+	}
+
+	public async Task AddDiceCount()
+	{
+		if (hasDiceCount >= MaxDiceCount)
+			return;
+
+		hasDiceCount++;
+
+		await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
 	public void SetMyPacketData(MyPlayerPacketData myData)
