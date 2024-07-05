@@ -188,7 +188,7 @@ public class BoardGameManager : MonoBehaviour
 		DropItem item = tileDataManager.GetCurrentTileItem(currentOrder);
 		if (item != null)
 		{
-			item.Use();
+			yield return item.Use();
 
 			foreach (var subscriber in subscribers)
 			{

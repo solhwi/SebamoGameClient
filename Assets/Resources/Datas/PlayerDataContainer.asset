@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: PlayerDataContainer
   m_EditorClassIdentifier: 
   tileDataContainer: {fileID: 11400000, guid: 6bff3bcc2db60844cb56ca069bb23b8c, type: 2}
-  playerName: "\uC194\uD718"
-  currentTileOrder: 10
-  currentTileIndex: 3
-  hasDiceCount: 0
+  playerName: "\uC9C0\uD604"
+  currentTileOrder: 0
+  currentTileIndex: 0
+  hasDiceCount: 3
   moveTimeByOneTile: 1
   otherPlayerPacketDatas:
   - playerName: 

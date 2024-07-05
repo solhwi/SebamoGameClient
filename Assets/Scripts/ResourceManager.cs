@@ -1,25 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ResourceManager : MonoBehaviour
+public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-	public static ResourceManager Instance
+	public static T Instance
 	{
 		get
 		{
 			if (instance == null)
 			{
-				instance = FindAnyObjectByType<ResourceManager>();
+				instance = FindAnyObjectByType<T>();
 			}
 
 			return instance;
 		}
 	}
 
-	private static ResourceManager instance;
+	private static T instance;
+}
 
+public class ResourceManager : Singleton<ResourceManager>
+{
 	[SerializeField] private RecyclingObject dropItemPrefab;
 
 	private Dictionary<RecyclingType, Stack<RecyclingObject>> objectPool = new Dictionary<RecyclingType, Stack<RecyclingObject>>()

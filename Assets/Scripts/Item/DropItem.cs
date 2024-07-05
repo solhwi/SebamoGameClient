@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 
@@ -44,11 +45,11 @@ public abstract class DropItem
 		ResourceManager.Instance.Destroy(obj);
 	}
 
-	public virtual void Use()
+	public async virtual Task Use()
 	{
 		for(int i = 0; i < dropCount; i++)
 		{
-			inventory.AddItem(dropItemCode);
+			await inventory.TryAddItem(dropItemCode);
 		}
 
 		Destroy();

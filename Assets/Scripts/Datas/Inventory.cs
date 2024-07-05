@@ -2,9 +2,11 @@ using NPOI.SS.Formula.PTG;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using static UnityEditor.Timeline.Actions.MenuPriority;
 
 [CreateAssetMenu(fileName = "Inventory")]
 public class Inventory : ScriptableObject
@@ -33,10 +35,76 @@ public class Inventory : ScriptableObject
 	[HideInInspector]
 	public List<PropType> equippedPropTypes = new List<PropType>();
 
-	public void AddItem(string itemCode, int count = 1)
+	public async Task TryAddItem(string itemCode, int count = 1)
+	{
+		bool bResult = AddItem(itemCode, count);
+		if (bResult == false)
+			return;
+
+		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+	}
+
+	public async Task TryRemoveItem(string itemCode, int count = 1)
+	{
+		bool bResult = RemoveItem(itemCode, count);
+		if (bResult == false)
+			return;
+
+		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+	}
+
+	public async Task TryEquipOn(string itemCode)
+	{
+		bool bResult = EquipOnItem(itemCode);
+		if (bResult == false)
+			return;
+
+		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+	}
+
+	public async Task TryApplyBuff(string itemCode)
+	{
+		bool bResult = ApplyBuff(itemCode);
+		if (bResult == false)
+			return;
+
+		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+	}
+
+	public async Task TryUseBuff(string itemCode)
+	{
+		bool bResult = UseBuff(itemCode);
+		if (bResult == false)
+			return;
+
+		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+	}
+
+	private bool RemoveItem(string itemCode, int count = 1)
 	{
 		if (itemTable.IsValidItem(itemCode) == false)
-			return;
+			return false;
+
+		if (hasItems.ContainsKey(itemCode) == false)
+			return false;
+
+		int hasCount = hasItems[itemCode] - count;
+		if (hasCount > 0)
+		{
+			hasItems[itemCode] = hasCount;
+		}
+		else
+		{
+			hasItems.Remove(itemCode);
+		}
+
+		return true;
+	}
+
+	private bool AddItem(string itemCode, int count = 1)
+	{
+		if (itemTable.IsValidItem(itemCode) == false)
+			return false;
 
 		if (hasItems.ContainsKey(itemCode))
 		{
@@ -46,17 +114,42 @@ public class Inventory : ScriptableObject
 		{
 			hasItems[itemCode] = count;
 		}
+
+		return true;
 	}
 
-	public void ApplyBuff(IEnumerable<string> buffItems)
+	private bool ApplyBuff(string buffItemCode)
+	{
+		if (appliedBuffItems.Contains(buffItemCode))
+			return false;
+
+		appliedBuffItems.Add(buffItemCode);
+		return true;
+	}
+
+	private bool UseBuff(string buffItemCode)
+	{
+		if (appliedBuffItems.Contains(buffItemCode) == false)
+			return false;
+
+		// 버프 작동 로직
+
+		appliedBuffItems.Remove(buffItemCode);
+		return true;
+	}
+
+	private void ApplyBuffs(IEnumerable<string> buffItems)
 	{
 		if (buffItems == null)
 			return;
 
-		appliedBuffItems = buffItems.ToList();
+		foreach(var buffItem in buffItems)
+		{
+			ApplyBuff(buffItem);
+		}
 	}
 
-	public void EquipOnItems(IEnumerable<string> equippedItems)
+	private void EquipOnItems(IEnumerable<string> equippedItems)
 	{
 		foreach (var item in equippedItems)
 		{
@@ -64,13 +157,13 @@ public class Inventory : ScriptableObject
 		}
 	}
 
-	public void EquipOnItem(string itemCode)
+	private bool EquipOnItem(string itemCode)
 	{
 		if (itemTable.IsValidItem(itemCode) == false)
-			return;
+			return false;
 
 		if (hasItems.ContainsKey(itemCode) == false)
-			return;
+			return false;
 
 		if (itemTable.IsPropItem(itemCode))
 		{
@@ -104,6 +197,8 @@ public class Inventory : ScriptableObject
 				equippedBodyTypes[index] = itemTable.GetPartsCharacterType(itemCode);
 			}
 		}
+
+		return true;
 	}
 
 	public int GetHasCoinCount()
@@ -162,6 +257,11 @@ public class Inventory : ScriptableObject
 	public void SetMyPacketData(MyPlayerPacketData myData)
 	{
 		hasItems.Clear();
+		appliedBuffItems.Clear();
+		equippedPropTypes.Clear();
+
+		equippedItems = new string[6];
+		equippedBodyTypes = new CharacterType[5];
 
 		for (int i = 0; i < myData.hasItems.Length; i++)
 		{
@@ -172,26 +272,6 @@ public class Inventory : ScriptableObject
 		}
 
 		EquipOnItems(myData.playerData.equippedItems);
-		ApplyBuff(myData.appliedBuffItems);
+		ApplyBuffs(myData.appliedBuffItems);
 	}
-
-#if UNITY_EDITOR
-
-	[ContextMenu("페이크 패킷 데이터로 세팅")]
-	public void SetFakePacketData()
-	{
-		var data = new MyPlayerPacketData();
-		data.playerData = new PlayerPacketData();
-		data.playerData.playerName = "지현";
-		data.playerData.hasDiceCount = 3;
-		data.playerData.equippedItems = new string[6] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword" };
-		data.hasItems = new string[6] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword" };
-		data.hasItemCounts = new int[6] { 1, 1, 1, 1, 1, 1 };
-		data.appliedBuffItems = new string[] { };
-		SetMyPacketData(data);
-
-		EditorUtility.SetDirty(this);
-		AssetDatabase.SaveAssetIfDirty(this);
-	}
-#endif
 }
