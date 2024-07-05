@@ -10,6 +10,13 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Networking;
 
+public enum GroupType
+{
+	None = -1,
+	Kahlua = 0,
+	Exp = 1,
+}
+
 public class HttpNetworkManager : Singleton<HttpNetworkManager>
 {
 	[SerializeField] private string BaseURL = "http://localhost:8001";
@@ -21,13 +28,16 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	[SerializeField] private bool isOnNetworkMode = false;
 
+	[SerializeField] private GroupType playerGroup;
+	[SerializeField] private string playerName;
+
 	public bool IsLoaded { get; private set; }
 	private float t = 0.0f;
 
 	private void Awake()
 	{
-		playerDataContainer.playerGroup = "Exp";
-		playerDataContainer.playerName = "지현";
+		playerDataContainer.playerGroup = playerGroup.ToString();
+		playerDataContainer.playerName = playerName;
 	}
 
 	private async void Start()
