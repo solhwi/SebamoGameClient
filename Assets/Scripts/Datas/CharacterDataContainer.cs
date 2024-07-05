@@ -13,9 +13,9 @@ public enum CharacterType
 public enum CharacterPartsType
 {
 	Body = 0,
-	BackHair = 1,
+	Hair = 1,
 	FrontHair = 2,
-	LeftEye = 3,
+	Eye = 3, // 왼쪽 눈
 	RightEye = 4,
 	Face = 5,
 	Accessory = 6,
@@ -71,13 +71,13 @@ public class CharacterDataContainer : ScriptableObject
 			case CharacterPartsType.Body:
 				return characterBodyPrefabs[(int)characterType];
 
-			case CharacterPartsType.BackHair:
+			case CharacterPartsType.Hair:
 				return characterBackHairPrefabs[(int)characterType];
 
 			case CharacterPartsType.FrontHair:
 				return characterFrontHairPrefabs[(int)characterType];
 
-			case CharacterPartsType.LeftEye:
+			case CharacterPartsType.Eye:
 				return characterLeftEyePrefab;
 
 			case CharacterPartsType.RightEye:
@@ -102,7 +102,7 @@ public class CharacterDataContainer : ScriptableObject
 	{
 		switch(partsType)
 		{
-			case CharacterPartsType.LeftEye:
+			case CharacterPartsType.Eye:
 				return characterLeftEyeMeshes[(int)characterType];
 
 			case CharacterPartsType.RightEye:
@@ -119,7 +119,7 @@ public class CharacterDataContainer : ScriptableObject
 	{
 		switch (partsType)
 		{
-			case CharacterPartsType.LeftEye:
+			case CharacterPartsType.Eye:
 				return characterEyeMaterials[(int)characterType];
 
 			case CharacterPartsType.RightEye:

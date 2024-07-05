@@ -52,13 +52,111 @@ MonoBehaviour:
   - key: UnityChanAccessory
     partsType: 6
     characterType: 0
+  - key: YucoAccessory
+    partsType: 6
+    characterType: 1
+  - key: MisakiAccessory
+    partsType: 6
+    characterType: 2
+  - key: UnityChanBody
+    partsType: 0
+    characterType: 0
+  - key: YucoBody
+    partsType: 0
+    characterType: 1
+  - key: MisakiBody
+    partsType: 0
+    characterType: 2
+  - key: UnityChanHair
+    partsType: 1
+    characterType: 0
+  - key: YucoHair
+    partsType: 1
+    characterType: 1
+  - key: MisakiHair
+    partsType: 1
+    characterType: 2
+  - key: UnityChanEye
+    partsType: 3
+    characterType: 0
+  - key: YucoEye
+    partsType: 3
+    characterType: 1
+  - key: MisakiEye
+    partsType: 3
+    characterType: 2
+  - key: UnityChanFace
+    partsType: 5
+    characterType: 0
+  - key: YucoFace
+    partsType: 5
+    characterType: 1
+  - key: MisakiFace
+    partsType: 5
+    characterType: 2
   partsItemDataDictionary:
     m_keys:
     - UnityChanAccessory
+    - YucoAccessory
+    - MisakiAccessory
+    - UnityChanBody
+    - YucoBody
+    - MisakiBody
+    - UnityChanHair
+    - YucoHair
+    - MisakiHair
+    - UnityChanEye
+    - YucoEye
+    - MisakiEye
+    - UnityChanFace
+    - YucoFace
+    - MisakiFace
     m_values:
     - key: UnityChanAccessory
       partsType: 6
       characterType: 0
+    - key: YucoAccessory
+      partsType: 6
+      characterType: 1
+    - key: MisakiAccessory
+      partsType: 6
+      characterType: 2
+    - key: UnityChanBody
+      partsType: 0
+      characterType: 0
+    - key: YucoBody
+      partsType: 0
+      characterType: 1
+    - key: MisakiBody
+      partsType: 0
+      characterType: 2
+    - key: UnityChanHair
+      partsType: 1
+      characterType: 0
+    - key: YucoHair
+      partsType: 1
+      characterType: 1
+    - key: MisakiHair
+      partsType: 1
+      characterType: 2
+    - key: UnityChanEye
+      partsType: 3
+      characterType: 0
+    - key: YucoEye
+      partsType: 3
+      characterType: 1
+    - key: MisakiEye
+      partsType: 3
+      characterType: 2
+    - key: UnityChanFace
+      partsType: 5
+      characterType: 0
+    - key: YucoFace
+      partsType: 5
+      characterType: 1
+    - key: MisakiFace
+      partsType: 5
+      characterType: 2
   propItemDataList:
   - key: GreatSword
     propType: 0

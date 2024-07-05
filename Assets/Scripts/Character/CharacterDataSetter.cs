@@ -58,7 +58,7 @@ public class CharacterDataSetter : MonoBehaviour
 
 	public void SetAvatar()
 	{
-		CharacterType characterType = inventory.GetCharacterTypeByPartsType(CharacterPartsType.Body);
+		CharacterType characterType = inventory.GetCurrentPartsCharacterType(CharacterPartsType.Body);
 		var avatar = dataContainer.characterAvatars[(int)characterType];
 
 		animationController.SetAvatar(avatar);
@@ -69,17 +69,17 @@ public class CharacterDataSetter : MonoBehaviour
 		Transform leftEye = GetLeftEyeTransform();
 		var leftEyeFilter = leftEye.GetComponentInChildren<MeshFilter>();
 
-		leftEyeFilter.mesh = GetMesh(CharacterPartsType.LeftEye);
+		leftEyeFilter.mesh = GetMesh(CharacterPartsType.Eye);
 
 		var leftEyeRenderer = leftEye.GetComponentInChildren<MeshRenderer>();
-		leftEyeRenderer.material = GetMaterial(CharacterPartsType.LeftEye);
+		leftEyeRenderer.material = GetMaterial(CharacterPartsType.Eye);
 
 		Transform rightEye = GetRightEyeTransform();
 		var rightEyeFilter = rightEye.GetComponentInChildren<MeshFilter>();
 		rightEyeFilter.mesh = GetMesh(CharacterPartsType.RightEye);
 
 		var rightEyeRenderer = rightEye.GetComponentInChildren<MeshRenderer>();
-		rightEyeRenderer.material = GetMaterial(CharacterPartsType.LeftEye);
+		rightEyeRenderer.material = GetMaterial(CharacterPartsType.Eye);
 
 		Transform face = GetHeadTransform();
 		var faceRenderer = face.GetComponentInChildren<SkinnedMeshRenderer>();
@@ -102,7 +102,7 @@ public class CharacterDataSetter : MonoBehaviour
 		var faceObj = Instantiate(facePrefab, headRoot);
 
 		// 뒷머리
-		var backHairPrefab = GetParts(CharacterPartsType.BackHair);
+		var backHairPrefab = GetParts(CharacterPartsType.Hair);
 		var backHairObj = Instantiate(backHairPrefab, headRoot);
 
 		var backHairRootHead = backHairObj.transform.RecursiveFindChild("root_head");		
@@ -123,7 +123,7 @@ public class CharacterDataSetter : MonoBehaviour
 
 		// 왼쪽 눈
 		Transform leftEyeTransform = GetLeftEyeTransform();
-		var leftEyePrafab = GetParts(CharacterPartsType.LeftEye);
+		var leftEyePrafab = GetParts(CharacterPartsType.Eye);
 		var leftEyeObj = Instantiate(leftEyePrafab, leftEyeTransform);
 
 		// 오른쪽 눈
@@ -132,7 +132,7 @@ public class CharacterDataSetter : MonoBehaviour
 		var rightEyeObj = Instantiate(rightEyePrafab, rightEyeTransform);
 
 		// 소품
-		foreach(var propType in inventory.characterPropTypes)
+		foreach(var propType in inventory.equippedPropTypes)
 		{
 			if (propType == PropType.None)
 				continue;
@@ -176,19 +176,19 @@ public class CharacterDataSetter : MonoBehaviour
 
 	private GameObject GetParts(CharacterPartsType partsType)
 	{
-		CharacterType characterType = inventory.GetCharacterTypeByPartsType(partsType);
+		CharacterType characterType = inventory.GetCurrentPartsCharacterType(partsType);
 		return dataContainer.GetPartsObject(characterType, partsType);
 	}
 
 	private Mesh GetMesh(CharacterPartsType partsType)
 	{
-		CharacterType characterType = inventory.GetCharacterTypeByPartsType(partsType);
+		CharacterType characterType = inventory.GetCurrentPartsCharacterType(partsType);
 		return dataContainer.GetMesh(characterType, partsType);
 	}
 
 	private Material GetMaterial(CharacterPartsType partsType)
 	{
-		CharacterType characterType = inventory.GetCharacterTypeByPartsType(partsType);
+		CharacterType characterType = inventory.GetCurrentPartsCharacterType(partsType);
 		return dataContainer.GetMaterial(characterType, partsType);
 	}
 

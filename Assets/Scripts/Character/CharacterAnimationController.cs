@@ -58,13 +58,13 @@ public class CharacterAnimationController : MonoBehaviour
 
 	public void DoIdle()
 	{
-		if (inventory.characterPropTypes == null || inventory.characterPropTypes.Length <= 0)
+		if (inventory.equippedPropTypes == null || inventory.equippedPropTypes.Count <= 0)
 		{
 			ChangeState(CharacterState.Idle);
 		}
 		else
 		{
-			var propType = inventory.characterPropTypes[0];
+			var propType = inventory.equippedPropTypes[0];
 			if (propType == PropType.GreatSword)
 			{
 				ChangeState(CharacterState.Idle_GreatSword);
@@ -94,13 +94,13 @@ public class CharacterAnimationController : MonoBehaviour
 
 	public void DoRun()
 	{
-		if (inventory.characterPropTypes == null || inventory.characterPropTypes.Length <= 0)
+		if (inventory.equippedPropTypes == null || inventory.equippedPropTypes.Count <= 0)
 		{
 			ChangeState(CharacterState.Run);
 		}
 		else
 		{
-			var propType = inventory.characterPropTypes[0];
+			var propType = inventory.equippedPropTypes[0];
 			if (propType == PropType.GreatSword)
 			{
 				ChangeState(CharacterState.Run_GreatSword);
@@ -130,10 +130,10 @@ public class CharacterAnimationController : MonoBehaviour
 
 	public void DoAttack()
 	{
-		if (inventory.characterPropTypes == null || inventory.characterPropTypes.Length <= 0)
+		if (inventory.equippedPropTypes == null || inventory.equippedPropTypes.Count <= 0)
 			return;
 
-		var propType = inventory.characterPropTypes[0];
+		var propType = inventory.equippedPropTypes[0];
 		if (propType == PropType.GreatSword)
 		{
 			ChangeState(CharacterState.Attack_GreatSword);

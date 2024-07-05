@@ -26,13 +26,53 @@ public partial class ItemTable
 		if (partsItemDataDictionary.ContainsKey(itemCode))
 			return true;
 
-		if(propItemDataDictionary.ContainsKey(itemCode))
+		if (propItemDataDictionary.ContainsKey(itemCode))
 			return true;
 
 		if (shopItemDataDictionary.ContainsKey(itemCode))
 			return true;
 
 		return false;
+	}
+
+	public bool IsPropItem(string itemCode)
+	{
+		if (propItemDataDictionary.ContainsKey(itemCode))
+			return true;
+
+		return false;
+	}
+
+	public bool IsPartsItem(string itemCode)
+	{
+		if (partsItemDataDictionary.ContainsKey(itemCode))
+			return true;
+
+		return false;
+	}
+
+	public CharacterPartsType GetItemPartsType(string itemCode)
+	{
+		if (partsItemDataDictionary.TryGetValue(itemCode, out var data) == false)
+			return CharacterPartsType.Max;
+
+		return data.partsType;
+	}
+
+	public CharacterType GetPartsCharacterType(string itemCode)
+	{
+		if (partsItemDataDictionary.TryGetValue(itemCode, out var data) == false)
+			return CharacterType.Max;
+
+		return data.characterType;
+	}
+
+	public PropType GetItemPropType(string itemCode)
+	{
+		if (propItemDataDictionary.TryGetValue(itemCode, out var data) == false)
+			return PropType.Max;
+
+		return data.propType;
 	}
 
 	public static Dictionary<string, int> ParseDropRecipeData(string rawRecipe)

@@ -51,10 +51,6 @@ public abstract class DropItem
 			inventory.AddItem(dropItemCode);
 		}
 
-#if UNITY_EDITOR
-		AssetDatabase.SaveAssetIfDirty(inventory);
-#endif
-
 		Destroy();
 	}
 }
