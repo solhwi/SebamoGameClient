@@ -42,7 +42,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	// 최초 1회
 	private async Task TryGetMyPlayerData()
 	{
-		var data = await TryGet<MyPlayerPacketData>();
+		var data = await TryGet<MyPlayerPacketData>("My");
 
 		playerDataContainer.SetMyPacketData(data);
 		inventory.SetMyPacketData(data);
@@ -51,7 +51,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	// 주기적으로 다른 플레이어 정보 가져옴
 	private async Task TryGetOtherPlayerDatas()
 	{
-		var otherDatas = await TryGet<PlayerPacketData[]>();
+		var otherDatas = await TryGet<PlayerPacketData[]>("Other");
 
 		playerDataContainer.SetOtherPacketData(otherDatas);
 	}
@@ -60,7 +60,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	public async Task TryPostMyPlayerData()
 	{
 		//var sendData = MakePlayerPacketData();
-		//var receiveData = await TryPost<MyPlayerPacketData>(sendData);
+		//var receiveData = await TryPost<MyPlayerPacketData>(sendData, "My");
 
 		//playerDataContainer.SetMyPacketData(receiveData);
 		//inventory.SetMyPacketData(receiveData);
@@ -84,19 +84,19 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		return data;
 	}
 
-	public async Task<T> TryGet<T>()
+	public async Task<T> TryGet<T>(string urlParameter)
 	{
-		string responseData = await GetRoutine(BaseURL);
+		string responseData = await GetRoutine(BaseURL + urlParameter);
 		if (responseData == null)
 			return default;
 
 		return JsonUtility.FromJson<T>(responseData);
 	}
 
-	public async Task<T> TryPost<T>(PacketData requestData)
+	public async Task<T> TryPost<T>(PacketData requestData, string urlParameter)
 	{
 		string requestJsonData = JsonUtility.ToJson(requestData);
-		string responseJsonData = await PostRoutine(BaseURL, requestJsonData);
+		string responseJsonData = await PostRoutine(BaseURL + urlParameter, requestJsonData);
 
 		return JsonUtility.FromJson<T>(responseJsonData);
 	}
