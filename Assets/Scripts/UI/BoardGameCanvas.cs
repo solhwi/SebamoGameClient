@@ -58,12 +58,12 @@ public class BoardGameCanvas : BoardGameSubscriber
 
 	public void OnClickShop()
 	{
-
+		PopupManager.Instance.TryOpen(PopupManager.PopupType.Shop);
 	}
 
 	public void OnClickInventory()
 	{
-
+		PopupManager.Instance.TryOpen(PopupManager.PopupType.Inventory);
 	}
 
 	public void OnClickRankingBoardToggle()
