@@ -17,27 +17,15 @@ public class PopupManager : Singleton<PopupManager>
 	public class PopupDictionary : SerializableDictionary<PopupType, BoardGamePopup> { }
 	[SerializeField] private PopupDictionary popupDictionary = new PopupDictionary();
 
-	private PopupDictionary popupObjectDictionary = new PopupDictionary();
-
 	private Stack<BoardGamePopup> popupStack = new Stack<BoardGamePopup>();
 
-	public void TryOpen(PopupType popupType)
+	public void TryOpen(PopupType popupType, UIParameter parameter = null)
 	{
-		if (popupObjectDictionary.TryGetValue(popupType, out BoardGamePopup popupObj))
+		if (popupDictionary.TryGetValue(popupType, out BoardGamePopup popupObj))
 		{
-			popupObj.OnOpen(popupStack.Count + rootCanvas.sortingOrder);
+			popupObj.Open(rootCanvas, popupStack.Count);
+			popupObj.OnOpen(parameter);
 			popupStack.Push(popupObj);
-		}
-		else
-		{
-			if (popupDictionary.TryGetValue(popupType, out var popupPrefab))
-			{
-				var obj = Instantiate(popupPrefab);
-				popupObjectDictionary[popupType] = obj;
-
-				obj.OnOpen(popupStack.Count + rootCanvas.sortingOrder);
-				popupStack.Push(obj);
-			}
 		}
 	}
 
@@ -47,7 +35,7 @@ public class PopupManager : Singleton<PopupManager>
 		if (popupCanvas == null)
 			return;
 
-		popupCanvas.OnClose();
+		popupCanvas.Close();
 	}
 
 	public void Close(PopupType popupType, int closeCount = 1)
@@ -58,14 +46,14 @@ public class PopupManager : Singleton<PopupManager>
 
 		while (popupStack.TryPop(out var popupObj))
 		{
-			if (popupObj.popupType != popupType || count >= closeCount)
+			if (popupObj.IsSameType(popupType) == false || count >= closeCount)
 			{
 				tempStack.Push(popupObj);
 			}
 			else
 			{
 				count++;
-				popupObj.OnClose();
+				popupObj.Close();
 			}
 		}
 
@@ -79,7 +67,7 @@ public class PopupManager : Singleton<PopupManager>
 	{
 		while (popupStack.TryPop(out var popupObj))
 		{
-			popupObj.OnClose();
+			popupObj.Close();
 		}
 	}
 }
