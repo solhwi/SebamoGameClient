@@ -11,7 +11,12 @@ public class BoardGamePopup : MonoBehaviour
 {
 	[SerializeField] private PopupManager.PopupType popupType;
 	[SerializeField] private Canvas canvas;
-	
+
+	private void Reset()
+	{
+		canvas = GetComponent<Canvas>();
+	}
+
 	public void Open(Canvas rootCanvas, int sortingOrder)
 	{
 		gameObject.SetActive(true);

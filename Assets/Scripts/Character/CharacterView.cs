@@ -18,8 +18,8 @@ public class CharacterView : MonoBehaviour
 	private Texture2D texture = null;
 	private Rect rect;
 
-	int height = 256;
-	int width = 256;
+	int height = 1024;
+	int width = 1024;
 	int depth = 24;
 
 	private void Start()
@@ -28,6 +28,8 @@ public class CharacterView : MonoBehaviour
 		rect = new Rect(0, 0, width, height);
 		texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
 
+
+		view.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
 		playerViewCamera.targetTexture = renderTexture;
 
 		var playerOrigin = Instantiate<CharacterDataSetter>(playerOriginPrefab, playerViewCamera.transform);
