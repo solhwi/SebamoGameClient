@@ -8,10 +8,10 @@ public class ObjectView : MonoBehaviour
 	[SerializeField] protected Camera cam = null;
 	[SerializeField] private GameObject originPrefab = null;
 
-	protected GameObject originObj;
+	[SerializeField] protected Vector3 spawnLocalPos = new Vector3(0, -0.5f, 10);
+	[SerializeField] protected Vector3 spawnLocalRot = new Vector3(0, 180, 0);
 
-	protected Vector3 spawnLocalPos = new Vector3(0, -0.5f, 10);
-	protected Vector3 spawnLocalRot = new Vector3(0, 180, 0);
+	protected GameObject originObj;
 
 	protected SpriteRenderer spriteView = null;
 	protected RawImage textureView = null;
@@ -47,10 +47,12 @@ public class ObjectView : MonoBehaviour
 	{
 		if (spriteView != null)
 		{
+			spriteView.color = Color.white;
 			spriteView.sprite = GetScreenShotSprite();
 		}
 		else if(textureView != null)
 		{
+			textureView.color = Color.white;
 			textureView.texture = GetScreenShotTexture();
 		}
 	}
@@ -82,15 +84,14 @@ public class ObjectView : MonoBehaviour
 
 public class UINPCView : ObjectView
 {
+	[SerializeField] private string AnimationStateName = "POSE1";
 	private Animator animator = null;
 
 	protected override void Start()
 	{
-		spawnLocalPos = new Vector3(0, -1f, 10);
-
 		base.Start();
 
 		animator = originObj.GetComponent<Animator>();
-		animator.Play("POSE14");
+		animator.Play(AnimationStateName, 0);
 	}
 }
