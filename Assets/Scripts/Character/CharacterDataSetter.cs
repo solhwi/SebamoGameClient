@@ -56,6 +56,15 @@ public class CharacterDataSetter : MonoBehaviour
 
 	[SerializeField] private Transform bodyRoot = null;
 
+	private List<GameObject> partsObjList = new List<GameObject>();
+
+	public void DoFullSetting()
+	{
+		MakeParts();
+		SetMeshes();
+		SetAvatar();
+	}
+
 	public void SetAvatar()
 	{
 		CharacterType characterType = inventory.GetCurrentPartsCharacterType(CharacterPartsType.Body);
@@ -88,11 +97,21 @@ public class CharacterDataSetter : MonoBehaviour
 
 	public void MakeParts()
 	{
+		// 기존 파츠들 파괴
+		foreach (var obj in partsObjList)
+		{
+			Destroy(obj);
+		}
+
+		partsObjList.Clear();
+
 		// 바디
 		var bodyPrefab = GetParts(CharacterPartsType.Body);
 		var bodyObj = Instantiate(bodyPrefab, bodyRoot);
 		bodyObj.transform.localPosition = Vector3.zero;
 		bodyObj.transform.localRotation = Quaternion.identity;
+
+		partsObjList.Add(bodyObj);
 
 		// 머리
 		Transform headRoot = GetHeadTransform();
@@ -100,6 +119,8 @@ public class CharacterDataSetter : MonoBehaviour
 		// 얼굴
 		var facePrefab = GetParts(CharacterPartsType.Face);
 		var faceObj = Instantiate(facePrefab, headRoot);
+
+		partsObjList.Add(faceObj);
 
 		// 뒷머리
 		var backHairPrefab = GetParts(CharacterPartsType.Hair);
@@ -109,6 +130,8 @@ public class CharacterDataSetter : MonoBehaviour
 		backHairRootHead.localPosition = Vector3.zero;
 		backHairRootHead.localRotation = Quaternion.identity;
 
+		partsObjList.Add(backHairObj);
+
 		// 앞머리
 		var frontHairPrefab = GetParts(CharacterPartsType.FrontHair);
 		var frontHairObj = Instantiate(frontHairPrefab, headRoot);
@@ -117,22 +140,30 @@ public class CharacterDataSetter : MonoBehaviour
 		frontHairRootHead.localPosition = Vector3.zero;
 		frontHairRootHead.localRotation = Quaternion.identity;
 
+		partsObjList.Add(frontHairObj);
+
 		// 머리 악세사리
 		var headAccessoryPrefab = GetParts(CharacterPartsType.Accessory);
 		var headAccessoryObj = Instantiate(headAccessoryPrefab, headRoot);
+
+		partsObjList.Add(headAccessoryObj);
 
 		// 왼쪽 눈
 		Transform leftEyeTransform = GetLeftEyeTransform();
 		var leftEyePrafab = GetParts(CharacterPartsType.Eye);
 		var leftEyeObj = Instantiate(leftEyePrafab, leftEyeTransform);
 
+		partsObjList.Add(leftEyeObj);
+
 		// 오른쪽 눈
 		Transform rightEyeTransform = GetRightEyeTransform();
 		var rightEyePrafab = GetParts(CharacterPartsType.RightEye);
 		var rightEyeObj = Instantiate(rightEyePrafab, rightEyeTransform);
 
+		partsObjList.Add(rightEyeObj);
+
 		// 소품
-		foreach(var propType in inventory.equippedPropTypes)
+		foreach (var propType in inventory.equippedPropTypes)
 		{
 			if (propType == PropType.None)
 				continue;
@@ -143,6 +174,8 @@ public class CharacterDataSetter : MonoBehaviour
 
 			propObj.transform.localPosition = Vector3.zero;
 			propObj.transform.localRotation = Quaternion.identity;
+
+			partsObjList.Add(propObj);
 		}
 	}
 

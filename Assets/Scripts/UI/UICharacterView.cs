@@ -15,9 +15,7 @@ public class UICharacterView : ObjectView
 		characterDataSetter = originObj.GetComponent<CharacterDataSetter>();
 		if (characterDataSetter != null)
 		{
-			characterDataSetter.MakeParts();
-			characterDataSetter.SetMeshes();
-			characterDataSetter.SetAvatar();
+			characterDataSetter.DoFullSetting();
 
 			characterAnimationController = characterDataSetter.GetComponentInChildren<CharacterAnimationController>();
 		}

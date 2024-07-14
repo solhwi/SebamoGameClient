@@ -17,9 +17,7 @@ public class CharacterView : ObjectView
 		var setter = originObj.GetComponent<CharacterDataSetter>();
 		if (setter != null)
 		{
-			setter.MakeParts();
-			setter.SetMeshes();
-			setter.SetAvatar();
+			setter.DoFullSetting();
 		}
 
 		characterAnimationController = originObj.GetComponentInChildren<CharacterAnimationController>();
