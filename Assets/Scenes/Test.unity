@@ -2209,6 +2209,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 467019146}
+    - target: {fileID: 4138448045326830286, guid: 57cc03aacc153094190614cb668c0069, type: 3}
+      propertyPath: originPrefab
+      value: 
+      objectReference: {fileID: 2214232578226538075, guid: c43c258af683313409bb8cdfbdd03a3e, type: 3}
     - target: {fileID: 4902804719180620769, guid: 57cc03aacc153094190614cb668c0069, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
