@@ -9,10 +9,10 @@ public class UIParameter
 
 public class BoardGamePopup : MonoBehaviour
 {
-	[SerializeField] private PopupManager.PopupType popupType;
+	[SerializeField] protected PopupManager.PopupType popupType;
 	[SerializeField] private Canvas canvas;
 
-	private void Reset()
+	protected virtual void Reset()
 	{
 		canvas = GetComponent<Canvas>();
 	}

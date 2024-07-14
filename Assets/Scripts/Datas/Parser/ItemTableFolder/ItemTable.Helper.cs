@@ -35,6 +35,14 @@ public partial class ItemTable
 		return false;
 	}
 
+	public bool IsEquipmentItem(string itemCode)
+	{
+		bool b = IsPropItem(itemCode);
+		b |= IsPartsItem(itemCode);
+
+		return b;
+	}
+
 	public bool IsPropItem(string itemCode)
 	{
 		if (propItemDataDictionary.ContainsKey(itemCode))
