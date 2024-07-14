@@ -3,61 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UICharacterView : MonoBehaviour
+public class UICharacterView : ObjectView
 {
-	[SerializeField] private RawImage view = null;
-	[SerializeField] private Camera playerViewCamera = null;
-	[SerializeField] private CharacterDataSetter playerOriginPrefab = null;
-
 	private CharacterDataSetter characterDataSetter = null;
-
-	private Vector3 characterSpawnLocalPos = new Vector3(0, -0.5f, 10);
-	private Vector3 characterSpawnLocalRot = new Vector3(0, 180, 0);
-
 	private CharacterAnimationController characterAnimationController = null;
 
-	private RenderTexture renderTexture = null;
-	private Texture2D texture = null;
-	private Rect rect;
-
-	int height = 1024;
-	int width = 1024;
-	int depth = 24;
-
-	private void Start()
+	protected override void Start()
 	{
-		renderTexture = new RenderTexture(width, height, depth);
-		rect = new Rect(0, 0, width, height);
-		texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+		base.Start();
 
-		playerViewCamera.targetTexture = renderTexture;
+		characterDataSetter = originObj.GetComponent<CharacterDataSetter>();
+		if (characterDataSetter != null)
+		{
+			characterDataSetter.MakeParts();
+			characterDataSetter.SetMeshes();
+			characterDataSetter.SetAvatar();
 
-		characterDataSetter = Instantiate(playerOriginPrefab, playerViewCamera.transform);
-		characterDataSetter.transform.localPosition = characterSpawnLocalPos;
-		characterDataSetter.transform.localEulerAngles = characterSpawnLocalRot;
-
-		characterDataSetter.MakeParts();
-		characterDataSetter.SetMeshes();
-		characterDataSetter.SetAvatar();
-
-		characterAnimationController = characterDataSetter.GetComponentInChildren<CharacterAnimationController>();
-	}
-
-	private void Update()
-	{
-		view.texture = GetScreenShot();
-	}
-
-	private Texture2D GetScreenShot()
-	{
-		playerViewCamera.Render();
-
-		RenderTexture.active = renderTexture;
-
-		texture.ReadPixels(rect, 0, 0);
-		texture.Apply();
-
-		return texture;
+			characterAnimationController = characterDataSetter.GetComponentInChildren<CharacterAnimationController>();
+		}
 	}
 
 	public void DoIdle()

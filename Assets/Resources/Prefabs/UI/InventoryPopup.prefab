@@ -85,9 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d21bb436e0e8e24ea7d5b08dc3f1934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  view: {fileID: 5089413440016197294}
-  playerViewCamera: {fileID: 0}
-  playerOriginPrefab: {fileID: 3970889969417992201, guid: 05a285f00f4a54849b30ffb1a6a91c51, type: 3}
+  cam: {fileID: 0}
+  originPrefab: {fileID: 1497807919844545091, guid: 05a285f00f4a54849b30ffb1a6a91c51, type: 3}
 --- !u!1 &53533222714727522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1539,7 +1538,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3313795558556844988
 MonoBehaviour:
   m_ObjectHideFlags: 0
