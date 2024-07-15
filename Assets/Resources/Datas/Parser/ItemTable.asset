@@ -15,17 +15,77 @@ MonoBehaviour:
   shopItemDataList:
   - key: UnityChanAccessory
     shopIconAssetPath: Assets/Resources/
+    isRandom: 1
   - key: GreatSword
     shopIconAssetPath: Assets/Resources/
+    isRandom: 0
+  - key: Dummy1
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 1
+  - key: Dummy2
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 1
+  - key: Dummy3
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 1
+  - key: Dummy4
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 1
+  - key: Dummy5
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 0
+  - key: Dummy6
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 0
+  - key: Dummy7
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 0
+  - key: Dummy8
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 0
   shopItemDataDictionary:
     m_keys:
     - UnityChanAccessory
     - GreatSword
+    - Dummy1
+    - Dummy2
+    - Dummy3
+    - Dummy4
+    - Dummy5
+    - Dummy6
+    - Dummy7
+    - Dummy8
     m_values:
     - key: UnityChanAccessory
       shopIconAssetPath: Assets/Resources/
+      isRandom: 1
     - key: GreatSword
       shopIconAssetPath: Assets/Resources/
+      isRandom: 0
+    - key: Dummy1
+      shopIconAssetPath: Assets/Resources/
+      isRandom: 1
+    - key: Dummy2
+      shopIconAssetPath: Assets/Resources/
+      isRandom: 1
+    - key: Dummy3
+      shopIconAssetPath: Assets/Resources/
+      isRandom: 1
+    - key: Dummy4
+      shopIconAssetPath: Assets/Resources/
+      isRandom: 1
+    - key: Dummy5
+      shopIconAssetPath: Assets/Resources/
+      isRandom: 0
+    - key: Dummy6
+      shopIconAssetPath: Assets/Resources/
+      isRandom: 0
+    - key: Dummy7
+      shopIconAssetPath: Assets/Resources/
+      isRandom: 0
+    - key: Dummy8
+      shopIconAssetPath: Assets/Resources/
+      isRandom: 0
   dropItemDataList:
   - key: Coin
     fieldIconAssetPath: Assets/Resources/Sprites/Coin.asset
@@ -166,3 +226,34 @@ MonoBehaviour:
     m_values:
     - key: GreatSword
       propType: 0
+  sortedShopItemList:
+  - key: Dummy4
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 1
+  - key: Dummy3
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 1
+  - key: Dummy2
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 1
+  - key: Dummy1
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 1
+  - key: UnityChanAccessory
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 1
+  - key: GreatSword
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 0
+  - key: Dummy5
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 0
+  - key: Dummy6
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 0
+  - key: Dummy7
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 0
+  - key: Dummy8
+    shopIconAssetPath: Assets/Resources/
+    isRandom: 0

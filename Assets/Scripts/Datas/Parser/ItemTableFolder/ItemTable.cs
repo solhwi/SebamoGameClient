@@ -38,6 +38,7 @@ public partial class ItemTable : ScriptParser
 	{
 		public string key;
 		public string shopIconAssetPath;
+		public int isRandom;
 	}
 
 	public List<ShopItemData> shopItemDataList = new List<ShopItemData>();

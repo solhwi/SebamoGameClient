@@ -31,7 +31,6 @@ public class InventoryPopup : BoardGamePopup
 		base.Reset();
 
 		popupType = PopupManager.PopupType.Inventory;
-
 	}
 
 	public override void OnOpen(UIParameter parameter = null)
@@ -80,9 +79,9 @@ public class InventoryPopup : BoardGamePopup
 		int expandCount = hasItemCount - defaultItemCount;
 		
 		float itemCellSize = layoutGroup.cellSize.x;
-		float spacingXSize = layoutGroup.spacing.x;
+		float spacingSize = layoutGroup.spacing.x;
 
-		float expandWidth = expandCount * (itemCellSize + spacingXSize);
+		float expandWidth = expandCount * (itemCellSize + spacingSize);
 		contentRect.offsetMax = new Vector2(expandWidth, 0);
 
 		layoutGroup.constraintCount = hasItemCount;

@@ -18,6 +18,17 @@ public static class ItemTableExtension
 
 public partial class ItemTable
 {
+	[SerializeField] public List<ShopItemData> sortedShopItemList = new List<ShopItemData>();
+
+	public override void RuntimeParser()
+	{
+		base.RuntimeParser();
+
+		sortedShopItemList.Clear();
+		sortedShopItemList.AddRange(shopItemDataList);
+		sortedShopItemList.Sort(ShopItemCompareFunc); 
+	}
+
 	public bool IsValidItem(string itemCode)
 	{
 		if (dropItemDataDictionary.ContainsKey(itemCode))
@@ -57,6 +68,20 @@ public partial class ItemTable
 			return true;
 
 		return false;
+	}
+
+	private int ShopItemCompareFunc(ShopItemData a, ShopItemData b)
+	{
+		if (a.isRandom > 0)
+		{
+			return -1;
+		}
+		else if (b.isRandom > 0)
+		{
+			return 1;
+		}
+
+		return 0;
 	}
 
 	public CharacterPartsType GetItemPartsType(string itemCode)

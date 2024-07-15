@@ -363,6 +363,7 @@ public class ScriptParserEditor : AssetPostprocessor
 
 		ScriptParser parser = asset as ScriptParser;
 		parser?.Parser();
+		parser?.RuntimeParser();
 
 		EditorUtility.SetDirty(parser);
 	}
