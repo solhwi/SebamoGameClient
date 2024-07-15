@@ -84,7 +84,7 @@ public class ObjectView : MonoBehaviour
 
 public class UINPCView : ObjectView
 {
-	[SerializeField] private string AnimationStateName = "POSE1";
+	[SerializeField] private string AnimationStateName = "POSE01";
 	private Animator animator = null;
 
 	protected override void Start()

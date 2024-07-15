@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour
 {
-    public void SetItem(string itemCode, int count = 1)
-	{
+	[SerializeField] private Text itemCodeText = null;
 
+    public void SetItem(ItemTable.ShopItemData itemData)
+	{
+		itemCodeText.text = itemData.key;
 	}
 }

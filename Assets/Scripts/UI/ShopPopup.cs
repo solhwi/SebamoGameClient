@@ -71,17 +71,15 @@ public class ShopPopup : BoardGamePopup
 
 		foreach (var shopItemData in itemTable.sortedShopItemList)
 		{
-			string itemCode = shopItemData.key;
-
 			var itemIcon = Instantiate(shopItemPrefab, contentRect);
-			itemIcon.SetItem(itemCode);
+			itemIcon.SetItem(shopItemData);
 
 			currentShopItems.Add(itemIcon);
 		}
 
 		ExpandScrollSize(currentShopItems.Count);
 
-		OnChangedTab(TabType.Random);
+		SelectTab(TabType.Random);
 	}
 
 	private float GetItemPos(int index)
@@ -147,7 +145,7 @@ public class ShopPopup : BoardGamePopup
 
 		currentTabType = tabType;
 
-		FocusTab(currentTabType);
+		FocusItemByTab(currentTabType);
 	}
 
 	private void SelectTab(TabType tabType)
@@ -155,7 +153,7 @@ public class ShopPopup : BoardGamePopup
 		toggles[(int)tabType].isOn = true;
 	}
 
-	private void FocusTab(TabType tabType, bool isForce = false)
+	private void FocusItemByTab(TabType tabType, bool isForce = false)
 	{
 		switch(tabType)
 		{
