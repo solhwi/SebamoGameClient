@@ -16,6 +16,11 @@ public partial class ItemTable : ScriptParser
 		{
 			shopItemDataDictionary.Add(value.key, value);
 		}
+		itemIconDataDictionary.Clear();
+		foreach(var value in itemIconDataList)
+		{
+			itemIconDataDictionary.Add(value.key, value);
+		}
 		dropItemDataDictionary.Clear();
 		foreach(var value in dropItemDataList)
 		{
@@ -37,7 +42,6 @@ public partial class ItemTable : ScriptParser
 	public class ShopItemData
 	{
 		public string key;
-		public string shopIconAssetPath;
 		public int isRandom;
 	}
 
@@ -45,6 +49,18 @@ public partial class ItemTable : ScriptParser
 	[System.Serializable]
 	public class ShopItemDataDictionary : SerializableDictionary<string, ShopItemData> {}
 	public ShopItemDataDictionary shopItemDataDictionary = new ShopItemDataDictionary();
+
+	[Serializable]
+	public class ItemIconData
+	{
+		public string key;
+		public string iconAssetPath;
+	}
+
+	public List<ItemIconData> itemIconDataList = new List<ItemIconData>();
+	[System.Serializable]
+	public class ItemIconDataDictionary : SerializableDictionary<string, ItemIconData> {}
+	public ItemIconDataDictionary itemIconDataDictionary = new ItemIconDataDictionary();
 
 	[Serializable]
 	public class DropItemData

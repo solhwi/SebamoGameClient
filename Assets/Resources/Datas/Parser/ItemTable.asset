@@ -14,34 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopItemDataList:
   - key: UnityChanAccessory
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: GreatSword
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy1
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: Dummy2
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: Dummy3
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: Dummy4
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: Dummy5
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy6
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy7
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy8
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   shopItemDataDictionary:
     m_keys:
@@ -57,35 +47,79 @@ MonoBehaviour:
     - Dummy8
     m_values:
     - key: UnityChanAccessory
-      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 1
     - key: GreatSword
-      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 0
     - key: Dummy1
-      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 1
     - key: Dummy2
-      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 1
     - key: Dummy3
-      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 1
     - key: Dummy4
-      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 1
     - key: Dummy5
-      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 0
     - key: Dummy6
-      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 0
     - key: Dummy7
-      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 0
     - key: Dummy8
-      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 0
+  itemIconDataList:
+  - key: UnityChanAccessory
+    iconAssetPath: Sprites/Coin.asset
+  - key: GreatSword
+    iconAssetPath: Sprites/Coin.asset
+  - key: Dummy1
+    iconAssetPath: Sprites/Coin.asset
+  - key: Dummy2
+    iconAssetPath: Sprites/Coin.asset
+  - key: Dummy3
+    iconAssetPath: Sprites/Coin.asset
+  - key: Dummy4
+    iconAssetPath: Sprites/Coin.asset
+  - key: Dummy5
+    iconAssetPath: Sprites/Coin.asset
+  - key: Dummy6
+    iconAssetPath: Sprites/Coin.asset
+  - key: Dummy7
+    iconAssetPath: Sprites/Coin.asset
+  - key: Dummy8
+    iconAssetPath: Sprites/Coin.asset
+  itemIconDataDictionary:
+    m_keys:
+    - UnityChanAccessory
+    - GreatSword
+    - Dummy1
+    - Dummy2
+    - Dummy3
+    - Dummy4
+    - Dummy5
+    - Dummy6
+    - Dummy7
+    - Dummy8
+    m_values:
+    - key: UnityChanAccessory
+      iconAssetPath: Sprites/Coin.asset
+    - key: GreatSword
+      iconAssetPath: Sprites/Coin.asset
+    - key: Dummy1
+      iconAssetPath: Sprites/Coin.asset
+    - key: Dummy2
+      iconAssetPath: Sprites/Coin.asset
+    - key: Dummy3
+      iconAssetPath: Sprites/Coin.asset
+    - key: Dummy4
+      iconAssetPath: Sprites/Coin.asset
+    - key: Dummy5
+      iconAssetPath: Sprites/Coin.asset
+    - key: Dummy6
+      iconAssetPath: Sprites/Coin.asset
+    - key: Dummy7
+      iconAssetPath: Sprites/Coin.asset
+    - key: Dummy8
+      iconAssetPath: Sprites/Coin.asset
   dropItemDataList:
   - key: Coin
     fieldIconAssetPath: Sprites/Coin.asset
@@ -228,32 +262,22 @@ MonoBehaviour:
       propType: 0
   sortedShopItemList:
   - key: Dummy4
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: Dummy3
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: Dummy2
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: Dummy1
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: UnityChanAccessory
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: GreatSword
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy5
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy6
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy7
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy8
-    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0

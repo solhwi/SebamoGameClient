@@ -8,16 +8,17 @@ public static class ItemTableExtension
 {
 	public static string GetAssetPathWithoutResources(this ItemTable.DropItemData itemData)
 	{
-		string path = itemData.fieldIconAssetPath.Replace("Assets/Resources/", "");
-		string noExtensionFileName = Path.GetFileNameWithoutExtension(path);
-		string fileName = Path.GetFileName(path);
-
-		return path.Replace(fileName, noExtensionFileName);
+		return GetAssetPathWithoutResources(itemData.fieldIconAssetPath);
 	}
 
-	public static string GetAssetPathWithoutResources(this ItemTable.ShopItemData itemData)
+	public static string GetAssetPathWithoutResources(this ItemTable.ItemIconData itemData)
 	{
-		string path = itemData.shopIconAssetPath.Replace("Assets/Resources/", "");
+		return GetAssetPathWithoutResources(itemData.iconAssetPath);
+	}
+
+	public static string GetAssetPathWithoutResources(this string path)
+	{
+		path = path.Replace("Assets/Resources/", "");
 		string noExtensionFileName = Path.GetFileNameWithoutExtension(path);
 		string fileName = Path.GetFileName(path);
 
