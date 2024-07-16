@@ -116,6 +116,13 @@ public class ScrollContent : MonoBehaviour
 	public void StartFocusTarget(int index)
 	{
 		targetAnchoredPosY = GetItemPosY(index);
+
+		float maxPosY = contentRect.sizeDelta.y - GetItemPosY(DefaultItemCount);
+		if (targetAnchoredPosY >= maxPosY)
+		{
+			targetAnchoredPosY = maxPosY;
+		}
+
 		IsTargeting = true;
 		targetingTime = 0.0f;
 	}
