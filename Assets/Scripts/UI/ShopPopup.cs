@@ -28,25 +28,9 @@ public class ShopPopup : BoardGamePopup
 	}
 
 	[SerializeField] private ItemTable itemTable;
-	[SerializeField] private RectTransform contentRect;
-	[SerializeField] private GridLayoutGroup layoutGroup;
-
-	[SerializeField] private List<Toggle> toggles = new List<Toggle>();
-	[SerializeField] private ShopItem shopItemPrefab;
-	[SerializeField] private int defaultItemCount;
-
-	[SerializeField] private float tabScrollSpeed = 1.0f;
-
-	private List<ShopItem> currentShopItems = new List<ShopItem>();
-	private TabType currentTabType = TabType.None;
+	[SerializeField] private ScrollContent scrollContent;
 
 	private int normalItemIndex = 0;
-	private float normalItemYPos = 0;
-
-	private float targetingTime = 0.0f;
-	private float targetAnchoredPosY = 0.0f;
-
-	private bool isTargeting = false;
 
 	protected override void Reset()
 	{
@@ -60,163 +44,82 @@ public class ShopPopup : BoardGamePopup
 		base.OnOpen(parameter);
 
 		normalItemIndex = itemTable.sortedShopItemList.FindIndex(i => i.isRandom == 0);
-		normalItemYPos = GetItemPos(normalItemIndex);
 
-		foreach (var itemIcon in currentShopItems)
-		{
-			Destroy(itemIcon.gameObject);
-		}
+		scrollContent.onChangedTab += OnChangedTab;
+		scrollContent.onUpdateContents += OnUpdateContents;
+		scrollContent.onGetItemCount += GetItemCount;
 
-		currentShopItems.Clear();
-
-		foreach (var shopItemData in itemTable.sortedShopItemList)
-		{
-			var itemIcon = Instantiate(shopItemPrefab, contentRect);
-			itemIcon.SetItem(shopItemData);
-
-			currentShopItems.Add(itemIcon);
-		}
-
-		ExpandScrollSize(currentShopItems.Count);
-
-		SelectTab(TabType.Random);
-	}
-
-	private float GetItemPos(int index)
-	{
-		float itemCellSize = layoutGroup.cellSize.y;
-		float spacingSize = layoutGroup.spacing.y;
-
-		return index * (itemCellSize + spacingSize);
-	}
-
-	private void Update()
-	{
-		if (normalItemIndex < defaultItemCount)
-			return;
-
-		float currentY = contentRect.anchoredPosition.y;
-
-		if (MathFloat.IsEqual(currentY, targetAnchoredPosY))
-		{
-			StopTargetingAnchoredPosition();
-		}
-
-		if (isTargeting)
-		{
-			targetingTime += Time.deltaTime;
-
-			float nextY = Mathf.Lerp(currentY, targetAnchoredPosY, targetingTime * tabScrollSpeed);
-			contentRect.anchoredPosition = new Vector2(0, nextY);
-		}
-		else
-		{
-			float itemSize = GetItemPos(1);
-
-			if (currentY > normalItemYPos)
-			{
-				SelectTab(TabType.Normal);
-			}
-			else if (currentY < itemSize)
-			{
-				SelectTab(TabType.Random);
-			}
-		}
+		scrollContent.SelectTab((int)TabType.Random);
 	}
 
 	protected override void OnClose()
 	{
-		currentTabType = TabType.None;
-
-		foreach (var itemIcon in currentShopItems)
-		{
-			Destroy(itemIcon.gameObject);
-		}
-
-		currentShopItems.Clear();
+		scrollContent.onChangedTab -= OnChangedTab;
+		scrollContent.onUpdateContents -= OnUpdateContents;
+		scrollContent.onGetItemCount -= GetItemCount;
 
 		base.OnClose();
 	}
 
-	private void OnChangedTab(TabType tabType)
+	public void OnChangedTab(int tabType)
 	{
-		if (currentTabType == tabType)
+		FocusItemByTab((TabType)tabType);
+	}
+
+	public void OnUpdateContents(int index, GameObject contentsObj)
+	{
+		if (index < 0 || itemTable.sortedShopItemList.Count <= index)
 			return;
 
-		currentTabType = tabType;
+		if (contentsObj == null)
+			return;
 
-		FocusItemByTab(currentTabType);
+		var shopScrollItem = contentsObj.GetComponent<ShopScrollItem>();
+		if (shopScrollItem == null)
+			return;
+
+		var shopItemData = itemTable.sortedShopItemList[index];
+		shopScrollItem.SetItemData(shopItemData);
 	}
 
-	private void SelectTab(TabType tabType)
+	public int GetItemCount(int tabType)
 	{
-		toggles[(int)tabType].isOn = true;
+		return itemTable.sortedShopItemList.Count;
 	}
 
-	private void FocusItemByTab(TabType tabType, bool isForce = false)
+	private void Update()
+	{
+		if (normalItemIndex < scrollContent.DefaultItemCount)
+			return;
+
+		if (scrollContent.IsTargeting == false)
+		{
+			float itemSize = scrollContent.GetItemCellSizeY();
+			float normalItemPos = scrollContent.GetItemPosY(normalItemIndex);
+			float currentYPos = scrollContent.GetCurrentYPos();
+
+			if (currentYPos > normalItemPos)
+			{
+				scrollContent.SelectTab((int)TabType.Normal);
+			}
+			else if (currentYPos < itemSize)
+			{
+				scrollContent.SelectTab((int)TabType.Random);
+			}
+		}
+	}
+
+	private void FocusItemByTab(TabType tabType)
 	{
 		switch(tabType)
 		{
 			case TabType.Random:
-
-				if (isForce)
-				{
-					contentRect.anchoredPosition = Vector2.zero;
-				}
-				else
-				{
-					targetAnchoredPosY = 0.0f;
-					StartTargetingAnchoredPosition();
-				}
-				
+				scrollContent.StartFocusTarget(0);
 				break;
 
 			case TabType.Normal:
-
-				if (isForce)
-				{
-					contentRect.anchoredPosition = new Vector2(0, normalItemYPos);
-				}
-				else
-				{
-					targetAnchoredPosY = normalItemYPos;
-					StartTargetingAnchoredPosition();
-				}
-				
+				scrollContent.StartFocusTarget(normalItemIndex);
 				break;
 		}
-	}
-
-	private void ExpandScrollSize(int itemCount)
-	{
-		contentRect.sizeDelta = new Vector2(0, 750);
-
-		int expandCount = itemCount - defaultItemCount;
-		if (expandCount > 0)
-		{
-			float itemCellSize = layoutGroup.cellSize.y;
-			float spacingSize = layoutGroup.spacing.y;
-
-			float expandHeight = expandCount * (itemCellSize + spacingSize);
-			contentRect.sizeDelta += new Vector2(0, expandHeight);
-		}
-	}
-
-	private void StartTargetingAnchoredPosition()
-	{
-		isTargeting = true;
-		targetingTime = 0.0f;
-	}
-
-	public void StopTargetingAnchoredPosition()
-	{
-		isTargeting = false;
-		targetingTime = 0.0f;
-	}
-
-	public void OnValueChangedIndex()
-	{
-		int index = toggles.FindIndex(t => t.isOn);
-		OnChangedTab((TabType)index);
 	}
 }

@@ -87,6 +87,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   originPrefab: {fileID: 1497807919844545091, guid: 05a285f00f4a54849b30ffb1a6a91c51, type: 3}
+  spawnLocalPos: {x: 0, y: -0.5, z: 10}
+  spawnLocalRot: {x: 0, y: 180, z: 0}
 --- !u!1 &53533222714727522
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,9 +688,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6988702385381918559}
-        m_TargetAssemblyTypeName: InventoryPopup, Assembly-CSharp
-        m_MethodName: OnValueChangedIndex
+      - m_Target: {fileID: 4894684593749433627}
+        m_TargetAssemblyTypeName: ScrollContent, Assembly-CSharp
+        m_MethodName: OnSelectedTab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -938,6 +940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5981118277590266195}
   - component: {fileID: 6933462539614869877}
+  - component: {fileID: 4894684593749433627}
   m_Layer: 0
   m_Name: Content
   m_TagString: Untagged
@@ -988,6 +991,28 @@ MonoBehaviour:
   m_Spacing: {x: 30, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 10
+--- !u!114 &4894684593749433627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315540185898702836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6dfaec468c9a5142b4a0eb21eb2da5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollRect: {fileID: 5272029254099230433}
+  contentRect: {fileID: 5981118277590266195}
+  layoutGroup: {fileID: 6933462539614869877}
+  toggles:
+  - {fileID: 3822987088499994471}
+  - {fileID: 8335807440538447185}
+  - {fileID: 4999584719006856113}
+  DefaultItemCount: 4
+  tabScrollSpeed: 1
+  prefab: {fileID: 3131849277956142874, guid: e6115a8ab61289248b153a51e5444135, type: 3}
 --- !u!1 &3673508178772507581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,9 +1255,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6988702385381918559}
-        m_TargetAssemblyTypeName: InventoryPopup, Assembly-CSharp
-        m_MethodName: OnValueChangedIndex
+      - m_Target: {fileID: 4894684593749433627}
+        m_TargetAssemblyTypeName: ScrollContent, Assembly-CSharp
+        m_MethodName: OnSelectedTab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1538,7 +1563,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &3313795558556844988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1572,14 +1597,7 @@ MonoBehaviour:
   canvas: {fileID: 425117931129430697}
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
-  contentRect: {fileID: 5981118277590266195}
-  layoutGroup: {fileID: 6933462539614869877}
-  itemIconPrefab: {fileID: 7485082127607835219, guid: e6115a8ab61289248b153a51e5444135, type: 3}
-  toggles:
-  - {fileID: 3822987088499994471}
-  - {fileID: 8335807440538447185}
-  - {fileID: 4999584719006856113}
-  defaultItemCount: 4
+  scrollContent: {fileID: 4894684593749433627}
 --- !u!1 &6376137787527036656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,9 +1838,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6988702385381918559}
-        m_TargetAssemblyTypeName: InventoryPopup, Assembly-CSharp
-        m_MethodName: OnValueChangedIndex
+      - m_Target: {fileID: 4894684593749433627}
+        m_TargetAssemblyTypeName: ScrollContent, Assembly-CSharp
+        m_MethodName: OnSelectedTab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

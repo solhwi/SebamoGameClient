@@ -337,9 +337,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 282810891035619748}
-          m_TargetAssemblyTypeName: ShopPopup, Assembly-CSharp
-          m_MethodName: StopTargetingAnchoredPosition
+        - m_Target: {fileID: 245556934196482391}
+          m_TargetAssemblyTypeName: ScrollContent, Assembly-CSharp
+          m_MethodName: StopFocusTarget
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -353,9 +353,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 282810891035619748}
-          m_TargetAssemblyTypeName: ShopPopup, Assembly-CSharp
-          m_MethodName: StopTargetingAnchoredPosition
+        - m_Target: {fileID: 245556934196482391}
+          m_TargetAssemblyTypeName: ScrollContent, Assembly-CSharp
+          m_MethodName: StopFocusTarget
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -369,9 +369,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 282810891035619748}
-          m_TargetAssemblyTypeName: ShopPopup, Assembly-CSharp
-          m_MethodName: StopTargetingAnchoredPosition
+        - m_Target: {fileID: 245556934196482391}
+          m_TargetAssemblyTypeName: ScrollContent, Assembly-CSharp
+          m_MethodName: StopFocusTarget
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -385,9 +385,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 282810891035619748}
-          m_TargetAssemblyTypeName: ShopPopup, Assembly-CSharp
-          m_MethodName: StopTargetingAnchoredPosition
+        - m_Target: {fileID: 245556934196482391}
+          m_TargetAssemblyTypeName: ScrollContent, Assembly-CSharp
+          m_MethodName: StopFocusTarget
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -407,6 +407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 863727410134873224}
   - component: {fileID: 4181370494929975732}
+  - component: {fileID: 245556934196482391}
   m_Layer: 0
   m_Name: Content
   m_TagString: Untagged
@@ -457,6 +458,27 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 30}
   m_Constraint: 1
   m_ConstraintCount: 1
+--- !u!114 &245556934196482391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711158768776098999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6dfaec468c9a5142b4a0eb21eb2da5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollRect: {fileID: 284804496056446884}
+  contentRect: {fileID: 863727410134873224}
+  layoutGroup: {fileID: 4181370494929975732}
+  toggles:
+  - {fileID: 3435334660223366134}
+  - {fileID: 9194879279191716744}
+  DefaultItemCount: 4
+  tabScrollSpeed: 1
+  prefab: {fileID: 5766884165574107652, guid: 9bce1655dfc10b54197019f8dfe92757, type: 3}
 --- !u!1 &1946210483227626149
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,14 +762,7 @@ MonoBehaviour:
   popupType: 0
   canvas: {fileID: 7637825223483721277}
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
-  contentRect: {fileID: 863727410134873224}
-  layoutGroup: {fileID: 4181370494929975732}
-  toggles:
-  - {fileID: 3435334660223366134}
-  - {fileID: 9194879279191716744}
-  shopItemPrefab: {fileID: 1793546374334602851, guid: 9bce1655dfc10b54197019f8dfe92757, type: 3}
-  defaultItemCount: 4
-  tabScrollSpeed: 1
+  scrollContent: {fileID: 245556934196482391}
 --- !u!1 &3266337176774974650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,9 +1405,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 282810891035619748}
-        m_TargetAssemblyTypeName: ShopPopup, Assembly-CSharp
-        m_MethodName: OnValueChangedIndex
+      - m_Target: {fileID: 245556934196482391}
+        m_TargetAssemblyTypeName: ScrollContent, Assembly-CSharp
+        m_MethodName: OnSelectedTab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1885,9 +1900,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 282810891035619748}
-        m_TargetAssemblyTypeName: ShopPopup, Assembly-CSharp
-        m_MethodName: OnValueChangedIndex
+      - m_Target: {fileID: 245556934196482391}
+        m_TargetAssemblyTypeName: ScrollContent, Assembly-CSharp
+        m_MethodName: OnSelectedTab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

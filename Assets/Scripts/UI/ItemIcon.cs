@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class ItemIcon : MonoBehaviour
 {
-	[SerializeField] private Image view;
+	[SerializeField] private Image itemImage;
 
-    public void SetItem(string itemCode, int itemCount = 1)
+    public void SetItemData(string itemCode, int itemCount = 1)
 	{
-		gameObject.SetActive(true);
+		
 	}
 }

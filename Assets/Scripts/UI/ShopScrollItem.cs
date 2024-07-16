@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopItem : MonoBehaviour
+public class ShopScrollItem : MonoBehaviour
 {
 	[SerializeField] private Text itemCodeText = null;
 
-    public void SetItem(ItemTable.ShopItemData itemData)
+    public void SetItemData(ItemTable.ShopItemData itemData)
 	{
 		itemCodeText.text = itemData.key;
 	}

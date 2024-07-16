@@ -17,14 +17,10 @@ public class InventoryPopup : BoardGamePopup
 
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private Inventory inventory;
-	[SerializeField] private RectTransform contentRect;
-	[SerializeField] private GridLayoutGroup layoutGroup;
-	[SerializeField] private ItemIcon itemIconPrefab;
-	[SerializeField] private List<Toggle> toggles = new List<Toggle>();
-	[SerializeField] private int defaultItemCount;
 
-	private List<ItemIcon> currentItemIcons = new List<ItemIcon>();
-	private TabType currentTabType = TabType.None;
+	[SerializeField] private ScrollContent scrollContent;
+
+	private List<KeyValuePair<string, int>> hasItemList = new List<KeyValuePair<string, int>>();
 
 	protected override void Reset()
 	{
@@ -32,82 +28,71 @@ public class InventoryPopup : BoardGamePopup
 
 		popupType = PopupManager.PopupType.Inventory;
 	}
-
+	
 	public override void OnOpen(UIParameter parameter = null)
 	{
 		base.OnOpen(parameter);
 
-		OnChangedTab(TabType.Equipment);
+		scrollContent.onChangedTab += OnChangedTab;
+		scrollContent.onUpdateContents += OnUpdateContents;
+		scrollContent.onGetItemCount += GetHasItemCount;
+
+		scrollContent.SelectTab((int)TabType.Equipment);
 	}
 
 	protected override void OnClose()
 	{
-		currentTabType = TabType.None;
-	
+		scrollContent.onChangedTab -= OnChangedTab;
+		scrollContent.onUpdateContents -= OnUpdateContents;
+		scrollContent.onGetItemCount -= GetHasItemCount;
+
 		base.OnClose();
 	}
 
-	private void OnChangedTab(TabType tabType)
+	private void OnChangedTab(int tabType)
 	{
-		if (currentTabType == tabType)
+		hasItemList = GetHasItems((TabType)tabType).ToList();
+
+		scrollContent.Reset();
+	}
+
+	private void OnUpdateContents(int index, GameObject contentObj)
+	{
+		if (index < 0 || hasItemList.Count <= index)
 			return;
 
-		currentTabType = tabType;
+		if (contentObj == null)
+			return;
 
-		foreach (var itemIcon in currentItemIcons)
-		{
-			Destroy(itemIcon.gameObject);
-		}
+		var itemIcon = contentObj.GetComponent<ItemIcon>();
+		if (itemIcon == null)
+			return;
 
-		currentItemIcons.Clear();
-
-		var hasItems = GetHasItems(tabType);
-
-		foreach (var itemCode in hasItems)
-		{
-			var itemIcon = Instantiate(itemIconPrefab, contentRect);
-			itemIcon.SetItem(itemCode);
-
-			currentItemIcons.Add(itemIcon);
-		}
-
-		ExpandScrollSize(currentItemIcons.Count);
+		var hasItemData = hasItemList[index];
+		itemIcon.SetItemData(hasItemData.Key, hasItemData.Value);
 	}
 
-	private void ExpandScrollSize(int hasItemCount)
+	private int GetHasItemCount(int tabType)
 	{
-		int expandCount = hasItemCount - defaultItemCount;
-		
-		float itemCellSize = layoutGroup.cellSize.x;
-		float spacingSize = layoutGroup.spacing.x;
-
-		float expandWidth = expandCount * (itemCellSize + spacingSize);
-		contentRect.offsetMax = new Vector2(expandWidth, 0);
-
-		layoutGroup.constraintCount = hasItemCount;
+		return GetHasItems((TabType)tabType).Count();
 	}
 
-	private IEnumerable<string> GetHasItems(TabType tabType)
+	private IEnumerable<KeyValuePair<string, int>> GetHasItems(TabType tabType)
 	{
 		switch(tabType)
 		{
 			case TabType.Equipment:
 
-				foreach (var iter in inventory.hasItems)
+				foreach (var iterator in inventory.hasItems)
 				{
-					var itemCode = iter.Key;
+					var itemCode = iterator.Key;
 					if (itemTable.IsEquipmentItem(itemCode))
 					{
-						yield return itemCode;
+						yield return iterator;
 					}
 				}
+
 				break;
 		}
-	}
-
-	public void OnValueChangedIndex()
-	{
-		int index = toggles.FindIndex(t => t.isOn);
-		OnChangedTab((TabType)index);
 	}
 }
