@@ -6,9 +6,18 @@ using UnityEngine;
 
 public static class ItemTableExtension
 {
-	public static string GetAssetPathWithoutResources(this ItemTable.DropItemData dropItemData)
+	public static string GetAssetPathWithoutResources(this ItemTable.DropItemData itemData)
 	{
-		string path = dropItemData.fieldIconAssetPath.Replace("Assets/Resources/", "");
+		string path = itemData.fieldIconAssetPath.Replace("Assets/Resources/", "");
+		string noExtensionFileName = Path.GetFileNameWithoutExtension(path);
+		string fileName = Path.GetFileName(path);
+
+		return path.Replace(fileName, noExtensionFileName);
+	}
+
+	public static string GetAssetPathWithoutResources(this ItemTable.ShopItemData itemData)
+	{
+		string path = itemData.shopIconAssetPath.Replace("Assets/Resources/", "");
 		string noExtensionFileName = Path.GetFileNameWithoutExtension(path);
 		string fileName = Path.GetFileName(path);
 

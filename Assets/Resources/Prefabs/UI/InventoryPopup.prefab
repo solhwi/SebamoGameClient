@@ -982,7 +982,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 30
     m_Right: 0
-    m_Top: 0
+    m_Top: 30
     m_Bottom: 50
   m_ChildAlignment: 3
   m_StartCorner: 0
@@ -1563,7 +1563,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3313795558556844988
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,34 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopItemDataList:
   - key: UnityChanAccessory
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: GreatSword
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy1
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: Dummy2
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: Dummy3
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: Dummy4
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: Dummy5
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy6
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy7
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy8
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   shopItemDataDictionary:
     m_keys:
@@ -57,42 +57,42 @@ MonoBehaviour:
     - Dummy8
     m_values:
     - key: UnityChanAccessory
-      shopIconAssetPath: Assets/Resources/
+      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 1
     - key: GreatSword
-      shopIconAssetPath: Assets/Resources/
+      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 0
     - key: Dummy1
-      shopIconAssetPath: Assets/Resources/
+      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 1
     - key: Dummy2
-      shopIconAssetPath: Assets/Resources/
+      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 1
     - key: Dummy3
-      shopIconAssetPath: Assets/Resources/
+      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 1
     - key: Dummy4
-      shopIconAssetPath: Assets/Resources/
+      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 1
     - key: Dummy5
-      shopIconAssetPath: Assets/Resources/
+      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 0
     - key: Dummy6
-      shopIconAssetPath: Assets/Resources/
+      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 0
     - key: Dummy7
-      shopIconAssetPath: Assets/Resources/
+      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 0
     - key: Dummy8
-      shopIconAssetPath: Assets/Resources/
+      shopIconAssetPath: Sprites/Coin.asset
       isRandom: 0
   dropItemDataList:
   - key: Coin
-    fieldIconAssetPath: Assets/Resources/Sprites/Coin.asset
+    fieldIconAssetPath: Sprites/Coin.asset
     dropActionType: 0
     actionParameter: 3
   - key: Box
-    fieldIconAssetPath: Assets/Resources/AnimationController/DropItem/Box.controller
+    fieldIconAssetPath: AnimationController/DropItem/Box.controller
     dropActionType: 1
     actionParameter: UnityChanAccessory:30/GreatSword:70
   dropItemDataDictionary:
@@ -101,11 +101,11 @@ MonoBehaviour:
     - Box
     m_values:
     - key: Coin
-      fieldIconAssetPath: Assets/Resources/Sprites/Coin.asset
+      fieldIconAssetPath: Sprites/Coin.asset
       dropActionType: 0
       actionParameter: 3
     - key: Box
-      fieldIconAssetPath: Assets/Resources/AnimationController/DropItem/Box.controller
+      fieldIconAssetPath: AnimationController/DropItem/Box.controller
       dropActionType: 1
       actionParameter: UnityChanAccessory:30/GreatSword:70
   partsItemDataList:
@@ -228,32 +228,32 @@ MonoBehaviour:
       propType: 0
   sortedShopItemList:
   - key: Dummy4
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: Dummy3
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: Dummy2
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: Dummy1
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: UnityChanAccessory
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 1
   - key: GreatSword
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy5
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy6
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy7
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0
   - key: Dummy8
-    shopIconAssetPath: Assets/Resources/
+    shopIconAssetPath: Sprites/Coin.asset
     isRandom: 0

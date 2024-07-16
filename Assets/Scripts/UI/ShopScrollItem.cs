@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class ShopScrollItem : MonoBehaviour
 {
+	[SerializeField] private ItemIcon itemIcon = null;
 	[SerializeField] private Text itemCodeText = null;
 
     public void SetItemData(ItemTable.ShopItemData itemData)
 	{
+		itemIcon.SetItemData(itemData);
 		itemCodeText.text = itemData.key;
 	}
 }
