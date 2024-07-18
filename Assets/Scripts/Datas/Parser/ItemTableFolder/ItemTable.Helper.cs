@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -34,9 +35,9 @@ public partial class ItemTable
 	{
 		base.RuntimeParser();
 
-		sortedShopItemList.Clear();
-		sortedShopItemList.AddRange(shopItemDataList);
-		sortedShopItemList.Sort(ShopItemCompareFunc); 
+		sortedShopItemList = shopItemDataList
+						.OrderByDescending(d => d.isRandom)
+						.ToList();
 	}
 
 	public bool IsValidItem(string itemCode)
@@ -78,20 +79,6 @@ public partial class ItemTable
 			return true;
 
 		return false;
-	}
-
-	private int ShopItemCompareFunc(ShopItemData a, ShopItemData b)
-	{
-		if (a.isRandom > 0)
-		{
-			return -1;
-		}
-		else if (b.isRandom > 0)
-		{
-			return 1;
-		}
-
-		return 0;
 	}
 
 	public CharacterPartsType GetItemPartsType(string itemCode)

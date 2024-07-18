@@ -261,15 +261,15 @@ MonoBehaviour:
     - key: GreatSword
       propType: 0
   sortedShopItemList:
-  - key: Dummy4
-    isRandom: 1
-  - key: Dummy3
-    isRandom: 1
-  - key: Dummy2
+  - key: UnityChanAccessory
     isRandom: 1
   - key: Dummy1
     isRandom: 1
-  - key: UnityChanAccessory
+  - key: Dummy2
+    isRandom: 1
+  - key: Dummy3
+    isRandom: 1
+  - key: Dummy4
     isRandom: 1
   - key: GreatSword
     isRandom: 0
