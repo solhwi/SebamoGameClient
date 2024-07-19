@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9142354699776786266}
   - component: {fileID: 2163550913311537129}
   - component: {fileID: 5089413440016197294}
-  - component: {fileID: 3705987153283071454}
+  - component: {fileID: 2333335081270157816}
   m_Layer: 0
   m_Name: UICharacterView
   m_TagString: Untagged
@@ -73,7 +73,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &3705987153283071454
+--- !u!114 &2333335081270157816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 34777626472212710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d21bb436e0e8e24ea7d5b08dc3f1934, type: 3}
+  m_Script: {fileID: 11500000, guid: a304186dd3cefbc4a862676b014e5719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
@@ -1438,7 +1438,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -100, y: -100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4503716222239856190
 CanvasRenderer:
@@ -1563,7 +1563,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &3313795558556844988
 MonoBehaviour:
   m_ObjectHideFlags: 0

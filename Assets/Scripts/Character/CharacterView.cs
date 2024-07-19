@@ -5,19 +5,17 @@ using UnityEngine;
 public class CharacterView : ObjectView
 {
 	private Transform originCharacterTransform = null;
+	private CharacterDataSetter characterDataSetter = null;
 	private CharacterAnimationController characterAnimationController = null;
 
 	protected override void Start()
 	{
-		spawnLocalPos = new Vector3(0.05f, -0.5f, 10.0f);
-		spawnLocalRot = new Vector3(15, 150, -15);
-
 		base.Start();
 
-		var setter = originObj.GetComponent<CharacterDataSetter>();
-		if (setter != null)
+		characterDataSetter = originObj.GetComponent<CharacterDataSetter>();
+		if (characterDataSetter != null)
 		{
-			setter.DoFullSetting();
+			characterDataSetter.DoFullSetting();
 		}
 
 		characterAnimationController = originObj.GetComponentInChildren<CharacterAnimationController>();
@@ -28,8 +26,6 @@ public class CharacterView : ObjectView
 		{
 			originCharacterTransform = characterOrigin.transform;
 		}
-
-		spriteView.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
 	}
 
 	public void FlipX(bool flipX)

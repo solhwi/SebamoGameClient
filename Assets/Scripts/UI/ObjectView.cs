@@ -81,17 +81,3 @@ public class ObjectView : MonoBehaviour
 		return Sprite.Create(texture, rect, new Vector2(0.5f, 0.5f));
 	}
 }
-
-public class UINPCView : ObjectView
-{
-	[SerializeField] private string AnimationStateName = "POSE01";
-	private Animator animator = null;
-
-	protected override void Start()
-	{
-		base.Start();
-
-		animator = originObj.GetComponent<Animator>();
-		animator.Play(AnimationStateName, 0);
-	}
-}
