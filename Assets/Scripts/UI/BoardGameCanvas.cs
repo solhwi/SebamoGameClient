@@ -58,6 +58,7 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 
 	public void OnClickRollDice()
 	{
+		boardGameCameraController.SetFollow(true);
 		boardGameManager.OnClickRollDice();
 	}
 
