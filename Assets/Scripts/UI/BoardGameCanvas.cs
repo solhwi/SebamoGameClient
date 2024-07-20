@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BoardGameCanvas : BoardGameSubscriber
+public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHandler
 {
 	[SerializeField] private BoardGameManager boardGameManager;
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Inventory inventory;
+	[SerializeField] private CameraController boardGameCameraController;
 
 	[SerializeField] private Text statusText = null;
 	[SerializeField] private Text coinText = null;
 
 	[SerializeField] private RectTransform rankingBoard = null;
+
+	private Vector2 dragStartPos = Vector2.zero;
+
 	public bool isRankingBoardToggleOn = false;
 
 	public override IEnumerator OnMove(int currentOrder, int diceCount)
@@ -69,5 +74,24 @@ public class BoardGameCanvas : BoardGameSubscriber
 	public void OnClickRankingBoardToggle()
 	{
 		isRankingBoardToggleOn = !isRankingBoardToggleOn;
+	}
+
+	public void OnBeginDrag(PointerEventData data)
+	{
+		dragStartPos = data.position;
+		boardGameCameraController.SetFollow(false);
+	}
+
+	public void OnDrag(PointerEventData data)
+	{
+		Vector3 deltaPos = dragStartPos - data.position;
+		boardGameCameraController.Move(Time.deltaTime * deltaPos);
+
+		dragStartPos = data.position;
+	}
+
+	public void OnClickResetCamera()
+	{
+		boardGameCameraController.SetFollow(true);
 	}
 }

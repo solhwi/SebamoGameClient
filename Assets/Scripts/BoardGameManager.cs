@@ -76,6 +76,8 @@ public class BoardGameManager : MonoBehaviour
 
 	private IEnumerator Start()
 	{
+		characterMoveComponent.gameObject.SetActive(false);
+
 		// 타일 위 아이템 이미지 배치
 		yield return PrepareItem();
 
@@ -93,8 +95,6 @@ public class BoardGameManager : MonoBehaviour
 
 	private IEnumerator PrepareCharacter()
 	{
-		characterMoveComponent.gameObject.SetActive(false);
-
 		yield return null;
 
 		// 플레이어 캐릭터 뷰 타일 위로 배치
