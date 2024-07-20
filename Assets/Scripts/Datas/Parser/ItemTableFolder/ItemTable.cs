@@ -16,16 +16,6 @@ public partial class ItemTable : ScriptParser
 		{
 			shopItemDataDictionary.Add(value.key, value);
 		}
-		itemIconDataDictionary.Clear();
-		foreach(var value in itemIconDataList)
-		{
-			itemIconDataDictionary.Add(value.key, value);
-		}
-		dropItemDataDictionary.Clear();
-		foreach(var value in dropItemDataList)
-		{
-			dropItemDataDictionary.Add(value.key, value);
-		}
 		partsItemDataDictionary.Clear();
 		foreach(var value in partsItemDataList)
 		{
@@ -35,6 +25,16 @@ public partial class ItemTable : ScriptParser
 		foreach(var value in propItemDataList)
 		{
 			propItemDataDictionary.Add(value.key, value);
+		}
+		itemIconDataDictionary.Clear();
+		foreach(var value in itemIconDataList)
+		{
+			itemIconDataDictionary.Add(value.key, value);
+		}
+		dropItemDataDictionary.Clear();
+		foreach(var value in dropItemDataList)
+		{
+			dropItemDataDictionary.Add(value.key, value);
 		}
 	}
 
@@ -49,6 +49,31 @@ public partial class ItemTable : ScriptParser
 	[System.Serializable]
 	public class ShopItemDataDictionary : SerializableDictionary<string, ShopItemData> {}
 	public ShopItemDataDictionary shopItemDataDictionary = new ShopItemDataDictionary();
+
+	[Serializable]
+	public class PartsItemData
+	{
+		public string key;
+		public CharacterPartsType partsType;
+		public CharacterType characterType;
+	}
+
+	public List<PartsItemData> partsItemDataList = new List<PartsItemData>();
+	[System.Serializable]
+	public class PartsItemDataDictionary : SerializableDictionary<string, PartsItemData> {}
+	public PartsItemDataDictionary partsItemDataDictionary = new PartsItemDataDictionary();
+
+	[Serializable]
+	public class PropItemData
+	{
+		public string key;
+		public PropType propType;
+	}
+
+	public List<PropItemData> propItemDataList = new List<PropItemData>();
+	[System.Serializable]
+	public class PropItemDataDictionary : SerializableDictionary<string, PropItemData> {}
+	public PropItemDataDictionary propItemDataDictionary = new PropItemDataDictionary();
 
 	[Serializable]
 	public class ItemIconData
@@ -75,31 +100,6 @@ public partial class ItemTable : ScriptParser
 	[System.Serializable]
 	public class DropItemDataDictionary : SerializableDictionary<string, DropItemData> {}
 	public DropItemDataDictionary dropItemDataDictionary = new DropItemDataDictionary();
-
-	[Serializable]
-	public class PartsItemData
-	{
-		public string key;
-		public CharacterPartsType partsType;
-		public CharacterType characterType;
-	}
-
-	public List<PartsItemData> partsItemDataList = new List<PartsItemData>();
-	[System.Serializable]
-	public class PartsItemDataDictionary : SerializableDictionary<string, PartsItemData> {}
-	public PartsItemDataDictionary partsItemDataDictionary = new PartsItemDataDictionary();
-
-	[Serializable]
-	public class PropItemData
-	{
-		public string key;
-		public PropType propType;
-	}
-
-	public List<PropItemData> propItemDataList = new List<PropItemData>();
-	[System.Serializable]
-	public class PropItemDataDictionary : SerializableDictionary<string, PropItemData> {}
-	public PropItemDataDictionary propItemDataDictionary = new PropItemDataDictionary();
 
 
 }

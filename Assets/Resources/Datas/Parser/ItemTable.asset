@@ -68,11 +68,11 @@ MonoBehaviour:
       isRandom: 0
   itemIconDataList:
   - key: UnityChanAccessory
-    iconAssetPath: Sprites/Coin.asset
+    iconAssetPath: Sprites/ItemIcon_Chest_Gold.png
   - key: GreatSword
     iconAssetPath: Sprites/Coin.asset
   - key: Dummy1
-    iconAssetPath: Sprites/Coin.asset
+    iconAssetPath: Sprites/ItemIcon_Chest_Wood.png
   - key: Dummy2
     iconAssetPath: Sprites/Coin.asset
   - key: Dummy3
@@ -101,11 +101,11 @@ MonoBehaviour:
     - Dummy8
     m_values:
     - key: UnityChanAccessory
-      iconAssetPath: Sprites/Coin.asset
+      iconAssetPath: Sprites/ItemIcon_Chest_Gold.png
     - key: GreatSword
       iconAssetPath: Sprites/Coin.asset
     - key: Dummy1
-      iconAssetPath: Sprites/Coin.asset
+      iconAssetPath: Sprites/ItemIcon_Chest_Wood.png
     - key: Dummy2
       iconAssetPath: Sprites/Coin.asset
     - key: Dummy3
