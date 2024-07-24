@@ -40,6 +40,46 @@ public partial class ItemTable
 						.ToList();
 	}
 
+	public string GetItemNPCDescription(string itemCode)
+	{
+		if (shopItemDataDictionary.TryGetValue(itemCode, out ShopItemData itemData))
+		{
+			return itemData.shopItemDescription.Replace("\\n", "\n");
+		}
+
+		return string.Empty;
+	}
+
+	public string GetItemDescription(string itemCode)
+	{
+		if (itemIconDataDictionary.TryGetValue(itemCode, out var iconData))
+		{
+			return iconData.itemDescription;
+		}
+
+		return string.Empty;
+	}
+
+	public string GetItemName(string itemCode)
+	{
+		if (itemIconDataDictionary.TryGetValue(itemCode, out var iconData))
+		{
+			return iconData.itemName;
+		}
+
+		return string.Empty;
+	}
+
+	public Sprite GetItemIconSprite(string itemCode)
+	{
+		if (itemIconDataDictionary.TryGetValue(itemCode, out var iconData))
+		{
+			return ResourceManager.Instance.Load<Sprite>(iconData.GetAssetPathWithoutResources());
+		}
+
+		return null;
+	}
+
 	public bool IsValidItem(string itemCode)
 	{
 		if (dropItemDataDictionary.ContainsKey(itemCode))

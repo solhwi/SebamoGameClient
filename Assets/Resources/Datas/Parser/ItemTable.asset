@@ -16,33 +16,45 @@ MonoBehaviour:
   - key: UnityChanAccessory
     isRandom: 1
     price: 30000
+    shopItemDescription: "\uC5BC\uB9C8 \uC804\uAE4C\uC9C0 \uC81C\uAC00 \uC4F0\uB358\\n\uBA38\uB9AC\uB760\uC5D0\uC694."
   - key: GreatSword
     isRandom: 0
     price: 50000
+    shopItemDescription: "\uB9C8\uB825\uC774 \uB290\uAEF4\uC9C0\uB294 \uD478\uB978
+      \uAC80\\n\uC774\uB78D\uB2C8\uB2E4."
   - key: Dummy1
     isRandom: 1
     price: 1000
+    shopItemDescription: "\uB098\uBB34 \uC0C1\uC790\uC5D0\uC694."
   - key: Dummy2
     isRandom: 1
     price: 2000
+    shopItemDescription: "\uC5F4\uC2EC\uD788 \uAD00\uB9AC\uD55C \uB098\uBB34 \uC0C1\uC790\uC5D0\uC694."
   - key: Dummy3
     isRandom: 1
     price: 1200
+    shopItemDescription: "\uC624\uB798\uB41C \uC18C \uAC00\uC8FD\uC774\uC5D0\uC694."
   - key: Dummy4
     isRandom: 1
     price: 2500
+    shopItemDescription: "\uC7A1\uB3D9\uC0AC\uB2C8\uB124\uC694."
   - key: Dummy5
     isRandom: 0
     price: 3000
+    shopItemDescription: "\uBA39\uB2E4 \uB0A8\uC740 \uCE58\uD0A8 \uBF08\uC5D0\uC694."
   - key: Dummy6
     isRandom: 0
     price: 5000
+    shopItemDescription: "\uC774\uBD88\uC774 \uC5C6\uC744 \uB54C \uB531\uC774\uC8E0."
   - key: Dummy7
     isRandom: 0
     price: 12000
+    shopItemDescription: "\uC774\uAC8C \uBA38\uB4DC\uB77C"
   - key: Dummy8
     isRandom: 0
     price: 8000
+    shopItemDescription: "\uC774\uAC8C \uBB50\uC600\uB294 \uC9C0 \uAE30\uC5B5\uC774
+      \uC798\u2026"
   shopItemDataDictionary:
     m_keys:
     - UnityChanAccessory
@@ -59,33 +71,45 @@ MonoBehaviour:
     - key: UnityChanAccessory
       isRandom: 1
       price: 30000
+      shopItemDescription: "\uC5BC\uB9C8 \uC804\uAE4C\uC9C0 \uC81C\uAC00 \uC4F0\uB358\\n\uBA38\uB9AC\uB760\uC5D0\uC694."
     - key: GreatSword
       isRandom: 0
       price: 50000
+      shopItemDescription: "\uB9C8\uB825\uC774 \uB290\uAEF4\uC9C0\uB294 \uD478\uB978
+        \uAC80\\n\uC774\uB78D\uB2C8\uB2E4."
     - key: Dummy1
       isRandom: 1
       price: 1000
+      shopItemDescription: "\uB098\uBB34 \uC0C1\uC790\uC5D0\uC694."
     - key: Dummy2
       isRandom: 1
       price: 2000
+      shopItemDescription: "\uC5F4\uC2EC\uD788 \uAD00\uB9AC\uD55C \uB098\uBB34 \uC0C1\uC790\uC5D0\uC694."
     - key: Dummy3
       isRandom: 1
       price: 1200
+      shopItemDescription: "\uC624\uB798\uB41C \uC18C \uAC00\uC8FD\uC774\uC5D0\uC694."
     - key: Dummy4
       isRandom: 1
       price: 2500
+      shopItemDescription: "\uC7A1\uB3D9\uC0AC\uB2C8\uB124\uC694."
     - key: Dummy5
       isRandom: 0
       price: 3000
+      shopItemDescription: "\uBA39\uB2E4 \uB0A8\uC740 \uCE58\uD0A8 \uBF08\uC5D0\uC694."
     - key: Dummy6
       isRandom: 0
       price: 5000
+      shopItemDescription: "\uC774\uBD88\uC774 \uC5C6\uC744 \uB54C \uB531\uC774\uC8E0."
     - key: Dummy7
       isRandom: 0
       price: 12000
+      shopItemDescription: "\uC774\uAC8C \uBA38\uB4DC\uB77C"
     - key: Dummy8
       isRandom: 0
       price: 8000
+      shopItemDescription: "\uC774\uAC8C \uBB50\uC600\uB294 \uC9C0 \uAE30\uC5B5\uC774
+        \uC798\u2026"
   partsItemDataList:
   - key: UnityChanAccessory
     partsType: 6
@@ -208,33 +232,46 @@ MonoBehaviour:
   - key: UnityChanAccessory
     iconAssetPath: Sprites/ItemIcon_Chest_Gold.png
     itemName: "\uB178\uB780 \uBA38\uB9AC\uB048"
+    itemDescription: "\uC720\uB2C8\uD2F0 \uCA29\uC774 \uC4F0\uB358 \uB178\uB780 \uBA38\uB9AC\uB048"
   - key: GreatSword
     iconAssetPath: Sprites/Coin.asset
     itemName: "\uD478\uB978 \uC6D0\uD55C\uC758 \uC18C\uB4DC"
+    itemDescription: "\uC774\uB984 \uBAA8\uB97C \uD574\uC801\uC758 \uC6D0\uD55C\uC774
+      \uB2F4\uAE34 \uAC80 "
   - key: Dummy1
     iconAssetPath: Sprites/ItemIcon_Chest_Wood.png
     itemName: "\uB098\uBB34 \uC0C1\uC790"
+    itemDescription: "\uAE08\uBC29\uC774\uB77C\uB3C4 \uBD80\uC234\uC9C8 \uB4EF\uD55C
+      \uB098\uBB34 \uC0C1\uC790\uB2E4."
   - key: Dummy2
     iconAssetPath: Sprites/Coin.asset
     itemName: "\uACE0\uAE09 \uB098\uBB34 \uC0C1\uC790"
+    itemDescription: "\uC798 \uAD00\uB9AC\uB41C \uB098\uBB34 \uC0C1\uC790\uB2E4."
   - key: Dummy3
     iconAssetPath: Sprites/Coin.asset
     itemName: "\uB0A1\uC740 \uAC00\uC8FD \uC870\uAC01"
+    itemDescription: "\uC774\uB984 \uBAA8\uB97C \uB3D9\uBB3C\uC758 \uAC00\uC8FD\uC774\uB2E4."
   - key: Dummy4
     iconAssetPath: Sprites/Coin.asset
     itemName: "\uB179\uC2A8 \uCCA0 \uC870\uAC01"
+    itemDescription: "\uB9CE\uC774 \uB179\uC2A8 \uCCA0\uC774\uB2E4. \uC4F8 \uC218
+      \uC788\uC744\uAE4C?"
   - key: Dummy5
     iconAssetPath: Sprites/Coin.asset
     itemName: "\uD48D\uD654\uB41C \uBF08 \uC870\uAC01"
+    itemDescription: "\uC774\uB984 \uBAA8\uB97C \uB3D9\uBB3C\uC758 \uBF08\uB2E4."
   - key: Dummy6
     iconAssetPath: Sprites/Coin.asset
     itemName: "\uD5DD\uAC8A \uC870\uAC01"
+    itemDescription: "\uD5DD\uAC8A \uC870\uAC01\uC774\uB2E4."
   - key: Dummy7
     iconAssetPath: Sprites/Coin.asset
     itemName: "\uCD5C\uD558\uAE09 \uACBD\uD654\uC81C"
+    itemDescription: "\uC5B4\uB514\uC5D0 \uC4F0\uB294 \uBB3C\uAC74\uC77C\uAE4C?"
   - key: Dummy8
     iconAssetPath: Sprites/Coin.asset
     itemName: "\uCD5C\uD558\uAE09 \uC5F0\uC11D"
+    itemDescription: "\uC5B4\uB514\uC5D0 \uC4F0\uB294 \uBB3C\uAC74\uC778\uACE0?"
   itemIconDataDictionary:
     m_keys:
     - UnityChanAccessory
@@ -251,33 +288,47 @@ MonoBehaviour:
     - key: UnityChanAccessory
       iconAssetPath: Sprites/ItemIcon_Chest_Gold.png
       itemName: "\uB178\uB780 \uBA38\uB9AC\uB048"
+      itemDescription: "\uC720\uB2C8\uD2F0 \uCA29\uC774 \uC4F0\uB358 \uB178\uB780
+        \uBA38\uB9AC\uB048"
     - key: GreatSword
       iconAssetPath: Sprites/Coin.asset
       itemName: "\uD478\uB978 \uC6D0\uD55C\uC758 \uC18C\uB4DC"
+      itemDescription: "\uC774\uB984 \uBAA8\uB97C \uD574\uC801\uC758 \uC6D0\uD55C\uC774
+        \uB2F4\uAE34 \uAC80 "
     - key: Dummy1
       iconAssetPath: Sprites/ItemIcon_Chest_Wood.png
       itemName: "\uB098\uBB34 \uC0C1\uC790"
+      itemDescription: "\uAE08\uBC29\uC774\uB77C\uB3C4 \uBD80\uC234\uC9C8 \uB4EF\uD55C
+        \uB098\uBB34 \uC0C1\uC790\uB2E4."
     - key: Dummy2
       iconAssetPath: Sprites/Coin.asset
       itemName: "\uACE0\uAE09 \uB098\uBB34 \uC0C1\uC790"
+      itemDescription: "\uC798 \uAD00\uB9AC\uB41C \uB098\uBB34 \uC0C1\uC790\uB2E4."
     - key: Dummy3
       iconAssetPath: Sprites/Coin.asset
       itemName: "\uB0A1\uC740 \uAC00\uC8FD \uC870\uAC01"
+      itemDescription: "\uC774\uB984 \uBAA8\uB97C \uB3D9\uBB3C\uC758 \uAC00\uC8FD\uC774\uB2E4."
     - key: Dummy4
       iconAssetPath: Sprites/Coin.asset
       itemName: "\uB179\uC2A8 \uCCA0 \uC870\uAC01"
+      itemDescription: "\uB9CE\uC774 \uB179\uC2A8 \uCCA0\uC774\uB2E4. \uC4F8 \uC218
+        \uC788\uC744\uAE4C?"
     - key: Dummy5
       iconAssetPath: Sprites/Coin.asset
       itemName: "\uD48D\uD654\uB41C \uBF08 \uC870\uAC01"
+      itemDescription: "\uC774\uB984 \uBAA8\uB97C \uB3D9\uBB3C\uC758 \uBF08\uB2E4."
     - key: Dummy6
       iconAssetPath: Sprites/Coin.asset
       itemName: "\uD5DD\uAC8A \uC870\uAC01"
+      itemDescription: "\uD5DD\uAC8A \uC870\uAC01\uC774\uB2E4."
     - key: Dummy7
       iconAssetPath: Sprites/Coin.asset
       itemName: "\uCD5C\uD558\uAE09 \uACBD\uD654\uC81C"
+      itemDescription: "\uC5B4\uB514\uC5D0 \uC4F0\uB294 \uBB3C\uAC74\uC77C\uAE4C?"
     - key: Dummy8
       iconAssetPath: Sprites/Coin.asset
       itemName: "\uCD5C\uD558\uAE09 \uC5F0\uC11D"
+      itemDescription: "\uC5B4\uB514\uC5D0 \uC4F0\uB294 \uBB3C\uAC74\uC778\uACE0?"
   dropItemDataList:
   - key: Coin
     fieldIconAssetPath: Sprites/Coin.asset
@@ -304,30 +355,42 @@ MonoBehaviour:
   - key: UnityChanAccessory
     isRandom: 1
     price: 30000
+    shopItemDescription: "\uC5BC\uB9C8 \uC804\uAE4C\uC9C0 \uC81C\uAC00 \uC4F0\uB358\\n\uBA38\uB9AC\uB760\uC5D0\uC694."
   - key: Dummy1
     isRandom: 1
     price: 1000
+    shopItemDescription: "\uB098\uBB34 \uC0C1\uC790\uC5D0\uC694."
   - key: Dummy2
     isRandom: 1
     price: 2000
+    shopItemDescription: "\uC5F4\uC2EC\uD788 \uAD00\uB9AC\uD55C \uB098\uBB34 \uC0C1\uC790\uC5D0\uC694."
   - key: Dummy3
     isRandom: 1
     price: 1200
+    shopItemDescription: "\uC624\uB798\uB41C \uC18C \uAC00\uC8FD\uC774\uC5D0\uC694."
   - key: Dummy4
     isRandom: 1
     price: 2500
+    shopItemDescription: "\uC7A1\uB3D9\uC0AC\uB2C8\uB124\uC694."
   - key: GreatSword
     isRandom: 0
     price: 50000
+    shopItemDescription: "\uB9C8\uB825\uC774 \uB290\uAEF4\uC9C0\uB294 \uD478\uB978
+      \uAC80\\n\uC774\uB78D\uB2C8\uB2E4."
   - key: Dummy5
     isRandom: 0
     price: 3000
+    shopItemDescription: "\uBA39\uB2E4 \uB0A8\uC740 \uCE58\uD0A8 \uBF08\uC5D0\uC694."
   - key: Dummy6
     isRandom: 0
     price: 5000
+    shopItemDescription: "\uC774\uBD88\uC774 \uC5C6\uC744 \uB54C \uB531\uC774\uC8E0."
   - key: Dummy7
     isRandom: 0
     price: 12000
+    shopItemDescription: "\uC774\uAC8C \uBA38\uB4DC\uB77C"
   - key: Dummy8
     isRandom: 0
     price: 8000
+    shopItemDescription: "\uC774\uAC8C \uBB50\uC600\uB294 \uC9C0 \uAE30\uC5B5\uC774
+      \uC798\u2026"

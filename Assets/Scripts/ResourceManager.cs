@@ -70,25 +70,18 @@ public class ResourceManager : Singleton<ResourceManager>
 
 
 		string path = rawData.GetAssetPathWithoutResources();
-		Object res = null;
-
-		if (cachedObjectDictionary.ContainsKey(path) == false)
+		Object res = Load<Sprite>(path);
+		if (res == null)
 		{
-			res = Load<Sprite>(path);
-			if (res == null)
-			{
-				res = Load<RuntimeAnimatorController>(path);
-			}
-			
-			cachedObjectDictionary.Add(path, res);
+			res = Load<RuntimeAnimatorController>(path);
 		}
 
-		if (cachedObjectDictionary[path] is Sprite sprite)
+		if (res is Sprite sprite)
 		{
 			var renderer = obj.gameObject.GetComponent<SpriteRenderer>();
 			renderer.sprite = sprite;
 		}
-		else if (cachedObjectDictionary[path] is RuntimeAnimatorController anim)
+		else if (res is RuntimeAnimatorController anim)
 		{
 			var animator = obj.gameObject.GetComponent<Animator>();
 			animator.runtimeAnimatorController = anim;
@@ -122,7 +115,12 @@ public class ResourceManager : Singleton<ResourceManager>
 
 	public T Load<T>(string path) where T : Object
 	{
-		return Resources.Load<T>(path);
+		if (cachedObjectDictionary.ContainsKey(path) == false)
+		{
+			return Resources.Load<T>(path);
+		}
+
+		return cachedObjectDictionary[path] as T;
 	}
 
 	public void Unload<T>(T obj) where T : Object

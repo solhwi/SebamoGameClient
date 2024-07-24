@@ -9,6 +9,8 @@ public class ItemIcon : MonoBehaviour
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private Image itemImage;
 
+	private string itemCode;
+
 	private void Awake()
 	{
 		eventTrigger.onEndPress += OnPressIcon;
@@ -21,22 +23,17 @@ public class ItemIcon : MonoBehaviour
 
 	public void SetItemData(ItemTable.ShopItemData itemData)
 	{
-		string itemCode = itemData.key;
-
-		if (itemTable.itemIconDataDictionary.TryGetValue(itemCode, out var iconData))
-		{
-			var sprite = ResourceManager.Instance.Load<Sprite>(iconData.GetAssetPathWithoutResources());
-			itemImage.sprite = sprite;
-		}
+		itemCode = itemData.key;
+		itemImage.sprite = itemTable.GetItemIconSprite(itemCode);
 	}
 
-    public void SetItemData(string itemCode, int itemCount = 1)
+	public void SetItemData(string itemCode, int itemCount = 1)
 	{
 		
 	}
 
 	public void OnPressIcon(float time)
 	{
-		PopupManager.Instance.TryOpen(PopupManager.PopupType.Notify);
+		PopupManager.Instance.TryOpen(PopupManager.PopupType.Notify, new ItemToolTipParameter(itemCode));
 	}
 }

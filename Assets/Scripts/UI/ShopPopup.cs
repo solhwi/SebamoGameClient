@@ -27,8 +27,11 @@ public class ShopPopup : BoardGamePopup
 		Normal = 1,
 	}
 
+	[SerializeField] private Inventory inventory;
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private ScrollContent scrollContent;
+	[SerializeField] private Text npcText;
+	[SerializeField] private Text coinText;
 
 	private int normalItemIndex = 0;
 
@@ -80,6 +83,12 @@ public class ShopPopup : BoardGamePopup
 
 		var shopItemData = itemTable.sortedShopItemList[index];
 		shopScrollItem.SetItemData(shopItemData);
+		shopScrollItem.SetItemClickCallback(OnClickItem);
+	}
+
+	private void OnClickItem(string itemCode)
+	{
+		npcText.text = itemTable.GetItemNPCDescription(itemCode);
 	}
 
 	public int GetItemCount(int tabType)
@@ -89,22 +98,24 @@ public class ShopPopup : BoardGamePopup
 
 	private void Update()
 	{
-		if (normalItemIndex < scrollContent.DefaultItemCount)
-			return;
+		coinText.text = inventory.GetHasCoinCount().ToString("n0");
 
-		if (scrollContent.IsTargeting == false)
+		if (normalItemIndex >= scrollContent.DefaultItemCount)
 		{
-			float itemSize = scrollContent.GetItemCellSizeY();
-			float normalItemPos = scrollContent.GetItemPosY(normalItemIndex);
-			float currentYPos = scrollContent.GetCurrentYPos();
+			if (scrollContent.IsTargeting == false)
+			{
+				float itemSize = scrollContent.GetItemCellSizeY();
+				float normalItemPos = scrollContent.GetItemPosY(normalItemIndex);
+				float currentYPos = scrollContent.GetCurrentYPos();
 
-			if (currentYPos > normalItemPos)
-			{
-				scrollContent.SelectTab((int)TabType.Normal);
-			}
-			else if (currentYPos < itemSize)
-			{
-				scrollContent.SelectTab((int)TabType.Random);
+				if (currentYPos > normalItemPos)
+				{
+					scrollContent.SelectTab((int)TabType.Normal);
+				}
+				else if (currentYPos < itemSize)
+				{
+					scrollContent.SelectTab((int)TabType.Random);
+				}
 			}
 		}
 	}

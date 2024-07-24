@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4192245614516579124}
   - component: {fileID: 8233921568520878013}
   m_Layer: 0
-  m_Name: ButtonBg
+  m_Name: ButtonBackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -518,7 +518,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6997277843110152201}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5836611841804382213}
+        m_TargetAssemblyTypeName: NotifyPopup, Assembly-CSharp
+        m_MethodName: OnClickCancel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4979449667765510249
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +651,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8438316938994705176}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5836611841804382213}
+        m_TargetAssemblyTypeName: NotifyPopup, Assembly-CSharp
+        m_MethodName: OnClickConfirm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5873701677790591942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,6 +1337,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupType: 2
   canvas: {fileID: 5856884632462948127}
+  itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
+  titleText: {fileID: 2311651264250437282}
+  itemIconImage: {fileID: 703742444597002399}
+  itemNameText: {fileID: 6501281817123862199}
+  itemDescriptionText: {fileID: 5988360659722606504}
+  notifyTitleDictionary:
+    m_keys: 000000000100000002000000
+    m_values:
+    - "\uAD6C\uB9E4 \uD655\uC778"
+    - "\uC544\uC774\uD15C \uC124\uBA85"
+    - "\uBF51\uAE30"
 --- !u!1 &7471131589508876219
 GameObject:
   m_ObjectHideFlags: 0

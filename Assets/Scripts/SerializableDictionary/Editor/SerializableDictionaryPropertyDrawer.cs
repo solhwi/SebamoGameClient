@@ -8,6 +8,9 @@ using System;
 /// <summary>
 /// 이 곳에 Serialize할 Collection을 작성해야 에디팅이 가능합니다. (아래 예시 참고)
 /// </summary>
+/// 
+[CustomPropertyDrawer(typeof(NotifyTitleDictionary))]
+public class NotifyTitleDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
 
 [CustomPropertyDrawer(typeof(PopupManager.PopupDictionary))]
 public class PopupDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
