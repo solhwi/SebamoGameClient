@@ -568,6 +568,8 @@ MonoBehaviour:
   originPrefab: {fileID: 2214232578226538075, guid: c43c258af683313409bb8cdfbdd03a3e, type: 3}
   spawnLocalPos: {x: 0, y: -1.3, z: 10}
   spawnLocalRot: {x: 0, y: 180, z: 0}
+  isFixedPosition: 1
+  isFixedRotation: 1
 --- !u!1 &2233708043810653688
 GameObject:
   m_ObjectHideFlags: 0

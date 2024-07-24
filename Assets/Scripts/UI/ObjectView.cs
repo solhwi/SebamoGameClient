@@ -11,6 +11,9 @@ public class ObjectView : MonoBehaviour
 	[SerializeField] protected Vector3 spawnLocalPos = new Vector3(0, -0.5f, 10);
 	[SerializeField] protected Vector3 spawnLocalRot = new Vector3(0, 180, 0);
 
+	[SerializeField] private bool isFixedPosition = false;
+	[SerializeField] private bool isFixedRotation = false;
+
 	protected GameObject originObj;
 
 	protected SpriteRenderer spriteView = null;
@@ -54,6 +57,18 @@ public class ObjectView : MonoBehaviour
 		{
 			textureView.color = Color.white;
 			textureView.texture = GetScreenShotTexture();
+		}
+	}
+
+	private void LateUpdate()
+	{
+		if (isFixedPosition)
+		{
+			originObj.transform.localPosition = spawnLocalPos;
+		}
+		if (isFixedRotation)
+		{
+			originObj.transform.localEulerAngles = spawnLocalRot;
 		}
 	}
 
