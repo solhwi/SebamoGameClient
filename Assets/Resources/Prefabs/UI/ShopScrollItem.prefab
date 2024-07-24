@@ -229,6 +229,7 @@ MonoBehaviour:
   itemIcon: {fileID: 8022892376931254050}
   itemNameText: {fileID: 8932234769318806474}
   itemPriceText: {fileID: 1457900920538510522}
+  priceTextFormat: "\uACE8\uB4DC : {0}"
 --- !u!1 &6051894303786350161
 GameObject:
   m_ObjectHideFlags: 0

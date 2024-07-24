@@ -19,6 +19,7 @@ public class ShopScrollItem : MonoBehaviour
 	[SerializeField] private ItemIcon itemIcon = null;
 	[SerializeField] private Text itemNameText = null;
 	[SerializeField] private Text itemPriceText = null;
+	[SerializeField] private string priceTextFormat = "골드 : {0}";
 
 	private ItemTable.ShopItemData myShopItemData;
 
@@ -28,7 +29,7 @@ public class ShopScrollItem : MonoBehaviour
 
 		itemIcon.SetItemData(itemData);
 
-		itemPriceText.text = $"가격 : {itemData.price}";
+		itemPriceText.text = string.Format(priceTextFormat, itemData.price);
 		 
 		if (itemTable.itemIconDataDictionary.TryGetValue(itemData.key, out var iconData))
 		{
