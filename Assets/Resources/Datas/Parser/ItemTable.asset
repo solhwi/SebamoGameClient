@@ -15,24 +15,34 @@ MonoBehaviour:
   shopItemDataList:
   - key: UnityChanAccessory
     isRandom: 1
+    price: 30000
   - key: GreatSword
     isRandom: 0
+    price: 50000
   - key: Dummy1
     isRandom: 1
+    price: 1000
   - key: Dummy2
     isRandom: 1
+    price: 2000
   - key: Dummy3
     isRandom: 1
+    price: 1200
   - key: Dummy4
     isRandom: 1
+    price: 2500
   - key: Dummy5
     isRandom: 0
+    price: 3000
   - key: Dummy6
     isRandom: 0
+    price: 5000
   - key: Dummy7
     isRandom: 0
+    price: 12000
   - key: Dummy8
     isRandom: 0
+    price: 8000
   shopItemDataDictionary:
     m_keys:
     - UnityChanAccessory
@@ -48,100 +58,34 @@ MonoBehaviour:
     m_values:
     - key: UnityChanAccessory
       isRandom: 1
+      price: 30000
     - key: GreatSword
       isRandom: 0
+      price: 50000
     - key: Dummy1
       isRandom: 1
+      price: 1000
     - key: Dummy2
       isRandom: 1
+      price: 2000
     - key: Dummy3
       isRandom: 1
+      price: 1200
     - key: Dummy4
       isRandom: 1
+      price: 2500
     - key: Dummy5
       isRandom: 0
+      price: 3000
     - key: Dummy6
       isRandom: 0
+      price: 5000
     - key: Dummy7
       isRandom: 0
+      price: 12000
     - key: Dummy8
       isRandom: 0
-  itemIconDataList:
-  - key: UnityChanAccessory
-    iconAssetPath: Sprites/ItemIcon_Chest_Gold.png
-  - key: GreatSword
-    iconAssetPath: Sprites/Coin.asset
-  - key: Dummy1
-    iconAssetPath: Sprites/ItemIcon_Chest_Wood.png
-  - key: Dummy2
-    iconAssetPath: Sprites/Coin.asset
-  - key: Dummy3
-    iconAssetPath: Sprites/Coin.asset
-  - key: Dummy4
-    iconAssetPath: Sprites/Coin.asset
-  - key: Dummy5
-    iconAssetPath: Sprites/Coin.asset
-  - key: Dummy6
-    iconAssetPath: Sprites/Coin.asset
-  - key: Dummy7
-    iconAssetPath: Sprites/Coin.asset
-  - key: Dummy8
-    iconAssetPath: Sprites/Coin.asset
-  itemIconDataDictionary:
-    m_keys:
-    - UnityChanAccessory
-    - GreatSword
-    - Dummy1
-    - Dummy2
-    - Dummy3
-    - Dummy4
-    - Dummy5
-    - Dummy6
-    - Dummy7
-    - Dummy8
-    m_values:
-    - key: UnityChanAccessory
-      iconAssetPath: Sprites/ItemIcon_Chest_Gold.png
-    - key: GreatSword
-      iconAssetPath: Sprites/Coin.asset
-    - key: Dummy1
-      iconAssetPath: Sprites/ItemIcon_Chest_Wood.png
-    - key: Dummy2
-      iconAssetPath: Sprites/Coin.asset
-    - key: Dummy3
-      iconAssetPath: Sprites/Coin.asset
-    - key: Dummy4
-      iconAssetPath: Sprites/Coin.asset
-    - key: Dummy5
-      iconAssetPath: Sprites/Coin.asset
-    - key: Dummy6
-      iconAssetPath: Sprites/Coin.asset
-    - key: Dummy7
-      iconAssetPath: Sprites/Coin.asset
-    - key: Dummy8
-      iconAssetPath: Sprites/Coin.asset
-  dropItemDataList:
-  - key: Coin
-    fieldIconAssetPath: Sprites/Coin.asset
-    dropActionType: 0
-    actionParameter: 3
-  - key: Box
-    fieldIconAssetPath: AnimationController/DropItem/Box.controller
-    dropActionType: 1
-    actionParameter: UnityChanAccessory:30/GreatSword:70
-  dropItemDataDictionary:
-    m_keys:
-    - Coin
-    - Box
-    m_values:
-    - key: Coin
-      fieldIconAssetPath: Sprites/Coin.asset
-      dropActionType: 0
-      actionParameter: 3
-    - key: Box
-      fieldIconAssetPath: AnimationController/DropItem/Box.controller
-      dropActionType: 1
-      actionParameter: UnityChanAccessory:30/GreatSword:70
+      price: 8000
   partsItemDataList:
   - key: UnityChanAccessory
     partsType: 6
@@ -260,24 +204,130 @@ MonoBehaviour:
     m_values:
     - key: GreatSword
       propType: 0
+  itemIconDataList:
+  - key: UnityChanAccessory
+    iconAssetPath: Sprites/ItemIcon_Chest_Gold.png
+    itemName: "\uB178\uB780 \uBA38\uB9AC\uB048"
+  - key: GreatSword
+    iconAssetPath: Sprites/Coin.asset
+    itemName: "\uD478\uB978 \uC6D0\uD55C\uC758 \uC18C\uB4DC"
+  - key: Dummy1
+    iconAssetPath: Sprites/ItemIcon_Chest_Wood.png
+    itemName: "\uB098\uBB34 \uC0C1\uC790"
+  - key: Dummy2
+    iconAssetPath: Sprites/Coin.asset
+    itemName: "\uACE0\uAE09 \uB098\uBB34 \uC0C1\uC790"
+  - key: Dummy3
+    iconAssetPath: Sprites/Coin.asset
+    itemName: "\uB0A1\uC740 \uAC00\uC8FD \uC870\uAC01"
+  - key: Dummy4
+    iconAssetPath: Sprites/Coin.asset
+    itemName: "\uB179\uC2A8 \uCCA0 \uC870\uAC01"
+  - key: Dummy5
+    iconAssetPath: Sprites/Coin.asset
+    itemName: "\uD48D\uD654\uB41C \uBF08 \uC870\uAC01"
+  - key: Dummy6
+    iconAssetPath: Sprites/Coin.asset
+    itemName: "\uD5DD\uAC8A \uC870\uAC01"
+  - key: Dummy7
+    iconAssetPath: Sprites/Coin.asset
+    itemName: "\uCD5C\uD558\uAE09 \uACBD\uD654\uC81C"
+  - key: Dummy8
+    iconAssetPath: Sprites/Coin.asset
+    itemName: "\uCD5C\uD558\uAE09 \uC5F0\uC11D"
+  itemIconDataDictionary:
+    m_keys:
+    - UnityChanAccessory
+    - GreatSword
+    - Dummy1
+    - Dummy2
+    - Dummy3
+    - Dummy4
+    - Dummy5
+    - Dummy6
+    - Dummy7
+    - Dummy8
+    m_values:
+    - key: UnityChanAccessory
+      iconAssetPath: Sprites/ItemIcon_Chest_Gold.png
+      itemName: "\uB178\uB780 \uBA38\uB9AC\uB048"
+    - key: GreatSword
+      iconAssetPath: Sprites/Coin.asset
+      itemName: "\uD478\uB978 \uC6D0\uD55C\uC758 \uC18C\uB4DC"
+    - key: Dummy1
+      iconAssetPath: Sprites/ItemIcon_Chest_Wood.png
+      itemName: "\uB098\uBB34 \uC0C1\uC790"
+    - key: Dummy2
+      iconAssetPath: Sprites/Coin.asset
+      itemName: "\uACE0\uAE09 \uB098\uBB34 \uC0C1\uC790"
+    - key: Dummy3
+      iconAssetPath: Sprites/Coin.asset
+      itemName: "\uB0A1\uC740 \uAC00\uC8FD \uC870\uAC01"
+    - key: Dummy4
+      iconAssetPath: Sprites/Coin.asset
+      itemName: "\uB179\uC2A8 \uCCA0 \uC870\uAC01"
+    - key: Dummy5
+      iconAssetPath: Sprites/Coin.asset
+      itemName: "\uD48D\uD654\uB41C \uBF08 \uC870\uAC01"
+    - key: Dummy6
+      iconAssetPath: Sprites/Coin.asset
+      itemName: "\uD5DD\uAC8A \uC870\uAC01"
+    - key: Dummy7
+      iconAssetPath: Sprites/Coin.asset
+      itemName: "\uCD5C\uD558\uAE09 \uACBD\uD654\uC81C"
+    - key: Dummy8
+      iconAssetPath: Sprites/Coin.asset
+      itemName: "\uCD5C\uD558\uAE09 \uC5F0\uC11D"
+  dropItemDataList:
+  - key: Coin
+    fieldIconAssetPath: Sprites/Coin.asset
+    dropActionType: 0
+    actionParameter: 3
+  - key: Box
+    fieldIconAssetPath: AnimationController/DropItem/Box.controller
+    dropActionType: 1
+    actionParameter: UnityChanAccessory:30/GreatSword:70
+  dropItemDataDictionary:
+    m_keys:
+    - Coin
+    - Box
+    m_values:
+    - key: Coin
+      fieldIconAssetPath: Sprites/Coin.asset
+      dropActionType: 0
+      actionParameter: 3
+    - key: Box
+      fieldIconAssetPath: AnimationController/DropItem/Box.controller
+      dropActionType: 1
+      actionParameter: UnityChanAccessory:30/GreatSword:70
   sortedShopItemList:
   - key: UnityChanAccessory
     isRandom: 1
+    price: 30000
   - key: Dummy1
     isRandom: 1
+    price: 1000
   - key: Dummy2
     isRandom: 1
+    price: 2000
   - key: Dummy3
     isRandom: 1
+    price: 1200
   - key: Dummy4
     isRandom: 1
+    price: 2500
   - key: GreatSword
     isRandom: 0
+    price: 50000
   - key: Dummy5
     isRandom: 0
+    price: 3000
   - key: Dummy6
     isRandom: 0
+    price: 5000
   - key: Dummy7
     isRandom: 0
+    price: 12000
   - key: Dummy8
     isRandom: 0
+    price: 8000

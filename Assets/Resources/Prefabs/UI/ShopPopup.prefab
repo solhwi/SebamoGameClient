@@ -432,7 +432,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.0001748613}
-  m_SizeDelta: {x: 0, y: 896.02}
+  m_SizeDelta: {x: 0, y: 900}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4181370494929975732
 MonoBehaviour:
@@ -454,7 +454,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 980, y: 150}
+  m_CellSize: {x: 980, y: 200}
   m_Spacing: {x: 0, y: 30}
   m_Constraint: 1
   m_ConstraintCount: 1
@@ -476,7 +476,7 @@ MonoBehaviour:
   toggles:
   - {fileID: 3435334660223366134}
   - {fileID: 9194879279191716744}
-  DefaultItemCount: 4
+  DefaultItemCount: 3
   tabScrollSpeed: 1
   prefab: {fileID: 5766884165574107652, guid: 9bce1655dfc10b54197019f8dfe92757, type: 3}
 --- !u!1 &1946210483227626149
@@ -728,7 +728,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1287162789821903444
 MonoBehaviour:
   m_ObjectHideFlags: 0
