@@ -209,6 +209,14 @@ public class Inventory : ScriptableObject
 		return hasItems["Coin"];
 	}
 
+	public int GetHasCount(string itemCode)
+	{
+		if (hasItems.ContainsKey(itemCode) == false)
+			return 0;
+
+		return hasItems[itemCode];
+	}
+
 	public CharacterType GetCurrentPartsCharacterType(CharacterPartsType partsType)
 	{
 		if (partsType == CharacterPartsType.Accessory)

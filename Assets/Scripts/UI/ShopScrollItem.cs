@@ -41,7 +41,7 @@ public class ShopScrollItem : MonoBehaviour
 		PopupManager.Instance.TryOpen(PopupManager.PopupType.Notify, new ShopBuyUIParameter(myShopItemData, OnBuy));
 	}
 
-	private void OnBuy()
+	private void OnBuy(int buyCount)
 	{
 
 	}

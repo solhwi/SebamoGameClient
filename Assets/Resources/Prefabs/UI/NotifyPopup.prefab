@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 8754691749085714401}
   - component: {fileID: 2460411020192360576}
   - component: {fileID: 8231293947864321154}
+  - component: {fileID: 3762046862786523093}
   m_Layer: 0
   m_Name: OwnedItemCount
   m_TagString: Untagged
@@ -252,6 +253,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &3762046862786523093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410458625234450640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ba09c98aa2cb84d8be96d1c8a42066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
+  beforeText: {fileID: 8599611379394408636}
+  afterText: {fileID: 2030912347992817899}
 --- !u!1 &496064767225972824
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,7 +644,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4569524806068281755}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5836611841804382213}
+        m_TargetAssemblyTypeName: NotifyPopup, Assembly-CSharp
+        m_MethodName: OnClickMinus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6121776992997270081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1280,7 +1308,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8450458784343968242}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5836611841804382213}
+        m_TargetAssemblyTypeName: NotifyPopup, Assembly-CSharp
+        m_MethodName: OnClickPlus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4969184168751605649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3381,11 +3421,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupType: 2
   canvas: {fileID: 5856884632462948127}
+  inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
   titleText: {fileID: 2311651264250437282}
   itemIconImage: {fileID: 703742444597002399}
   itemNameText: {fileID: 6501281817123862199}
   itemDescriptionText: {fileID: 5988360659722606504}
+  itemCountText: {fileID: 4449915488255626982}
+  coinCompareText: {fileID: 8039539008461969632}
+  itemCompareText: {fileID: 3762046862786523093}
   notifyTitleDictionary:
     m_keys: 000000000100000002000000
     m_values:
@@ -3850,6 +3894,7 @@ GameObject:
   - component: {fileID: 2076434219108768913}
   - component: {fileID: 9055419601357062266}
   - component: {fileID: 5583325474632723653}
+  - component: {fileID: 8039539008461969632}
   m_Layer: 0
   m_Name: OwnedMoneyCount
   m_TagString: Untagged
@@ -3964,6 +4009,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &8039539008461969632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8739187369627598923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ba09c98aa2cb84d8be96d1c8a42066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
+  beforeText: {fileID: 2015039878652393667}
+  afterText: {fileID: 239955890918566269}
 --- !u!1 &9044030715532456615
 GameObject:
   m_ObjectHideFlags: 0

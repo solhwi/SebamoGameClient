@@ -176,9 +176,9 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		data.playerData.hasDiceCount = 3;
 		data.playerData.playerTileIndex = 0;
 
-		data.playerData.equippedItems = new string[6] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword" };
-		data.hasItems = new string[6] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword" };
-		data.hasItemCounts = new int[6] { 1, 1, 1, 1, 1, 1 };
+		data.playerData.equippedItems = new string[6] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword"};
+		data.hasItems = new string[7] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword", "Coin" };
+		data.hasItemCounts = new int[7] { 1, 1, 1, 1, 1, 1, 100000 };
 		data.appliedBuffItems = new string[] { };
 		
 		playerDataContainer.SetMyPacketData(data);

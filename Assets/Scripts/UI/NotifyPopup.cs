@@ -24,9 +24,9 @@ public class ItemToolTipParameter : UIParameter
 public class ShopBuyUIParameter : UIParameter
 {
 	public readonly ItemTable.ShopItemData shopItemData = null;
-	public readonly Action onClickBuy;
+	public readonly Action<int> onClickBuy;
 
-	public ShopBuyUIParameter(ItemTable.ShopItemData shopItemData, Action onClickBuy)
+	public ShopBuyUIParameter(ItemTable.ShopItemData shopItemData, Action<int> onClickBuy)
 	{
 		this.shopItemData = shopItemData;
 		this.onClickBuy = onClickBuy;
@@ -38,15 +38,27 @@ public class NotifyTitleDictionary : SerializableDictionary<NotifyType, string> 
 
 public class NotifyPopup : BoardGamePopup
 {
+	[SerializeField] private Inventory inventory;
 	[SerializeField] private ItemTable itemTable;
+
 	[SerializeField] private Text titleText;
 	[SerializeField] private Image itemIconImage;
 	[SerializeField] private Text itemNameText;
 	[SerializeField] private Text itemDescriptionText;
+	[SerializeField] private Text itemCountText;
+
+	[SerializeField] private CompareTextComponent coinCompareText;
+	[SerializeField] private CompareTextComponent itemCompareText;
 
 	[SerializeField] private NotifyTitleDictionary notifyTitleDictionary = new NotifyTitleDictionary();
 
-	private Action onClickConfirm;
+	private string currentItemCode;
+	private int currentItemPrice;
+	private int selectedCount;
+	private int maxSelectableCount;
+	private NotifyType currentNotifyType;
+
+	private Action<int> onClickConfirm;
 	private Action onClickCancel;
 
 	protected override void Reset()
@@ -60,36 +72,34 @@ public class NotifyPopup : BoardGamePopup
 	{
 		base.OnOpen(parameter);
 
+		selectedCount = 1;
+
 		if (parameter is ShopBuyUIParameter shopBuyParameter)
 		{
-			titleText.text = notifyTitleDictionary[NotifyType.ShopBuy];
 			var data = shopBuyParameter.shopItemData;
 			if (data != null)
 			{
-				itemIconImage.sprite = itemTable.GetItemIconSprite(data.key);
-				itemNameText.text = itemTable.GetItemName(data.key);
-				itemDescriptionText.text = itemTable.GetItemDescription(data.key);
+				currentNotifyType = NotifyType.ShopBuy;
+				currentItemCode = data.key;
+				currentItemPrice = data.price;
+
+				int hasCoinCount = inventory.GetHasCoinCount();
+				maxSelectableCount = hasCoinCount / data.price;
+
 				onClickConfirm = shopBuyParameter.onClickBuy;
 			}
 		}
-		else if(parameter is ItemToolTipParameter itemToolTipParameter)
+		else if (parameter is ItemToolTipParameter itemToolTipParameter)
 		{
-			titleText.text = notifyTitleDictionary[NotifyType.ItemToolTip];
-			string itemCode = itemToolTipParameter.itemCode;
-			if (itemCode != string.Empty)
-			{
-				itemIconImage.sprite = itemTable.GetItemIconSprite(itemCode);
-				itemNameText.text = itemTable.GetItemName(itemCode);
-				itemDescriptionText.text = itemTable.GetItemDescription(itemCode);
-			}
+			currentNotifyType = NotifyType.ItemToolTip;
+			currentItemCode = itemToolTipParameter.itemCode;
 		}
 		else
 		{
 			titleText.text = string.Empty;
-			itemIconImage.sprite = null;
-			itemNameText.text = string.Empty;
-			itemDescriptionText.text = string.Empty;
 		}
+
+		Refresh();
 	}
 
 	protected override void OnClose()
@@ -100,9 +110,23 @@ public class NotifyPopup : BoardGamePopup
 		base.OnClose();
 	}
 
+	private void Refresh()
+	{
+		titleText.text = notifyTitleDictionary[currentNotifyType];
+
+		itemIconImage.sprite = itemTable.GetItemIconSprite(currentItemCode);
+		itemNameText.text = itemTable.GetItemName(currentItemCode);
+		itemDescriptionText.text = itemTable.GetItemDescription(currentItemCode);
+
+		itemCountText.text = selectedCount.ToString("n0");
+
+		coinCompareText.Set("Coin", -1 * currentItemPrice * selectedCount);
+		itemCompareText.Set(currentItemCode, selectedCount);
+	}
+
 	public void OnClickConfirm()
 	{
-		onClickConfirm?.Invoke();
+		onClickConfirm?.Invoke(selectedCount);
 		OnClickClose();
 	}
 
@@ -112,4 +136,23 @@ public class NotifyPopup : BoardGamePopup
 		OnClickClose();
 	}
 
+	public void OnClickPlus()
+	{
+		if (maxSelectableCount > selectedCount)
+		{
+			selectedCount++;
+		}
+
+		Refresh();
+	}
+
+	public void OnClickMinus()
+	{
+		if (1 < selectedCount)
+		{
+			selectedCount--;
+		}
+
+		Refresh();
+	}
 }
