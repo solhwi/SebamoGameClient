@@ -42,6 +42,9 @@ public partial class ItemTable
 
 	public string GetItemNPCDescription(string itemCode)
 	{
+		if (itemCode == null || itemCode == string.Empty)
+			return string.Empty;
+
 		if (shopItemDataDictionary.TryGetValue(itemCode, out ShopItemData itemData))
 		{
 			return itemData.shopItemDescription.Replace("\\n", "\n");
@@ -52,6 +55,9 @@ public partial class ItemTable
 
 	public string GetItemDescription(string itemCode)
 	{
+		if (itemCode == null || itemCode == string.Empty)
+			return string.Empty;
+
 		if (itemIconDataDictionary.TryGetValue(itemCode, out var iconData))
 		{
 			return iconData.itemDescription;
@@ -62,6 +68,9 @@ public partial class ItemTable
 
 	public string GetItemName(string itemCode)
 	{
+		if (itemCode == null || itemCode == string.Empty)
+			return string.Empty;
+
 		if (itemIconDataDictionary.TryGetValue(itemCode, out var iconData))
 		{
 			return iconData.itemName;
@@ -72,6 +81,9 @@ public partial class ItemTable
 
 	public Sprite GetItemIconSprite(string itemCode)
 	{
+		if (itemCode == null || itemCode == string.Empty)
+			return null;
+
 		if (itemIconDataDictionary.TryGetValue(itemCode, out var iconData))
 		{
 			return ResourceManager.Instance.Load<Sprite>(iconData.GetAssetPathWithoutResources());
@@ -82,6 +94,9 @@ public partial class ItemTable
 
 	public bool IsValidItem(string itemCode)
 	{
+		if (itemCode == null || itemCode == string.Empty)
+			return false;
+
 		if (dropItemDataDictionary.ContainsKey(itemCode))
 			return true;
 

@@ -1190,6 +1190,7 @@ MonoBehaviour:
   - {fileID: 3822987088499994471}
   - {fileID: 8335807440538447185}
   - {fileID: 4999584719006856113}
+  - {fileID: 6515106974307837378}
   DefaultItemCount: 4
   tabScrollSpeed: 1
   prefab: {fileID: 3131849277956142874, guid: e6115a8ab61289248b153a51e5444135, type: 3}
@@ -2454,7 +2455,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC7A5\uBE44"
+  m_Text: "\uC18C\uD488"
 --- !u!1 &8501763324697055520
 GameObject:
   m_ObjectHideFlags: 0

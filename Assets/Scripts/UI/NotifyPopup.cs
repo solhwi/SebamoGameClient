@@ -34,7 +34,7 @@ public class ShopBuyUIParameter : UIParameter
 }
 
 [System.Serializable]
-public class NotifyTitleDictionary : SerializableDictionary<NotifyType, string> { }
+public class NotifyStringDictionary : SerializableDictionary<NotifyType, string> { }
 
 public class NotifyPopup : BoardGamePopup
 {
@@ -45,12 +45,17 @@ public class NotifyPopup : BoardGamePopup
 	[SerializeField] private Image itemIconImage;
 	[SerializeField] private Text itemNameText;
 	[SerializeField] private Text itemDescriptionText;
+
+	[SerializeField] private GameObject itemCountObj;
 	[SerializeField] private Text itemCountText;
+	[SerializeField] private GameObject buyConfirmObj;
+	[SerializeField] private Text buyConfirmText;
 
 	[SerializeField] private CompareTextComponent coinCompareText;
 	[SerializeField] private CompareTextComponent itemCompareText;
 
-	[SerializeField] private NotifyTitleDictionary notifyTitleDictionary = new NotifyTitleDictionary();
+	[SerializeField] private NotifyStringDictionary notifyTitleDictionary = new NotifyStringDictionary();
+	[SerializeField] private NotifyStringDictionary notifyConfirmTextDictionary = new NotifyStringDictionary();
 
 	private string currentItemCode;
 	private int currentItemPrice;
@@ -113,6 +118,30 @@ public class NotifyPopup : BoardGamePopup
 	private void Refresh()
 	{
 		titleText.text = notifyTitleDictionary[currentNotifyType];
+		buyConfirmText.text = notifyConfirmTextDictionary[currentNotifyType];
+
+		switch (currentNotifyType)
+		{
+			case NotifyType.ShopBuy:
+				itemIconImage.gameObject.SetActive(true);
+				itemNameText.gameObject.SetActive(true);
+				itemDescriptionText.gameObject.SetActive(true);
+				itemCountObj.SetActive(true);
+				buyConfirmObj.SetActive(true);
+				coinCompareText.gameObject.SetActive(true);
+				itemCompareText.gameObject.SetActive(true);
+				break;
+
+			case NotifyType.ItemToolTip:
+				itemIconImage.gameObject.SetActive(true);
+				itemNameText.gameObject.SetActive(true);
+				itemDescriptionText.gameObject.SetActive(true);
+				itemCountObj.SetActive(false);
+				buyConfirmObj.SetActive(false);
+				coinCompareText.gameObject.SetActive(false);
+				itemCompareText.gameObject.SetActive(false);
+				break;
+		}
 
 		itemIconImage.sprite = itemTable.GetItemIconSprite(currentItemCode);
 		itemNameText.text = itemTable.GetItemName(currentItemCode);

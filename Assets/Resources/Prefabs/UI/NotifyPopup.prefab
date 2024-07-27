@@ -931,7 +931,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\n\uD574\uB2F9 \uC544\uC774\uD15C\uC744 \uAD6C\uB9E4\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
+  m_Text: "\uD574\uB2F9 \uC544\uC774\uD15C\uC744 \uAD6C\uB9E4\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
 --- !u!1 &2448925477921312244
 GameObject:
   m_ObjectHideFlags: 0
@@ -3427,7 +3427,10 @@ MonoBehaviour:
   itemIconImage: {fileID: 703742444597002399}
   itemNameText: {fileID: 6501281817123862199}
   itemDescriptionText: {fileID: 5988360659722606504}
+  itemCountObj: {fileID: 7123625313791985566}
   itemCountText: {fileID: 4449915488255626982}
+  buyConfirmObj: {fileID: 5537610352791219042}
+  buyConfirmText: {fileID: 8355411124122633363}
   coinCompareText: {fileID: 8039539008461969632}
   itemCompareText: {fileID: 3762046862786523093}
   notifyTitleDictionary:
@@ -3436,6 +3439,12 @@ MonoBehaviour:
     - "\uAD6C\uB9E4 \uD655\uC778"
     - "\uC544\uC774\uD15C \uC124\uBA85"
     - "\uBF51\uAE30"
+  notifyConfirmTextDictionary:
+    m_keys: 000000000100000002000000
+    m_values:
+    - "\\n\uD574\uB2F9 \uC544\uC774\uD15C\uC744 \uAD6C\uB9E4\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
+    - 
+    - "\\n\uBF51\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
 --- !u!1 &7471131589508876219
 GameObject:
   m_ObjectHideFlags: 0

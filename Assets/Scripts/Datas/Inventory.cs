@@ -211,6 +211,9 @@ public class Inventory : ScriptableObject
 
 	public int GetHasCount(string itemCode)
 	{
+		if (itemCode == null || itemCode == string.Empty)
+			return 0;
+
 		if (hasItems.ContainsKey(itemCode) == false)
 			return 0;
 

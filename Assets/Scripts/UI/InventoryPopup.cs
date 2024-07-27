@@ -10,9 +10,10 @@ public class InventoryPopup : BoardGamePopup
 	public enum TabType
 	{
 		None = -1,
-		Equipment,
-		Replace,
+		Props,
+		Parts,
 		Decorate,
+		Replace,
 	}
 
 	[SerializeField] private ItemTable itemTable;
@@ -37,7 +38,7 @@ public class InventoryPopup : BoardGamePopup
 		scrollContent.onUpdateContents += OnUpdateContents;
 		scrollContent.onGetItemCount += GetHasItemCount;
 
-		scrollContent.SelectTab((int)TabType.Equipment);
+		scrollContent.SelectTab((int)TabType.Props);
 	}
 
 	protected override void OnClose()
@@ -81,12 +82,25 @@ public class InventoryPopup : BoardGamePopup
 	{
 		switch(tabType)
 		{
-			case TabType.Equipment:
+			case TabType.Props:
 
 				foreach (var iterator in inventory.hasItems)
 				{
 					var itemCode = iterator.Key;
-					if (itemTable.IsEquipmentItem(itemCode))
+					if (itemTable.IsPropItem(itemCode))
+					{
+						yield return iterator;
+					}
+				}
+
+				break;
+
+			case TabType.Parts:
+
+				foreach (var iterator in inventory.hasItems)
+				{
+					var itemCode = iterator.Key;
+					if (itemTable.IsPartsItem(itemCode))
 					{
 						yield return iterator;
 					}
