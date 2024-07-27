@@ -1160,6 +1160,10 @@ PrefabInstance:
       propertyPath: playerViewCamera
       value: 
       objectReference: {fileID: 1958132242}
+    - target: {fileID: 4359490027799384538, guid: 2ce3a24d1c834d24a972499c0ddde090, type: 3}
+      propertyPath: uiCamera
+      value: 
+      objectReference: {fileID: 1958132242}
     - target: {fileID: 4581048605284241622, guid: 2ce3a24d1c834d24a972499c0ddde090, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
