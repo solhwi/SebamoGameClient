@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 
-public class UICameraController : MonoBehaviour
+public class UICameraController : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
 	[SerializeField] private Camera uiCamera;
 	private Transform cameraBoom;
@@ -15,6 +15,7 @@ public class UICameraController : MonoBehaviour
 	[SerializeField] private float minFOV = 0.1f; // 최소 FOV
 	[SerializeField] private float maxFOV = 1f; // 최대 FOV
 
+	private bool isDragging = false;
 	private Vector3 initialRotationAngle = Vector3.zero;
 
 	private void Update()
@@ -24,6 +25,9 @@ public class UICameraController : MonoBehaviour
 			cameraBoom = uiCamera.transform.GetChild(0);
 			initialRotationAngle = cameraBoom.transform.eulerAngles;
 		}
+
+		if (isDragging == false)
+			return;
 
 		if (Input.touchCount == 2)
 		{
@@ -77,5 +81,21 @@ public class UICameraController : MonoBehaviour
 	public void OnClickResetCamera()
 	{
 		cameraBoom.rotation = Quaternion.Euler(initialRotationAngle);
+	}
+
+	public void OnBeginDrag(PointerEventData eventData)
+	{
+		isDragging = true;
+	}
+
+	public void OnEndDrag(PointerEventData eventData)
+	{
+		isDragging = false;
+	}
+
+	// 이게 없으니까 안 들어오네...
+	public void OnDrag(PointerEventData eventData)
+	{
+		
 	}
 }
