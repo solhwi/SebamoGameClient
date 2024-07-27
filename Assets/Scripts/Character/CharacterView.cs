@@ -37,6 +37,13 @@ public class CharacterView : ObjectView
 			characterDataSetter.DoFullSetting();
 		}
 
+		// 애니메이터가 달려있는 곳이 제어할 위치
+		var characterOrigin = originObj.GetComponentInChildren<Animator>();
+		if (characterOrigin != null)
+		{
+			originCharacterTransform = characterOrigin.transform;
+		}
+
 		characterAnimationController.DoIdle(0.3f);
 	}
 
