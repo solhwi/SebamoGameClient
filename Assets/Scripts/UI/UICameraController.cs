@@ -19,14 +19,20 @@ public class UICameraController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 	[SerializeField] private float maxFOV = 1f; // 최대 FOV
 
 	private bool isDragging = false;
-	private Vector3 initialRotationAngle = Vector3.zero;
+	private Vector3 cameraInitialRotationAngle = Vector3.zero;
+	private Vector3 targetInitialRotationAngle = Vector3.zero;
+
+	private void Start()
+	{
+		cameraInitialRotationAngle = cameraArm.transform.eulerAngles;
+	}
 
 	private void Update()
 	{
 		if (target == null)
 		{
 			target = cameraArm.transform.GetChild(0);
-			initialRotationAngle = target.eulerAngles;
+			targetInitialRotationAngle = target.eulerAngles;
 		}
 
 		if (isDragging == false)
@@ -76,7 +82,8 @@ public class UICameraController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 
 	public void OnClickResetCamera()
 	{
-		cameraArm.rotation = Quaternion.Euler(initialRotationAngle);
+		cameraArm.rotation = Quaternion.Euler(cameraInitialRotationAngle);
+		target.rotation = Quaternion.Euler(targetInitialRotationAngle);
 	}
 
 	public void OnBeginDrag(PointerEventData eventData)
