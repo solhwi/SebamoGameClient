@@ -107,7 +107,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiCamera: {fileID: 0}
   cameraArm: {fileID: 0}
-  xRotationLimit: 70
+  xMinRotationLimit: 0
+  xMaxRotationLimit: 0
   rotateSpeed: 10
   zoomSpeed: 10
   minFOV: 0.1
