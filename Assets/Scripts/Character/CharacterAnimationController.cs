@@ -29,6 +29,8 @@ public class CharacterAnimationController : MonoBehaviour
 {
 	[SerializeField] private RuntimeAnimatorController controller = null;
 	[SerializeField] private Inventory inventory = null;
+	
+	private float crossFadeTime = 0.0f;
 
 	private Animator Animator
 	{
@@ -56,8 +58,10 @@ public class CharacterAnimationController : MonoBehaviour
 		Animator.avatar = avatar;
 	}
 
-	public void DoIdle()
+	public void DoIdle(float crossFadeTime = 0.0f)
 	{
+		this.crossFadeTime = crossFadeTime;
+
 		if (inventory.equippedPropTypes == null || inventory.equippedPropTypes.Count <= 0)
 		{
 			ChangeState(CharacterState.Idle);
@@ -92,8 +96,10 @@ public class CharacterAnimationController : MonoBehaviour
 		}
 	}
 
-	public void DoRun()
+	public void DoRun(float crossFadeTime = 0.0f)
 	{
+		this.crossFadeTime = crossFadeTime;
+
 		if (inventory.equippedPropTypes == null || inventory.equippedPropTypes.Count <= 0)
 		{
 			ChangeState(CharacterState.Run);
@@ -157,6 +163,6 @@ public class CharacterAnimationController : MonoBehaviour
 	private void ChangeState(CharacterState state)
     {
 		currentState = state;
-		Animator.Play(state.ToString());
+		Animator.CrossFade(state.ToString(), crossFadeTime);
 	}
 }

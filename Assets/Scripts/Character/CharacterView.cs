@@ -37,7 +37,7 @@ public class CharacterView : ObjectView
 			characterDataSetter.DoFullSetting();
 		}
 
-		characterAnimationController.DoIdle();
+		characterAnimationController.DoIdle(0.3f);
 	}
 
 	public void FlipX(bool flipX)

@@ -94,7 +94,7 @@ public class InventoryPopup : BoardGamePopup
 				currentSelectedItemCode = itemCode;
 
 				scrollItemDictionary[itemCode].SetSelect(true);
-				OnWaitClickItem(itemCode).Wait();
+				TryEquipItem(itemCode).Wait();
 			}
 			else
 			{
@@ -103,7 +103,7 @@ public class InventoryPopup : BoardGamePopup
 		}
 	}
 
-	private async Task OnWaitClickItem(string itemCode)
+	private async Task TryEquipItem(string itemCode)
 	{
 		await inventory.TryEquipOn(itemCode);
 		characterView.RefreshCharacter();
