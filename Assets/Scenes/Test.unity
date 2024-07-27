@@ -1104,6 +1104,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1958132242}
+    - target: {fileID: 2333335081270157816, guid: 2ce3a24d1c834d24a972499c0ddde090, type: 3}
+      propertyPath: cameraArm
+      value: 
+      objectReference: {fileID: 1967387433}
     - target: {fileID: 2455415567491488028, guid: 2ce3a24d1c834d24a972499c0ddde090, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1164,6 +1168,10 @@ PrefabInstance:
       propertyPath: uiCamera
       value: 
       objectReference: {fileID: 1958132242}
+    - target: {fileID: 4359490027799384538, guid: 2ce3a24d1c834d24a972499c0ddde090, type: 3}
+      propertyPath: cameraArm
+      value: 
+      objectReference: {fileID: 1967387433}
     - target: {fileID: 4581048605284241622, guid: 2ce3a24d1c834d24a972499c0ddde090, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2452,6 +2460,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 467019146}
+    - target: {fileID: 4138448045326830286, guid: 57cc03aacc153094190614cb668c0069, type: 3}
+      propertyPath: cameraArm
+      value: 
+      objectReference: {fileID: 467019145}
     - target: {fileID: 4902804719180620769, guid: 57cc03aacc153094190614cb668c0069, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -5317,7 +5329,8 @@ Transform:
   m_LocalPosition: {x: 100, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1967387433}
   m_Father: {fileID: 100321604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1958132242
@@ -5472,6 +5485,37 @@ MonoBehaviour:
   m_Spacing: {x: 10, y: 20}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!1 &1967387432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1967387433}
+  m_Layer: 0
+  m_Name: Arm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1967387433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967387432}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1958132241}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1999167457
 GameObject:
   m_ObjectHideFlags: 0
@@ -5915,6 +5959,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1848805232}
+    - target: {fileID: 2012936445174958189, guid: b8b35928236dc804c93e20f7f015c0a1, type: 3}
+      propertyPath: cameraArm
+      value: 
+      objectReference: {fileID: 1848805233}
     - target: {fileID: 2016115232862505880, guid: b8b35928236dc804c93e20f7f015c0a1, type: 3}
       propertyPath: tileDataManager
       value: 

@@ -87,8 +87,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+  cameraArm: {fileID: 0}
   originPrefab: {fileID: 1497807919844545091, guid: 05a285f00f4a54849b30ffb1a6a91c51, type: 3}
-  spawnLocalPos: {x: 0, y: -0.5, z: 10}
+  spawnLocalPos: {x: 0, y: -0.5, z: 0}
   spawnLocalRot: {x: 0, y: 180, z: 0}
   isFixedPosition: 0
   isFixedRotation: 0
@@ -105,6 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiCamera: {fileID: 0}
+  cameraArm: {fileID: 0}
+  xRotationLimit: 70
   rotateSpeed: 10
   zoomSpeed: 10
   minFOV: 0.1

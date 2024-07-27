@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ObjectView : MonoBehaviour
 {
 	[SerializeField] protected Camera cam = null;
+	[SerializeField] protected Transform cameraArm = null;
 	[SerializeField] private GameObject originPrefab = null;
 
 	[SerializeField] protected Vector3 spawnLocalPos = new Vector3(0, -0.5f, 10);
@@ -41,7 +42,7 @@ public class ObjectView : MonoBehaviour
 
 		cam.targetTexture = renderTexture;
 
-		originObj = Instantiate(originPrefab, cam.transform);
+		originObj = Instantiate(originPrefab, cameraArm);
 		originObj.transform.localPosition = spawnLocalPos;
 		originObj.transform.localEulerAngles = spawnLocalRot;
 	}

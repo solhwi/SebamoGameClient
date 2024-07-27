@@ -7,8 +7,11 @@ using UnityEngine.Rendering;
 public class UICameraController : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
 	[SerializeField] private Camera uiCamera;
-	private Transform cameraBoom;
+	[SerializeField] private Transform cameraArm;
+	private Transform target;
 
+	[SerializeField] private float xMinRotationLimit = -80f; // 상하 회전 제한
+	[SerializeField] private float xMaxRotationLimit = 10f; // 상하 회전 제한
 	[SerializeField] private float rotateSpeed = 1.0f; // 회전 속도
 
 	[SerializeField] private float zoomSpeed = 10f; // 줌 속도
@@ -20,10 +23,10 @@ public class UICameraController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 
 	private void Update()
 	{
-		if (cameraBoom == null)
+		if (target == null)
 		{
-			cameraBoom = uiCamera.transform.GetChild(0);
-			initialRotationAngle = cameraBoom.transform.eulerAngles;
+			target = cameraArm.transform.GetChild(0);
+			initialRotationAngle = target.eulerAngles;
 		}
 
 		if (isDragging == false)
@@ -52,35 +55,28 @@ public class UICameraController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 		}
 		else if (Input.touchCount == 1)
 		{
-			Touch touch1 = Input.GetTouch(0);
-			Vector2 deltaPos = touch1.deltaPosition;
-
-			Vector3 currentRot = Vector2.zero;
-			currentRot.y -= deltaPos.x * rotateSpeed * Time.deltaTime;
-			cameraBoom.Rotate(currentRot);
-
-			currentRot = Vector2.zero;
-			currentRot.x -= deltaPos.y * rotateSpeed * Time.deltaTime;
-			cameraBoom.Rotate(currentRot);
 
 		}
 		else if (Input.GetMouseButton(0))
 		{
 			Vector2 deltaPos = Input.mousePositionDelta;
 
-			Vector3 currentRot = Vector2.zero;
-			currentRot.y -= deltaPos.x * rotateSpeed * Time.deltaTime;
-			cameraBoom.Rotate(currentRot);
+			// 현재 카메라 암의 회전값을 사용해 상하 회전 제한을 적용
+			var xRotation = cameraArm.eulerAngles.x > 180.0f ? cameraArm.eulerAngles.x - 360.0f : cameraArm.eulerAngles.x;
+			xRotation += deltaPos.y * rotateSpeed * Time.deltaTime;
+			xRotation = Mathf.Clamp(xRotation, xMinRotationLimit, xMaxRotationLimit);
 
-			currentRot = Vector2.zero;
-			currentRot.x -= deltaPos.y * rotateSpeed * Time.deltaTime;
-			cameraBoom.Rotate(currentRot);
+			// 카메라 암의 상하 회전 적용
+			cameraArm.rotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+			// 캐릭터의 좌우 회전 적용
+			target.Rotate(Vector3.down * deltaPos.x * rotateSpeed * Time.deltaTime);
 		}
 	}
 
 	public void OnClickResetCamera()
 	{
-		cameraBoom.rotation = Quaternion.Euler(initialRotationAngle);
+		cameraArm.rotation = Quaternion.Euler(initialRotationAngle);
 	}
 
 	public void OnBeginDrag(PointerEventData eventData)
