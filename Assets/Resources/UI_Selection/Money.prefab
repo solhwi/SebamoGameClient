@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 4184736004695744564}
   - component: {fileID: 4184736004695744565}
   - component: {fileID: 4184736004695744566}
+  - component: {fileID: 885600957070161905}
   m_Layer: 0
   m_Name: Money
   m_TagString: Untagged
@@ -263,3 +264,17 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 0, y: -4}
   m_UseGraphicAlpha: 1
+--- !u!114 &885600957070161905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4184736004695744560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f8ffa109c5c1f4f908677e57ed6ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
+  coinText: {fileID: 1377833321273432012}

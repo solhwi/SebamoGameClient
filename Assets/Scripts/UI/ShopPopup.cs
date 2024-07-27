@@ -27,7 +27,6 @@ public class ShopPopup : BoardGamePopup
 		Normal = 1,
 	}
 
-	[SerializeField] private Inventory inventory;
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private ScrollContent scrollContent;
 	[SerializeField] private Text npcText;
@@ -98,8 +97,6 @@ public class ShopPopup : BoardGamePopup
 
 	private void Update()
 	{
-		coinText.text = inventory.GetHasCoinCount().ToString("n0");
-
 		if (normalItemIndex >= scrollContent.DefaultItemCount)
 		{
 			if (scrollContent.IsTargeting == false)
