@@ -1928,6 +1928,7 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   uiCharacterView: {fileID: 2333335081270157816}
   gameCharacterView: {fileID: 0}
+  useButtonObj: {fileID: 8765172528903776906}
   scrollContent: {fileID: 4894684593749433627}
 --- !u!1 &6376137787527036656
 GameObject:
@@ -2622,7 +2623,7 @@ GameObject:
   - component: {fileID: 4360635152783414260}
   - component: {fileID: 9190122396707916859}
   m_Layer: 0
-  m_Name: ChangeEquipmentButton
+  m_Name: UseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

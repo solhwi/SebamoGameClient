@@ -21,6 +21,7 @@ public class InventoryPopup : BoardGamePopup
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private CharacterView uiCharacterView;
 	[SerializeField] private CharacterView gameCharacterView;
+	[SerializeField] private GameObject useButtonObj;
 	[SerializeField] private ScrollContent scrollContent;
 
 	private Dictionary<string, InventoryScrollItem> scrollItemDictionary = new Dictionary<string, InventoryScrollItem>();
@@ -59,7 +60,10 @@ public class InventoryPopup : BoardGamePopup
 
 	private void OnChangedTab(int tabType)
 	{
-		hasItemList = GetHasItems((TabType)tabType).ToList();
+		TabType currentTabType = (TabType)tabType;
+		hasItemList = GetHasItems(currentTabType).ToList();
+
+		useButtonObj.SetActive(currentTabType == TabType.Replace);
 
 		scrollContent.Reset();
 		scrollItemDictionary.Clear();
