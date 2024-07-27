@@ -1144,7 +1144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -24}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6933462539614869877
@@ -1167,7 +1167,7 @@ MonoBehaviour:
   m_ChildAlignment: 3
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 200, y: 200}
+  m_CellSize: {x: 210, y: 210}
   m_Spacing: {x: 30, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 10
@@ -1193,7 +1193,7 @@ MonoBehaviour:
   - {fileID: 6515106974307837378}
   DefaultItemCount: 4
   tabScrollSpeed: 1
-  prefab: {fileID: 3131849277956142874, guid: e6115a8ab61289248b153a51e5444135, type: 3}
+  prefab: {fileID: 2967181951153320121, guid: f1757c4eaa1a1fc49812409578ee43b0, type: 3}
 --- !u!1 &3673508178772507581
 GameObject:
   m_ObjectHideFlags: 0

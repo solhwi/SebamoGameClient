@@ -1,3 +1,5 @@
+using NUnit.Framework.Interfaces;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +11,7 @@ public class ItemIcon : MonoBehaviour
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private Image itemImage;
 
+	private Action<string> onClickItem;
 	private string itemCode;
 
 	private void Awake()
@@ -29,11 +32,22 @@ public class ItemIcon : MonoBehaviour
 
 	public void SetItemData(string itemCode, int itemCount = 1)
 	{
-		
+		this.itemCode = itemCode;
+		itemImage.sprite = itemTable.GetItemIconSprite(itemCode);
+	}
+
+	public void SetItemClickCallback(Action<string> callback)
+	{
+		onClickItem = callback;
 	}
 
 	public void OnPressIcon(float time)
 	{
 		PopupManager.Instance.TryOpen(PopupManager.PopupType.Notify, new ItemToolTipParameter(itemCode));
+	}
+
+	public void OnClickIcon()
+	{
+		onClickItem?.Invoke(itemCode);
 	}
 }

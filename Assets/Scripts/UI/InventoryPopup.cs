@@ -21,6 +21,7 @@ public class InventoryPopup : BoardGamePopup
 
 	[SerializeField] private ScrollContent scrollContent;
 
+	private Dictionary<string, InventoryScrollItem> scrollItemDictionary = new Dictionary<string, InventoryScrollItem>();
 	private List<KeyValuePair<string, int>> hasItemList = new List<KeyValuePair<string, int>>();
 
 	protected override void Reset()
@@ -55,6 +56,7 @@ public class InventoryPopup : BoardGamePopup
 		hasItemList = GetHasItems((TabType)tabType).ToList();
 
 		scrollContent.Reset();
+		scrollItemDictionary.Clear();
 	}
 
 	private void OnUpdateContents(int index, GameObject contentObj)
@@ -65,12 +67,24 @@ public class InventoryPopup : BoardGamePopup
 		if (contentObj == null)
 			return;
 
-		var itemIcon = contentObj.GetComponent<ItemIcon>();
-		if (itemIcon == null)
+		var scrollItem = contentObj.GetComponent<InventoryScrollItem>();
+		if (scrollItem == null)
 			return;
 
 		var hasItemData = hasItemList[index];
-		itemIcon.SetItemData(hasItemData.Key, hasItemData.Value);
+		scrollItem.SetItemData(hasItemData.Key, hasItemData.Value);
+		scrollItem.SetItemClickCallback(OnClickItem);
+		scrollItem.SetSelect(false);
+
+		scrollItemDictionary[hasItemData.Key] = scrollItem;
+	}
+
+	private void OnClickItem(string itemCode)
+	{
+		foreach (var iter in scrollItemDictionary)
+		{
+			scrollItemDictionary[iter.Key].SetSelect(iter.Key == itemCode);
+		}
 	}
 
 	private int GetHasItemCount(int tabType)
