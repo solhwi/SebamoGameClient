@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiCamera: {fileID: 0}
-  rotateSpeed: 1
+  rotateSpeed: 5
   zoomSpeed: 10
   minFOV: 0.1
   maxFOV: 1
@@ -1717,7 +1717,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4499273808020679790}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4359490027799384538}
+        m_TargetAssemblyTypeName: UICameraController, Assembly-CSharp
+        m_MethodName: OnClickResetCamera
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5382539986803323887
 GameObject:
   m_ObjectHideFlags: 0

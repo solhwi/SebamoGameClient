@@ -52,9 +52,13 @@ public class UICameraController : MonoBehaviour
 			Vector2 deltaPos = touch1.deltaPosition;
 
 			Vector3 currentRot = Vector2.zero;
-			currentRot.y += deltaPos.x * rotateSpeed * Time.deltaTime;
-			currentRot.x += deltaPos.y * rotateSpeed * Time.deltaTime;
+			currentRot.y -= deltaPos.x * rotateSpeed * Time.deltaTime;
 			cameraBoom.Rotate(currentRot);
+
+			currentRot = Vector2.zero;
+			currentRot.x -= deltaPos.y * rotateSpeed * Time.deltaTime;
+			cameraBoom.Rotate(currentRot);
+
 		}
 		else if (Input.GetMouseButton(0))
 		{
@@ -62,6 +66,9 @@ public class UICameraController : MonoBehaviour
 
 			Vector3 currentRot = Vector2.zero;
 			currentRot.y -= deltaPos.x * rotateSpeed * Time.deltaTime;
+			cameraBoom.Rotate(currentRot);
+
+			currentRot = Vector2.zero;
 			currentRot.x -= deltaPos.y * rotateSpeed * Time.deltaTime;
 			cameraBoom.Rotate(currentRot);
 		}
