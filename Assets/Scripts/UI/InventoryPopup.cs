@@ -19,7 +19,8 @@ public class InventoryPopup : BoardGamePopup
 
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private Inventory inventory;
-	[SerializeField] private CharacterView characterView;
+	[SerializeField] private CharacterView uiCharacterView;
+	[SerializeField] private CharacterView gameCharacterView;
 	[SerializeField] private ScrollContent scrollContent;
 
 	private Dictionary<string, InventoryScrollItem> scrollItemDictionary = new Dictionary<string, InventoryScrollItem>();
@@ -50,6 +51,8 @@ public class InventoryPopup : BoardGamePopup
 		scrollContent.onChangedTab -= OnChangedTab;
 		scrollContent.onUpdateContents -= OnUpdateContents;
 		scrollContent.onGetItemCount -= GetHasItemCount;
+
+		gameCharacterView.RefreshCharacter();
 
 		base.OnClose();
 	}
@@ -106,7 +109,7 @@ public class InventoryPopup : BoardGamePopup
 	private async Task TryEquipItem(string itemCode)
 	{
 		await inventory.TryEquipOn(itemCode);
-		characterView.RefreshCharacter();
+		uiCharacterView.RefreshCharacter();
 	}
 
 	private int GetHasItemCount(int tabType)
