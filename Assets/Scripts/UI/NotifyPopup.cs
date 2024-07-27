@@ -117,8 +117,8 @@ public class NotifyPopup : BoardGamePopup
 
 	private void Refresh()
 	{
-		titleText.text = notifyTitleDictionary[currentNotifyType];
-		buyConfirmText.text = notifyConfirmTextDictionary[currentNotifyType];
+		titleText.text = notifyTitleDictionary[currentNotifyType].Replace("\\n", "\n");
+		buyConfirmText.text = notifyConfirmTextDictionary[currentNotifyType].Replace("\\n", "\n");
 
 		switch (currentNotifyType)
 		{
