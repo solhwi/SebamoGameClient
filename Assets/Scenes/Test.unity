@@ -1316,6 +1316,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6988702385381918559, guid: 2ce3a24d1c834d24a972499c0ddde090, type: 3}
+      propertyPath: gameCharacterView
+      value: 
+      objectReference: {fileID: 6548642605371050237}
     - target: {fileID: 7337763933215271405, guid: 2ce3a24d1c834d24a972499c0ddde090, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5969,6 +5973,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8966030561382644073, guid: b8b35928236dc804c93e20f7f015c0a1, type: 3}
   m_PrefabInstance: {fileID: 4750892532478707734}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6548642605371050237 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2012936445174958189, guid: b8b35928236dc804c93e20f7f015c0a1, type: 3}
+  m_PrefabInstance: {fileID: 4750892532478707734}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a304186dd3cefbc4a862676b014e5719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
