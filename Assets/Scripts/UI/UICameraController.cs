@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 public class UICameraController : MonoBehaviour
 {
 	[SerializeField] private Camera uiCamera;
+	private Transform cameraBoom;
 
 	[SerializeField] private float rotateSpeed = 1.0f; // 회전 속도
 
@@ -14,8 +15,16 @@ public class UICameraController : MonoBehaviour
 	[SerializeField] private float minFOV = 0.1f; // 최소 FOV
 	[SerializeField] private float maxFOV = 1f; // 최대 FOV
 
+	private Vector3 initialRotationAngle = Vector3.zero;
+
 	private void Update()
 	{
+		if (cameraBoom == null)
+		{
+			cameraBoom = uiCamera.transform.GetChild(0);
+			initialRotationAngle = cameraBoom.transform.eulerAngles;
+		}
+
 		if (Input.touchCount == 2)
 		{
 			Touch touch1 = Input.GetTouch(0);
@@ -45,16 +54,21 @@ public class UICameraController : MonoBehaviour
 			Vector3 currentRot = Vector2.zero;
 			currentRot.y += deltaPos.x * rotateSpeed * Time.deltaTime;
 			currentRot.x += deltaPos.y * rotateSpeed * Time.deltaTime;
-			uiCamera.transform.Rotate(currentRot);
+			cameraBoom.Rotate(currentRot);
 		}
-		else if(Input.GetMouseButton(0))
+		else if (Input.GetMouseButton(0))
 		{
 			Vector2 deltaPos = Input.mousePositionDelta;
 
 			Vector3 currentRot = Vector2.zero;
-			currentRot.y += deltaPos.x * rotateSpeed * Time.deltaTime;
-			currentRot.x += deltaPos.y * rotateSpeed * Time.deltaTime;
-			uiCamera.transform.Rotate(currentRot);
+			currentRot.y -= deltaPos.x * rotateSpeed * Time.deltaTime;
+			currentRot.x -= deltaPos.y * rotateSpeed * Time.deltaTime;
+			cameraBoom.Rotate(currentRot);
 		}
+	}
+
+	public void OnClickResetCamera()
+	{
+		cameraBoom.rotation = Quaternion.Euler(initialRotationAngle);
 	}
 }
