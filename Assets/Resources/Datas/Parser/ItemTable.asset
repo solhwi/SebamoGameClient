@@ -55,6 +55,20 @@ MonoBehaviour:
     price: 8000
     shopItemDescription: "\uC774\uAC8C \uBB50\uC600\uB294 \uC9C0 \uAE30\uC5B5\uC774
       \uC798\u2026"
+  - key: UnityChanBody
+    isRandom: 0
+    price: 30000
+    shopItemDescription: "\uC81C\uAC00 \uC81C\uC77C \uC88B\uC544\uD558\uB294 \uC637\uC774\uC5D0\uC694!"
+  - key: YucoBody
+    isRandom: 0
+    price: 30000
+    shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
+      \uB2E4\uB140\uC694."
+  - key: MisakiBody
+    isRandom: 0
+    price: 30000
+    shopItemDescription: "\uBBF8\uC0AC\uD0A4\uB294 \uB9E4\uC77C \uC774\uAC83\uB9CC
+      \uC785\uB354\uB77C\uACE0\uC694."
   shopItemDataDictionary:
     m_keys:
     - UnityChanAccessory
@@ -67,6 +81,9 @@ MonoBehaviour:
     - Dummy6
     - Dummy7
     - Dummy8
+    - UnityChanBody
+    - YucoBody
+    - MisakiBody
     m_values:
     - key: UnityChanAccessory
       isRandom: 1
@@ -110,6 +127,20 @@ MonoBehaviour:
       price: 8000
       shopItemDescription: "\uC774\uAC8C \uBB50\uC600\uB294 \uC9C0 \uAE30\uC5B5\uC774
         \uC798\u2026"
+    - key: UnityChanBody
+      isRandom: 0
+      price: 30000
+      shopItemDescription: "\uC81C\uAC00 \uC81C\uC77C \uC88B\uC544\uD558\uB294 \uC637\uC774\uC5D0\uC694!"
+    - key: YucoBody
+      isRandom: 0
+      price: 30000
+      shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
+        \uB2E4\uB140\uC694."
+    - key: MisakiBody
+      isRandom: 0
+      price: 30000
+      shopItemDescription: "\uBBF8\uC0AC\uD0A4\uB294 \uB9E4\uC77C \uC774\uAC83\uB9CC
+        \uC785\uB354\uB77C\uACE0\uC694."
   partsItemDataList:
   - key: UnityChanAccessory
     partsType: 6
@@ -277,6 +308,18 @@ MonoBehaviour:
     iconAssetPath: Sprites/Coin.asset
     itemName: "\uCD5C\uD558\uAE09 \uC5F0\uC11D"
     itemDescription: "\uC5B4\uB514\uC5D0 \uC4F0\uB294 \uBB3C\uAC74\uC778\uACE0?"
+  - key: UnityChanBody
+    iconAssetPath: Sprites/Costume_C
+    itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uBC14\uB514"
+    itemDescription: "\uC720\uB2C8\uD2F0\uC9F1\uC774 \uC88B\uC544\uD558\uB294 \uC637"
+  - key: YucoBody
+    iconAssetPath: Sprites/Costume_A
+    itemName: "\uC720\uCF54 \uBC14\uB514"
+    itemDescription: "\uC720\uCF54\uAC00 \uB9E4\uC77C \uC785\uB294 \uC637"
+  - key: MisakiBody
+    iconAssetPath: Sprites/Costume_B
+    itemName: "\uBBF8\uC0AC\uD0A4 \uBC14\uB514"
+    itemDescription: "\uBBF8\uC0AC\uD0A4\uAC00 \uB9E4\uC77C \uC785\uB294 \uC637"
   itemIconDataDictionary:
     m_keys:
     - UnityChanAccessory
@@ -289,6 +332,9 @@ MonoBehaviour:
     - Dummy6
     - Dummy7
     - Dummy8
+    - UnityChanBody
+    - YucoBody
+    - MisakiBody
     m_values:
     - key: UnityChanAccessory
       iconAssetPath: Sprites/ItemIcon_Chest_Gold.png
@@ -334,6 +380,18 @@ MonoBehaviour:
       iconAssetPath: Sprites/Coin.asset
       itemName: "\uCD5C\uD558\uAE09 \uC5F0\uC11D"
       itemDescription: "\uC5B4\uB514\uC5D0 \uC4F0\uB294 \uBB3C\uAC74\uC778\uACE0?"
+    - key: UnityChanBody
+      iconAssetPath: Sprites/Costume_C
+      itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uBC14\uB514"
+      itemDescription: "\uC720\uB2C8\uD2F0\uC9F1\uC774 \uC88B\uC544\uD558\uB294 \uC637"
+    - key: YucoBody
+      iconAssetPath: Sprites/Costume_A
+      itemName: "\uC720\uCF54 \uBC14\uB514"
+      itemDescription: "\uC720\uCF54\uAC00 \uB9E4\uC77C \uC785\uB294 \uC637"
+    - key: MisakiBody
+      iconAssetPath: Sprites/Costume_B
+      itemName: "\uBBF8\uC0AC\uD0A4 \uBC14\uB514"
+      itemDescription: "\uBBF8\uC0AC\uD0A4\uAC00 \uB9E4\uC77C \uC785\uB294 \uC637"
   dropItemDataList:
   - key: Coin
     fieldIconAssetPath: Sprites/Coin.asset
@@ -399,3 +457,17 @@ MonoBehaviour:
     price: 8000
     shopItemDescription: "\uC774\uAC8C \uBB50\uC600\uB294 \uC9C0 \uAE30\uC5B5\uC774
       \uC798\u2026"
+  - key: UnityChanBody
+    isRandom: 0
+    price: 30000
+    shopItemDescription: "\uC81C\uAC00 \uC81C\uC77C \uC88B\uC544\uD558\uB294 \uC637\uC774\uC5D0\uC694!"
+  - key: YucoBody
+    isRandom: 0
+    price: 30000
+    shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
+      \uB2E4\uB140\uC694."
+  - key: MisakiBody
+    isRandom: 0
+    price: 30000
+    shopItemDescription: "\uBBF8\uC0AC\uD0A4\uB294 \uB9E4\uC77C \uC774\uAC83\uB9CC
+      \uC785\uB354\uB77C\uACE0\uC694."
