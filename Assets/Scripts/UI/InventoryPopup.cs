@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,11 +19,13 @@ public class InventoryPopup : BoardGamePopup
 
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private Inventory inventory;
-
+	[SerializeField] private CharacterView characterView;
 	[SerializeField] private ScrollContent scrollContent;
 
 	private Dictionary<string, InventoryScrollItem> scrollItemDictionary = new Dictionary<string, InventoryScrollItem>();
 	private List<KeyValuePair<string, int>> hasItemList = new List<KeyValuePair<string, int>>();
+
+	private string currentSelectedItemCode = string.Empty;
 
 	protected override void Reset()
 	{
@@ -81,10 +84,29 @@ public class InventoryPopup : BoardGamePopup
 
 	private void OnClickItem(string itemCode)
 	{
+		if (currentSelectedItemCode == itemCode)
+			return;
+
 		foreach (var iter in scrollItemDictionary)
 		{
-			scrollItemDictionary[iter.Key].SetSelect(iter.Key == itemCode);
+			if (iter.Key == itemCode)
+			{
+				currentSelectedItemCode = itemCode;
+
+				scrollItemDictionary[itemCode].SetSelect(true);
+				OnWaitClickItem(itemCode).Wait();
+			}
+			else
+			{
+				scrollItemDictionary[iter.Key].SetSelect(false);
+			}
 		}
+	}
+
+	private async Task OnWaitClickItem(string itemCode)
+	{
+		await inventory.TryEquipOn(itemCode);
+		characterView.RefreshCharacter();
 	}
 
 	private int GetHasItemCount(int tabType)

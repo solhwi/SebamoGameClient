@@ -100,7 +100,7 @@ public class CharacterDataSetter : MonoBehaviour
 		// 기존 파츠들 파괴
 		foreach (var obj in partsObjList)
 		{
-			Destroy(obj);
+			DestroyImmediate(obj);
 		}
 
 		partsObjList.Clear();

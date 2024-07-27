@@ -222,12 +222,17 @@ MonoBehaviour:
   propItemDataList:
   - key: GreatSword
     propType: 0
+  - key: TwinDagger
+    propType: 1
   propItemDataDictionary:
     m_keys:
     - GreatSword
+    - TwinDagger
     m_values:
     - key: GreatSword
       propType: 0
+    - key: TwinDagger
+      propType: 1
   itemIconDataList:
   - key: UnityChanAccessory
     iconAssetPath: Sprites/ItemIcon_Chest_Gold.png

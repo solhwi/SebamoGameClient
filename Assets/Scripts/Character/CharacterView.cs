@@ -26,6 +26,18 @@ public class CharacterView : ObjectView
 		{
 			originCharacterTransform = characterOrigin.transform;
 		}
+
+		characterAnimationController.DoIdle();
+	}
+
+	public void RefreshCharacter()
+	{
+		if (characterDataSetter != null)
+		{
+			characterDataSetter.DoFullSetting();
+		}
+
+		characterAnimationController.DoIdle();
 	}
 
 	public void FlipX(bool flipX)

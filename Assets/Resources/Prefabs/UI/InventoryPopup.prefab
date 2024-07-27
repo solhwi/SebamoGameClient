@@ -1896,6 +1896,7 @@ MonoBehaviour:
   canvas: {fileID: 425117931129430697}
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
+  characterView: {fileID: 2333335081270157816}
   scrollContent: {fileID: 4894684593749433627}
 --- !u!1 &6376137787527036656
 GameObject:

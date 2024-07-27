@@ -21,8 +21,9 @@ MonoBehaviour:
     - UnityChanFace
     - MisakiAccessory
     - GreatSword
+    - TwinDagger
     - Coin
-    m_values: 010000000100000001000000010000000100000001000000a0860100
+    m_values: 01000000010000000100000001000000010000000100000001000000a0860100
   equippedItems:
   - YucoBody
   - MisakiHair
