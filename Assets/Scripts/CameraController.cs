@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour
 	[SerializeField] private Vector2 dampingVec = new Vector2(0.1f, 0.1f);
 
 	private CinemachineTransposer transposer;
+	private bool isFollowingTarget;
 
 	private void Awake()
 	{
@@ -24,6 +25,18 @@ public class CameraController : MonoBehaviour
 		SetDamping(dampingVec);
 		SetFollow(true);
 		SetOrthoSize(orthoSize);
+	}
+
+	private void LateUpdate()
+	{
+		if (isFollowingTarget == false)
+		{
+			if (Input.GetMouseButton(0))
+			{
+				Vector2 deltaPos = Input.mousePositionDelta;
+				Move(Time.deltaTime * -deltaPos);
+			}
+		}
 	}
 
 	private void SetDamping(Vector2 dampingVec)
@@ -45,6 +58,8 @@ public class CameraController : MonoBehaviour
 
 	public void SetFollow(bool isFollow)
 	{
+		isFollowingTarget = isFollow;
+
 		if (isFollow)
 		{
 			virtualCamera.Follow = targetTransform;
@@ -57,7 +72,7 @@ public class CameraController : MonoBehaviour
 		}
 	}
 
-	public void Move(Vector3 deltaPos)
+	private void Move(Vector3 deltaPos)
 	{
 		virtualCamera.ForceCameraPosition(virtualCamera.transform.position + deltaPos * cameraSpeed, Quaternion.identity);
 	}

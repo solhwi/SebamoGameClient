@@ -48,7 +48,19 @@ public class UICharacterView : CharacterView, IBeginDragHandler, IEndDragHandler
 #else
 			if (Input.touchCount == 0)
 			{
+				Touch touch1 = Input.GetTouch(0);
+				Vector2 deltaPos = touch1.deltaPosition;
 
+				// 현재 카메라 암의 회전값을 사용해 상하 회전 제한을 적용
+				var xRotation = cameraArm.eulerAngles.x > 180.0f ? cameraArm.eulerAngles.x - 360.0f : cameraArm.eulerAngles.x;
+				xRotation += deltaPos.y * rotateSpeed * Time.deltaTime;
+				xRotation = Mathf.Clamp(xRotation, xMinRotationLimit, xMaxRotationLimit);
+
+				// 카메라 암의 상하 회전 적용
+				cameraArm.rotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+				// 캐릭터의 좌우 회전 적용
+				originObj.transform.Rotate(Vector3.down * deltaPos.x * rotateSpeed * Time.deltaTime);
 			}
 #endif
 		}

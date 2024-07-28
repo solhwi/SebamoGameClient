@@ -16,9 +16,7 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 
 	[SerializeField] private RectTransform rankingBoard = null;
 
-	private Vector2 dragStartPos = Vector2.zero;
-
-	public bool isRankingBoardToggleOn = false;
+	private bool isRankingBoardToggleOn = false;
 
 	public override IEnumerator OnMove(int currentOrder, int diceCount)
 	{
@@ -79,16 +77,12 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 
 	public void OnBeginDrag(PointerEventData data)
 	{
-		dragStartPos = data.position;
 		boardGameCameraController.SetFollow(false);
 	}
 
 	public void OnDrag(PointerEventData data)
 	{
-		Vector3 deltaPos = dragStartPos - data.position;
-		boardGameCameraController.Move(Time.deltaTime * deltaPos);
-
-		dragStartPos = data.position;
+		
 	}
 
 	public void OnClickResetCamera()
