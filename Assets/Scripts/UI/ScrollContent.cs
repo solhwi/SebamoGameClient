@@ -69,9 +69,6 @@ public class ScrollContent : MonoBehaviour
 
 	private void OnChangedTab(int tabType)
 	{
-		if (currentTabType == tabType)
-			return;
-
 		currentTabType = tabType;
 
 		onChangedTab?.Invoke(currentTabType);
@@ -168,6 +165,10 @@ public class ScrollContent : MonoBehaviour
 
 			float expandWidth = expandCount * (itemCellSize + spacingSize);
 			contentRect.offsetMax = new Vector2(expandWidth, 0);
+		}
+		else
+		{
+			contentRect.offsetMax = Vector2.zero;
 		}
 
 		layoutGroup.constraintCount = hasItemCount;

@@ -61,7 +61,9 @@ public class InventoryPopup : BoardGamePopup
 	private void OnChangedTab(int tabType)
 	{
 		TabType currentTabType = (TabType)tabType;
-		hasItemList = GetHasItems(currentTabType).ToList();
+		hasItemList = GetHasItems(currentTabType)
+			.OrderByDescending(i => inventory.IsEquippedItem(i.Key))
+			.ToList();
 
 		useButtonObj.SetActive(currentTabType == TabType.Replace);
 
@@ -82,11 +84,17 @@ public class InventoryPopup : BoardGamePopup
 			return;
 
 		var hasItemData = hasItemList[index];
-		scrollItem.SetItemData(hasItemData.Key, hasItemData.Value);
-		scrollItem.SetItemClickCallback(OnClickItem);
-		scrollItem.SetSelect(false);
 
-		scrollItemDictionary[hasItemData.Key] = scrollItem;
+		string itemCode = hasItemData.Key;
+		int itemCount = hasItemData.Value;
+
+		scrollItem.SetItemData(itemCode, itemCount);
+		scrollItem.SetItemClickCallback(OnClickItem);
+
+		bool isEquipped = inventory.IsEquippedItem(itemCode);
+		scrollItem.SetSelect(isEquipped);
+
+		scrollItemDictionary[itemCode] = scrollItem;
 	}
 
 	private void OnClickItem(string itemCode)

@@ -201,6 +201,11 @@ public class Inventory : ScriptableObject
 		return true;
 	}
 
+	public bool IsEquippedItem(string itemCode)
+	{
+		return equippedItems.Any(i => i == itemCode);
+	}
+
 	public int GetHasCoinCount()
 	{
 		if(hasItems.ContainsKey("Coin") == false)
