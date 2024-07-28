@@ -14,6 +14,14 @@ public class UICharacterView : CharacterView, IBeginDragHandler, IEndDragHandler
 	[SerializeField] private float maxFOV = 15f; // 최대 FOV
 
 	private bool isDragging = false;
+	private float defaultFOV = 10.0f;
+
+	protected override void Awake()
+	{
+		base.Awake();
+
+		defaultFOV = cam.fieldOfView;
+	}
 
 	protected override void Update()
 	{
@@ -87,6 +95,7 @@ public class UICharacterView : CharacterView, IBeginDragHandler, IEndDragHandler
 	{
 		cameraArm.rotation = Quaternion.Euler(initialCameraArmRot);
 		originObj.transform.localRotation = Quaternion.Euler(spawnLocalRot);
+		cam.fieldOfView = defaultFOV;
 	}
 
 	public void OnBeginDrag(PointerEventData eventData)
