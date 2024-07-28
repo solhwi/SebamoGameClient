@@ -9,11 +9,13 @@ public class ObjectView : MonoBehaviour
 	[SerializeField] protected Transform cameraArm = null;
 	[SerializeField] private GameObject originPrefab = null;
 
-	[SerializeField] protected Vector3 spawnLocalPos = new Vector3(0, -0.5f, 10);
+	[SerializeField] protected Vector3 spawnLocalPos = new Vector3(0, -0.5f, 0);
 	[SerializeField] protected Vector3 spawnLocalRot = new Vector3(0, 180, 0);
 
 	[SerializeField] private bool isFixedPosition = false;
 	[SerializeField] private bool isFixedRotation = false;
+
+	protected Vector3 initialCameraArmRot = Vector3.zero;
 
 	protected GameObject originObj;
 
@@ -32,6 +34,8 @@ public class ObjectView : MonoBehaviour
 	{
 		spriteView = GetComponent<SpriteRenderer>();
 		textureView = GetComponent<RawImage>();
+
+		initialCameraArmRot = cameraArm.transform.localEulerAngles;
 	}
 
 	protected virtual void Start()
@@ -47,7 +51,7 @@ public class ObjectView : MonoBehaviour
 		originObj.transform.localEulerAngles = spawnLocalRot;
 	}
 
-	private void Update()
+	protected virtual void Update()
 	{
 		if (spriteView != null)
 		{

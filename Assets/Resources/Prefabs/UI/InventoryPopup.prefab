@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 9142354699776786266}
   - component: {fileID: 2163550913311537129}
   - component: {fileID: 5089413440016197294}
-  - component: {fileID: 2333335081270157816}
-  - component: {fileID: 4359490027799384538}
+  - component: {fileID: 4956089002030172752}
   m_Layer: 0
   m_Name: UICharacterView
   m_TagString: Untagged
@@ -74,7 +73,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &2333335081270157816
+--- !u!114 &4956089002030172752
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,7 +82,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 34777626472212710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a304186dd3cefbc4a862676b014e5719, type: 3}
+  m_Script: {fileID: 11500000, guid: edc08d4a3c4985b45ab8a4c48dc56318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
@@ -93,23 +92,9 @@ MonoBehaviour:
   spawnLocalRot: {x: 0, y: 180, z: 0}
   isFixedPosition: 0
   isFixedRotation: 0
---- !u!114 &4359490027799384538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 34777626472212710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea86a82fa7ccf243a5a98ecac302e7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiCamera: {fileID: 0}
-  cameraArm: {fileID: 0}
   xMinRotationLimit: 0
   xMaxRotationLimit: 0
-  rotateSpeed: 10
+  rotateSpeed: 1
   zoomSpeed: 10
   minFOV: 0.1
   maxFOV: 1
@@ -1166,7 +1151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.00092331483, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6933462539614869877
@@ -1722,8 +1707,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4359490027799384538}
-        m_TargetAssemblyTypeName: UICameraController, Assembly-CSharp
+      - m_Target: {fileID: 4956089002030172752}
+        m_TargetAssemblyTypeName: UICharacterView, Assembly-CSharp
         m_MethodName: OnClickResetCamera
         m_Mode: 1
         m_Arguments:
@@ -1847,10 +1832,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!223 &425117931129430697
 Canvas:
   m_ObjectHideFlags: 0
@@ -1930,7 +1915,7 @@ MonoBehaviour:
   canvas: {fileID: 425117931129430697}
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
-  uiCharacterView: {fileID: 2333335081270157816}
+  uiCharacterView: {fileID: 4956089002030172752}
   gameCharacterView: {fileID: 0}
   useButtonObj: {fileID: 8765172528903776906}
   scrollContent: {fileID: 4894684593749433627}
