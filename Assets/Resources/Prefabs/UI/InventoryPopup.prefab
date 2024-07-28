@@ -94,10 +94,10 @@ MonoBehaviour:
   isFixedRotation: 0
   xMinRotationLimit: 0
   xMaxRotationLimit: 0
-  rotateSpeed: 1
+  rotateSpeed: 3
   zoomSpeed: 10
-  minFOV: 0.1
-  maxFOV: 1
+  minFOV: 5
+  maxFOV: 15
 --- !u!1 &53533222714727522
 GameObject:
   m_ObjectHideFlags: 0

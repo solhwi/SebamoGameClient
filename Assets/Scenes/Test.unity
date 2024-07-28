@@ -1192,6 +1192,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -40
       objectReference: {fileID: 0}
+    - target: {fileID: 4956089002030172752, guid: 2ce3a24d1c834d24a972499c0ddde090, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1958132242}
+    - target: {fileID: 4956089002030172752, guid: 2ce3a24d1c834d24a972499c0ddde090, type: 3}
+      propertyPath: cameraArm
+      value: 
+      objectReference: {fileID: 1967387433}
     - target: {fileID: 5350157098432453004, guid: 2ce3a24d1c834d24a972499c0ddde090, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2464,7 +2472,7 @@ PrefabInstance:
     - target: {fileID: 4138448045326830286, guid: 57cc03aacc153094190614cb668c0069, type: 3}
       propertyPath: cameraArm
       value: 
-      objectReference: {fileID: 467019145}
+      objectReference: {fileID: 1594575727}
     - target: {fileID: 4902804719180620769, guid: 57cc03aacc153094190614cb668c0069, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -5430,8 +5438,8 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
-  orthographic: 1
+  field of view: 10
+  orthographic: 0
   orthographic size: 1
   m_Depth: 0
   m_CullingMask:
@@ -6026,7 +6034,7 @@ PrefabInstance:
     - target: {fileID: 2012936445174958189, guid: b8b35928236dc804c93e20f7f015c0a1, type: 3}
       propertyPath: cameraArm
       value: 
-      objectReference: {fileID: 1848805233}
+      objectReference: {fileID: 934200534}
     - target: {fileID: 2016115232862505880, guid: b8b35928236dc804c93e20f7f015c0a1, type: 3}
       propertyPath: tileDataManager
       value: 

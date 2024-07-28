@@ -10,8 +10,8 @@ public class UICharacterView : CharacterView, IBeginDragHandler, IEndDragHandler
 	[SerializeField] private float rotateSpeed = 1.0f; // 회전 속도
 
 	[SerializeField] private float zoomSpeed = 10f; // 줌 속도
-	[SerializeField] private float minFOV = 0.1f; // 최소 FOV
-	[SerializeField] private float maxFOV = 1f; // 최대 FOV
+	[SerializeField] private float minFOV = 5f; // 최소 FOV
+	[SerializeField] private float maxFOV = 15f; // 최대 FOV
 
 	private bool isDragging = false;
 
@@ -19,9 +19,39 @@ public class UICharacterView : CharacterView, IBeginDragHandler, IEndDragHandler
 	{
 		base.Update();
 
-		if (isDragging == false)
-			return;
+		if (isDragging)
+		{
+#if UNITY_EDITOR
+			if (Input.GetMouseButton(0))
+			{
+				Vector2 deltaPos = Input.mousePositionDelta;
 
+				// 현재 카메라 암의 회전값을 사용해 상하 회전 제한을 적용
+				var xRotation = cameraArm.eulerAngles.x > 180.0f ? cameraArm.eulerAngles.x - 360.0f : cameraArm.eulerAngles.x;
+				xRotation += deltaPos.y * rotateSpeed * Time.deltaTime;
+				xRotation = Mathf.Clamp(xRotation, xMinRotationLimit, xMaxRotationLimit);
+
+				// 카메라 암의 상하 회전 적용
+				cameraArm.rotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+				// 캐릭터의 좌우 회전 적용
+				originObj.transform.Rotate(Vector3.down * deltaPos.x * rotateSpeed * Time.deltaTime);
+			}
+#else
+			if (Input.touchCount == 0)
+			{
+
+			}
+#endif
+		}
+
+#if UNITY_EDITOR
+		float mouseScrollWheelValue = Input.GetAxis("Mouse ScrollWheel");
+		if (MathFloat.Equals(mouseScrollWheelValue, 0.0f) == false)
+		{
+			UpdateFOV(mouseScrollWheelValue);
+		}
+#else
 		if (Input.touchCount == 2)
 		{
 			Touch touch1 = Input.GetTouch(0);
@@ -40,31 +70,17 @@ public class UICharacterView : CharacterView, IBeginDragHandler, IEndDragHandler
 			float distanceDelta = currentDistance - previousDistance;
 
 			// FOV 조정
-			cam.fieldOfView -= distanceDelta * zoomSpeed * Time.deltaTime;
-			cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, minFOV, maxFOV);
-		}
-		else if (Input.touchCount == 1)
-		{
-
-		}
-
-#if UNITY_EDITOR
-		if (Input.GetMouseButton(0))
-		{
-			Vector2 deltaPos = Input.mousePositionDelta;
-
-			// 현재 카메라 암의 회전값을 사용해 상하 회전 제한을 적용
-			var xRotation = cameraArm.eulerAngles.x > 180.0f ? cameraArm.eulerAngles.x - 360.0f : cameraArm.eulerAngles.x;
-			xRotation += deltaPos.y * rotateSpeed * Time.deltaTime;
-			xRotation = Mathf.Clamp(xRotation, xMinRotationLimit, xMaxRotationLimit);
-
-			// 카메라 암의 상하 회전 적용
-			cameraArm.rotation = Quaternion.Euler(xRotation, 0f, 0f);
-
-			// 캐릭터의 좌우 회전 적용
-			originObj.transform.Rotate(Vector3.down * deltaPos.x * rotateSpeed * Time.deltaTime);
+			UpdateFOV(distanceDelta);
 		}
 #endif
+		
+	}
+
+	private void UpdateFOV(float delta)
+	{
+		// FOV 조정
+		cam.fieldOfView -= delta * zoomSpeed;
+		cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, minFOV, maxFOV);
 	}
 
 	public void OnClickResetCamera()
