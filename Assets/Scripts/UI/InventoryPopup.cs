@@ -42,6 +42,7 @@ public class InventoryPopup : BoardGamePopup
 
 		scrollContent.onChangedTab += OnChangedTab;
 		scrollContent.onUpdateContents += OnUpdateContents;
+		scrollContent.onRefreshContents += RefreshContents;
 		scrollContent.onGetItemCount += GetHasItemCount;
 
 		scrollContent.SelectTab((int)TabType.Props);
@@ -51,6 +52,7 @@ public class InventoryPopup : BoardGamePopup
 	{
 		scrollContent.onChangedTab -= OnChangedTab;
 		scrollContent.onUpdateContents -= OnUpdateContents;
+		scrollContent.onRefreshContents -= RefreshContents;
 		scrollContent.onGetItemCount -= GetHasItemCount;
 
 		gameCharacterView.RefreshCharacter();
@@ -61,14 +63,32 @@ public class InventoryPopup : BoardGamePopup
 	private void OnChangedTab(int tabType)
 	{
 		TabType currentTabType = (TabType)tabType;
-		hasItemList = GetHasItems(currentTabType)
-			.OrderByDescending(i => inventory.IsEquippedItem(i.Key))
-			.ToList();
+		hasItemList = GetHasItems(currentTabType).ToList();
 
 		useButtonObj.SetActive(currentTabType == TabType.Replace);
 
 		scrollContent.Reset();
 		scrollItemDictionary.Clear();
+	}
+
+	private void RefreshContents()
+	{
+		int focusIndex = GetEquippedItemIndex();
+		scrollContent.StartFocusTarget(focusIndex);
+	}
+
+	private int GetEquippedItemIndex()
+	{
+		for(int i = 0; i < hasItemList.Count; i++)
+		{
+			string itemCode = hasItemList[i].Key;
+			if (inventory.IsEquippedItem(itemCode))
+			{
+				return i;
+			}
+		}
+
+		return 0;
 	}
 
 	private void OnUpdateContents(int index, GameObject contentObj)

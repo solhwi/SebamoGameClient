@@ -102,7 +102,7 @@ public class ShopPopup : BoardGamePopup
 			if (scrollContent.IsTargeting == false)
 			{
 				float itemSize = scrollContent.GetItemCellSizeY();
-				float normalItemPos = scrollContent.GetItemPosY(normalItemIndex);
+				float normalItemPos = scrollContent.GetItemPos(normalItemIndex);
 				float currentYPos = scrollContent.GetCurrentYPos();
 
 				if (currentYPos > normalItemPos)

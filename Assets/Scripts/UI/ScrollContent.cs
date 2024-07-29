@@ -21,12 +21,13 @@ public class ScrollContent : MonoBehaviour
 
 	public event Action<int> onChangedTab = null;
 	public event Action<int, GameObject> onUpdateContents = null;
+	public event Action onRefreshContents = null;
 	public Func<int, int> onGetItemCount = null;
 
 	private int currentTabType = -1;
 
 	private float targetingTime = 0.0f;
-	private float targetAnchoredPosY = 0.0f;
+	private float targetAnchoredPos = 0.0f;
 
 	public bool IsTargeting { get; private set; }
 
@@ -37,9 +38,9 @@ public class ScrollContent : MonoBehaviour
 
 	private void Update()
 	{
-		float currentY = contentRect.anchoredPosition.y;
+		float currentPos = scrollRect.horizontal ?  contentRect.anchoredPosition.x : contentRect.anchoredPosition.y;
 
-		if (MathFloat.IsEqual(currentY, targetAnchoredPosY))
+		if (MathFloat.IsEqual(currentPos, targetAnchoredPos))
 		{
 			StopFocusTarget();
 		}
@@ -48,9 +49,16 @@ public class ScrollContent : MonoBehaviour
 		{
 			targetingTime += Time.deltaTime;
 
-			float nextY = Mathf.Lerp(currentY, targetAnchoredPosY, targetingTime * tabScrollSpeed);
+			float nextPos = Mathf.Lerp(currentPos, targetAnchoredPos, targetingTime * tabScrollSpeed);
 
-			contentRect.anchoredPosition = new Vector2(0, nextY);
+			if (scrollRect.horizontal)
+			{
+				contentRect.anchoredPosition = new Vector2(nextPos, 0);
+			}
+			else
+			{
+				contentRect.anchoredPosition = new Vector2(0, nextPos);
+			}
 		}
 	}
 
@@ -69,12 +77,17 @@ public class ScrollContent : MonoBehaviour
 
 	private void OnChangedTab(int tabType)
 	{
+		if (currentTabType == tabType)
+			return;
+
 		currentTabType = tabType;
 
 		onChangedTab?.Invoke(currentTabType);
 
 		int itemCount = GetItemCount(currentTabType);
 		UpdateContents(itemCount);
+
+		onRefreshContents?.Invoke();
 	}
 
 	public void UpdateContents(int itemCount)
@@ -105,19 +118,30 @@ public class ScrollContent : MonoBehaviour
 	}
 
 	public void OnSelectedTab()
-	{
+	{                             
 		int index = toggles.FindIndex(t => t.isOn);
 		OnChangedTab(index);
 	}
 
 	public void StartFocusTarget(int index)
 	{
-		targetAnchoredPosY = GetItemPosY(index);
+		targetAnchoredPos = index <= DefaultItemCount ? 0 : GetItemPos(index);
 
-		float maxPosY = contentRect.sizeDelta.y - GetItemPosY(DefaultItemCount);
-		if (targetAnchoredPosY >= maxPosY)
+		float maxPos = 0.0f;
+
+		if (scrollRect.horizontal)
 		{
-			targetAnchoredPosY = maxPosY;
+			maxPos = Mathf.Max(0, contentRect.offsetMax.x);
+		}
+		else
+		{
+			maxPos = contentRect.sizeDelta.y - GetItemPos(DefaultItemCount);
+			maxPos = Mathf.Max(0, maxPos);
+		}
+
+		if (targetAnchoredPos >= maxPos)
+		{
+			targetAnchoredPos = maxPos;
 		}
 
 		IsTargeting = true;
@@ -152,7 +176,7 @@ public class ScrollContent : MonoBehaviour
 
 	public float GetItemCellSizeY()
 	{
-		return GetItemPosY(1);
+		return GetItemPos(1);
 	}
 
 	private void ExpandScrollWidth(int hasItemCount)
@@ -174,10 +198,22 @@ public class ScrollContent : MonoBehaviour
 		layoutGroup.constraintCount = hasItemCount;
 	}
 
-	public float GetItemPosY(int index)
+	public float GetItemPos(int index)
 	{
-		float itemCellSize = layoutGroup.cellSize.y;
-		float spacingSize = layoutGroup.spacing.y;
+		float itemCellSize = 0.0f;
+		float spacingSize = 0.0f;
+
+		if (scrollRect.horizontal)
+		{
+			itemCellSize = layoutGroup.cellSize.x;
+			spacingSize = layoutGroup.spacing.x;
+		}
+		else if(scrollRect.vertical)
+		{
+			itemCellSize = layoutGroup.cellSize.y;
+			spacingSize = layoutGroup.spacing.y;
+		}
+		
 
 		return index * (itemCellSize + spacingSize);
 	}
