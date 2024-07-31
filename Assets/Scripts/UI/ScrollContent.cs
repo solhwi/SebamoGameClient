@@ -21,7 +21,6 @@ public class ScrollContent : MonoBehaviour
 
 	public event Action<int> onChangedTab = null;
 	public event Action<int, GameObject> onUpdateContents = null;
-	public event Action onRefreshContents = null;
 	public Func<int, int> onGetItemCount = null;
 
 	private int currentTabType = -1;
@@ -84,13 +83,16 @@ public class ScrollContent : MonoBehaviour
 
 		onChangedTab?.Invoke(currentTabType);
 
-		int itemCount = GetItemCount(currentTabType);
-		UpdateContents(itemCount);
-
-		onRefreshContents?.Invoke();
+		UpdateContents();
 	}
 
-	public void UpdateContents(int itemCount)
+	public void UpdateContents()
+	{
+		int itemCount = GetItemCount(currentTabType);
+		UpdateContents(itemCount);
+	}
+
+	private void UpdateContents(int itemCount)
 	{
 		foreach (var obj in contentObjList)
 		{

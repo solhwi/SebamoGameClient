@@ -23,11 +23,10 @@ public class InventoryPopup : BoardGamePopup
 	[SerializeField] private CharacterView gameCharacterView;
 	[SerializeField] private GameObject useButtonObj;
 	[SerializeField] private ScrollContent scrollContent;
+	[SerializeField] private List<ItemIcon> equippedItemIcons = new List<ItemIcon>(); 
 
-	private Dictionary<string, InventoryScrollItem> scrollItemDictionary = new Dictionary<string, InventoryScrollItem>();
 	private List<KeyValuePair<string, int>> hasItemList = new List<KeyValuePair<string, int>>();
-
-	private string currentSelectedItemCode = string.Empty;
+	private TabType currentTabType;
 
 	protected override void Reset()
 	{
@@ -42,17 +41,17 @@ public class InventoryPopup : BoardGamePopup
 
 		scrollContent.onChangedTab += OnChangedTab;
 		scrollContent.onUpdateContents += OnUpdateContents;
-		scrollContent.onRefreshContents += RefreshContents;
 		scrollContent.onGetItemCount += GetHasItemCount;
 
 		scrollContent.SelectTab((int)TabType.Props);
+
+		RefreshEquippedItemIcons();
 	}
 
 	protected override void OnClose()
 	{
 		scrollContent.onChangedTab -= OnChangedTab;
 		scrollContent.onUpdateContents -= OnUpdateContents;
-		scrollContent.onRefreshContents -= RefreshContents;
 		scrollContent.onGetItemCount -= GetHasItemCount;
 
 		gameCharacterView.RefreshCharacter();
@@ -62,33 +61,12 @@ public class InventoryPopup : BoardGamePopup
 
 	private void OnChangedTab(int tabType)
 	{
-		TabType currentTabType = (TabType)tabType;
+		currentTabType = (TabType)tabType;
 		hasItemList = GetHasItems(currentTabType).ToList();
 
 		useButtonObj.SetActive(currentTabType == TabType.Replace);
 
 		scrollContent.Reset();
-		scrollItemDictionary.Clear();
-	}
-
-	private void RefreshContents()
-	{
-		int focusIndex = GetEquippedItemIndex();
-		scrollContent.StartFocusTarget(focusIndex);
-	}
-
-	private int GetEquippedItemIndex()
-	{
-		for(int i = 0; i < hasItemList.Count; i++)
-		{
-			string itemCode = hasItemList[i].Key;
-			if (inventory.IsEquippedItem(itemCode))
-			{
-				return i;
-			}
-		}
-
-		return 0;
 	}
 
 	private void OnUpdateContents(int index, GameObject contentObj)
@@ -110,32 +88,25 @@ public class InventoryPopup : BoardGamePopup
 
 		scrollItem.SetItemData(itemCode, itemCount);
 		scrollItem.SetItemClickCallback(OnClickItem);
+	}
 
-		bool isEquipped = inventory.IsEquippedItem(itemCode);
-		scrollItem.SetSelect(isEquipped);
-
-		scrollItemDictionary[itemCode] = scrollItem;
+	private void RefreshEquippedItemIcons()
+	{
+		for (int i = 0; i < equippedItemIcons.Count; i++)
+		{
+			string itemCode = inventory.equippedItems[i];
+			equippedItemIcons[i].SetItemData(itemCode);
+		}
 	}
 
 	private void OnClickItem(string itemCode)
 	{
-		if (currentSelectedItemCode == itemCode)
-			return;
+		TryEquipItem(itemCode).Wait();
 
-		foreach (var iter in scrollItemDictionary)
-		{
-			if (iter.Key == itemCode)
-			{
-				currentSelectedItemCode = itemCode;
+		hasItemList = GetHasItems(currentTabType).ToList();
+		scrollContent.UpdateContents();
 
-				scrollItemDictionary[itemCode].SetSelect(true);
-				TryEquipItem(itemCode).Wait();
-			}
-			else
-			{
-				scrollItemDictionary[iter.Key].SetSelect(false);
-			}
-		}
+		RefreshEquippedItemIcons();
 	}
 
 	private async Task TryEquipItem(string itemCode)
@@ -158,7 +129,11 @@ public class InventoryPopup : BoardGamePopup
 				foreach (var iterator in inventory.hasItems)
 				{
 					var itemCode = iterator.Key;
-					if (itemTable.IsPropItem(itemCode))
+
+					if (inventory.IsEquippedItem(itemCode))
+						continue;
+
+					if (itemTable.IsAvatarItem(itemCode))
 					{
 						yield return iterator;
 					}
@@ -171,7 +146,10 @@ public class InventoryPopup : BoardGamePopup
 				foreach (var iterator in inventory.hasItems)
 				{
 					var itemCode = iterator.Key;
-					if (itemTable.IsPartsItem(itemCode))
+					if (inventory.IsEquippedItem(itemCode))
+						continue;
+
+					if (itemTable.IsBeautyItem(itemCode))
 					{
 						yield return iterator;
 					}

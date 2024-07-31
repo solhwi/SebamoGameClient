@@ -120,6 +120,47 @@ public partial class ItemTable
 		return b;
 	}
 
+	public bool IsAvatarItem(string itemCode)
+	{
+		if (partsItemDataDictionary.TryGetValue(itemCode, out var partsItemData))
+		{
+			if (partsItemData.partsType == CharacterPartsType.Body)
+				return true;
+
+			if (partsItemData.partsType == CharacterPartsType.Accessory)
+				return true;
+		}
+		else if (propItemDataDictionary.ContainsKey(itemCode)) 
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	public bool IsBeautyItem(string itemCode)
+	{
+		if (partsItemDataDictionary.TryGetValue(itemCode, out var itemData))
+		{
+			if (itemData.partsType == CharacterPartsType.Hair)
+				return true;
+
+			if (itemData.partsType == CharacterPartsType.Eye)
+				return true;
+
+			if (itemData.partsType == CharacterPartsType.FrontHair)
+				return true;
+
+			if (itemData.partsType == CharacterPartsType.RightEye)
+				return true;
+
+			if (itemData.partsType == CharacterPartsType.Face)
+				return true;
+		}
+
+		return false;
+	}
+
 	public bool IsPropItem(string itemCode)
 	{
 		if (propItemDataDictionary.ContainsKey(itemCode))
