@@ -6,6 +6,44 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+public class ItemSortingComparer : IComparer<string>
+{
+	private ItemTable itemTable;
+
+	public ItemSortingComparer(ItemTable itemTable)
+	{
+		this.itemTable = itemTable;
+	}
+
+	public int Compare(string itemCode1, string itemCode2)
+	{
+		int order1 = -1;
+		int order2 = -1;
+
+		if (itemTable.propItemDataDictionary.ContainsKey(itemCode1))
+		{
+			order1 = (int)CharacterPartsType.Max;
+		}
+		else if (itemTable.partsItemDataDictionary.TryGetValue(itemCode1, out var itemData))
+		{
+			order1 = (int)itemData.partsType;
+		}
+
+		if (itemTable.propItemDataDictionary.ContainsKey(itemCode2))
+		{
+			order2 = (int)CharacterPartsType.Max;
+		}
+		else if (itemTable.partsItemDataDictionary.TryGetValue(itemCode2, out var itemData))
+		{
+			order2 = (int)itemData.partsType;
+		}
+
+		return order1 >= order2 ? 1 : -1;
+	}
+
+}
+
+
 public class InventoryPopup : BoardGamePopup
 {
 	public enum TabType
@@ -23,7 +61,9 @@ public class InventoryPopup : BoardGamePopup
 	[SerializeField] private CharacterView gameCharacterView;
 	[SerializeField] private GameObject useButtonObj;
 	[SerializeField] private ScrollContent scrollContent;
-	[SerializeField] private List<ItemIcon> equippedItemIcons = new List<ItemIcon>(); 
+	[SerializeField] private List<ItemIcon> equippedItemIcons = new List<ItemIcon>();
+
+	private ItemSortingComparer sortingComparer = null;
 
 	private List<KeyValuePair<string, int>> hasItemList = new List<KeyValuePair<string, int>>();
 	private TabType currentTabType;
@@ -38,6 +78,8 @@ public class InventoryPopup : BoardGamePopup
 	public override void OnOpen(UIParameter parameter = null)
 	{
 		base.OnOpen(parameter);
+
+		sortingComparer = new ItemSortingComparer(itemTable);
 
 		scrollContent.onChangedTab += OnChangedTab;
 		scrollContent.onUpdateContents += OnUpdateContents;
@@ -62,7 +104,7 @@ public class InventoryPopup : BoardGamePopup
 	private void OnChangedTab(int tabType)
 	{
 		currentTabType = (TabType)tabType;
-		hasItemList = GetHasItems(currentTabType).ToList();
+		hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
 
 		useButtonObj.SetActive(currentTabType == TabType.Replace);
 
@@ -103,7 +145,7 @@ public class InventoryPopup : BoardGamePopup
 	{
 		TryEquipItem(itemCode).Wait();
 
-		hasItemList = GetHasItems(currentTabType).ToList();
+		hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
 		scrollContent.UpdateContents();
 
 		RefreshEquippedItemIcons();
