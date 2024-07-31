@@ -15,6 +15,10 @@ public class NotifyTitleDictionaryPropertyDrawer : SerializableDictionaryPropert
 [CustomPropertyDrawer(typeof(PopupManager.PopupDictionary))]
 public class PopupDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
 
+[CustomPropertyDrawer(typeof(Inventory.HasItemDataDictionary))]
+public class HasItemDataDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
+
+
 public class SerializableDictionaryPropertyDrawer : PropertyDrawer
 {
 	const string KeysFieldName = "m_keys";
