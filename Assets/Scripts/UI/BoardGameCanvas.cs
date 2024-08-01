@@ -30,17 +30,17 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 		statusText.text = $"나온 주사위 눈 : {diceCount.ToString()}";
 	}
 
-	private void Update()
-	{
-		SetCoinCount();
-		SetRankingBoardPosition();
-	}
+	//private void Update()
+	//{
+	//	SetCoinCount();
+	//	SetRankingBoardPosition();
+	//}
 
-	private void SetCoinCount()
-	{
-		int hasCoinCount = inventory.GetHasCoinCount();
-		coinText.text = $"보유 코인 : {hasCoinCount}";
-	}
+	//private void SetCoinCount()
+	//{
+	//	int hasCoinCount = inventory.GetHasCoinCount();
+	//	coinText.text = $"보유 코인 : {hasCoinCount}";
+	//}
 
 	private void SetRankingBoardPosition()
 	{
