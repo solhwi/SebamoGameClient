@@ -309,17 +309,54 @@ MonoBehaviour:
     itemName: "\uCD5C\uD558\uAE09 \uC5F0\uC11D"
     itemDescription: "\uC5B4\uB514\uC5D0 \uC4F0\uB294 \uBB3C\uAC74\uC778\uACE0?"
   - key: UnityChanBody
-    iconAssetPath: Sprites/Costume_C
+    iconAssetPath: Sprites/ItemIcon/Costume_A
     itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uBC14\uB514"
     itemDescription: "\uC720\uB2C8\uD2F0\uC9F1\uC774 \uC88B\uC544\uD558\uB294 \uC637"
   - key: YucoBody
-    iconAssetPath: Sprites/Costume_B
+    iconAssetPath: Sprites/ItemIcon/Costume_B
     itemName: "\uC720\uCF54 \uBC14\uB514"
     itemDescription: "\uC720\uCF54\uAC00 \uB9E4\uC77C \uC785\uB294 \uC637"
   - key: MisakiBody
-    iconAssetPath: Sprites/Costume_A
+    iconAssetPath: Sprites/ItemIcon/Costume_C
     itemName: "\uBBF8\uC0AC\uD0A4 \uBC14\uB514"
     itemDescription: "\uBBF8\uC0AC\uD0A4\uAC00 \uB9E4\uC77C \uC785\uB294 \uC637"
+  - key: UnityChanFace
+    iconAssetPath: Sprites/ItemIcon/Face_A
+    itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uD398\uC774\uC2A4"
+    itemDescription: "\uC720\uB2C8\uD2F0\uC9F1\uC758 \uD65C\uAE30\uCC2C \uD45C\uC815!"
+  - key: YucoFace
+    iconAssetPath: Sprites/ItemIcon/Face_B
+    itemName: "\uC720\uCF54 \uD398\uC774\uC2A4"
+    itemDescription: "\uBB34\uC2A8 \uC0DD\uAC01\uC744 \uD558\uB294\uC9C0 \uC54C \uC218
+      \uC5C6\uB294 \uD45C\uC815."
+  - key: MisakiFace
+    iconAssetPath: Sprites/ItemIcon/Face_C
+    itemName: "\uBBF8\uC0AC\uD0A4 \uD398\uC774\uC2A4"
+    itemDescription: "\uC0C1\uB0E5\uD55C \uD45C\uC815."
+  - key: UnityChanEye
+    iconAssetPath: Sprites/ItemIcon/Eye_A
+    itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uB208"
+    itemDescription: "\uB9D1\uACE0 \uD478\uB978 \uB208"
+  - key: YucoEye
+    iconAssetPath: Sprites/ItemIcon/Eye_B
+    itemName: "\uC720\uCF54 \uB208"
+    itemDescription: "\uCC28\uBD84\uD55C \uB208"
+  - key: MisakiEye
+    iconAssetPath: Sprites/ItemIcon/Eye_C
+    itemName: "\uBBF8\uC0AC\uD0A4 \uB208"
+    itemDescription: "\uB9D1\uACE0 \uAE4A\uC740 \uB208"
+  - key: UnityChanHair
+    iconAssetPath: Sprites/ItemIcon/Hair_A
+    itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uD5E4\uC5B4"
+    itemDescription: "\uADC0\uC5EC\uC6B4 \uC591\uAC08\uB798"
+  - key: YucoHair
+    iconAssetPath: Sprites/ItemIcon/Hair_B
+    itemName: "\uC720\uCF54 \uD5E4\uC5B4"
+    itemDescription: "\uCC28\uBD84\uD55C \uC20F\uCEF7"
+  - key: MisakiHair
+    iconAssetPath: Sprites/ItemIcon/Hair_C
+    itemName: "\uBBF8\uC0AC\uD0A4 \uD5E4\uC5B4"
+    itemDescription: "\uB2E8\uC815\uD55C \uBC18\uBB36\uC74C"
   itemIconDataDictionary:
     m_keys:
     - UnityChanAccessory
@@ -335,6 +372,15 @@ MonoBehaviour:
     - UnityChanBody
     - YucoBody
     - MisakiBody
+    - UnityChanFace
+    - YucoFace
+    - MisakiFace
+    - UnityChanEye
+    - YucoEye
+    - MisakiEye
+    - UnityChanHair
+    - YucoHair
+    - MisakiHair
     m_values:
     - key: UnityChanAccessory
       iconAssetPath: Sprites/ItemIcon_Chest_Gold.png
@@ -381,17 +427,54 @@ MonoBehaviour:
       itemName: "\uCD5C\uD558\uAE09 \uC5F0\uC11D"
       itemDescription: "\uC5B4\uB514\uC5D0 \uC4F0\uB294 \uBB3C\uAC74\uC778\uACE0?"
     - key: UnityChanBody
-      iconAssetPath: Sprites/Costume_C
+      iconAssetPath: Sprites/ItemIcon/Costume_A
       itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uBC14\uB514"
       itemDescription: "\uC720\uB2C8\uD2F0\uC9F1\uC774 \uC88B\uC544\uD558\uB294 \uC637"
     - key: YucoBody
-      iconAssetPath: Sprites/Costume_B
+      iconAssetPath: Sprites/ItemIcon/Costume_B
       itemName: "\uC720\uCF54 \uBC14\uB514"
       itemDescription: "\uC720\uCF54\uAC00 \uB9E4\uC77C \uC785\uB294 \uC637"
     - key: MisakiBody
-      iconAssetPath: Sprites/Costume_A
+      iconAssetPath: Sprites/ItemIcon/Costume_C
       itemName: "\uBBF8\uC0AC\uD0A4 \uBC14\uB514"
       itemDescription: "\uBBF8\uC0AC\uD0A4\uAC00 \uB9E4\uC77C \uC785\uB294 \uC637"
+    - key: UnityChanFace
+      iconAssetPath: Sprites/ItemIcon/Face_A
+      itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uD398\uC774\uC2A4"
+      itemDescription: "\uC720\uB2C8\uD2F0\uC9F1\uC758 \uD65C\uAE30\uCC2C \uD45C\uC815!"
+    - key: YucoFace
+      iconAssetPath: Sprites/ItemIcon/Face_B
+      itemName: "\uC720\uCF54 \uD398\uC774\uC2A4"
+      itemDescription: "\uBB34\uC2A8 \uC0DD\uAC01\uC744 \uD558\uB294\uC9C0 \uC54C
+        \uC218 \uC5C6\uB294 \uD45C\uC815."
+    - key: MisakiFace
+      iconAssetPath: Sprites/ItemIcon/Face_C
+      itemName: "\uBBF8\uC0AC\uD0A4 \uD398\uC774\uC2A4"
+      itemDescription: "\uC0C1\uB0E5\uD55C \uD45C\uC815."
+    - key: UnityChanEye
+      iconAssetPath: Sprites/ItemIcon/Eye_A
+      itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uB208"
+      itemDescription: "\uB9D1\uACE0 \uD478\uB978 \uB208"
+    - key: YucoEye
+      iconAssetPath: Sprites/ItemIcon/Eye_B
+      itemName: "\uC720\uCF54 \uB208"
+      itemDescription: "\uCC28\uBD84\uD55C \uB208"
+    - key: MisakiEye
+      iconAssetPath: Sprites/ItemIcon/Eye_C
+      itemName: "\uBBF8\uC0AC\uD0A4 \uB208"
+      itemDescription: "\uB9D1\uACE0 \uAE4A\uC740 \uB208"
+    - key: UnityChanHair
+      iconAssetPath: Sprites/ItemIcon/Hair_A
+      itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uD5E4\uC5B4"
+      itemDescription: "\uADC0\uC5EC\uC6B4 \uC591\uAC08\uB798"
+    - key: YucoHair
+      iconAssetPath: Sprites/ItemIcon/Hair_B
+      itemName: "\uC720\uCF54 \uD5E4\uC5B4"
+      itemDescription: "\uCC28\uBD84\uD55C \uC20F\uCEF7"
+    - key: MisakiHair
+      iconAssetPath: Sprites/ItemIcon/Hair_C
+      itemName: "\uBBF8\uC0AC\uD0A4 \uD5E4\uC5B4"
+      itemDescription: "\uB2E8\uC815\uD55C \uBC18\uBB36\uC74C"
   dropItemDataList:
   - key: Coin
     fieldIconAssetPath: Sprites/Coin.asset

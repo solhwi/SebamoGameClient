@@ -19,20 +19,26 @@ MonoBehaviour:
     - MisakiHair
     - UnityChanEye
     - UnityChanFace
-    - MisakiAccessory
     - GreatSword
     - TwinDagger
     - Coin
     - MisakiBody
     - UnityChanBody
-    m_values: 01000000010000000100000001000000010000000100000001000000a38601000100000001000000
+    - YucoFace
+    - MisakiFace
+    - MisakiEye
+    - YucoEye
+    - YucoHair
+    - UnityChanHair
+    - MisakiAccessory
+    m_values: 010000000100000001000000010000000100000001000000a3860100010000000100000001000000010000000100000001000000010000000100000001000000
   equippedItems:
   - YucoBody
-  - MisakiHair
+  - UnityChanHair
   - UnityChanEye
   - UnityChanFace
   - MisakiAccessory
-  - GreatSword
+  - 
   appliedBuffItems: []
-  equippedBodyTypes: 0100000002000000000000000000000002000000
+  equippedBodyTypes: 0100000000000000000000000000000002000000
   equippedPropTypes: 00000000
