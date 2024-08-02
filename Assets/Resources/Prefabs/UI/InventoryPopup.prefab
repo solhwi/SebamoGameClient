@@ -1553,6 +1553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 5775009685481871509}
+  isReset: 0
   isResetToggleOn: 1
   offPos: 177
   onPos: 12
@@ -3066,6 +3067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 529118875762608903}
+  isReset: 0
   isResetToggleOn: 1
   offPos: 288
   onPos: 13
