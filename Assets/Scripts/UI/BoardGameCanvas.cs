@@ -12,11 +12,6 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 	[SerializeField] private CameraController boardGameCameraController;
 
 	[SerializeField] private Text statusText = null;
-	[SerializeField] private Text coinText = null;
-
-	[SerializeField] private RectTransform rankingBoard = null;
-
-	private bool isRankingBoardToggleOn = false;
 
 	public override IEnumerator OnMove(int currentOrder, int diceCount)
 	{
@@ -28,30 +23,6 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 	{
 		yield return null;
 		statusText.text = $"나온 주사위 눈 : {diceCount.ToString()}";
-	}
-
-	//private void Update()
-	//{
-	//	SetCoinCount();
-	//	SetRankingBoardPosition();
-	//}
-
-	//private void SetCoinCount()
-	//{
-	//	int hasCoinCount = inventory.GetHasCoinCount();
-	//	coinText.text = $"보유 코인 : {hasCoinCount}";
-	//}
-
-	private void SetRankingBoardPosition()
-	{
-		if (isRankingBoardToggleOn)
-		{
-			rankingBoard.anchoredPosition = Vector3.zero;
-		}
-		else
-		{
-			rankingBoard.anchoredPosition = new Vector3(0, rankingBoard.rect.height, 0);
-		}
 	}
 
 	public void OnClickRollDice()
@@ -68,11 +39,6 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 	public void OnClickInventory()
 	{
 		PopupManager.Instance.TryOpen(PopupManager.PopupType.Inventory);
-	}
-
-	public void OnClickRankingBoardToggle()
-	{
-		isRankingBoardToggleOn = !isRankingBoardToggleOn;
 	}
 
 	public void OnBeginDrag(PointerEventData data)
