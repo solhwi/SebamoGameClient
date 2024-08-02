@@ -133,7 +133,7 @@ public class ScrollContent : MonoBehaviour
 
 		if (scrollRect.horizontal)
 		{
-			maxPos = Mathf.Max(0, contentRect.offsetMax.x);
+			maxPos = Mathf.Max(0, contentRect.sizeDelta.x);
 		}
 		else
 		{
@@ -190,11 +190,11 @@ public class ScrollContent : MonoBehaviour
 			float spacingSize = layoutGroup.spacing.x;
 
 			float expandWidth = expandCount * (itemCellSize + spacingSize);
-			contentRect.offsetMax = new Vector2(expandWidth, 0);
+			contentRect.sizeDelta = new Vector2(expandWidth, contentRect.sizeDelta.y);
 		}
 		else
 		{
-			contentRect.offsetMax = Vector2.zero;
+			contentRect.sizeDelta = new Vector2(0, contentRect.sizeDelta.y);
 		}
 
 		layoutGroup.constraintCount = hasItemCount;
