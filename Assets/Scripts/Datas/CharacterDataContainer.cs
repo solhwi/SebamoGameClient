@@ -24,7 +24,6 @@ public enum CharacterPartsType
 
 public enum PropType
 {
-	None = -1,
 	GreatSword = 0,
 	TwinDagger_L = 1,
 	TwinDagger_R = 2,

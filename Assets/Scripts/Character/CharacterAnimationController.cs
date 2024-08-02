@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public enum CharacterState
@@ -62,37 +63,30 @@ public class CharacterAnimationController : MonoBehaviour
 	{
 		this.crossFadeTime = crossFadeTime;
 
-		if (inventory.equippedPropTypes == null || inventory.equippedPropTypes.Count <= 0)
+		var propType = inventory.GetEquippedPropType().FirstOrDefault();
+		if (propType == PropType.GreatSword)
 		{
-			ChangeState(CharacterState.Idle);
+			ChangeState(CharacterState.Idle_GreatSword);
+		}
+		else if (propType == PropType.Net)
+		{
+			ChangeState(CharacterState.Idle_Net);
+		}
+		else if (propType == PropType.Umbrella)
+		{
+			ChangeState(CharacterState.Idle_Umbrella);
+		}
+		else if (propType == PropType.TwinDagger_L || propType == PropType.TwinDagger_R)
+		{
+			ChangeState(CharacterState.Idle_TwinHand);
+		}
+		else if (propType == PropType.Axe || propType == PropType.PickAx || propType == PropType.Shovel)
+		{
+			ChangeState(CharacterState.Idle_TwoHand);
 		}
 		else
 		{
-			var propType = inventory.equippedPropTypes[0];
-			if (propType == PropType.GreatSword)
-			{
-				ChangeState(CharacterState.Idle_GreatSword);
-			}
-			else if(propType == PropType.Net)
-			{
-				ChangeState(CharacterState.Idle_Net);
-			}
-			else if(propType == PropType.Umbrella)
-			{
-				ChangeState(CharacterState.Idle_Umbrella);
-			}
-			else if(propType == PropType.TwinDagger_L || propType == PropType.TwinDagger_R)
-			{
-				ChangeState(CharacterState.Idle_TwinHand);
-			}
-			else if(propType == PropType.Axe || propType == PropType.PickAx || propType == PropType.Shovel)
-			{
-				ChangeState(CharacterState.Idle_TwoHand);
-			}
-			else
-			{
-				ChangeState(CharacterState.Idle);
-			}
+			ChangeState(CharacterState.Idle);
 		}
 	}
 
@@ -100,46 +94,36 @@ public class CharacterAnimationController : MonoBehaviour
 	{
 		this.crossFadeTime = crossFadeTime;
 
-		if (inventory.equippedPropTypes == null || inventory.equippedPropTypes.Count <= 0)
+		var propType = inventory.GetEquippedPropType().FirstOrDefault();
+		if (propType == PropType.GreatSword)
 		{
-			ChangeState(CharacterState.Run);
+			ChangeState(CharacterState.Run_GreatSword);
+		}
+		else if (propType == PropType.Net)
+		{
+			ChangeState(CharacterState.Run_Net);
+		}
+		else if (propType == PropType.Umbrella)
+		{
+			ChangeState(CharacterState.Run_Umbrella);
+		}
+		else if (propType == PropType.TwinDagger_L || propType == PropType.TwinDagger_R)
+		{
+			ChangeState(CharacterState.Run_TwinHand);
+		}
+		else if (propType == PropType.Axe || propType == PropType.PickAx || propType == PropType.Shovel)
+		{
+			ChangeState(CharacterState.Run_TwoHand);
 		}
 		else
 		{
-			var propType = inventory.equippedPropTypes[0];
-			if (propType == PropType.GreatSword)
-			{
-				ChangeState(CharacterState.Run_GreatSword);
-			}
-			else if (propType == PropType.Net)
-			{
-				ChangeState(CharacterState.Run_Net);
-			}
-			else if (propType == PropType.Umbrella)
-			{
-				ChangeState(CharacterState.Run_Umbrella);
-			}
-			else if (propType == PropType.TwinDagger_L || propType == PropType.TwinDagger_R)
-			{
-				ChangeState(CharacterState.Run_TwinHand);
-			}
-			else if (propType == PropType.Axe || propType == PropType.PickAx || propType == PropType.Shovel)
-			{
-				ChangeState(CharacterState.Run_TwoHand);
-			}
-			else
-			{
-				ChangeState(CharacterState.Run);
-			}
+			ChangeState(CharacterState.Run);
 		}
 	}
 
 	public void DoAttack()
 	{
-		if (inventory.equippedPropTypes == null || inventory.equippedPropTypes.Count <= 0)
-			return;
-
-		var propType = inventory.equippedPropTypes[0];
+		var propType = inventory.GetEquippedPropType().FirstOrDefault();
 		if (propType == PropType.GreatSword)
 		{
 			ChangeState(CharacterState.Attack_GreatSword);

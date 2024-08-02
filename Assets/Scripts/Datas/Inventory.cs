@@ -29,11 +29,32 @@ public class Inventory : ScriptableObject
 	[Space]
 	public List<string> appliedBuffItems = new List<string>();
 
-	[HideInInspector]
-	public CharacterType[] equippedBodyTypes = new CharacterType[5];
+	public CharacterType GetEquippedBodyType(int index)
+	{
+		if (index < 0 || index >= equippedItems.Length)
+			return CharacterType.Max;
 
-	[HideInInspector]
-	public List<PropType> equippedPropTypes = new List<PropType>();
+		string itemCode = equippedItems[index];
+		return itemTable.GetPartsCharacterType(itemCode);
+	}
+
+	public IEnumerable<PropType> GetEquippedPropType()
+	{
+		int index = GetIndexPropType();
+		string itemCode = equippedItems[index];
+
+		var propType = itemTable.GetItemPropType(itemCode);
+		if (propType == PropType.TwinDagger_L)
+		{
+			yield return PropType.TwinDagger_L;
+			yield return PropType.TwinDagger_R;
+		}
+		else
+		{
+			yield return propType;
+		}
+
+	}
 
 	public async Task TryAddItem(string itemCode, int count = 1)
 	{
@@ -172,19 +193,6 @@ public class Inventory : ScriptableObject
 			{
 				equippedItems[index] = itemCode;
 			}
-
-			equippedPropTypes.Clear();
-
-			var propType = itemTable.GetItemPropType(itemCode);
-			if (propType == PropType.TwinDagger_L)
-			{
-				equippedPropTypes.Add(PropType.TwinDagger_L);
-				equippedPropTypes.Add(PropType.TwinDagger_R);
-			}
-			else
-			{
-				equippedPropTypes.Add(propType);
-			}
 		}
 		else
 		{
@@ -194,7 +202,6 @@ public class Inventory : ScriptableObject
 			if (index >= 0 && index < GetIndexPropType())
 			{
 				equippedItems[index] = itemCode;
-				equippedBodyTypes[index] = itemTable.GetPartsCharacterType(itemCode);
 			}
 		}
 
@@ -227,22 +234,24 @@ public class Inventory : ScriptableObject
 
 	public CharacterType GetCurrentPartsCharacterType(CharacterPartsType partsType)
 	{
+		int index = -1;
+
 		if (partsType == CharacterPartsType.Accessory)
-			return equippedBodyTypes[4];
+			index = 4;
 
 		if (partsType == CharacterPartsType.Face)
-			return equippedBodyTypes[3];
+			index = 3;
 
 		if (partsType == CharacterPartsType.RightEye || partsType == CharacterPartsType.Eye)
-			return equippedBodyTypes[2];
+			index = 2;
 
 		if (partsType == CharacterPartsType.Hair || partsType == CharacterPartsType.FrontHair)
-			return equippedBodyTypes[1];
+			index = 1;
 
 		if (partsType == CharacterPartsType.Body)
-			return equippedBodyTypes[0];
+			index = 0;
 
-		return CharacterType.UnityChan;
+		return GetEquippedBodyType(index);
 	}
 
 	private int GetIndexPropType()
@@ -274,10 +283,8 @@ public class Inventory : ScriptableObject
 	{
 		hasItems.Clear();
 		appliedBuffItems.Clear();
-		equippedPropTypes.Clear();
 
 		equippedItems = new string[6];
-		equippedBodyTypes = new CharacterType[5];
 
 		if (myData == null)
 			return;
