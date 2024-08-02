@@ -51,7 +51,7 @@ public class InventoryPopup : BoardGamePopup
 		None = -1,
 		Props,
 		Parts,
-		Decorate,
+		Profile,
 		Replace,
 	}
 
@@ -59,9 +59,13 @@ public class InventoryPopup : BoardGamePopup
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private CharacterView uiCharacterView;
 	[SerializeField] private CharacterView gameCharacterView;
-	[SerializeField] private GameObject useButtonObj;
 	[SerializeField] private ScrollContent scrollContent;
 	[SerializeField] private List<ItemIcon> equippedItemIcons = new List<ItemIcon>();
+
+	[SerializeField] private GameObject useButtonObj;
+
+	[SerializeField] private Transform equipmentPanel;
+	[SerializeField] private Transform profilePanel;
 
 	private ItemSortingComparer sortingComparer = null;
 
@@ -107,6 +111,8 @@ public class InventoryPopup : BoardGamePopup
 		hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
 
 		useButtonObj.SetActive(currentTabType == TabType.Replace);
+		equipmentPanel.gameObject.SetActive(currentTabType == TabType.Props || currentTabType == TabType.Parts);
+		profilePanel.gameObject.SetActive(currentTabType == TabType.Profile);
 
 		scrollContent.Reset();
 	}
@@ -139,6 +145,11 @@ public class InventoryPopup : BoardGamePopup
 			string itemCode = inventory.equippedItems[i];
 			equippedItemIcons[i].SetItemData(itemCode);
 		}
+	}
+
+	public void OnClickPanelToggle()
+	{
+
 	}
 
 	private void OnClickItem(string itemCode)

@@ -1473,6 +1473,7 @@ GameObject:
   - component: {fileID: 5775009685481871509}
   - component: {fileID: 5651630813678648994}
   - component: {fileID: 9043643728933996507}
+  - component: {fileID: 5944873493663313122}
   m_Layer: 0
   m_Name: DecoEquipmentBoard
   m_TagString: Untagged
@@ -1539,6 +1540,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5944873493663313122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4245537690214900461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac342bb5a63a1ad4083cc9fb6469e0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 5775009685481871509}
+  isResetToggleOn: 1
+  offPos: 177
+  onPos: 13
+  isY: 0
 --- !u!1 &4369299176002468318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,7 +1774,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7778810210292892073}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4379767301724684840}
+        m_TargetAssemblyTypeName: TogglePanel, Assembly-CSharp
+        m_MethodName: OnClickToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4802738221499903087
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,7 +2158,7 @@ RectTransform:
   m_GameObject: {fileID: 6034139822809636289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6104021605884657606}
@@ -2220,7 +2250,6 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   uiCharacterView: {fileID: 4956089002030172752}
   gameCharacterView: {fileID: 0}
-  useButtonObj: {fileID: 8765172528903776906}
   scrollContent: {fileID: 4894684593749433627}
   equippedItemIcons:
   - {fileID: 3851975020758908842}
@@ -2229,6 +2258,9 @@ MonoBehaviour:
   - {fileID: 5529718348051737422}
   - {fileID: 3777840390065517252}
   - {fileID: 1435173801294309528}
+  useButtonObj: {fileID: 8765172528903776906}
+  equipmentPanel: {fileID: 529118875762608903}
+  profilePanel: {fileID: 5775009685481871509}
 --- !u!1 &6376137787527036656
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,7 +2788,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5546206029065574603}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5944873493663313122}
+        m_TargetAssemblyTypeName: TogglePanel, Assembly-CSharp
+        m_MethodName: OnClickToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7059555983730670841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2942,6 +2986,7 @@ GameObject:
   - component: {fileID: 529118875762608903}
   - component: {fileID: 587564819718152848}
   - component: {fileID: 1209577364165896665}
+  - component: {fileID: 4379767301724684840}
   m_Layer: 0
   m_Name: EquipmentBoard
   m_TagString: Untagged
@@ -3008,6 +3053,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4379767301724684840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093579390646728596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac342bb5a63a1ad4083cc9fb6469e0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 529118875762608903}
+  isResetToggleOn: 1
+  offPos: 13
+  onPos: 287
+  isY: 0
 --- !u!1 &8278652384461910846
 GameObject:
   m_ObjectHideFlags: 0
