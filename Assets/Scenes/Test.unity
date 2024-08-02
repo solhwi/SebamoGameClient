@@ -3297,6 +3297,14 @@ PrefabInstance:
       propertyPath: boardGameCameraController
       value: 
       objectReference: {fileID: 963194230}
+    - target: {fileID: 7693516524760675078, guid: 060f68d10bead2349b43797685af954b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693516524760675078, guid: 060f68d10bead2349b43797685af954b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000061035156
+      objectReference: {fileID: 0}
     - target: {fileID: 8270549406820326038, guid: 060f68d10bead2349b43797685af954b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
