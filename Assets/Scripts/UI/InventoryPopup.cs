@@ -64,13 +64,15 @@ public class InventoryPopup : BoardGamePopup
 
 	[SerializeField] private GameObject useButtonObj;
 
-	[SerializeField] private Transform equipmentPanel;
-	[SerializeField] private Transform profilePanel;
+	[SerializeField] private TogglePanel equipmentPanel;
+	[SerializeField] private TogglePanel profilePanel;
 
 	private ItemSortingComparer sortingComparer = null;
 
 	private List<KeyValuePair<string, int>> hasItemList = new List<KeyValuePair<string, int>>();
 	private TabType currentTabType;
+
+	private bool isToggleOn = true;
 
 	protected override void Reset()
 	{
@@ -89,6 +91,9 @@ public class InventoryPopup : BoardGamePopup
 		scrollContent.onUpdateContents += OnUpdateContents;
 		scrollContent.onGetItemCount += GetHasItemCount;
 
+		equipmentPanel.onToggle += OnClickPanelToggle;
+		profilePanel.onToggle += OnClickPanelToggle;
+
 		scrollContent.SelectTab((int)TabType.Props);
 
 		RefreshEquippedItemIcons();
@@ -99,6 +104,9 @@ public class InventoryPopup : BoardGamePopup
 		scrollContent.onChangedTab -= OnChangedTab;
 		scrollContent.onUpdateContents -= OnUpdateContents;
 		scrollContent.onGetItemCount -= GetHasItemCount;
+
+		equipmentPanel.onToggle -= OnClickPanelToggle;
+		profilePanel.onToggle -= OnClickPanelToggle;
 
 		gameCharacterView.RefreshCharacter();
 
@@ -111,10 +119,19 @@ public class InventoryPopup : BoardGamePopup
 		hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
 
 		useButtonObj.SetActive(currentTabType == TabType.Replace);
+		
 		equipmentPanel.gameObject.SetActive(currentTabType == TabType.Props || currentTabType == TabType.Parts);
 		profilePanel.gameObject.SetActive(currentTabType == TabType.Profile);
 
+		equipmentPanel.SetToggle(isToggleOn);
+		profilePanel.SetToggle(isToggleOn);
+
 		scrollContent.Reset();
+	}
+
+	private void OnClickPanelToggle(bool isOn)
+	{
+		isToggleOn = isOn;
 	}
 
 	private void OnUpdateContents(int index, GameObject contentObj)

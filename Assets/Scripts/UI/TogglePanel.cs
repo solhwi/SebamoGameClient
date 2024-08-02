@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class TogglePanel : MonoBehaviour
 	[SerializeField] private bool isY = false;
 
 	private bool isToggleOn = false;
+
+	public event Action<bool> onToggle;
 
 	private void Start()
 	{
@@ -44,6 +47,7 @@ public class TogglePanel : MonoBehaviour
 			}
 		}
 
+		onToggle?.Invoke(isToggleOn);
 	}
 
 	public void OnClickToggle()
