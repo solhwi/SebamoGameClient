@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -250}
-  m_SizeDelta: {x: 1020, y: 1020}
+  m_SizeDelta: {x: 1080, y: 1080}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2163550913311537129
 CanvasRenderer:
@@ -96,8 +96,8 @@ MonoBehaviour:
   xMaxRotationLimit: 0
   rotateSpeed: 10
   zoomSpeed: 10
-  minFOV: 6
-  maxFOV: 10
+  minFOV: 6.3
+  maxFOV: 11
 --- !u!1 &53533222714727522
 GameObject:
   m_ObjectHideFlags: 0
