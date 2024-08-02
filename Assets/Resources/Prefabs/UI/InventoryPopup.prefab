@@ -1499,7 +1499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 13, y: 84.1}
+  m_AnchoredPosition: {x: 12, y: 84.100006}
   m_SizeDelta: {x: 190, y: 350}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &5651630813678648994
@@ -1555,7 +1555,7 @@ MonoBehaviour:
   panel: {fileID: 5775009685481871509}
   isResetToggleOn: 1
   offPos: 177
-  onPos: 13
+  onPos: 12
   isY: 0
 --- !u!1 &4369299176002468318
 GameObject:
@@ -2704,7 +2704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -11, y: -175}
+  m_AnchoredPosition: {x: -12, y: -219}
   m_SizeDelta: {x: 50, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3364606045795567335
@@ -3012,7 +3012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 13, y: 78}
+  m_AnchoredPosition: {x: 13, y: 34.099976}
   m_SizeDelta: {x: 300, y: 450}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &587564819718152848
@@ -3067,7 +3067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 529118875762608903}
   isResetToggleOn: 1
-  offPos: 287
+  offPos: 288
   onPos: 13
   isY: 0
 --- !u!1 &8278652384461910846
