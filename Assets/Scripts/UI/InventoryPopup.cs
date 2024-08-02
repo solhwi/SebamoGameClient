@@ -164,11 +164,6 @@ public class InventoryPopup : BoardGamePopup
 		}
 	}
 
-	public void OnClickPanelToggle()
-	{
-
-	}
-
 	private void OnClickItem(string itemCode)
 	{
 		TryEquipItem(itemCode).Wait();

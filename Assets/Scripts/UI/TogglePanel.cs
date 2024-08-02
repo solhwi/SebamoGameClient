@@ -6,6 +6,7 @@ using UnityEngine;
 public class TogglePanel : MonoBehaviour
 {
 	[SerializeField] private RectTransform panel;
+	[SerializeField] private bool isReset = false;
 	[SerializeField] private bool isResetToggleOn = false;
 	[SerializeField] private float offPos = 0.0f;
 	[SerializeField] private float onPos = 0.0f;
@@ -17,7 +18,10 @@ public class TogglePanel : MonoBehaviour
 
 	private void Start()
 	{
-		SetToggle(isResetToggleOn);
+		if (isReset)
+		{
+			SetToggle(isResetToggleOn);
+		}
 	}
 
 	public void SetToggle(bool isOn)
