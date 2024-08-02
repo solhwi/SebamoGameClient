@@ -454,7 +454,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 980, y: 200}
+  m_CellSize: {x: 980, y: 189}
   m_Spacing: {x: 0, y: 30}
   m_Constraint: 1
   m_ConstraintCount: 1
@@ -476,7 +476,7 @@ MonoBehaviour:
   toggles:
   - {fileID: 3435334660223366134}
   - {fileID: 9194879279191716744}
-  DefaultItemCount: 3
+  DefaultItemCount: 4
   tabScrollSpeed: 1
   prefab: {fileID: 5766884165574107652, guid: 9bce1655dfc10b54197019f8dfe92757, type: 3}
 --- !u!1 &1946210483227626149

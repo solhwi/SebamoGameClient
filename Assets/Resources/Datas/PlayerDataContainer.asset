@@ -19,4 +19,40 @@ MonoBehaviour:
   currentTileIndex: 0
   hasDiceCount: 3
   moveTimeByOneTile: 1
-  otherPlayerPacketDatas: []
+  myPlayerPacketData:
+    playerGroup: Exp
+    playerName: "\uC194\uD718"
+    playerTileIndex: 0
+    hasDiceCount: 3
+    equippedItems: []
+  otherPlayerPacketDatas:
+  - playerGroup: Exp
+    playerName: "\uC9C0\uD604"
+    playerTileIndex: 0
+    hasDiceCount: 0
+    equippedItems: []
+  - playerGroup: Exp
+    playerName: "\uC0C1\uD6C8"
+    playerTileIndex: 0
+    hasDiceCount: 0
+    equippedItems: []
+  - playerGroup: Exp
+    playerName: "\uB3D9\uD604"
+    playerTileIndex: 0
+    hasDiceCount: 0
+    equippedItems: []
+  - playerGroup: Exp
+    playerName: "\uAC15\uC6B1"
+    playerTileIndex: 0
+    hasDiceCount: 0
+    equippedItems: []
+  - playerGroup: Exp
+    playerName: "\uAC15\uC6B1"
+    playerTileIndex: 0
+    hasDiceCount: 0
+    equippedItems: []
+  - playerGroup: Exp
+    playerName: "\uC9C0\uD64D"
+    playerTileIndex: 0
+    hasDiceCount: 0
+    equippedItems: []

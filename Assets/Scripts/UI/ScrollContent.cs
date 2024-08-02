@@ -18,6 +18,7 @@ public class ScrollContent : MonoBehaviour
 	[SerializeField] private GameObject prefab;
 
 	private List<GameObject> contentObjList = new List<GameObject>();
+	private Vector2 defaultSizeDelta = new Vector2(0, 0);
 
 	public event Action<int> onChangedTab = null;
 	public event Action<int, GameObject> onUpdateContents = null;
@@ -33,6 +34,11 @@ public class ScrollContent : MonoBehaviour
 	public void Reset()
 	{
 		contentRect.anchoredPosition = Vector2.zero;
+	}
+
+	private void Awake()
+	{
+		defaultSizeDelta = contentRect.sizeDelta;
 	}
 
 	private void Update()
@@ -158,7 +164,7 @@ public class ScrollContent : MonoBehaviour
 
 	private void ExpandScrollHeight(int itemCount)
 	{
-		contentRect.sizeDelta = new Vector2(0, 750);
+		contentRect.sizeDelta = defaultSizeDelta;
 
 		int expandCount = itemCount - DefaultItemCount;
 		if (expandCount > 0)

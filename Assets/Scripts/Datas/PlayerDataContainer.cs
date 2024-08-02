@@ -30,6 +30,9 @@ public class PlayerDataContainer : ScriptableObject
 	[Header("[타일 당 이동 시간]")]
 	public float moveTimeByOneTile = 1.0f;
 
+	[Header("[내 플레이어 정보]")]
+	public PlayerPacketData myPlayerPacketData = null;
+
 	[Header("[다른 플레이어들 정보]")]
 	public PlayerPacketData[] otherPlayerPacketDatas = null;
 
@@ -85,12 +88,15 @@ public class PlayerDataContainer : ScriptableObject
 		if (myData == null)
 			return;
 
-		playerName = myData.playerData.playerName;
-		playerGroup = myData.playerData.playerGroup;
-		currentTileIndex = myData.playerData.playerTileIndex;
+		myPlayerPacketData = myData.playerData;
+
+		playerName = myPlayerPacketData.playerName;
+		playerGroup = myPlayerPacketData.playerGroup;
+		hasDiceCount = myPlayerPacketData.hasDiceCount;
+
+		currentTileIndex = myPlayerPacketData.playerTileIndex;
 		currentTileOrder = tileDataContainer.tileOrders[currentTileIndex];
 
-		hasDiceCount = myData.playerData.hasDiceCount;
 	}
 
 	public void SetOtherPacketData(PlayerPacketDataCollection playerDataCollection)
@@ -98,9 +104,10 @@ public class PlayerDataContainer : ScriptableObject
 		if (playerDataCollection == null || playerDataCollection.playerDatas == null)
 		{
 			otherPlayerPacketDatas = null;
-			return;
 		}
-			
-		otherPlayerPacketDatas = playerDataCollection.playerDatas.ToArray();
+		else
+		{
+			otherPlayerPacketDatas = playerDataCollection.playerDatas.ToArray();
+		}
 	}
 }
