@@ -30,6 +30,7 @@ public static class ItemTableExtension
 public partial class ItemTable
 {
 	[SerializeField] public List<ShopItemData> sortedShopItemList = new List<ShopItemData>();
+	public const string Coin = "Coin";
 
 	public override void RuntimeParser()
 	{
@@ -92,10 +93,39 @@ public partial class ItemTable
 		return null;
 	}
 
+	public int GetItemSellPrice(string itemCode)
+	{
+		if (itemCode == null || itemCode == string.Empty)
+			return 0;
+
+		if (itemIconDataDictionary.TryGetValue(itemCode, out var iconData))
+		{
+			return iconData.sellPrice;
+		}
+
+		return 0;
+	}
+
+	public int GetItemBuyPrice(string itemCode)
+	{
+		if (itemCode == null || itemCode == string.Empty)
+			return 0;
+
+		if (shopItemDataDictionary.TryGetValue(itemCode, out var data))
+		{
+			return data.price;
+		}
+
+		return 0;
+	}
+
 	public bool IsValidItem(string itemCode)
 	{
 		if (itemCode == null || itemCode == string.Empty)
 			return false;
+
+		if (itemCode == Coin)
+			return true;
 
 		if (dropItemDataDictionary.ContainsKey(itemCode))
 			return true;

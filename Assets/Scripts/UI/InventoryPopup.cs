@@ -156,6 +156,7 @@ public class InventoryPopup : BoardGamePopup
 
 		scrollItem.SetItemData(itemCode, itemCount);
 		scrollItem.SetItemClickCallback(OnClickItem);
+		scrollItem.SetItemPressCallback(OnPressItem);
 	}
 
 	private void OnClickItem(string itemCode)
@@ -168,6 +169,27 @@ public class InventoryPopup : BoardGamePopup
 
 		hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
 		scrollContent.UpdateContents();
+	}
+
+	private void OnPressItem(string itemCode)
+	{
+		if (itemCode == null || itemCode == string.Empty)
+			return;
+
+		PopupManager.Instance.TryOpen(PopupManager.PopupType.Notify, new SellUIParameter(itemCode, OnClickSell));
+	}
+
+	private async Task OnClickSell(string itemCode, int count)
+	{
+		bool isSuccess = await inventory.TryRemoveItem(itemCode, count);
+		if (isSuccess)
+		{
+			int price = itemTable.GetItemSellPrice(itemCode);
+			inventory.TryAddItem(ItemTable.Coin, price * count).Wait();
+
+			hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
+			scrollContent.UpdateContents();
+		}
 	}
 
 	private void OnClickEquippedItem(string itemCode)

@@ -32,7 +32,7 @@ public class PlayerDataContainer : ScriptableObject
 
 	private const int MaxDiceCount = 10;
 
-	public async Task SaveCurrentOrder(int currentTileOrder)
+	public async Task<bool> SaveCurrentOrder(int currentTileOrder)
 	{
 		if (tileDataContainer.tileOrders.Length > currentTileOrder)
 		{
@@ -49,32 +49,32 @@ public class PlayerDataContainer : ScriptableObject
 
 		myPlayerPacketData.playerTileIndex = tileDataContainer.GetTileIndexByOrder(currentTileOrder);
 
-		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
-	public async Task AddCurrentOrder(int addOrderCount)
+	public async Task<bool> AddCurrentOrder(int addOrderCount)
 	{
-		await SaveCurrentOrder(currentTileOrder + addOrderCount);
+		return await SaveCurrentOrder(currentTileOrder + addOrderCount);
 	}
 
-	public async Task UseDiceCount()
+	public async Task<bool> UseDiceCount()
 	{
 		if (hasDiceCount <= 0)
-			return;
+			return false;
 
 		myPlayerPacketData.hasDiceCount--;
 
-		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
-	public async Task AddDiceCount()
+	public async Task<bool> AddDiceCount()
 	{
 		if (hasDiceCount >= MaxDiceCount)
-			return;
+			return false;
 
 		myPlayerPacketData.hasDiceCount++;
 
-		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
 	public void SetMyPacketData(MyPlayerPacketData myData)

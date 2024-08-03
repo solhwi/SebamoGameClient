@@ -53,67 +53,66 @@ public class Inventory : ScriptableObject
 		{
 			yield return propType;
 		}
-
 	}
 
-	public async Task TryAddItem(string itemCode, int count = 1)
+	public async Task<bool> TryAddItem(string itemCode, int count = 1)
 	{
 		bool bResult = AddItem(itemCode, count);
 		if (bResult == false)
-			return;
+			return false;
 
-		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
-	public async Task TryRemoveItem(string itemCode, int count = 1)
+	public async Task<bool> TryRemoveItem(string itemCode, int count = 1)
 	{
 		bool bResult = RemoveItem(itemCode, count);
 		if (bResult == false)
-			return;
+			return false;
 
-		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
-	public async Task TryEquipOn(string itemCode)
+	public async Task<bool> TryEquipOn(string itemCode)
 	{
 		bool bResult = EquipOnItem(itemCode);
 		if (bResult == false)
-			return;
+			return false;
 
-		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
-	public async Task TryEquipOff(int index)
+	public async Task<bool> TryEquipOff(int index)
 	{
 		EquipOffItem(index);
-		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
-	public async Task TryEquipOff(string itemCode)
+	public async Task<bool> TryEquipOff(string itemCode)
 	{
 		bool bResult = EquipOffItem(itemCode);
 		if (bResult == false)
-			return;
+			return false;
 
-		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
-	public async Task TryApplyBuff(string itemCode)
+	public async Task<bool> TryApplyBuff(string itemCode)
 	{
 		bool bResult = ApplyBuff(itemCode);
 		if (bResult == false)
-			return;
+			return false;
 
-		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
-	public async Task TryUseBuff(string itemCode)
+	public async Task<bool> TryUseBuff(string itemCode)
 	{
 		bool bResult = UseBuff(itemCode);
 		if (bResult == false)
-			return;
+			return false;
 
-		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
 	private bool RemoveItem(string itemCode, int count = 1)
@@ -129,9 +128,13 @@ public class Inventory : ScriptableObject
 		{
 			hasItems[itemCode] = hasCount;
 		}
-		else
+		else if (hasCount == 0)
 		{
 			hasItems.Remove(itemCode);
+		}
+		else
+		{
+			return false;
 		}
 
 		return true;
@@ -257,10 +260,10 @@ public class Inventory : ScriptableObject
 
 	public int GetHasCoinCount()
 	{
-		if(hasItems.ContainsKey("Coin") == false)
+		if(hasItems.ContainsKey(ItemTable.Coin) == false)
 			return 0;
 
-		return hasItems["Coin"];
+		return hasItems[ItemTable.Coin];
 	}
 
 	public int GetHasCount(string itemCode)

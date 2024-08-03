@@ -60,33 +60,42 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	}
 
 	// 최초 1회
-	private async Task TryGetMyPlayerData()
+	private async Task<bool> TryGetMyPlayerData()
 	{
 		var data = await TryGet<MyPlayerPacketData>("My");
+		if (data == null)
+			return false;
 
 		playerDataContainer.SetMyPacketData(data);
 		inventory.SetMyPacketData(data);
+		return true;
 	}
 
 	// 주기적으로 다른 플레이어 정보 가져옴
-	private async Task TryGetOtherPlayerDatas()
+	private async Task<bool> TryGetOtherPlayerDatas()
 	{
 		var otherDatas = await TryGet<PlayerPacketDataCollection>("Other");
+		if (otherDatas == null) 
+			return false;
 
 		playerDataContainer.SetOtherPacketData(otherDatas);
+		return true;
 	}
 
 	// 자신의 정보가 변경될 때마다 업데이트쳐줌
-	public async Task TryPostMyPlayerData()
+	public async Task<bool> TryPostMyPlayerData()
 	{
 		if (isOnNetworkMode == false)
-			return;
+			return true;
 
 		var sendData = MakePlayerPacketData();
 		var receiveData = await TryPost<MyPlayerPacketData>(sendData);
+		if (receiveData == null)
+			return false;
 
 		playerDataContainer.SetMyPacketData(receiveData);
 		inventory.SetMyPacketData(receiveData);
+		return true;
 	}
 
 	private MyPlayerPacketData MakePlayerPacketData()

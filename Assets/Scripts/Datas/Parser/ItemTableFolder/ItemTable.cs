@@ -84,6 +84,7 @@ public partial class ItemTable : ScriptParser
 		public string iconAssetPath;
 		public string itemName;
 		public string itemDescription;
+		public int sellPrice;
 	}
 
 	public List<ItemIconData> itemIconDataList = new List<ItemIconData>();

@@ -12,6 +12,8 @@ public class ItemIcon : MonoBehaviour
 	[SerializeField] private Image itemImage;
 
 	private Action<string> onClickItem;
+	private Action<string> onPressItem;
+
 	public string itemCode { get; private set; }
 	public int itemCount { get; private set; }
 
@@ -55,12 +57,24 @@ public class ItemIcon : MonoBehaviour
 		onClickItem = callback;
 	}
 
+	public void SetItemPressCallback(Action<string> callback)
+	{
+		onPressItem = callback;
+	}
+
 	public void OnPressIcon(float time)
 	{
 		if (itemCode == null || itemCode == string.Empty)
 			return;
 
-		PopupManager.Instance.TryOpen(PopupManager.PopupType.Notify, new ItemToolTipParameter(itemCode));
+		if (onPressItem != null)
+		{
+			onPressItem?.Invoke(itemCode);
+		}
+		else
+		{
+			PopupManager.Instance.TryOpen(PopupManager.PopupType.Notify, new ItemToolTipParameter(itemCode));
+		}
 	}
 
 	public void OnClickIcon()

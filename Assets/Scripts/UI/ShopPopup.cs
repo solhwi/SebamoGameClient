@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,7 @@ public class ShopPopup : BoardGamePopup
 		Normal = 1,
 	}
 
+	[SerializeField] private Inventory inventory;
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private ScrollContent scrollContent;
 	[SerializeField] private Text npcText;
@@ -83,6 +85,7 @@ public class ShopPopup : BoardGamePopup
 		var shopItemData = itemTable.sortedShopItemList[index];
 		shopScrollItem.SetItemData(shopItemData);
 		shopScrollItem.SetItemClickCallback(OnClickItem);
+		shopScrollItem.SetItemClickCallback(OnBuyItem);
 	}
 
 	private void OnClickItem(string itemCode)
@@ -128,6 +131,17 @@ public class ShopPopup : BoardGamePopup
 			case TabType.Normal:
 				scrollContent.StartFocusTarget(normalItemIndex);
 				break;
+		}
+	}
+
+	private async Task OnBuyItem(string itemCode, int buyCount)
+	{
+		int price = itemTable.GetItemBuyPrice(itemCode);
+
+		bool isSuccess = await inventory.TryRemoveItem(ItemTable.Coin, price * buyCount);
+		if (isSuccess)
+		{
+			inventory.TryAddItem(itemCode, buyCount).Wait();
 		}
 	}
 }

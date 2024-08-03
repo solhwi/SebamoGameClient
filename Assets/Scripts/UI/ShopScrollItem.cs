@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class ShopScrollItem : MonoBehaviour
 
 	private ItemTable.ShopItemData myShopItemData;
 	private Action<string> onClickBody;
+	private Func<string, int, Task> onBuyItem;
 
 	public void SetItemData(ItemTable.ShopItemData itemData)
 	{
@@ -28,6 +30,11 @@ public class ShopScrollItem : MonoBehaviour
 		onClickBody = onClick;
 	}
 
+	public void SetItemClickCallback(Func<string, int, Task> onBuy)
+	{
+		onBuyItem = onBuy;
+	}
+
 	public void OnClickBody()
 	{
 		if (myShopItemData == null)
@@ -38,11 +45,6 @@ public class ShopScrollItem : MonoBehaviour
 
 	public void OnClickBuy()
 	{
-		PopupManager.Instance.TryOpen(PopupManager.PopupType.Notify, new ShopBuyUIParameter(myShopItemData, OnBuy));
-	}
-
-	private void OnBuy(int buyCount)
-	{
-
+		PopupManager.Instance.TryOpen(PopupManager.PopupType.Notify, new ShopBuyUIParameter(myShopItemData, onBuyItem));
 	}
 }
