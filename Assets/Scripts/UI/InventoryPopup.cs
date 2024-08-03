@@ -60,12 +60,13 @@ public class InventoryPopup : BoardGamePopup
 	[SerializeField] private CharacterView uiCharacterView;
 	[SerializeField] private CharacterView gameCharacterView;
 	[SerializeField] private ScrollContent scrollContent;
-	[SerializeField] private List<ItemIcon> equippedItemIcons = new List<ItemIcon>();
 
 	[SerializeField] private GameObject useButtonObj;
 
 	[SerializeField] private TogglePanel equipmentPanel;
 	[SerializeField] private TogglePanel profilePanel;
+
+	[SerializeField] private EquipmentBoard equipmentBoard;
 
 	private ItemSortingComparer sortingComparer = null;
 
@@ -94,6 +95,8 @@ public class InventoryPopup : BoardGamePopup
 		equipmentPanel.onToggle += OnClickPanelToggle;
 		profilePanel.onToggle += OnClickPanelToggle;
 
+		equipmentBoard.onClickItem += OnClickEquippedItem;
+
 		scrollContent.SelectTab((int)TabType.Props);
 	}
 
@@ -105,6 +108,8 @@ public class InventoryPopup : BoardGamePopup
 
 		equipmentPanel.onToggle -= OnClickPanelToggle;
 		profilePanel.onToggle -= OnClickPanelToggle;
+
+		equipmentBoard.onClickItem -= OnClickEquippedItem;
 
 		gameCharacterView.RefreshCharacter();
 
@@ -155,16 +160,27 @@ public class InventoryPopup : BoardGamePopup
 
 	private void OnClickItem(string itemCode)
 	{
-		TryEquipItem(itemCode).Wait();
+		inventory.TryEquipOn(itemCode).Wait();
+		uiCharacterView.RefreshCharacter();
 
 		hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
 		scrollContent.UpdateContents();
 	}
 
-	private async Task TryEquipItem(string itemCode)
+	private void OnClickEquippedItem(string itemCode)
 	{
-		await inventory.TryEquipOn(itemCode);
-		uiCharacterView.RefreshCharacter();
+		if (itemTable.IsEnableEquipOffItem(itemCode) == false)
+		{
+			Debug.Log($"해당 아이템 [{itemCode}]는 벗을 수 없는 아이템입니다.");
+		}
+		else
+		{
+			inventory.TryEquipOff(itemCode).Wait();
+			uiCharacterView.RefreshCharacter();
+
+			hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
+			scrollContent.UpdateContents();
+		}
 	}
 
 	private int GetHasItemCount(int tabType)

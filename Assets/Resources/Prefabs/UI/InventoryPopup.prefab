@@ -2252,16 +2252,10 @@ MonoBehaviour:
   uiCharacterView: {fileID: 4956089002030172752}
   gameCharacterView: {fileID: 0}
   scrollContent: {fileID: 4894684593749433627}
-  equippedItemIcons:
-  - {fileID: 3851975020758908842}
-  - {fileID: 3468349952729450443}
-  - {fileID: 7746070586682585797}
-  - {fileID: 5529718348051737422}
-  - {fileID: 3777840390065517252}
-  - {fileID: 1435173801294309528}
   useButtonObj: {fileID: 8501763324697055520}
   equipmentPanel: {fileID: 4379767301724684840}
   profilePanel: {fileID: 5944873493663313122}
+  equipmentBoard: {fileID: 3153343333901929208}
 --- !u!1 &6376137787527036656
 GameObject:
   m_ObjectHideFlags: 0
@@ -3088,7 +3082,6 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
   boardType: 0
-  uiCharacterView: {fileID: 4956089002030172752}
   equippedItemIcons:
   - {fileID: 3851975020758908842}
   - {fileID: 3468349952729450443}

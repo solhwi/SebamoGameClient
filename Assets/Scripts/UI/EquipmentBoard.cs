@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,8 +16,9 @@ public class EquipmentBoard : MonoBehaviour
 
 	[SerializeField] private BoardType boardType;
 
-	[SerializeField] private CharacterView uiCharacterView;
 	[SerializeField] private List<ItemIcon> equippedItemIcons = new List<ItemIcon>();
+
+	public event Action<string> onClickItem;
 
 	private void Update()
 	{
@@ -33,26 +35,13 @@ public class EquipmentBoard : MonoBehaviour
 				{
 					string itemCode = inventory.equippedItems[i];
 					equippedItemIcons[i].SetItemData(itemCode);
-					equippedItemIcons[i].SetItemClickCallback(OnClickEquipment);
+					equippedItemIcons[i].SetItemClickCallback(onClickItem);
 				}
 
 				break;
 
 			case BoardType.Profile:
 				break;
-		}
-	}
-
-	public void OnClickEquipment(string itemCode)
-	{
-		if (itemTable.IsEnableEquipOffItem(itemCode) == false)
-		{
-			Debug.Log($"해당 아이템 [{itemCode}]는 벗을 수 없는 아이템입니다.");
-		}
-		else
-		{
-			inventory.TryEquipOff(itemCode).Wait();
-			uiCharacterView.RefreshCharacter();
 		}
 	}
 }
