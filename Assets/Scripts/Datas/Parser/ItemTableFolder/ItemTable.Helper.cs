@@ -12,7 +12,7 @@ public static class ItemTableExtension
 		return GetAssetPathWithoutResources(itemData.fieldIconAssetPath);
 	}
 
-	public static string GetAssetPathWithoutResources(this ItemTable.ItemIconData itemData)
+	public static string GetAssetPathWithoutResources(this ItemTable.ItemToolTipData itemData)
 	{
 		return GetAssetPathWithoutResources(itemData.iconAssetPath);
 	}
@@ -59,7 +59,7 @@ public partial class ItemTable
 		if (itemCode == null || itemCode == string.Empty)
 			return string.Empty;
 
-		if (itemIconDataDictionary.TryGetValue(itemCode, out var iconData))
+		if (itemToolTipDataDictionary.TryGetValue(itemCode, out var iconData))
 		{
 			return iconData.itemDescription;
 		}
@@ -72,7 +72,7 @@ public partial class ItemTable
 		if (itemCode == null || itemCode == string.Empty)
 			return string.Empty;
 
-		if (itemIconDataDictionary.TryGetValue(itemCode, out var iconData))
+		if (itemToolTipDataDictionary.TryGetValue(itemCode, out var iconData))
 		{
 			return iconData.itemName;
 		}
@@ -85,7 +85,7 @@ public partial class ItemTable
 		if (itemCode == null || itemCode == string.Empty)
 			return null;
 
-		if (itemIconDataDictionary.TryGetValue(itemCode, out var iconData))
+		if (itemToolTipDataDictionary.TryGetValue(itemCode, out var iconData))
 		{
 			return ResourceManager.Instance.Load<Sprite>(iconData.GetAssetPathWithoutResources());
 		}
@@ -98,7 +98,7 @@ public partial class ItemTable
 		if (itemCode == null || itemCode == string.Empty)
 			return 0;
 
-		if (itemIconDataDictionary.TryGetValue(itemCode, out var iconData))
+		if (itemToolTipDataDictionary.TryGetValue(itemCode, out var iconData))
 		{
 			return iconData.sellPrice;
 		}

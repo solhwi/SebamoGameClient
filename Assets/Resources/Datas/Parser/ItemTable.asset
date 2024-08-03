@@ -199,7 +199,7 @@ MonoBehaviour:
       propType: 0
     - key: TwinDagger
       propType: 1
-  itemIconDataList:
+  itemToolTipDataList:
   - key: GreatSword
     iconAssetPath: Sprites/ItemIcon/Prop_A
     itemName: "\uD478\uB978 \uC6D0\uD55C\uC758 \uC18C\uB4DC"
@@ -287,7 +287,7 @@ MonoBehaviour:
     itemName: "\uB9AC\uBCF8 \uD5E4\uC5B4\uD540"
     itemDescription: "\uD328\uC158 \uD3EC\uC778\uD2B8"
     sellPrice: 1000
-  itemIconDataDictionary:
+  itemToolTipDataDictionary:
     m_keys:
     - GreatSword
     - TwinDagger

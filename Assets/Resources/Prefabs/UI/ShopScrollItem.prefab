@@ -359,6 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
+  backGroundImage: {fileID: 8895526190090365605}
   itemIcon: {fileID: 8022892376931254050}
   itemNameText: {fileID: 8932234769318806474}
   itemPriceText: {fileID: 1457900920538510522}

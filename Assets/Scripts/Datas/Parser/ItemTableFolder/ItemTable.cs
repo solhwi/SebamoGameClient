@@ -26,10 +26,10 @@ public partial class ItemTable : ScriptParser
 		{
 			propItemDataDictionary.Add(value.key, value);
 		}
-		itemIconDataDictionary.Clear();
-		foreach(var value in itemIconDataList)
+		itemToolTipDataDictionary.Clear();
+		foreach(var value in itemToolTipDataList)
 		{
-			itemIconDataDictionary.Add(value.key, value);
+			itemToolTipDataDictionary.Add(value.key, value);
 		}
 		dropItemDataDictionary.Clear();
 		foreach(var value in dropItemDataList)
@@ -78,7 +78,7 @@ public partial class ItemTable : ScriptParser
 	public PropItemDataDictionary propItemDataDictionary = new PropItemDataDictionary();
 
 	[Serializable]
-	public class ItemIconData
+	public class ItemToolTipData
 	{
 		public string key;
 		public string iconAssetPath;
@@ -87,10 +87,10 @@ public partial class ItemTable : ScriptParser
 		public int sellPrice;
 	}
 
-	public List<ItemIconData> itemIconDataList = new List<ItemIconData>();
+	public List<ItemToolTipData> itemToolTipDataList = new List<ItemToolTipData>();
 	[System.Serializable]
-	public class ItemIconDataDictionary : SerializableDictionary<string, ItemIconData> {}
-	public ItemIconDataDictionary itemIconDataDictionary = new ItemIconDataDictionary();
+	public class ItemToolTipDataDictionary : SerializableDictionary<string, ItemToolTipData> {}
+	public ItemToolTipDataDictionary itemToolTipDataDictionary = new ItemToolTipDataDictionary();
 
 	[Serializable]
 	public class DropItemData

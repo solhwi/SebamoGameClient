@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class ShopScrollItem : MonoBehaviour
 {
 	[SerializeField] private ItemTable itemTable;
+	[SerializeField] private Image backGroundImage = null;
 	[SerializeField] private ItemIcon itemIcon = null;
 	[SerializeField] private Text itemNameText = null;
 	[SerializeField] private Text itemPriceText = null;
@@ -16,6 +17,11 @@ public class ShopScrollItem : MonoBehaviour
 	private ItemTable.ShopItemData myShopItemData;
 	private Action<string> onClickBody;
 	private Func<string, int, Task> onBuyItem;
+
+	public string ItemCode => myShopItemData?.key ?? string.Empty;
+
+	private Color noSelectedColor = Color.white;
+	private Color selectedColor = Color.yellow;
 
 	public void SetItemData(ItemTable.ShopItemData itemData)
 	{
@@ -46,5 +52,17 @@ public class ShopScrollItem : MonoBehaviour
 	public void OnClickBuy()
 	{
 		PopupManager.Instance.TryOpen(PopupManager.PopupType.Notify, new ShopBuyUIParameter(myShopItemData, onBuyItem));
+	}
+
+	public void SetSelect(bool isSelect)
+	{
+		if (isSelect)
+		{
+			backGroundImage.color = selectedColor;
+		}
+		else
+		{
+			backGroundImage.color = noSelectedColor;
+		}
 	}
 }

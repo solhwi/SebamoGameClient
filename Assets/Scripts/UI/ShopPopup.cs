@@ -34,6 +34,7 @@ public class ShopPopup : BoardGamePopup
 	[SerializeField] private Text npcText;
 	[SerializeField] private Text coinText;
 
+	private List<ShopScrollItem> shopItems = new List<ShopScrollItem>();
 	private int normalItemIndex = 0;
 
 	protected override void Reset()
@@ -68,6 +69,8 @@ public class ShopPopup : BoardGamePopup
 	public void OnChangedTab(int tabType)
 	{
 		FocusItemByTab((TabType)tabType);
+
+		shopItems.Clear();
 	}
 
 	public void OnUpdateContents(int index, GameObject contentsObj)
@@ -86,11 +89,19 @@ public class ShopPopup : BoardGamePopup
 		shopScrollItem.SetItemData(shopItemData);
 		shopScrollItem.SetItemClickCallback(OnClickItem);
 		shopScrollItem.SetItemClickCallback(OnBuyItem);
+		shopScrollItem.SetSelect(false);
+
+		shopItems.Add(shopScrollItem);
 	}
 
 	private void OnClickItem(string itemCode)
 	{
 		npcText.text = itemTable.GetItemNPCDescription(itemCode);
+
+		foreach (var shopItem in shopItems)
+		{
+			shopItem.SetSelect(shopItem.ItemCode == itemCode);
+		}
 	}
 
 	public int GetItemCount(int tabType)
