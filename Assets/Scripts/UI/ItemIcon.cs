@@ -12,7 +12,8 @@ public class ItemIcon : MonoBehaviour
 	[SerializeField] private Image itemImage;
 
 	private Action<string> onClickItem;
-	private string itemCode;
+	public string itemCode { get; private set; }
+	public int itemCount { get; private set; }
 
 	private void Awake()
 	{
@@ -32,6 +33,9 @@ public class ItemIcon : MonoBehaviour
 
 	public void SetItemData(string itemCode, int itemCount = 1)
 	{
+		if (this.itemCode == itemCode && this.itemCount == itemCount)
+			return;
+
 		this.itemCode = itemCode;
 		itemImage.sprite = itemTable.GetItemIconSprite(itemCode);
 	}

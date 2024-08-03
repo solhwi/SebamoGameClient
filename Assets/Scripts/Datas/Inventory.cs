@@ -83,6 +83,21 @@ public class Inventory : ScriptableObject
 		await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
+	public async Task TryEquipOff(int index)
+	{
+		EquipOffItem(index);
+		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+	}
+
+	public async Task TryEquipOff(string itemCode)
+	{
+		bool bResult = EquipOffItem(itemCode);
+		if (bResult == false)
+			return;
+
+		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+	}
+
 	public async Task TryApplyBuff(string itemCode)
 	{
 		bool bResult = ApplyBuff(itemCode);
@@ -176,6 +191,33 @@ public class Inventory : ScriptableObject
 		{
 			EquipOnItem(item);
 		}
+	}
+
+	public void EquipOffItem(int index)
+	{
+		if (index >= 0 && index < equippedItems.Length)
+		{
+			equippedItems[index] = string.Empty;
+		}
+	}
+
+	public bool EquipOffItem(string itemCode)
+	{
+		if (itemTable.IsValidItem(itemCode) == false)
+			return false;
+
+		if (hasItems.ContainsKey(itemCode) == false)
+			return false;
+
+		for (int i = 0; i < equippedItems.Length; i++)
+		{
+			if (equippedItems[i] == itemCode)
+			{
+				equippedItems[i] = string.Empty;
+			}
+		}
+
+		return true;
 	}
 
 	private bool EquipOnItem(string itemCode)

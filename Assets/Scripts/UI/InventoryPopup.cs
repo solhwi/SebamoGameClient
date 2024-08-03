@@ -95,8 +95,6 @@ public class InventoryPopup : BoardGamePopup
 		profilePanel.onToggle += OnClickPanelToggle;
 
 		scrollContent.SelectTab((int)TabType.Props);
-
-		RefreshEquippedItemIcons();
 	}
 
 	protected override void OnClose()
@@ -155,23 +153,12 @@ public class InventoryPopup : BoardGamePopup
 		scrollItem.SetItemClickCallback(OnClickItem);
 	}
 
-	private void RefreshEquippedItemIcons()
-	{
-		for (int i = 0; i < equippedItemIcons.Count; i++)
-		{
-			string itemCode = inventory.equippedItems[i];
-			equippedItemIcons[i].SetItemData(itemCode);
-		}
-	}
-
 	private void OnClickItem(string itemCode)
 	{
 		TryEquipItem(itemCode).Wait();
 
 		hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
 		scrollContent.UpdateContents();
-
-		RefreshEquippedItemIcons();
 	}
 
 	private async Task TryEquipItem(string itemCode)

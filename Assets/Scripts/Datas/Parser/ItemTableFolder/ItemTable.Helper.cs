@@ -138,6 +138,27 @@ public partial class ItemTable
 		return false;
 	}
 
+	public bool IsEnableEquipOffItem(string itemCode)
+	{
+		if (IsPropItem(itemCode) || IsAccessoryItem(itemCode))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	public bool IsAccessoryItem(string itemCode)
+	{
+		if (partsItemDataDictionary.TryGetValue(itemCode, out var partsItemData))
+		{
+			if (partsItemData.partsType == CharacterPartsType.Accessory)
+				return true;
+		}
+
+		return false;
+	}
+
 	public bool IsBeautyItem(string itemCode)
 	{
 		if (partsItemDataDictionary.TryGetValue(itemCode, out var itemData))
@@ -179,6 +200,9 @@ public partial class ItemTable
 
 	public CharacterPartsType GetItemPartsType(string itemCode)
 	{
+		if (itemCode == null)
+			return CharacterPartsType.Max;
+
 		if (partsItemDataDictionary.TryGetValue(itemCode, out var data) == false)
 			return CharacterPartsType.Max;
 
@@ -187,6 +211,9 @@ public partial class ItemTable
 
 	public CharacterType GetPartsCharacterType(string itemCode)
 	{
+		if (itemCode == null)
+			return CharacterType.Max;
+
 		if (partsItemDataDictionary.TryGetValue(itemCode, out var data) == false)
 			return CharacterType.Max;
 
@@ -195,6 +222,9 @@ public partial class ItemTable
 
 	public PropType GetItemPropType(string itemCode)
 	{
+		if (itemCode == null)
+			return PropType.Max;
+
 		if (propItemDataDictionary.TryGetValue(itemCode, out var data) == false)
 			return PropType.Max;
 

@@ -2988,6 +2988,7 @@ GameObject:
   - component: {fileID: 587564819718152848}
   - component: {fileID: 1209577364165896665}
   - component: {fileID: 4379767301724684840}
+  - component: {fileID: 3153343333901929208}
   m_Layer: 0
   m_Name: EquipmentBoard
   m_TagString: Untagged
@@ -3072,6 +3073,29 @@ MonoBehaviour:
   offPos: 288
   onPos: 13
   isY: 0
+--- !u!114 &3153343333901929208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093579390646728596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5af0dbb567c81449fb19a3ea951b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
+  itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
+  boardType: 0
+  uiCharacterView: {fileID: 4956089002030172752}
+  equippedItemIcons:
+  - {fileID: 3851975020758908842}
+  - {fileID: 3468349952729450443}
+  - {fileID: 7746070586682585797}
+  - {fileID: 5529718348051737422}
+  - {fileID: 3777840390065517252}
+  - {fileID: 1435173801294309528}
 --- !u!1 &8278652384461910846
 GameObject:
   m_ObjectHideFlags: 0
