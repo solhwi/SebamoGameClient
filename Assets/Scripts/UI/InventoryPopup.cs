@@ -160,6 +160,9 @@ public class InventoryPopup : BoardGamePopup
 
 	private void OnClickItem(string itemCode)
 	{
+		if (itemCode == null || itemCode == string.Empty)
+			return;
+
 		inventory.TryEquipOn(itemCode).Wait();
 		uiCharacterView.RefreshCharacter();
 
@@ -169,6 +172,9 @@ public class InventoryPopup : BoardGamePopup
 
 	private void OnClickEquippedItem(string itemCode)
 	{
+		if (itemCode == null || itemCode == string.Empty)
+			return;
+
 		if (itemTable.IsEnableEquipOffItem(itemCode) == false)
 		{
 			Debug.Log($"해당 아이템 [{itemCode}]는 벗을 수 없는 아이템입니다.");

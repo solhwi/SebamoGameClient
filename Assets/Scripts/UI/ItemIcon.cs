@@ -25,6 +25,16 @@ public class ItemIcon : MonoBehaviour
 		eventTrigger.onEndPress -= OnPressIcon;
 	}
 
+	private void Update()
+	{
+		bool isValid = itemCode != null && itemCode != string.Empty;
+
+		if (itemImage.raycastTarget != isValid)
+		{
+			itemImage.raycastTarget = isValid;
+		}
+	}
+
 	public void SetItemData(ItemTable.ShopItemData itemData)
 	{
 		itemCode = itemData.key;
@@ -47,6 +57,9 @@ public class ItemIcon : MonoBehaviour
 
 	public void OnPressIcon(float time)
 	{
+		if (itemCode == null || itemCode == string.Empty)
+			return;
+
 		PopupManager.Instance.TryOpen(PopupManager.PopupType.Notify, new ItemToolTipParameter(itemCode));
 	}
 

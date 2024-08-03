@@ -11,21 +11,15 @@ using UnityEngine;
 public class PlayerDataContainer : ScriptableObject
 {
 	public TileDataContainer tileDataContainer;
-
-	[Header("현재 플레이어 그룹")]
-	public string playerGroup = "Kahlua";
-
-	[Header("[현재 플레이어 이름]")]
-	public string playerName = "솔휘";
+	public string playerGroup => myPlayerPacketData.playerGroup;
+	public string playerName => myPlayerPacketData.playerName;
+	public int currentTileIndex => myPlayerPacketData.playerTileIndex;
+	public int hasDiceCount => myPlayerPacketData.hasDiceCount;
 
 	[Header("[현재 위치한 타일 순서]")]
 	public int currentTileOrder = 0;
 
-	[Header("[현재 위치한 타일 인덱스]")]
-	public int currentTileIndex = 0;
-
 	[Header("[가지고 있는 주사위 수]")]
-	public int hasDiceCount = 0;
 
 	[Header("[타일 당 이동 시간]")]
 	public float moveTimeByOneTile = 1.0f;
@@ -53,7 +47,7 @@ public class PlayerDataContainer : ScriptableObject
 			this.currentTileOrder = tileDataContainer.tileOrders.Length - 1;
 		}
 
-		currentTileIndex = tileDataContainer.GetTileIndexByOrder(currentTileOrder);
+		myPlayerPacketData.playerTileIndex = tileDataContainer.GetTileIndexByOrder(currentTileOrder);
 
 		await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
@@ -68,7 +62,7 @@ public class PlayerDataContainer : ScriptableObject
 		if (hasDiceCount <= 0)
 			return;
 
-		hasDiceCount--;
+		myPlayerPacketData.hasDiceCount--;
 
 		await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
@@ -78,7 +72,7 @@ public class PlayerDataContainer : ScriptableObject
 		if (hasDiceCount >= MaxDiceCount)
 			return;
 
-		hasDiceCount++;
+		myPlayerPacketData.hasDiceCount++;
 
 		await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
@@ -89,14 +83,7 @@ public class PlayerDataContainer : ScriptableObject
 			return;
 
 		myPlayerPacketData = myData.playerData;
-
-		playerName = myPlayerPacketData.playerName;
-		playerGroup = myPlayerPacketData.playerGroup;
-		hasDiceCount = myPlayerPacketData.hasDiceCount;
-
-		currentTileIndex = myPlayerPacketData.playerTileIndex;
 		currentTileOrder = tileDataContainer.tileOrders[currentTileIndex];
-
 	}
 
 	public void SetOtherPacketData(PlayerPacketDataCollection playerDataCollection)
