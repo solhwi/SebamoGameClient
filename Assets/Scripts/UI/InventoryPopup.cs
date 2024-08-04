@@ -113,6 +113,8 @@ public class InventoryPopup : BoardGamePopup
 
 		gameCharacterView.RefreshCharacter();
 
+		scrollContent.SelectTab((int)TabType.None);
+
 		base.OnClose();
 	}
 

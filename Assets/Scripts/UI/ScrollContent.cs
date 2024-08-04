@@ -69,6 +69,12 @@ public class ScrollContent : MonoBehaviour
 
 	public void SelectTab(int tabType)
 	{
+		if (tabType < 0)
+		{
+			currentTabType = tabType;
+			return;
+		}
+
 		bool isOn = toggles[tabType].isOn;
 		if (isOn == false)
 		{
