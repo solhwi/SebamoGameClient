@@ -63,6 +63,8 @@ public class ShopPopup : BoardGamePopup
 		scrollContent.onUpdateContents -= OnUpdateContents;
 		scrollContent.onGetItemCount -= GetItemCount;
 
+		scrollContent.SelectTab((int)TabType.None);
+
 		base.OnClose();
 	}
 
