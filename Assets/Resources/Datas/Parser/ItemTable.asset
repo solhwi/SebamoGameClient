@@ -287,6 +287,27 @@ MonoBehaviour:
     itemName: "\uB9AC\uBCF8 \uD5E4\uC5B4\uD540"
     itemDescription: "\uD328\uC158 \uD3EC\uC778\uD2B8"
     sellPrice: 1000
+  - key: Frame_01
+    iconAssetPath: Sprites/Profile/Frame_01
+    itemName: "\uD06C\uB9AC\uC2A4\uB9C8\uC2A4 \uD504\uB808\uC784"
+    itemDescription: "\uBA54\uB9AC \uD06C\uB9AC\uC2A4\uB9C8\uC2A4!"
+    sellPrice: 1000
+  - key: Frame_02
+    iconAssetPath: Sprites/Profile/Frame_02
+    itemName: "\uBC15\uC950 \uD504\uB808\uC784"
+    itemDescription: "\uC73C\uC2A4\uC2A4\uD55C \uBD84\uC704\uAE30\uB97C \uC904 \uC218
+      \uC788\uB294 \uD504\uB808\uC784"
+    sellPrice: 1000
+  - key: Profile_01
+    iconAssetPath: Sprites/Profile/Profile_01
+    itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uD504\uB85C\uD544"
+    itemDescription: "\uC720\uB2C8\uD2F0\uC9F1\uC758 \uCD08\uC0C1\uD654"
+    sellPrice: 1000
+  - key: Profile_02
+    iconAssetPath: Sprites/Profile/Profile_02
+    itemName: "\uBBF8\uC0AC\uD0A4 \uD504\uB85C\uD544"
+    itemDescription: "\uBBF8\uC0AC\uD0A4\uC758 \uCD08\uC0C1\uD654"
+    sellPrice: 1000
   itemToolTipDataDictionary:
     m_keys:
     - GreatSword
@@ -306,6 +327,10 @@ MonoBehaviour:
     - UnityChanAccessory
     - YucoAccessory
     - MisakiAccessory
+    - Frame_01
+    - Frame_02
+    - Profile_01
+    - Profile_02
     m_values:
     - key: GreatSword
       iconAssetPath: Sprites/ItemIcon/Prop_A
@@ -394,6 +419,27 @@ MonoBehaviour:
       iconAssetPath: Sprites/ItemIcon/Acc_C
       itemName: "\uB9AC\uBCF8 \uD5E4\uC5B4\uD540"
       itemDescription: "\uD328\uC158 \uD3EC\uC778\uD2B8"
+      sellPrice: 1000
+    - key: Frame_01
+      iconAssetPath: Sprites/Profile/Frame_01
+      itemName: "\uD06C\uB9AC\uC2A4\uB9C8\uC2A4 \uD504\uB808\uC784"
+      itemDescription: "\uBA54\uB9AC \uD06C\uB9AC\uC2A4\uB9C8\uC2A4!"
+      sellPrice: 1000
+    - key: Frame_02
+      iconAssetPath: Sprites/Profile/Frame_02
+      itemName: "\uBC15\uC950 \uD504\uB808\uC784"
+      itemDescription: "\uC73C\uC2A4\uC2A4\uD55C \uBD84\uC704\uAE30\uB97C \uC904
+        \uC218 \uC788\uB294 \uD504\uB808\uC784"
+      sellPrice: 1000
+    - key: Profile_01
+      iconAssetPath: Sprites/Profile/Profile_01
+      itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uD504\uB85C\uD544"
+      itemDescription: "\uC720\uB2C8\uD2F0\uC9F1\uC758 \uCD08\uC0C1\uD654"
+      sellPrice: 1000
+    - key: Profile_02
+      iconAssetPath: Sprites/Profile/Profile_02
+      itemName: "\uBBF8\uC0AC\uD0A4 \uD504\uB85C\uD544"
+      itemDescription: "\uBBF8\uC0AC\uD0A4\uC758 \uCD08\uC0C1\uD654"
       sellPrice: 1000
   dropItemDataList:
   - key: Coin
