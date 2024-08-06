@@ -2234,7 +2234,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &3313795558556844988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2273,6 +2273,7 @@ MonoBehaviour:
   profileSetter: {fileID: 3080074877838900271}
   scrollContent: {fileID: 4894684593749433627}
   useButtonObj: {fileID: 8501763324697055520}
+  cameraButtonObj: {fileID: 4918701080894798654}
   equipmentPanel: {fileID: 4379767301724684840}
   profilePanel: {fileID: 5944873493663313122}
   equipmentBoard: {fileID: 3153343333901929208}

@@ -28,6 +28,10 @@ public class ItemSortingComparer : IComparer<string>
 		{
 			order1 = (int)itemData.partsType;
 		}
+		else if(itemTable.profileItemDataDictionary.TryGetValue(itemCode1, out var profileItemData))
+		{
+			order1 = profileItemData.isFrame + (int)CharacterPartsType.Max;
+		}
 
 		if (itemTable.propItemDataDictionary.ContainsKey(itemCode2))
 		{
@@ -36,6 +40,10 @@ public class ItemSortingComparer : IComparer<string>
 		else if (itemTable.partsItemDataDictionary.TryGetValue(itemCode2, out var itemData))
 		{
 			order2 = (int)itemData.partsType;
+		}
+		else if (itemTable.profileItemDataDictionary.TryGetValue(itemCode1, out var profileItemData))
+		{
+			order2 = profileItemData.isFrame + (int)CharacterPartsType.Max;
 		}
 
 		return order1 >= order2 ? 1 : -1;
@@ -64,6 +72,7 @@ public class InventoryPopup : BoardGamePopup
 	[SerializeField] private ScrollContent scrollContent;
 
 	[SerializeField] private GameObject useButtonObj;
+	[SerializeField] private GameObject cameraButtonObj;
 
 	[SerializeField] private TogglePanel equipmentPanel;
 	[SerializeField] private TogglePanel profilePanel;
@@ -129,7 +138,8 @@ public class InventoryPopup : BoardGamePopup
 		hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
 
 		useButtonObj.SetActive(currentTabType == TabType.Replace);
-		
+		cameraButtonObj.SetActive(currentTabType == TabType.Props || currentTabType == TabType.Parts);
+
 		equipmentPanel.gameObject.SetActive(currentTabType == TabType.Props || currentTabType == TabType.Parts);
 		profilePanel.gameObject.SetActive(currentTabType == TabType.Profile);
 
