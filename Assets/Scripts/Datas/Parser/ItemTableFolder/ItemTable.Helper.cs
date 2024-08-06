@@ -139,6 +139,9 @@ public partial class ItemTable
 		if (shopItemDataDictionary.ContainsKey(itemCode))
 			return true;
 
+		if (profileItemDataDictionary.ContainsKey(itemCode))
+			return true;
+
 		return false;
 	}
 
