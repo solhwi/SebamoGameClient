@@ -13,20 +13,20 @@ public struct WorldTileData
 	public TileData tileData;
 	public TileBase tileBase;
 
-	public WorldTileData(int index, Vector3Int tilePos, TileData tileData, TileBase tileBase)
+	public WorldTileData(int index, Vector2 cellSize, Vector3Int tilePos, TileData tileData, TileBase tileBase)
 	{
 		this.index = index;
-		this.tileWorldPosition = ConvertWorldPos(tilePos);
+		this.tileWorldPosition = ConvertWorldPos(tilePos, cellSize);
 		this.tilePlaneWorldPosition = ConvertPlaneWorldPos(tilePos);
 		this.tilePosition = tilePos;
 		this.tileData = tileData;
 		this.tileBase = tileBase;
 	}
 
-	private static Vector2 ConvertWorldPos(Vector3Int tilePos)
+	private static Vector2 ConvertWorldPos(Vector3Int tilePos, Vector2 cellSize)
 	{
-		float x = tilePos.y * -1 + tilePos.x; // y에 1을 더하면 -1, x에 1을 더하면 1
-		float y = tilePos.y * 0.5f + tilePos.x * 0.5f; // y에 1을 더하면 0.5, x에 1을 더하면 0.5 
+		float x = tilePos.y * -1 * cellSize.x + tilePos.x * cellSize.x; // y에 1을 더하면 -1, x에 1을 더하면 1
+		float y = tilePos.y * cellSize.y + tilePos.x * cellSize.y; // y에 1을 더하면 0.5, x에 1을 더하면 0.5 
 
 		return new Vector2(x, y);
 	}
@@ -53,6 +53,7 @@ public struct WorldTileData
 public class TileDataManager : MonoBehaviour
 {
 	[SerializeField] private Tilemap tilemap;
+	[SerializeField] private Grid tileGrid;
 	[SerializeField] private TileDataContainer dataContainer;
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private DropItemFactory dropItemFactory;
@@ -102,7 +103,7 @@ public class TileDataManager : MonoBehaviour
 					TileData data = default;
 					curTile.GetTileData(tilePos, tilemap, ref data);
 
-					yield return new WorldTileData(i++, tilePos, data, curTile);
+					yield return new WorldTileData(i++, tileGrid.cellSize, tilePos, data, curTile);
 				}
 			}
 		}
