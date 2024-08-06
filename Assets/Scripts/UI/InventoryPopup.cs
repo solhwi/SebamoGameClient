@@ -41,7 +41,7 @@ public class ItemSortingComparer : IComparer<string>
 		{
 			order2 = (int)itemData.partsType;
 		}
-		else if (itemTable.profileItemDataDictionary.TryGetValue(itemCode1, out var profileItemData))
+		else if (itemTable.profileItemDataDictionary.TryGetValue(itemCode2, out var profileItemData))
 		{
 			order2 = profileItemData.isFrame + (int)CharacterPartsType.Max;
 		}
