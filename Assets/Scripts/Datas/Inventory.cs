@@ -29,6 +29,11 @@ public class Inventory : ScriptableObject
 	[Space]
 	public List<string> appliedBuffItems = new List<string>();
 
+	[Header("[적용 중인 프로필 아이템]")]
+	[Header("[(0) 이미지 / (1) 프로필")]
+	[Space]
+	public string[] appliedProfileItems = new string[2];
+
 	public CharacterType GetEquippedBodyType(int index)
 	{
 		if (index < 0 || index >= equippedItems.Length)
@@ -255,7 +260,10 @@ public class Inventory : ScriptableObject
 
 	public bool IsEquippedItem(string itemCode)
 	{
-		return equippedItems.Any(i => i == itemCode);
+		bool b = equippedItems.Any(i => i == itemCode);
+		b |= appliedProfileItems.Any(i => i == itemCode);
+
+		return b;
 	}
 
 	public int GetHasCoinCount()

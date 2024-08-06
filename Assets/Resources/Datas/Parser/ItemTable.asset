@@ -463,6 +463,30 @@ MonoBehaviour:
       fieldIconAssetPath: AnimationController/DropItem/Box.controller
       dropActionType: 1
       actionParameter: UnityChanAccessory:30/GreatSword:70
+  profileItemDataList:
+  - key: Frame_01
+    isFrame: 1
+  - key: Frame_02
+    isFrame: 1
+  - key: Profile_01
+    isFrame: 0
+  - key: Profile_02
+    isFrame: 0
+  profileItemDataDictionary:
+    m_keys:
+    - Frame_01
+    - Frame_02
+    - Profile_01
+    - Profile_02
+    m_values:
+    - key: Frame_01
+      isFrame: 1
+    - key: Frame_02
+      isFrame: 1
+    - key: Profile_01
+      isFrame: 0
+    - key: Profile_02
+      isFrame: 0
   sortedShopItemList:
   - key: UnityChanAccessory
     isRandom: 1

@@ -59,6 +59,8 @@ public class InventoryPopup : BoardGamePopup
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private CharacterView uiCharacterView;
 	[SerializeField] private CharacterView gameCharacterView;
+	[SerializeField] private ProfileSetter profileSetter;
+
 	[SerializeField] private ScrollContent scrollContent;
 
 	[SerializeField] private GameObject useButtonObj;
@@ -67,6 +69,7 @@ public class InventoryPopup : BoardGamePopup
 	[SerializeField] private TogglePanel profilePanel;
 
 	[SerializeField] private EquipmentBoard equipmentBoard;
+	[SerializeField] private EquipmentBoard profileEquipmentBoard;
 
 	private ItemSortingComparer sortingComparer = null;
 
@@ -96,6 +99,7 @@ public class InventoryPopup : BoardGamePopup
 		profilePanel.onToggle += OnClickPanelToggle;
 
 		equipmentBoard.onClickItem += OnClickEquippedItem;
+		profileEquipmentBoard.onClickItem += OnClickProfileItem;
 
 		scrollContent.SelectTab((int)TabType.Props);
 	}
@@ -110,6 +114,7 @@ public class InventoryPopup : BoardGamePopup
 		profilePanel.onToggle -= OnClickPanelToggle;
 
 		equipmentBoard.onClickItem -= OnClickEquippedItem;
+		profileEquipmentBoard.onClickItem -= OnClickProfileItem;
 
 		gameCharacterView.RefreshCharacter();
 
@@ -130,6 +135,22 @@ public class InventoryPopup : BoardGamePopup
 
 		equipmentPanel.SetToggle(isToggleOn);
 		profilePanel.SetToggle(isToggleOn);
+
+		if (currentTabType == TabType.Props || currentTabType == TabType.Parts)
+		{
+			uiCharacterView.gameObject.SetActive(true);
+			profileSetter.gameObject.SetActive(false);
+		}
+		else if (currentTabType == TabType.Profile)
+		{
+			uiCharacterView.gameObject.SetActive(false);
+			profileSetter.gameObject.SetActive(true);
+		}
+		else
+		{
+			uiCharacterView.gameObject.SetActive(false);
+			profileSetter.gameObject.SetActive(false);
+		}
 
 		scrollContent.Reset();
 	}
@@ -213,6 +234,14 @@ public class InventoryPopup : BoardGamePopup
 		}
 	}
 
+	private void OnClickProfileItem(string itemCode)
+	{
+		if (itemCode == null || itemCode == string.Empty)
+			return;
+
+		Debug.Log($"해당 아이템 [{itemCode}]는 벗을 수 없는 아이템입니다.");
+	}
+
 	private int GetHasItemCount(int tabType)
 	{
 		return GetHasItems((TabType)tabType).Count();
@@ -248,6 +277,22 @@ public class InventoryPopup : BoardGamePopup
 						continue;
 
 					if (itemTable.IsBeautyItem(itemCode))
+					{
+						yield return iterator;
+					}
+				}
+
+				break;
+
+			case TabType.Profile:
+
+				foreach (var iterator in inventory.hasItems)
+				{
+					var itemCode = iterator.Key;
+					if (inventory.IsEquippedItem(itemCode))
+						continue;
+
+					if (itemTable.IsProfileItem(itemCode))
 					{
 						yield return iterator;
 					}

@@ -41,6 +41,14 @@ public class EquipmentBoard : MonoBehaviour
 				break;
 
 			case BoardType.Profile:
+
+				for (int i = 0; i < equippedItemIcons.Count; i++)
+				{
+					string itemCode = inventory.appliedProfileItems[i];
+					equippedItemIcons[i].SetItemData(itemCode);
+					equippedItemIcons[i].SetItemClickCallback(onClickItem);
+				}
+
 				break;
 		}
 	}

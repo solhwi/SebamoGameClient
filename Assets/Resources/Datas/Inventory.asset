@@ -42,3 +42,6 @@ MonoBehaviour:
   - UnityChanAccessory
   - TwinDagger
   appliedBuffItems: []
+  appliedProfileItems:
+  - Frame_01
+  - 'Profile_01 '

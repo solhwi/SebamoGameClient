@@ -189,6 +189,24 @@ public partial class ItemTable
 		return false;
 	}
 
+	public bool IsProfileItem(string itemCode)
+	{
+		if (profileItemDataDictionary.ContainsKey(itemCode))
+			return true;
+
+		return false;
+	}
+
+	public bool IsFrameItem(string itemCode)
+	{
+		if (profileItemDataDictionary.TryGetValue(itemCode, out var data))
+		{
+			return data.isFrame > 0;
+		}
+
+		return false;
+	}
+
 	public bool IsBeautyItem(string itemCode)
 	{
 		if (partsItemDataDictionary.TryGetValue(itemCode, out var itemData))

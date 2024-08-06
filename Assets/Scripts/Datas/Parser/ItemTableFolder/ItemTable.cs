@@ -36,6 +36,11 @@ public partial class ItemTable : ScriptParser
 		{
 			dropItemDataDictionary.Add(value.key, value);
 		}
+		profileItemDataDictionary.Clear();
+		foreach(var value in profileItemDataList)
+		{
+			profileItemDataDictionary.Add(value.key, value);
+		}
 	}
 
 	[Serializable]
@@ -105,6 +110,18 @@ public partial class ItemTable : ScriptParser
 	[System.Serializable]
 	public class DropItemDataDictionary : SerializableDictionary<string, DropItemData> {}
 	public DropItemDataDictionary dropItemDataDictionary = new DropItemDataDictionary();
+
+	[Serializable]
+	public class ProfileItemData
+	{
+		public string key;
+		public int isFrame;
+	}
+
+	public List<ProfileItemData> profileItemDataList = new List<ProfileItemData>();
+	[System.Serializable]
+	public class ProfileItemDataDictionary : SerializableDictionary<string, ProfileItemData> {}
+	public ProfileItemDataDictionary profileItemDataDictionary = new ProfileItemDataDictionary();
 
 
 }
