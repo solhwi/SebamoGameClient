@@ -30,7 +30,7 @@ public class Inventory : ScriptableObject
 	public List<string> appliedBuffItems = new List<string>();
 
 	[Header("[적용 중인 프로필 아이템]")]
-	[Header("[(0) 이미지 / (1) 프로필")]
+	[Header("[(0) 이미지 / (1) 프레임")]
 	[Space]
 	public string[] appliedProfileItems = new string[2];
 
@@ -225,6 +225,14 @@ public class Inventory : ScriptableObject
 			}
 		}
 
+		for (int i = 0; i < appliedProfileItems.Length; i++)
+		{
+			if (appliedProfileItems[i] == itemCode)
+			{
+				appliedProfileItems[i] = string.Empty;
+			}
+		}
+
 		return true;
 	}
 
@@ -236,7 +244,15 @@ public class Inventory : ScriptableObject
 		if (hasItems.ContainsKey(itemCode) == false)
 			return false;
 
-		if (itemTable.IsPropItem(itemCode))
+		if (itemTable.IsProfileItem(itemCode))
+		{
+			if (itemTable.profileItemDataDictionary.TryGetValue(itemCode, out var profileItemData))
+			{
+				int index = profileItemData.isFrame;
+				appliedProfileItems[index] = itemCode;
+			}
+		}
+		else if (itemTable.IsPropItem(itemCode))
 		{
 			int index = GetIndexPropType();
 			if (index >= 0 && index < equippedItems.Length)

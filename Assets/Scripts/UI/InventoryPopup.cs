@@ -188,7 +188,11 @@ public class InventoryPopup : BoardGamePopup
 			return;
 
 		inventory.TryEquipOn(itemCode).Wait();
-		uiCharacterView.RefreshCharacter();
+
+		if (itemTable.IsEquipmentItem(itemCode))
+		{
+			uiCharacterView.RefreshCharacter();
+		}
 
 		hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
 		scrollContent.UpdateContents();
