@@ -42,8 +42,14 @@ public class ResourceManager : Singleton<ResourceManager>
 #if UNITY_EDITOR
 			obj.name = $"DropItemPrefab ({i}) - Cached";
 #endif
-			obj.transform.position = new Vector3(-1000, -1000, (int)LayerConfig.Item);
+			obj.transform.position = new Vector3(-1000, -1000, 0);
 			obj.gameObject.SetActive(false);
+
+			var renderer = obj.GetComponentInChildren<Renderer>();
+			if (renderer != null)
+			{
+				renderer.sortingOrder = (int)LayerConfig.Item;
+			}
 
 			objectPool[RecyclingType.DropItem].Push(obj);
 		}
@@ -65,9 +71,14 @@ public class ResourceManager : Singleton<ResourceManager>
 		}
 
 		obj.name = $"{rawData.key} ({worldTileData.index})";
-		obj.transform.position = new Vector3(worldTileData.tileWorldPosition.x, worldTileData.tileWorldPosition.y, (int)LayerConfig.Item);
+		obj.transform.position = new Vector3(worldTileData.tileWorldPosition.x, worldTileData.tileWorldPosition.y, 0);
 		obj.gameObject.SetActive(true);
 
+		var renderer = obj.GetComponentInChildren<SpriteRenderer>();
+		if (renderer != null)
+		{
+			renderer.sortingOrder = (int)LayerConfig.Item;
+		}
 
 		string path = rawData.GetAssetPathWithoutResources();
 		Object res = Load<Sprite>(path);
@@ -76,9 +87,8 @@ public class ResourceManager : Singleton<ResourceManager>
 			res = Load<RuntimeAnimatorController>(path);
 		}
 
-		if (res is Sprite sprite)
+		if (renderer != null && res is Sprite sprite)
 		{
-			var renderer = obj.gameObject.GetComponent<SpriteRenderer>();
 			renderer.sprite = sprite;
 		}
 		else if (res is RuntimeAnimatorController anim)
@@ -102,10 +112,16 @@ public class ResourceManager : Singleton<ResourceManager>
 
 		if (recyclingObj != null)
 		{
-			recyclingObj.transform.position = new Vector3(-1000, -1000, (int)LayerConfig.Item);
+			recyclingObj.transform.position = new Vector3(-1000, -1000, 0);
 			recyclingObj.gameObject.SetActive(false);
 
-			objectPool[recyclingObj.type].Push(recyclingObj);
+			var renderer = obj.GetComponentInChildren<SpriteRenderer>();
+			if (renderer != null)
+			{
+				renderer.sortingOrder = 0;
+			}
+
+			objectPool[recyclingObj.type].Push(recyclingObj);	
 		}
 		else
 		{

@@ -8,6 +8,13 @@ public class CharacterView : ObjectView
 	private CharacterDataSetter characterDataSetter = null;
 	private CharacterAnimationController characterAnimationController = null;
 
+	protected override void Awake()
+	{
+		base.Awake();
+
+		spriteView.sortingOrder = (int)LayerConfig.Character;
+	}
+
 	protected override void Start()
 	{
 		base.Start();

@@ -35,7 +35,7 @@ public class TileDataSetter : MonoBehaviour
 
 	private void SetZPos()
 	{
-		transform.position = new Vector3(0, 0, (int)LayerConfig.Tile);
+		transform.position = new Vector3(0, 0, 0);
 	}
 
 	private void SetCameraData()
@@ -63,5 +63,6 @@ public class TileDataSetter : MonoBehaviour
 	{
 		tileMapRenderer.sortOrder = tileDataContainer.sortingOrderType;
 		tileMapRenderer.mode = tileDataContainer.tileRenderMode;
+		tileMapRenderer.sortingOrder = (int)LayerConfig.Tile;
 	}
 }
