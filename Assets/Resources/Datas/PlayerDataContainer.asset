@@ -18,7 +18,7 @@ MonoBehaviour:
   myPlayerPacketData:
     playerGroup: Exp
     playerName: "\uC194\uD718"
-    playerTileIndex: -1
+    playerTileIndex: 2
     hasDiceCount: 3
     equippedItems: []
   otherPlayerPacketDatas:
