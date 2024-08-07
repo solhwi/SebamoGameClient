@@ -12,7 +12,10 @@ public class CharacterView : ObjectView
 	{
 		base.Awake();
 
-		spriteView.sortingOrder = (int)LayerConfig.Character;
+		if (spriteView != null)
+		{
+			spriteView.sortingOrder = (int)LayerConfig.Character;
+		}
 	}
 
 	protected override void Start()
