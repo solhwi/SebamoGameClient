@@ -32,6 +32,21 @@ public class PlayerDataContainer : ScriptableObject
 
 	private const int MaxDiceCount = 10;
 
+#if UNITY_EDITOR
+	[MenuItem("Tools/캐릭터 위치 초기화")]
+	public static void ResetCharacterPosition()
+	{
+		var container = AssetDatabase.LoadAssetAtPath<PlayerDataContainer>("Assets/Resources/Datas/PlayerDataContainer.asset");
+		if (container != null)
+		{
+			container.currentTileOrder = 0;
+		}
+
+		EditorUtility.SetDirty(container);
+		AssetDatabase.SaveAssetIfDirty(container);
+	}
+#endif
+
 	public async Task<bool> SaveCurrentOrder(int currentTileOrder)
 	{
 		if (tileDataContainer.tileOrders.Length > currentTileOrder)

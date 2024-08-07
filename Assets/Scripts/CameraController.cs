@@ -24,7 +24,6 @@ public class CameraController : MonoBehaviour
 	{
 		SetDamping(dampingVec);
 		SetFollow(true);
-		SetOrthoSize(orthoSize);
 	}
 
 	private void LateUpdate()
@@ -48,12 +47,6 @@ public class CameraController : MonoBehaviour
 		transposer.m_YawDamping = 0.0f;
 		transposer.m_RollDamping = 0.0f;
 		transposer.m_PitchDamping = 0.0f;
-	}
-
-	// 확대, 축소 시 사용
-	public void SetOrthoSize(float size)
-	{
-		virtualCamera.m_Lens.OrthographicSize = size;
 	}
 
 	public void SetFollow(bool isFollow)
