@@ -8,16 +8,23 @@ public class CameraController : MonoBehaviour
 	[SerializeField] private CinemachineVirtualCamera virtualCamera;
 
 	[SerializeField] private Transform targetTransform;
-	[SerializeField] private float orthoSize = 5.0f;
-	[SerializeField] private float cameraSpeed = 0.5f;
+	[SerializeField] private float cameraMoveSpeed = 0.5f;
+	[SerializeField] private float cameraZoomSpeed = 5f;
 	[SerializeField] private Vector2 dampingVec = new Vector2(0.1f, 0.1f);
+	[SerializeField] private float minFOV = 40f; // 최소 FOV
+	[SerializeField] private float maxFOV = 60f; // 최대 FOV
 
 	private CinemachineTransposer transposer;
+
+	private float initialFOV = 50f;
+
 	private bool isFollowingTarget;
+	private bool isZooming = false;
 
 	private void Awake()
 	{
 		transposer = virtualCamera.GetCinemachineComponent<CinemachineTransposer>();
+		initialFOV = virtualCamera.m_Lens.FieldOfView;
 	}
 
 	private void Start()
@@ -36,6 +43,27 @@ public class CameraController : MonoBehaviour
 				Move(Time.deltaTime * -deltaPos);
 			}
 		}
+
+		if (isZooming)
+		{
+			float mouseScrollWheelValue = Input.GetAxis("Mouse ScrollWheel");
+			if (MathFloat.Equals(mouseScrollWheelValue, 0.0f) == false)
+			{
+				UpdateFOV(mouseScrollWheelValue);
+			}
+		}
+	}
+
+	private void UpdateFOV(float delta)
+	{
+		// FOV 조정
+		virtualCamera.m_Lens.FieldOfView -= delta * cameraZoomSpeed;
+		virtualCamera.m_Lens.FieldOfView = Mathf.Clamp(virtualCamera.m_Lens.FieldOfView, minFOV, maxFOV);
+	}
+
+	public void ResetZoom()
+	{
+		virtualCamera.m_Lens.FieldOfView = initialFOV;
 	}
 
 	private void SetDamping(Vector2 dampingVec)
@@ -47,6 +75,11 @@ public class CameraController : MonoBehaviour
 		transposer.m_YawDamping = 0.0f;
 		transposer.m_RollDamping = 0.0f;
 		transposer.m_PitchDamping = 0.0f;
+	}
+
+	public void SetZoom(bool isZoom)
+	{
+		isZooming = isZoom;
 	}
 
 	public void SetFollow(bool isFollow)
@@ -67,7 +100,7 @@ public class CameraController : MonoBehaviour
 
 	private void Move(Vector3 deltaPos)
 	{
-		virtualCamera.ForceCameraPosition(virtualCamera.transform.position + deltaPos * cameraSpeed, Quaternion.identity);
+		virtualCamera.ForceCameraPosition(virtualCamera.transform.position + deltaPos * cameraMoveSpeed, Quaternion.identity);
 	}
 
 }

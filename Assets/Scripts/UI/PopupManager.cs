@@ -63,6 +63,29 @@ public class PopupManager : Singleton<PopupManager>
 		}
 	}
 
+	public bool IsAnyOpen()
+	{
+		foreach (var popupType in popupDictionary.Keys)
+		{
+			if (IsOpen(popupType))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public bool IsOpen(PopupType popupType)
+	{
+		if (popupDictionary.TryGetValue(popupType, out BoardGamePopup popupObj))
+		{
+			return popupObj.gameObject.activeSelf;
+		}
+
+		return false;
+	}
+
 	public void CloseAll()
 	{
 		while (popupStack.TryPop(out var popupObj))

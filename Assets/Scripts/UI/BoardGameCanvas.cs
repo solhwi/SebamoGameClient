@@ -31,6 +31,24 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 		boardGameManager.OnClickRollDice();
 	}
 
+	private void Update()
+	{
+		if (PopupManager.Instance.IsAnyOpen())
+		{
+			boardGameCameraController.SetFollow(true);
+			boardGameCameraController.SetZoom(false);
+		}
+		else
+		{
+			boardGameCameraController.SetZoom(true);
+		}
+	}
+
+	private void OnBecameVisible()
+	{
+		boardGameCameraController.SetZoom(true);
+	}
+
 	public void OnClickShop()
 	{
 		PopupManager.Instance.TryOpen(PopupManager.PopupType.Shop);
@@ -54,5 +72,6 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 	public void OnClickResetCamera()
 	{
 		boardGameCameraController.SetFollow(true);
+		boardGameCameraController.ResetZoom();
 	}
 }

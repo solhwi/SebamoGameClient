@@ -1708,9 +1708,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 606624989}
   targetTransform: {fileID: 6548642605371050236}
-  orthoSize: 5
-  cameraSpeed: 0.5
+  cameraMoveSpeed: 0.5
+  cameraZoomSpeed: 5
   dampingVec: {x: 0.5, y: 0.5}
+  minFOV: 40
+  maxFOV: 60
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0
