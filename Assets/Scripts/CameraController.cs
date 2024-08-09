@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
 	private void Awake()
 	{
 		transposer = virtualCamera.GetCinemachineComponent<CinemachineTransposer>();
-		initialFOV = virtualCamera.m_Lens.FieldOfView;
+		initialFOV = virtualCamera.m_Lens.Orthographic ? virtualCamera.m_Lens.OrthographicSize : virtualCamera.m_Lens.FieldOfView;
 	}
 
 	private void Start()
@@ -56,14 +56,28 @@ public class CameraController : MonoBehaviour
 
 	private void UpdateFOV(float delta)
 	{
-		// FOV 조정
-		virtualCamera.m_Lens.FieldOfView -= delta * cameraZoomSpeed;
-		virtualCamera.m_Lens.FieldOfView = Mathf.Clamp(virtualCamera.m_Lens.FieldOfView, minFOV, maxFOV);
+		if (virtualCamera.m_Lens.Orthographic)
+		{
+			virtualCamera.m_Lens.OrthographicSize -= delta * cameraZoomSpeed;
+			virtualCamera.m_Lens.OrthographicSize = Mathf.Clamp(virtualCamera.m_Lens.OrthographicSize, minFOV, maxFOV);
+		}
+		else
+		{
+			virtualCamera.m_Lens.FieldOfView -= delta * cameraZoomSpeed;
+			virtualCamera.m_Lens.FieldOfView = Mathf.Clamp(virtualCamera.m_Lens.FieldOfView, minFOV, maxFOV);
+		}
 	}
 
 	public void ResetZoom()
 	{
-		virtualCamera.m_Lens.FieldOfView = initialFOV;
+		if (virtualCamera.m_Lens.Orthographic)
+		{
+			virtualCamera.m_Lens.OrthographicSize = initialFOV;
+		}
+		else
+		{
+			virtualCamera.m_Lens.FieldOfView = initialFOV;
+		}
 	}
 
 	private void SetDamping(Vector2 dampingVec)
