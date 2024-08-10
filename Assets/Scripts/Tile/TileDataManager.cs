@@ -52,7 +52,8 @@ public struct WorldTileData
 
 public class TileDataManager : MonoBehaviour
 {
-	[SerializeField] private Tilemap tilemap;
+	[SerializeField] private Tilemap tileMap;
+
 	[SerializeField] private Grid tileGrid;
 	[SerializeField] private TileDataContainer dataContainer;
 	[SerializeField] private ItemTable itemTable;
@@ -92,16 +93,16 @@ public class TileDataManager : MonoBehaviour
 	{
 		int i = 0;
 
-		for (int x = tilemap.cellBounds.xMax; x >= tilemap.cellBounds.xMin; x--)
+		for (int x = tileMap.cellBounds.xMax; x >= tileMap.cellBounds.xMin; x--)
 		{
-			for (int y = tilemap.cellBounds.yMax; y >= tilemap.cellBounds.yMin; y--)
+			for (int y = tileMap.cellBounds.yMax; y >= tileMap.cellBounds.yMin; y--)
 			{
 				var tilePos = new Vector3Int(x, y);
-				TileBase curTile = tilemap.GetTile(tilePos);
+				TileBase curTile = tileMap.GetTile(tilePos);
 				if (curTile != null)
 				{
 					TileData data = default;
-					curTile.GetTileData(tilePos, tilemap, ref data);
+					curTile.GetTileData(tilePos, tileMap, ref data);
 
 					yield return new WorldTileData(i++, tileGrid.cellSize, tilePos, data, curTile);
 				}
@@ -128,13 +129,18 @@ public class TileDataManager : MonoBehaviour
 		return fieldItem;
 	}
 
-	public SpecialTileBase GetCurrentSpecialTile(int currentOrder)
+	public Tile GetCurrentTile(int currentOrder)
 	{
 		int tileIndex = GetTileIndexByOrder(currentOrder);
 		if (tileIndex == -1 || tileBoardDatas.Length <= tileIndex)
 			return null;
 
-		return tileBoardDatas[tileIndex].tileBase as SpecialTileBase;
+		return tileBoardDatas[tileIndex].tileBase as Tile;
+	}
+
+	public SpecialTileBase GetCurrentSpecialTile(int currentOrder)
+	{
+		return GetCurrentTile(currentOrder) as SpecialTileBase;
 	}
 
 	public string GetCurrentTileItemCode(int currentOrder)

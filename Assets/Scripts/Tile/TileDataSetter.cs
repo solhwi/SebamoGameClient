@@ -16,7 +16,10 @@ public class TileDataSetter : MonoBehaviour
 
 	[SerializeField] private Grid grid = null;
 	[SerializeField] private Tilemap tileMap = null;
+
 	[SerializeField] private TilemapRenderer tileMapRenderer = null;
+	[SerializeField] private TilemapRenderer[] subTileMapRenderers = null;
+
 
 	private void Awake()
 	{
@@ -64,5 +67,12 @@ public class TileDataSetter : MonoBehaviour
 		tileMapRenderer.sortOrder = tileDataContainer.sortingOrderType;
 		tileMapRenderer.mode = tileDataContainer.tileRenderMode;
 		tileMapRenderer.sortingOrder = (int)LayerConfig.Tile;
+
+		foreach (var sub in subTileMapRenderers)
+		{
+			sub.sortOrder = tileDataContainer.sortingOrderType;
+			sub.mode = tileDataContainer.tileRenderMode;
+			sub.sortingOrder = (int)LayerConfig.Tile;
+		}
 	}
 }
