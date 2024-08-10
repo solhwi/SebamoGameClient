@@ -65,8 +65,12 @@ public class InventoryPopup : BoardGamePopup
 
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private Inventory inventory;
+	[SerializeField] private FieldItemFactory fieldItemFactory;
+
 	[SerializeField] private CharacterView uiCharacterView;
 	[SerializeField] private CharacterView gameCharacterView;
+	[SerializeField] private ItemObjectView fieldItemObjectView;
+
 	[SerializeField] private ProfileSetter profileSetter;
 
 	[SerializeField] private ScrollContent scrollContent;
@@ -87,6 +91,8 @@ public class InventoryPopup : BoardGamePopup
 
 	private bool isToggleOn = true;
 
+	private ReplaceFieldItem currentFieldItem = null;
+
 	protected override void Reset()
 	{
 		base.Reset();
@@ -98,6 +104,9 @@ public class InventoryPopup : BoardGamePopup
 	{
 		base.OnOpen(parameter);
 
+		gameCharacterView.gameObject.SetActive(false);
+
+		currentFieldItem = null;
 		sortingComparer = new ItemSortingComparer(itemTable);
 
 		scrollContent.onChangedTab += OnChangedTab;
@@ -125,6 +134,7 @@ public class InventoryPopup : BoardGamePopup
 		equipmentBoard.onClickItem -= OnClickEquippedItem;
 		profileEquipmentBoard.onClickItem -= OnClickProfileItem;
 
+		gameCharacterView.gameObject.SetActive(true);
 		gameCharacterView.RefreshCharacter();
 
 		scrollContent.SelectTab((int)TabType.None);
@@ -135,7 +145,25 @@ public class InventoryPopup : BoardGamePopup
 	private void OnChangedTab(int tabType)
 	{
 		currentTabType = (TabType)tabType;
+
 		hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
+
+		if (currentTabType == TabType.Replace)
+		{
+			string itemCode = hasItemList.FirstOrDefault().Key;
+
+			currentFieldItem = fieldItemFactory.Make<ReplaceFieldItem>(itemCode);
+			if (currentFieldItem != null)
+			{
+				fieldItemObjectView.SetItem(currentFieldItem);
+			}
+
+			hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
+		}
+		else
+		{
+			currentFieldItem = null;
+		}
 
 		useButtonObj.SetActive(currentTabType == TabType.Replace);
 		cameraButtonObj.SetActive(currentTabType == TabType.Props || currentTabType == TabType.Parts);
@@ -150,16 +178,19 @@ public class InventoryPopup : BoardGamePopup
 		{
 			uiCharacterView.gameObject.SetActive(true);
 			profileSetter.gameObject.SetActive(false);
+			fieldItemObjectView.gameObject.SetActive(false);
 		}
 		else if (currentTabType == TabType.Profile)
 		{
 			uiCharacterView.gameObject.SetActive(false);
 			profileSetter.gameObject.SetActive(true);
+			fieldItemObjectView.gameObject.SetActive(false);
 		}
-		else
+		else if (currentTabType == TabType.Replace)
 		{
 			uiCharacterView.gameObject.SetActive(false);
 			profileSetter.gameObject.SetActive(false);
+			fieldItemObjectView.gameObject.SetActive(true);
 		}
 
 		scrollContent.Reset();
@@ -197,11 +228,22 @@ public class InventoryPopup : BoardGamePopup
 		if (itemCode == null || itemCode == string.Empty)
 			return;
 
-		inventory.TryEquipOn(itemCode).Wait();
-
-		if (itemTable.IsEquipmentItem(itemCode))
+		if (currentTabType == TabType.Replace)
 		{
-			uiCharacterView.RefreshCharacter();
+			currentFieldItem = fieldItemFactory.Make<ReplaceFieldItem>(itemCode);
+			if (currentFieldItem != null)
+			{
+				fieldItemObjectView.SetItem(currentFieldItem);
+			}
+		}
+		else
+		{
+			inventory.TryEquipOn(itemCode).Wait();
+
+			if (itemTable.IsEquipmentItem(itemCode))
+			{
+				uiCharacterView.RefreshCharacter();
+			}
 		}
 
 		hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
@@ -256,6 +298,17 @@ public class InventoryPopup : BoardGamePopup
 		Debug.Log($"해당 아이템 [{itemCode}]는 벗을 수 없는 아이템입니다.");
 	}
 
+	public void OnClickUseItem()
+	{
+		if (currentFieldItem != null)
+		{
+			// 여기서 배치 모드를 켠다.
+
+			// 해당 타일에 배치하는 함수를 넘긴다.
+			currentFieldItem.Replace(0).Wait();
+		}
+	}
+
 	private int GetHasItemCount(int tabType)
 	{
 		return GetHasItems((TabType)tabType).Count();
@@ -307,6 +360,22 @@ public class InventoryPopup : BoardGamePopup
 						continue;
 
 					if (itemTable.IsProfileItem(itemCode))
+					{
+						yield return iterator;
+					}
+				}
+
+				break;
+
+			case TabType.Replace:
+
+				foreach (var iterator in inventory.hasItems)
+				{
+					var itemCode = iterator.Key;
+					if (currentFieldItem != null && currentFieldItem.fieldItemCode == itemCode)
+						continue;
+
+					if (itemTable.IsFieldItem(itemCode))
 					{
 						yield return iterator;
 					}

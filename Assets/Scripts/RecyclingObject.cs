@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum RecyclingType
 {
-	DropItem
+	fieldItem
 }
 
 /// <summary>

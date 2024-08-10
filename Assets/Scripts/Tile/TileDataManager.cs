@@ -56,11 +56,11 @@ public class TileDataManager : MonoBehaviour
 	[SerializeField] private Grid tileGrid;
 	[SerializeField] private TileDataContainer dataContainer;
 	[SerializeField] private ItemTable itemTable;
-	[SerializeField] private DropItemFactory dropItemFactory;
+	[SerializeField] private FieldItemFactory fieldItemFactory;
 
 	public WorldTileData[] tileBoardDatas = null;
 
-	private Dictionary<int, DropItem> fieldDropItemDictionary = new Dictionary<int, DropItem>();
+	private Dictionary<int, FieldItem> fieldfieldItemDictionary = new Dictionary<int, FieldItem>();
 
 	private void Awake()
 	{
@@ -75,14 +75,14 @@ public class TileDataManager : MonoBehaviour
 			if (itemCode == string.Empty)
 				continue;
 
-			var dropItem = dropItemFactory.Make(itemCode);
-			if (dropItem == null)
+			var fieldItem = fieldItemFactory.Make(itemCode);
+			if (fieldItem == null)
 				continue;
 
-			fieldDropItemDictionary[i] = dropItem;
+			fieldfieldItemDictionary[i] = fieldItem;
 
 			var boardData = tileBoardDatas[i];
-			dropItem.Create(boardData);
+			fieldItem.Create(boardData);
 
 			yield return null;
 		}
@@ -109,7 +109,7 @@ public class TileDataManager : MonoBehaviour
 		}
 	}
 
-	public DropItem GetCurrentTileItem(int currentOrder)
+	public FieldItem GetCurrentTileItem(int currentOrder)
 	{
 		string itemCode = GetCurrentTileItemCode(currentOrder);
 		if (itemCode == string.Empty)
@@ -119,13 +119,13 @@ public class TileDataManager : MonoBehaviour
 		if (tileIndex == -1)
 			return null;
 
-		if (fieldDropItemDictionary.TryGetValue(tileIndex, out var data))
+		if (fieldfieldItemDictionary.TryGetValue(tileIndex, out var data))
 			return data;
 
-		var dropItem = dropItemFactory.Make(itemCode);
-		fieldDropItemDictionary[tileIndex] = dropItem;
+		var fieldItem = fieldItemFactory.Make(itemCode);
+		fieldfieldItemDictionary[tileIndex] = fieldItem;
 
-		return dropItem;
+		return fieldItem;
 	}
 
 	public SpecialTileBase GetCurrentSpecialTile(int currentOrder)

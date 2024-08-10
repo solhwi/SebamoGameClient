@@ -7,7 +7,7 @@ using UnityEngine;
 
 public static class ItemTableExtension
 {
-	public static string GetAssetPathWithoutResources(this ItemTable.DropItemData itemData)
+	public static string GetAssetPathWithoutResources(this ItemTable.FieldItemData itemData)
 	{
 		return GetAssetPathWithoutResources(itemData.fieldIconAssetPath);
 	}
@@ -127,7 +127,7 @@ public partial class ItemTable
 		if (itemCode == Coin)
 			return true;
 
-		if (dropItemDataDictionary.ContainsKey(itemCode))
+		if (fieldItemDataDictionary.ContainsKey(itemCode))
 			return true;
 
 		if (partsItemDataDictionary.ContainsKey(itemCode))
@@ -196,6 +196,16 @@ public partial class ItemTable
 	{
 		if (profileItemDataDictionary.ContainsKey(itemCode))
 			return true;
+
+		return false;
+	}
+
+	public bool IsFieldItem(string itemCode)
+	{
+		if (fieldItemDataDictionary.ContainsKey(itemCode))
+		{
+			return true;
+		}
 
 		return false;
 	}
@@ -304,7 +314,7 @@ public partial class ItemTable
 		return res;
 	}
 
-	public static string GetDropItemCode(Dictionary<string, int> recipe)
+	public static string GetfieldItemCode(Dictionary<string, int> recipe)
 	{
 		int randomNumber = Random.Range(1, 101);
 

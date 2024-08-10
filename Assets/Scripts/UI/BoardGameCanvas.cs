@@ -44,11 +44,6 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 		}
 	}
 
-	private void OnBecameVisible()
-	{
-		boardGameCameraController.SetZoom(true);
-	}
-
 	public void OnClickShop()
 	{
 		PopupManager.Instance.TryOpen(PopupManager.PopupType.Shop);

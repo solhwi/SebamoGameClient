@@ -31,10 +31,10 @@ public partial class ItemTable : ScriptParser
 		{
 			itemToolTipDataDictionary.Add(value.key, value);
 		}
-		dropItemDataDictionary.Clear();
-		foreach(var value in dropItemDataList)
+		fieldItemDataDictionary.Clear();
+		foreach(var value in fieldItemDataList)
 		{
-			dropItemDataDictionary.Add(value.key, value);
+			fieldItemDataDictionary.Add(value.key, value);
 		}
 		profileItemDataDictionary.Clear();
 		foreach(var value in profileItemDataList)
@@ -98,18 +98,18 @@ public partial class ItemTable : ScriptParser
 	public ItemToolTipDataDictionary itemToolTipDataDictionary = new ItemToolTipDataDictionary();
 
 	[Serializable]
-	public class DropItemData
+	public class FieldItemData
 	{
 		public string key;
 		public string fieldIconAssetPath;
-		public DropActionType dropActionType;
+		public FieldActionType actionType;
 		public string actionParameter;
 	}
 
-	public List<DropItemData> dropItemDataList = new List<DropItemData>();
+	public List<FieldItemData> fieldItemDataList = new List<FieldItemData>();
 	[System.Serializable]
-	public class DropItemDataDictionary : SerializableDictionary<string, DropItemData> {}
-	public DropItemDataDictionary dropItemDataDictionary = new DropItemDataDictionary();
+	public class FieldItemDataDictionary : SerializableDictionary<string, FieldItemData> {}
+	public FieldItemDataDictionary fieldItemDataDictionary = new FieldItemDataDictionary();
 
 	[Serializable]
 	public class ProfileItemData

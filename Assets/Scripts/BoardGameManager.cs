@@ -7,7 +7,7 @@ public abstract class BoardGameSubscriber : MonoBehaviour
 {
 	public virtual IEnumerator OnRollDice(int diceCount) { yield return null; }
 	public virtual IEnumerator OnMove(int currentOrder, int diceCount) { yield return null; }
-	public virtual IEnumerator OnGetItem(DropItem dropItem) { yield return null; }
+	public virtual IEnumerator OnGetItem(FieldItem fieldItem) { yield return null; }
 	public virtual IEnumerator OnDoTileAction(SpecialTileBase tile, int currentOrder, int nextOrderIndex) { yield return null; }
 }
 
@@ -185,7 +185,7 @@ public class BoardGameManager : MonoBehaviour
 	{
 		int currentOrder = playerDataContainer.currentTileOrder;
 
-		DropItem item = tileDataManager.GetCurrentTileItem(currentOrder);
+		FieldItem item = tileDataManager.GetCurrentTileItem(currentOrder);
 		if (item != null)
 		{
 			yield return item.Use();

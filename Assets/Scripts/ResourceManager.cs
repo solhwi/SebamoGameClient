@@ -24,11 +24,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
 public class ResourceManager : Singleton<ResourceManager>
 {
-	[SerializeField] private RecyclingObject dropItemPrefab;
+	[SerializeField] private RecyclingObject fieldItemPrefab;
 
 	private Dictionary<RecyclingType, Stack<RecyclingObject>> objectPool = new Dictionary<RecyclingType, Stack<RecyclingObject>>()
 	{
-		{ RecyclingType.DropItem, new Stack<RecyclingObject>() },
+		{ RecyclingType.fieldItem, new Stack<RecyclingObject>() },
 	};
 	
 	private Dictionary<string, Object> cachedObjectDictionary = new Dictionary<string, Object>();
@@ -37,10 +37,10 @@ public class ResourceManager : Singleton<ResourceManager>
 	{
 		for(int i = 0; i < 10; i++)
 		{
-			var obj = Instantiate(dropItemPrefab);
+			var obj = Instantiate(fieldItemPrefab);
 
 #if UNITY_EDITOR
-			obj.name = $"DropItemPrefab ({i}) - Cached";
+			obj.name = $"fieldItemPrefab ({i}) - Cached";
 #endif
 			obj.transform.position = new Vector3(-1000, -1000, 0);
 			obj.gameObject.SetActive(false);
@@ -51,33 +51,36 @@ public class ResourceManager : Singleton<ResourceManager>
 				renderer.sortingOrder = (int)LayerConfig.Item;
 			}
 
-			objectPool[RecyclingType.DropItem].Push(obj);
+			objectPool[RecyclingType.fieldItem].Push(obj);
 		}
 	}
 
-	// 실질적인 리소스 관리를 위해 DropItemFactory 쪽에서 일로 이관함
-	public GameObject GetDropItemObject(ItemTable.DropItemData rawData, WorldTileData worldTileData)
+	// 실질적인 리소스 관리를 위해 fieldItemFactory 쪽에서 일로 이관함
+	public GameObject GetFieldItemObject(ItemTable.FieldItemData rawData, WorldTileData worldTileData)
 	{
-		RecyclingObject obj = null;
-		if (objectPool[RecyclingType.DropItem].TryPop(out obj) == false)
+		var obj = GetFieldItemObject(rawData);
+		if (obj != null)
 		{
-			obj = Instantiate(dropItemPrefab);
-
-#if UNITY_EDITOR
-			obj.name = $"DropItemPrefab ({objectPool[RecyclingType.DropItem].Count}) - Cached";
-#endif
-
-			objectPool[RecyclingType.DropItem].Push(obj);
+			obj.name = $"{rawData.key} ({worldTileData.index})";
+			obj.transform.position = new Vector3(worldTileData.tileWorldPosition.x, worldTileData.tileWorldPosition.y, 0);
+			obj.gameObject.SetActive(true);
 		}
 
-		obj.name = $"{rawData.key} ({worldTileData.index})";
-		obj.transform.position = new Vector3(worldTileData.tileWorldPosition.x, worldTileData.tileWorldPosition.y, 0);
-		obj.gameObject.SetActive(true);
+		return obj;
+	}	
 
-		var renderer = obj.GetComponentInChildren<SpriteRenderer>();
-		if (renderer != null)
+	public GameObject GetFieldItemObject(ItemTable.FieldItemData rawData)
+	{
+		RecyclingObject obj = null;
+		if (objectPool[RecyclingType.fieldItem].TryPop(out obj) == false)
 		{
-			renderer.sortingOrder = (int)LayerConfig.Item;
+			obj = Instantiate(fieldItemPrefab);
+
+#if UNITY_EDITOR
+			obj.name = $"fieldItemPrefab ({objectPool[RecyclingType.fieldItem].Count}) - Cached";
+#endif
+
+			objectPool[RecyclingType.fieldItem].Push(obj);
 		}
 
 		string path = rawData.GetAssetPathWithoutResources();
@@ -87,18 +90,28 @@ public class ResourceManager : Singleton<ResourceManager>
 			res = Load<RuntimeAnimatorController>(path);
 		}
 
-		if (renderer != null && res is Sprite sprite)
+		var renderer = obj.GetComponentInChildren<SpriteRenderer>();
+		if (renderer != null)
 		{
-			renderer.sprite = sprite;
+			renderer.sortingOrder = (int)LayerConfig.Item;
 		}
-		else if (res is RuntimeAnimatorController anim)
+
+		var animator = obj.gameObject.GetComponent<Animator>();
+		if (animator != null)
 		{
-			var animator = obj.gameObject.GetComponent<Animator>();
-			animator.runtimeAnimatorController = anim;
+			if (renderer != null && res is Sprite sprite)
+			{
+				renderer.sprite = sprite;
+				animator.runtimeAnimatorController = null;
+			}
+			else if (res is RuntimeAnimatorController anim)
+			{
+				animator.runtimeAnimatorController = anim;
+			}
 		}
 
 		return obj.gameObject;
-	}	
+	}
 
 	public void Destroy(GameObject obj)
 	{

@@ -76,9 +76,9 @@ public class TileItemSettingWindow : TileEditorWindow
 
 		DrawAxis(Axis.Vertical, () =>
 		{
-			for (int i = 0; i < itemTable.dropItemDataList.Count; i++)
+			for (int i = 0; i < itemTable.fieldItemDataList.Count; i++)
 			{
-				var dropItemData = itemTable.dropItemDataList[i];
+				var dropItemData = itemTable.fieldItemDataList[i];
 				bool isToggleOn = DrawToggle(80, 30, selectedToggleIndex == i, dropItemData.key);
 				if (isToggleOn)
 				{

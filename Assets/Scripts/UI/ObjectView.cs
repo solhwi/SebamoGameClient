@@ -46,6 +46,11 @@ public class ObjectView : MonoBehaviour
 
 		cam.targetTexture = renderTexture;
 
+		InitializeTarget();
+	}
+
+	protected virtual void InitializeTarget()
+	{
 		originObj = Instantiate(originPrefab, cameraArm);
 		originObj.transform.localPosition = spawnLocalPos;
 		originObj.transform.localEulerAngles = spawnLocalRot;
@@ -53,6 +58,9 @@ public class ObjectView : MonoBehaviour
 
 	protected virtual void Update()
 	{
+		if (originObj == null)
+			return;
+
 		if (spriteView != null)
 		{
 			spriteView.color = Color.white;
@@ -67,6 +75,9 @@ public class ObjectView : MonoBehaviour
 
 	private void LateUpdate()
 	{
+		if (originObj == null)
+			return;
+
 		if (isFixedPosition)
 		{
 			originObj.transform.localPosition = spawnLocalPos;

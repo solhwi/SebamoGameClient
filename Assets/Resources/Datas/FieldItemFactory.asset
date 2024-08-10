@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9cff7727176e1440adbda4f2c5650a7, type: 3}
-  m_Name: DropItemFactory
+  m_Name: FieldItemFactory
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
