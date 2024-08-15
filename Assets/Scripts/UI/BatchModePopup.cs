@@ -5,8 +5,6 @@ using UnityEngine.EventSystems;
 
 public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler
 {
-	[SerializeField] private CameraController boardGameCameraController;
-
 	public class Parameter : UIParameter
 	{
 		public readonly ReplaceFieldItem replaceItem;
@@ -17,14 +15,15 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler
 		}
 	}
 
+	[SerializeField] private CameraController boardGameCameraController;
+	private ReplaceFieldItem currentReplaceItem;
+
 	protected override void Reset()
 	{
 		base.Reset();
 
 		popupType = PopupType.BatchMode;
 	}
-
-	private ReplaceFieldItem currentReplaceItem;
 
 	public override void OnOpen(UIParameter parameter = null)
 	{
