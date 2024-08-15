@@ -52,20 +52,73 @@ public struct WorldTileData
 
 public class TileDataManager : MonoBehaviour
 {
-	[SerializeField] private Tilemap tileMap;
+	[SerializeField] private Tilemap floorTileMap;
+	[SerializeField] private Tilemap selectTileMap;
 
 	[SerializeField] private Grid tileGrid;
 	[SerializeField] private TileDataContainer dataContainer;
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private FieldItemFactory fieldItemFactory;
 
+	[SerializeField] private TileBase selectTile;
+	[SerializeField] private TileBase unSelectTile;
+
 	public WorldTileData[] tileBoardDatas = null;
 
-	private Dictionary<int, FieldItem> fieldfieldItemDictionary = new Dictionary<int, FieldItem>();
+	private Dictionary<int, FieldItem> fieldItemDictionary = new Dictionary<int, FieldItem>();
 
 	private void Awake()
 	{
 		tileBoardDatas = MakeBoardData().ToArray();
+	}
+
+	public void SetSelectTile(int tileOrder, bool isSelect)
+	{
+		var tileData = GetTileData(tileOrder);
+		selectTileMap.SetTile(tileData.tilePosition, isSelect ? selectTile : unSelectTile);
+	}
+
+	private IEnumerable<int> ToRange(int min, int max)
+	{
+		for(int i = min; i <= max; i++)
+		{
+			yield return i;
+		}
+	}
+
+	public void SetSelectTiles(int min, int max)
+	{
+		min = Mathf.Max(0, min);
+		max = Mathf.Min(max, tileBoardDatas.Length - 1);
+
+		int[] tileIndexes = ToRange(min, max).Select(GetTileIndexByOrder).ToArray();
+
+		for(int i = 0; i < tileBoardDatas.Length; i++)
+		{
+			bool isSelectable = tileIndexes.Contains(i);
+			if (isSelectable)
+			{
+				selectTileMap.SetTile(tileBoardDatas[i].tilePosition, selectTile);
+			}
+			else
+			{
+				selectTileMap.SetTile(tileBoardDatas[i].tilePosition, unSelectTile);
+			}
+		}
+	}
+
+	public void ClearSelectTile()
+	{
+		selectTileMap.ClearAllTiles();
+	}
+
+	public WorldTileData GetTileData(int tileOrder)
+	{
+		int tileIndex = GetTileIndexByOrder(tileOrder);
+		if (tileIndex < 0)
+			return default;
+
+		return tileBoardDatas[tileIndex];
 	}
 
 	public IEnumerator PrepareTile()
@@ -80,7 +133,7 @@ public class TileDataManager : MonoBehaviour
 			if (fieldItem == null)
 				continue;
 
-			fieldfieldItemDictionary[i] = fieldItem;
+			fieldItemDictionary[i] = fieldItem;
 
 			var boardData = tileBoardDatas[i];
 			fieldItem.Create(boardData);
@@ -93,16 +146,16 @@ public class TileDataManager : MonoBehaviour
 	{
 		int i = 0;
 
-		for (int x = tileMap.cellBounds.xMax; x >= tileMap.cellBounds.xMin; x--)
+		for (int x = floorTileMap.cellBounds.xMax; x >= floorTileMap.cellBounds.xMin; x--)
 		{
-			for (int y = tileMap.cellBounds.yMax; y >= tileMap.cellBounds.yMin; y--)
+			for (int y = floorTileMap.cellBounds.yMax; y >= floorTileMap.cellBounds.yMin; y--)
 			{
 				var tilePos = new Vector3Int(x, y);
-				TileBase curTile = tileMap.GetTile(tilePos);
+				TileBase curTile = floorTileMap.GetTile(tilePos);
 				if (curTile != null)
 				{
 					TileData data = default;
-					curTile.GetTileData(tilePos, tileMap, ref data);
+					curTile.GetTileData(tilePos, floorTileMap, ref data);
 
 					yield return new WorldTileData(i++, tileGrid.cellSize, tilePos, data, curTile);
 				}
@@ -120,11 +173,11 @@ public class TileDataManager : MonoBehaviour
 		if (tileIndex == -1)
 			return null;
 
-		if (fieldfieldItemDictionary.TryGetValue(tileIndex, out var data))
+		if (fieldItemDictionary.TryGetValue(tileIndex, out var data))
 			return data;
 
 		var fieldItem = fieldItemFactory.Make(itemCode);
-		fieldfieldItemDictionary[tileIndex] = fieldItem;
+		fieldItemDictionary[tileIndex] = fieldItem;
 
 		return fieldItem;
 	}

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHandler
 {
-	[SerializeField] private BoardGameManager boardGameManager;
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private CameraController boardGameCameraController;
@@ -28,7 +27,7 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 	public void OnClickRollDice()
 	{
 		boardGameCameraController.SetFollow(true);
-		boardGameManager.OnClickRollDice();
+		BoardGameManager.Instance.OnClickRollDice();
 	}
 
 	private void Update()

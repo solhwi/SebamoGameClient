@@ -302,10 +302,7 @@ public class InventoryPopup : BoardGamePopup
 	{
 		if (currentFieldItem != null)
 		{
-			// 여기서 배치 모드를 켠다.
-
-			// 해당 타일에 배치하는 함수를 넘긴다.
-			currentFieldItem.Replace(0).Wait();
+			BoardGameManager.Instance.ChangeReplaceMode(currentFieldItem);
 		}
 	}
 

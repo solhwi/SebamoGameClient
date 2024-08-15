@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public abstract class BoardGameSubscriber : MonoBehaviour
@@ -11,7 +12,7 @@ public abstract class BoardGameSubscriber : MonoBehaviour
 	public virtual IEnumerator OnDoTileAction(SpecialTileBase tile, int currentOrder, int nextOrderIndex) { yield return null; }
 }
 
-public class BoardGameManager : MonoBehaviour
+public class BoardGameManager : Singleton<BoardGameManager>
 {
 	public enum GameState
 	{
@@ -52,6 +53,8 @@ public class BoardGameManager : MonoBehaviour
 	private Dictionary<GameState, Func<bool>> stateCheckFuncMap = new Dictionary<GameState, Func<bool>>();
 
 	private IStateParam currentStateParam = null;
+
+	private ReplaceFieldItem currentReplaceFieldItem = null;
 
 	private void Awake()
 	{
@@ -238,5 +241,20 @@ public class BoardGameManager : MonoBehaviour
 
 		var currentPlayerTileData = tileDataManager.GetTileDataByOrder(currentPlayerTileOrderIndex);
 		return currentPlayerTileData.tileWorldPosition;
+	}
+
+	public void ChangeReplaceMode(ReplaceFieldItem replaceItem)
+	{
+		currentReplaceFieldItem = replaceItem;
+
+		if (currentReplaceFieldItem != null)
+		{
+			int min = playerDataContainer.currentTileOrder + replaceItem.ranges[0];
+			int max = playerDataContainer.currentTileOrder + replaceItem.ranges[1];
+
+			tileDataManager.SetSelectTiles(min, max);
+		}
+
+		PopupManager.Instance.Close(PopupManager.PopupType.Inventory);
 	}
 }

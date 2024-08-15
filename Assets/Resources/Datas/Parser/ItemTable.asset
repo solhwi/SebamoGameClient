@@ -475,11 +475,11 @@ MonoBehaviour:
   - key: Banana
     fieldIconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
     actionType: 2
-    actionParameter: -1
+    actionParameter: Min:-5/Max:5
   - key: Banana2
     fieldIconAssetPath: Sprites/ShopItem_l_CoinPack_3.png
     actionType: 2
-    actionParameter: -1
+    actionParameter: Min:-5/Max:5
   fieldItemDataDictionary:
     m_keys:
     - DropCoin
@@ -498,11 +498,11 @@ MonoBehaviour:
     - key: Banana
       fieldIconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
       actionType: 2
-      actionParameter: -1
+      actionParameter: Min:-5/Max:5
     - key: Banana2
       fieldIconAssetPath: Sprites/ShopItem_l_CoinPack_3.png
       actionType: 2
-      actionParameter: -1
+      actionParameter: Min:-5/Max:5
   profileItemDataList:
   - key: Frame_01
     isFrame: 1

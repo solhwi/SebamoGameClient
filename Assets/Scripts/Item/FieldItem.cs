@@ -85,9 +85,11 @@ public abstract class DropFieldItem : FieldItem
 
 public abstract class ReplaceFieldItem : FieldItem
 {
+	public readonly int[] ranges = new int[2];
+
 	protected ReplaceFieldItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
 	{
-
+		ranges = ItemTable.ParseRangeData(rawData.actionParameter);
 	}
 
 	public async virtual Task Replace(int tileIndex)
@@ -110,7 +112,7 @@ public class RandomFieldItem : DropFieldItem
 	public RandomFieldItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
 	{
 		var dropRecipeDictionary = ItemTable.ParseDropRecipeData(rawData.actionParameter);
-		fieldItemCode = ItemTable.GetfieldItemCode(dropRecipeDictionary);
+		fieldItemCode = ItemTable.GetFieldItemCode(dropRecipeDictionary);
 		dropCount = 1;
 	}
 }

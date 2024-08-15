@@ -314,7 +314,29 @@ public partial class ItemTable
 		return res;
 	}
 
-	public static string GetfieldItemCode(Dictionary<string, int> recipe)
+	public static int[] ParseRangeData(string rawRecipe)
+	{
+		int[] ranges = new int[2];
+
+		string[] columns = rawRecipe.Split('/');
+
+		for (int i = 0; i < columns.Length; i++)
+		{
+			string[] keyValue = columns[i].Split(':');
+
+			if (keyValue.Length != 2)
+				continue;
+
+			if (int.TryParse(keyValue[1], out int value) == false)
+				continue;
+
+			ranges[i] = value;
+		}
+
+		return ranges;
+	}
+
+	public static string GetFieldItemCode(Dictionary<string, int> recipe)
 	{
 		int randomNumber = Random.Range(1, 101);
 
