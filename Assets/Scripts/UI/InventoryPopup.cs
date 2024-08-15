@@ -51,9 +51,18 @@ public class ItemSortingComparer : IComparer<string>
 
 }
 
-
 public class InventoryPopup : BoardGamePopup
 {
+	public class Parameter : UIParameter
+	{
+		public readonly TabType tabType;
+
+		public Parameter(TabType tabType)
+		{
+			this.tabType = tabType;
+		}
+	}
+
 	public enum TabType
 	{
 		None = -1,
@@ -119,7 +128,14 @@ public class InventoryPopup : BoardGamePopup
 		equipmentBoard.onClickItem += OnClickEquippedItem;
 		profileEquipmentBoard.onClickItem += OnClickProfileItem;
 
-		scrollContent.SelectTab((int)TabType.Props);
+		if (parameter is Parameter p)
+		{
+			scrollContent.SelectTab((int)p.tabType);
+		}
+		else 
+		{
+			scrollContent.SelectTab((int)TabType.Props);
+		}
 	}
 
 	protected override void OnClose()
@@ -302,7 +318,7 @@ public class InventoryPopup : BoardGamePopup
 	{
 		if (currentFieldItem != null)
 		{
-			BoardGameManager.Instance.ChangeReplaceMode(currentFieldItem);
+			BoardGameManager.Instance.StartReplaceMode(currentFieldItem);
 		}
 	}
 

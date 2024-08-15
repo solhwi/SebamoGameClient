@@ -92,10 +92,15 @@ public abstract class ReplaceFieldItem : FieldItem
 		ranges = ItemTable.ParseRangeData(rawData.actionParameter);
 	}
 
-	public async virtual Task Replace(int tileIndex)
+	public async virtual Task<bool> Replace(int tileIndex)
 	{
-		await inventory.TryRemoveItem(fieldItemCode);
-		Destroy();
+		bool bResult = await inventory.TryRemoveItem(fieldItemCode);
+		if (bResult)
+		{
+			Destroy();
+		}
+
+		return bResult;
 	}
 }
 

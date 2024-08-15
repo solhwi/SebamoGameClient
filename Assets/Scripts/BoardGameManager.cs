@@ -243,7 +243,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		return currentPlayerTileData.tileWorldPosition;
 	}
 
-	public void ChangeReplaceMode(ReplaceFieldItem replaceItem)
+	public void StartReplaceMode(ReplaceFieldItem replaceItem)
 	{
 		currentReplaceFieldItem = replaceItem;
 
@@ -256,6 +256,23 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		}
 
 		UIManager.Instance.CloseMainCanvas();
-		UIManager.Instance.Close(PopupType.Inventory);;
+		UIManager.Instance.Close(PopupType.Inventory);
+
+		UIManager.Instance.TryOpen(PopupType.BatchMode);
+	}
+
+	public void EndReplaceMode(bool isReplaced)
+	{
+		currentReplaceFieldItem = null;
+
+		tileDataManager.ClearSelectTile();
+
+		UIManager.Instance.OpenMainCanvas();
+		UIManager.Instance.Close(PopupType.BatchMode);
+
+		if (isReplaced == false)
+		{
+			UIManager.Instance.TryOpen(PopupType.Inventory, new InventoryPopup.Parameter(InventoryPopup.TabType.Replace));
+		}
 	}
 }
