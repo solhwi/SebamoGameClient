@@ -41,7 +41,7 @@ public class ShopPopup : BoardGamePopup
 	{
 		base.Reset();
 
-		popupType = PopupManager.PopupType.Shop;
+		popupType = PopupType.Shop;
 	}
 
 	public override void OnOpen(UIParameter parameter = null)

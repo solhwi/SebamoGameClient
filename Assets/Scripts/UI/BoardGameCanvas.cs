@@ -32,7 +32,7 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 
 	private void Update()
 	{
-		if (PopupManager.Instance.IsAnyOpen())
+		if (UIManager.Instance.IsAnyOpen())
 		{
 			boardGameCameraController.SetFollow(true);
 			boardGameCameraController.SetZoom(false);
@@ -45,12 +45,12 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 
 	public void OnClickShop()
 	{
-		PopupManager.Instance.TryOpen(PopupManager.PopupType.Shop);
+		UIManager.Instance.TryOpen(PopupType.Shop);
 	}
 
 	public void OnClickInventory()
 	{
-		PopupManager.Instance.TryOpen(PopupManager.PopupType.Inventory);
+		UIManager.Instance.TryOpen(PopupType.Inventory);
 	}
 
 	public void OnBeginDrag(PointerEventData data)

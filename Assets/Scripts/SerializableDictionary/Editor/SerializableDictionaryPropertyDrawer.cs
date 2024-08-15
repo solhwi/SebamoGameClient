@@ -12,7 +12,7 @@ using System;
 [CustomPropertyDrawer(typeof(NotifyStringDictionary))]
 public class NotifyTitleDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
 
-[CustomPropertyDrawer(typeof(PopupManager.PopupDictionary))]
+[CustomPropertyDrawer(typeof(UIManager.PopupDictionary))]
 public class PopupDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
 
 [CustomPropertyDrawer(typeof(Inventory.HasItemDataDictionary))]

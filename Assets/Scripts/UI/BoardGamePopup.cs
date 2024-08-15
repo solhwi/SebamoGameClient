@@ -9,7 +9,7 @@ public class UIParameter
 
 public class BoardGamePopup : MonoBehaviour
 {
-	[SerializeField] protected PopupManager.PopupType popupType;
+	[SerializeField] protected PopupType popupType;
 	[SerializeField] private Canvas canvas;
 
 	protected virtual void Reset()
@@ -28,7 +28,7 @@ public class BoardGamePopup : MonoBehaviour
 
 	public void OnClickClose()
 	{
-		PopupManager.Instance.Close(popupType);
+		UIManager.Instance.Close(popupType);
 	}
 
 	public void Close()
@@ -39,7 +39,7 @@ public class BoardGamePopup : MonoBehaviour
 		OnClose();
 	}
 
-	public bool IsSameType(PopupManager.PopupType type)
+	public bool IsSameType(PopupType type)
 	{
 		return popupType == type;
 	}

@@ -72,12 +72,6 @@ public class TileDataManager : MonoBehaviour
 		tileBoardDatas = MakeBoardData().ToArray();
 	}
 
-	public void SetSelectTile(int tileOrder, bool isSelect)
-	{
-		var tileData = GetTileData(tileOrder);
-		selectTileMap.SetTile(tileData.tilePosition, isSelect ? selectTile : unSelectTile);
-	}
-
 	private IEnumerable<int> ToRange(int min, int max)
 	{
 		for(int i = min; i <= max; i++)
@@ -95,14 +89,15 @@ public class TileDataManager : MonoBehaviour
 
 		for(int i = 0; i < tileBoardDatas.Length; i++)
 		{
-			bool isSelectable = tileIndexes.Contains(i);
-			if (isSelectable)
+			var tilePos = tileBoardDatas[i].tilePosition;
+
+			if (tileIndexes.Contains(i))
 			{
-				selectTileMap.SetTile(tileBoardDatas[i].tilePosition, selectTile);
+				selectTileMap.SetTile(tilePos, selectTile);
 			}
 			else
 			{
-				selectTileMap.SetTile(tileBoardDatas[i].tilePosition, unSelectTile);
+				selectTileMap.SetTile(tilePos, unSelectTile);
 			}
 		}
 	}

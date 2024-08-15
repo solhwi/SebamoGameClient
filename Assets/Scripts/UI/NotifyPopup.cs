@@ -88,7 +88,7 @@ public class NotifyPopup : BoardGamePopup
 	{
 		base.Reset();
 
-		popupType = PopupManager.PopupType.Notify;
+		popupType = PopupType.Notify;
 	}
 
 	public override void OnOpen(UIParameter parameter = null)

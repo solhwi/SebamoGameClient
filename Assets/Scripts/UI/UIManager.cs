@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PopupManager : Singleton<PopupManager>
+public enum PopupType
 {
-	public enum PopupType
-	{
-		Shop,
-		Inventory,
-		Notify,
-	}
+	Shop,
+	Inventory,
+	Notify,
+	BatchMode,
+}
 
-	[SerializeField] private Canvas rootCanvas;
+public class UIManager : Singleton<UIManager>
+{
+	[SerializeField] private BoardGameCanvas boardGameCanvas;
+	[SerializeField] private Canvas popupRootCanvas;
 
 	[System.Serializable]
 	public class PopupDictionary : SerializableDictionary<PopupType, BoardGamePopup> { }
@@ -23,7 +24,7 @@ public class PopupManager : Singleton<PopupManager>
 	{
 		if (popupDictionary.TryGetValue(popupType, out BoardGamePopup popupObj))
 		{
-			popupObj.Open(rootCanvas, popupStack.Count);
+			popupObj.Open(popupRootCanvas, popupStack.Count);
 			popupObj.OnOpen(parameter);
 			popupStack.Push(popupObj);
 		}
@@ -36,6 +37,21 @@ public class PopupManager : Singleton<PopupManager>
 			return;
 
 		popupCanvas.Close();
+	}
+
+	public void OpenMainCanvas()
+	{
+		boardGameCanvas.gameObject.SetActive(true);
+	}
+
+	public void CloseMainCanvas()
+	{
+		boardGameCanvas.gameObject.SetActive(false);
+	}
+
+	public bool IsOpenMainCanvas()
+	{
+		return boardGameCanvas.gameObject.activeSelf;
 	}
 
 	public void Close(PopupType popupType, int closeCount = 1)

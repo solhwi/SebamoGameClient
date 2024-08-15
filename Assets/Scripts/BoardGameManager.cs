@@ -255,6 +255,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			tileDataManager.SetSelectTiles(min, max);
 		}
 
-		PopupManager.Instance.Close(PopupManager.PopupType.Inventory);
+		UIManager.Instance.CloseMainCanvas();
+		UIManager.Instance.Close(PopupType.Inventory);;
 	}
 }

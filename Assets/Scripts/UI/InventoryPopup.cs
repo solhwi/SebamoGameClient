@@ -97,7 +97,7 @@ public class InventoryPopup : BoardGamePopup
 	{
 		base.Reset();
 
-		popupType = PopupManager.PopupType.Inventory;
+		popupType = PopupType.Inventory;
 	}
 	
 	public override void OnOpen(UIParameter parameter = null)
@@ -255,7 +255,7 @@ public class InventoryPopup : BoardGamePopup
 		if (itemCode == null || itemCode == string.Empty)
 			return;
 
-		PopupManager.Instance.TryOpen(PopupManager.PopupType.Notify, new SellUIParameter(itemCode, OnClickSell));
+		UIManager.Instance.TryOpen(PopupType.Notify, new SellUIParameter(itemCode, OnClickSell));
 	}
 
 	private async Task OnClickSell(string itemCode, int count)

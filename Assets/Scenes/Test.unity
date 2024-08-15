@@ -420,7 +420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dbf2ce44c9d11040b9323ea57661205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rootCanvas: {fileID: 88651503}
+  boardGameCanvas: {fileID: 43098288}
+  popupRootCanvas: {fileID: 88651503}
   popupDictionary:
     m_keys: 000000000100000002000000
     m_values:
