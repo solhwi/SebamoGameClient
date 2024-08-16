@@ -17,6 +17,7 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 
 	[SerializeField] private CameraController boardGameCameraController;
 	[SerializeField] private TileDataManager tileDataManager;
+	[SerializeField] private TileDataContainer  tileDataContainer;
 	private ReplaceFieldItem currentReplaceItem;
 
 	private int currentTileIndex;
@@ -78,6 +79,7 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		if (index > -1)
 		{
 			currentTileIndex = index;
+			Debug.Log($"인덱스 {index}, {tileDataContainer.tileOrders[index]}번 타일이 선택됨");
 		}
 	}
 }

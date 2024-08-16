@@ -44,32 +44,32 @@ public struct WorldTileData
 	public bool IsCollision(Vector2 pos)
 	{
 		// 왼쪽
-		if (tileWorldPosition.x - cellSize.x < pos.x && tileWorldPosition.x > pos.x)
+		if (tileWorldPosition.x - cellSize.x <= pos.x && tileWorldPosition.x >= pos.x)
 		{
 			// 아래
-			if (tileWorldPosition.y - cellSize.y < pos.y && tileWorldPosition.y > pos.y)
+			if (tileWorldPosition.y - cellSize.y <= pos.y && pos.y <= tileWorldPosition.y)
 			{
-				return -1 * pos.x / 2 + tileWorldPosition.y - cellSize.y < pos.y;
+				return -1 * pos.x / 2 + tileWorldPosition.y - cellSize.y <= pos.y;
 			}
 			// 위쪽
-			else if (tileWorldPosition.y + cellSize.y > pos.y && tileWorldPosition.y < pos.y)
+			else if (tileWorldPosition.y + cellSize.y >= pos.y && pos.y >= tileWorldPosition.y)
 			{
-				return pos.x / 2 + tileWorldPosition.y + cellSize.y > pos.y;
+				return pos.x / 2 + tileWorldPosition.y + cellSize.y >= pos.y;
 			}
 			
 		}
 		// 오른쪽
-		else if (tileWorldPosition.x + cellSize.x > pos.x && tileWorldPosition.x < pos.x)
+		else if (tileWorldPosition.x + cellSize.x >= pos.x && tileWorldPosition.x <= pos.x)
 		{
 			// 아래
-			if (tileWorldPosition.y - cellSize.y < pos.y && tileWorldPosition.y > pos.y)
+			if (tileWorldPosition.y - cellSize.y <= pos.y && tileWorldPosition.y >= pos.y)
 			{
-				return pos.x / 2 + tileWorldPosition.y - cellSize.y < pos.y;
+				return pos.x / 2 + tileWorldPosition.y - cellSize.y <= pos.y;
 			}
 			// 위쪽
-			else if (tileWorldPosition.y + cellSize.y > pos.y && tileWorldPosition.y < pos.y)
+			else if (tileWorldPosition.y + cellSize.y >= pos.y && tileWorldPosition.y <= pos.y)
 			{
-				return -pos.x / 2 + tileWorldPosition.y + cellSize.y > pos.y;
+				return -pos.x / 2 + tileWorldPosition.y + cellSize.y >= pos.y;
 			}
 		}
 

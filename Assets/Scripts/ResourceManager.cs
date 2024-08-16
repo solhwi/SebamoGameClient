@@ -79,8 +79,6 @@ public class ResourceManager : Singleton<ResourceManager>
 #if UNITY_EDITOR
 			obj.name = $"fieldItemPrefab ({objectPool[RecyclingType.fieldItem].Count}) - Cached";
 #endif
-
-			objectPool[RecyclingType.fieldItem].Push(obj);
 		}
 
 		string path = rawData.GetAssetPathWithoutResources();
@@ -101,8 +99,8 @@ public class ResourceManager : Singleton<ResourceManager>
 		{
 			if (renderer != null && res is Sprite sprite)
 			{
-				renderer.sprite = sprite;
 				animator.runtimeAnimatorController = null;
+				renderer.sprite = sprite;
 			}
 			else if (res is RuntimeAnimatorController anim)
 			{

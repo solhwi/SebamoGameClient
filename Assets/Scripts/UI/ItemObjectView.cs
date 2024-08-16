@@ -31,7 +31,7 @@ public class ItemObjectView : ObjectView
 		originObj = fieldItem.Create(cameraArm, spawnLocalPos, spawnLocalRot);
 		if (originObj != null)
 		{
-			originObj.gameObject.SetActive(true);
+			originObj.SetActive(true);
 		}
 	}
 }

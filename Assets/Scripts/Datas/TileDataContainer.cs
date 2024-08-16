@@ -15,7 +15,7 @@ public class TileDataContainer : ScriptableObject
 
 	public Vector3 dimetricGridCellSize = new Vector3(1, 0.51f, 1);
 
-	public Vector3 isometricTileAnchor = new Vector3(0, 0, 0);
+	public Vector3 isometricTileAnchor = new Vector3(0.1f, 0.1f, 0);
 	public Vector3 dimetricTileAnchor = new Vector3(0.15f, 0.15f, 0);
 
 	public Vector3 gridCellGap = new Vector3(0, 0, 0);
