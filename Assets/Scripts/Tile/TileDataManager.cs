@@ -12,10 +12,12 @@ public struct WorldTileData
 	public Vector3Int tilePosition;
 	public TileData tileData;
 	public TileBase tileBase;
+	public Vector2 cellSize;
 
 	public WorldTileData(int index, Vector2 cellSize, Vector3Int tilePos, TileData tileData, TileBase tileBase)
 	{
 		this.index = index;
+		this.cellSize = cellSize;
 		this.tileWorldPosition = ConvertWorldPos(tilePos, cellSize);
 		this.tilePlaneWorldPosition = ConvertPlaneWorldPos(tilePos);
 		this.tilePosition = tilePos;
@@ -37,6 +39,14 @@ public struct WorldTileData
 		float y = tilePos.x; // y에 1을 더하면 왼 쪽으로 한 칸
 
 		return new Vector2(x, y);
+	}
+
+	public bool IsCollision(Vector2 pos)
+	{
+		bool isSameX = tileWorldPosition.x - cellSize.x < pos.x && tileWorldPosition.x + cellSize.x > pos.x;
+		bool isSameY = tileWorldPosition.y - cellSize.y < pos.y && tileWorldPosition.y + cellSize.y > pos.y;
+
+		return isSameX && isSameY;
 	}
 
 	public TTile GetTile<TTile>() where TTile : TileBase
@@ -100,6 +110,25 @@ public class TileDataManager : MonoBehaviour
 				selectTileMap.SetTile(tilePos, unSelectTile);
 			}
 		}
+	}
+
+	public bool TrySetTileItem(int index, string itemCode)
+	{
+		return dataContainer.TrySetTileItem(index, itemCode);
+	}
+
+	public int GetTileIndexFromPos(Vector2 tilePos)
+	{
+		for (int i = 0; i < tileBoardDatas.Length; i++)
+		{
+			var tile = tileBoardDatas[i];
+			if (tile.IsCollision(tilePos))
+			{
+				return i;
+			}
+		}
+
+		return -1;
 	}
 
 	public void ClearSelectTile()

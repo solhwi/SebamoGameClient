@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler
+public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, IPointerClickHandler
 {
 	public class Parameter : UIParameter
 	{
@@ -16,7 +16,10 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler
 	}
 
 	[SerializeField] private CameraController boardGameCameraController;
+	[SerializeField] private TileDataManager tileDataManager;
 	private ReplaceFieldItem currentReplaceItem;
+
+	private int currentTileIndex;
 
 	protected override void Reset()
 	{
@@ -37,9 +40,12 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler
 		}
 	}
 
-	public void OnClickTile(int tileIndex)
+	public void OnClickBatch()
 	{
-		currentReplaceItem?.Replace(tileIndex).Wait();
+		if (currentTileIndex == -1)
+			return;
+
+		currentReplaceItem?.Replace(tileDataManager, currentTileIndex).Wait();
 		BoardGameManager.Instance.EndReplaceMode(true);
 	}
 
@@ -62,5 +68,16 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler
 	{
 		boardGameCameraController.SetFollow(true);
 		boardGameCameraController.ResetZoom();
+	}
+
+	public void OnPointerClick(PointerEventData eventData)
+	{
+		Vector2 clickPos = Camera.main.ScreenToWorldPoint(eventData.position);
+
+		int index = tileDataManager.GetTileIndexFromPos(clickPos);
+		if (index > -1)
+		{
+			currentTileIndex = index;
+		}
 	}
 }

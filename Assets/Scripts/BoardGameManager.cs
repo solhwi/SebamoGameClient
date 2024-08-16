@@ -258,7 +258,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		UIManager.Instance.CloseMainCanvas();
 		UIManager.Instance.Close(PopupType.Inventory);
 
-		UIManager.Instance.TryOpen(PopupType.BatchMode);
+		UIManager.Instance.TryOpen(PopupType.BatchMode, new BatchModePopup.Parameter(replaceItem));
 	}
 
 	public void EndReplaceMode(bool isReplaced)
