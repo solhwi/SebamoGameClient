@@ -94,11 +94,11 @@ public abstract class ReplaceFieldItem : FieldItem
 
 	public async virtual Task<bool> Replace(TileDataManager tileDataManager, int tileIndex)
 	{
-		bool bResult = await inventory.TryRemoveItem(fieldItemCode);
-		if (bResult == false)
-			return false;
+		// bool bResult = await inventory.TryRemoveItem(fieldItemCode);
+		// if (bResult == false)
+			// return false;
 
-		bResult = tileDataManager.TrySetTileItem(tileIndex, fieldItemCode);
+		bool bResult = tileDataManager.TrySetTileItem(tileIndex, fieldItemCode);
 		if (bResult == false)
 			return false;
 

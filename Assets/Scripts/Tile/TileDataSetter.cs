@@ -16,6 +16,7 @@ public class TileDataSetter : MonoBehaviour
 
 	[SerializeField] private Grid grid = null;
 	[SerializeField] private Tilemap tileMap = null;
+	[SerializeField] private Tilemap[] subTileMaps = null;
 
 	[SerializeField] private TilemapRenderer tileMapRenderer = null;
 	[SerializeField] private TilemapRenderer[] subTileMapRenderers = null;
@@ -58,6 +59,12 @@ public class TileDataSetter : MonoBehaviour
 	private void SetTileData()
 	{
 		tileMap.tileAnchor = tileDataContainer.GetTileAnchor(tileType);
+
+		foreach (var sub in subTileMaps)
+		{
+			sub.tileAnchor = tileDataContainer.GetTileAnchor(tileType);
+		}
+
 		tileMap.orientation = tileDataContainer.OrientationType;
 		tileMap.animationFrameRate = tileDataContainer.tileAnimationFrameRate;
 	}
