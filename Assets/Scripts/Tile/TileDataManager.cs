@@ -43,33 +43,36 @@ public struct WorldTileData
 
 	public bool IsCollision(Vector2 pos)
 	{
+		// 계산 오차로 인한 보정값
+		float tileCenterYPos = tileWorldPosition.y - cellSize.y;
+		float tileCenterXPos = tileWorldPosition.x - cellSize.x / 2;
+
 		// 왼쪽
-		if (tileWorldPosition.x - cellSize.x <= pos.x && tileWorldPosition.x >= pos.x)
+		if (tileCenterXPos - cellSize.x <= pos.x && pos.x <= tileCenterXPos)
 		{
 			// 아래
-			if (tileWorldPosition.y - cellSize.y <= pos.y && pos.y <= tileWorldPosition.y)
+			if (tileCenterYPos - cellSize.y <= pos.y && pos.y <= tileCenterYPos)
 			{
-				return -1 * pos.x / 2 + tileWorldPosition.y - cellSize.y <= pos.y;
+				return -cellSize.y * pos.x + tileCenterYPos - cellSize.y <= pos.y;
 			}
 			// 위쪽
-			else if (tileWorldPosition.y + cellSize.y >= pos.y && pos.y >= tileWorldPosition.y)
+			else if (tileCenterYPos + cellSize.y >= pos.y && pos.y >= tileCenterYPos)
 			{
-				return pos.x / 2 + tileWorldPosition.y + cellSize.y >= pos.y;
+				return cellSize.y * pos.x + tileCenterYPos + cellSize.y >= pos.y;
 			}
-			
 		}
 		// 오른쪽
-		else if (tileWorldPosition.x + cellSize.x >= pos.x && tileWorldPosition.x <= pos.x)
+		else if (tileCenterXPos + cellSize.x >= pos.x && tileCenterXPos <= pos.x)
 		{
 			// 아래
-			if (tileWorldPosition.y - cellSize.y <= pos.y && tileWorldPosition.y >= pos.y)
+			if (tileCenterYPos - cellSize.y <= pos.y && tileCenterYPos >= pos.y)
 			{
-				return pos.x / 2 + tileWorldPosition.y - cellSize.y <= pos.y;
+				return cellSize.y * pos.x + tileCenterYPos - cellSize.y <= pos.y;
 			}
 			// 위쪽
-			else if (tileWorldPosition.y + cellSize.y >= pos.y && tileWorldPosition.y <= pos.y)
+			else if (tileCenterYPos + cellSize.y >= pos.y && pos.y >= tileCenterYPos)
 			{
-				return -pos.x / 2 + tileWorldPosition.y + cellSize.y >= pos.y;
+				return -cellSize.y * pos.x + tileCenterYPos + cellSize.y >= pos.y;
 			}
 		}
 
