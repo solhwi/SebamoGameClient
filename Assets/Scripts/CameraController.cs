@@ -47,7 +47,7 @@ public class CameraController : MonoBehaviour
 		if (isZooming)
 		{
 			float mouseScrollWheelValue = Input.GetAxis("Mouse ScrollWheel");
-			if (MathFloat.Equals(mouseScrollWheelValue, 0.0f) == false)
+			if (CommonFunc.Equals(mouseScrollWheelValue, 0.0f) == false)
 			{
 				UpdateFOV(mouseScrollWheelValue);
 			}

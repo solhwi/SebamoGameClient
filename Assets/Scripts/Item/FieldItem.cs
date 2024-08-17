@@ -93,16 +93,24 @@ public abstract class ReplaceFieldItem : FieldItem
 		ranges = ItemTable.ParseRangeData(rawData.actionParameter);
 	}
 
-	public async virtual Task<bool> Replace(TileDataManager tileDataManager, int tileIndex)
+	public bool IsReplaceable(PlayerDataContainer playerDataContainer, int tileOrder)
 	{
-		if (tileDataManager.IsAlreadyReplaced(tileIndex))
+		int min = playerDataContainer.currentTileOrder + ranges[0];
+		int max = playerDataContainer.currentTileOrder + ranges[1];
+
+		return min <= tileOrder && tileOrder <= max;
+	}
+
+	public async virtual Task<bool> Replace(TileDataManager tileDataManager, int tileOrder)
+	{
+		if (tileDataManager.IsAlreadyReplaced(tileOrder))
 			return false;
 
 		bool bResult = await inventory.TryRemoveItem(fieldItemCode);
 		if (bResult == false)
 			return false;
 
-		tileDataManager.SetTileItem(tileIndex, this);
+		tileDataManager.SetTileItem(tileOrder, this);
 		return true;
 	}
 }

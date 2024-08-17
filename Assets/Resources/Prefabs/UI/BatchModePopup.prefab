@@ -119,7 +119,7 @@ MonoBehaviour:
   canvas: {fileID: 3298674547014149717}
   boardGameCameraController: {fileID: 0}
   tileDataManager: {fileID: 0}
-  tileDataContainer: {fileID: 11400000, guid: 6bff3bcc2db60844cb56ca069bb23b8c, type: 2}
+  playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
 --- !u!1 &1281454723315343180
 GameObject:
   m_ObjectHideFlags: 0

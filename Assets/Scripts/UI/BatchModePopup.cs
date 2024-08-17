@@ -17,10 +17,11 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 
 	[SerializeField] private CameraController boardGameCameraController;
 	[SerializeField] private TileDataManager tileDataManager;
+	[SerializeField] private PlayerDataContainer playerDataContainer;
 
 	private ReplaceFieldItem currentReplaceItem;
 
-	private int currentTileIndex;
+	private int currentTileOrder;
 
 	protected override void Reset()
 	{
@@ -43,10 +44,16 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 
 	public void OnClickBatch()
 	{
-		if (currentTileIndex == -1)
+		if (currentTileOrder == -1)
 			return;
 
-		currentReplaceItem?.Replace(tileDataManager, currentTileIndex).Wait();
+		if (currentReplaceItem == null)
+			return;
+
+		if (currentReplaceItem.IsReplaceable(playerDataContainer, currentTileOrder) == false)
+			return;
+
+		currentReplaceItem?.Replace(tileDataManager, currentTileOrder).Wait();
 		BoardGameManager.Instance.EndReplaceMode(true);
 	}
 
@@ -78,8 +85,8 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		int index = tileDataManager.GetTileIndexFromPos(clickPos);
 		if (index > -1)
 		{
-			currentTileIndex = index;
-			Debug.Log($"{tileDataManager.GetTileOrder(index)}번 타일이 선택됨");
+			currentTileOrder = tileDataManager.GetTileOrder(index);
+			Debug.Log($"{currentTileOrder}번 타일이 선택됨");
 		}
 	}
 }

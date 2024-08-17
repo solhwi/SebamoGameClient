@@ -155,6 +155,8 @@ public class InventoryPopup : BoardGamePopup
 
 		scrollContent.SelectTab((int)TabType.None);
 
+		fieldItemObjectView.UnsetFieldItem();
+
 		base.OnClose();
 	}
 
@@ -169,10 +171,7 @@ public class InventoryPopup : BoardGamePopup
 			string itemCode = hasItemList.FirstOrDefault().Key;
 
 			currentFieldItem = fieldItemFactory.Make<ReplaceFieldItem>(itemCode);
-			if (currentFieldItem != null)
-			{
-				fieldItemObjectView.SetItem(currentFieldItem);
-			}
+			fieldItemObjectView.SetFieldItem(currentFieldItem);
 
 			hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
 		}
@@ -247,10 +246,7 @@ public class InventoryPopup : BoardGamePopup
 		if (currentTabType == TabType.Replace)
 		{
 			currentFieldItem = fieldItemFactory.Make<ReplaceFieldItem>(itemCode);
-			if (currentFieldItem != null)
-			{
-				fieldItemObjectView.SetItem(currentFieldItem);
-			}
+			fieldItemObjectView.SetFieldItem(currentFieldItem);
 		}
 		else
 		{

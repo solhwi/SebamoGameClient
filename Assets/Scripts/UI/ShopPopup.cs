@@ -5,20 +5,6 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MathFloat
-{
-	public static bool IsEqual(float x, float y)
-	{
-		if (x <= y + Mathf.Epsilon &&
-			x >= y - Mathf.Epsilon)
-		{
-			return true;
-		}
-
-		return false;
-	}
-}
-
 public class ShopPopup : BoardGamePopup
 {
 	public enum TabType

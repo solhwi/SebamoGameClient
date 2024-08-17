@@ -45,7 +45,7 @@ public class ScrollContent : MonoBehaviour
 	{
 		float currentPos = scrollRect.horizontal ?  contentRect.anchoredPosition.x : contentRect.anchoredPosition.y;
 
-		if (MathFloat.IsEqual(currentPos, targetAnchoredPos))
+		if (CommonFunc.IsEqual(currentPos, targetAnchoredPos))
 		{
 			StopFocusTarget();
 		}

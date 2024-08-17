@@ -114,20 +114,12 @@ public class TileDataManager : MonoBehaviour
 		tileBoardDatas = MakeBoardData().ToArray();
 	}
 
-	private IEnumerable<int> ToRange(int min, int max)
-	{
-		for(int i = min; i <= max; i++)
-		{
-			yield return i;
-		}
-	}
-
 	public void SetSelectTiles(int min, int max)
 	{
 		min = Mathf.Max(0, min);
 		max = Mathf.Min(max, tileBoardDatas.Length - 1);
 
-		int[] tileIndexes = ToRange(min, max).Select(GetTileIndexByOrder).ToArray();
+		int[] tileIndexes = CommonFunc.ToRange(min, max).Select(GetTileIndexByOrder).ToArray();
 
 		for(int i = 0; i < tileBoardDatas.Length; i++)
 		{
@@ -144,8 +136,9 @@ public class TileDataManager : MonoBehaviour
 		}
 	}
 
-	public bool IsAlreadyReplaced(int index)
+	public bool IsAlreadyReplaced(int tileOrder)
 	{
+		int index = GetTileIndexByOrder(tileOrder);
 		if (index < 0 || dataContainer.tileItems.Length <= index)
 			return true;
 

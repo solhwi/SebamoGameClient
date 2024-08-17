@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemObjectView : ObjectView
 {
-	private FieldItem fieldItem = null;
+	private FieldItem currentFieldItem = null;
 
 	// 아이템은 기존 생성 로직을 타지 않음
 	protected override void InitializeTarget()
@@ -12,26 +12,36 @@ public class ItemObjectView : ObjectView
 		
 	}
 
-	public void SetItem(FieldItem fieldItem)
+	public void UnsetFieldItem()
 	{
-		if (this.fieldItem != null)
+		if (currentFieldItem != null)
 		{
-			if (this.fieldItem.fieldItemCode != fieldItem.fieldItemCode)
-			{
-				this.fieldItem.Destroy();
-			}
-			else
+			currentFieldItem.Destroy();
+		}
+
+		currentFieldItem = null;
+	}
+
+	public void SetFieldItem(FieldItem newFieldItem)
+	{
+		if (currentFieldItem != null)
+		{
+			if (newFieldItem != null && currentFieldItem.fieldItemCode == newFieldItem.fieldItemCode)
 			{
 				return;
 			}
+
+			currentFieldItem.Destroy();
 		}
 			
-		this.fieldItem = fieldItem;
-
-		originObj = fieldItem.Create(cameraArm, spawnLocalPos, spawnLocalRot);
-		if (originObj != null)
+		currentFieldItem = newFieldItem;
+		if (currentFieldItem != null)
 		{
-			originObj.SetActive(true);
+			originObj = newFieldItem.Create(cameraArm, spawnLocalPos, spawnLocalRot);
+			if (originObj != null)
+			{
+				originObj.SetActive(true);
+			}
 		}
 	}
 }
