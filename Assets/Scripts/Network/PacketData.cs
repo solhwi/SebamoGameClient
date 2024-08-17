@@ -35,6 +35,13 @@ public class PlayerPacketData : PacketData
 }
 
 [System.Serializable]
+public class TilePacketData : PacketData
+{
+
+}
+
+
+[System.Serializable]
 public class PacketData
 {
 

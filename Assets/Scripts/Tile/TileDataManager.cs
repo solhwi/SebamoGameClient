@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -145,15 +146,20 @@ public class TileDataManager : MonoBehaviour
 		return dataContainer.tileItems[index] != null && dataContainer.tileItems[index] != string.Empty;
 	}
 
-	public void SetTileItem(int index, FieldItem fieldItem)
+	public async Task<bool> TrySetTileItem(int tileOrder, FieldItem fieldItem)
 	{
-		if (index < 0 || fieldItem == null)
-			return;
+		if (tileOrder < 0 || fieldItem == null)
+			return false;
 
-		dataContainer.SetTileItem(index, fieldItem.fieldItemCode);
+		int index = GetTileIndexByOrder(tileOrder);
+		bool isSuccess = await dataContainer.TrySetTileItem(index, fieldItem.fieldItemCode);
+		if (isSuccess == false)
+			return false;
+
 		fieldItemDictionary[index] = fieldItem;
-
 		fieldItem.Create(tileBoardDatas[index]);
+
+		return true;
 	}
 
 	public int GetTileIndexFromPos(Vector2 tilePos)
@@ -204,7 +210,8 @@ public class TileDataManager : MonoBehaviour
 			if (fieldItem == null)
 				continue;
 
-			SetTileItem(i, fieldItem);
+			fieldItemDictionary[i] = fieldItem;
+			fieldItem.Create(tileBoardDatas[i]);
 
 			yield return null;
 		}

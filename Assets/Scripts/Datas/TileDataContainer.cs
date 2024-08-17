@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -44,15 +45,20 @@ public class TileDataContainer : ScriptableObject
 		EditorUtility.SetDirty(this);
 	}
 
-	public void SetTileItem(int index, string itemCode)
+	public async Task<bool> TrySetTileItem(int index, string itemCode)
 	{
 		if (tileItems.Length <= index)
-			return;
+			return false;
+
+		bool isSuccess = await HttpNetworkManager.Instance.TryPostTileData();
+		if (isSuccess == false)
+			return false;
 
 		tileItems[index] = itemCode;
+		return true;
 	}
 
-    public Vector3 GetGridCellSize(TileType type)
+	public Vector3 GetGridCellSize(TileType type)
     {
         switch(type)
         {

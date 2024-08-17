@@ -485,7 +485,7 @@ RectTransform:
   - {fileID: 2675491763901289515}
   - {fileID: 4508370018271729557}
   - {fileID: 4196596179996637772}
-  m_Father: {fileID: 1903932780350118481}
+  m_Father: {fileID: 257792098037174447}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -748,7 +748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a301d22a5f95804b9337a22b632b1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardGameManager: {fileID: 0}
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   boardGameCameraController: {fileID: 0}
@@ -996,8 +995,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 257792098037174447}
-  - {fileID: 5361094001464409962}
-  - {fileID: 5798706933254542273}
   - {fileID: 3863641508176725740}
   - {fileID: 3596979285402664391}
   m_Father: {fileID: 4275855652049471100}
@@ -1290,11 +1287,13 @@ RectTransform:
   - {fileID: 6740823537001420312}
   - {fileID: 3896460163952062502}
   - {fileID: 7693516524559284953}
+  - {fileID: 5361094001464409962}
+  - {fileID: 5798706933254542273}
   m_Father: {fileID: 1903932780350118481}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 5}
   m_SizeDelta: {x: 0, y: 230}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &6482281958100775293
@@ -1325,7 +1324,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 4baf84dedece9ca4e995168d1142f4bf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2543,7 +2542,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1903932780350118481}
+    m_TransformParent: {fileID: 257792098037174447}
     m_Modifications:
     - target: {fileID: 1071501085811077665, guid: a6971a1ccc8333242bee923441d31cc8, type: 3}
       propertyPath: m_Pivot.x

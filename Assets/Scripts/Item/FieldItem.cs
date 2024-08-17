@@ -110,8 +110,7 @@ public abstract class ReplaceFieldItem : FieldItem
 		if (bResult == false)
 			return false;
 
-		tileDataManager.SetTileItem(tileOrder, this);
-		return true;
+		return await tileDataManager.TrySetTileItem(tileOrder, this);
 	}
 }
 

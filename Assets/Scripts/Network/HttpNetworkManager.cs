@@ -23,6 +23,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Inventory inventory;
+	[SerializeField] private TileDataContainer tileDataContainer;
 
 	[SerializeField] private float updateFrequency = 60.0f;
 
@@ -95,6 +96,22 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 		playerDataContainer.SetMyPacketData(receiveData);
 		inventory.SetMyPacketData(receiveData);
+		return true;
+	}
+
+	public async Task<bool> TryGetTileData()
+	{
+		if (isOnNetworkMode == false)
+			return true;
+
+		return true;
+	}
+
+	public async Task<bool> TryPostTileData()
+	{
+		if (isOnNetworkMode == false)
+			return true;
+
 		return true;
 	}
 
