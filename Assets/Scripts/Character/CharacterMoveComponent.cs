@@ -23,16 +23,16 @@ public class CharacterMoveComponent : BoardGameSubscriber
 			Vector3 startPos = transform.position;
 
 			// 방향 전환
-			ProcessFlip(startPos, tile.tileWorldPosition);
+			ProcessFlip(startPos, tile.tilePlayerPosition);
 
-			Debug.Log($"start move {startPos} > {tile.tileWorldPosition} [{Time.time}]");
+			Debug.Log($"start move {startPos} > {tile.tilePlayerPosition} [{Time.time}]");
 
 			float t = 0.0f;
 			float moveTime = playerDataContainer.moveTimeByOneTile;
 			while (t < moveTime)
 			{
 				t += Time.deltaTime;
-				var currentPos = Vector2.Lerp(startPos, tile.tileWorldPosition, t);
+				var currentPos = Vector2.Lerp(startPos, tile.tilePlayerPosition, t);
 
 				yield return null;
 
@@ -40,7 +40,7 @@ public class CharacterMoveComponent : BoardGameSubscriber
 				SetPosition(currentPos);
 			}
 
-			Debug.Log($"end move {startPos} > {tile.tileWorldPosition} [{Time.time}]");
+			Debug.Log($"end move {startPos} > {tile.tilePlayerPosition} [{Time.time}]");
 		}
 
 		characterView.DoIdle();

@@ -240,7 +240,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		}
 
 		var currentPlayerTileData = tileDataManager.GetTileDataByOrder(currentPlayerTileOrderIndex);
-		return currentPlayerTileData.tileWorldPosition;
+		return currentPlayerTileData.tilePlayerPosition;
 	}
 
 	public void StartReplaceMode(ReplaceFieldItem replaceItem)

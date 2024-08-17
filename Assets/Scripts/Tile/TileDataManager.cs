@@ -8,6 +8,7 @@ public struct WorldTileData
 {
 	public int index;
 	public Vector2 tileWorldPosition;
+	public Vector2 tilePlayerPosition;
 	public Vector2 tilePlaneWorldPosition;
 	public Vector3Int tilePosition;
 	public TileData tileData;
@@ -19,6 +20,7 @@ public struct WorldTileData
 		this.index = index;
 		this.cellSize = cellSize;
 		this.tileWorldPosition = ConvertWorldPos(tilePos, cellSize);
+		this.tilePlayerPosition = new Vector2(tileWorldPosition.x, tileWorldPosition.y + cellSize.y / 2);
 		this.tilePlaneWorldPosition = ConvertPlaneWorldPos(tilePos);
 		this.tilePosition = tilePos;
 		this.tileData = tileData;
