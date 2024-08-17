@@ -60,6 +60,7 @@ public abstract class FieldItem
 	public async virtual Task Use()
 	{
 		await Task.Yield();
+		Destroy();
 	}
 }
 
@@ -79,7 +80,7 @@ public abstract class DropFieldItem : FieldItem
 			await inventory.TryAddItem(fieldItemCode);
 		}
 
-		Destroy();
+		await base.Use();
 	}
 }
 
@@ -94,15 +95,14 @@ public abstract class ReplaceFieldItem : FieldItem
 
 	public async virtual Task<bool> Replace(TileDataManager tileDataManager, int tileIndex)
 	{
-		// bool bResult = await inventory.TryRemoveItem(fieldItemCode);
-		// if (bResult == false)
-			// return false;
+		if (tileDataManager.IsAlreadyReplaced(tileIndex))
+			return false;
 
-		bool bResult = tileDataManager.TrySetTileItem(tileIndex, fieldItemCode);
+		bool bResult = await inventory.TryRemoveItem(fieldItemCode);
 		if (bResult == false)
 			return false;
 
-		Create(tileDataManager.tileBoardDatas[tileIndex]);
+		tileDataManager.SetTileItem(tileIndex, this);
 		return true;
 	}
 }

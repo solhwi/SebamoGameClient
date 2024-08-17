@@ -44,13 +44,12 @@ public class TileDataContainer : ScriptableObject
 		EditorUtility.SetDirty(this);
 	}
 
-	public bool TrySetTileItem(int index, string itemCode)
+	public void SetTileItem(int index, string itemCode)
 	{
 		if (tileItems.Length <= index)
-			return false;
+			return;
 
 		tileItems[index] = itemCode;
-		return true;
 	}
 
     public Vector3 GetGridCellSize(TileType type)

@@ -142,9 +142,23 @@ public class TileDataManager : MonoBehaviour
 		}
 	}
 
-	public bool TrySetTileItem(int index, string itemCode)
+	public bool IsAlreadyReplaced(int index)
 	{
-		return dataContainer.TrySetTileItem(index, itemCode);
+		if (index < 0 || dataContainer.tileItems.Length <= index)
+			return true;
+
+		return dataContainer.tileItems[index] != null && dataContainer.tileItems[index] != string.Empty;
+	}
+
+	public void SetTileItem(int index, FieldItem fieldItem)
+	{
+		if (index < 0 || fieldItem == null)
+			return;
+
+		dataContainer.SetTileItem(index, fieldItem.fieldItemCode);
+		fieldItemDictionary[index] = fieldItem;
+
+		fieldItem.Create(tileBoardDatas[index]);
 	}
 
 	public int GetTileIndexFromPos(Vector2 tilePos)
@@ -175,6 +189,14 @@ public class TileDataManager : MonoBehaviour
 		return tileBoardDatas[tileIndex];
 	}
 
+	public int GetTileOrder(int tileIndex)
+	{
+		if (dataContainer.tileOrders.Length <= tileIndex)
+			return -1;
+
+		return dataContainer.tileOrders[tileIndex];
+	}
+
 	public IEnumerator PrepareTile()
 	{
 		for (int i = 0; i < dataContainer.tileItems.Length; i++)
@@ -187,10 +209,7 @@ public class TileDataManager : MonoBehaviour
 			if (fieldItem == null)
 				continue;
 
-			fieldItemDictionary[i] = fieldItem;
-
-			var boardData = tileBoardDatas[i];
-			fieldItem.Create(boardData);
+			SetTileItem(i, fieldItem);
 
 			yield return null;
 		}
