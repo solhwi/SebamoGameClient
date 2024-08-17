@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 7772688054758330152}
   - component: {fileID: 4387024053706345401}
   - component: {fileID: 4328793880200928316}
-  - component: {fileID: 4138448045326830286}
+  - component: {fileID: 6464654133564208061}
   m_Layer: 0
   m_Name: UINPCView
   m_TagString: Untagged
@@ -552,7 +552,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &4138448045326830286
+--- !u!114 &6464654133564208061
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -561,7 +561,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1946210483227626149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d46c8cc3c2f6da43bed887dd11d7b65, type: 3}
+  m_Script: {fileID: 11500000, guid: 15896bf68fa10e045b690f2da0fd2315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
@@ -571,6 +571,7 @@ MonoBehaviour:
   spawnLocalRot: {x: 0, y: 180, z: 0}
   isFixedPosition: 1
   isFixedRotation: 1
+  startStateName: Thankful
 --- !u!1 &2233708043810653688
 GameObject:
   m_ObjectHideFlags: 0
