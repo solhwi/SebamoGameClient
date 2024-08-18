@@ -34,7 +34,7 @@ public class UIManager : Singleton<UIManager>
 			var popupObj = iterator.Value;
 
 			// 재활용 팝업이 아닌 경우 바로 ACTIVE 처리
-			if (popupObj.isRecyclable == false)
+			if (popupObj.IsRecyclable == false)
 			{
 				popupObj.gameObject.SetActive(false);
 				activePopupDictionary.Add(popupType, new List<BoardGamePopup>() { popupObj });
@@ -58,7 +58,7 @@ public class UIManager : Singleton<UIManager>
 			}
 
 			// 살아있는 팝업이 없는 경우, 재활용 팝업이라면 새로 만듦
-			if (newPopup == null && popupObj.isRecyclable)
+			if (newPopup == null && popupObj.IsRecyclable)
 			{
 				newPopup = Instantiate(popupObj);
 				activePopupDictionary[popupType].Add(newPopup);

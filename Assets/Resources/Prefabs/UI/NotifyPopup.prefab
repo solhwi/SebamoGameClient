@@ -2882,8 +2882,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBB34\uC2A8 \uC0DD\uAC01\uC744 \uD558\uB294\uC9C0 \uC54C \uC218 \uC5C6\uB294
-    \uD45C\uC815"
+  m_Text: "\uD14C\uC774\uC2A4\uD2B8 \uB313 \uD551\uD06C \uBCA0\uB188"
 --- !u!114 &6783396599083090446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3394,7 +3393,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &8189149500756592890
 MonoBehaviour:
@@ -3564,7 +3563,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC720\uCF54 \uD398\uC774\uC2A4"
+  m_Text: "\uD551\uD06C \uBCA0\uB188 \uB2E8\uAC80"
 --- !u!1 &7623950604876717749
 GameObject:
   m_ObjectHideFlags: 0
@@ -3975,7 +3974,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f6384b63e35b76f46b5aacb73e7ed442, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 96520154f31624f4b96c50c609c5a51a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
