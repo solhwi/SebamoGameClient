@@ -89,6 +89,7 @@ public class NotifyPopup : BoardGamePopup
 		base.Reset();
 
 		popupType = PopupType.Notify;
+		isRecyclable = true;
 	}
 
 	public override void OnOpen(UIParameter parameter = null)

@@ -56,7 +56,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	private ReplaceFieldItem currentReplaceFieldItem = null;
 
-	private void Awake()
+	protected override void Awake()
 	{
 		stateFuncMap = new Dictionary<GameState, Func<IEnumerator>>()
 		{

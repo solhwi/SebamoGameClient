@@ -21,6 +21,8 @@ public class PressEventTrigger : MonoBehaviour, IPointerDownHandler, IPointerUpH
 		if (pressingTime > pressCheckTime)
 		{
 			onEndPress?.Invoke(pressCheckTime);
+
+			isProgressing = false;
 			pressingTime = 0.0f;
 		}
 	}

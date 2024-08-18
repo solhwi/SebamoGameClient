@@ -20,6 +20,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 	}
 
 	private static T instance;
+
+	protected virtual void Awake()
+	{
+
+	}
 }
 
 public class ResourceManager : Singleton<ResourceManager>
