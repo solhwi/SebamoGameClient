@@ -267,7 +267,7 @@ public class InventoryPopup : BoardGamePopup
 		if (itemCode == null || itemCode == string.Empty)
 			return;
 
-		UIManager.Instance.TryOpen(PopupType.Notify, new SellUIParameter(itemCode, OnClickSell));
+		UIManager.Instance.TryOpen(PopupType.ItemToolTip, new SellUIParameter(itemCode, OnClickSell));
 	}
 
 	private async Task OnClickSell(string itemCode, int count)

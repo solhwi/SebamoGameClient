@@ -3346,7 +3346,7 @@ GameObject:
   - component: {fileID: 5957806356329445653}
   - component: {fileID: 5836611841804382213}
   m_Layer: 0
-  m_Name: NotifyPopup
+  m_Name: ItemToolTipPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3417,7 +3417,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5957806356329445653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3464,23 +3464,20 @@ MonoBehaviour:
   coinCompareText: {fileID: 8039539008461969632}
   itemCompareText: {fileID: 3762046862786523093}
   notifyTitleDictionary:
-    m_keys: 00000000010000000200000003000000
+    m_keys: 000000000100000002000000
     m_values:
-    - "\uAD6C\uB9E4 \uD655\uC778"
     - "\uC544\uC774\uD15C \uC124\uBA85"
-    - "\uBF51\uAE30 \uD655\uC778"
+    - "\uAD6C\uB9E4 \uD655\uC778"
     - "\uD310\uB9E4 \uD655\uC778"
   notifyConfirmTextDictionary:
-    m_keys: 00000000010000000200000003000000
+    m_keys: 000000000100000002000000
     m_values:
-    - "\\n\uD574\uB2F9 \uC544\uC774\uD15C\uC744 \uAD6C\uB9E4\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
     - 
-    - "\\n\uBF51\uAE30\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
+    - "\\n\uD574\uB2F9 \uC544\uC774\uD15C\uC744 \uAD6C\uB9E4\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
     - "\\n\uD574\uB2F9 \uC544\uC774\uD15C\uC744 \uD310\uB9E4\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
   notifyConfirmButtonTextDictionary:
-    m_keys: 00000000010000000200000003000000
+    m_keys: 000000000100000002000000
     m_values:
-    - "\uD655\uC778"
     - 
     - "\uD655\uC778"
     - "\uD310\uB9E4"

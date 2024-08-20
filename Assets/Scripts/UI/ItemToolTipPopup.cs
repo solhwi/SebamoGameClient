@@ -5,12 +5,11 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum NotifyType
+public enum ToolTipType
 {
-	ShopBuy = 0,
-	ItemToolTip = 1,
-	Random = 2,
-	Sell = 3,
+	ItemToolTip = 0,
+	ShopBuy = 1,
+	Sell = 2,
 }
 
 public class ItemToolTipParameter : UIParameter
@@ -48,9 +47,9 @@ public class SellUIParameter : UIParameter
 }
 
 [System.Serializable]
-public class NotifyStringDictionary : SerializableDictionary<NotifyType, string> { }
+public class ToolTipStringDictionary : SerializableDictionary<ToolTipType, string> { }
 
-public class NotifyPopup : BoardGamePopup
+public class ItemToolTipPopup : BoardGamePopup
 {
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private ItemTable itemTable;
@@ -71,15 +70,16 @@ public class NotifyPopup : BoardGamePopup
 	[SerializeField] private CompareTextComponent coinCompareText;
 	[SerializeField] private CompareTextComponent itemCompareText;
 
-	[SerializeField] private NotifyStringDictionary notifyTitleDictionary = new NotifyStringDictionary();
-	[SerializeField] private NotifyStringDictionary notifyConfirmTextDictionary = new NotifyStringDictionary();
-	[SerializeField] private NotifyStringDictionary notifyConfirmButtonTextDictionary = new NotifyStringDictionary();
+	[SerializeField] private ToolTipStringDictionary notifyTitleDictionary = new ToolTipStringDictionary();
+	[SerializeField] private ToolTipStringDictionary notifyConfirmTextDictionary = new ToolTipStringDictionary();
+	[SerializeField] private ToolTipStringDictionary notifyConfirmButtonTextDictionary = new ToolTipStringDictionary();
 
 	private string currentItemCode;
 	private int currentItemPrice;
 	private int selectedCount;
 	private int maxSelectableCount;
-	private NotifyType currentNotifyType;
+
+	private ToolTipType currentToolTipType;
 
 	private Func<string, int, Task> onClickConfirm;
 	private Action onClickCancel;
@@ -88,7 +88,7 @@ public class NotifyPopup : BoardGamePopup
 	{
 		base.Reset();
 
-		popupType = PopupType.Notify;
+		popupType = PopupType.ItemToolTip;
 	}
 
 	public override void OnOpen(UIParameter parameter = null)
@@ -102,7 +102,7 @@ public class NotifyPopup : BoardGamePopup
 			var data = shopBuyParameter.shopItemData;
 			if (data != null)
 			{
-				currentNotifyType = NotifyType.ShopBuy;
+				currentToolTipType = ToolTipType.ShopBuy;
 				currentItemCode = data.key;
 				currentItemPrice = data.price;
 
@@ -114,12 +114,12 @@ public class NotifyPopup : BoardGamePopup
 		}
 		else if (parameter is ItemToolTipParameter itemToolTipParameter)
 		{
-			currentNotifyType = NotifyType.ItemToolTip;
+			currentToolTipType = ToolTipType.ItemToolTip;
 			currentItemCode = itemToolTipParameter.itemCode;
 		}
 		else if (parameter is SellUIParameter sellParameter)
 		{
-			currentNotifyType = NotifyType.Sell;
+			currentToolTipType = ToolTipType.Sell;
 			currentItemCode = sellParameter.itemCode;
 			currentItemPrice = itemTable.GetItemSellPrice(currentItemCode);
 
@@ -144,13 +144,13 @@ public class NotifyPopup : BoardGamePopup
 
 	private void Refresh()
 	{
-		titleText.text = notifyTitleDictionary[currentNotifyType].Replace("\\n", "\n");
-		buyConfirmText.text = notifyConfirmTextDictionary[currentNotifyType].Replace("\\n", "\n");
-		confirmButtonText.text = notifyConfirmButtonTextDictionary[currentNotifyType].Replace("\\n", "\n");
+		titleText.text = notifyTitleDictionary[currentToolTipType].Replace("\\n", "\n");
+		buyConfirmText.text = notifyConfirmTextDictionary[currentToolTipType].Replace("\\n", "\n");
+		confirmButtonText.text = notifyConfirmButtonTextDictionary[currentToolTipType].Replace("\\n", "\n");
 
-		switch (currentNotifyType)
+		switch (currentToolTipType)
 		{
-			case NotifyType.ShopBuy:
+			case ToolTipType.ShopBuy:
 				itemIconImage.gameObject.SetActive(true);
 				itemNameText.gameObject.SetActive(true);
 				itemDescriptionText.gameObject.SetActive(true);
@@ -165,7 +165,7 @@ public class NotifyPopup : BoardGamePopup
 
 				break;
 
-			case NotifyType.ItemToolTip:
+			case ToolTipType.ItemToolTip:
 				itemIconImage.gameObject.SetActive(true);
 				itemNameText.gameObject.SetActive(true);
 				itemDescriptionText.gameObject.SetActive(true);
@@ -176,7 +176,7 @@ public class NotifyPopup : BoardGamePopup
 				confirmButtonObj.SetActive(false);
 				break;
 
-			case NotifyType.Sell:
+			case ToolTipType.Sell:
 				itemIconImage.gameObject.SetActive(true);
 				itemNameText.gameObject.SetActive(true);
 				itemDescriptionText.gameObject.SetActive(true);

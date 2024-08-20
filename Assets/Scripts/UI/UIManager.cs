@@ -7,7 +7,7 @@ public enum PopupType
 {
 	Shop,
 	Inventory,
-	Notify,
+	ItemToolTip,
 	BatchMode,
 }
 

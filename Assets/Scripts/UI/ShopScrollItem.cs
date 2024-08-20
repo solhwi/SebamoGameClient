@@ -51,7 +51,7 @@ public class ShopScrollItem : MonoBehaviour
 
 	public void OnClickBuy()
 	{
-		UIManager.Instance.TryOpen(PopupType.Notify, new ShopBuyUIParameter(myShopItemData, onBuyItem));
+		UIManager.Instance.TryOpen(PopupType.ItemToolTip, new ShopBuyUIParameter(myShopItemData, onBuyItem));
 	}
 
 	public void SetSelect(bool isSelect)

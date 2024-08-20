@@ -1562,10 +1562,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7462867620382040878, guid: 8b0fa00ad14ded54bb28c65acee260e9, type: 3}
       propertyPath: m_Name
-      value: NotifyPopup
+      value: ItemToolTipPopup
       objectReference: {fileID: 0}
     - target: {fileID: 7462867620382040878, guid: 8b0fa00ad14ded54bb28c65acee260e9, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189149500756592890, guid: 8b0fa00ad14ded54bb28c65acee260e9, type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8230208330580383366, guid: 8b0fa00ad14ded54bb28c65acee260e9, type: 3}

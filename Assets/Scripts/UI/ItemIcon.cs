@@ -73,7 +73,7 @@ public class ItemIcon : MonoBehaviour
 		}
 		else
 		{
-			UIManager.Instance.TryOpen(PopupType.Notify, new ItemToolTipParameter(itemCode));
+			UIManager.Instance.TryOpen(PopupType.ItemToolTip, new ItemToolTipParameter(itemCode));
 		}
 	}
 
