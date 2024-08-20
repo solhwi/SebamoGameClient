@@ -140,10 +140,19 @@ public class ShopPopup : BoardGamePopup
 	{
 		int price = itemTable.GetItemBuyPrice(itemCode);
 
+		string notifyTextStr = string.Empty;
+
 		bool isSuccess = await inventory.TryRemoveItem(ItemTable.Coin, price * buyCount);
 		if (isSuccess)
 		{
 			inventory.TryAddItem(itemCode, buyCount).Wait();
+			notifyTextStr = "구매가 완료되었습니다.";
 		}
+		else
+		{
+			notifyTextStr = "구매에 실패하였습니다.";
+		}
+
+		UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter(notifyTextStr));
 	}
 }
