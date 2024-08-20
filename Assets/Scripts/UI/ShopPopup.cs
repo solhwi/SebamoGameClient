@@ -19,6 +19,7 @@ public class ShopPopup : BoardGamePopup
 	[SerializeField] private ScrollContent scrollContent;
 	[SerializeField] private Text npcText;
 	[SerializeField] private Text coinText;
+	[SerializeField] private string npcDefaultText = "안녕하세요\r\n어서오세요.";
 
 	private List<ShopScrollItem> shopItems = new List<ShopScrollItem>();
 	private int normalItemIndex = 0;
@@ -36,7 +37,7 @@ public class ShopPopup : BoardGamePopup
 
 		normalItemIndex = itemTable.sortedShopItemList.FindIndex(i => i.isRandom == 0);
 
-		npcText.text = string.Empty;
+		npcText.text = npcDefaultText;
 
 		scrollContent.onChangedTab += OnChangedTab;
 		scrollContent.onUpdateContents += OnUpdateContents;
