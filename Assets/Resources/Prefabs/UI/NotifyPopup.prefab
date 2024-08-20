@@ -974,7 +974,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\n\uD574\uB2F9 \uC544\uC774\uD15C\uC744 \uD310\uB9E4\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
+  m_Text: "\n\uAD6C\uB9E4\uAC00 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
 --- !u!1 &2448925477921312244
 GameObject:
   m_ObjectHideFlags: 0
@@ -3252,7 +3252,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD310\uB9E4 \uD655\uC778"
+  m_Text: "\uC54C\uB9BC"
 --- !u!1 &7406386228544289146
 GameObject:
   m_ObjectHideFlags: 0
@@ -3449,7 +3449,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupType: 2
   canvas: {fileID: 5856884632462948127}
-  isRecyclable: 1
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
   titleText: {fileID: 2311651264250437282}

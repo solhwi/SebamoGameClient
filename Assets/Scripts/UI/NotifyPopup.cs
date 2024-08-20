@@ -84,8 +84,6 @@ public class NotifyPopup : BoardGamePopup
 	private Func<string, int, Task> onClickConfirm;
 	private Action onClickCancel;
 
-	public override bool IsRecyclable => true;
-
 	protected override void Reset()
 	{
 		base.Reset();

@@ -20,50 +20,12 @@ public class UIManager : Singleton<UIManager>
 	public class PopupDictionary : SerializableDictionary<PopupType, BoardGamePopup> { }
 	[SerializeField] private PopupDictionary popupDictionary = new PopupDictionary();
 
-	private Dictionary<PopupType, List<BoardGamePopup>> activePopupDictionary = new Dictionary<PopupType, List<BoardGamePopup>>();
-
 	private Stack<BoardGamePopup> popupStack = new Stack<BoardGamePopup>();
-
-	protected override void Awake()
-	{
-		activePopupDictionary.Clear();
-
-		foreach (var iterator in popupDictionary)
-		{
-			var popupType = iterator.Key;
-			var popupObj = iterator.Value;
-
-			// 재활용 팝업이 아닌 경우 바로 ACTIVE 처리
-			if (popupObj.IsRecyclable == false)
-			{
-				popupObj.gameObject.SetActive(false);
-				activePopupDictionary.Add(popupType, new List<BoardGamePopup>() { popupObj });
-			}
-			else
-			{
-				activePopupDictionary.Add(popupType, new List<BoardGamePopup>());
-			}
-		}
-	}
 
 	public void TryOpen(PopupType popupType, UIParameter parameter = null)
 	{
-		if (popupDictionary.TryGetValue(popupType, out var popupObj))
+		if (popupDictionary.TryGetValue(popupType, out var newPopup))
 		{
-			BoardGamePopup newPopup = null;
-			// 살아있는 팝업 중 1차로 안 열려있는 팝업을 가져옴
-			if (activePopupDictionary.TryGetValue(popupType, out List<BoardGamePopup> popups))
-			{
-				newPopup = popups.Find(p => p.IsOpen == false);
-			}
-
-			// 살아있는 팝업이 없는 경우, 재활용 팝업이라면 새로 만듦
-			if (newPopup == null && popupObj.IsRecyclable)
-			{
-				newPopup = Instantiate(popupObj);
-				activePopupDictionary[popupType].Add(newPopup);
-			}
-
 			if (newPopup != null)
 			{
 				newPopup.Open(popupRootCanvas, popupStack.Count);
@@ -142,9 +104,9 @@ public class UIManager : Singleton<UIManager>
 
 	public bool IsOpen(PopupType popupType)
 	{
-		if (activePopupDictionary.TryGetValue(popupType, out List<BoardGamePopup> popups))
+		if (popupDictionary.TryGetValue(popupType, out var popup))
 		{
-			return popups.Any(p => p.IsOpen);
+			return popup.IsOpen;
 		}
 
 		return false;
