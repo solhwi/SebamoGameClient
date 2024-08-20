@@ -36,6 +36,8 @@ public class ShopPopup : BoardGamePopup
 
 		normalItemIndex = itemTable.sortedShopItemList.FindIndex(i => i.isRandom == 0);
 
+		npcText.text = string.Empty;
+
 		scrollContent.onChangedTab += OnChangedTab;
 		scrollContent.onUpdateContents += OnUpdateContents;
 		scrollContent.onGetItemCount += GetItemCount;
