@@ -142,9 +142,9 @@ public class UIManager : Singleton<UIManager>
 
 	public bool IsOpen(PopupType popupType)
 	{
-		if (popupDictionary.TryGetValue(popupType, out BoardGamePopup popupObj))
+		if (activePopupDictionary.TryGetValue(popupType, out List<BoardGamePopup> popups))
 		{
-			return popupObj.IsOpen;
+			return popups.Any(p => p.IsOpen);
 		}
 
 		return false;
