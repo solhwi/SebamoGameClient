@@ -12,6 +12,12 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 
 	[SerializeField] private Text statusText = null;
 
+	public override IEnumerator OnDoTileAction(WorldTileData tileData, int currentOrder, int nextOrder)
+	{
+		yield return null;
+		statusText.text = $"현재 위치 : {playerDataContainer.currentTileOrder}";
+	}
+
 	public override IEnumerator OnMove(int currentOrder, int diceCount)
 	{
 		yield return null;

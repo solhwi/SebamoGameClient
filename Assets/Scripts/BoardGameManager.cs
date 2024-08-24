@@ -9,7 +9,7 @@ public abstract class BoardGameSubscriber : MonoBehaviour
 	public virtual IEnumerator OnRollDice(int diceCount) { yield return null; }
 	public virtual IEnumerator OnMove(int currentOrder, int diceCount) { yield return null; }
 	public virtual IEnumerator OnGetItem(FieldItem fieldItem) { yield return null; }
-	public virtual IEnumerator OnDoTileAction(SpecialTileBase tile, int currentOrder, int nextOrderIndex) { yield return null; }
+	public virtual IEnumerator OnDoTileAction(WorldTileData tileData, int currentOrder, int nextOrder) { yield return null; }
 }
 
 public class BoardGameManager : Singleton<BoardGameManager>
@@ -205,17 +205,18 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	private IEnumerator ProcessTileAction()
 	{
 		int currentOrder = playerDataContainer.currentTileOrder;
+		var tileData = tileDataManager.GetTileData(currentOrder);
 
 		var specialTile = tileDataManager.GetCurrentSpecialTile(currentOrder);
 		if (specialTile != null)
 		{
 			yield return specialTile.DoAction();
 
-			int nextOrderIndex = playerDataContainer.currentTileOrder;
+			int nextOrder = playerDataContainer.currentTileOrder;
 
 			foreach (var subscriber in subscribers)
 			{
-				yield return subscriber?.OnDoTileAction(specialTile, currentOrder, nextOrderIndex);
+				yield return subscriber?.OnDoTileAction(tileData, currentOrder, nextOrder);
 			}
 		}
 

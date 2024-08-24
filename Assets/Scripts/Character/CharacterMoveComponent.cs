@@ -46,6 +46,39 @@ public class CharacterMoveComponent : BoardGameSubscriber
 		characterView.DoIdle();
 	}
 
+	public override IEnumerator OnDoTileAction(WorldTileData tileData, int currentOrder, int nextOrder)
+	{
+		characterView.DoRun();
+
+		var tiles = tileDataManager.GetTilePath(currentOrder, nextOrder - currentOrder);
+		foreach (var tile in tiles)
+		{
+			Vector3 startPos = transform.position;
+
+			// 방향 전환
+			ProcessFlip(startPos, tile.tilePlayerPosition);
+
+			Debug.Log($"start move {startPos} > {tile.tilePlayerPosition} [{Time.time}]");
+
+			float t = 0.0f;
+			float moveTime = playerDataContainer.moveTimeByOneTile;
+			while (t < moveTime)
+			{
+				t += Time.deltaTime * 2;
+				var currentPos = Vector2.Lerp(startPos, tile.tilePlayerPosition, t);
+
+				yield return null;
+
+				// 실제 이동
+				SetPosition(currentPos);
+			}
+
+			Debug.Log($"end move {startPos} > {tile.tilePlayerPosition} [{Time.time}]");
+		}
+
+		characterView.DoIdle();
+	}
+
 	private void ProcessFlip(Vector3 startPos, Vector3 endPos)
 	{
 		bool isFlipX = false;
