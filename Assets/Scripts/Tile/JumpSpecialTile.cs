@@ -8,8 +8,20 @@ public class JumpSpecialTile : SpecialTileBase
 {
 	[SerializeField] private int count;
 
-	public async override Task DoAction()
+	protected override void Reset()
+	{
+		base.Reset();
+
+		specialTileType = SpecialTileType.Jump;
+	}
+
+	public async override Task DoAction(TileDataManager tileDataManager)
 	{
 		await playerDataContainer.AddCurrentOrder(count);
+	}
+
+	public async override Task OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder)
+	{
+		await Task.Yield();
 	}
 }

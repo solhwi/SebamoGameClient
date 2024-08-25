@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RollBackSpecialTile", menuName = "2D/Tiles/RollBack Special Tile")]
-public class RollBackSpecialTile : SpecialTileBase
+[CreateAssetMenu(fileName = "TeleportSpecialTile", menuName = "2D/Tiles/Teleport Special Tile")]
+public class TeleportSpecialTile : SpecialTileBase
 {
 	[SerializeField] private int count;
 
@@ -12,12 +12,12 @@ public class RollBackSpecialTile : SpecialTileBase
 	{
 		base.Reset();
 
-		specialTileType = SpecialTileType.RollBack;
+		specialTileType = SpecialTileType.Teleport;
 	}
 
-	public override async Task DoAction(TileDataManager tileDataManager)
+	public async override Task DoAction(TileDataManager tileDataManager)
 	{
-		await playerDataContainer.AddCurrentOrder(-count);
+		await playerDataContainer.AddCurrentOrder(count);
 	}
 
 	public async override Task OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder)

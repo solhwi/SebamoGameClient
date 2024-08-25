@@ -12,16 +12,16 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 
 	[SerializeField] private Text statusText = null;
 
-	public override IEnumerator OnDoTileAction(WorldTileData tileData, int currentOrder, int nextOrder)
+	public override IEnumerator OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder)
 	{
 		yield return null;
-		statusText.text = $"현재 위치 : {playerDataContainer.currentTileOrder}";
+		statusText.text = $"타일 처리 후 위치 : {playerDataContainer.currentTileOrder}";
 	}
 
 	public override IEnumerator OnMove(int currentOrder, int diceCount)
 	{
 		yield return null;
-		statusText.text = $"현재 위치 : {playerDataContainer.currentTileOrder}";
+		statusText.text = $"일반 이동 후 위치 : {playerDataContainer.currentTileOrder}";
 	}
 
 	public override IEnumerator OnRollDice(int diceCount)

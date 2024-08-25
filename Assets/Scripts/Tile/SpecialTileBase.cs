@@ -5,16 +5,29 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+public enum SpecialTileType
+{
+	Jump,
+	RollBack,
+	Teleport,
+}
+
 public abstract class SpecialTileBase : Tile
 {
+	[SerializeField] public SpecialTileType specialTileType;
 	[SerializeField] protected PlayerDataContainer playerDataContainer;
 
-	public async virtual Task DoAction()
+	public async virtual Task DoAction(TileDataManager tileDataManager)
 	{
 		await Task.Yield();
 	}
 
-	private void Reset()
+	public async virtual Task OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder)
+	{
+		await Task.Yield();
+	}
+
+	protected virtual void Reset()
 	{
 		playerDataContainer = AssetDatabase.LoadAssetAtPath<PlayerDataContainer>("Assets/Resources/Datas/PlayerDataContainer.asset");
 	}

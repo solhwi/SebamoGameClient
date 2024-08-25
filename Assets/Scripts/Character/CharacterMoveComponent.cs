@@ -17,6 +17,13 @@ public class CharacterMoveComponent : BoardGameSubscriber
 	{
 		characterView.DoRun();
 
+		yield return ProcessMove(currentOrder, diceCount, 1.0f);
+
+		characterView.DoIdle();
+	}
+
+	private IEnumerator ProcessMove(int currentOrder, int diceCount, float speedRate)
+	{
 		var tiles = tileDataManager.GetTilePath(currentOrder, diceCount);
 		foreach (var tile in tiles)
 		{
@@ -25,13 +32,11 @@ public class CharacterMoveComponent : BoardGameSubscriber
 			// 방향 전환
 			ProcessFlip(startPos, tile.tilePlayerPosition);
 
-			Debug.Log($"start move {startPos} > {tile.tilePlayerPosition} [{Time.time}]");
-
 			float t = 0.0f;
 			float moveTime = playerDataContainer.moveTimeByOneTile;
 			while (t < moveTime)
 			{
-				t += Time.deltaTime;
+				t += Time.deltaTime * speedRate;
 				var currentPos = Vector2.Lerp(startPos, tile.tilePlayerPosition, t);
 
 				yield return null;
@@ -39,41 +44,52 @@ public class CharacterMoveComponent : BoardGameSubscriber
 				// 실제 이동
 				SetPosition(currentPos);
 			}
-
-			Debug.Log($"end move {startPos} > {tile.tilePlayerPosition} [{Time.time}]");
 		}
-
-		characterView.DoIdle();
 	}
 
-	public override IEnumerator OnDoTileAction(WorldTileData tileData, int currentOrder, int nextOrder)
+	private IEnumerator ProcessTeleport(int currentOrder, int nextOrder, float speedRate)
+	{
+		var nextTile = tileDataManager.GetTileData(nextOrder);
+
+		Vector3 startPos = transform.position;
+
+		// 방향 전환
+		ProcessFlip(startPos, nextTile.tilePlayerPosition);
+
+		float t = 0.0f;
+		float moveTime = playerDataContainer.moveTimeByOneTile;
+		while (t < moveTime)
+		{
+			t += Time.deltaTime * speedRate;
+			var currentPos = Vector2.Lerp(startPos, nextTile.tilePlayerPosition, t);
+
+			yield return null;
+
+			// 실제 이동
+			SetPosition(currentPos);
+		}
+	}
+
+	public override IEnumerator OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder)
 	{
 		characterView.DoRun();
 
-		var tiles = tileDataManager.GetTilePath(currentOrder, nextOrder - currentOrder);
-		foreach (var tile in tiles)
+		var specialTile = tileDataManager.GetCurrentSpecialTile(currentOrder);
+		if (specialTile == null)
+			yield break;
+
+		Debug.Log($"특수 타일 효과 발동 : {specialTile.specialTileType}");
+
+		switch(specialTile.specialTileType)
 		{
-			Vector3 startPos = transform.position;
+			case SpecialTileType.Jump:
+			case SpecialTileType.RollBack:
+				yield return ProcessMove(currentOrder, nextOrder - currentOrder, 2.5f);
+				break;
 
-			// 방향 전환
-			ProcessFlip(startPos, tile.tilePlayerPosition);
-
-			Debug.Log($"start move {startPos} > {tile.tilePlayerPosition} [{Time.time}]");
-
-			float t = 0.0f;
-			float moveTime = playerDataContainer.moveTimeByOneTile;
-			while (t < moveTime)
-			{
-				t += Time.deltaTime * 2;
-				var currentPos = Vector2.Lerp(startPos, tile.tilePlayerPosition, t);
-
-				yield return null;
-
-				// 실제 이동
-				SetPosition(currentPos);
-			}
-
-			Debug.Log($"end move {startPos} > {tile.tilePlayerPosition} [{Time.time}]");
+			case SpecialTileType.Teleport:
+				yield return ProcessTeleport(currentOrder, nextOrder, 5.0f);
+				break;
 		}
 
 		characterView.DoIdle();
