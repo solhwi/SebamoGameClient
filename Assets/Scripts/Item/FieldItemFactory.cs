@@ -17,6 +17,9 @@ public class FieldItemFactory : ScriptableObject
 
 			case FieldActionType.Banana:
 				return new BananaItem(inventory, data);
+
+			case FieldActionType.Barricade:
+				return new BarricadeItem(inventory, data);
 		}
 
 		return new NormalFieldItem(inventory, data);

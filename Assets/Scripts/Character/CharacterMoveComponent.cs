@@ -78,7 +78,7 @@ public class CharacterMoveComponent : BoardGameSubscriber
 		if (specialTile == null)
 			yield break;
 
-		Debug.Log($"특수 타일 효과 발동 : {specialTile.specialTileType}");
+		Debug.Log($"다음의 특수 타일 효과 발동 : {specialTile.specialTileType}");
 
 		switch(specialTile.specialTileType)
 		{

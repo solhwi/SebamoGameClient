@@ -9,6 +9,7 @@ public enum FieldActionType
 	Normal, // 그 아이템 자체를 획득함
 	Random, // 내부에 등록된 아이템을 획득함
 	Banana, // 바나나
+	Barricade, // 바리케이트
 }
 
 public abstract class FieldItem
@@ -137,5 +138,12 @@ public class BananaItem : ReplaceFieldItem
 	public BananaItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
 	{
 		
+	}
+}
+
+public class BarricadeItem : ReplaceFieldItem
+{
+	public BarricadeItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
+	{
 	}
 }
