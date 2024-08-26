@@ -58,10 +58,13 @@ public abstract class FieldItem
 		}
 	}
 
-	public async virtual Task Use()
+	public async virtual Task Use(TileDataManager tileDataManager, int tileOrder)
 	{
-		await Task.Yield();
-		Destroy();
+		bool isSuccess = await tileDataManager.TrySetTileItem(tileOrder, null);
+		if (isSuccess)
+		{
+			Destroy();
+		}
 	}
 }
 
@@ -74,14 +77,14 @@ public abstract class DropFieldItem : FieldItem
 
 	}
 
-	public async override Task Use()
+	public async override Task Use(TileDataManager tileDataManager, int tileOrder)
 	{
 		for (int i = 0; i < dropCount; i++)
 		{
 			await inventory.TryAddItem(fieldItemCode);
 		}
 
-		await base.Use();
+		await base.Use(tileDataManager, tileOrder);
 	}
 }
 
@@ -145,5 +148,6 @@ public class BarricadeItem : ReplaceFieldItem
 {
 	public BarricadeItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
 	{
+
 	}
 }

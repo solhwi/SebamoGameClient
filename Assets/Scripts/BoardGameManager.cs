@@ -191,7 +191,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		FieldItem item = tileDataManager.GetCurrentTileItem(currentOrder);
 		if (item != null)
 		{
-			yield return item.Use();
+			yield return item.Use(tileDataManager, currentOrder);
 
 			foreach (var subscriber in subscribers)
 			{

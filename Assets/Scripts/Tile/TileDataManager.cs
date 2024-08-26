@@ -148,17 +148,24 @@ public class TileDataManager : MonoBehaviour
 
 	public async Task<bool> TrySetTileItem(int tileOrder, FieldItem fieldItem)
 	{
-		if (tileOrder < 0 || fieldItem == null)
+		if (tileOrder < 0)
 			return false;
 
 		int index = GetTileIndexByOrder(tileOrder);
-		bool isSuccess = await dataContainer.TrySetTileItem(index, fieldItem.fieldItemCode);
+		bool isSuccess = await dataContainer.TrySetTileItem(index, fieldItem?.fieldItemCode ?? string.Empty);
 		if (isSuccess == false)
 			return false;
 
-		fieldItemDictionary[index] = fieldItem;
-		fieldItem.Create(tileBoardDatas[index]);
-
+		if (fieldItem != null)
+		{
+			fieldItemDictionary[index] = fieldItem;
+			fieldItem.Create(tileBoardDatas[index]);
+		}
+		else
+		{
+			fieldItemDictionary.Remove(index);
+		}
+		
 		return true;
 	}
 

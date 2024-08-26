@@ -50,11 +50,12 @@ public class TileDataContainer : ScriptableObject
 		if (tileItems.Length <= index)
 			return false;
 
+		tileItems[index] = itemCode;
+
 		bool isSuccess = await HttpNetworkManager.Instance.TryPostTileData();
 		if (isSuccess == false)
 			return false;
 
-		tileItems[index] = itemCode;
 		return true;
 	}
 
