@@ -20,6 +20,7 @@ public abstract class FieldItem
 	private GameObject obj;
 
 	public string fieldItemCode { get; protected set; }
+	public FieldActionType fieldActionType => rawData.actionType;
 
 	public FieldItem(Inventory inventory, ItemTable.FieldItemData rawData)
 	{
@@ -58,7 +59,7 @@ public abstract class FieldItem
 		}
 	}
 
-	public async virtual Task Use(TileDataManager tileDataManager, int tileOrder)
+	public async virtual Task Use(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
 	{
 		await tileDataManager.TrySetTileItem(tileOrder, null);
 	}
@@ -73,14 +74,14 @@ public abstract class DropFieldItem : FieldItem
 
 	}
 
-	public async override Task Use(TileDataManager tileDataManager, int tileOrder)
+	public async override Task Use(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
 	{
 		for (int i = 0; i < dropCount; i++)
 		{
 			await inventory.TryAddItem(fieldItemCode);
 		}
 
-		await base.Use(tileDataManager, tileOrder);
+		await base.Use(tileDataManager, playerDataContainer,tileOrder);
 	}
 }
 
@@ -134,9 +135,22 @@ public class RandomFieldItem : DropFieldItem
 
 public class BananaItem : ReplaceFieldItem
 {
+	public readonly int count = 0;
+
 	public BananaItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
 	{
-		
+		count = ItemTable.ParseCountData(rawData.actionParameter);
+	}
+
+	public async override Task Use(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
+	{
+		int nextOrder = tileDataManager.GetNextOrder(tileOrder, count);
+
+		bool isSuccess = await playerDataContainer.SaveCurrentOrder(nextOrder);
+		if (isSuccess)
+		{
+			await base.Use(tileDataManager, playerDataContainer, tileOrder);
+		}
 	}
 }
 

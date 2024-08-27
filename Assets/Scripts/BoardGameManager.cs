@@ -212,7 +212,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		FieldItem item = tileDataManager.GetCurrentTileItem(nextOrder);
 		if (item != null)
 		{
-			yield return item.Use(tileDataManager, nextOrder);
+			yield return item.Use(tileDataManager, playerDataContainer, nextOrder);
 			item.Destroy();
 
 			nextNextOrder = playerDataContainer.currentTileOrder;
@@ -224,7 +224,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		}
 
 		// 내부에서 아이템 효과로 인해 추가 이동한 경우, 연쇄 처리
-		if (nextOrder < nextNextOrder)
+		if (nextOrder != nextNextOrder)
 		{
 			TryChangeState(GameState.GetItem, new StateParam(nextOrder, nextNextOrder));
 		}
@@ -253,7 +253,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		}
 
 		// 내부에서 타일 효과로 인해 추가 이동한 경우, 연쇄 처리
-		if (nextOrder < nextNextOrder)
+		if (nextOrder != nextNextOrder)
 		{
 			TryChangeState(GameState.GetItem, new StateParam(nextOrder, nextNextOrder));
 		}

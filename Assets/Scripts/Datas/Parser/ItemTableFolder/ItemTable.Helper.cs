@@ -320,7 +320,7 @@ public partial class ItemTable
 
 		string[] columns = rawRecipe.Split('/');
 
-		for (int i = 0; i < columns.Length; i++)
+		for (int i = 0; i < 2; i++)
 		{
 			string[] keyValue = columns[i].Split(':');
 
@@ -334,6 +334,15 @@ public partial class ItemTable
 		}
 
 		return ranges;
+	}
+
+	public static int ParseCountData(string rawRecipe)
+	{
+		string[] columns = rawRecipe.Split('/');
+		if (int.TryParse(columns[2], out int value) == false)
+			return 0;
+
+		return value;
 	}
 
 	public static string GetFieldItemCode(Dictionary<string, int> recipe)

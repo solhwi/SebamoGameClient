@@ -95,6 +95,22 @@ public class CharacterMoveComponent : BoardGameSubscriber
 		characterView.DoIdle();
 	}
 
+	public override IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder)
+	{
+		characterView.DoRun();
+
+		Debug.Log($"다음의 아이템 효과 발동 : {fieldItem.fieldActionType}");
+
+		switch (fieldItem.fieldActionType)
+		{
+			case FieldActionType.Banana:
+				yield return ProcessMove(currentOrder, nextOrder - currentOrder, 2.5f);
+				break;
+		}
+
+		characterView.DoIdle();
+	}
+
 	private void ProcessFlip(Vector3 startPos, Vector3 endPos)
 	{
 		bool isFlipX = false;

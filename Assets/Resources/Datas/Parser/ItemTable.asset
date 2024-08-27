@@ -475,17 +475,12 @@ MonoBehaviour:
   - key: Banana
     fieldIconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
     actionType: 2
-    actionParameter: Min:-5/Max:5
-  - key: Banana2
-    fieldIconAssetPath: Sprites/ShopItem_l_CoinPack_3.png
-    actionType: 2
-    actionParameter: Min:-5/Max:5
+    actionParameter: Min:-5/Max:5/-2
   fieldItemDataDictionary:
     m_keys:
     - DropCoin
     - Box
     - Banana
-    - Banana2
     m_values:
     - key: DropCoin
       fieldIconAssetPath: Sprites/Coin.asset
@@ -498,11 +493,7 @@ MonoBehaviour:
     - key: Banana
       fieldIconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
       actionType: 2
-      actionParameter: Min:-5/Max:5
-    - key: Banana2
-      fieldIconAssetPath: Sprites/ShopItem_l_CoinPack_3.png
-      actionType: 2
-      actionParameter: Min:-5/Max:5
+      actionParameter: Min:-5/Max:5/-2
   profileItemDataList:
   - key: Frame_01
     isFrame: 1

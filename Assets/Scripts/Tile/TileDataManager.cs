@@ -248,18 +248,32 @@ public class TileDataManager : MonoBehaviour
 		}
 	}
 
-	public int GetNextOrder(int currentOrder, int diceCount)
+	public int GetNextOrder(int currentOrder, int count)
 	{
 		int nextOrder = currentOrder;
 
-		for (; nextOrder < currentOrder + diceCount; nextOrder++)
+		if (count > 0)
 		{
-			var fieldItem = GetCurrentTileItem(nextOrder);
-			if (fieldItem is BarricadeItem)
+			for (; nextOrder < currentOrder + count; nextOrder++)
 			{
-				break;
+				var fieldItem = GetCurrentTileItem(nextOrder);
+				if (fieldItem is BarricadeItem)
+				{
+					break;
+				}
 			}
 		}
+		else
+		{
+			for (; nextOrder > currentOrder + count; nextOrder--)
+			{
+				var fieldItem = GetCurrentTileItem(nextOrder);
+				if (fieldItem is BarricadeItem)
+				{
+					break;
+				}
+			}
+		}		
 
 		return nextOrder;
 	}
@@ -314,14 +328,29 @@ public class TileDataManager : MonoBehaviour
 	/// <returns></returns>
 	public IEnumerable<WorldTileData> GetTilePath(int currentOrder, int progressCount)
 	{
-		for(int i = currentOrder + 1; i <= currentOrder + progressCount; i++)
+		if (progressCount > 0)
 		{
-			int tileIndex = GetTileIndexByOrder(i);
-			if (tileIndex < 0 || tileIndex >= tileBoardDatas.Length)
-				yield break;
+			for (int i = currentOrder + 1; i <= currentOrder + progressCount; i++)
+			{
+				int tileIndex = GetTileIndexByOrder(i);
+				if (tileIndex < 0 || tileIndex >= tileBoardDatas.Length)
+					yield break;
 
-			yield return tileBoardDatas[tileIndex];
+				yield return tileBoardDatas[tileIndex];
+			}
 		}
+		else
+		{
+			for (int i = currentOrder - 1; i >= currentOrder + progressCount; i--)
+			{
+				int tileIndex = GetTileIndexByOrder(i);
+				if (tileIndex < 0 || tileIndex >= tileBoardDatas.Length)
+					yield break;
+
+				yield return tileBoardDatas[tileIndex];
+			}
+		}
+		
 	}
 
 	/// <summary>

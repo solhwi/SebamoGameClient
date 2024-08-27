@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: PlayerDataContainer
   m_EditorClassIdentifier: 
   tileDataContainer: {fileID: 11400000, guid: 6bff3bcc2db60844cb56ca069bb23b8c, type: 2}
-  currentTileOrder: 14
+  currentTileOrder: 0
   moveTimeByOneTile: 1
   myPlayerPacketData:
     playerGroup: Exp
     playerName: "\uC194\uD718"
-    playerTileIndex: 160
+    playerTileIndex: 161
     hasDiceCount: 3
     equippedItems: []
   otherPlayerPacketDatas:
@@ -53,4 +53,4 @@ MonoBehaviour:
     hasDiceCount: 0
     equippedItems: []
   MaxDiceCount: 10
-  NextDiceCount: 2
+  NextDiceCount: 3
