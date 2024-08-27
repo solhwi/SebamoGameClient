@@ -91,6 +91,11 @@ public abstract class TileEditorWindow : CustomEditorWindow
 		tileButtonSize = EditorPrefs.GetFloat("tileButtonSize");
 	}
 
+	protected override void OnPressMouseButton()
+	{
+		windowCenterPos += Event.current.delta;
+	}
+
 	protected override void DrawAll()
 	{
 		DrawSpace(10);

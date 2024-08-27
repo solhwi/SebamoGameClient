@@ -28,6 +28,7 @@ public class CustomEditorWindow : EditorWindow
 
 
 	private static float dpi = 0.0f;
+	private static bool isPointerDown = false;
 
 	protected virtual void SaveData()
 	{
@@ -46,12 +47,14 @@ public class CustomEditorWindow : EditorWindow
 	private void OnEnable()
 	{
 		dpi = Screen.dpi;
+		isPointerDown = false;
 
 		LoadData();
 	}
 
 	private void OnDisable()
 	{
+		isPointerDown = false;
 		SaveData();
 	}
 
@@ -73,6 +76,25 @@ public class CustomEditorWindow : EditorWindow
 		{
 			DrawAxis(Axis.Vertical, DrawAll);
 		}
+
+		if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
+		{
+			isPointerDown = true;
+		}
+		else if (Event.current.type == EventType.MouseUp && Event.current.button == 0)
+		{
+			isPointerDown = false;
+		}
+
+		if (isPointerDown)
+		{
+			OnPressMouseButton();
+		}
+	}
+
+	protected virtual void OnPressMouseButton()
+	{
+
 	}
 
 	protected virtual void DrawAll()
