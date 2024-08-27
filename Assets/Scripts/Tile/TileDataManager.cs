@@ -48,34 +48,37 @@ public struct WorldTileData
 	{
 		// 계산 오차로 인한 보정값
 		float tileCenterYPos = tileWorldPosition.y - cellSize.y;
-		float tileCenterXPos = tileWorldPosition.x - cellSize.x / 2;
+		float tileCenterXPos = tileWorldPosition.x;
+
+		float x = pos.x - tileCenterXPos;
+		float y = pos.y - tileCenterYPos;
 
 		// 왼쪽
-		if (tileCenterXPos - cellSize.x <= pos.x && pos.x <= tileCenterXPos)
+		if (-cellSize.x <= x && x <= 0)
 		{
 			// 아래
-			if (tileCenterYPos - cellSize.y <= pos.y && pos.y <= tileCenterYPos)
+			if (-cellSize.y <= y && y <= 0)
 			{
-				return -cellSize.y * pos.x + tileCenterYPos - cellSize.y <= pos.y;
+				return -cellSize.y * x - cellSize.y <= y;
 			}
 			// 위쪽
-			else if (tileCenterYPos + cellSize.y >= pos.y && pos.y >= tileCenterYPos)
+			else if (cellSize.y >= y && y >= 0)
 			{
-				return cellSize.y * pos.x + tileCenterYPos + cellSize.y >= pos.y;
+				return cellSize.y * x + cellSize.y >= y;
 			}
 		}
 		// 오른쪽
-		else if (tileCenterXPos + cellSize.x >= pos.x && tileCenterXPos <= pos.x)
+		else if (cellSize.x >= x && 0 <= x)
 		{
 			// 아래
-			if (tileCenterYPos - cellSize.y <= pos.y && tileCenterYPos >= pos.y)
+			if (-cellSize.y <= y && y >= 0)
 			{
-				return cellSize.y * pos.x + tileCenterYPos - cellSize.y <= pos.y;
+				return cellSize.y * x - cellSize.y <= y;
 			}
 			// 위쪽
-			else if (tileCenterYPos + cellSize.y >= pos.y && pos.y >= tileCenterYPos)
+			else if (cellSize.y >= y && y >= 0)
 			{
-				return -cellSize.y * pos.x + tileCenterYPos + cellSize.y >= pos.y;
+				return -cellSize.y * x + cellSize.y >= y;
 			}
 		}
 
