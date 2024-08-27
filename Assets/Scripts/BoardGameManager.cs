@@ -9,7 +9,7 @@ public abstract class BoardGameSubscriber : MonoBehaviour
 {
 	public virtual IEnumerator OnRollDice(int diceCount) { yield return null; }
 	public virtual IEnumerator OnMove(int currentOrder, int diceCount) { yield return null; }
-	public virtual IEnumerator OnGetItem(FieldItem fieldItem) { yield return null; }
+	public virtual IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder) { yield return null; }
 	public virtual IEnumerator OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder) { yield return null; }
 }
 
@@ -207,6 +207,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	private IEnumerator ProcessGetItem()
 	{
 		int nextOrder = currentStateParam.nextOrder;
+		int nextNextOrder = nextOrder;
 
 		FieldItem item = tileDataManager.GetCurrentTileItem(nextOrder);
 		if (item != null)
@@ -214,13 +215,23 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			yield return item.Use(tileDataManager, nextOrder);
 			item.Destroy();
 
+			nextNextOrder = playerDataContainer.currentTileOrder;
+
 			foreach (var subscriber in subscribers)
 			{
-				yield return subscriber?.OnGetItem(item);
+				yield return subscriber?.OnGetItem(item, nextOrder, nextNextOrder);
 			}
 		}
 
-		TryChangeState(GameState.TileAction, currentStateParam);
+		// 내부에서 아이템 효과로 인해 추가 이동한 경우, 연쇄 처리
+		if (nextOrder < nextNextOrder)
+		{
+			TryChangeState(GameState.GetItem, new StateParam(nextOrder, nextNextOrder));
+		}
+		else
+		{
+			TryChangeState(GameState.TileAction, currentStateParam);
+		}
 	}
 
 	private IEnumerator ProcessTileAction()
@@ -241,7 +252,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			}
 		}
 
-		// 내부에서 타일 효과로 인해 추가로 이동한 경우, 연쇄 타일 처리
+		// 내부에서 타일 효과로 인해 추가 이동한 경우, 연쇄 처리
 		if (nextOrder < nextNextOrder)
 		{
 			TryChangeState(GameState.GetItem, new StateParam(nextOrder, nextNextOrder));
