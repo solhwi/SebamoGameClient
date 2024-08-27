@@ -19,8 +19,6 @@ public class PlayerDataContainer : ScriptableObject
 	[Header("[현재 위치한 타일 순서]")]
 	public int currentTileOrder = 0;
 
-	[Header("[가지고 있는 주사위 수]")]
-
 	[Header("[타일 당 이동 시간]")]
 	public float moveTimeByOneTile = 1.0f;
 
@@ -30,7 +28,12 @@ public class PlayerDataContainer : ScriptableObject
 	[Header("[다른 플레이어들 정보]")]
 	public PlayerPacketData[] otherPlayerPacketDatas = null;
 
-	private const int MaxDiceCount = 10;
+	[Header("[가질 수 있는 최대 주사위 수]")]
+	public int MaxDiceCount = 10;
+
+	[Header("[다음에 나올 주사위 수]")]
+	[Range(1, 6)]
+	public int NextDiceCount = 3;
 
 #if UNITY_EDITOR
 	[MenuItem("Tools/캐릭터 위치 초기화")]

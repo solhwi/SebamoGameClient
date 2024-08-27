@@ -245,6 +245,22 @@ public class TileDataManager : MonoBehaviour
 		}
 	}
 
+	public int GetNextOrder(int currentOrder, int diceCount)
+	{
+		int nextOrder = currentOrder;
+
+		for (; nextOrder < currentOrder + diceCount; nextOrder++)
+		{
+			var fieldItem = GetCurrentTileItem(nextOrder);
+			if (fieldItem is BarricadeItem)
+			{
+				break;
+			}
+		}
+
+		return nextOrder;
+	}
+
 	public FieldItem GetCurrentTileItem(int currentOrder)
 	{
 		string itemCode = GetCurrentTileItemCode(currentOrder);

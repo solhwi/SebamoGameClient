@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.Mathematics;
 using UnityEngine;
 
 public abstract class BoardGameSubscriber : MonoBehaviour
@@ -23,22 +24,28 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		TileAction = 4,
 	}
 
-	public interface IStateParam
-	{
-
-	}
-
-	public class MoveStateParam : IStateParam
+	public class StateParam
 	{
 		public readonly int currentOrder = 0;
 		public readonly int diceCount = 0;
+		public readonly int nextOrder = 0;
 
-		public MoveStateParam(int currentOrder, int diceCount)
+		public StateParam(int currentOrder, int nextOrder)
 		{
 			this.currentOrder = currentOrder;
+			this.nextOrder = nextOrder;
+		}
+
+		public StateParam(int currentOrder, int nextOrder, int diceCount)
+		{
+			this.currentOrder = currentOrder;
+			this.nextOrder = nextOrder;
+
 			this.diceCount = diceCount;
 		}
 	}
+
+	[SerializeField] private bool isDiceDebugMode = false;
 
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private TileDataManager tileDataManager;
@@ -52,7 +59,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	private Dictionary<GameState, Func<IEnumerator>> stateFuncMap = new Dictionary<GameState, Func<IEnumerator>>();
 	private Dictionary<GameState, Func<bool>> stateCheckFuncMap = new Dictionary<GameState, Func<bool>>();
 
-	private IStateParam currentStateParam = null;
+	private StateParam currentStateParam = null;
 
 	private ReplaceFieldItem currentReplaceFieldItem = null;
 
@@ -112,7 +119,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		TryChangeState(GameState.RollDice);
 	}
 
-	private void TryChangeState(GameState newState, IStateParam param = null)
+	private void TryChangeState(GameState newState, StateParam param = null)
 	{
 		if (stateCheckFuncMap.TryGetValue(newState, out var func))
 		{
@@ -155,25 +162,38 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	private IEnumerator ProcessRollDice()
 	{
 		int currentOrder = playerDataContainer.currentTileOrder;
-		int diceCount = UnityEngine.Random.Range(1, 7); // 1 ~ 6 생성
+		int diceCount = GetNextDiceCount();
 
-		yield return playerDataContainer.SaveCurrentOrder(currentOrder + diceCount); // 주사위를 굴리는 시점에 반영한다.
+		int nextOrder = tileDataManager.GetNextOrder(currentOrder, diceCount);
+
+		yield return playerDataContainer.SaveCurrentOrder(nextOrder); // 주사위를 굴리는 시점에 반영한다.
 
 		foreach (var subscriber in subscribers)
 		{
 			yield return subscriber?.OnRollDice(diceCount); // 주사위 굴리기 연출
 		}
 
-		TryChangeState(GameState.MoveCharacter, new MoveStateParam(currentOrder, diceCount));
+		TryChangeState(GameState.MoveCharacter, new StateParam(currentOrder, nextOrder, diceCount));
+	}
+
+	private int GetNextDiceCount()
+	{
+		if (isDiceDebugMode)
+		{
+			return playerDataContainer.NextDiceCount;
+		}
+		else
+		{
+			return UnityEngine.Random.Range(1, 7);
+		}
 	}
 
 	private IEnumerator ProcessMoveCharacter()
 	{
-		var param = currentStateParam as MoveStateParam;
-		if (param != null)
+		if (currentStateParam != null)
 		{
-			int currentOrder = param.currentOrder;
-			int diceCount = param.diceCount;
+			int currentOrder = currentStateParam.currentOrder;
+			int diceCount = currentStateParam.diceCount;
 
 			foreach (var subscriber in subscribers)
 			{
@@ -181,17 +201,18 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			}
 		}
 
-		TryChangeState(GameState.GetItem);
+		TryChangeState(GameState.GetItem, currentStateParam);
 	}
 
 	private IEnumerator ProcessGetItem()
 	{
-		int currentOrder = playerDataContainer.currentTileOrder;
+		int nextOrder = currentStateParam.nextOrder;
 
-		FieldItem item = tileDataManager.GetCurrentTileItem(currentOrder);
+		FieldItem item = tileDataManager.GetCurrentTileItem(nextOrder);
 		if (item != null)
 		{
-			yield return item.Use(tileDataManager, currentOrder);
+			yield return item.Use(tileDataManager, nextOrder);
+			item.Destroy();
 
 			foreach (var subscriber in subscribers)
 			{
@@ -199,27 +220,36 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			}
 		}
 
-		TryChangeState(GameState.TileAction);
+		TryChangeState(GameState.TileAction, currentStateParam);
 	}
 
 	private IEnumerator ProcessTileAction()
 	{
-		int currentOrder = playerDataContainer.currentTileOrder;
+		int nextOrder = currentStateParam.nextOrder;
+		int nextNextOrder = nextOrder;
 
-		var specialTile = tileDataManager.GetCurrentSpecialTile(currentOrder);
+		var specialTile = tileDataManager.GetCurrentSpecialTile(nextOrder);
 		if (specialTile != null)
 		{
 			yield return specialTile.DoAction(tileDataManager);
 
-			int nextOrder = playerDataContainer.currentTileOrder;
+			nextNextOrder = playerDataContainer.currentTileOrder;
 
 			foreach (var subscriber in subscribers)
 			{
-				yield return subscriber?.OnDoTileAction(tileDataManager, currentOrder, nextOrder);
+				yield return subscriber?.OnDoTileAction(tileDataManager, nextOrder, nextNextOrder);
 			}
 		}
 
-		TryChangeState(GameState.None);
+		// 내부에서 타일 효과로 인해 추가로 이동한 경우, 연쇄 타일 처리
+		if (nextOrder < nextNextOrder)
+		{
+			TryChangeState(GameState.GetItem, new StateParam(nextOrder, nextNextOrder));
+		}
+		else
+		{
+			TryChangeState(GameState.None);
+		}
 	}
 
 	private Vector2 GetPlayerPos()

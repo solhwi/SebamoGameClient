@@ -18,17 +18,7 @@ public class JumpSpecialTile : SpecialTileBase
 	public async override Task DoAction(TileDataManager tileDataManager)
 	{
 		int currentOrder = playerDataContainer.currentTileOrder;
-		int nextOrder = currentOrder;
-
-		for (; nextOrder < currentOrder + count; nextOrder++)
-		{
-			var fieldItem = tileDataManager.GetCurrentTileItem(nextOrder);
-			if (fieldItem is BarricadeItem barricadeItem)
-			{
-				await barricadeItem.Use(tileDataManager, nextOrder);
-				break;
-			}
-		}
+		int nextOrder = tileDataManager.GetNextOrder(currentOrder, count);
 
 		await playerDataContainer.SaveCurrentOrder(nextOrder);
 	}

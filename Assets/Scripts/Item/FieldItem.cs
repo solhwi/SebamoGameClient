@@ -60,11 +60,7 @@ public abstract class FieldItem
 
 	public async virtual Task Use(TileDataManager tileDataManager, int tileOrder)
 	{
-		bool isSuccess = await tileDataManager.TrySetTileItem(tileOrder, null);
-		if (isSuccess)
-		{
-			Destroy();
-		}
+		await tileDataManager.TrySetTileItem(tileOrder, null);
 	}
 }
 
