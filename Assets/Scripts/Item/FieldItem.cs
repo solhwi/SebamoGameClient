@@ -59,9 +59,9 @@ public abstract class FieldItem
 		}
 	}
 
-	public async virtual Task Use(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
+	public virtual void Use(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
 	{
-		await tileDataManager.TrySetTileItem(tileOrder, null);
+		tileDataManager.TrySetTileItem(tileOrder, null);
 	}
 }
 
@@ -74,14 +74,14 @@ public abstract class DropFieldItem : FieldItem
 
 	}
 
-	public async override Task Use(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
+	public override void Use(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
 	{
 		for (int i = 0; i < dropCount; i++)
 		{
-			await inventory.TryAddItem(fieldItemCode);
+			inventory.TryAddItem(fieldItemCode);
 		}
 
-		await base.Use(tileDataManager, playerDataContainer,tileOrder);
+		base.Use(tileDataManager, playerDataContainer,tileOrder);
 	}
 }
 
@@ -102,16 +102,16 @@ public abstract class ReplaceFieldItem : FieldItem
 		return min <= tileOrder && tileOrder <= max;
 	}
 
-	public async virtual Task<bool> Replace(TileDataManager tileDataManager, int tileOrder)
+	public virtual bool Replace(TileDataManager tileDataManager, int tileOrder)
 	{
 		if (tileDataManager.IsAlreadyReplaced(tileOrder))
 			return false;
 
-		bool bResult = await inventory.TryRemoveItem(fieldItemCode);
+		bool bResult = inventory.TryRemoveItem(fieldItemCode);
 		if (bResult == false)
 			return false;
 
-		return await tileDataManager.TrySetTileItem(tileOrder, this);
+		return tileDataManager.TrySetTileItem(tileOrder, this);
 	}
 }
 
@@ -142,14 +142,18 @@ public class BananaItem : ReplaceFieldItem
 		count = ItemTable.ParseCountData(rawData.actionParameter);
 	}
 
-	public async override Task Use(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
+	public override void Use(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
 	{
-		int nextOrder = tileDataManager.GetNextOrder(tileOrder, count);
+		int nextOrder = tileDataManager.GetNextOrder(tileOrder, count, out var item);
+		if (item != null)
+		{
+			item.Use(tileDataManager, playerDataContainer, nextOrder);
+		}
 
-		bool isSuccess = await playerDataContainer.SaveCurrentOrder(nextOrder);
+		bool isSuccess = playerDataContainer.SaveCurrentOrder(nextOrder);
 		if (isSuccess)
 		{
-			await base.Use(tileDataManager, playerDataContainer, tileOrder);
+			base.Use(tileDataManager, playerDataContainer, tileOrder);
 		}
 	}
 }

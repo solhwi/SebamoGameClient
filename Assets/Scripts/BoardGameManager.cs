@@ -24,25 +24,70 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		TileAction = 4,
 	}
 
-	public class StateParam
+	public class StateData
 	{
-		public readonly int currentOrder = 0;
+		public readonly int startOrder = 0;
 		public readonly int diceCount = 0;
-		public readonly int nextOrder = 0;
+		public readonly int moveNextOrder = 0;
 
-		public StateParam(int currentOrder, int nextOrder)
-		{
-			this.currentOrder = currentOrder;
-			this.nextOrder = nextOrder;
-		}
+		public int CurrentOrder { get; private set; }
 
-		public StateParam(int currentOrder, int nextOrder, int diceCount)
+		private Queue<KeyValuePair<GameState, int>> stateOrderQueue = new Queue<KeyValuePair<GameState, int>>();
+
+
+		public StateData(int startOrder, int moveNextOrder, int diceCount)
 		{
-			this.currentOrder = currentOrder;
-			this.nextOrder = nextOrder;
+			this.startOrder = startOrder;
+			this.moveNextOrder = moveNextOrder;
 
 			this.diceCount = diceCount;
+
+			CurrentOrder = moveNextOrder;
 		}
+
+		public void PushActionOrder(GameState currentState, int nextOrder)
+		{
+			stateOrderQueue.Enqueue(new KeyValuePair<GameState, int>(currentState, nextOrder));
+		}
+
+		public bool TryGetNextOrder(GameState currentState, out GameState nextState, out int nextOrder)
+		{
+			nextState = GameState.None;
+			nextOrder = 0;
+
+			if (stateOrderQueue.TryDequeue(out var currentData))
+			{
+				if (currentState == currentData.Key)
+				{
+					if (stateOrderQueue.TryPeek(out var nextData))
+					{
+						nextState = nextData.Key;
+					}
+					else
+					{
+						nextState = GameState.None;
+					}
+
+					nextOrder = currentData.Value;
+					CurrentOrder = nextOrder;
+
+					return true;
+				}
+				else
+				{
+					Debug.LogError($"{currentState} 상태에서 {currentData.Key} 상태 데이터 접근을 시도했습니다.");
+					return false;
+				}
+				
+			}
+
+			return false;
+		}
+	}
+
+	public class StateViewData
+	{
+
 	}
 
 	[SerializeField] private bool isDiceDebugMode = false;
@@ -59,8 +104,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	private Dictionary<GameState, Func<IEnumerator>> stateFuncMap = new Dictionary<GameState, Func<IEnumerator>>();
 	private Dictionary<GameState, Func<bool>> stateCheckFuncMap = new Dictionary<GameState, Func<bool>>();
 
-	private StateParam currentStateParam = null;
-
+	private StateData currentStateData = null;
 	private ReplaceFieldItem currentReplaceFieldItem = null;
 
 	protected override void Awake()
@@ -119,14 +163,14 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		TryChangeState(GameState.RollDice);
 	}
 
-	private void TryChangeState(GameState newState, StateParam param = null)
+	private void TryChangeState(GameState newState, StateData data = null)
 	{
 		if (stateCheckFuncMap.TryGetValue(newState, out var func))
 		{
 			Debug.Log($"Change Game State : {currentGameState} > {newState}");
 
 			currentGameState = newState;
-			currentStateParam = param;
+			currentStateData = data;
 		}
 	}
 
@@ -161,19 +205,80 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	private IEnumerator ProcessRollDice()
 	{
+		// 사전에 데이터 전부 세팅
+		yield return ProcessData();
+
+		// 주사위 굴리기 연출부터 시작
+		foreach (var subscriber in subscribers)
+		{
+			yield return subscriber?.OnRollDice(currentStateData.diceCount); 
+		}
+
+		TryChangeState(GameState.MoveCharacter, currentStateData);
+	}
+
+	private IEnumerator ProcessData()
+	{
 		int currentOrder = playerDataContainer.currentTileOrder;
 		int diceCount = GetNextDiceCount();
 
-		int nextOrder = tileDataManager.GetNextOrder(currentOrder, diceCount);
-
-		yield return playerDataContainer.SaveCurrentOrder(nextOrder); // 주사위를 굴리는 시점에 반영한다.
-
-		foreach (var subscriber in subscribers)
+		int nextOrder = tileDataManager.GetNextOrder(currentOrder, diceCount, out var barricadeItem);
+		if (barricadeItem != null)
 		{
-			yield return subscriber?.OnRollDice(diceCount); // 주사위 굴리기 연출
+			barricadeItem.Use(tileDataManager, playerDataContainer, nextOrder);
 		}
 
-		TryChangeState(GameState.MoveCharacter, new StateParam(currentOrder, nextOrder, diceCount));
+		playerDataContainer.SaveCurrentOrder(nextOrder);
+
+		currentStateData = new StateData(currentOrder, nextOrder, diceCount);
+
+		ProcessItemData();
+
+		yield return HttpNetworkManager.Instance.TryPostMyPlayerData();
+	}
+
+	private void ProcessItemData()
+	{
+		int currentOrder = playerDataContainer.currentTileOrder;
+
+		FieldItem item = tileDataManager.GetCurrentTileItem(currentOrder);
+		if (item != null)
+		{
+			item.Use(tileDataManager, playerDataContainer, currentOrder);
+		}
+
+		int nextOrder = playerDataContainer.currentTileOrder;
+
+		currentStateData.PushActionOrder(GameState.GetItem, nextOrder);
+
+		if(currentOrder != nextOrder)
+		{
+			ProcessItemData();
+		}
+		else
+		{
+			ProcessTileData();
+		}
+	}
+
+	private void ProcessTileData()
+	{
+		int currentOrder = playerDataContainer.currentTileOrder;
+
+		var specialTile = tileDataManager.GetCurrentSpecialTile(currentOrder);
+		if (specialTile != null)
+		{
+			specialTile.DoAction(tileDataManager);
+		}
+
+		int nextOrder = playerDataContainer.currentTileOrder;
+
+		currentStateData.PushActionOrder(GameState.TileAction, nextOrder);
+
+		if (currentOrder != nextOrder)
+		{
+			ProcessItemData();
+		}
 	}
 
 	private int GetNextDiceCount()
@@ -190,10 +295,10 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	private IEnumerator ProcessMoveCharacter()
 	{
-		if (currentStateParam != null)
+		if (currentStateData != null)
 		{
-			int currentOrder = currentStateParam.currentOrder;
-			int diceCount = currentStateParam.diceCount;
+			int currentOrder = currentStateData.startOrder;
+			int diceCount = currentStateData.diceCount;
 
 			foreach (var subscriber in subscribers)
 			{
@@ -201,66 +306,51 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			}
 		}
 
-		TryChangeState(GameState.GetItem, currentStateParam);
+		TryChangeState(GameState.GetItem, currentStateData);
 	}
 
 	private IEnumerator ProcessGetItem()
 	{
-		int nextOrder = currentStateParam.nextOrder;
-		int nextNextOrder = nextOrder;
+		if (currentStateData == null)
+			yield break;
 
-		FieldItem item = tileDataManager.GetCurrentTileItem(nextOrder);
+		int currentOrder = currentStateData.CurrentOrder;
+		if (currentStateData.TryGetNextOrder(currentGameState, out var nextState, out int nextOrder) == false)
+			yield break;
+
+		FieldItem item = tileDataManager.GetCurrentTileItem(currentOrder);
 		if (item != null)
 		{
-			yield return item.Use(tileDataManager, playerDataContainer, nextOrder);
 			item.Destroy();
-
-			nextNextOrder = playerDataContainer.currentTileOrder;
 
 			foreach (var subscriber in subscribers)
 			{
-				yield return subscriber?.OnGetItem(item, nextOrder, nextNextOrder);
+				yield return subscriber?.OnGetItem(item, currentOrder, nextOrder);
 			}
 		}
 
-		// 내부에서 아이템 효과로 인해 추가 이동한 경우, 연쇄 처리
-		if (nextOrder != nextNextOrder)
-		{
-			TryChangeState(GameState.GetItem, new StateParam(nextOrder, nextNextOrder));
-		}
-		else
-		{
-			TryChangeState(GameState.TileAction, currentStateParam);
-		}
+		TryChangeState(nextState, currentStateData);
 	}
 
 	private IEnumerator ProcessTileAction()
 	{
-		int nextOrder = currentStateParam.nextOrder;
-		int nextNextOrder = nextOrder;
+		if (currentStateData == null)
+			yield break;
 
-		var specialTile = tileDataManager.GetCurrentSpecialTile(nextOrder);
+		int currentOrder = currentStateData.CurrentOrder;
+		if (currentStateData.TryGetNextOrder(currentGameState, out var nextState, out int nextOrder) == false)
+			yield break;
+
+		var specialTile = tileDataManager.GetCurrentSpecialTile(currentOrder);
 		if (specialTile != null)
 		{
-			yield return specialTile.DoAction(tileDataManager);
-
-			nextNextOrder = playerDataContainer.currentTileOrder;
-
 			foreach (var subscriber in subscribers)
 			{
-				yield return subscriber?.OnDoTileAction(tileDataManager, nextOrder, nextNextOrder);
+				yield return subscriber?.OnDoTileAction(tileDataManager, currentOrder, nextOrder);
 			}
 		}
 
-		// 내부에서 타일 효과로 인해 추가 이동한 경우, 연쇄 처리
-		if (nextOrder != nextNextOrder)
-		{
-			TryChangeState(GameState.GetItem, new StateParam(nextOrder, nextNextOrder));
-		}
-		else
-		{
-			TryChangeState(GameState.None);
-		}
+		TryChangeState(nextState, currentStateData);
 	}
 
 	private Vector2 GetPlayerPos()

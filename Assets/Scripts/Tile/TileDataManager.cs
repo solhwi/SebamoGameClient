@@ -149,13 +149,13 @@ public class TileDataManager : MonoBehaviour
 		return dataContainer.tileItems[index] != null && dataContainer.tileItems[index] != string.Empty;
 	}
 
-	public async Task<bool> TrySetTileItem(int tileOrder, FieldItem fieldItem)
+	public bool TrySetTileItem(int tileOrder, FieldItem fieldItem)
 	{
 		if (tileOrder < 0)
 			return false;
 
 		int index = GetTileIndexByOrder(tileOrder);
-		bool isSuccess = await dataContainer.TrySetTileItem(index, fieldItem?.fieldItemCode ?? string.Empty);
+		bool isSuccess = dataContainer.TrySetTileItem(index, fieldItem?.fieldItemCode ?? string.Empty);
 		if (isSuccess == false)
 			return false;
 
@@ -248,17 +248,19 @@ public class TileDataManager : MonoBehaviour
 		}
 	}
 
-	public int GetNextOrder(int currentOrder, int count)
+	public int GetNextOrder(int currentOrder, int count, out BarricadeItem barricadeItem)
 	{
-		int nextOrder = currentOrder;
+		barricadeItem = null;
 
+		int nextOrder = currentOrder;
 		if (count > 0)
 		{
 			for (; nextOrder < currentOrder + count; nextOrder++)
 			{
 				var fieldItem = GetCurrentTileItem(nextOrder);
-				if (fieldItem is BarricadeItem)
+				if (fieldItem is BarricadeItem b)
 				{
+					barricadeItem = b;
 					break;
 				}
 			}
@@ -268,8 +270,9 @@ public class TileDataManager : MonoBehaviour
 			for (; nextOrder > currentOrder + count; nextOrder--)
 			{
 				var fieldItem = GetCurrentTileItem(nextOrder);
-				if (fieldItem is BarricadeItem)
+				if (fieldItem is BarricadeItem b)
 				{
+					barricadeItem = b;
 					break;
 				}
 			}

@@ -45,17 +45,12 @@ public class TileDataContainer : ScriptableObject
 		EditorUtility.SetDirty(this);
 	}
 
-	public async Task<bool> TrySetTileItem(int index, string itemCode)
+	public bool TrySetTileItem(int index, string itemCode)
 	{
 		if (tileItems.Length <= index)
 			return false;
 
 		tileItems[index] = itemCode;
-
-		bool isSuccess = await HttpNetworkManager.Instance.TryPostTileData();
-		if (isSuccess == false)
-			return false;
-
 		return true;
 	}
 

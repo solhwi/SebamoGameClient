@@ -53,7 +53,7 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		if (currentReplaceItem.IsReplaceable(playerDataContainer, currentTileOrder) == false)
 			return;
 
-		currentReplaceItem?.Replace(tileDataManager, currentTileOrder).Wait();
+		currentReplaceItem?.Replace(tileDataManager, currentTileOrder);
 		BoardGameManager.Instance.EndReplaceMode(true);
 	}
 

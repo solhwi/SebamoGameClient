@@ -60,22 +60,22 @@ public class Inventory : ScriptableObject
 		}
 	}
 
-	public async Task<bool> TryAddItem(string itemCode, int count = 1)
+	public bool TryAddItem(string itemCode, int count = 1)
 	{
 		bool bResult = AddItem(itemCode, count);
 		if (bResult == false)
 			return false;
 
-		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		return true;
 	}
 
-	public async Task<bool> TryRemoveItem(string itemCode, int count = 1)
+	public bool TryRemoveItem(string itemCode, int count = 1)
 	{
 		bool bResult = RemoveItem(itemCode, count);
 		if (bResult == false)
 			return false;
 
-		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		return true;
 	}
 
 	public async Task<bool> TryEquipOn(string itemCode)

@@ -50,7 +50,7 @@ public class PlayerDataContainer : ScriptableObject
 	}
 #endif
 
-	public async Task<bool> SaveCurrentOrder(int currentTileOrder)
+	public bool SaveCurrentOrder(int currentTileOrder)
 	{
 		if (tileDataContainer.tileOrders.Length > currentTileOrder)
 		{
@@ -66,13 +66,12 @@ public class PlayerDataContainer : ScriptableObject
 		}
 
 		myPlayerPacketData.playerTileIndex = tileDataContainer.GetTileIndexByOrder(currentTileOrder);
-
-		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		return true;
 	}
 
-	public async Task<bool> AddCurrentOrder(int addOrderCount)
+	public bool AddCurrentOrder(int addOrderCount)
 	{
-		return await SaveCurrentOrder(currentTileOrder + addOrderCount);
+		return SaveCurrentOrder(currentTileOrder + addOrderCount);
 	}
 
 	public async Task<bool> UseDiceCount()

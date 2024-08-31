@@ -269,11 +269,11 @@ public class InventoryPopup : BoardGamePopup
 
 	private async Task OnClickSell(string itemCode, int count)
 	{
-		bool isSuccess = await inventory.TryRemoveItem(itemCode, count);
+		bool isSuccess = inventory.TryRemoveItem(itemCode, count);
 		if (isSuccess)
 		{
 			int price = itemTable.GetItemSellPrice(itemCode);
-			inventory.TryAddItem(ItemTable.Coin, price * count).Wait();
+			inventory.TryAddItem(ItemTable.Coin, price * count);
 
 			hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
 			scrollContent.UpdateContents();

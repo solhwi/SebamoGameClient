@@ -17,9 +17,9 @@ public abstract class SpecialTileBase : Tile
 	[SerializeField] public SpecialTileType specialTileType;
 	[SerializeField] protected PlayerDataContainer playerDataContainer;
 
-	public async virtual Task DoAction(TileDataManager tileDataManager)
+	public virtual void DoAction(TileDataManager tileDataManager)
 	{
-		await Task.Yield();
+		
 	}
 
 	public async virtual Task OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder)

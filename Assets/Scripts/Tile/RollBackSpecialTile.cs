@@ -15,9 +15,9 @@ public class RollBackSpecialTile : SpecialTileBase
 		specialTileType = SpecialTileType.RollBack;
 	}
 
-	public override async Task DoAction(TileDataManager tileDataManager)
+	public override void DoAction(TileDataManager tileDataManager)
 	{
-		await playerDataContainer.AddCurrentOrder(-count);
+		playerDataContainer.AddCurrentOrder(-count);
 	}
 
 	public async override Task OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder)
