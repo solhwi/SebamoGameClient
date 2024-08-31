@@ -95,6 +95,20 @@ public abstract class ReplaceFieldItem : FieldItem
 		ranges = ItemTable.ParseRangeData(rawData.actionParameter);
 	}
 
+	public GameObject CreateDummy(WorldTileData worldTileData)
+	{
+		var obj = Create(worldTileData);
+		if (obj == null)
+			return null;
+
+		var sprite = obj.GetComponentInChildren<SpriteRenderer>();
+		if (sprite == null)
+			return null;
+
+		sprite.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+		return obj;
+	}
+
 	public bool IsReplaceable(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
 	{
 		int min = playerDataContainer.currentTileOrder + ranges[0];

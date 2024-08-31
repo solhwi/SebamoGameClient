@@ -15,11 +15,14 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		}
 	}
 
+	[SerializeField] private FieldItemFactory fieldItemFactory;
+
 	[SerializeField] private CameraController boardGameCameraController;
 	[SerializeField] private TileDataManager tileDataManager;
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 
 	private ReplaceFieldItem currentReplaceItem;
+	private ReplaceFieldItem currentDummyReplaceItem;
 
 	private int currentTileOrder;
 
@@ -42,6 +45,17 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		}
 	}
 
+	protected override void OnClose()
+	{
+		if (currentDummyReplaceItem != null)
+		{
+			currentDummyReplaceItem.Destroy();
+			currentDummyReplaceItem = null;
+		}
+
+		base.OnClose();
+	}
+
 	public void OnClickBatch()
 	{
 		if (currentTileOrder == -1)
@@ -54,6 +68,13 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 			return;
 
 		currentReplaceItem?.Replace(tileDataManager, currentTileOrder);
+		
+		if (currentDummyReplaceItem != null)
+		{
+			currentDummyReplaceItem.Destroy();
+			currentDummyReplaceItem = null;
+		}
+
 		BoardGameManager.Instance.EndReplaceMode(true);
 	}
 
@@ -86,7 +107,23 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		if (index > -1)
 		{
 			currentTileOrder = tileDataManager.GetTileOrder(index);
-			Debug.Log($"{currentTileOrder}번 타일이 선택됨");
+
+			if (currentReplaceItem != null)
+			{
+				if (currentDummyReplaceItem != null)
+				{
+					currentDummyReplaceItem.Destroy();
+					currentDummyReplaceItem = null;
+				}
+
+				currentDummyReplaceItem = fieldItemFactory.Make<ReplaceFieldItem>(currentReplaceItem.fieldItemCode);
+
+				if (currentDummyReplaceItem != null)
+				{
+					var worldTileData = tileDataManager.GetTileData(currentTileOrder);
+					currentDummyReplaceItem.CreateDummy(worldTileData);
+				}
+			}
 		}
 	}
 }

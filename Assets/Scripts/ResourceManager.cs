@@ -134,6 +134,7 @@ public class ResourceManager : Singleton<ResourceManager>
 			var renderer = obj.GetComponentInChildren<SpriteRenderer>();
 			if (renderer != null)
 			{
+				renderer.color = Color.white;
 				renderer.sortingOrder = 0;
 			}
 

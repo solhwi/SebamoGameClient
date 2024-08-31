@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupType: 3
   canvas: {fileID: 3298674547014149717}
+  fieldItemFactory: {fileID: 11400000, guid: a6e06216073cb404eb58dd2ea48f4cee, type: 2}
   boardGameCameraController: {fileID: 0}
   tileDataManager: {fileID: 0}
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
