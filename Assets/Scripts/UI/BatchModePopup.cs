@@ -43,6 +43,8 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		{
 			currentReplaceItem = p.replaceItem;
 		}
+
+		currentTileOrder = -1;
 	}
 
 	protected override void OnClose()
@@ -103,19 +105,24 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 	{
 		Vector2 clickPos = Camera.main.ScreenToWorldPoint(eventData.position);
 
-		int index = tileDataManager.GetTileIndexFromPos(clickPos);
-		if (index > -1)
+		int tileIndex = tileDataManager.GetTileIndexFromPos(clickPos);
+		if (tileIndex > -1)
 		{
-			currentTileOrder = tileDataManager.GetTileOrder(index);
+			int tileOrder = tileDataManager.GetTileOrder(tileIndex);
 
-			if (currentReplaceItem != null)
+			// 설치 가능한 위치에 클릭을 했다면
+			if (currentReplaceItem != null && currentReplaceItem.IsReplaceable(tileDataManager, playerDataContainer, tileOrder))
 			{
+				currentTileOrder = tileOrder;
+
+				// 기존 더미 파괴
 				if (currentDummyReplaceItem != null)
 				{
 					currentDummyReplaceItem.Destroy();
 					currentDummyReplaceItem = null;
 				}
 
+				// 새 더미 생성
 				currentDummyReplaceItem = fieldItemFactory.Make<ReplaceFieldItem>(currentReplaceItem.fieldItemCode);
 
 				if (currentDummyReplaceItem != null)
