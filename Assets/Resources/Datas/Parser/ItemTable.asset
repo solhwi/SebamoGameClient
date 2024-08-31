@@ -33,13 +33,22 @@ MonoBehaviour:
   - key: YucoBody
     isRandom: 0
     price: 30000
-    shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
-      \uB2E4\uB140\uC694."
+    shopItemDescription: "\uBBF8\uC0AC\uD0A4\uB294 \uB9E4\uC77C \uC774\uAC83\uB9CC
+      \uC785\uB354\uB77C\uACE0\uC694."
   - key: MisakiBody
     isRandom: 0
     price: 30000
-    shopItemDescription: "\uBBF8\uC0AC\uD0A4\uB294 \uB9E4\uC77C \uC774\uAC83\uB9CC
-      \uC785\uB354\uB77C\uACE0\uC694."
+    shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
+      \uB2E4\uB140\uC694."
+  - key: Banana
+    isRandom: 0
+    price: 100
+    shopItemDescription: "\uB9DB\uC788\uB294 \uBC14\uB098\uB098!\\n\u2026 \uB97C
+      \uBA39\uACE0 \uB0A8\uC740 \uAECD\uC9C8\uC774\uC5D0\uC694."
+  - key: Barricade
+    isRandom: 0
+    price: 100
+    shopItemDescription: "\uAC10\uCABD\uAC19\uC740 \uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790\uC608\uC694."
   shopItemDataDictionary:
     m_keys:
     - UnityChanAccessory
@@ -48,6 +57,8 @@ MonoBehaviour:
     - UnityChanBody
     - YucoBody
     - MisakiBody
+    - Banana
+    - Barricade
     m_values:
     - key: UnityChanAccessory
       isRandom: 1
@@ -69,13 +80,22 @@ MonoBehaviour:
     - key: YucoBody
       isRandom: 0
       price: 30000
-      shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
-        \uB2E4\uB140\uC694."
+      shopItemDescription: "\uBBF8\uC0AC\uD0A4\uB294 \uB9E4\uC77C \uC774\uAC83\uB9CC
+        \uC785\uB354\uB77C\uACE0\uC694."
     - key: MisakiBody
       isRandom: 0
       price: 30000
-      shopItemDescription: "\uBBF8\uC0AC\uD0A4\uB294 \uB9E4\uC77C \uC774\uAC83\uB9CC
-        \uC785\uB354\uB77C\uACE0\uC694."
+      shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
+        \uB2E4\uB140\uC694."
+    - key: Banana
+      isRandom: 0
+      price: 100
+      shopItemDescription: "\uB9DB\uC788\uB294 \uBC14\uB098\uB098!\\n\u2026 \uB97C
+        \uBA39\uACE0 \uB0A8\uC740 \uAECD\uC9C8\uC774\uC5D0\uC694."
+    - key: Barricade
+      isRandom: 0
+      price: 100
+      shopItemDescription: "\uAC10\uCABD\uAC19\uC740 \uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790\uC608\uC694."
   partsItemDataList:
   - key: UnityChanAccessory
     partsType: 6
@@ -318,6 +338,13 @@ MonoBehaviour:
     itemName: "\uB179\uC0C9 \uBC14\uB098\uB098"
     itemDescription: "\uB179\uC0C9\uC778 \uBC14\uB098\uB098\uB2E4"
     sellPrice: 1000
+  - key: Barricade
+    iconAssetPath: Sprites/ItemIcon_Chest_Wood.png
+    itemName: "\uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790"
+    itemDescription: "\uC544\uBB34\uB3C4 \uADF8\uB0E5 \uC9C0\uB098\uCE60 \uC218 \uC5C6\uB294
+      \uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790. \uC5F4\uC5B4\uBCF4\uAE30 \uC804\uAE4C\uC9C0\uB294
+      \uBAA8\uB978\uB2E4."
+    sellPrice: 1000
   itemToolTipDataDictionary:
     m_keys:
     - GreatSword
@@ -343,6 +370,7 @@ MonoBehaviour:
     - Profile_02
     - Banana
     - Banana2
+    - Barricade
     m_values:
     - key: GreatSword
       iconAssetPath: Sprites/ItemIcon/Prop_A
@@ -463,6 +491,13 @@ MonoBehaviour:
       itemName: "\uB179\uC0C9 \uBC14\uB098\uB098"
       itemDescription: "\uB179\uC0C9\uC778 \uBC14\uB098\uB098\uB2E4"
       sellPrice: 1000
+    - key: Barricade
+      iconAssetPath: Sprites/ItemIcon_Chest_Wood.png
+      itemName: "\uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790"
+      itemDescription: "\uC544\uBB34\uB3C4 \uADF8\uB0E5 \uC9C0\uB098\uCE60 \uC218
+        \uC5C6\uB294 \uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790. \uC5F4\uC5B4\uBCF4\uAE30
+        \uC804\uAE4C\uC9C0\uB294 \uBAA8\uB978\uB2E4."
+      sellPrice: 1000
   fieldItemDataList:
   - key: DropCoin
     fieldIconAssetPath: Sprites/Coin.asset
@@ -475,12 +510,17 @@ MonoBehaviour:
   - key: Banana
     fieldIconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
     actionType: 2
-    actionParameter: Min:-5/Max:5/-2
+    actionParameter: Min:-15/Max:15/-2
+  - key: Barricade
+    fieldIconAssetPath: Sprites/ItemIcon_Chest_Wood.png
+    actionType: 3
+    actionParameter: Min:-100/Max:100
   fieldItemDataDictionary:
     m_keys:
     - DropCoin
     - Box
     - Banana
+    - Barricade
     m_values:
     - key: DropCoin
       fieldIconAssetPath: Sprites/Coin.asset
@@ -493,7 +533,11 @@ MonoBehaviour:
     - key: Banana
       fieldIconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
       actionType: 2
-      actionParameter: Min:-5/Max:5/-2
+      actionParameter: Min:-15/Max:15/-2
+    - key: Barricade
+      fieldIconAssetPath: Sprites/ItemIcon_Chest_Wood.png
+      actionType: 3
+      actionParameter: Min:-100/Max:100
   profileItemDataList:
   - key: Frame_01
     isFrame: 1
@@ -539,10 +583,19 @@ MonoBehaviour:
   - key: YucoBody
     isRandom: 0
     price: 30000
-    shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
-      \uB2E4\uB140\uC694."
+    shopItemDescription: "\uBBF8\uC0AC\uD0A4\uB294 \uB9E4\uC77C \uC774\uAC83\uB9CC
+      \uC785\uB354\uB77C\uACE0\uC694."
   - key: MisakiBody
     isRandom: 0
     price: 30000
-    shopItemDescription: "\uBBF8\uC0AC\uD0A4\uB294 \uB9E4\uC77C \uC774\uAC83\uB9CC
-      \uC785\uB354\uB77C\uACE0\uC694."
+    shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
+      \uB2E4\uB140\uC694."
+  - key: Banana
+    isRandom: 0
+    price: 100
+    shopItemDescription: "\uB9DB\uC788\uB294 \uBC14\uB098\uB098!\\n\u2026 \uB97C
+      \uBA39\uACE0 \uB0A8\uC740 \uAECD\uC9C8\uC774\uC5D0\uC694."
+  - key: Barricade
+    isRandom: 0
+    price: 100
+    shopItemDescription: "\uAC10\uCABD\uAC19\uC740 \uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790\uC608\uC694."
