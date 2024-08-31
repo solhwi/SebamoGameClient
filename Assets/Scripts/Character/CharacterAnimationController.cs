@@ -149,4 +149,9 @@ public class CharacterAnimationController : MonoBehaviour
 		currentState = state;
 		Animator.CrossFade(state.ToString(), crossFadeTime);
 	}
+
+	public void Replay()
+	{
+		Animator.Play(currentState.ToString());
+	}
 }

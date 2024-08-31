@@ -8,6 +8,9 @@ public class CharacterView : ObjectView
 	private CharacterDataSetter characterDataSetter = null;
 	private CharacterAnimationController characterAnimationController = null;
 
+	private bool currentFlipX;
+	private bool currentFlipY;
+
 	protected override void Awake()
 	{
 		base.Awake();
@@ -53,12 +56,11 @@ public class CharacterView : ObjectView
 		{
 			originCharacterTransform = characterOrigin.transform;
 		}
-
-		characterAnimationController.DoIdle(0.3f);
 	}
 
 	public void FlipX(bool flipX)
 	{
+		currentFlipX = flipX;
 		spriteView.flipX = flipX;
 	}
 
@@ -67,11 +69,20 @@ public class CharacterView : ObjectView
 		float yRot = flipY ? 180 : 0;
 
 		originCharacterTransform.localEulerAngles = new Vector3(0, yRot, 0);
+		currentFlipY = flipY;
 	}
 
-	public void DoIdle()
+	public void Replay()
 	{
-		characterAnimationController.DoIdle();
+		characterAnimationController.Replay();
+
+		FlipX(currentFlipX);
+		FlipY(currentFlipY);
+	}
+
+	public void DoIdle(float crossFadeTime = 0.0f)
+	{
+		characterAnimationController.DoIdle(crossFadeTime);
 	}
 
 	public void DoRun()

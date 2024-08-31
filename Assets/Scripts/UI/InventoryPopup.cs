@@ -149,6 +149,7 @@ public class InventoryPopup : BoardGamePopup
 		profileEquipmentBoard.onClickItem -= OnClickProfileItem;
 
 		gameCharacterView.RefreshCharacter();
+		gameCharacterView.Replay();
 
 		scrollContent.SelectTab((int)TabType.None);
 
@@ -252,6 +253,7 @@ public class InventoryPopup : BoardGamePopup
 			if (itemTable.IsEquipmentItem(itemCode))
 			{
 				uiCharacterView.RefreshCharacter();
+				uiCharacterView.DoIdle(0.3f);
 			}
 		}
 
@@ -292,7 +294,9 @@ public class InventoryPopup : BoardGamePopup
 		else
 		{
 			inventory.TryEquipOff(itemCode).Wait();
+
 			uiCharacterView.RefreshCharacter();
+			uiCharacterView.DoIdle(0.3f);
 
 			hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
 			scrollContent.UpdateContents();
