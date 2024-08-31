@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -94,12 +95,19 @@ public abstract class ReplaceFieldItem : FieldItem
 		ranges = ItemTable.ParseRangeData(rawData.actionParameter);
 	}
 
-	public bool IsReplaceable(PlayerDataContainer playerDataContainer, int tileOrder)
+	public bool IsReplaceable(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
 	{
 		int min = playerDataContainer.currentTileOrder + ranges[0];
 		int max = playerDataContainer.currentTileOrder + ranges[1];
 
+		min = Math.Max(0, min);
+		max = Math.Min(max, tileDataManager.tileBoardDatas.Length - 1);
+
 		bool bResult = min <= tileOrder && tileOrder <= max;
+
+		bResult &= tileDataManager.IsAlreadyReplaced(tileOrder) == false;
+		bResult &= tileDataManager.IsSpecialTile(tileOrder) == false;
+
 		return bResult;
 	}
 

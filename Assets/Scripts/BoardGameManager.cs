@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Unity.Mathematics;
 using UnityEngine;
@@ -407,13 +408,31 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			int min = playerDataContainer.currentTileOrder + replaceItem.ranges[0];
 			int max = playerDataContainer.currentTileOrder + replaceItem.ranges[1];
 
-			tileDataManager.SetSelectTiles(min, max);
+			var tileOrders = GetReplaceableTileOrders(replaceItem, min, max);
+			tileDataManager.SetSelectTiles(tileOrders);
 		}
 
 		UIManager.Instance.CloseMainCanvas();
 		UIManager.Instance.Close(PopupType.Inventory);
 
 		UIManager.Instance.TryOpen(PopupType.BatchMode, new BatchModePopup.Parameter(replaceItem));
+	}
+
+	private IEnumerable<int> GetReplaceableTileOrders(ReplaceFieldItem replaceItem, int min, int max)
+	{
+		if (replaceItem == null)
+			yield break;
+
+		min = Mathf.Max(0, min);
+		max = Mathf.Min(max, int.MaxValue);
+
+		foreach (int tileOrder in CommonFunc.ToRange(min, max))
+		{
+			if (replaceItem.IsReplaceable(tileDataManager, playerDataContainer, tileOrder))
+			{
+				yield return tileOrder;
+			}
+		}
 	}
 
 	public void EndReplaceMode(bool isReplaced)

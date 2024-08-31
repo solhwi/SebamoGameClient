@@ -118,12 +118,9 @@ public class TileDataManager : MonoBehaviour
 		tileBoardDatas = MakeBoardData().ToArray();
 	}
 
-	public void SetSelectTiles(int min, int max)
+	public void SetSelectTiles(IEnumerable<int> tileOrders)
 	{
-		min = Mathf.Max(0, min);
-		max = Mathf.Min(max, tileBoardDatas.Length - 1);
-
-		int[] tileIndexes = CommonFunc.ToRange(min, max).Select(GetTileIndexByOrder).ToArray();
+		int[] tileIndexes = tileOrders.Select(GetTileIndexByOrder).ToArray();
 
 		for(int i = 0; i < tileBoardDatas.Length; i++)
 		{

@@ -50,7 +50,7 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		if (currentReplaceItem == null)
 			return;
 
-		if (currentReplaceItem.IsReplaceable(playerDataContainer, currentTileOrder) == false)
+		if (currentReplaceItem.IsReplaceable(tileDataManager, playerDataContainer, currentTileOrder) == false)
 			return;
 
 		currentReplaceItem?.Replace(tileDataManager, currentTileOrder);
