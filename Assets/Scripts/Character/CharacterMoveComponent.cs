@@ -84,7 +84,7 @@ public class CharacterMoveComponent : BoardGameSubscriber
 		{
 			case SpecialTileType.Jump:
 			case SpecialTileType.RollBack:
-				yield return ProcessMove(currentOrder, nextOrder - currentOrder, 2.5f);
+				yield return ProcessMove(currentOrder, nextOrder, 2.5f);
 				break;
 
 			case SpecialTileType.Teleport:
@@ -103,7 +103,7 @@ public class CharacterMoveComponent : BoardGameSubscriber
 		{
 			case FieldActionType.Banana:
 				characterView.DoRun();
-				yield return ProcessMove(currentOrder, nextOrder - currentOrder, 2.5f);
+				yield return ProcessMove(currentOrder, nextOrder, 2.5f);
 				characterView.DoIdle();
 				break;
 		}
