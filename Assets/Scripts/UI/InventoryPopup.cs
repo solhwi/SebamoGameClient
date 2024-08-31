@@ -280,6 +280,8 @@ public class InventoryPopup : BoardGamePopup
 			hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
 			scrollContent.UpdateContents();
 		}
+
+		await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
 	private void OnClickEquippedItem(string itemCode)
