@@ -15,13 +15,13 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 	public override IEnumerator OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder)
 	{
 		yield return null;
-		statusText.text = $"타일 처리 후 위치 : {playerDataContainer.currentTileOrder}";
+		statusText.text = $"타일 처리 후 위치 : {nextOrder}";
 	}
 
-	public override IEnumerator OnMove(int currentOrder, int diceCount)
+	public override IEnumerator OnMove(int currentOrder, int nextOrder,int diceCount)
 	{
 		yield return null;
-		statusText.text = $"일반 이동 후 위치 : {playerDataContainer.currentTileOrder}";
+		statusText.text = $"일반 이동 후 위치 : {nextOrder}";
 	}
 
 	public override IEnumerator OnRollDice(int diceCount)

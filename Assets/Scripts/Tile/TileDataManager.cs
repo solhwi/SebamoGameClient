@@ -149,7 +149,12 @@ public class TileDataManager : MonoBehaviour
 		return dataContainer.tileItems[index] != null && dataContainer.tileItems[index] != string.Empty;
 	}
 
-	public bool TrySetTileItem(int tileOrder, FieldItem fieldItem)
+	public bool IsSpecialTile(int tileOrder)
+	{
+		return GetCurrentSpecialTile(tileOrder) != null;
+	}
+
+	public bool TrySetTileItem(int tileOrder, FieldItem fieldItem, bool isImmediately = false)
 	{
 		if (tileOrder < 0)
 			return false;
@@ -164,12 +169,27 @@ public class TileDataManager : MonoBehaviour
 			fieldItemDictionary[index] = fieldItem;
 			fieldItem.Create(tileBoardDatas[index]);
 		}
-		else
+		else if (isImmediately)
 		{
-			fieldItemDictionary.Remove(index);
+			RemoveFieldItem(tileOrder);
 		}
 		
 		return true;
+	}
+
+	public void RemoveFieldItem(int tileOrder)
+	{
+		if (tileOrder < 0)
+			return;
+
+		int tileIndex = GetTileIndexByOrder(tileOrder);
+
+		if (fieldItemDictionary.TryGetValue(tileIndex, out var fieldItem))
+		{
+			fieldItem.Destroy();
+		}
+
+		fieldItemDictionary.Remove(tileIndex);
 	}
 
 	public int GetTileIndexFromPos(Vector2 tilePos)
@@ -307,6 +327,18 @@ public class TileDataManager : MonoBehaviour
 			return null;
 
 		return tileBoardDatas[tileIndex].tileBase as Tile;
+	}
+
+	public FieldItem GetFieldItem(int currentOrder)
+	{
+		int tileIndex = GetTileIndexByOrder(currentOrder);
+		if (tileIndex == -1)
+			return null;
+
+		if (fieldItemDictionary.TryGetValue(tileIndex, out var data))
+			return data;
+
+		return null;
 	}
 
 	public SpecialTileBase GetCurrentSpecialTile(int currentOrder)

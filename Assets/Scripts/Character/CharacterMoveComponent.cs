@@ -13,18 +13,18 @@ public class CharacterMoveComponent : BoardGameSubscriber
 		yield return null;
 	}
 
-	public override IEnumerator OnMove(int currentOrder, int diceCount)
+	public override IEnumerator OnMove(int currentOrder, int nextOrder, int diceCount)
 	{
 		characterView.DoRun();
 
-		yield return ProcessMove(currentOrder, diceCount, 1.0f);
+		yield return ProcessMove(currentOrder, nextOrder, 1.0f);
 
 		characterView.DoIdle();
 	}
 
-	private IEnumerator ProcessMove(int currentOrder, int diceCount, float speedRate)
+	private IEnumerator ProcessMove(int currentOrder, int nextOrder, float speedRate)
 	{
-		var tiles = tileDataManager.GetTilePath(currentOrder, diceCount);
+		var tiles = tileDataManager.GetTilePath(currentOrder, nextOrder - currentOrder);
 		foreach (var tile in tiles)
 		{
 			Vector3 startPos = transform.position;
@@ -97,18 +97,16 @@ public class CharacterMoveComponent : BoardGameSubscriber
 
 	public override IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder)
 	{
-		characterView.DoRun();
-
 		Debug.Log($"다음의 아이템 효과 발동 : {fieldItem.fieldActionType}");
 
 		switch (fieldItem.fieldActionType)
 		{
 			case FieldActionType.Banana:
+				characterView.DoRun();
 				yield return ProcessMove(currentOrder, nextOrder - currentOrder, 2.5f);
+				characterView.DoIdle();
 				break;
 		}
-
-		characterView.DoIdle();
 	}
 
 	private void ProcessFlip(Vector3 startPos, Vector3 endPos)

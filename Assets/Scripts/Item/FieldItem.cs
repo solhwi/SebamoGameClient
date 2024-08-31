@@ -99,12 +99,16 @@ public abstract class ReplaceFieldItem : FieldItem
 		int min = playerDataContainer.currentTileOrder + ranges[0];
 		int max = playerDataContainer.currentTileOrder + ranges[1];
 
-		return min <= tileOrder && tileOrder <= max;
+		bool bResult = min <= tileOrder && tileOrder <= max;
+		return bResult;
 	}
 
 	public virtual bool Replace(TileDataManager tileDataManager, int tileOrder)
 	{
 		if (tileDataManager.IsAlreadyReplaced(tileOrder))
+			return false;
+
+		if (tileDataManager.IsSpecialTile(tileOrder))
 			return false;
 
 		bool bResult = inventory.TryRemoveItem(fieldItemCode);

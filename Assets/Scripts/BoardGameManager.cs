@@ -8,7 +8,7 @@ using UnityEngine;
 public abstract class BoardGameSubscriber : MonoBehaviour
 {
 	public virtual IEnumerator OnRollDice(int diceCount) { yield return null; }
-	public virtual IEnumerator OnMove(int currentOrder, int diceCount) { yield return null; }
+	public virtual IEnumerator OnMove(int currentOrder, int nextOrder, int diceCount) { yield return null; }
 	public virtual IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder) { yield return null; }
 	public virtual IEnumerator OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder) { yield return null; }
 }
@@ -24,6 +24,24 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		TileAction = 4,
 	}
 
+	public struct StateOrderData
+	{
+		public GameState currentState;
+		public string currentItemCode;
+		public int nextOrder;
+
+		public static StateOrderData Make(GameState state, string currentItemCode, int nextOrder)
+		{
+			var data = new StateOrderData();
+
+			data.currentState = state;
+			data.currentItemCode = currentItemCode;
+			data.nextOrder = nextOrder;
+
+			return data;
+		}
+	}
+
 	public class StateData
 	{
 		public readonly int startOrder = 0;
@@ -32,8 +50,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 		public int CurrentOrder { get; private set; }
 
-		private Queue<KeyValuePair<GameState, int>> stateOrderQueue = new Queue<KeyValuePair<GameState, int>>();
-
+		private Queue<StateOrderData> stateOrderQueue = new Queue<StateOrderData>();
 
 		public StateData(int startOrder, int moveNextOrder, int diceCount)
 		{
@@ -45,37 +62,40 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			CurrentOrder = moveNextOrder;
 		}
 
-		public void PushActionOrder(GameState currentState, int nextOrder)
+		public void PushActionOrder(GameState currentState, string currentItemCode, int nextOrder)
 		{
-			stateOrderQueue.Enqueue(new KeyValuePair<GameState, int>(currentState, nextOrder));
+			stateOrderQueue.Enqueue(StateOrderData.Make(currentState, currentItemCode, nextOrder));
 		}
 
-		public bool TryGetNextOrder(GameState currentState, out GameState nextState, out int nextOrder)
+		public bool TryGetNextOrder(GameState currentState, out string currentItemCode, out GameState nextState, out int nextOrder)
 		{
 			nextState = GameState.None;
 			nextOrder = 0;
+			currentItemCode = string.Empty;
 
 			if (stateOrderQueue.TryDequeue(out var currentData))
 			{
-				if (currentState == currentData.Key)
+				if (currentState == currentData.currentState)
 				{
 					if (stateOrderQueue.TryPeek(out var nextData))
 					{
-						nextState = nextData.Key;
+						nextState = nextData.currentState;
 					}
 					else
 					{
 						nextState = GameState.None;
 					}
 
-					nextOrder = currentData.Value;
+					nextOrder = currentData.nextOrder;
+					currentItemCode = currentData.currentItemCode;
+
 					CurrentOrder = nextOrder;
 
 					return true;
 				}
 				else
 				{
-					Debug.LogError($"{currentState} 상태에서 {currentData.Key} 상태 데이터 접근을 시도했습니다.");
+					Debug.LogError($"{currentState} 상태에서 {currentData.currentState} 상태 데이터 접근을 시도했습니다.");
 					return false;
 				}
 				
@@ -223,14 +243,14 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		int diceCount = GetNextDiceCount();
 
 		int nextOrder = tileDataManager.GetNextOrder(currentOrder, diceCount, out var barricadeItem);
+
 		if (barricadeItem != null)
 		{
 			barricadeItem.Use(tileDataManager, playerDataContainer, nextOrder);
 		}
 
-		playerDataContainer.SaveCurrentOrder(nextOrder);
-
 		currentStateData = new StateData(currentOrder, nextOrder, diceCount);
+		playerDataContainer.SaveCurrentOrder(nextOrder);
 
 		ProcessItemData();
 
@@ -242,14 +262,17 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		int currentOrder = playerDataContainer.currentTileOrder;
 
 		FieldItem item = tileDataManager.GetCurrentTileItem(currentOrder);
+		string itemCode = string.Empty;
+
 		if (item != null)
 		{
+			itemCode = item.fieldItemCode;
 			item.Use(tileDataManager, playerDataContainer, currentOrder);
 		}
 
 		int nextOrder = playerDataContainer.currentTileOrder;
 
-		currentStateData.PushActionOrder(GameState.GetItem, nextOrder);
+		currentStateData.PushActionOrder(GameState.GetItem, itemCode, nextOrder);
 
 		if(currentOrder != nextOrder)
 		{
@@ -273,7 +296,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 		int nextOrder = playerDataContainer.currentTileOrder;
 
-		currentStateData.PushActionOrder(GameState.TileAction, nextOrder);
+		currentStateData.PushActionOrder(GameState.TileAction, string.Empty, nextOrder);
 
 		if (currentOrder != nextOrder)
 		{
@@ -298,11 +321,12 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		if (currentStateData != null)
 		{
 			int currentOrder = currentStateData.startOrder;
+			int nextOrder = currentStateData.moveNextOrder;
 			int diceCount = currentStateData.diceCount;
 
 			foreach (var subscriber in subscribers)
 			{
-				yield return subscriber?.OnMove(currentOrder, diceCount); // 캐릭터 움직임 관련 연출
+				yield return subscriber?.OnMove(currentOrder, nextOrder, diceCount); // 캐릭터 움직임 관련 연출
 			}
 		}
 
@@ -315,13 +339,13 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			yield break;
 
 		int currentOrder = currentStateData.CurrentOrder;
-		if (currentStateData.TryGetNextOrder(currentGameState, out var nextState, out int nextOrder) == false)
+		if (currentStateData.TryGetNextOrder(currentGameState, out var currentItemCode, out var nextState, out int nextOrder) == false)
 			yield break;
 
-		FieldItem item = tileDataManager.GetCurrentTileItem(currentOrder);
+		FieldItem item = tileDataManager.GetFieldItem(currentOrder);
 		if (item != null)
 		{
-			item.Destroy();
+			tileDataManager.RemoveFieldItem(currentOrder);
 
 			foreach (var subscriber in subscribers)
 			{
@@ -338,7 +362,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			yield break;
 
 		int currentOrder = currentStateData.CurrentOrder;
-		if (currentStateData.TryGetNextOrder(currentGameState, out var nextState, out int nextOrder) == false)
+		if (currentStateData.TryGetNextOrder(currentGameState, out var currentItemCode, out var nextState, out int nextOrder) == false)
 			yield break;
 
 		var specialTile = tileDataManager.GetCurrentSpecialTile(currentOrder);
