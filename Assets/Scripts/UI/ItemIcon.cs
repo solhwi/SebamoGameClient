@@ -37,6 +37,12 @@ public class ItemIcon : MonoBehaviour
 		}
 	}
 
+	public void SetActiveImage(bool isActive)
+	{
+		float alpha = isActive ? 1.0f : 0.0f;
+		itemImage.color = new Color(itemImage.color.r, itemImage.color.g, itemImage.color.b, alpha);
+	}
+
 	public void SetItemData(ItemTable.ShopItemData itemData)
 	{
 		itemCode = itemData.key;

@@ -34,6 +34,8 @@ public class Inventory : ScriptableObject
 	[Space]
 	public string[] appliedProfileItems = new string[2];
 
+	private const int MaxBuffItemCount = 10;
+
 	public CharacterType GetEquippedBodyType(int index)
 	{
 		if (index < 0 || index >= equippedItems.Length)
@@ -174,7 +176,7 @@ public class Inventory : ScriptableObject
 
 	private bool ApplyBuff(string buffItemCode)
 	{
-		if (appliedBuffItems.Contains(buffItemCode))
+		if (appliedBuffItems.Count >= MaxBuffItemCount)
 			return false;
 
 		appliedBuffItems.Add(buffItemCode);

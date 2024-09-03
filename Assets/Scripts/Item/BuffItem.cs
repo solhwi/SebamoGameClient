@@ -19,6 +19,8 @@ public class BuffItem
 	{
 		this.inventory = inventory;
 		this.data = data;
+
+		itemCode = data.key;
 	}
 
 	public async virtual Task<bool> TryUse(PlayerDataContainer playerDataContainer)

@@ -159,6 +159,9 @@ public partial class ItemTable
 
 	public bool IsBuffItem(string itemCode)
 	{
+		if (IsValidItem(itemCode) == false)
+			return false;
+
 		return buffItemDataDictionary.ContainsKey(itemCode);
 	}
 
@@ -211,6 +214,9 @@ public partial class ItemTable
 
 	public bool IsFieldItem(string itemCode)
 	{
+		if (IsValidItem(itemCode) == false)
+			return false;
+
 		if (fieldItemDataDictionary.ContainsKey(itemCode))
 		{
 			return true;
@@ -330,7 +336,7 @@ public partial class ItemTable
 		var mathTypeStr = columns[0];
 		var mathType = CommonFunc.GetMathType(mathTypeStr);
 			
-		if (int.TryParse(columns[2], out int value) == false)
+		if (int.TryParse(columns[1], out int value) == false)
 			return default;
 
 		return new KeyValuePair<MathType, int>(mathType, value);

@@ -227,6 +227,8 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	private IEnumerator ProcessRollDice()
 	{
+		yield return null;
+
 		// 버프 아이템 사전 적용
 		yield return ProcessUseBuff();
 
@@ -242,7 +244,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		TryChangeState(GameState.MoveCharacter, currentStateData);
 	}
 
-	private IEnumerable ProcessUseBuff()
+	private IEnumerator ProcessUseBuff()
 	{
 		string buffItemCode = inventory.GetUsableBuffItemCode();
 

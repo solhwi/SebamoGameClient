@@ -5,6 +5,8 @@ using UnityEngine;
 public class ItemObjectView : ObjectView
 {
 	[SerializeField] private FieldItemFactory fieldItemFactory;
+	[SerializeField] private ItemIcon itemIcon = null;
+
 	private FieldItem currentFieldItem = null;
 
 	// 아이템은 기존 생성 로직을 타지 않음
@@ -13,7 +15,7 @@ public class ItemObjectView : ObjectView
 		
 	}
 
-	public void UnsetFieldItem()
+	public void UnsetItem()
 	{
 		if (currentFieldItem != null)
 		{
@@ -23,7 +25,7 @@ public class ItemObjectView : ObjectView
 		currentFieldItem = null;
 	}
 
-	public void SetFieldItem(string currentItemCode)
+	public void SetItem(string currentItemCode)
 	{
 		if (currentFieldItem != null)
 		{
@@ -34,7 +36,7 @@ public class ItemObjectView : ObjectView
 
 			currentFieldItem.Destroy();
 		}
-			
+
 		currentFieldItem = fieldItemFactory.Make(currentItemCode);
 		if (currentFieldItem != null)
 		{
@@ -44,5 +46,8 @@ public class ItemObjectView : ObjectView
 				originObj.SetActive(true);
 			}
 		}
+
+		itemIcon.SetItemData(currentItemCode);
+		itemIcon.SetActiveImage(currentFieldItem == null);
 	}
 }

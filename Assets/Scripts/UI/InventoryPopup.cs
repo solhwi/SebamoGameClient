@@ -32,6 +32,14 @@ public class ItemSortingComparer : IComparer<string>
 		{
 			order1 = profileItemData.isFrame + (int)CharacterPartsType.Max;
 		}
+		else if (itemTable.fieldItemDataDictionary.TryGetValue(itemCode1, out var fieldItemData))
+		{
+			order1 = (int)CharacterPartsType.Max + 2;
+		}
+		else if (itemTable.buffItemDataDictionary.TryGetValue(itemCode1, out var buffItemData))
+		{
+			order1 = (int)CharacterPartsType.Max + 3;
+		}
 
 		if (itemTable.propItemDataDictionary.ContainsKey(itemCode2))
 		{
@@ -44,6 +52,14 @@ public class ItemSortingComparer : IComparer<string>
 		else if (itemTable.profileItemDataDictionary.TryGetValue(itemCode2, out var profileItemData))
 		{
 			order2 = profileItemData.isFrame + (int)CharacterPartsType.Max;
+		}
+		else if (itemTable.fieldItemDataDictionary.TryGetValue(itemCode2, out var fieldItemData))
+		{
+			order2 = (int)CharacterPartsType.Max + 2;
+		}
+		else if (itemTable.buffItemDataDictionary.TryGetValue(itemCode2, out var buffItemData))
+		{
+			order2 = (int)CharacterPartsType.Max + 3;
 		}
 
 		return order1 >= order2 ? 1 : -1;
@@ -78,7 +94,7 @@ public class InventoryPopup : BoardGamePopup
 
 	[SerializeField] private CharacterView uiCharacterView;
 	[SerializeField] private CharacterView gameCharacterView;
-	[SerializeField] private ItemObjectView fieldItemObjectView;
+	[SerializeField] private ItemObjectView itemObjectView;
 
 	[SerializeField] private ProfileSetter profileSetter;
 
@@ -153,7 +169,7 @@ public class InventoryPopup : BoardGamePopup
 
 		scrollContent.SelectTab((int)TabType.None);
 
-		fieldItemObjectView.UnsetFieldItem();
+		itemObjectView.UnsetItem();
 
 		base.OnClose();
 	}
@@ -167,7 +183,7 @@ public class InventoryPopup : BoardGamePopup
 		if (currentTabType == TabType.Replace)
 		{
 			currentItemCode = hasItemList.FirstOrDefault().Key;
-			fieldItemObjectView.SetFieldItem(currentItemCode);
+			itemObjectView.SetItem(currentItemCode);
 
 			hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
 		}
@@ -177,6 +193,7 @@ public class InventoryPopup : BoardGamePopup
 		}
 
 		useButtonObj.SetActive(currentTabType == TabType.Replace);
+
 		cameraButtonObj.SetActive(currentTabType == TabType.Props || currentTabType == TabType.Parts);
 
 		equipmentPanel.gameObject.SetActive(currentTabType == TabType.Props || currentTabType == TabType.Parts);
@@ -189,19 +206,19 @@ public class InventoryPopup : BoardGamePopup
 		{
 			uiCharacterView.gameObject.SetActive(true);
 			profileSetter.gameObject.SetActive(false);
-			fieldItemObjectView.gameObject.SetActive(false);
+			itemObjectView.gameObject.SetActive(false);
 		}
 		else if (currentTabType == TabType.Profile)
 		{
 			uiCharacterView.gameObject.SetActive(false);
 			profileSetter.gameObject.SetActive(true);
-			fieldItemObjectView.gameObject.SetActive(false);
+			itemObjectView.gameObject.SetActive(false);
 		}
 		else if (currentTabType == TabType.Replace)
 		{
 			uiCharacterView.gameObject.SetActive(false);
 			profileSetter.gameObject.SetActive(false);
-			fieldItemObjectView.gameObject.SetActive(true);
+			itemObjectView.gameObject.SetActive(true);
 		}
 
 		scrollContent.Reset();
@@ -242,7 +259,7 @@ public class InventoryPopup : BoardGamePopup
 		if (currentTabType == TabType.Replace)
 		{
 			currentItemCode = itemCode;
-			fieldItemObjectView.SetFieldItem(currentItemCode);
+			itemObjectView.SetItem(currentItemCode);
 		}
 		else
 		{
@@ -313,9 +330,17 @@ public class InventoryPopup : BoardGamePopup
 
 	public void OnClickUseItem()
 	{
-		if (currentItemCode != string.Empty)
+		if (itemTable.IsFieldItem(currentItemCode))
 		{
 			BoardGameManager.Instance.StartReplaceMode(currentItemCode);
+		}
+		else if (itemTable.IsBuffItem(currentItemCode))
+		{
+			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter($"버프 아이템 {currentItemCode}이 사용되었습니다.", 
+			onClickConfirm: () =>
+			{
+				inventory.TryApplyBuff(currentItemCode).Wait();
+			}));
 		}
 	}
 
@@ -385,7 +410,7 @@ public class InventoryPopup : BoardGamePopup
 					if (currentItemCode == itemCode)
 						continue;
 
-					if (itemTable.IsFieldItem(itemCode))
+					if (itemTable.IsFieldItem(itemCode) || itemTable.IsBuffItem(itemCode))
 					{
 						yield return iterator;
 					}

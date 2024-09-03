@@ -49,6 +49,10 @@ MonoBehaviour:
     isRandom: 0
     price: 100
     shopItemDescription: "\uAC10\uCABD\uAC19\uC740 \uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790\uC608\uC694."
+  - key: DoubleDice
+    isRandom: 0
+    price: 100
+    shopItemDescription: "\uB450\uBC30\uB450\uBC30"
   shopItemDataDictionary:
     m_keys:
     - UnityChanAccessory
@@ -59,6 +63,7 @@ MonoBehaviour:
     - MisakiBody
     - Banana
     - Barricade
+    - DoubleDice
     m_values:
     - key: UnityChanAccessory
       isRandom: 1
@@ -96,6 +101,10 @@ MonoBehaviour:
       isRandom: 0
       price: 100
       shopItemDescription: "\uAC10\uCABD\uAC19\uC740 \uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790\uC608\uC694."
+    - key: DoubleDice
+      isRandom: 0
+      price: 100
+      shopItemDescription: "\uB450\uBC30\uB450\uBC30"
   partsItemDataList:
   - key: UnityChanAccessory
     partsType: 6
@@ -345,6 +354,11 @@ MonoBehaviour:
       \uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790. \uC5F4\uC5B4\uBCF4\uAE30 \uC804\uAE4C\uC9C0\uB294
       \uBAA8\uB978\uB2E4."
     sellPrice: 1000
+  - key: DoubleDice
+    iconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
+    itemName: "\uB450\uBC30 \uC8FC\uC0AC\uC704 \uBC84\uD504"
+    itemDescription: "\uBC84\uD504\uBC84\uD504"
+    sellPrice: 1000
   itemToolTipDataDictionary:
     m_keys:
     - GreatSword
@@ -371,6 +385,7 @@ MonoBehaviour:
     - Banana
     - Banana2
     - Barricade
+    - DoubleDice
     m_values:
     - key: GreatSword
       iconAssetPath: Sprites/ItemIcon/Prop_A
@@ -498,6 +513,11 @@ MonoBehaviour:
         \uC5C6\uB294 \uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790. \uC5F4\uC5B4\uBCF4\uAE30
         \uC804\uAE4C\uC9C0\uB294 \uBAA8\uB978\uB2E4."
       sellPrice: 1000
+    - key: DoubleDice
+      iconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
+      itemName: "\uB450\uBC30 \uC8FC\uC0AC\uC704 \uBC84\uD504"
+      itemDescription: "\uBC84\uD504\uBC84\uD504"
+      sellPrice: 1000
   fieldItemDataList:
   - key: DropCoin
     fieldIconAssetPath: Sprites/Coin.asset
@@ -540,7 +560,7 @@ MonoBehaviour:
       actionParameter: Min:-100/Max:100
   buffItemDataList:
   - key: DoubleDice
-    fieldIconAssetPath: 
+    buffIconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
     actionType: 0
     actionParameter: '*:2'
   buffItemDataDictionary:
@@ -548,7 +568,7 @@ MonoBehaviour:
     - DoubleDice
     m_values:
     - key: DoubleDice
-      fieldIconAssetPath: 
+      buffIconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
       actionType: 0
       actionParameter: '*:2'
   profileItemDataList:
@@ -612,3 +632,7 @@ MonoBehaviour:
     isRandom: 0
     price: 100
     shopItemDescription: "\uAC10\uCABD\uAC19\uC740 \uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790\uC608\uC694."
+  - key: DoubleDice
+    isRandom: 0
+    price: 100
+    shopItemDescription: "\uB450\uBC30\uB450\uBC30"
