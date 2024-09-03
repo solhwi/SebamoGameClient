@@ -24,10 +24,10 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 		statusText.text = $"일반 이동 후 위치 : {nextOrder}";
 	}
 
-	public override IEnumerator OnRollDice(int diceCount)
+	public override IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, int nextBonusMultiplyCount)
 	{
 		yield return null;
-		statusText.text = $"나온 주사위 눈 : {diceCount.ToString()}";
+		statusText.text = $"나온 주사위 값 : {diceCount} x {nextBonusMultiplyCount} + {nextBonusAddCount}";
 	}
 
 	public void OnClickRollDice()

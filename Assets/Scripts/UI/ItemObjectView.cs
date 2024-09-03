@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemObjectView : ObjectView
 {
+	[SerializeField] private FieldItemFactory fieldItemFactory;
 	private FieldItem currentFieldItem = null;
 
 	// 아이템은 기존 생성 로직을 타지 않음
@@ -22,11 +23,11 @@ public class ItemObjectView : ObjectView
 		currentFieldItem = null;
 	}
 
-	public void SetFieldItem(FieldItem newFieldItem)
+	public void SetFieldItem(string currentItemCode)
 	{
 		if (currentFieldItem != null)
 		{
-			if (newFieldItem != null && currentFieldItem.fieldItemCode == newFieldItem.fieldItemCode)
+			if (currentItemCode != string.Empty && currentFieldItem.fieldItemCode == currentItemCode)
 			{
 				return;
 			}
@@ -34,10 +35,10 @@ public class ItemObjectView : ObjectView
 			currentFieldItem.Destroy();
 		}
 			
-		currentFieldItem = newFieldItem;
+		currentFieldItem = fieldItemFactory.Make(currentItemCode);
 		if (currentFieldItem != null)
 		{
-			originObj = newFieldItem.Create(cameraArm, spawnLocalPos, spawnLocalRot);
+			originObj = currentFieldItem.Create(cameraArm, spawnLocalPos, spawnLocalRot);
 			if (originObj != null)
 			{
 				originObj.SetActive(true);

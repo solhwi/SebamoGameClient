@@ -36,6 +36,11 @@ public partial class ItemTable : ScriptParser
 		{
 			fieldItemDataDictionary.Add(value.key, value);
 		}
+		buffItemDataDictionary.Clear();
+		foreach(var value in buffItemDataList)
+		{
+			buffItemDataDictionary.Add(value.key, value);
+		}
 		profileItemDataDictionary.Clear();
 		foreach(var value in profileItemDataList)
 		{
@@ -110,6 +115,20 @@ public partial class ItemTable : ScriptParser
 	[System.Serializable]
 	public class FieldItemDataDictionary : SerializableDictionary<string, FieldItemData> {}
 	public FieldItemDataDictionary fieldItemDataDictionary = new FieldItemDataDictionary();
+
+	[Serializable]
+	public class BuffItemData
+	{
+		public string key;
+		public string buffIconAssetPath;
+		public BuffActionType actionType;
+		public string actionParameter;
+	}
+
+	public List<BuffItemData> buffItemDataList = new List<BuffItemData>();
+	[System.Serializable]
+	public class BuffItemDataDictionary : SerializableDictionary<string, BuffItemData> {}
+	public BuffItemDataDictionary buffItemDataDictionary = new BuffItemDataDictionary();
 
 	[Serializable]
 	public class ProfileItemData

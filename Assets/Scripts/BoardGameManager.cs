@@ -8,7 +8,7 @@ using UnityEngine;
 
 public abstract class BoardGameSubscriber : MonoBehaviour
 {
-	public virtual IEnumerator OnRollDice(int diceCount) { yield return null; }
+	public virtual IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, int nextBonusMultiplyCount) { yield return null; }
 	public virtual IEnumerator OnMove(int currentOrder, int nextOrder, int diceCount) { yield return null; }
 	public virtual IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder) { yield return null; }
 	public virtual IEnumerator OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder) { yield return null; }
@@ -48,17 +48,21 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		public readonly int startOrder = 0;
 		public readonly int diceCount = 0;
 		public readonly int moveNextOrder = 0;
+		public readonly int bonusAddDiceCount = 0;
+		public readonly int bonusMultiplyDiceCount = 1;
 
 		public int CurrentOrder { get; private set; }
 
 		private Queue<StateOrderData> stateOrderQueue = new Queue<StateOrderData>();
 
-		public StateData(int startOrder, int moveNextOrder, int diceCount)
+		public StateData(int startOrder, int moveNextOrder, int diceCount, int bonusAddDiceCount, int bonusMultiplyDiceCount)
 		{
 			this.startOrder = startOrder;
 			this.moveNextOrder = moveNextOrder;
 
 			this.diceCount = diceCount;
+			this.bonusAddDiceCount = bonusAddDiceCount;
+			this.bonusMultiplyDiceCount = bonusMultiplyDiceCount;
 
 			CurrentOrder = moveNextOrder;
 		}
@@ -106,16 +110,13 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		}
 	}
 
-	public class StateViewData
-	{
-
-	}
-
 	[SerializeField] private bool isDiceDebugMode = false;
 
+	[SerializeField] private Inventory inventory;
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private TileDataManager tileDataManager;
-
+	[SerializeField] private BuffItemFactory buffItemFactory;
+	[SerializeField] private FieldItemFactory fieldItemFactory;
 	[SerializeField] private CharacterMoveComponent characterMoveComponent;
 
 	[SerializeField] private BoardGameSubscriber[] subscribers;
@@ -226,16 +227,30 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	private IEnumerator ProcessRollDice()
 	{
-		// 사전에 데이터 전부 세팅
+		// 버프 아이템 사전 적용
+		yield return ProcessUseBuff();
+
+		// 버프를 포함한 데이터 세팅
 		yield return ProcessData();
 
 		// 주사위 굴리기 연출부터 시작
 		foreach (var subscriber in subscribers)
 		{
-			yield return subscriber?.OnRollDice(currentStateData.diceCount); 
+			yield return subscriber?.OnRollDice(currentStateData.diceCount, currentStateData.bonusAddDiceCount, currentStateData.bonusMultiplyDiceCount); 
 		}
 
 		TryChangeState(GameState.MoveCharacter, currentStateData);
+	}
+
+	private IEnumerable ProcessUseBuff()
+	{
+		string buffItemCode = inventory.GetUsableBuffItemCode();
+
+		var buffItem = buffItemFactory.Make(buffItemCode);
+		if (buffItem != null)
+		{
+			yield return buffItem.TryUse(playerDataContainer);
+		}
 	}
 
 	private IEnumerator ProcessData()
@@ -243,14 +258,19 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		int currentOrder = playerDataContainer.currentTileOrder;
 		int diceCount = GetNextDiceCount();
 
-		int nextOrder = tileDataManager.GetNextOrder(currentOrder, diceCount, out var barricadeItem);
+		int bonusAddDiceCount = playerDataContainer.NextBonusAddDiceCount;
+		int bonusMultiplyDiceCount = playerDataContainer.NextBonusMultiplyDiceCount;
+
+		int nextOrder = tileDataManager.GetNextOrder(currentOrder, diceCount * bonusMultiplyDiceCount + bonusAddDiceCount, out var barricadeItem);
 
 		if (barricadeItem != null)
 		{
 			barricadeItem.Use(tileDataManager, playerDataContainer, nextOrder);
 		}
 
-		currentStateData = new StateData(currentOrder, nextOrder, diceCount);
+		currentStateData = new StateData(currentOrder, nextOrder, diceCount, bonusAddDiceCount, bonusMultiplyDiceCount);
+
+		playerDataContainer.ClearBonusDiceCount();
 		playerDataContainer.SaveCurrentOrder(nextOrder);
 
 		ProcessItemData();
@@ -399,23 +419,23 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		return currentPlayerTileData.tilePlayerPosition;
 	}
 
-	public void StartReplaceMode(ReplaceFieldItem replaceItem)
+	public void StartReplaceMode(string fieldItemCode)
 	{
-		currentReplaceFieldItem = replaceItem;
+		currentReplaceFieldItem = fieldItemFactory.Make<ReplaceFieldItem>(fieldItemCode);
 
 		if (currentReplaceFieldItem != null)
 		{
-			int min = playerDataContainer.currentTileOrder + replaceItem.ranges[0];
-			int max = playerDataContainer.currentTileOrder + replaceItem.ranges[1];
+			int min = playerDataContainer.currentTileOrder + currentReplaceFieldItem.ranges[0];
+			int max = playerDataContainer.currentTileOrder + currentReplaceFieldItem.ranges[1];
 
-			var tileOrders = GetReplaceableTileOrders(replaceItem, min, max);
+			var tileOrders = GetReplaceableTileOrders(currentReplaceFieldItem, min, max);
 			tileDataManager.SetSelectTiles(tileOrders);
 		}
 
 		UIManager.Instance.CloseMainCanvas();
 		UIManager.Instance.Close(PopupType.Inventory);
 
-		UIManager.Instance.TryOpen(PopupType.BatchMode, new BatchModePopup.Parameter(replaceItem));
+		UIManager.Instance.TryOpen(PopupType.BatchMode, new BatchModePopup.Parameter(currentReplaceFieldItem));
 	}
 
 	private IEnumerable<int> GetReplaceableTileOrders(ReplaceFieldItem replaceItem, int min, int max)

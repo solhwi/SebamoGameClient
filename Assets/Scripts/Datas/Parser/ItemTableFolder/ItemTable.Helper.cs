@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -139,6 +140,9 @@ public partial class ItemTable
 		if (shopItemDataDictionary.ContainsKey(itemCode))
 			return true;
 
+		if (buffItemDataDictionary.ContainsKey(itemCode))
+			return true;
+
 		if (profileItemDataDictionary.ContainsKey(itemCode))
 			return true;
 
@@ -151,6 +155,11 @@ public partial class ItemTable
 		b |= IsPartsItem(itemCode);
 
 		return b;
+	}
+
+	public bool IsBuffItem(string itemCode)
+	{
+		return buffItemDataDictionary.ContainsKey(itemCode);
 	}
 
 	public bool IsAvatarItem(string itemCode)
@@ -314,6 +323,19 @@ public partial class ItemTable
 		return res;
 	}
 
+	public static KeyValuePair<MathType, int> ParseBuffData(string rawRecipe)
+	{
+		string[] columns = rawRecipe.Split(':');
+
+		var mathTypeStr = columns[0];
+		var mathType = CommonFunc.GetMathType(mathTypeStr);
+			
+		if (int.TryParse(columns[2], out int value) == false)
+			return default;
+
+		return new KeyValuePair<MathType, int>(mathType, value);
+	}
+
 	public static int[] ParseRangeData(string rawRecipe)
 	{
 		int[] ranges = new int[2];
@@ -347,7 +369,7 @@ public partial class ItemTable
 
 	public static string GetFieldItemCode(Dictionary<string, int> recipe)
 	{
-		int randomNumber = Random.Range(1, 101);
+		int randomNumber = UnityEngine.Random.Range(1, 101);
 
 		int prevRateValue = 0;
 

@@ -538,6 +538,19 @@ MonoBehaviour:
       fieldIconAssetPath: Sprites/ItemIcon_Chest_Wood.png
       actionType: 3
       actionParameter: Min:-100/Max:100
+  buffItemDataList:
+  - key: DoubleDice
+    fieldIconAssetPath: 
+    actionType: 0
+    actionParameter: '*:2'
+  buffItemDataDictionary:
+    m_keys:
+    - DoubleDice
+    m_values:
+    - key: DoubleDice
+      fieldIconAssetPath: 
+      actionType: 0
+      actionParameter: '*:2'
   profileItemDataList:
   - key: Frame_01
     isFrame: 1

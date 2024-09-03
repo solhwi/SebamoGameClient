@@ -5084,8 +5084,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDiceDebugMode: 1
+  inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   tileDataManager: {fileID: 547121921}
+  buffItemFactory: {fileID: 11400000, guid: 90850b6b0c5d6a44eba35d118322da3f, type: 2}
+  fieldItemFactory: {fileID: 11400000, guid: a6e06216073cb404eb58dd2ea48f4cee, type: 2}
   characterMoveComponent: {fileID: 4193919861854145259}
   subscribers:
   - {fileID: 4193919861854145259}

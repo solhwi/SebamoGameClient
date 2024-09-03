@@ -102,6 +102,16 @@ public class Inventory : ScriptableObject
 		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
+	public string GetUsableBuffItemCode()
+	{
+		if (appliedBuffItems != null && appliedBuffItems.Count > 0)
+		{
+			return appliedBuffItems[0];
+		}
+
+		return string.Empty;
+	}
+
 	public async Task<bool> TryApplyBuff(string itemCode)
 	{
 		bool bResult = ApplyBuff(itemCode);
@@ -175,8 +185,6 @@ public class Inventory : ScriptableObject
 	{
 		if (appliedBuffItems.Contains(buffItemCode) == false)
 			return false;
-
-		// 버프 작동 로직
 
 		appliedBuffItems.Remove(buffItemCode);
 		return true;

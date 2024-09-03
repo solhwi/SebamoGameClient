@@ -35,6 +35,14 @@ public class PlayerDataContainer : ScriptableObject
 	[Range(1, 6)]
 	public int NextDiceCount = 3;
 
+	[Header("[보너스 주사위 (+)]")]
+	[Range(0, 3)]
+	public int NextBonusAddDiceCount = 0;
+
+	[Header("[보너스 주사위 (+)]")]
+	[Range(1, 6)]
+	public int NextBonusMultiplyDiceCount = 1;
+
 #if UNITY_EDITOR
 	[MenuItem("Tools/캐릭터 위치 초기화")]
 	public static void ResetCharacterPosition()
@@ -74,24 +82,10 @@ public class PlayerDataContainer : ScriptableObject
 		return SaveCurrentOrder(currentTileOrder + addOrderCount);
 	}
 
-	public async Task<bool> UseDiceCount()
+	public void ClearBonusDiceCount()
 	{
-		if (hasDiceCount <= 0)
-			return false;
-
-		myPlayerPacketData.hasDiceCount--;
-
-		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
-	}
-
-	public async Task<bool> AddDiceCount()
-	{
-		if (hasDiceCount >= MaxDiceCount)
-			return false;
-
-		myPlayerPacketData.hasDiceCount++;
-
-		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		NextBonusAddDiceCount = 0;
+		NextBonusMultiplyDiceCount = 1;
 	}
 
 	public void SetMyPacketData(MyPlayerPacketData myData)

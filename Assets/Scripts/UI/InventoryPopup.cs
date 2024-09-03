@@ -100,7 +100,7 @@ public class InventoryPopup : BoardGamePopup
 
 	private bool isToggleOn = true;
 
-	private ReplaceFieldItem currentFieldItem = null;
+	private string currentItemCode = null;
 
 	protected override void Reset()
 	{
@@ -113,7 +113,7 @@ public class InventoryPopup : BoardGamePopup
 	{
 		base.OnOpen(parameter);
 
-		currentFieldItem = null;
+		currentItemCode = string.Empty;
 		sortingComparer = new ItemSortingComparer(itemTable);
 
 		scrollContent.onChangedTab += OnChangedTab;
@@ -166,16 +166,14 @@ public class InventoryPopup : BoardGamePopup
 
 		if (currentTabType == TabType.Replace)
 		{
-			string itemCode = hasItemList.FirstOrDefault().Key;
-
-			currentFieldItem = fieldItemFactory.Make<ReplaceFieldItem>(itemCode);
-			fieldItemObjectView.SetFieldItem(currentFieldItem);
+			currentItemCode = hasItemList.FirstOrDefault().Key;
+			fieldItemObjectView.SetFieldItem(currentItemCode);
 
 			hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
 		}
 		else
 		{
-			currentFieldItem = null;
+			currentItemCode = string.Empty;
 		}
 
 		useButtonObj.SetActive(currentTabType == TabType.Replace);
@@ -243,8 +241,8 @@ public class InventoryPopup : BoardGamePopup
 
 		if (currentTabType == TabType.Replace)
 		{
-			currentFieldItem = fieldItemFactory.Make<ReplaceFieldItem>(itemCode);
-			fieldItemObjectView.SetFieldItem(currentFieldItem);
+			currentItemCode = itemCode;
+			fieldItemObjectView.SetFieldItem(currentItemCode);
 		}
 		else
 		{
@@ -315,9 +313,9 @@ public class InventoryPopup : BoardGamePopup
 
 	public void OnClickUseItem()
 	{
-		if (currentFieldItem != null)
+		if (currentItemCode != string.Empty)
 		{
-			BoardGameManager.Instance.StartReplaceMode(currentFieldItem);
+			BoardGameManager.Instance.StartReplaceMode(currentItemCode);
 		}
 	}
 
@@ -384,7 +382,7 @@ public class InventoryPopup : BoardGamePopup
 				foreach (var iterator in inventory.hasItems)
 				{
 					var itemCode = iterator.Key;
-					if (currentFieldItem != null && currentFieldItem.fieldItemCode == itemCode)
+					if (currentItemCode == itemCode)
 						continue;
 
 					if (itemTable.IsFieldItem(itemCode))

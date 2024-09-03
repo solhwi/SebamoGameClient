@@ -8,7 +8,7 @@ public class CharacterMoveComponent : BoardGameSubscriber
 	[SerializeField] private CharacterView characterView = null;
 	[SerializeField] private PlayerDataContainer playerDataContainer = null;
 
-	public override IEnumerator OnRollDice(int diceCount)
+	public override IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, int nextBonusMultiplyCount)
 	{
 		yield return null;
 	}
