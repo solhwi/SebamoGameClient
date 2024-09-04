@@ -219,39 +219,39 @@ MonoBehaviour:
     propType: 0
   - key: TwinDagger
     propType: 1
-  - key: 1
+  - key: Axe
     propType: 3
-  - key: 2
+  - key: PickAx
     propType: 4
-  - key: 3
+  - key: Shovel
     propType: 5
-  - key: 4
+  - key: Umbrella
     propType: 6
-  - key: 5
+  - key: Net
     propType: 7
   propItemDataDictionary:
     m_keys:
     - GreatSword
     - TwinDagger
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
+    - Axe
+    - PickAx
+    - Shovel
+    - Umbrella
+    - Net
     m_values:
     - key: GreatSword
       propType: 0
     - key: TwinDagger
       propType: 1
-    - key: 1
+    - key: Axe
       propType: 3
-    - key: 2
+    - key: PickAx
       propType: 4
-    - key: 3
+    - key: Shovel
       propType: 5
-    - key: 4
+    - key: Umbrella
       propType: 6
-    - key: 5
+    - key: Net
       propType: 7
   itemToolTipDataList:
   - key: GreatSword
