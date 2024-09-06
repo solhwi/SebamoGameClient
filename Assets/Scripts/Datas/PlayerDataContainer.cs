@@ -39,7 +39,7 @@ public class PlayerDataContainer : ScriptableObject
 	[Range(0, 3)]
 	public int NextBonusAddDiceCount = 0;
 
-	[Header("[보너스 주사위 (+)]")]
+	[Header("[보너스 주사위 (x)]")]
 	[Range(1, 6)]
 	public int NextBonusMultiplyDiceCount = 1;
 

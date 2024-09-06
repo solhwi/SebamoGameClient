@@ -60,6 +60,7 @@ public abstract class FieldItem
 		}
 	}
 
+	// 아이템 사용 후 반드시 서버와 동기화를 해야 하나, 이 곳에서 하면 통신을 너무 자주 하게 되어 밖으로 뺌
 	public virtual void Use(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
 	{
 		tileDataManager.TrySetTileItem(tileOrder, null);
@@ -125,7 +126,7 @@ public abstract class ReplaceFieldItem : FieldItem
 		return bResult;
 	}
 
-	public virtual bool Replace(TileDataManager tileDataManager, int tileOrder)
+	public async virtual Task<bool> Replace(TileDataManager tileDataManager, int tileOrder)
 	{
 		if (tileDataManager.IsAlreadyReplaced(tileOrder))
 			return false;
@@ -137,7 +138,11 @@ public abstract class ReplaceFieldItem : FieldItem
 		if (bResult == false)
 			return false;
 
-		return tileDataManager.TrySetTileItem(tileOrder, this);
+		bResult = tileDataManager.TrySetTileItem(tileOrder, this);
+		if (bResult == false)
+			return false;
+
+		return await HttpNetworkManager.Instance.TryPostTileData();
 	}
 }
 

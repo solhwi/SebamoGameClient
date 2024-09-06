@@ -40,8 +40,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		if (isOnNetworkMode)
 		{
 			IsLoaded = false;
-			await TryGetMyPlayerData();
-			await TryGetOtherPlayerDatas();
+			await TryGetAll();
 		}
 
 		IsLoaded = true;
@@ -56,8 +55,18 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 			{
 				t = 0.0f;
 				await TryGetOtherPlayerDatas();
+				await TryGetTileData();
 			}
 		}
+	}
+
+	private async Task<bool> TryGetAll()
+	{
+		bool b = await TryGetMyPlayerData();
+		b &= await TryGetOtherPlayerDatas();
+		b &= await TryGetTileData();
+
+		return b;
 	}
 
 	// 최초 1회
@@ -73,7 +82,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	}
 
 	// 주기적으로 다른 플레이어 정보 가져옴
-	private async Task<bool> TryGetOtherPlayerDatas()
+	public async Task<bool> TryGetOtherPlayerDatas()
 	{
 		var otherDatas = await TryGet<PlayerPacketDataCollection>("Other");
 		if (otherDatas == null) 
@@ -104,6 +113,11 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		if (isOnNetworkMode == false)
 			return true;
 
+		var receiveData = await TryGet<TilePacketData>("Tile");
+		if (receiveData == null)
+			return false;
+
+		tileDataContainer.SetTileItemPacket(receiveData);
 		return true;
 	}
 
@@ -112,6 +126,12 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		if (isOnNetworkMode == false)
 			return true;
 
+		var sendData = MakeTilePacketData();
+		var receiveData = await TryPost<TilePacketData>(sendData);
+		if (receiveData == null)
+			return false;
+
+		tileDataContainer.SetTileItemPacket(receiveData);
 		return true;
 	}
 
@@ -130,6 +150,29 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		data.hasItems = inventory.hasItems.Keys.ToArray();
 		data.hasItemCounts = inventory.hasItems.Values.ToArray();
 		data.appliedBuffItems = inventory.appliedBuffItems.ToArray();
+
+		return data;
+	}
+
+	private TilePacketData MakeTilePacketData()
+	{
+		var data = new TilePacketData();
+
+		List<int> indexes = new List<int>();
+		List<string> itemCodes = new List<string>();
+
+		for (int i = 0; i < tileDataContainer.tileItems.Length; i++)
+		{
+			string itemCode = tileDataContainer.tileItems[i];
+			if (itemCode == null || itemCode == string.Empty)
+				continue;
+
+			indexes.Add(i);
+			itemCodes.Add(itemCode);
+		}
+
+		data.tileItemIndexes = indexes.ToArray();
+		data.tileItemCodes = itemCodes.ToArray();
 
 		return data;
 	}

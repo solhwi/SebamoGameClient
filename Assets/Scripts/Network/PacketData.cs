@@ -1,3 +1,4 @@
+using NPOI.SS.Formula.PTG;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,7 +38,8 @@ public class PlayerPacketData : PacketData
 [System.Serializable]
 public class TilePacketData : PacketData
 {
-
+	public int[] tileItemIndexes = null;
+	public string[] tileItemCodes = null;
 }
 
 

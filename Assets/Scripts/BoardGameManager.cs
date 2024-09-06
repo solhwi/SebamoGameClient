@@ -227,15 +227,17 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	private IEnumerator ProcessRollDice()
 	{
-		yield return null;
-
-		// 버프 아이템 사전 적용
-		yield return ProcessUseBuff();
+		// 서버와 타일 데이터 동기화
+		yield return HttpNetworkManager.Instance.TryGetTileData();
 
 		// 버프를 포함한 데이터 세팅
-		yield return ProcessData();
+		ProcessData();
 
-		// 주사위 굴리기 연출부터 시작
+		// 서버에 내 정보, 타일 데이터 동기화
+		yield return HttpNetworkManager.Instance.TryPostMyPlayerData();
+		yield return HttpNetworkManager.Instance.TryPostTileData();
+
+		// 주사위 굴리기 연출 시작
 		foreach (var subscriber in subscribers)
 		{
 			yield return subscriber?.OnRollDice(currentStateData.diceCount, currentStateData.bonusAddDiceCount, currentStateData.bonusMultiplyDiceCount); 
@@ -244,19 +246,18 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		TryChangeState(GameState.MoveCharacter, currentStateData);
 	}
 
-	private IEnumerator ProcessUseBuff()
+	private void ProcessData()
 	{
+		// 버프 아이템 사전 적용
 		string buffItemCode = inventory.GetUsableBuffItemCode();
 
 		var buffItem = buffItemFactory.Make(buffItemCode);
 		if (buffItem != null)
 		{
-			yield return buffItem.TryUse(playerDataContainer);
+			buffItem.TryUse(playerDataContainer);
 		}
-	}
 
-	private IEnumerator ProcessData()
-	{
+		// 주사위 굴리기
 		int currentOrder = playerDataContainer.currentTileOrder;
 		int diceCount = GetNextDiceCount();
 
@@ -275,9 +276,8 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		playerDataContainer.ClearBonusDiceCount();
 		playerDataContainer.SaveCurrentOrder(nextOrder);
 
+		// 아이템, 타일 반영
 		ProcessItemData();
-
-		yield return HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
 	private void ProcessItemData()

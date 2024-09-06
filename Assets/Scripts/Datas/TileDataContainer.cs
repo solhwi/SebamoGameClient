@@ -36,13 +36,31 @@ public class TileDataContainer : ScriptableObject
 	public void SetTileOrder(IEnumerable<int> orders)
 	{
 		tileOrders = orders.ToArray();
+
+#if UNITY_EDITOR
 		EditorUtility.SetDirty(this);
+#endif
 	}
 
 	public void SetTileItems(IEnumerable<string> items)
 	{
 		tileItems = items.ToArray();
+
+#if UNITY_EDITOR
 		EditorUtility.SetDirty(this);
+#endif
+	}
+
+	public void SetTileItemPacket(TilePacketData data)
+	{
+		if (data == null)
+			return;
+
+		for (int i = 0; i < data.tileItemIndexes.Length; i++)
+		{
+			int index = data.tileItemIndexes[i];
+			tileItems[index] = data.tileItemCodes[index];
+		}
 	}
 
 	public bool TrySetTileItem(int index, string itemCode)

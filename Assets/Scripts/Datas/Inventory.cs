@@ -89,12 +89,6 @@ public class Inventory : ScriptableObject
 		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
-	public async Task<bool> TryEquipOff(int index)
-	{
-		EquipOffItem(index);
-		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
-	}
-
 	public async Task<bool> TryEquipOff(string itemCode)
 	{
 		bool bResult = EquipOffItem(itemCode);
@@ -114,6 +108,7 @@ public class Inventory : ScriptableObject
 		return string.Empty;
 	}
 
+
 	public async Task<bool> TryApplyBuff(string itemCode)
 	{
 		bool bResult = ApplyBuff(itemCode);
@@ -123,13 +118,13 @@ public class Inventory : ScriptableObject
 		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
-	public async Task<bool> TryUseBuff(string itemCode)
+	public bool TryUseBuff(string itemCode)
 	{
 		bool bResult = UseBuff(itemCode);
 		if (bResult == false)
 			return false;
 
-		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		return true;
 	}
 
 	private bool RemoveItem(string itemCode, int count = 1)

@@ -23,9 +23,9 @@ public class BuffItem
 		itemCode = data.key;
 	}
 
-	public async virtual Task<bool> TryUse(PlayerDataContainer playerDataContainer)
+	public virtual bool TryUse(PlayerDataContainer playerDataContainer)
 	{
-		return await inventory.TryUseBuff(itemCode);
+		return inventory.TryUseBuff(itemCode);
 	}
 }
 
@@ -42,9 +42,9 @@ public class MoreDiceBuffItem : BuffItem
 		count = pair.Value;
 	}
 
-	public async override Task<bool> TryUse(PlayerDataContainer playerDataContainer)
+	public override bool TryUse(PlayerDataContainer playerDataContainer)
 	{
-		bool b = await base.TryUse(playerDataContainer);
+		bool b = base.TryUse(playerDataContainer);
 		if (b)
 		{
 			if (mathType == MathType.Add)
