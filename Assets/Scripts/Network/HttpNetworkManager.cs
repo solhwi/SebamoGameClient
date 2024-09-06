@@ -146,6 +146,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		data.playerData.playerTileIndex = playerDataContainer.currentTileIndex;
 
 		data.playerData.equippedItems = inventory.equippedItems;
+		data.playerData.appliedProfileItems = inventory.appliedProfileItems;
 
 		data.hasItems = inventory.hasItems.Keys.ToArray();
 		data.hasItemCounts = inventory.hasItems.Values.ToArray();
@@ -246,6 +247,8 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		data.playerData.playerTileIndex = 0;
 
 		data.playerData.equippedItems = new string[6] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword"};
+		data.playerData.appliedProfileItems = new string[2] { "", "" };
+		
 		data.hasItems = new string[8] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword", "TwinDagger", "Coin" };
 		data.hasItemCounts = new int[8] { 1, 1, 1, 1, 1, 1, 1, 100000 };
 		data.appliedBuffItems = new string[] { };

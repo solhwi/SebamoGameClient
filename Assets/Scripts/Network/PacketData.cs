@@ -32,6 +32,7 @@ public class PlayerPacketData : PacketData
 	public int hasDiceCount; // 가진 주사위 개수
 
 	public string[] equippedItems; // 장착 중인 아이템
+	public string[] appliedProfileItems; // 프로필 아이템
 
 }
 

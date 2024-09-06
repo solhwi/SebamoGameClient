@@ -187,30 +187,32 @@ public class Inventory : ScriptableObject
 		return true;
 	}
 
-	private void ApplyBuffs(IEnumerable<string> buffItems)
+	private void InitializeBuffs(IEnumerable<string> buffItems)
 	{
 		if (buffItems == null)
 			return;
 
-		foreach(var buffItem in buffItems)
+		appliedBuffItems.Clear();
+
+		foreach (var buffItem in buffItems)
 		{
 			ApplyBuff(buffItem);
 		}
 	}
 
-	private void EquipOnItems(IEnumerable<string> equippedItems)
+	private void InitializeEquippedItems(IEnumerable<string> equippedItems, IEnumerable<string> appliedProfileItems)
 	{
-		foreach (var item in equippedItems)
+		this.appliedProfileItems = new string[2];
+		this.equippedItems = new string[6];
+
+		foreach (var item in appliedProfileItems)
 		{
 			EquipOnItem(item);
 		}
-	}
 
-	public void EquipOffItem(int index)
-	{
-		if (index >= 0 && index < equippedItems.Length)
+		foreach (var item in equippedItems)
 		{
-			equippedItems[index] = string.Empty;
+			EquipOnItem(item);
 		}
 	}
 
@@ -371,7 +373,7 @@ public class Inventory : ScriptableObject
 			AddItem(itemCode, itemCount);
 		}
 
-		EquipOnItems(myData.playerData.equippedItems);
-		ApplyBuffs(myData.appliedBuffItems);
+		InitializeEquippedItems(myData.playerData.equippedItems, myData.playerData.appliedProfileItems);
+		InitializeBuffs(myData.appliedBuffItems);
 	}
 }
