@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using Unity.Mathematics;
 using UnityEngine;
 
-public abstract class BoardGameSubscriber : MonoBehaviour
+public interface IBoardGameSubscriber
 {
-	public virtual IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, int nextBonusMultiplyCount) { yield return null; }
-	public virtual IEnumerator OnMove(int currentOrder, int nextOrder, int diceCount) { yield return null; }
-	public virtual IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder) { yield return null; }
-	public virtual IEnumerator OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder) { yield return null; }
+	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, int nextBonusMultiplyCount);
+	public IEnumerator OnMove(int currentOrder, int nextOrder, int diceCount);
+	public IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder);
+	public IEnumerator OnDoTileAction(int currentOrder, int nextOrder);
 }
 
 public class BoardGameManager : Singleton<BoardGameManager>
@@ -114,12 +114,15 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private PlayerDataContainer playerDataContainer;
-	[SerializeField] private TileDataManager tileDataManager;
 	[SerializeField] private BuffItemFactory buffItemFactory;
 	[SerializeField] private FieldItemFactory fieldItemFactory;
-	[SerializeField] private CharacterMoveComponent characterMoveComponent;
 
-	[SerializeField] private BoardGameSubscriber[] subscribers;
+	[SerializeField] private MyCharacterMoveComponent myCharacterMoveComponent;
+	[SerializeField] private CharacterMoveComponent otherCharacterMoveComponentPrefab;
+
+	private Dictionary<PlayerPacketData, CharacterMoveComponent> otherPlayerCharacterDictionary = new Dictionary<PlayerPacketData, CharacterMoveComponent>();
+
+	private List<IBoardGameSubscriber> subscribers = new List<IBoardGameSubscriber>();
 
 	private GameState currentGameState = GameState.None;
 
@@ -128,6 +131,8 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	private StateData currentStateData = null;
 	private ReplaceFieldItem currentReplaceFieldItem = null;
+
+	private Coroutine otherPlayerMoveCoroutine = null;
 
 	protected override void Awake()
 	{
@@ -150,9 +155,31 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		};
 	}
 
+	public void Subscribe(IBoardGameSubscriber subscriber)
+	{
+		if (subscriber == null)
+			return;
+
+		if (subscribers.Contains(subscriber))
+			return;
+
+		subscribers.Add(subscriber);
+	}
+
+	public void Unsubscribe(IBoardGameSubscriber subscriber)
+	{
+		if (subscriber == null)
+			return;
+
+		if (subscribers.Contains(subscriber) == false)
+			return;
+
+		subscribers.Remove(subscriber);
+	}
+
 	private IEnumerator Start()
 	{
-		characterMoveComponent.gameObject.SetActive(false);
+		myCharacterMoveComponent.gameObject.SetActive(false);
 
 		// 타일 위 아이템 이미지 배치
 		yield return PrepareItem();
@@ -166,18 +193,40 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	private IEnumerator PrepareItem()
 	{
-		yield return tileDataManager.PrepareTile();
+		yield return TileDataManager.Instance.PrepareTile();
 	}
 
 	private IEnumerator PrepareCharacter()
 	{
+		// 플레이어 본인 캐릭터 타일 위로 배치
+		int myTileOrder = playerDataContainer.currentTileOrder;
+		Vector2 playerPos = TileDataManager.Instance.GetPlayerPosByOrder(myTileOrder);
+
+		myCharacterMoveComponent.SetPosition(playerPos);
+		myCharacterMoveComponent.gameObject.SetActive(true);
+
 		yield return null;
 
-		// 플레이어 캐릭터 뷰 타일 위로 배치
-		Vector2 playerPos = GetPlayerPos();
-		characterMoveComponent.SetPosition(playerPos);
+		// 타 유저 캐릭터 타일 위로 배치
+		//if (playerDataContainer.otherPlayerPacketDatas == null)
+		//	yield break;
 
-		characterMoveComponent.gameObject.SetActive(true);
+		//otherPlayerCharacterDictionary.Clear();
+
+		//foreach (var otherPlayerData in playerDataContainer.otherPlayerPacketDatas)
+		//{
+		//	var otherPlayer = Instantiate(otherCharacterMoveComponentPrefab);
+		//	if (otherPlayer == null)
+		//		continue;
+
+		//	int tileIndex = otherPlayerData.playerTileIndex;
+		//	playerPos = TileDataManager.Instance.GetPlayerPos(tileIndex);
+
+		//	otherPlayer.SetPosition(playerPos);
+		//	otherPlayer.gameObject.SetActive(true);
+
+		//	otherPlayerCharacterDictionary.Add(otherPlayerData, otherPlayer);
+		//}
 	}
 
 	public void OnClickRollDice()
@@ -228,6 +277,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	private IEnumerator ProcessRollDice()
 	{
 		// 서버와 타일 데이터 동기화
+		yield return HttpNetworkManager.Instance.TryGetOtherPlayerDatas();
 		yield return HttpNetworkManager.Instance.TryGetTileData();
 
 		// 버프를 포함한 데이터 세팅
@@ -244,6 +294,30 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		}
 
 		TryChangeState(GameState.MoveCharacter, currentStateData);
+	}
+
+	public void StartMoveOtherCharacters(PlayerPacketData[] before, PlayerPacketData[] after)
+	{
+		if (otherPlayerMoveCoroutine != null)
+		{
+			StopCoroutine(otherPlayerMoveCoroutine);
+		}
+
+		otherPlayerMoveCoroutine = StartCoroutine(ProcessMoveOtherCharacters(before, after));
+	}
+
+	private IEnumerator ProcessMoveOtherCharacters(PlayerPacketData[] before, PlayerPacketData[] after)
+	{
+		if (before == null || before.Any() == false)
+		{
+			// after를 기준으로 바로 위치 이동
+		}
+		else
+		{
+			// before > after로 순차 이동
+		}
+
+		yield return null;
 	}
 
 	private void ProcessData()
@@ -264,11 +338,11 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		int bonusAddDiceCount = playerDataContainer.NextBonusAddDiceCount;
 		int bonusMultiplyDiceCount = playerDataContainer.NextBonusMultiplyDiceCount;
 
-		int nextOrder = tileDataManager.GetNextOrder(currentOrder, diceCount * bonusMultiplyDiceCount + bonusAddDiceCount, out var barricadeItem);
+		int nextOrder = TileDataManager.Instance.GetNextOrder(currentOrder, diceCount * bonusMultiplyDiceCount + bonusAddDiceCount, out var barricadeItem);
 
 		if (barricadeItem != null)
 		{
-			barricadeItem.Use(tileDataManager, playerDataContainer, nextOrder);
+			barricadeItem.Use(playerDataContainer, nextOrder);
 		}
 
 		currentStateData = new StateData(currentOrder, nextOrder, diceCount, bonusAddDiceCount, bonusMultiplyDiceCount);
@@ -284,13 +358,13 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	{
 		int currentOrder = playerDataContainer.currentTileOrder;
 
-		FieldItem item = tileDataManager.GetCurrentTileItem(currentOrder);
+		FieldItem item = TileDataManager.Instance.GetCurrentTileItem(currentOrder);
 		string itemCode = string.Empty;
 
 		if (item != null)
 		{
 			itemCode = item.fieldItemCode;
-			item.Use(tileDataManager, playerDataContainer, currentOrder);
+			item.Use(playerDataContainer, currentOrder);
 		}
 
 		int nextOrder = playerDataContainer.currentTileOrder;
@@ -311,10 +385,10 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	{
 		int currentOrder = playerDataContainer.currentTileOrder;
 
-		var specialTile = tileDataManager.GetCurrentSpecialTile(currentOrder);
+		var specialTile = TileDataManager.Instance.GetCurrentSpecialTile(currentOrder);
 		if (specialTile != null)
 		{
-			specialTile.DoAction(tileDataManager);
+			specialTile.DoAction();
 		}
 
 		int nextOrder = playerDataContainer.currentTileOrder;
@@ -365,10 +439,10 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		if (currentStateData.TryGetNextOrder(currentGameState, out var currentItemCode, out var nextState, out int nextOrder) == false)
 			yield break;
 
-		FieldItem item = tileDataManager.GetFieldItem(currentOrder);
+		FieldItem item = TileDataManager.Instance.GetFieldItem(currentOrder);
 		if (item != null)
 		{
-			tileDataManager.RemoveFieldItem(currentOrder);
+			TileDataManager.Instance.RemoveFieldItem(currentOrder);
 
 			foreach (var subscriber in subscribers)
 			{
@@ -388,37 +462,16 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		if (currentStateData.TryGetNextOrder(currentGameState, out var currentItemCode, out var nextState, out int nextOrder) == false)
 			yield break;
 
-		var specialTile = tileDataManager.GetCurrentSpecialTile(currentOrder);
+		var specialTile = TileDataManager.Instance.GetCurrentSpecialTile(currentOrder);
 		if (specialTile != null)
 		{
 			foreach (var subscriber in subscribers)
 			{
-				yield return subscriber?.OnDoTileAction(tileDataManager, currentOrder, nextOrder);
+				yield return subscriber?.OnDoTileAction(currentOrder, nextOrder);
 			}
 		}
 
 		TryChangeState(nextState, currentStateData);
-	}
-
-	private Vector2 GetPlayerPos()
-	{
-		if (playerDataContainer == null)
-		{
-			Debug.Log("플레이어 데이터 없음");
-			return default;
-		}
-
-		// 내 타일이 몇 번째 순서인 지
-		int currentPlayerTileOrderIndex = playerDataContainer.currentTileOrder;
-
-		if (tileDataManager == null)
-		{
-			Debug.Log("타일 데이터 매니저 없음");
-			return default;
-		}
-
-		var currentPlayerTileData = tileDataManager.GetTileDataByOrder(currentPlayerTileOrderIndex);
-		return currentPlayerTileData.tilePlayerPosition;
 	}
 
 	public void StartReplaceMode(string fieldItemCode)
@@ -431,7 +484,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			int max = playerDataContainer.currentTileOrder + currentReplaceFieldItem.ranges[1];
 
 			var tileOrders = GetReplaceableTileOrders(currentReplaceFieldItem, min, max);
-			tileDataManager.SetSelectTiles(tileOrders);
+			TileDataManager.Instance.SetSelectTiles(tileOrders);
 		}
 
 		UIManager.Instance.CloseMainCanvas();
@@ -450,7 +503,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 		foreach (int tileOrder in CommonFunc.ToRange(min, max))
 		{
-			if (replaceItem.IsReplaceable(tileDataManager, playerDataContainer, tileOrder))
+			if (replaceItem.IsReplaceable(playerDataContainer, tileOrder))
 			{
 				yield return tileOrder;
 			}
@@ -461,7 +514,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	{
 		currentReplaceFieldItem = null;
 
-		tileDataManager.ClearSelectTile();
+		TileDataManager.Instance.ClearSelectTile();
 
 		UIManager.Instance.OpenMainCanvas();
 		UIManager.Instance.Close(PopupType.BatchMode);

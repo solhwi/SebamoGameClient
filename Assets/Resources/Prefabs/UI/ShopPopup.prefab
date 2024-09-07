@@ -564,13 +564,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15896bf68fa10e045b690f2da0fd2315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  cameraArm: {fileID: 0}
   originPrefab: {fileID: 2214232578226538075, guid: c43c258af683313409bb8cdfbdd03a3e, type: 3}
   spawnLocalPos: {x: 0, y: -1.3, z: 0}
   spawnLocalRot: {x: 0, y: 180, z: 0}
   isFixedPosition: 1
   isFixedRotation: 1
+  isOrthoSize: 0
+  FOV: 4.5
   startStateName: Thankful
 --- !u!1 &2233708043810653688
 GameObject:
@@ -769,6 +769,7 @@ MonoBehaviour:
   scrollContent: {fileID: 245556934196482391}
   npcText: {fileID: 2075833025047817202}
   coinText: {fileID: 3517576661559126621}
+  npcDefaultText: "\uC548\uB155\uD558\uC138\uC694\r\n\uC5B4\uC11C\uC624\uC138\uC694."
 --- !u!1 &3266337176774974650
 GameObject:
   m_ObjectHideFlags: 0

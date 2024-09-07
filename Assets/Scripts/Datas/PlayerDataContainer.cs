@@ -26,7 +26,7 @@ public class PlayerDataContainer : ScriptableObject
 	public PlayerPacketData myPlayerPacketData = null;
 
 	[Header("[다른 플레이어들 정보]")]
-	public PlayerPacketData[] otherPlayerPacketDatas = null;
+	public List<PlayerPacketData> otherPlayerPacketDatas = new List<PlayerPacketData>();
 
 	[Header("[가질 수 있는 최대 주사위 수]")]
 	public int MaxDiceCount = 10;
@@ -101,11 +101,13 @@ public class PlayerDataContainer : ScriptableObject
 	{
 		if (playerDataCollection == null || playerDataCollection.playerDatas == null)
 		{
-			otherPlayerPacketDatas = null;
+			otherPlayerPacketDatas.Clear();
 		}
 		else
 		{
-			otherPlayerPacketDatas = playerDataCollection.playerDatas.ToArray();
+			BoardGameManager.Instance.StartMoveOtherCharacters(otherPlayerPacketDatas.ToArray(), playerDataCollection.playerDatas.ToArray());
+			otherPlayerPacketDatas = playerDataCollection.playerDatas.ToList();
 		}
+
 	}
 }

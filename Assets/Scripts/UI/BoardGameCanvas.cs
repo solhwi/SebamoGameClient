@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHandler
+public class BoardGameCanvas : MonoBehaviour, IBoardGameSubscriber, IBeginDragHandler, IDragHandler
 {
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Inventory inventory;
@@ -12,24 +12,44 @@ public class BoardGameCanvas : BoardGameSubscriber, IBeginDragHandler, IDragHand
 
 	[SerializeField] private Text statusText = null;
 
-	public override IEnumerator OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder)
+	private void OnEnable()
+	{
+		if (BoardGameManager.Instance != null)
+		{
+			BoardGameManager.Instance.Subscribe(this);
+		}
+	}
+
+	private void OnDisable()
+	{
+		if (BoardGameManager.Instance != null)
+		{
+			BoardGameManager.Instance.Unsubscribe(this);
+		}
+	}
+
+	public IEnumerator OnDoTileAction(int currentOrder, int nextOrder)
 	{
 		yield return null;
 		statusText.text = $"타일 처리 후 위치 : {nextOrder}";
 	}
 
-	public override IEnumerator OnMove(int currentOrder, int nextOrder,int diceCount)
+	public IEnumerator OnMove(int currentOrder, int nextOrder,int diceCount)
 	{
 		yield return null;
 		statusText.text = $"일반 이동 후 위치 : {nextOrder}";
 	}
 
-	public override IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, int nextBonusMultiplyCount)
+	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, int nextBonusMultiplyCount)
 	{
 		yield return null;
 		statusText.text = $"나온 주사위 값 : {diceCount} x {nextBonusMultiplyCount} + {nextBonusAddCount}";
 	}
 
+	public IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder)
+	{
+		yield return null;
+	}
 	public void OnClickRollDice()
 	{
 		boardGameCameraController.SetFollow(true);

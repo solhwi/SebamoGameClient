@@ -2,29 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMoveComponent : BoardGameSubscriber 
+public class CharacterMoveComponent : MonoBehaviour 
 {
-	[SerializeField] private TileDataManager tileDataManager = null;
-	[SerializeField] private CharacterView characterView = null;
-	[SerializeField] private PlayerDataContainer playerDataContainer = null;
+	[SerializeField] protected CharacterView characterView = null;
+	[SerializeField] protected PlayerDataContainer playerDataContainer = null;
 
-	public override IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, int nextBonusMultiplyCount)
+	public IEnumerator ProcessMove(int currentOrder, int nextOrder, float speedRate)
 	{
-		yield return null;
-	}
-
-	public override IEnumerator OnMove(int currentOrder, int nextOrder, int diceCount)
-	{
-		characterView.DoRun();
-
-		yield return ProcessMove(currentOrder, nextOrder, 1.0f);
-
-		characterView.DoIdle();
-	}
-
-	private IEnumerator ProcessMove(int currentOrder, int nextOrder, float speedRate)
-	{
-		var tiles = tileDataManager.GetTilePath(currentOrder, nextOrder - currentOrder);
+		var tiles = TileDataManager.Instance.GetTilePath(currentOrder, nextOrder - currentOrder);
 		foreach (var tile in tiles)
 		{
 			Vector3 startPos = transform.position;
@@ -47,9 +32,9 @@ public class CharacterMoveComponent : BoardGameSubscriber
 		}
 	}
 
-	private IEnumerator ProcessTeleport(int currentOrder, int nextOrder, float speedRate)
+	public IEnumerator ProcessTeleport(int currentOrder, int nextOrder, float speedRate)
 	{
-		var nextTile = tileDataManager.GetTileData(nextOrder);
+		var nextTile = TileDataManager.Instance.GetTileData(nextOrder);
 
 		Vector3 startPos = transform.position;
 
@@ -70,44 +55,6 @@ public class CharacterMoveComponent : BoardGameSubscriber
 		}
 	}
 
-	public override IEnumerator OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder)
-	{
-		characterView.DoRun();
-
-		var specialTile = tileDataManager.GetCurrentSpecialTile(currentOrder);
-		if (specialTile == null)
-			yield break;
-
-		Debug.Log($"다음의 특수 타일 효과 발동 : {specialTile.specialTileType}");
-
-		switch(specialTile.specialTileType)
-		{
-			case SpecialTileType.Jump:
-			case SpecialTileType.RollBack:
-				yield return ProcessMove(currentOrder, nextOrder, 2.5f);
-				break;
-
-			case SpecialTileType.Teleport:
-				yield return ProcessTeleport(currentOrder, nextOrder, 5.0f);
-				break;
-		}
-
-		characterView.DoIdle();
-	}
-
-	public override IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder)
-	{
-		Debug.Log($"다음의 아이템 효과 발동 : {fieldItem.fieldActionType}");
-
-		switch (fieldItem.fieldActionType)
-		{
-			case FieldActionType.Banana:
-				characterView.DoRun();
-				yield return ProcessMove(currentOrder, nextOrder, 2.5f);
-				characterView.DoIdle();
-				break;
-		}
-	}
 
 	private void ProcessFlip(Vector3 startPos, Vector3 endPos)
 	{

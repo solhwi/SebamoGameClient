@@ -23,6 +23,13 @@ public class UICharacterView : CharacterView, IBeginDragHandler, IEndDragHandler
 		defaultFOV = cam.fieldOfView;
 	}
 
+	protected override void OnEnable()
+	{
+		base.OnEnable();
+
+		DoIdle(0.3f);
+	}
+
 	protected override void Update()
 	{
 		base.Update();

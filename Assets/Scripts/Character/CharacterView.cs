@@ -74,7 +74,10 @@ public class CharacterView : ObjectView
 
 	public void Replay()
 	{
-		characterAnimationController.Replay();
+		if (characterAnimationController != null)
+		{
+			characterAnimationController.Replay();
+		}
 
 		FlipX(currentFlipX);
 		FlipY(currentFlipY);
@@ -82,11 +85,17 @@ public class CharacterView : ObjectView
 
 	public void DoIdle(float crossFadeTime = 0.0f)
 	{
-		characterAnimationController.DoIdle(crossFadeTime);
+		if (characterAnimationController != null)
+		{
+			characterAnimationController.DoIdle(crossFadeTime);
+		}
 	}
 
 	public void DoRun()
 	{
-		characterAnimationController.DoRun();
+		if (characterAnimationController != null)
+		{
+			characterAnimationController.DoRun();
+		}
 	}
 }

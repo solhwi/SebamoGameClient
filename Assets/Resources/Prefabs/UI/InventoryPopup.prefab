@@ -85,13 +85,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc08d4a3c4985b45ab8a4c48dc56318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  cameraArm: {fileID: 0}
   originPrefab: {fileID: 1497807919844545091, guid: 05a285f00f4a54849b30ffb1a6a91c51, type: 3}
   spawnLocalPos: {x: 0, y: -0.62, z: 0}
   spawnLocalRot: {x: 0, y: 180, z: 0}
   isFixedPosition: 0
   isFixedRotation: 0
+  isOrthoSize: 0
+  FOV: 10
   xMinRotationLimit: 0
   xMaxRotationLimit: 0
   rotateSpeed: 10
@@ -489,13 +489,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8362321a8a799394e8e45d45c6ecec6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  cameraArm: {fileID: 0}
   originPrefab: {fileID: 0}
   spawnLocalPos: {x: 0, y: 0, z: 0}
   spawnLocalRot: {x: 0, y: 0, z: 0}
   isFixedPosition: 0
   isFixedRotation: 0
+  isOrthoSize: 1
+  FOV: 1
   fieldItemFactory: {fileID: 11400000, guid: a6e06216073cb404eb58dd2ea48f4cee, type: 2}
   itemIcon: {fileID: 3938888253336575168}
 --- !u!1 &888071961013035158

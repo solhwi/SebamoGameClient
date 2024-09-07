@@ -15,12 +15,12 @@ public class TeleportSpecialTile : SpecialTileBase
 		specialTileType = SpecialTileType.Teleport;
 	}
 
-	public override void DoAction(TileDataManager tileDataManager)
+	public override void DoAction()
 	{
 		playerDataContainer.AddCurrentOrder(count);
 	}
 
-	public async override Task OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder)
+	public async override Task OnDoTileAction(int currentOrder, int nextOrder)
 	{
 		await Task.Yield();
 	}

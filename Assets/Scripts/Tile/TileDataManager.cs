@@ -96,7 +96,7 @@ public struct WorldTileData
 	}
 }
 
-public class TileDataManager : MonoBehaviour
+public class TileDataManager : Singleton<TileDataManager>
 {
 	[SerializeField] private Tilemap floorTileMap;
 	[SerializeField] private Tilemap selectTileMap;
@@ -113,7 +113,7 @@ public class TileDataManager : MonoBehaviour
 
 	private Dictionary<int, FieldItem> fieldItemDictionary = new Dictionary<int, FieldItem>();
 
-	private void Awake()
+	protected override void Awake()
 	{
 		tileBoardDatas = MakeBoardData().ToArray();
 	}
@@ -414,5 +414,21 @@ public class TileDataManager : MonoBehaviour
 		}	
 
 		return tileBoardDatas[tileIndex];
+	}
+
+	public Vector3 GetPlayerPosByOrder(int currentOrder)
+	{
+		var currentPlayerTileData = GetTileDataByOrder(currentOrder);
+		return currentPlayerTileData.tilePlayerPosition;
+	}
+
+	public Vector3 GetPlayerPos(int tileIndex)
+	{
+		if (tileBoardDatas.Length <= tileIndex || tileIndex < 0)
+		{
+			return default;
+		}
+
+		return tileBoardDatas[tileIndex].tilePlayerPosition;
 	}
 }

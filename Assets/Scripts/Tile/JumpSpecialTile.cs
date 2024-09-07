@@ -15,20 +15,20 @@ public class JumpSpecialTile : SpecialTileBase
 		specialTileType = SpecialTileType.Jump;
 	}
 
-	public override void DoAction(TileDataManager tileDataManager)
+	public override void DoAction()
 	{
 		int currentOrder = playerDataContainer.currentTileOrder;
 
-		int nextOrder = tileDataManager.GetNextOrder(currentOrder, count, out var item);
+		int nextOrder = TileDataManager.Instance.GetNextOrder(currentOrder, count, out var item);
 		if (item != null)
 		{
-			item.Use(tileDataManager, playerDataContainer, nextOrder);
+			item.Use(playerDataContainer, nextOrder);
 		}
 
 		playerDataContainer.SaveCurrentOrder(nextOrder);
 	}
 		
-	public async override Task OnDoTileAction(TileDataManager tileDataManager, int currentOrder, int nextOrder)
+	public async override Task OnDoTileAction(int currentOrder, int nextOrder)
 	{
 		await Task.Yield();
 	}

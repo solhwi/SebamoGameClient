@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ObjectView : MonoBehaviour
 {
-	[SerializeField] protected Camera cam = null;
-	[SerializeField] protected Transform cameraArm = null;
 	[SerializeField] private GameObject originPrefab = null;
 
 	[SerializeField] protected Vector3 spawnLocalPos = new Vector3(0, -0.5f, 0);
@@ -14,6 +12,12 @@ public class ObjectView : MonoBehaviour
 
 	[SerializeField] private bool isFixedPosition = false;
 	[SerializeField] private bool isFixedRotation = false;
+
+	[SerializeField] private bool isOrthoSize = false;
+	[SerializeField] private float FOV = 10.0f;
+
+	protected Camera cam = null;
+	protected Transform cameraArm = null;
 
 	protected Vector3 initialCameraArmRot = Vector3.zero;
 
@@ -26,14 +30,17 @@ public class ObjectView : MonoBehaviour
 	private Texture2D texture = null;
 	private Rect rect;
 
-	int height = 1024;
-	int width = 1024;
+	int height = 512;
+	int width = 512;
 	int depth = 24;
 
 	protected virtual void Awake()
 	{
 		spriteView = GetComponent<SpriteRenderer>();
 		textureView = GetComponent<RawImage>();
+
+		cam = ObjectCameraManager.Instance.MakeCamera(isOrthoSize, FOV);
+		cameraArm = cam.transform.GetChild(0);
 
 		initialCameraArmRot = cameraArm.transform.localEulerAngles;
 	}
@@ -49,6 +56,16 @@ public class ObjectView : MonoBehaviour
 		InitializeTarget();
 	}
 
+	protected virtual void OnEnable()
+	{
+		cam.gameObject.SetActive(true);
+	}
+
+	protected virtual void OnDisable()
+	{
+		cam.gameObject.SetActive(false);
+	}
+
 	protected virtual void InitializeTarget()
 	{
 		originObj = Instantiate(originPrefab, cameraArm);
@@ -59,6 +76,9 @@ public class ObjectView : MonoBehaviour
 	protected virtual void Update()
 	{
 		if (originObj == null)
+			return;
+
+		if (cam.gameObject.activeSelf == false)
 			return;
 
 		if (spriteView != null)

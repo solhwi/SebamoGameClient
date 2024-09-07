@@ -18,7 +18,6 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 	[SerializeField] private FieldItemFactory fieldItemFactory;
 
 	[SerializeField] private CameraController boardGameCameraController;
-	[SerializeField] private TileDataManager tileDataManager;
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 
 	private ReplaceFieldItem currentReplaceItem;
@@ -66,10 +65,10 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		if (currentReplaceItem == null)
 			return;
 
-		if (currentReplaceItem.IsReplaceable(tileDataManager, playerDataContainer, currentTileOrder) == false)
+		if (currentReplaceItem.IsReplaceable(playerDataContainer, currentTileOrder) == false)
 			return;
 
-		currentReplaceItem?.Replace(tileDataManager, currentTileOrder);
+		currentReplaceItem?.Replace(currentTileOrder);
 		
 		if (currentDummyReplaceItem != null)
 		{
@@ -105,13 +104,13 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 	{
 		Vector2 clickPos = Camera.main.ScreenToWorldPoint(eventData.position);
 
-		int tileIndex = tileDataManager.GetTileIndexFromPos(clickPos);
+		int tileIndex = TileDataManager.Instance.GetTileIndexFromPos(clickPos);
 		if (tileIndex > -1)
 		{
-			int tileOrder = tileDataManager.GetTileOrder(tileIndex);
+			int tileOrder = TileDataManager.Instance.GetTileOrder(tileIndex);
 
 			// 설치 가능한 위치에 클릭을 했다면
-			if (currentReplaceItem != null && currentReplaceItem.IsReplaceable(tileDataManager, playerDataContainer, tileOrder))
+			if (currentReplaceItem != null && currentReplaceItem.IsReplaceable(playerDataContainer, tileOrder))
 			{
 				currentTileOrder = tileOrder;
 
@@ -127,7 +126,7 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 
 				if (currentDummyReplaceItem != null)
 				{
-					var worldTileData = tileDataManager.GetTileData(currentTileOrder);
+					var worldTileData = TileDataManager.Instance.GetTileData(currentTileOrder);
 					currentDummyReplaceItem.CreateDummy(worldTileData);
 				}
 			}

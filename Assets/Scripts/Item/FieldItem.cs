@@ -61,9 +61,9 @@ public abstract class FieldItem
 	}
 
 	// 아이템 사용 후 반드시 서버와 동기화를 해야 하나, 이 곳에서 하면 통신을 너무 자주 하게 되어 밖으로 뺌
-	public virtual void Use(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
+	public virtual void Use(PlayerDataContainer playerDataContainer, int tileOrder)
 	{
-		tileDataManager.TrySetTileItem(tileOrder, null);
+		TileDataManager.Instance.TrySetTileItem(tileOrder, null);
 	}
 }
 
@@ -76,14 +76,14 @@ public abstract class DropFieldItem : FieldItem
 
 	}
 
-	public override void Use(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
+	public override void Use(PlayerDataContainer playerDataContainer, int tileOrder)
 	{
 		for (int i = 0; i < dropCount; i++)
 		{
 			inventory.TryAddItem(fieldItemCode);
 		}
 
-		base.Use(tileDataManager, playerDataContainer,tileOrder);
+		base.Use(playerDataContainer,tileOrder);
 	}
 }
 
@@ -110,35 +110,35 @@ public abstract class ReplaceFieldItem : FieldItem
 		return obj;
 	}
 
-	public bool IsReplaceable(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
+	public bool IsReplaceable( PlayerDataContainer playerDataContainer, int tileOrder)
 	{
 		int min = playerDataContainer.currentTileOrder + ranges[0];
 		int max = playerDataContainer.currentTileOrder + ranges[1];
 
 		min = Math.Max(0, min);
-		max = Math.Min(max, tileDataManager.tileBoardDatas.Length - 1);
+		max = Math.Min(max, TileDataManager.Instance.tileBoardDatas.Length - 1);
 
 		bool bResult = min <= tileOrder && tileOrder <= max;
 
-		bResult &= tileDataManager.IsAlreadyReplaced(tileOrder) == false;
-		bResult &= tileDataManager.IsSpecialTile(tileOrder) == false;
+		bResult &= TileDataManager.Instance.IsAlreadyReplaced(tileOrder) == false;
+		bResult &= TileDataManager.Instance.IsSpecialTile(tileOrder) == false;
 
 		return bResult;
 	}
 
-	public async virtual Task<bool> Replace(TileDataManager tileDataManager, int tileOrder)
+	public async virtual Task<bool> Replace(int tileOrder)
 	{
-		if (tileDataManager.IsAlreadyReplaced(tileOrder))
+		if (TileDataManager.Instance.IsAlreadyReplaced(tileOrder))
 			return false;
 
-		if (tileDataManager.IsSpecialTile(tileOrder))
+		if (TileDataManager.Instance.IsSpecialTile(tileOrder))
 			return false;
 
 		bool bResult = inventory.TryRemoveItem(fieldItemCode);
 		if (bResult == false)
 			return false;
 
-		bResult = tileDataManager.TrySetTileItem(tileOrder, this);
+		bResult = TileDataManager.Instance.TrySetTileItem(tileOrder, this);
 		if (bResult == false)
 			return false;
 
@@ -173,18 +173,18 @@ public class BananaItem : ReplaceFieldItem
 		count = ItemTable.ParseCountData(rawData.actionParameter);
 	}
 
-	public override void Use(TileDataManager tileDataManager, PlayerDataContainer playerDataContainer, int tileOrder)
+	public override void Use(PlayerDataContainer playerDataContainer, int tileOrder)
 	{
-		int nextOrder = tileDataManager.GetNextOrder(tileOrder, count, out var item);
+		int nextOrder = TileDataManager.Instance.GetNextOrder(tileOrder, count, out var item);
 		if (item != null)
 		{
-			item.Use(tileDataManager, playerDataContainer, nextOrder);
+			item.Use(playerDataContainer, nextOrder);
 		}
 
 		bool isSuccess = playerDataContainer.SaveCurrentOrder(nextOrder);
 		if (isSuccess)
 		{
-			base.Use(tileDataManager, playerDataContainer, tileOrder);
+			base.Use(playerDataContainer, tileOrder);
 		}
 	}
 }

@@ -18,8 +18,10 @@ public class UINpcView : ObjectView
 		}
 	}
 
-	private void OnEnable()
+	protected override void OnEnable()
 	{
+		base.OnEnable();
+
 		if (objAnimator != null)
 		{
 			objAnimator.Play(startStateName, 0, 0);
