@@ -26,6 +26,15 @@ public enum CharacterState
 	LookAround, // 둘러보기
 }
 
+public enum CharacterStateType
+{
+	Idle,
+	Run,
+	Attack,
+	LookAround,
+	Clap
+}
+
 public class CharacterAnimationController : MonoBehaviour
 {
 	[SerializeField] private RuntimeAnimatorController controller = null;
@@ -47,6 +56,8 @@ public class CharacterAnimationController : MonoBehaviour
 	}
 
 	private Animator animator = null;
+
+	private CharacterStateType currentStateType = CharacterStateType.Idle;
 	public CharacterState currentState = CharacterState.Idle;
 
 	private void Start()
@@ -62,6 +73,8 @@ public class CharacterAnimationController : MonoBehaviour
 	public void DoIdle(float crossFadeTime = 0.0f)
 	{
 		this.crossFadeTime = crossFadeTime;
+
+		currentStateType = CharacterStateType.Idle;
 
 		var propType = inventory.GetEquippedPropType().FirstOrDefault();
 		if (propType == PropType.GreatSword)
@@ -94,6 +107,8 @@ public class CharacterAnimationController : MonoBehaviour
 	{
 		this.crossFadeTime = crossFadeTime;
 
+		currentStateType = CharacterStateType.Run;
+
 		var propType = inventory.GetEquippedPropType().FirstOrDefault();
 		if (propType == PropType.GreatSword)
 		{
@@ -123,6 +138,8 @@ public class CharacterAnimationController : MonoBehaviour
 
 	public void DoAttack()
 	{
+		currentStateType = CharacterStateType.Attack;
+
 		var propType = inventory.GetEquippedPropType().FirstOrDefault();
 		if (propType == PropType.GreatSword)
 		{
@@ -136,11 +153,13 @@ public class CharacterAnimationController : MonoBehaviour
 
 	public void DoLookAround()
 	{
+		currentStateType = CharacterStateType.LookAround;
 		ChangeState(CharacterState.LookAround);
 	}
 
 	public void DoClap()
 	{
+		currentStateType = CharacterStateType.Clap;
 		ChangeState(CharacterState.Clap);
 	}
 
@@ -152,6 +171,27 @@ public class CharacterAnimationController : MonoBehaviour
 
 	public void Replay()
 	{
-		Animator.Play(currentState.ToString());
+		switch(currentStateType)
+		{
+			case CharacterStateType.Idle:
+				DoIdle();
+				break;
+
+			case CharacterStateType.Run:
+				DoRun();
+				break;
+
+			case CharacterStateType.Attack:
+				DoAttack();
+				break;
+
+			case CharacterStateType.LookAround:
+				DoLookAround();
+				break;
+
+			case CharacterStateType.Clap:
+				DoClap();
+				break;
+		}
 	}
 }
