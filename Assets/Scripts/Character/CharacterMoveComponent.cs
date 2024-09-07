@@ -91,6 +91,6 @@ public class CharacterMoveComponent : MonoBehaviour
 
 	public void SetPosition(Vector2 pos)
 	{
-		transform.position = new Vector3(pos.x, pos.y, 0);
+		transform.position = new Vector3(pos.x, pos.y, -10);
 	}
 }

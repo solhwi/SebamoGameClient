@@ -223,7 +223,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			playerPos = TileDataManager.Instance.GetPlayerPosByOrder(tileOrder);
 
 			otherPlayer.SetPosition(playerPos);
-			otherPlayer.gameObject.SetActive(false);
+			otherPlayer.gameObject.SetActive(true);
 
 			otherPlayerCharacterDictionary.Add(otherPlayerData, otherPlayer);
 		}

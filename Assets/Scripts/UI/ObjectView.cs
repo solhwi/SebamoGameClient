@@ -24,6 +24,7 @@ public class ObjectView : MonoBehaviour
 	protected GameObject originObj;
 
 	protected SpriteRenderer spriteView = null;
+	protected MeshRenderer2D meshView = null;
 	protected RawImage textureView = null;
 
 	private RenderTexture renderTexture = null;
@@ -38,6 +39,7 @@ public class ObjectView : MonoBehaviour
 	{
 		spriteView = GetComponent<SpriteRenderer>();
 		textureView = GetComponent<RawImage>();
+		meshView = GetComponent<MeshRenderer2D>();
 
 		cam = ObjectCameraManager.Instance.MakeCamera(isOrthoSize, FOV);
 		cameraArm = cam.transform.GetChild(0);
@@ -89,10 +91,17 @@ public class ObjectView : MonoBehaviour
 			spriteView.color = Color.white;
 			spriteView.sprite = GetScreenShotSprite();
 		}
-		else if(textureView != null)
+		else if (textureView != null)
 		{
 			textureView.color = Color.white;
 			textureView.texture = GetScreenShotTexture();
+		}
+		else if (meshView != null)
+		{
+			meshView.SetColor(Color.white);
+
+			var texture = GetScreenShotTexture();
+			meshView.SetTexture(texture);
 		}
 	}
 
@@ -113,8 +122,6 @@ public class ObjectView : MonoBehaviour
 
 	private Texture2D GetScreenShotTexture()
 	{
-		cam.Render();
-
 		RenderTexture.active = renderTexture;
 
 		texture.ReadPixels(rect, 0, 0);
@@ -123,10 +130,12 @@ public class ObjectView : MonoBehaviour
 		return texture;
 	}
 
+	/// <summary>
+	/// 성능 때문에 사용 지양
+	/// </summary>
+	/// <returns></returns>
 	private Sprite GetScreenShotSprite()
 	{
-		cam.Render();
-
 		RenderTexture.active = renderTexture;
 
 		texture.ReadPixels(rect, 0, 0);

@@ -61,7 +61,7 @@ public class CharacterView : ObjectView
 	public void FlipX(bool flipX)
 	{
 		currentFlipX = flipX;
-		spriteView.flipX = flipX;
+		meshView.FlipX(flipX);
 	}
 
 	public void FlipY(bool flipY)
