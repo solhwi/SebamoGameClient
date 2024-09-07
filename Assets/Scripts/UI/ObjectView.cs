@@ -63,7 +63,10 @@ public class ObjectView : MonoBehaviour
 
 	protected virtual void OnDisable()
 	{
-		cam.gameObject.SetActive(false);
+		if (cam != null)
+		{
+			cam.gameObject.SetActive(false);
+		}
 	}
 
 	protected virtual void InitializeTarget()

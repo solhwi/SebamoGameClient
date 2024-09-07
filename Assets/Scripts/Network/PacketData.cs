@@ -28,7 +28,7 @@ public class PlayerPacketData : PacketData
 	public string playerGroup; // 플레이어 그룹
 	public string playerName; // 플레이어 이름
 
-	public int playerTileIndex; // 현재 타일 인덱스
+	public int playerTileOrder; // 현재 위치한 타일 순서
 	public int hasDiceCount; // 가진 주사위 개수
 
 	public string[] equippedItems; // 장착 중인 아이템

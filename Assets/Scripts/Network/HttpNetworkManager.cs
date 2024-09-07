@@ -143,7 +143,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		data.playerData.playerName = playerDataContainer.playerName;
 		data.playerData.playerGroup = playerDataContainer.playerGroup;
 		data.playerData.hasDiceCount = playerDataContainer.hasDiceCount;
-		data.playerData.playerTileIndex = playerDataContainer.currentTileIndex;
+		data.playerData.playerTileOrder = playerDataContainer.currentTileOrder;
 
 		data.playerData.equippedItems = inventory.equippedItems;
 		data.playerData.appliedProfileItems = inventory.appliedProfileItems;
@@ -244,7 +244,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		data.playerData.playerName = playerName;
 
 		data.playerData.hasDiceCount = 3;
-		data.playerData.playerTileIndex = 0;
+		data.playerData.playerTileOrder = 0;
 
 		data.playerData.equippedItems = new string[6] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword"};
 		data.playerData.appliedProfileItems = new string[2] { "", "" };

@@ -12,18 +12,9 @@ public class TileSortingComparer : IComparer<int>
 		this.tileDataContainer = tileDataContainer;
 	}
 
-	public int Compare(int tileIndex1, int tileIndex2)
+	public int Compare(int tileOrder1, int tileOrder2)
 	{
-		if (tileDataContainer.tileOrders.Length <= tileIndex1 || tileIndex1 == -1)
-			return -1;
-
-		if (tileDataContainer.tileOrders.Length <= tileIndex2 || tileIndex2 == -1)
-			return 1;
-
-		int order1 = tileDataContainer.tileOrders[tileIndex1];
-		int order2 = tileDataContainer.tileOrders[tileIndex2];
-
-		return order1 > order2 ? 1 : -1;
+		return tileOrder1 > tileOrder2 ? 1 : -1;
 	}
 
 }
@@ -80,7 +71,7 @@ public class RankingBoard : MonoBehaviour
 	
 	private bool IsDirtyPlayerTileIndex(out List<PlayerPacketData> playerDatas)
 	{
-		playerDatas = MakePlayerTileDatas()?.OrderByDescending(d => d.playerTileIndex, tileSortingComparer).ToList();
+		playerDatas = MakePlayerTileDatas()?.OrderByDescending(d => d.playerTileOrder, tileSortingComparer).ToList();
 
 		if (this.playerDatas.Count != playerDatas.Count)
 		{

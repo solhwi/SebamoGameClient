@@ -13,11 +13,8 @@ public class PlayerDataContainer : ScriptableObject
 	public TileDataContainer tileDataContainer;
 	public string playerGroup => myPlayerPacketData.playerGroup;
 	public string playerName => myPlayerPacketData.playerName;
-	public int currentTileIndex => myPlayerPacketData.playerTileIndex;
 	public int hasDiceCount => myPlayerPacketData.hasDiceCount;
-
-	[Header("[현재 위치한 타일 순서]")]
-	public int currentTileOrder = 0;
+	public int currentTileOrder => myPlayerPacketData.playerTileOrder;
 
 	[Header("[타일 당 이동 시간]")]
 	public float moveTimeByOneTile = 1.0f;
@@ -50,7 +47,7 @@ public class PlayerDataContainer : ScriptableObject
 		var container = AssetDatabase.LoadAssetAtPath<PlayerDataContainer>("Assets/Resources/Datas/PlayerDataContainer.asset");
 		if (container != null)
 		{
-			container.currentTileOrder = 0;
+			container.SaveCurrentOrder(0);
 		}
 
 		EditorUtility.SetDirty(container);
@@ -62,18 +59,17 @@ public class PlayerDataContainer : ScriptableObject
 	{
 		if (tileDataContainer.tileOrders.Length > currentTileOrder)
 		{
-			this.currentTileOrder = currentTileOrder;
+			myPlayerPacketData.playerTileOrder = currentTileOrder;
 		}
 		else if (currentTileOrder <= 0)
 		{
-			this.currentTileOrder = 0;
+			myPlayerPacketData.playerTileOrder = 0;
 		}
 		else
 		{
-			this.currentTileOrder = tileDataContainer.tileOrders.Length - 1;
+			myPlayerPacketData.playerTileOrder = tileDataContainer.tileOrders.Length - 1;
 		}
 
-		myPlayerPacketData.playerTileIndex = tileDataContainer.GetTileIndexByOrder(currentTileOrder);
 		return true;
 	}
 
@@ -94,7 +90,6 @@ public class PlayerDataContainer : ScriptableObject
 			return;
 
 		myPlayerPacketData = myData.playerData;
-		currentTileOrder = tileDataContainer.tileOrders[currentTileIndex];
 	}
 
 	public void SetOtherPacketData(PlayerPacketDataCollection playerDataCollection)
@@ -108,6 +103,5 @@ public class PlayerDataContainer : ScriptableObject
 			BoardGameManager.Instance.StartMoveOtherCharacters(otherPlayerPacketDatas.ToArray(), playerDataCollection.playerDatas.ToArray());
 			otherPlayerPacketDatas = playerDataCollection.playerDatas.ToList();
 		}
-
 	}
 }

@@ -42,7 +42,7 @@ public class ResourceManager : Singleton<ResourceManager>
 	{
 		for(int i = 0; i < 10; i++)
 		{
-			var obj = Instantiate(fieldItemPrefab);
+			var obj = Instantiate(fieldItemPrefab, transform);
 
 #if UNITY_EDITOR
 			obj.name = $"fieldItemPrefab ({i}) - Cached";
@@ -79,7 +79,7 @@ public class ResourceManager : Singleton<ResourceManager>
 		RecyclingObject obj = null;
 		if (objectPool[RecyclingType.fieldItem].TryPop(out obj) == false)
 		{
-			obj = Instantiate(fieldItemPrefab);
+			obj = Instantiate(fieldItemPrefab, transform);
 
 #if UNITY_EDITOR
 			obj.name = $"fieldItemPrefab ({objectPool[RecyclingType.fieldItem].Count}) - Cached";
@@ -128,6 +128,7 @@ public class ResourceManager : Singleton<ResourceManager>
 
 		if (recyclingObj != null)
 		{
+			recyclingObj.transform.SetParent(transform);
 			recyclingObj.transform.position = new Vector3(-1000, -1000, 0);
 			recyclingObj.gameObject.SetActive(false);
 
