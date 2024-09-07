@@ -12,7 +12,7 @@ public class BoardGameCanvas : MonoBehaviour, IBoardGameSubscriber, IBeginDragHa
 
 	[SerializeField] private Text statusText = null;
 
-	private void OnEnable()
+	private void Start()
 	{
 		if (BoardGameManager.Instance != null)
 		{
@@ -20,7 +20,7 @@ public class BoardGameCanvas : MonoBehaviour, IBoardGameSubscriber, IBeginDragHa
 		}
 	}
 
-	private void OnDisable()
+	private void OnDestroy()
 	{
 		if (BoardGameManager.Instance != null)
 		{

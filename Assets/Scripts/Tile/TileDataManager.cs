@@ -421,14 +421,4 @@ public class TileDataManager : Singleton<TileDataManager>
 		var currentPlayerTileData = GetTileDataByOrder(currentOrder);
 		return currentPlayerTileData.tilePlayerPosition;
 	}
-
-	public Vector3 GetPlayerPos(int tileIndex)
-	{
-		if (tileBoardDatas.Length <= tileIndex || tileIndex < 0)
-		{
-			return default;
-		}
-
-		return tileBoardDatas[tileIndex].tilePlayerPosition;
-	}
 }

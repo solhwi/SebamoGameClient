@@ -129,6 +129,8 @@ public class InventoryPopup : BoardGamePopup
 	{
 		base.OnOpen(parameter);
 
+		gameCharacterView.gameObject.SetActive(false);
+
 		currentItemCode = string.Empty;
 		sortingComparer = new ItemSortingComparer(itemTable);
 
@@ -163,6 +165,8 @@ public class InventoryPopup : BoardGamePopup
 
 		equipmentBoard.onClickItem -= OnClickEquippedItem;
 		profileEquipmentBoard.onClickItem -= OnClickProfileItem;
+
+		gameCharacterView.gameObject.SetActive(true);
 
 		gameCharacterView.RefreshCharacter();
 		gameCharacterView.Replay();

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MyCharacterMoveComponent : CharacterMoveComponent, IBoardGameSubscriber
 {
-	private void OnEnable()
+	private void Start()
 	{
 		if (BoardGameManager.Instance != null)
 		{
@@ -12,7 +12,7 @@ public class MyCharacterMoveComponent : CharacterMoveComponent, IBoardGameSubscr
 		}
 	}
 
-	private void OnDisable()
+	private void OnDestroy()
 	{
 		if (BoardGameManager.Instance != null)
 		{

@@ -208,25 +208,25 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		yield return null;
 
 		// 타 유저 캐릭터 타일 위로 배치
-		//if (playerDataContainer.otherPlayerPacketDatas == null)
-		//	yield break;
+		if (playerDataContainer.otherPlayerPacketDatas == null)
+			yield break;
 
-		//otherPlayerCharacterDictionary.Clear();
+		otherPlayerCharacterDictionary.Clear();
 
-		//foreach (var otherPlayerData in playerDataContainer.otherPlayerPacketDatas)
-		//{
-		//	var otherPlayer = Instantiate(otherCharacterMoveComponentPrefab);
-		//	if (otherPlayer == null)
-		//		continue;
+		foreach (var otherPlayerData in playerDataContainer.otherPlayerPacketDatas)
+		{
+			var otherPlayer = Instantiate(otherCharacterMoveComponentPrefab);
+			if (otherPlayer == null)
+				continue;
 
-		//	int tileIndex = otherPlayerData.playerTileIndex;
-		//	playerPos = TileDataManager.Instance.GetPlayerPos(tileIndex);
+			int tileOrder = otherPlayerData.playerTileOrder;
+			playerPos = TileDataManager.Instance.GetPlayerPosByOrder(tileOrder);
 
-		//	otherPlayer.SetPosition(playerPos);
-		//	otherPlayer.gameObject.SetActive(true);
+			otherPlayer.SetPosition(playerPos);
+			otherPlayer.gameObject.SetActive(false);
 
-		//	otherPlayerCharacterDictionary.Add(otherPlayerData, otherPlayer);
-		//}
+			otherPlayerCharacterDictionary.Add(otherPlayerData, otherPlayer);
+		}
 	}
 
 	public void OnClickRollDice()

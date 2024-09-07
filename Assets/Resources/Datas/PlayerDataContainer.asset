@@ -17,48 +17,48 @@ MonoBehaviour:
   myPlayerPacketData:
     playerGroup: Exp
     playerName: "\uC194\uD718"
-    playerTileIndex: 172
+    playerTileOrder: 64
     hasDiceCount: 3
     equippedItems: []
     appliedProfileItems: []
   otherPlayerPacketDatas:
   - playerGroup: Exp
     playerName: "\uC9C0\uD604"
-    playerTileIndex: 0
+    playerTileOrder: 0
     hasDiceCount: 0
     equippedItems: []
     appliedProfileItems: []
   - playerGroup: Exp
     playerName: "\uC0C1\uD6C8"
-    playerTileIndex: 0
+    playerTileOrder: 0
     hasDiceCount: 0
     equippedItems: []
     appliedProfileItems: []
   - playerGroup: Exp
     playerName: "\uB3D9\uD604"
-    playerTileIndex: 0
+    playerTileOrder: 0
     hasDiceCount: 0
     equippedItems: []
     appliedProfileItems: []
   - playerGroup: Exp
     playerName: "\uAC15\uC6B1"
-    playerTileIndex: 0
+    playerTileOrder: 0
     hasDiceCount: 0
     equippedItems: []
     appliedProfileItems: []
   - playerGroup: Exp
     playerName: "\uC9C0\uD64D"
-    playerTileIndex: 0
+    playerTileOrder: 0
     hasDiceCount: 0
     equippedItems: []
     appliedProfileItems: []
   - playerGroup: Exp
     playerName: "\uB3D9\uD604"
-    playerTileIndex: 0
+    playerTileOrder: 0
     hasDiceCount: 0
     equippedItems: []
     appliedProfileItems: []
   MaxDiceCount: 10
-  NextDiceCount: 6
+  NextDiceCount: 2
   NextBonusAddDiceCount: 0
   NextBonusMultiplyDiceCount: 1
