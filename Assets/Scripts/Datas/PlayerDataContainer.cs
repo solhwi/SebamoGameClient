@@ -100,7 +100,6 @@ public class PlayerDataContainer : ScriptableObject
 		}
 		else
 		{
-			BoardGameManager.Instance.StartMoveOtherCharacters(otherPlayerPacketDatas.ToArray(), playerDataCollection.playerDatas.ToArray());
 			otherPlayerPacketDatas = playerDataCollection.playerDatas.ToList();
 		}
 	}

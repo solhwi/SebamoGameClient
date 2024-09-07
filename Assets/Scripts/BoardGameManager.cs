@@ -132,8 +132,6 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	private StateData currentStateData = null;
 	private ReplaceFieldItem currentReplaceFieldItem = null;
 
-	private Coroutine otherPlayerMoveCoroutine = null;
-
 	protected override void Awake()
 	{
 		stateFuncMap = new Dictionary<GameState, Func<IEnumerator>>()
@@ -294,30 +292,6 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		}
 
 		TryChangeState(GameState.MoveCharacter, currentStateData);
-	}
-
-	public void StartMoveOtherCharacters(PlayerPacketData[] before, PlayerPacketData[] after)
-	{
-		if (otherPlayerMoveCoroutine != null)
-		{
-			StopCoroutine(otherPlayerMoveCoroutine);
-		}
-
-		otherPlayerMoveCoroutine = StartCoroutine(ProcessMoveOtherCharacters(before, after));
-	}
-
-	private IEnumerator ProcessMoveOtherCharacters(PlayerPacketData[] before, PlayerPacketData[] after)
-	{
-		if (before == null || before.Any() == false)
-		{
-			// after를 기준으로 바로 위치 이동
-		}
-		else
-		{
-			// before > after로 순차 이동
-		}
-
-		yield return null;
 	}
 
 	private void ProcessData()
