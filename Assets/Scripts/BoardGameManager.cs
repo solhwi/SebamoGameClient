@@ -119,7 +119,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	[SerializeField] private MyCharacterComponent myPlayerCharacter;
 	[SerializeField] private CharacterComponent otherPlayerCharacterPrefab;
 
-	private Dictionary<PlayerPacketData, CharacterComponent> otherPlayerCharacterDictionary = new Dictionary<PlayerPacketData, CharacterComponent>();
+	private Dictionary<PlayerPacketData, CharacterComponent> playerCharacterDictionary = new Dictionary<PlayerPacketData, CharacterComponent>();
 
 	private List<IBoardGameSubscriber> subscribers = new List<IBoardGameSubscriber>();
 
@@ -195,24 +195,31 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	private IEnumerator PrepareCharacter()
 	{
+		playerCharacterDictionary.Clear();
+
+		var myPlayerData = playerDataContainer.GetMyPlayerData();
+		if (myPlayerData == null)
+			yield break;
+
 		// 플레이어 본인 캐릭터 타일 위로 배치
 		int myTileOrder = playerDataContainer.currentTileOrder;
 		Vector2 playerPos = TileDataManager.Instance.GetPlayerPosByOrder(myTileOrder);
 
-		myPlayerCharacter.SetPlayerData(playerDataContainer.playerGroup, playerDataContainer.playerName);
+		myPlayerCharacter.SetPlayerData(myPlayerData.playerGroup, myPlayerData.playerName);
 		myPlayerCharacter.SetPosition(playerPos);
 		myPlayerCharacter.gameObject.SetActive(true);
 
 #if UNITY_EDITOR
 		myPlayerCharacter.gameObject.name = $"MyPlayer ({playerDataContainer.playerName})";
 #endif
+
+		playerCharacterDictionary.Add(myPlayerData, myPlayerCharacter);
+
 		yield return null;
 
 		// 타 유저 캐릭터 타일 위로 배치
 		if (playerDataContainer.otherPlayerPacketDatas == null)
 			yield break;
-
-		otherPlayerCharacterDictionary.Clear();
 
 		foreach (var otherPlayerData in playerDataContainer.otherPlayerPacketDatas)
 		{
@@ -231,7 +238,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			otherPlayerCharacter.gameObject.name = $"Player ({otherPlayerData.playerName})" ;
 #endif
 
-			otherPlayerCharacterDictionary.Add(otherPlayerData, otherPlayerCharacter);
+			playerCharacterDictionary.Add(otherPlayerData, otherPlayerCharacter);
 		}
 	}
 
