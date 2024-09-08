@@ -12,8 +12,6 @@ public class BoardGamePopup : MonoBehaviour
 	[SerializeField] protected PopupType popupType;
 	[SerializeField] private Canvas canvas;
 
-	public virtual bool IsRecyclable => false;
-
 	public bool IsOpen
 	{
 		get

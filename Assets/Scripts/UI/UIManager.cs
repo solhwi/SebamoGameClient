@@ -10,6 +10,7 @@ public enum PopupType
 	ItemToolTip,
 	BatchMode,
 	Notify,
+	Profile,
 }
 
 public class UIManager : Singleton<UIManager>
