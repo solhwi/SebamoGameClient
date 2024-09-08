@@ -103,7 +103,6 @@ public class BoardGameManager : Singleton<BoardGameManager>
 					Debug.LogError($"{currentState} 상태에서 {currentData.currentState} 상태 데이터 접근을 시도했습니다.");
 					return false;
 				}
-				
 			}
 
 			return false;
@@ -258,7 +257,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	private bool CanGetItem()
 	{
-		return currentGameState == GameState.MoveCharacter;
+		return currentGameState == GameState.MoveCharacter || currentGameState == GameState.TileAction;
 	}
 
 	private bool CanDoTileAction()
