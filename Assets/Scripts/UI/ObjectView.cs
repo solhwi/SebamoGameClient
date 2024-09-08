@@ -16,6 +16,10 @@ public class ObjectView : MonoBehaviour
 	[SerializeField] private bool isOrthoSize = false;
 	[SerializeField] private float FOV = 10.0f;
 
+	[SerializeField] private int height = 512;
+	[SerializeField] private int width = 512;
+	[SerializeField] private int depth = 32;
+
 	protected Camera cam = null;
 	protected Transform cameraArm = null;
 
@@ -30,10 +34,6 @@ public class ObjectView : MonoBehaviour
 	private RenderTexture renderTexture = null;
 	private Texture2D texture = null;
 	private Rect rect;
-
-	int height = 512;
-	int width = 512;
-	int depth = 24;
 
 	protected virtual void Awake()
 	{
