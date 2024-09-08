@@ -80,7 +80,7 @@ public class RankingBoard : MonoBehaviour
 
 		for (int i = 0; i < this.playerDatas.Count; i++)
 		{
-			if (this.playerDatas[i] != playerDatas[i])
+			if (this.playerDatas[i].playerTileOrder != playerDatas[i].playerTileOrder)
 			{
 				return true;
 			}

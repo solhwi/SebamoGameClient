@@ -17,7 +17,6 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 
 	[SerializeField] private FieldItemFactory fieldItemFactory;
 
-	[SerializeField] private CameraController boardGameCameraController;
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 
 	private ReplaceFieldItem currentReplaceItem;
@@ -36,7 +35,7 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 	{
 		base.OnOpen(parameter);
 
-		boardGameCameraController.SetZoom(true);
+		CameraController.Instance.SetZoom(true);
 
 		if (parameter is Parameter p)
 		{
@@ -86,7 +85,7 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 
 	public void OnBeginDrag(PointerEventData data)
 	{
-		boardGameCameraController.SetFollow(false);
+		CameraController.Instance.SetFollow(false);
 	}
 
 	public void OnDrag(PointerEventData data)
@@ -95,9 +94,10 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 	}
 
 	public void OnClickResetCamera()
-	{
-		boardGameCameraController.SetFollow(true);
-		boardGameCameraController.ResetZoom();
+	{	
+		CameraController.Instance.ResetTarget();
+		CameraController.Instance.SetFollow(true);
+		CameraController.Instance.ResetZoom();
 	}
 
 	public void OnPointerClick(PointerEventData eventData)

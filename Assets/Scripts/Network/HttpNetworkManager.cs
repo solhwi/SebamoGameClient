@@ -84,7 +84,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		if (otherDatas == null) 
 			return false;
 
-		playerDataContainer.SetOtherPacketData(otherDatas);
+		playerDataContainer.SetOtherPacketData(otherDatas.playerDatas);
 		return true;
 	}
 
@@ -238,7 +238,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 		var otherData = MakeOtherFakePacketData();
 
-		playerDataContainer.SetOtherPacketData(otherData);
+		playerDataContainer.SetOtherPacketData(otherData.playerDatas);
 		
 		EditorUtility.SetDirty(playerDataContainer);
 		EditorUtility.SetDirty(inventory);

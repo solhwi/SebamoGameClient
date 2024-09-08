@@ -8,7 +8,6 @@ public class BoardGameCanvas : MonoBehaviour, IBoardGameSubscriber, IBeginDragHa
 {
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Inventory inventory;
-	[SerializeField] private CameraController boardGameCameraController;
 
 	[SerializeField] private Text statusText = null;
 
@@ -50,9 +49,11 @@ public class BoardGameCanvas : MonoBehaviour, IBoardGameSubscriber, IBeginDragHa
 	{
 		yield return null;
 	}
+
 	public void OnClickRollDice()
 	{
-		boardGameCameraController.SetFollow(true);
+		CameraController.Instance.ResetTarget();
+		CameraController.Instance.SetFollow(true);
 		BoardGameManager.Instance.OnClickRollDice();
 	}
 
@@ -60,12 +61,13 @@ public class BoardGameCanvas : MonoBehaviour, IBoardGameSubscriber, IBeginDragHa
 	{
 		if (UIManager.Instance.IsAnyOpen())
 		{
-			boardGameCameraController.SetFollow(true);
-			boardGameCameraController.SetZoom(false);
+			CameraController.Instance.ResetTarget();
+			CameraController.Instance.SetFollow(true);
+			CameraController.Instance.SetZoom(false);
 		}
 		else
 		{
-			boardGameCameraController.SetZoom(true);
+			CameraController.Instance.SetZoom(true);
 		}
 	}
 
@@ -81,7 +83,7 @@ public class BoardGameCanvas : MonoBehaviour, IBoardGameSubscriber, IBeginDragHa
 
 	public void OnBeginDrag(PointerEventData data)
 	{
-		boardGameCameraController.SetFollow(false);
+		CameraController.Instance.SetFollow(false);
 	}
 
 	public void OnDrag(PointerEventData data)
@@ -91,7 +93,8 @@ public class BoardGameCanvas : MonoBehaviour, IBoardGameSubscriber, IBeginDragHa
 
 	public void OnClickResetCamera()
 	{
-		boardGameCameraController.SetFollow(true);
-		boardGameCameraController.ResetZoom();
+		CameraController.Instance.ResetTarget();
+		CameraController.Instance.SetFollow(true);
+		CameraController.Instance.ResetZoom();
 	}
 }

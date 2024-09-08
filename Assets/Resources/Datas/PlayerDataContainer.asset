@@ -18,12 +18,12 @@ MonoBehaviour:
   playerGroup: Exp
   playerName: "\uC194\uD718"
   hasDiceCount: 3
-  currentTileOrder: 0
+  currentTileOrder: 15
   moveTimeByOneTile: 1
   otherPlayerPacketDatas:
   - playerGroup: Exp
     playerName: "\uC9C0\uD604"
-    playerTileOrder: 0
+    playerTileOrder: 5
     hasDiceCount: 3
     equippedItems:
     - YucoBody
@@ -37,7 +37,7 @@ MonoBehaviour:
     - 
   - playerGroup: Exp
     playerName: "\uC9C0\uD64D"
-    playerTileOrder: 0
+    playerTileOrder: 11
     hasDiceCount: 3
     equippedItems:
     - YucoBody
@@ -51,7 +51,7 @@ MonoBehaviour:
     - 
   - playerGroup: Exp
     playerName: "\uB3D9\uD604"
-    playerTileOrder: 0
+    playerTileOrder: 22
     hasDiceCount: 3
     equippedItems:
     - YucoBody
@@ -65,7 +65,7 @@ MonoBehaviour:
     - 
   - playerGroup: Exp
     playerName: "\uC0C1\uD6C8"
-    playerTileOrder: 0
+    playerTileOrder: 30
     hasDiceCount: 3
     equippedItems:
     - YucoBody
@@ -79,7 +79,7 @@ MonoBehaviour:
     - 
   - playerGroup: Exp
     playerName: "\uAC15\uC6B1"
-    playerTileOrder: 0
+    playerTileOrder: 2
     hasDiceCount: 3
     equippedItems:
     - YucoBody

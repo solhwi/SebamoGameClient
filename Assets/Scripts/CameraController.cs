@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class CameraController : MonoBehaviour
+public class CameraController : Singleton<CameraController>
 {
 	[SerializeField] private CinemachineVirtualCamera virtualCamera;
 
@@ -14,6 +14,8 @@ public class CameraController : MonoBehaviour
 	[SerializeField] private float minFOV = 40f; // 최소 FOV
 	[SerializeField] private float maxFOV = 60f; // 최대 FOV
 
+	private Transform currentTargetTransform = null;
+
 	private CinemachineTransposer transposer;
 
 	private float initialFOV = 50f;
@@ -21,10 +23,12 @@ public class CameraController : MonoBehaviour
 	private bool isFollowingTarget;
 	private bool isZooming = false;
 
-	private void Awake()
+	protected override void Awake()
 	{
 		transposer = virtualCamera.GetCinemachineComponent<CinemachineTransposer>();
 		initialFOV = virtualCamera.m_Lens.Orthographic ? virtualCamera.m_Lens.OrthographicSize : virtualCamera.m_Lens.FieldOfView;
+
+		ResetTarget();
 	}
 
 	private void Start()
@@ -52,6 +56,16 @@ public class CameraController : MonoBehaviour
 				UpdateFOV(mouseScrollWheelValue);
 			}
 		}
+	}
+
+	public void ResetTarget()
+	{
+		currentTargetTransform = targetTransform;
+	}
+
+	public void ChangeTarget(Transform targetTransform)
+	{
+		currentTargetTransform = targetTransform;
 	}
 
 	private void UpdateFOV(float delta)
@@ -102,8 +116,8 @@ public class CameraController : MonoBehaviour
 
 		if (isFollow)
 		{
-			virtualCamera.Follow = targetTransform;
-			virtualCamera.LookAt = targetTransform;
+			virtualCamera.Follow = currentTargetTransform;
+			virtualCamera.LookAt = currentTargetTransform;
 		}
 		else
 		{

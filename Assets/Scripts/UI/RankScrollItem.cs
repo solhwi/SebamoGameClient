@@ -10,9 +10,25 @@ public class RankScrollItem : MonoBehaviour
 	[SerializeField] private Image playerFrameImage;
 	[SerializeField] private Text playerNameText;
 
-    public void SetData(PlayerPacketData data, int rankNumber)
+	private string playerGroup = string.Empty;
+	private string playerName = string.Empty;
+
+	public void SetData(PlayerPacketData data, int rankNumber)
 	{
+		playerGroup = data.playerGroup;
+		playerName = data.playerName;
+
+		playerNameText.text = playerName;
 		rankText.text = rankNumber.ToString();
-		playerNameText.text = data.playerName;
+	}
+
+	public void OnClick()
+	{
+		var character = BoardGameManager.Instance.GetPlayerCharacter(playerGroup, playerName);
+		if (character == null)
+			return;
+
+		CameraController.Instance.ChangeTarget(character.transform);
+		CameraController.Instance.SetFollow(true);
 	}
 }

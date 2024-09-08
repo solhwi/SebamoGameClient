@@ -119,7 +119,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	[SerializeField] private MyCharacterComponent myPlayerCharacter;
 	[SerializeField] private CharacterComponent otherPlayerCharacterPrefab;
 
-	private Dictionary<PlayerPacketData, CharacterComponent> playerCharacterDictionary = new Dictionary<PlayerPacketData, CharacterComponent>();
+	private Dictionary<(string, string), CharacterComponent> playerCharacterDictionary = new Dictionary<(string, string), CharacterComponent>();
 
 	private List<IBoardGameSubscriber> subscribers = new List<IBoardGameSubscriber>();
 
@@ -213,7 +213,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		myPlayerCharacter.gameObject.name = $"MyPlayer ({playerDataContainer.playerName})";
 #endif
 
-		playerCharacterDictionary.Add(myPlayerData, myPlayerCharacter);
+		playerCharacterDictionary.Add((myPlayerData.playerGroup, myPlayerData.playerName), myPlayerCharacter);
 
 		yield return null;
 
@@ -238,7 +238,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			otherPlayerCharacter.gameObject.name = $"Player ({otherPlayerData.playerName})" ;
 #endif
 
-			playerCharacterDictionary.Add(otherPlayerData, otherPlayerCharacter);
+			playerCharacterDictionary.Add((otherPlayerData.playerGroup, otherPlayerData.playerName), otherPlayerCharacter);
 		}
 	}
 
@@ -483,6 +483,16 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		UIManager.Instance.Close(PopupType.Inventory);
 
 		UIManager.Instance.TryOpen(PopupType.BatchMode, new BatchModePopup.Parameter(currentReplaceFieldItem));
+	}
+
+	public CharacterComponent GetPlayerCharacter(string group, string name)
+	{
+		if (playerCharacterDictionary.TryGetValue((group, name), out var character))
+		{
+			return character;
+		}
+
+		return null;
 	}
 
 	private IEnumerable<int> GetReplaceableTileOrders(ReplaceFieldItem replaceItem, int min, int max)

@@ -120,15 +120,15 @@ public class PlayerDataContainer : ScriptableObject
 		inventory.SetMyPacketData(myData);
 	}
 
-	public void SetOtherPacketData(PlayerPacketDataCollection playerDataCollection)
+	public void SetOtherPacketData(PlayerPacketData[] playerDatas)
 	{
-		if (playerDataCollection == null || playerDataCollection.playerDatas == null)
+		if (playerDatas == null)
 		{
 			otherPlayerPacketDatas.Clear();
 		}
 		else
 		{
-			otherPlayerPacketDatas = playerDataCollection.playerDatas.ToList();
+			otherPlayerPacketDatas = playerDatas.ToList();
 		}
 	}
 
