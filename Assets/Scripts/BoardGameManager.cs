@@ -236,10 +236,13 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	{
 		if (stateCheckFuncMap.TryGetValue(newState, out var func))
 		{
-			Debug.Log($"Change Game State : {currentGameState} > {newState}");
+			if (func != null && func.Invoke())
+			{
+				Debug.Log($"Change Game State : {currentGameState} > {newState}");
 
-			currentGameState = newState;
-			currentStateData = data;
+				currentGameState = newState;
+				currentStateData = data;
+			}
 		}
 	}
 
