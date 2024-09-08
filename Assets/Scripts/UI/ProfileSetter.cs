@@ -12,9 +12,37 @@ public enum ProfileType
 
 public class ProfileSetter : MonoBehaviour
 {
-	[SerializeField] private Inventory inventory;
+	[SerializeField] private PressEventTrigger eventTrigger;
+
+	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private Image[] profileImage = new Image[(int)ProfileType.Max];
+
+	[SerializeField] private bool isInitializeByInventory = false;
+
+	private string playerGroup = string.Empty;
+	private string playerName = string.Empty;
+
+	private void Awake()
+	{
+		eventTrigger.onEndPress += OnPress;
+
+		if (isInitializeByInventory)
+		{
+			SetPlayerData(playerDataContainer.playerGroup, playerDataContainer.playerName);
+		}
+	}
+
+	private void OnDestroy()
+	{
+		eventTrigger.onEndPress -= OnPress;
+	}
+
+	public void SetPlayerData(string playerGroup, string playerName)
+	{
+		this.playerGroup = playerGroup;
+		this.playerName = playerName;
+	}
 
 	private void Update()
 	{
@@ -28,7 +56,21 @@ public class ProfileSetter : MonoBehaviour
 	{
 		int type = (int)profileType;
 
-		string itemCode = inventory.appliedProfileItems[type];
+		var playerData = playerDataContainer.GetPlayerData(playerGroup, playerName);
+		if (playerData == null)
+			return;
+
+		string itemCode = playerData.appliedProfileItems[type];
 		profileImage[type].sprite = itemTable.GetItemIconSprite(itemCode);
+	}
+
+	public void OnClick()
+	{
+		UIManager.Instance.TryOpen(PopupType.Profile);
+	}
+
+	public void OnPress(float time)
+	{
+		UIManager.Instance.TryOpen(PopupType.Profile);
 	}
 }

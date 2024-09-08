@@ -90,6 +90,8 @@ public class InventoryPopup : BoardGamePopup
 
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private Inventory inventory;
+	[SerializeField] private PlayerDataContainer playerDataContainer;
+
 	[SerializeField] private FieldItemFactory fieldItemFactory;
 
 	[SerializeField] private CharacterView uiCharacterView;

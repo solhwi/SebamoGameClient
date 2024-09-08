@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class RankScrollItem : MonoBehaviour
 {
 	[SerializeField] private Text rankText;
-	[SerializeField] private Image playerImage;
-	[SerializeField] private Image playerFrameImage;
+	[SerializeField] private ProfileSetter profileSetter;
 	[SerializeField] private Text playerNameText;
 
 	private string playerGroup = string.Empty;
@@ -20,6 +19,8 @@ public class RankScrollItem : MonoBehaviour
 
 		playerNameText.text = playerName;
 		rankText.text = rankNumber.ToString();
+
+		profileSetter.SetPlayerData(playerGroup, playerName);
 	}
 
 	public void OnClick()

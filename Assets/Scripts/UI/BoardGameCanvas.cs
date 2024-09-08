@@ -9,6 +9,7 @@ public class BoardGameCanvas : MonoBehaviour, IBoardGameSubscriber, IBeginDragHa
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Inventory inventory;
 
+	[SerializeField] private ProfileSetter profileSetter;
 	[SerializeField] private Text statusText = null;
 
 	private void Start()

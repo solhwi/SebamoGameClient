@@ -775,7 +775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
-  boardGameCameraController: {fileID: 0}
+  profileSetter: {fileID: 0}
   statusText: {fileID: 2928166940985944063}
 --- !u!1 &5525343596782359694
 GameObject:
@@ -2666,6 +2666,10 @@ PrefabInstance:
     - target: {fileID: 4741729876489188531, guid: 1e365f35df1e72341adb3125261991f4, type: 3}
       propertyPath: m_Name
       value: Profile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948242550242999274, guid: 1e365f35df1e72341adb3125261991f4, type: 3}
+      propertyPath: isInitializeByInventory
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
