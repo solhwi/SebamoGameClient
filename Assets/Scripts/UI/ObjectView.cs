@@ -105,6 +105,19 @@ public class ObjectView : MonoBehaviour
 		}
 	}
 
+	protected virtual void OnBecameVisible()
+	{
+		cam.gameObject.SetActive(true);
+	}
+
+	protected virtual void OnBecameInvisible()
+	{
+		if (cam != null)
+		{
+			cam.gameObject.SetActive(false);
+		}
+	}
+
 	private void LateUpdate()
 	{
 		if (originObj == null)

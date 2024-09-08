@@ -202,8 +202,10 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		myPlayerCharacter.SetPlayerData(playerDataContainer.playerGroup, playerDataContainer.playerName);
 		myPlayerCharacter.SetPosition(playerPos);
 		myPlayerCharacter.gameObject.SetActive(true);
-		myPlayerCharacter.gameObject.name = $"My Player ({playerDataContainer.playerName})";
 
+#if UNITY_EDITOR
+		myPlayerCharacter.gameObject.name = $"MyPlayer ({playerDataContainer.playerName})";
+#endif
 		yield return null;
 
 		// 타 유저 캐릭터 타일 위로 배치
@@ -224,7 +226,10 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			otherPlayerCharacter.SetPlayerData(otherPlayerData.playerGroup, otherPlayerData.playerName);
 			otherPlayerCharacter.SetPosition(playerPos);
 			otherPlayerCharacter.gameObject.SetActive(true);
+
+#if UNITY_EDITOR
 			otherPlayerCharacter.gameObject.name = $"Player ({otherPlayerData.playerName})" ;
+#endif
 
 			otherPlayerCharacterDictionary.Add(otherPlayerData, otherPlayerCharacter);
 		}

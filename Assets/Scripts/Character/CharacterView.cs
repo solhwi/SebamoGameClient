@@ -24,6 +24,13 @@ public class CharacterView : ObjectView
 		}
 	}
 
+	protected override void OnBecameVisible()
+	{
+		base.OnBecameVisible();
+
+		Replay();
+	}
+
 	protected override void Start()
 	{
 		base.Start();
@@ -70,15 +77,23 @@ public class CharacterView : ObjectView
 	public void FlipX(bool flipX)
 	{
 		currentFlipX = flipX;
-		meshView.FlipX(flipX);
+
+		if (meshView != null)
+		{
+			meshView.FlipX(flipX);
+		}
 	}
 
 	public void FlipY(bool flipY)
 	{
+		currentFlipY = flipY;
+
 		float yRot = flipY ? 180 : 0;
 
-		originCharacterTransform.localEulerAngles = new Vector3(0, yRot, 0);
-		currentFlipY = flipY;
+		if (originCharacterTransform != null)
+		{
+			originCharacterTransform.localEulerAngles = new Vector3(0, yRot, 0);
+		}
 	}
 
 	public void Replay()
