@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d392510761fabae41a612ad7167c77c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
-  dataContainer: {fileID: 11400000, guid: 73468ef0f89e7f846bb837967a881fad, type: 2}
+  characterDataContainer: {fileID: 11400000, guid: 73468ef0f89e7f846bb837967a881fad, type: 2}
+  playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   animationController: {fileID: 5553457474692555673}
   bodyRoot: {fileID: 312883148755976636}
 --- !u!114 &5553457474692555673
@@ -61,6 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6aa208eb5d8e8e47bbca9f35758275c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   controller: {fileID: 9100000, guid: f9b9c331100714b47a848764e0b6d8c7, type: 2}
-  inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   currentState: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MyCharacterMoveComponent : CharacterMoveComponent, IBoardGameSubscriber
+public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
 {
 	private void Start()
 	{

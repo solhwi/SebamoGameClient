@@ -1,4 +1,5 @@
 using NPOI.SS.Formula.PTG;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +24,7 @@ public class PlayerPacketDataCollection : PacketData
 
 
 [System.Serializable]
-public class PlayerPacketData : PacketData
+public class PlayerPacketData : PacketData, IEquatable<PlayerPacketData>
 {
 	public string playerGroup; // 플레이어 그룹
 	public string playerName; // 플레이어 이름
@@ -34,6 +35,13 @@ public class PlayerPacketData : PacketData
 	public string[] equippedItems; // 장착 중인 아이템
 	public string[] appliedProfileItems; // 프로필 아이템
 
+	public bool Equals(PlayerPacketData other)
+	{
+		if (other == null)
+			return false;
+
+		return playerGroup == other.playerGroup && playerName == other.playerName;
+	}
 }
 
 [System.Serializable]

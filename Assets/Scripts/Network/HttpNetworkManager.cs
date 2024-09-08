@@ -29,9 +29,6 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	[SerializeField] private bool isOnNetworkMode = false;
 
-	[SerializeField] private GroupType playerGroup;
-	[SerializeField] private string playerName;
-
 	public bool IsLoaded { get; private set; }
 	private float t = 0.0f;
 
@@ -77,7 +74,6 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 			return false;
 
 		playerDataContainer.SetMyPacketData(data);
-		inventory.SetMyPacketData(data);
 		return true;
 	}
 
@@ -104,7 +100,6 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 			return false;
 
 		playerDataContainer.SetMyPacketData(receiveData);
-		inventory.SetMyPacketData(receiveData);
 		return true;
 	}
 
@@ -145,8 +140,8 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		data.playerData.hasDiceCount = playerDataContainer.hasDiceCount;
 		data.playerData.playerTileOrder = playerDataContainer.currentTileOrder;
 
-		data.playerData.equippedItems = inventory.equippedItems;
-		data.playerData.appliedProfileItems = inventory.appliedProfileItems;
+		data.playerData.equippedItems = playerDataContainer.equippedItems;
+		data.playerData.appliedProfileItems = playerDataContainer.appliedProfileItems;
 
 		data.hasItems = inventory.hasItems.Keys.ToArray();
 		data.hasItemCounts = inventory.hasItems.Values.ToArray();
@@ -237,31 +232,68 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	[ContextMenu("페이크 패킷 데이터로 세팅")]
 	public void SetFakePacketData()
 	{
-		var data = new MyPlayerPacketData();
-		data.playerData = new PlayerPacketData();
+		var data = MakeMyFakeFacketData();
 
-		data.playerData.playerGroup = playerGroup.ToString();
-		data.playerData.playerName = playerName;
-
-		data.playerData.hasDiceCount = 3;
-		data.playerData.playerTileOrder = 0;
-
-		data.playerData.equippedItems = new string[6] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword"};
-		data.playerData.appliedProfileItems = new string[2] { "", "" };
-		
-		data.hasItems = new string[8] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword", "TwinDagger", "Coin" };
-		data.hasItemCounts = new int[8] { 1, 1, 1, 1, 1, 1, 1, 100000 };
-		data.appliedBuffItems = new string[] { };
-		
 		playerDataContainer.SetMyPacketData(data);
-		inventory.SetMyPacketData(data);
-		playerDataContainer.SetOtherPacketData(null);
+
+		var otherData = MakeOtherFakePacketData();
+
+		playerDataContainer.SetOtherPacketData(otherData);
 		
 		EditorUtility.SetDirty(playerDataContainer);
 		EditorUtility.SetDirty(inventory);
 
 		AssetDatabase.SaveAssetIfDirty(playerDataContainer);
 		AssetDatabase.SaveAssetIfDirty(inventory);
+	}
+
+	private MyPlayerPacketData MakeMyFakeFacketData()
+	{
+		var data = new MyPlayerPacketData();
+		data.playerData = new PlayerPacketData();
+
+		data.playerData.playerGroup = GroupType.Exp.ToString();
+		data.playerData.playerName = "솔휘";
+
+		data.playerData.hasDiceCount = 3;
+		data.playerData.playerTileOrder = 0;
+
+		data.playerData.equippedItems = new string[6] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword" };
+		data.playerData.appliedProfileItems = new string[2] { "", "" };
+
+		data.hasItems = new string[8] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword", "TwinDagger", "Coin" };
+		data.hasItemCounts = new int[8] { 1, 1, 1, 1, 1, 1, 1, 100000 };
+		data.appliedBuffItems = new string[] { };
+
+		return data;
+	}
+
+	private PlayerPacketDataCollection MakeOtherFakePacketData()
+	{
+		var collection = new PlayerPacketDataCollection();
+
+		List<PlayerPacketData> otherDatas = new List<PlayerPacketData>();
+
+		string[] otherNames = new string[5] { "지현", "지홍", "동현", "상훈", "강욱" };
+
+		foreach (string name in otherNames)
+		{
+			PlayerPacketData newData = new PlayerPacketData();
+
+			newData.playerGroup = GroupType.Exp.ToString();
+			newData.playerName = name;
+
+			newData.hasDiceCount = 3;
+			newData.playerTileOrder = 0;
+
+			newData.equippedItems = new string[6] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword" };
+			newData.appliedProfileItems = new string[2] { "", "" };
+
+			otherDatas.Add(newData);
+		}
+
+		collection.playerDatas = otherDatas.ToArray();
+		return collection;
 	}
 #endif
 }

@@ -71,7 +71,7 @@ public class RankingBoard : MonoBehaviour
 	
 	private bool IsDirtyPlayerTileIndex(out List<PlayerPacketData> playerDatas)
 	{
-		playerDatas = MakePlayerTileDatas()?.OrderByDescending(d => d.playerTileOrder, tileSortingComparer).ToList();
+		playerDatas = playerDataContainer.GetAllPlayerData()?.OrderByDescending(d => d.playerTileOrder, tileSortingComparer).ToList();
 
 		if (this.playerDatas.Count != playerDatas.Count)
 		{
@@ -87,16 +87,6 @@ public class RankingBoard : MonoBehaviour
 		}
 
 		return false;
-	}
-
-	private IEnumerable<PlayerPacketData> MakePlayerTileDatas()
-	{
-		yield return playerDataContainer.myPlayerPacketData;
-		
-		foreach (var otherPlayerData in playerDataContainer.otherPlayerPacketDatas)
-		{
-			yield return otherPlayerData;
-		}
 	}
 
 	private int GetHasItemCount(int tabType)

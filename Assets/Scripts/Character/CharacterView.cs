@@ -8,6 +8,9 @@ public class CharacterView : ObjectView
 	private CharacterDataSetter characterDataSetter = null;
 	private CharacterAnimationController characterAnimationController = null;
 
+	private string playerGroup = string.Empty;
+	private string playerName = string.Empty;
+
 	private bool currentFlipX;
 	private bool currentFlipY;
 
@@ -28,7 +31,7 @@ public class CharacterView : ObjectView
 		characterDataSetter = originObj.GetComponent<CharacterDataSetter>();
 		if (characterDataSetter != null)
 		{
-			characterDataSetter.DoFullSetting();
+			characterDataSetter.DoFullSetting(playerGroup, playerName);
 		}
 
 		characterAnimationController = originObj.GetComponentInChildren<CharacterAnimationController>();
@@ -43,11 +46,17 @@ public class CharacterView : ObjectView
 		characterAnimationController.DoIdle();
 	}
 
+	public void SetPlayerData(string playerGroup, string playerName)
+	{
+		this.playerGroup = playerGroup;
+		this.playerName = playerName;
+	}
+
 	public void RefreshCharacter()
 	{
 		if (characterDataSetter != null)
 		{
-			characterDataSetter.DoFullSetting();
+			characterDataSetter.DoFullSetting(playerGroup, playerName);
 		}
 
 		// 애니메이터가 달려있는 곳이 제어할 위치

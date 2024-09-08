@@ -37,8 +37,8 @@ public enum CharacterStateType
 
 public class CharacterAnimationController : MonoBehaviour
 {
+	[SerializeField] private PlayerDataContainer playerDataContainer = null;
 	[SerializeField] private RuntimeAnimatorController controller = null;
-	[SerializeField] private Inventory inventory = null;
 	
 	private float crossFadeTime = 0.0f;
 
@@ -60,9 +60,18 @@ public class CharacterAnimationController : MonoBehaviour
 	private CharacterStateType currentStateType = CharacterStateType.Idle;
 	public CharacterState currentState = CharacterState.Idle;
 
+	private string playerGroup = string.Empty;
+	private string playerName = string.Empty;
+
 	private void Start()
 	{
 		DoIdle();
+	}
+
+	public void SetPlayerData(string playerGroup, string playerName)
+	{
+		this.playerGroup = playerGroup;
+		this.playerName = playerName;
 	}
 
 	public void SetAvatar(Avatar avatar)
@@ -76,7 +85,7 @@ public class CharacterAnimationController : MonoBehaviour
 
 		currentStateType = CharacterStateType.Idle;
 
-		var propType = inventory.GetEquippedPropType().FirstOrDefault();
+		var propType = playerDataContainer.GetEquippedPropType(playerGroup, playerName).FirstOrDefault();
 		if (propType == PropType.GreatSword)
 		{
 			ChangeState(CharacterState.Idle_GreatSword);
@@ -109,7 +118,7 @@ public class CharacterAnimationController : MonoBehaviour
 
 		currentStateType = CharacterStateType.Run;
 
-		var propType = inventory.GetEquippedPropType().FirstOrDefault();
+		var propType = playerDataContainer.GetEquippedPropType(playerGroup, playerName).FirstOrDefault();
 		if (propType == PropType.GreatSword)
 		{
 			ChangeState(CharacterState.Run_GreatSword);
@@ -140,7 +149,7 @@ public class CharacterAnimationController : MonoBehaviour
 	{
 		currentStateType = CharacterStateType.Attack;
 
-		var propType = inventory.GetEquippedPropType().FirstOrDefault();
+		var propType = playerDataContainer.GetEquippedPropType(playerGroup, playerName).FirstOrDefault();
 		if (propType == PropType.GreatSword)
 		{
 			ChangeState(CharacterState.Attack_GreatSword);

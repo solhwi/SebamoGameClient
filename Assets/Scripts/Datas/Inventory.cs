@@ -36,32 +36,6 @@ public class Inventory : ScriptableObject
 
 	private const int MaxBuffItemCount = 10;
 
-	public CharacterType GetEquippedBodyType(int index)
-	{
-		if (index < 0 || index >= equippedItems.Length)
-			return CharacterType.Max;
-
-		string itemCode = equippedItems[index];
-		return itemTable.GetPartsCharacterType(itemCode);
-	}
-
-	public IEnumerable<PropType> GetEquippedPropType()
-	{
-		int index = GetIndexPropType();
-		string itemCode = equippedItems[index];
-
-		var propType = itemTable.GetItemPropType(itemCode);
-		if (propType == PropType.TwinDagger_L)
-		{
-			yield return PropType.TwinDagger_L;
-			yield return PropType.TwinDagger_R;
-		}
-		else
-		{
-			yield return propType;
-		}
-	}
-
 	public bool TryAddItem(string itemCode, int count = 1)
 	{
 		bool bResult = AddItem(itemCode, count);
@@ -261,7 +235,7 @@ public class Inventory : ScriptableObject
 		}
 		else if (itemTable.IsPropItem(itemCode))
 		{
-			int index = GetIndexPropType();
+			int index = 5;
 			if (index >= 0 && index < equippedItems.Length)
 			{
 				equippedItems[index] = itemCode;
@@ -272,7 +246,7 @@ public class Inventory : ScriptableObject
 			var partsType = itemTable.GetItemPartsType(itemCode);
 			int index = GetIndexFromPartsType(partsType);
 
-			if (index >= 0 && index < GetIndexPropType())
+			if (index >= 0 && index < 5)
 			{
 				equippedItems[index] = itemCode;
 			}
@@ -306,33 +280,6 @@ public class Inventory : ScriptableObject
 			return 0;
 
 		return hasItems[itemCode];
-	}
-
-	public CharacterType GetCurrentPartsCharacterType(CharacterPartsType partsType)
-	{
-		int index = -1;
-
-		if (partsType == CharacterPartsType.Accessory)
-			index = 4;
-
-		if (partsType == CharacterPartsType.Face)
-			index = 3;
-
-		if (partsType == CharacterPartsType.RightEye || partsType == CharacterPartsType.Eye)
-			index = 2;
-
-		if (partsType == CharacterPartsType.Hair || partsType == CharacterPartsType.FrontHair)
-			index = 1;
-
-		if (partsType == CharacterPartsType.Body)
-			index = 0;
-
-		return GetEquippedBodyType(index);
-	}
-
-	private int GetIndexPropType()
-	{
-		return 5;
 	}
 
 	private int GetIndexFromPartsType(CharacterPartsType partsType)

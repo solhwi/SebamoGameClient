@@ -92,6 +92,10 @@ MonoBehaviour:
   isFixedRotation: 0
   isOrthoSize: 0
   FOV: 10
+  height: 512
+  width: 512
+  depth: 32
+  playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   xMinRotationLimit: 0
   xMaxRotationLimit: 0
   rotateSpeed: 10
@@ -496,6 +500,9 @@ MonoBehaviour:
   isFixedRotation: 0
   isOrthoSize: 1
   FOV: 1
+  height: 512
+  width: 512
+  depth: 32
   fieldItemFactory: {fileID: 11400000, guid: a6e06216073cb404eb58dd2ea48f4cee, type: 2}
   itemIcon: {fileID: 3938888253336575168}
 --- !u!1 &888071961013035158

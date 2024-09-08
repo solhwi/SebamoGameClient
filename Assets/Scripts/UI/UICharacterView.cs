@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class UICharacterView : CharacterView, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+	[SerializeField] private PlayerDataContainer playerDataContainer;
+
 	[SerializeField] private float xMinRotationLimit = 0; // 상하 회전 제한
 	[SerializeField] private float xMaxRotationLimit = 0; // 상하 회전 제한
 	[SerializeField] private float rotateSpeed = 1.0f; // 회전 속도
@@ -19,8 +21,9 @@ public class UICharacterView : CharacterView, IBeginDragHandler, IEndDragHandler
 	protected override void Awake()
 	{
 		base.Awake();
-
 		defaultFOV = cam.fieldOfView;
+
+		SetPlayerData(playerDataContainer.playerGroup, playerDataContainer.playerName);
 	}
 
 	protected override void OnEnable()

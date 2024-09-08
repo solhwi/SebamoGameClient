@@ -49,17 +49,24 @@ public static class TransformExtension
 /// </summary>
 public class CharacterDataSetter : MonoBehaviour
 {
-	[SerializeField] private Inventory inventory;
-	[SerializeField] private CharacterDataContainer dataContainer = null;
-
+	[SerializeField] private CharacterDataContainer characterDataContainer = null;
+	[SerializeField] private PlayerDataContainer playerDataContainer = null;
 	[SerializeField] private CharacterAnimationController animationController = null;
 
 	[SerializeField] private Transform bodyRoot = null;
 
 	private List<GameObject> partsObjList = new List<GameObject>();
 
-	public void DoFullSetting()
+	private string playerGroup = string.Empty;
+	private string playerName = string.Empty;
+
+	public void DoFullSetting(string playerGroup, string playerName)
 	{
+		this.playerGroup = playerGroup;
+		this.playerName = playerName;
+
+		animationController.SetPlayerData(playerGroup, playerName);
+
 		MakeParts();
 		SetMeshes();
 		SetAvatar();
@@ -67,11 +74,11 @@ public class CharacterDataSetter : MonoBehaviour
 
 	public void SetAvatar()
 	{
-		CharacterType characterType = inventory.GetCurrentPartsCharacterType(CharacterPartsType.Body);
+		CharacterType characterType = playerDataContainer.GetCurrentPartsCharacterType(playerGroup, playerName, CharacterPartsType.Body);
 		if (characterType == CharacterType.Max)
 			return;
 
-		var avatar = dataContainer.characterAvatars[(int)characterType];
+		var avatar = characterDataContainer.characterAvatars[(int)characterType];
 		animationController.SetAvatar(avatar);
 	}
 
@@ -182,13 +189,13 @@ public class CharacterDataSetter : MonoBehaviour
 		}
 
 		// 소품
-		foreach (var propType in inventory.GetEquippedPropType())
+		foreach (var propType in playerDataContainer.GetEquippedPropType(playerGroup, playerName))
 		{
 			if (propType == PropType.Max)
 				continue;
 
 			Transform propTransform = GetPropTransform(propType);
-			var propPrefab = dataContainer.GetPropObject(propType);
+			var propPrefab = characterDataContainer.GetPropObject(propType);
 			var propObj = Instantiate(propPrefab, propTransform);
 
 			propObj.transform.localPosition = Vector3.zero;
@@ -228,29 +235,29 @@ public class CharacterDataSetter : MonoBehaviour
 
 	private GameObject GetParts(CharacterPartsType partsType)
 	{
-		CharacterType characterType = inventory.GetCurrentPartsCharacterType(partsType);
+		CharacterType characterType = playerDataContainer.GetCurrentPartsCharacterType(playerGroup, playerName, partsType);
 		if (characterType == CharacterType.Max)
 			return null;
 
-		return dataContainer.GetPartsObject(characterType, partsType);
+		return characterDataContainer.GetPartsObject(characterType, partsType);
 	}
 
 	private Mesh GetMesh(CharacterPartsType partsType)
 	{
-		CharacterType characterType = inventory.GetCurrentPartsCharacterType(partsType);
+		CharacterType characterType = playerDataContainer.GetCurrentPartsCharacterType(playerGroup, playerName, partsType);
 		if (characterType == CharacterType.Max)
 			return null;
 
-		return dataContainer.GetMesh(characterType, partsType);
+		return characterDataContainer.GetMesh(characterType, partsType);
 	}
 
 	private Material GetMaterial(CharacterPartsType partsType)
 	{
-		CharacterType characterType = inventory.GetCurrentPartsCharacterType(partsType);
+		CharacterType characterType = playerDataContainer.GetCurrentPartsCharacterType(playerGroup, playerName, partsType);
 		if (characterType == CharacterType.Max)
 			return null;
 
-		return dataContainer.GetMaterial(characterType, partsType);
+		return characterDataContainer.GetMaterial(characterType, partsType);
 	}
 
 }

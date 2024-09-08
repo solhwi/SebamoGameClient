@@ -116,10 +116,10 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	[SerializeField] private BuffItemFactory buffItemFactory;
 	[SerializeField] private FieldItemFactory fieldItemFactory;
 
-	[SerializeField] private MyCharacterMoveComponent myPlayerCharacter;
-	[SerializeField] private CharacterMoveComponent otherPlayerCharacterPrefab;
+	[SerializeField] private MyCharacterComponent myPlayerCharacter;
+	[SerializeField] private CharacterComponent otherPlayerCharacterPrefab;
 
-	private Dictionary<PlayerPacketData, CharacterMoveComponent> otherPlayerCharacterDictionary = new Dictionary<PlayerPacketData, CharacterMoveComponent>();
+	private Dictionary<PlayerPacketData, CharacterComponent> otherPlayerCharacterDictionary = new Dictionary<PlayerPacketData, CharacterComponent>();
 
 	private List<IBoardGameSubscriber> subscribers = new List<IBoardGameSubscriber>();
 
@@ -199,6 +199,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		int myTileOrder = playerDataContainer.currentTileOrder;
 		Vector2 playerPos = TileDataManager.Instance.GetPlayerPosByOrder(myTileOrder);
 
+		myPlayerCharacter.SetPlayerData(playerDataContainer.playerGroup, playerDataContainer.playerName);
 		myPlayerCharacter.SetPosition(playerPos);
 		myPlayerCharacter.gameObject.SetActive(true);
 		myPlayerCharacter.gameObject.name = $"My Player ({playerDataContainer.playerName})";
@@ -220,6 +221,8 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			int tileOrder = otherPlayerData.playerTileOrder;
 			playerPos = TileDataManager.Instance.GetPlayerPosByOrder(tileOrder);
 
+
+			otherPlayerCharacter.SetPlayerData(otherPlayerData.playerGroup, otherPlayerData.playerName);
 			otherPlayerCharacter.SetPosition(playerPos);
 			otherPlayerCharacter.gameObject.SetActive(true);
 			otherPlayerCharacter.gameObject.name = $"Player ({otherPlayerData.playerName})" ;

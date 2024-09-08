@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMoveComponent : MonoBehaviour 
+public class CharacterComponent : MonoBehaviour 
 {
 	[SerializeField] protected CharacterView characterView = null;
 	[SerializeField] protected PlayerDataContainer playerDataContainer = null;
+
+	public void SetPlayerData(string playerGroup, string playerName)
+	{
+		characterView.SetPlayerData(playerGroup, playerName);
+	}
 
 	public IEnumerator ProcessMove(int currentOrder, int nextOrder, float speedRate)
 	{

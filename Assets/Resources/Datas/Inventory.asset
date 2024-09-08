@@ -19,39 +19,19 @@ MonoBehaviour:
     - MisakiHair
     - UnityChanEye
     - UnityChanFace
+    - MisakiAccessory
     - GreatSword
     - TwinDagger
     - Coin
-    - MisakiBody
-    - UnityChanBody
-    - YucoFace
-    - MisakiFace
-    - MisakiEye
-    - YucoEye
-    - YucoHair
-    - UnityChanHair
-    - MisakiAccessory
-    - UnityChanAccessory
-    - YucoAccessory
-    - Profile_02
-    - Profile_01
-    - Frame_02
-    - Frame_01
-    - Banana
-    - Axe
-    - PickAx
-    - Shovel
-    - Umbrella
-    - Net
-    m_values: 010000000100000001000000010000000100000001000000a3860100010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000140000000100000001000000010000000100000001000000
+    m_values: 01000000010000000100000001000000010000000100000001000000a0860100
   equippedItems:
   - YucoBody
-  - UnityChanHair
+  - MisakiHair
   - UnityChanEye
   - UnityChanFace
-  - YucoAccessory
+  - MisakiAccessory
   - GreatSword
   appliedBuffItems: []
   appliedProfileItems:
-  - Profile_02
-  - Frame_01
+  - 
+  - 
