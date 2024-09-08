@@ -96,6 +96,6 @@ public class CharacterComponent : MonoBehaviour
 
 	public void SetPosition(Vector2 pos)
 	{
-		transform.position = new Vector3(pos.x, pos.y, -10);
+		transform.position = new Vector3(pos.x, pos.y, -(int)LayerConfig.Character);
 	}
 }

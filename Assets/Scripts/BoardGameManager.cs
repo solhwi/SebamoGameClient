@@ -221,7 +221,6 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			int tileOrder = otherPlayerData.playerTileOrder;
 			playerPos = TileDataManager.Instance.GetPlayerPosByOrder(tileOrder);
 
-
 			otherPlayerCharacter.SetPlayerData(otherPlayerData.playerGroup, otherPlayerData.playerName);
 			otherPlayerCharacter.SetPosition(playerPos);
 			otherPlayerCharacter.gameObject.SetActive(true);
