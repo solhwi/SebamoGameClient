@@ -4642,8 +4642,8 @@ MonoBehaviour:
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   buffItemFactory: {fileID: 11400000, guid: 90850b6b0c5d6a44eba35d118322da3f, type: 2}
   fieldItemFactory: {fileID: 11400000, guid: a6e06216073cb404eb58dd2ea48f4cee, type: 2}
-  myCharacterMoveComponent: {fileID: 4750892532478707735}
-  otherCharacterMoveComponentPrefab: {fileID: 3510483763571804042, guid: 8a365a1e988edf342bad8901c939fb17, type: 3}
+  myPlayerCharacter: {fileID: 4750892532478707735}
+  otherPlayerCharacterPrefab: {fileID: 3510483763571804042, guid: 8a365a1e988edf342bad8901c939fb17, type: 3}
 --- !u!4 &1999650912
 Transform:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ MonoBehaviour:
   myPlayerPacketData:
     playerGroup: Exp
     playerName: "\uC194\uD718"
-    playerTileOrder: 64
+    playerTileOrder: 12
     hasDiceCount: 3
     equippedItems: []
     appliedProfileItems: []
@@ -30,35 +30,29 @@ MonoBehaviour:
     appliedProfileItems: []
   - playerGroup: Exp
     playerName: "\uC0C1\uD6C8"
-    playerTileOrder: 0
-    hasDiceCount: 0
-    equippedItems: []
-    appliedProfileItems: []
-  - playerGroup: Exp
-    playerName: "\uB3D9\uD604"
-    playerTileOrder: 0
-    hasDiceCount: 0
-    equippedItems: []
-    appliedProfileItems: []
-  - playerGroup: Exp
-    playerName: "\uAC15\uC6B1"
-    playerTileOrder: 0
+    playerTileOrder: 1
     hasDiceCount: 0
     equippedItems: []
     appliedProfileItems: []
   - playerGroup: Exp
     playerName: "\uC9C0\uD64D"
-    playerTileOrder: 0
+    playerTileOrder: 3
+    hasDiceCount: 0
+    equippedItems: []
+    appliedProfileItems: []
+  - playerGroup: Exp
+    playerName: "\uAC15\uC6B1"
+    playerTileOrder: 2
     hasDiceCount: 0
     equippedItems: []
     appliedProfileItems: []
   - playerGroup: Exp
     playerName: "\uB3D9\uD604"
-    playerTileOrder: 0
+    playerTileOrder: 4
     hasDiceCount: 0
     equippedItems: []
     appliedProfileItems: []
   MaxDiceCount: 10
-  NextDiceCount: 2
+  NextDiceCount: 3
   NextBonusAddDiceCount: 0
   NextBonusMultiplyDiceCount: 1

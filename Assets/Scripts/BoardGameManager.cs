@@ -116,8 +116,8 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	[SerializeField] private BuffItemFactory buffItemFactory;
 	[SerializeField] private FieldItemFactory fieldItemFactory;
 
-	[SerializeField] private MyCharacterMoveComponent myCharacterMoveComponent;
-	[SerializeField] private CharacterMoveComponent otherCharacterMoveComponentPrefab;
+	[SerializeField] private MyCharacterMoveComponent myPlayerCharacter;
+	[SerializeField] private CharacterMoveComponent otherPlayerCharacterPrefab;
 
 	private Dictionary<PlayerPacketData, CharacterMoveComponent> otherPlayerCharacterDictionary = new Dictionary<PlayerPacketData, CharacterMoveComponent>();
 
@@ -176,7 +176,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	private IEnumerator Start()
 	{
-		myCharacterMoveComponent.gameObject.SetActive(false);
+		myPlayerCharacter.gameObject.SetActive(false);
 
 		// 타일 위 아이템 이미지 배치
 		yield return PrepareItem();
@@ -199,8 +199,9 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		int myTileOrder = playerDataContainer.currentTileOrder;
 		Vector2 playerPos = TileDataManager.Instance.GetPlayerPosByOrder(myTileOrder);
 
-		myCharacterMoveComponent.SetPosition(playerPos);
-		myCharacterMoveComponent.gameObject.SetActive(true);
+		myPlayerCharacter.SetPosition(playerPos);
+		myPlayerCharacter.gameObject.SetActive(true);
+		myPlayerCharacter.gameObject.name = $"My Player ({playerDataContainer.playerName})";
 
 		yield return null;
 
@@ -212,17 +213,18 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 		foreach (var otherPlayerData in playerDataContainer.otherPlayerPacketDatas)
 		{
-			var otherPlayer = Instantiate(otherCharacterMoveComponentPrefab);
-			if (otherPlayer == null)
+			var otherPlayerCharacter = Instantiate(otherPlayerCharacterPrefab);
+			if (otherPlayerCharacter == null)
 				continue;
 
 			int tileOrder = otherPlayerData.playerTileOrder;
 			playerPos = TileDataManager.Instance.GetPlayerPosByOrder(tileOrder);
 
-			otherPlayer.SetPosition(playerPos);
-			otherPlayer.gameObject.SetActive(true);
+			otherPlayerCharacter.SetPosition(playerPos);
+			otherPlayerCharacter.gameObject.SetActive(true);
+			otherPlayerCharacter.gameObject.name = $"Player ({otherPlayerData.playerName})" ;
 
-			otherPlayerCharacterDictionary.Add(otherPlayerData, otherPlayer);
+			otherPlayerCharacterDictionary.Add(otherPlayerData, otherPlayerCharacter);
 		}
 	}
 
