@@ -104,6 +104,19 @@ public class UIManager : Singleton<UIManager>
 		return false;
 	}
 
+	public bool IsAnyOpen(IEnumerable<PopupType> popupTypes)
+	{
+		foreach (var popupType in popupTypes)
+		{
+			if (IsOpen(popupType))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	public bool IsOpen(PopupType popupType)
 	{
 		if (popupDictionary.TryGetValue(popupType, out var popup))

@@ -12,6 +12,8 @@ public class BoardGameCanvas : MonoBehaviour, IBoardGameSubscriber, IBeginDragHa
 	[SerializeField] private ProfileSetter profileSetter;
 	[SerializeField] private Text statusText = null;
 
+	[SerializeField] private List<PopupType> cameraResetPopupTypes = new List<PopupType>();
+
 	private void Start()
 	{
 		if (BoardGameManager.Instance != null)
@@ -60,7 +62,7 @@ public class BoardGameCanvas : MonoBehaviour, IBoardGameSubscriber, IBeginDragHa
 
 	private void Update()
 	{
-		if (UIManager.Instance.IsAnyOpen())
+		if (UIManager.Instance.IsAnyOpen(cameraResetPopupTypes))
 		{
 			CameraController.Instance.ResetTarget();
 			CameraController.Instance.SetFollow(true);
