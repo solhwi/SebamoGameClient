@@ -1587,6 +1587,10 @@ PrefabInstance:
       value: Profile
       objectReference: {fileID: 0}
     - target: {fileID: 6948242550242999274, guid: 1e365f35df1e72341adb3125261991f4, type: 3}
+      propertyPath: isMine
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948242550242999274, guid: 1e365f35df1e72341adb3125261991f4, type: 3}
       propertyPath: isInitializeByInventory
       value: 0
       objectReference: {fileID: 0}

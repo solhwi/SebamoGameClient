@@ -40,7 +40,6 @@ public class ProfilePopup : BoardGamePopup
 		profileSetter.SetPlayerData(playerGroup, playerName);
 	}
 
-
 	protected override void Reset()
 	{
 		base.Reset();

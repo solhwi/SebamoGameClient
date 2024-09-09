@@ -18,6 +18,7 @@ public class ProfileSetter : MonoBehaviour
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private Image[] profileImage = new Image[(int)ProfileType.Max];
 
+	[SerializeField] private bool isMine = true;
 	[SerializeField] private bool isClickable = false;
 	[SerializeField] private bool isPressable = false;
 
@@ -28,7 +29,10 @@ public class ProfileSetter : MonoBehaviour
 	{
 		eventTrigger.onEndPress += OnPress;
 
-		SetPlayerData(playerDataContainer.playerGroup, playerDataContainer.playerName);
+		if (isMine)
+		{
+			SetPlayerData(playerDataContainer.playerGroup, playerDataContainer.playerName);
+		}
 	}
 
 	private void OnDestroy()
