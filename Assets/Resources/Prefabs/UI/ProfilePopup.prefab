@@ -1150,6 +1150,7 @@ MonoBehaviour:
   profileSetter: {fileID: 9123793884006248106}
   playerGroupText: {fileID: 2545975252340358448}
   playerNameText: {fileID: 7009058883269009164}
+  playerCommentText: {fileID: 3043411194066701170}
 --- !u!1 &6213660995756283292
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class RankScrollItem : MonoBehaviour
 
 	private string playerGroup = string.Empty;
 	private string playerName = string.Empty;
+	private string playerComment = string.Empty;
 
 	private void Awake()
 	{
@@ -27,11 +28,12 @@ public class RankScrollItem : MonoBehaviour
 	{
 		playerGroup = data.playerGroup;
 		playerName = data.playerName;
+		playerComment = data.profileComment;
 
 		playerNameText.text = playerName;
 		rankText.text = rankNumber.ToString();
 
-		profileSetter.SetPlayerData(playerGroup, playerName);
+		profileSetter.SetPlayerData(playerGroup, playerName, playerComment);
 	}
 
 	public void OnClick()
@@ -46,6 +48,6 @@ public class RankScrollItem : MonoBehaviour
 
 	public void OnPress(float time)
 	{
-		UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName));
+		UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, playerComment));
 	}
 }

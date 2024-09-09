@@ -24,6 +24,7 @@ public class ProfileSetter : MonoBehaviour
 
 	private string playerGroup = string.Empty;
 	private string playerName = string.Empty;
+	private string playerComment = string.Empty;
 
 	private void Awake()
 	{
@@ -31,7 +32,7 @@ public class ProfileSetter : MonoBehaviour
 
 		if (isMine)
 		{
-			SetPlayerData(playerDataContainer.playerGroup, playerDataContainer.playerName);
+			SetPlayerData(playerDataContainer.playerGroup, playerDataContainer.playerName, playerDataContainer.profileComment);
 		}
 	}
 
@@ -40,10 +41,11 @@ public class ProfileSetter : MonoBehaviour
 		eventTrigger.onEndPress -= OnPress;
 	}
 
-	public void SetPlayerData(string playerGroup, string playerName)
+	public void SetPlayerData(string playerGroup, string playerName, string playerComment)
 	{
 		this.playerGroup = playerGroup;
 		this.playerName = playerName;
+		this.playerComment = playerComment;
 	}
 
 	private void Update()
@@ -71,7 +73,7 @@ public class ProfileSetter : MonoBehaviour
 		if (isClickable == false)
 			return;
 
-		UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName));
+		UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, playerComment));
 	}
 
 	public void OnPress(float time)
@@ -79,6 +81,6 @@ public class ProfileSetter : MonoBehaviour
 		if (isPressable == false)
 			return;
 
-		UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName));
+		UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, playerComment));
 	}
 }

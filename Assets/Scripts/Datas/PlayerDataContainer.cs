@@ -26,6 +26,9 @@ public class PlayerDataContainer : ScriptableObject
 	[Header("[현재 타일 위치]")]
 	public int currentTileOrder;
 
+	[Header("[프로필 코멘트]")]
+	public string profileComment;
+
 	public string[] equippedItems
 	{
 		get
@@ -116,6 +119,7 @@ public class PlayerDataContainer : ScriptableObject
 		playerName = myData.playerData.playerName;
 		hasDiceCount = myData.playerData.hasDiceCount;
 		currentTileOrder = myData.playerData.playerTileOrder;
+		profileComment = myData.playerData.profileComment;
 
 		inventory.SetMyPacketData(myData);
 	}
@@ -150,6 +154,7 @@ public class PlayerDataContainer : ScriptableObject
 		newData.appliedProfileItems = appliedProfileItems.ToArray();
 		newData.playerGroup = playerGroup;
 		newData.playerName = playerName;
+		newData.profileComment = profileComment;
 		newData.playerTileOrder = currentTileOrder;
 		newData.hasDiceCount = hasDiceCount;
 

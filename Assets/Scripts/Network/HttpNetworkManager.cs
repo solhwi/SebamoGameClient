@@ -261,6 +261,8 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		data.playerData.equippedItems = new string[6] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword" };
 		data.playerData.appliedProfileItems = new string[2] { "", "" };
 
+		data.playerData.profileComment = "안녕하세요.";
+
 		data.hasItems = new string[8] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword", "TwinDagger", "Coin" };
 		data.hasItemCounts = new int[8] { 1, 1, 1, 1, 1, 1, 1, 100000 };
 		data.appliedBuffItems = new string[] { };
@@ -285,6 +287,8 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 			newData.hasDiceCount = 3;
 			newData.playerTileOrder = 0;
+
+			newData.profileComment = "안녕하세요.";
 
 			newData.equippedItems = new string[6] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword" };
 			newData.appliedProfileItems = new string[2] { "", "" };

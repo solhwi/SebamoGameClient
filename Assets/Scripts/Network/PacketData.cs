@@ -32,6 +32,8 @@ public class PlayerPacketData : PacketData, IEquatable<PlayerPacketData>
 	public int playerTileOrder; // 현재 위치한 타일 순서
 	public int hasDiceCount; // 가진 주사위 개수
 
+	public string profileComment; // 프로필 코멘트
+
 	public string[] equippedItems; // 장착 중인 아이템
 	public string[] appliedProfileItems; // 프로필 아이템
 

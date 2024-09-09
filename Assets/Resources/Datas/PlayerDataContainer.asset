@@ -19,12 +19,14 @@ MonoBehaviour:
   playerName: "\uC194\uD718"
   hasDiceCount: 3
   currentTileOrder: 15
+  profileComment: "\uC548\uB155\uD558\uC138\uC694. \uBC15\uC194\uD718\uC785\uB2C8\uB2E4."
   moveTimeByOneTile: 1
   otherPlayerPacketDatas:
   - playerGroup: Exp
     playerName: "\uC9C0\uD604"
     playerTileOrder: 5
     hasDiceCount: 3
+    profileComment: "\uC548\uB155\uD558\uC138\uC694. \uC720\uC9C0\uD604\uC785\uB2C8\uB2E4."
     equippedItems:
     - YucoBody
     - MisakiHair
@@ -39,6 +41,7 @@ MonoBehaviour:
     playerName: "\uC9C0\uD64D"
     playerTileOrder: 11
     hasDiceCount: 3
+    profileComment: "\uC548\uB155\uD558\uC138\uC694. \uBC15\uC9C0\uD64D\uC785\uB2C8\uB2E4."
     equippedItems:
     - YucoBody
     - MisakiHair
@@ -53,6 +56,7 @@ MonoBehaviour:
     playerName: "\uB3D9\uD604"
     playerTileOrder: 22
     hasDiceCount: 3
+    profileComment: "\uC548\uB155\uD558\uC138\uC694. \uC6D0\uB3D9\uD604\uC785\uB2C8\uB2E4."
     equippedItems:
     - YucoBody
     - MisakiHair
@@ -67,6 +71,7 @@ MonoBehaviour:
     playerName: "\uC0C1\uD6C8"
     playerTileOrder: 30
     hasDiceCount: 3
+    profileComment: "\uC548\uB155\uD558\uC138\uC694. \uC815\uC0C1\uD6C8\uC785\uB2C8\uB2E4."
     equippedItems:
     - YucoBody
     - MisakiHair
@@ -81,6 +86,7 @@ MonoBehaviour:
     playerName: "\uAC15\uC6B1"
     playerTileOrder: 2
     hasDiceCount: 3
+    profileComment: "\uC548\uB155\uD558\uC138\uC694. \uC11C\uAC15\uC6B1\uC785\uB2C8\uB2E4."
     equippedItems:
     - YucoBody
     - MisakiHair
