@@ -18,7 +18,8 @@ public class ProfileSetter : MonoBehaviour
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private Image[] profileImage = new Image[(int)ProfileType.Max];
 
-	[SerializeField] private bool isInitializeByInventory = false;
+	[SerializeField] private bool isClickable = false;
+	[SerializeField] private bool isPressable = false;
 
 	private string playerGroup = string.Empty;
 	private string playerName = string.Empty;
@@ -27,10 +28,7 @@ public class ProfileSetter : MonoBehaviour
 	{
 		eventTrigger.onEndPress += OnPress;
 
-		if (isInitializeByInventory)
-		{
-			SetPlayerData(playerDataContainer.playerGroup, playerDataContainer.playerName);
-		}
+		SetPlayerData(playerDataContainer.playerGroup, playerDataContainer.playerName);
 	}
 
 	private void OnDestroy()
@@ -66,11 +64,17 @@ public class ProfileSetter : MonoBehaviour
 
 	public void OnClick()
 	{
-		UIManager.Instance.TryOpen(PopupType.Profile);
+		if (isClickable == false)
+			return;
+
+		UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName));
 	}
 
 	public void OnPress(float time)
 	{
-		UIManager.Instance.TryOpen(PopupType.Profile);
+		if (isPressable == false)
+			return;
+
+		UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName));
 	}
 }

@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 8610710543399368035}
   - component: {fileID: 7493295572924313162}
   m_Layer: 0
-  m_Name: Profile
+  m_Name: ProfilePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1102,6 +1102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupType: 5
   canvas: {fileID: 5412981390698186014}
+  profileSetter: {fileID: 9123793884006248106}
+  playerGroupText: {fileID: 2545975252340358448}
+  playerNameText: {fileID: 7009058883269009164}
 --- !u!1 &6213660995756283292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,3 +1600,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 725319219945818944, guid: 1e365f35df1e72341adb3125261991f4, type: 3}
   m_PrefabInstance: {fileID: 2230170202294588736}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9123793884006248106 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6948242550242999274, guid: 1e365f35df1e72341adb3125261991f4, type: 3}
+  m_PrefabInstance: {fileID: 2230170202294588736}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33dfd60e35b03944fb363f5d8eeb2895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
