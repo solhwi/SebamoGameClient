@@ -6,11 +6,12 @@ public class LoginCanvas : MonoBehaviour
 {
     public void OnClickLogin()
 	{
-		SceneManager.Instance.LoadSceneAsync(SceneType.Game, IsLoadCondition);
+		HttpNetworkManager.Instance.TryConnect();
+		SceneManager.Instance.LoadSceneAsync(SceneType.Game, IsConnected);
 	}
 
-	private bool IsLoadCondition()
+	private bool IsConnected()
 	{
-		return HttpNetworkManager.Instance.IsLoaded;
+		return HttpNetworkManager.Instance.IsConnected;
 	}
 }

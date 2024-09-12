@@ -31,27 +31,27 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	public override bool IsDestroyOnLoad => false;
 
-	public bool IsLoaded { get; private set; }
+	public bool IsConnected { get; private set; }
 	private float t = 0.0f;
 
-	private async void Start()
+	public async void TryConnect()
 	{
 		if (isOnNetworkMode)
 		{
-			while (IsLoaded == false)
+			while (IsConnected == false)
 			{
-				IsLoaded = await TryGetAll();
+				IsConnected = await TryGetAll();
 			}
 		}
 		else
 		{
-			IsLoaded = true;
+			IsConnected = true;
 		}
 	}
 
 	private async void Update()
 	{
-		if (isOnNetworkMode && IsLoaded)
+		if (isOnNetworkMode && IsConnected)
 		{
 			t += Time.deltaTime;
 			if (t > updateFrequency)
@@ -100,7 +100,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		if (isOnNetworkMode == false)
 			return true;
 
-		if (IsLoaded == false)
+		if (IsConnected == false)
 			return false;
 
 		var sendData = MakePlayerPacketData();
@@ -117,7 +117,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		if (isOnNetworkMode == false)
 			return true;
 
-		if (IsLoaded == false)
+		if (IsConnected == false)
 			return false;
 
 		var receiveData = await TryGet<TilePacketData>("Tile");
@@ -133,7 +133,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		if (isOnNetworkMode == false)
 			return true;
 
-		if (IsLoaded == false)
+		if (IsConnected == false)
 			return false;
 
 		var sendData = MakeTilePacketData();
