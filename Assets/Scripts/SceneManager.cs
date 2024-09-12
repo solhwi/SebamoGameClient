@@ -17,14 +17,12 @@ public class SceneManager : Singleton<SceneManager>
 
 	private Coroutine loadCoroutine = null;
 
-    public void LoadSceneAsync(SceneType type)
+    public void LoadSceneAsync(SceneType type, Func<bool> barrierFunc = null)
 	{
 		if (loadCoroutine != null)
-		{
-			StopCoroutine(loadCoroutine);
-		}
+			return;
 
-		loadCoroutine = StartCoroutine(LoadSceneProcess(type, OnLoading));
+		loadCoroutine = StartCoroutine(LoadSceneProcess(type, barrierFunc, OnLoading));
 	}
 
 	private void OnLoading(float progress)
@@ -32,7 +30,7 @@ public class SceneManager : Singleton<SceneManager>
 		// UI 처리
 	}
 
-	private IEnumerator LoadSceneProcess(SceneType type, Action<float> onProgress)
+	private IEnumerator LoadSceneProcess(SceneType type, Func<bool> barrierFunc, Action<float> onProgress)
 	{
 		var loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(type.ToString());
 		if (loadProcess == null)
@@ -53,6 +51,11 @@ public class SceneManager : Singleton<SceneManager>
 			{
 				onProgress?.Invoke(loadProcess.progress);
 			}
+		}
+
+		while (barrierFunc != null && barrierFunc() == false)
+		{
+			yield return null;
 		}
 
 		loadProcess.allowSceneActivation = true;

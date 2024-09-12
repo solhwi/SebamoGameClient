@@ -38,16 +38,20 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	{
 		if (isOnNetworkMode)
 		{
-			IsLoaded = false;
-			await TryGetAll();
+			while (IsLoaded == false)
+			{
+				IsLoaded = await TryGetAll();
+			}
 		}
-
-		IsLoaded = true;
+		else
+		{
+			IsLoaded = true;
+		}
 	}
 
 	private async void Update()
 	{
-		if (isOnNetworkMode)
+		if (isOnNetworkMode && IsLoaded)
 		{
 			t += Time.deltaTime;
 			if (t > updateFrequency)
@@ -96,6 +100,9 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		if (isOnNetworkMode == false)
 			return true;
 
+		if (IsLoaded == false)
+			return false;
+
 		var sendData = MakePlayerPacketData();
 		var receiveData = await TryPost<MyPlayerPacketData>(sendData);
 		if (receiveData == null)
@@ -110,6 +117,9 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		if (isOnNetworkMode == false)
 			return true;
 
+		if (IsLoaded == false)
+			return false;
+
 		var receiveData = await TryGet<TilePacketData>("Tile");
 		if (receiveData == null)
 			return false;
@@ -122,6 +132,9 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	{
 		if (isOnNetworkMode == false)
 			return true;
+
+		if (IsLoaded == false)
+			return false;
 
 		var sendData = MakeTilePacketData();
 		var receiveData = await TryPost<TilePacketData>(sendData);
