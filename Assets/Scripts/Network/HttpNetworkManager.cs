@@ -29,6 +29,8 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	[SerializeField] private bool isOnNetworkMode = false;
 
+	public override bool IsDestroyOnLoad => false;
+
 	public bool IsLoaded { get; private set; }
 	private float t = 0.0f;
 

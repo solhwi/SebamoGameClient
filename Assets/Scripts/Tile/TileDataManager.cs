@@ -115,6 +115,8 @@ public class TileDataManager : Singleton<TileDataManager>
 
 	protected override void Awake()
 	{
+		base.Awake();
+
 		tileBoardDatas = MakeBoardData().ToArray();
 	}
 

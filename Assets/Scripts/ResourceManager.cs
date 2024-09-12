@@ -20,10 +20,14 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 	}
 
 	private static T instance;
+	public virtual bool IsDestroyOnLoad => true;
 
 	protected virtual void Awake()
 	{
-
+		if (IsDestroyOnLoad == false)
+		{
+			DontDestroyOnLoad(gameObject);
+		}
 	}
 }
 
@@ -37,6 +41,8 @@ public class ResourceManager : Singleton<ResourceManager>
 	};
 	
 	private Dictionary<string, Object> cachedObjectDictionary = new Dictionary<string, Object>();
+
+	public override bool IsDestroyOnLoad => false;
 
 	private void Start()
 	{

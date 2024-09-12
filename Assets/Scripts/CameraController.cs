@@ -26,6 +26,8 @@ public class CameraController : Singleton<
 
 	protected override void Awake()
 	{
+		base.Awake();
+
 		transposer = virtualCamera.GetCinemachineComponent<CinemachineTransposer>();
 		initialFOV = virtualCamera.m_Lens.Orthographic ? virtualCamera.m_Lens.OrthographicSize : virtualCamera.m_Lens.FieldOfView;
 

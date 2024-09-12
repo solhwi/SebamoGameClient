@@ -133,6 +133,8 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	protected override void Awake()
 	{
+		base.Awake();
+
 		stateFuncMap = new Dictionary<GameState, Func<IEnumerator>>()
 		{
 			{ GameState.None, null },
