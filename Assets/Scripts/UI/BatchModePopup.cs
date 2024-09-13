@@ -57,7 +57,7 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		base.OnClose();
 	}
 
-	public void OnClickBatch()
+	public async void OnClickBatch()
 	{
 		if (currentTileOrder == -1)
 			return;
@@ -68,8 +68,10 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		if (currentReplaceItem.IsReplaceable(playerDataContainer, currentTileOrder) == false)
 			return;
 
-		currentReplaceItem?.Replace(currentTileOrder).Forget();
-		
+		bool bResult = await currentReplaceItem.Replace(currentTileOrder);
+		if (bResult == false)
+			return;
+
 		if (currentDummyReplaceItem != null)
 		{
 			currentDummyReplaceItem.Destroy();

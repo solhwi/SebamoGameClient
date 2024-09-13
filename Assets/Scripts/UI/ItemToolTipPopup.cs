@@ -199,9 +199,9 @@ public class ItemToolTipPopup : BoardGamePopup
 		itemCountText.text = selectedCount.ToString("n0");
 	}
 
-	public void OnClickConfirm()
+	public async void OnClickConfirm()
 	{
-		onClickConfirm?.Invoke(currentItemCode, selectedCount).Forget();
+		await onClickConfirm.Invoke(currentItemCode, selectedCount);
 		OnClickClose();
 	}
 

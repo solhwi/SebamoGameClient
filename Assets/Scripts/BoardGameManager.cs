@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -125,7 +126,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	private GameState currentGameState = GameState.None;
 
-	private Dictionary<GameState, Func<IEnumerator>> stateFuncMap = new Dictionary<GameState, Func<IEnumerator>>();
+	private Dictionary<GameState, Func<UniTask>> stateFuncMap = new Dictionary<GameState, Func<UniTask>>();
 	private Dictionary<GameState, Func<bool>> stateCheckFuncMap = new Dictionary<GameState, Func<bool>>();
 
 	private StateData currentStateData = null;
@@ -135,7 +136,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	{
 		base.Awake();
 
-		stateFuncMap = new Dictionary<GameState, Func<IEnumerator>>()
+		stateFuncMap = new Dictionary<GameState, Func<UniTask>>()
 		{
 			{ GameState.None, null },
 			{ GameState.RollDice, ProcessRollDice },
@@ -176,32 +177,27 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		subscribers.Remove(subscriber);
 	}
 
-	private IEnumerator Start()
+	private async void Start()
 	{
 		myPlayerCharacter.gameObject.SetActive(false);
 
 		// 타일 위 아이템 이미지 배치
-		yield return PrepareItem();
+		TileDataManager.Instance.PrepareTile();
 
 		// 캐릭터 준비
-		yield return PrepareCharacter();
+		PrepareCharacter();
 
 		// 보드 게임 시작
-		yield return ProcessBoardGame();
+		await ProcessBoardGame();
 	}
 
-	private IEnumerator PrepareItem()
-	{
-		yield return TileDataManager.Instance.PrepareTile();
-	}
-
-	private IEnumerator PrepareCharacter()
+	private void PrepareCharacter()
 	{
 		playerCharacterDictionary.Clear();
 
 		var myPlayerData = playerDataContainer.GetMyPlayerData();
 		if (myPlayerData == null)
-			yield break;
+			return;
 
 		// 플레이어 본인 캐릭터 타일 위로 배치
 		int myTileOrder = playerDataContainer.currentTileOrder;
@@ -217,11 +213,9 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 		playerCharacterDictionary.Add((myPlayerData.playerGroup, myPlayerData.playerName), myPlayerCharacter);
 
-		yield return null;
-
 		// 타 유저 캐릭터 타일 위로 배치
 		if (playerDataContainer.otherPlayerPacketDatas == null)
-			yield break;
+			return;
 
 		foreach (var otherPlayerData in playerDataContainer.otherPlayerPacketDatas)
 		{
@@ -284,31 +278,49 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	}
 
 
-	private IEnumerator ProcessBoardGame()
+	private async UniTask ProcessBoardGame()
 	{
-		while(true)
+		while (true)
 		{
-			yield return stateFuncMap[currentGameState]?.Invoke();
+			if (HttpNetworkManager.Instance.IsConnected)
+			{
+				if (stateFuncMap[currentGameState] != null)
+				{
+					await stateFuncMap[currentGameState].Invoke();
+				}
+			}
+
+			await UniTask.Yield();
 		}
 	}
 
-	private IEnumerator ProcessRollDice()
+	private async UniTask ProcessRollDice()
 	{
 		// 서버와 타일 데이터 동기화
-		yield return HttpNetworkManager.Instance.TryGetOtherPlayerDatas();
-		yield return HttpNetworkManager.Instance.TryGetTileData();
+		bool bResult = await HttpNetworkManager.Instance.TryGetOtherPlayerDatas();
+		if (bResult == false)
+			return;
+
+		bResult = await HttpNetworkManager.Instance.TryGetTileData();
+		if (bResult == false)
+			return;
 
 		// 버프를 포함한 데이터 세팅
 		ProcessData();
 
 		// 서버에 내 정보, 타일 데이터 동기화
-		yield return HttpNetworkManager.Instance.TryPostMyPlayerData();
-		yield return HttpNetworkManager.Instance.TryPostTileData();
+		bResult = await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		if (bResult == false)
+			return;
+
+		bResult = await HttpNetworkManager.Instance.TryPostTileData();
+		if (bResult == false)
+			return;
 
 		// 주사위 굴리기 연출 시작
 		foreach (var subscriber in subscribers)
 		{
-			yield return subscriber?.OnRollDice(currentStateData.diceCount, currentStateData.bonusAddDiceCount, currentStateData.bonusMultiplyDiceCount); 
+			await subscriber?.OnRollDice(currentStateData.diceCount, currentStateData.bonusAddDiceCount, currentStateData.bonusMultiplyDiceCount); 
 		}
 
 		TryChangeState(GameState.MoveCharacter, currentStateData);
@@ -407,7 +419,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		}
 	}
 
-	private IEnumerator ProcessMoveCharacter()
+	private async UniTask ProcessMoveCharacter()
 	{
 		if (currentStateData != null)
 		{
@@ -417,21 +429,21 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 			foreach (var subscriber in subscribers)
 			{
-				yield return subscriber?.OnMove(currentOrder, nextOrder, diceCount); // 캐릭터 움직임 관련 연출
+				await subscriber?.OnMove(currentOrder, nextOrder, diceCount); // 캐릭터 움직임 관련 연출
 			}
 		}
 
 		TryChangeState(GameState.GetItem, currentStateData);
 	}
 
-	private IEnumerator ProcessGetItem()
+	private async UniTask ProcessGetItem()
 	{
 		if (currentStateData == null)
-			yield break;
+			return;
 
 		int currentOrder = currentStateData.CurrentOrder;
 		if (currentStateData.TryGetNextOrder(currentGameState, out var currentItemCode, out var nextState, out int nextOrder) == false)
-			yield break;
+			return;
 
 		FieldItem item = TileDataManager.Instance.GetFieldItem(currentOrder);
 		if (item != null)
@@ -440,28 +452,28 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 			foreach (var subscriber in subscribers)
 			{
-				yield return subscriber?.OnGetItem(item, currentOrder, nextOrder);
+				await subscriber?.OnGetItem(item, currentOrder, nextOrder);
 			}
 		}
 
 		TryChangeState(nextState, currentStateData);
 	}
 
-	private IEnumerator ProcessTileAction()
+	private async UniTask ProcessTileAction()
 	{
 		if (currentStateData == null)
-			yield break;
+			return;
 
 		int currentOrder = currentStateData.CurrentOrder;
 		if (currentStateData.TryGetNextOrder(currentGameState, out var currentItemCode, out var nextState, out int nextOrder) == false)
-			yield break;
+			return;
 
 		var specialTile = TileDataManager.Instance.GetCurrentSpecialTile(currentOrder);
 		if (specialTile != null)
 		{
 			foreach (var subscriber in subscribers)
 			{
-				yield return subscriber?.OnDoTileAction(currentOrder, nextOrder);
+				await subscriber?.OnDoTileAction(currentOrder, nextOrder);
 			}
 		}
 
