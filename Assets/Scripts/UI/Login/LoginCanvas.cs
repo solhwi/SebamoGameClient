@@ -31,7 +31,7 @@ public class LoginCanvas : MonoBehaviour
 		if (authData == null)
 			return default;
 
-		return authData.FirstOrDefault();
+		return authData.LastOrDefault();
 	}
 
 	private bool IsConnected()
