@@ -1,5 +1,7 @@
 using Cysharp.Threading.Tasks;
+using System.Threading;
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,10 +26,14 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private TileDataContainer tileDataContainer;
+	[SerializeField] private float reconnectCount = 5;
 
 	[SerializeField] private float updateFrequency = 60.0f;
 
 	[SerializeField] private bool isOnNetworkMode = false;
+
+	private CancellationTokenSource getCancelToken = new CancellationTokenSource();
+	private CancellationTokenSource postCancelToken = new CancellationTokenSource();
 
 	public override bool IsDestroyOnLoad => false;
 
@@ -38,10 +44,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	{
 		if (isOnNetworkMode)
 		{
-			while (IsConnected == false)
-			{
-				IsConnected = await TryGetAll();
-			}
+			IsConnected = await TryGetAll();
 		}
 		else
 		{
@@ -57,8 +60,9 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 			if (t > updateFrequency)
 			{
 				t = 0.0f;
-				await TryGetOtherPlayerDatas();
-				await TryGetTileData();
+
+				IsConnected = await TryGetOtherPlayerDatas();
+				IsConnected = await TryGetTileData();
 			}
 		}
 	}
@@ -66,17 +70,40 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	private async UniTask<bool> TryGetAll()
 	{
 		bool b = await TryGetMyPlayerData();
-		b &= await TryGetOtherPlayerDatas();
-		b &= await TryGetTileData();
+		if (b == false)
+			return false;
 
-		return b;
+		b &= await TryGetOtherPlayerDatas();
+		if (b == false)
+			return false;
+
+		b &= await TryGetTileData();
+		if (b == false)
+			return false;
+
+		return true;
+	}
+
+	private void OnDestroy()
+	{
+		if (getCancelToken != null && getCancelToken.Token.CanBeCanceled)
+		{
+			getCancelToken.Cancel();
+			getCancelToken.Dispose();
+		}
+
+		if (postCancelToken != null && postCancelToken.Token.CanBeCanceled)
+		{
+			postCancelToken.Cancel();
+			postCancelToken.Dispose();
+		}
 	}
 
 	// 최초 1회
 	private async UniTask<bool> TryGetMyPlayerData()
 	{
 		var data = await TryGet<MyPlayerPacketData>("My");
-		if (data == null)
+		if (data == default)
 			return false;
 
 		playerDataContainer.SetMyPacketData(data);
@@ -86,8 +113,11 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	// 주기적으로 다른 플레이어 정보 가져옴
 	public async UniTask<bool> TryGetOtherPlayerDatas()
 	{
+		if (isOnNetworkMode == false)
+			return true;
+
 		var otherDatas = await TryGet<PlayerPacketDataCollection>("Other");
-		if (otherDatas == null) 
+		if (otherDatas == default) 
 			return false;
 
 		playerDataContainer.SetOtherPacketData(otherDatas.playerDatas);
@@ -105,7 +135,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 		var sendData = MakePlayerPacketData();
 		var receiveData = await TryPost<MyPlayerPacketData>(sendData);
-		if (receiveData == null)
+		if (receiveData == default)
 			return false;
 
 		playerDataContainer.SetMyPacketData(receiveData);
@@ -117,11 +147,8 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		if (isOnNetworkMode == false)
 			return true;
 
-		if (IsConnected == false)
-			return false;
-
 		var receiveData = await TryGet<TilePacketData>("Tile");
-		if (receiveData == null)
+		if (receiveData == default)
 			return false;
 
 		tileDataContainer.SetTileItemPacket(receiveData);
@@ -138,7 +165,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 		var sendData = MakeTilePacketData();
 		var receiveData = await TryPost<TilePacketData>(sendData);
-		if (receiveData == null)
+		if (receiveData == default)
 			return false;
 
 		tileDataContainer.SetTileItemPacket(receiveData);
@@ -193,20 +220,64 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		string group = playerDataContainer.playerGroup;
 		string name = playerDataContainer.playerName;
 
-		string responseData = await GetRoutine($"{BaseURL}/{group}?p1={name}&p2={urlParameter}");
-		if (responseData == null)
-			return default;
+		for (int tryCount = 0; tryCount < reconnectCount; tryCount++)
+		{
+			string responseData = string.Empty;
 
-		return JsonUtility.FromJson<T>(responseData);
+			try
+			{
+				await UniTask.Create(async (t) =>
+				{
+					responseData = await GetRoutine($"{BaseURL}/{group}?p1={name}&p2={urlParameter}");
+
+				}, getCancelToken.Token);
+
+				if (responseData != null)
+				{
+					return JsonUtility.FromJson<T>(responseData);
+				}
+			}
+			catch (Exception e)
+			{
+				Debug.LogError(e.ToString());
+				Debug.LogError($"{responseData}");
+			}
+		}
+
+		IsConnected = false;
+		return default;
 	}
 
 	public async UniTask<T> TryPost<T>(PacketData requestData)
 	{
 		string requestJsonData = JsonUtility.ToJson(requestData);
 
-		string responseJsonData = await PostRoutine(BaseURL, requestJsonData);
+		for (int tryCount = 0; tryCount < reconnectCount; tryCount++)
+		{
+			string responseData = string.Empty;
 
-		return JsonUtility.FromJson<T>(responseJsonData);
+			try
+			{
+				await UniTask.Create(async (t) =>
+				{
+					responseData = await PostRoutine(BaseURL, requestJsonData);
+
+				}, postCancelToken.Token);
+
+				if (responseData != null)
+				{
+					return JsonUtility.FromJson<T>(responseData);
+				}
+			}
+			catch (Exception e)
+			{
+				Debug.LogError(e.ToString());
+				Debug.LogError($"{responseData}");
+			}
+		}
+
+		IsConnected = false;
+		return default;
 	}
 
 	private UniTask<string> PostRoutine(string url, string data)

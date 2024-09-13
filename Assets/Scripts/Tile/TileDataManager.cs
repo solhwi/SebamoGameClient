@@ -227,7 +227,7 @@ public class TileDataManager : Singleton<TileDataManager>
 		return dataContainer.tileOrders[tileIndex];
 	}
 
-	public IEnumerator PrepareTile()
+	public void PrepareTile()
 	{
 		for (int i = 0; i < dataContainer.tileItems.Length; i++)
 		{
@@ -241,8 +241,6 @@ public class TileDataManager : Singleton<TileDataManager>
 
 			fieldItemDictionary[i] = fieldItem;
 			fieldItem.Create(tileBoardDatas[i]);
-
-			yield return null;
 		}
 	}
 

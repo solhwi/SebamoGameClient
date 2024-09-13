@@ -258,7 +258,7 @@ public class InventoryPopup : BoardGamePopup
 		scrollItem.SetItemPressCallback(OnPressItem);
 	}
 
-	private void OnClickItem(string itemCode)
+	private async void OnClickItem(string itemCode)
 	{
 		if (itemCode == null || itemCode == string.Empty)
 			return;
@@ -270,7 +270,7 @@ public class InventoryPopup : BoardGamePopup
 		}
 		else
 		{
-			inventory.TryEquipOn(itemCode).Forget();
+			await inventory.TryEquipOn(itemCode);
 
 			if (itemTable.IsEquipmentItem(itemCode))
 			{
@@ -306,7 +306,7 @@ public class InventoryPopup : BoardGamePopup
 		await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
-	private void OnClickEquippedItem(string itemCode)
+	private async void OnClickEquippedItem(string itemCode)
 	{
 		if (itemCode == null || itemCode == string.Empty)
 			return;
@@ -317,7 +317,7 @@ public class InventoryPopup : BoardGamePopup
 		}
 		else
 		{
-			inventory.TryEquipOff(itemCode).Forget();
+			await inventory.TryEquipOff(itemCode);
 
 			uiCharacterView.RefreshCharacter();
 			uiCharacterView.DoIdle(0.3f);
@@ -344,9 +344,9 @@ public class InventoryPopup : BoardGamePopup
 		else if (itemTable.IsBuffItem(currentItemCode))
 		{
 			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter($"버프 아이템 {currentItemCode}이 사용되었습니다.", 
-			onClickConfirm: () =>
+			onClickConfirm: async () =>
 			{
-				inventory.TryApplyBuff(currentItemCode).Forget();
+				await inventory.TryApplyBuff(currentItemCode);
 			}));
 		}
 	}
