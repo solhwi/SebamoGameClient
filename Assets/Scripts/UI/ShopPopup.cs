@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -143,7 +144,7 @@ public class ShopPopup : BoardGamePopup
 		}
 	}
 
-	private async Task OnBuyItem(string itemCode, int buyCount)
+	private async UniTask OnBuyItem(string itemCode, int buyCount)
 	{
 		int price = itemTable.GetItemBuyPrice(itemCode);
 

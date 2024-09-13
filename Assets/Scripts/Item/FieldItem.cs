@@ -1,7 +1,7 @@
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 
@@ -126,7 +126,7 @@ public abstract class ReplaceFieldItem : FieldItem
 		return bResult;
 	}
 
-	public async virtual Task<bool> Replace(int tileOrder)
+	public async virtual UniTask<bool> Replace(int tileOrder)
 	{
 		if (TileDataManager.Instance.IsAlreadyReplaced(tileOrder))
 			return false;

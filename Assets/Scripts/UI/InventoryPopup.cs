@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -269,7 +270,7 @@ public class InventoryPopup : BoardGamePopup
 		}
 		else
 		{
-			inventory.TryEquipOn(itemCode).Wait();
+			inventory.TryEquipOn(itemCode).Forget();
 
 			if (itemTable.IsEquipmentItem(itemCode))
 			{
@@ -290,7 +291,7 @@ public class InventoryPopup : BoardGamePopup
 		UIManager.Instance.TryOpen(PopupType.ItemToolTip, new SellUIParameter(itemCode, OnClickSell));
 	}
 
-	private async Task OnClickSell(string itemCode, int count)
+	private async UniTask OnClickSell(string itemCode, int count)
 	{
 		bool isSuccess = inventory.TryRemoveItem(itemCode, count);
 		if (isSuccess)
@@ -316,7 +317,7 @@ public class InventoryPopup : BoardGamePopup
 		}
 		else
 		{
-			inventory.TryEquipOff(itemCode).Wait();
+			inventory.TryEquipOff(itemCode).Forget();
 
 			uiCharacterView.RefreshCharacter();
 			uiCharacterView.DoIdle(0.3f);
@@ -345,7 +346,7 @@ public class InventoryPopup : BoardGamePopup
 			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter($"버프 아이템 {currentItemCode}이 사용되었습니다.", 
 			onClickConfirm: () =>
 			{
-				inventory.TryApplyBuff(currentItemCode).Wait();
+				inventory.TryApplyBuff(currentItemCode).Forget();
 			}));
 		}
 	}

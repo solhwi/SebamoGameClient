@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ public class ShopScrollItem : MonoBehaviour
 
 	private ItemTable.ShopItemData myShopItemData;
 	private Action<string> onClickBody;
-	private Func<string, int, Task> onBuyItem;
+	private Func<string, int, UniTask> onBuyItem;
 
 	public string ItemCode => myShopItemData?.key ?? string.Empty;
 
@@ -36,7 +37,7 @@ public class ShopScrollItem : MonoBehaviour
 		onClickBody = onClick;
 	}
 
-	public void SetItemClickCallback(Func<string, int, Task> onBuy)
+	public void SetItemClickCallback(Func<string, int, UniTask> onBuy)
 	{
 		onBuyItem = onBuy;
 	}

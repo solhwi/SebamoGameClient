@@ -55,13 +55,17 @@ public class ProfilePopup : BoardGamePopup
 
 		isEditing = false;
 
-		editButton.gameObject.SetActive(IsMine);
+		editButton.gameObject.SetActive(IsMine && !isEditing);
+		editCompleteButton.gameObject.SetActive(IsMine && isEditing);
 
-		profileSetter.SetPlayerData(playerGroup, playerName);
+		profileSetter.SetPlayerData(playerGroup, playerName, playerComment);
 	}
 
 	private void Update()
 	{
+		if (IsMine == false)
+			return;
+
 		if (playerCommentField.interactable != isEditing)
 		{
 			playerCommentField.interactable = isEditing;

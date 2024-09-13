@@ -18,21 +18,17 @@ public class ProfileSetter : MonoBehaviour
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private Image[] profileImage = new Image[(int)ProfileType.Max];
 
-	[SerializeField] private bool isMine = true;
 	[SerializeField] private bool isClickable = false;
 	[SerializeField] private bool isPressable = false;
 
 	private string playerGroup = string.Empty;
 	private string playerName = string.Empty;
+	private string playerComment = string.Empty;
 
 	private void Awake()
 	{
 		eventTrigger.onEndPress += OnPress;
-
-		if (isMine)
-		{
-			SetPlayerData(playerDataContainer.playerGroup, playerDataContainer.playerName);
-		}
+		SetPlayerData(playerDataContainer.playerGroup, playerDataContainer.playerName, playerDataContainer.profileComment);
 	}
 
 	private void OnDestroy()
@@ -40,10 +36,11 @@ public class ProfileSetter : MonoBehaviour
 		eventTrigger.onEndPress -= OnPress;
 	}
 
-	public void SetPlayerData(string playerGroup, string playerName)
+	public void SetPlayerData(string playerGroup, string playerName, string playerComment)
 	{
 		this.playerGroup = playerGroup;
 		this.playerName = playerName;
+		this.playerComment = playerComment;
 	}
 
 	private void Update()
@@ -71,7 +68,15 @@ public class ProfileSetter : MonoBehaviour
 		if (isClickable == false)
 			return;
 
-		UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, playerDataContainer.profileComment));
+		if (playerDataContainer.IsMine(playerGroup, playerName))
+		{
+			UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, playerDataContainer.profileComment));
+		}
+		else
+		{
+			UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, playerComment));
+		}
+
 	}
 
 	public void OnPress(float time)
@@ -79,6 +84,13 @@ public class ProfileSetter : MonoBehaviour
 		if (isPressable == false)
 			return;
 
-		UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, playerDataContainer.profileComment));
+		if (playerDataContainer.IsMine(playerGroup, playerName))
+		{
+			UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, playerDataContainer.profileComment));
+		}
+		else
+		{
+			UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, playerComment));
+		}
 	}
 }

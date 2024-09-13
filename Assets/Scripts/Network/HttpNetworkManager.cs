@@ -1,9 +1,9 @@
+using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.PackageManager;
@@ -63,7 +63,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		}
 	}
 
-	private async Task<bool> TryGetAll()
+	private async UniTask<bool> TryGetAll()
 	{
 		bool b = await TryGetMyPlayerData();
 		b &= await TryGetOtherPlayerDatas();
@@ -73,7 +73,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	}
 
 	// 최초 1회
-	private async Task<bool> TryGetMyPlayerData()
+	private async UniTask<bool> TryGetMyPlayerData()
 	{
 		var data = await TryGet<MyPlayerPacketData>("My");
 		if (data == null)
@@ -84,7 +84,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	}
 
 	// 주기적으로 다른 플레이어 정보 가져옴
-	public async Task<bool> TryGetOtherPlayerDatas()
+	public async UniTask<bool> TryGetOtherPlayerDatas()
 	{
 		var otherDatas = await TryGet<PlayerPacketDataCollection>("Other");
 		if (otherDatas == null) 
@@ -95,7 +95,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	}
 
 	// 자신의 정보가 변경될 때마다 업데이트쳐줌
-	public async Task<bool> TryPostMyPlayerData()
+	public async UniTask<bool> TryPostMyPlayerData()
 	{
 		if (isOnNetworkMode == false)
 			return true;
@@ -112,7 +112,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		return true;
 	}
 
-	public async Task<bool> TryGetTileData()
+	public async UniTask<bool> TryGetTileData()
 	{
 		if (isOnNetworkMode == false)
 			return true;
@@ -128,7 +128,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		return true;
 	}
 
-	public async Task<bool> TryPostTileData()
+	public async UniTask<bool> TryPostTileData()
 	{
 		if (isOnNetworkMode == false)
 			return true;
@@ -188,7 +188,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		return data;
 	}
 
-	public async Task<T> TryGet<T>(string urlParameter)
+	public async UniTask<T> TryGet<T>(string urlParameter)
 	{
 		string group = playerDataContainer.playerGroup;
 		string name = playerDataContainer.playerName;
@@ -200,7 +200,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		return JsonUtility.FromJson<T>(responseData);
 	}
 
-	public async Task<T> TryPost<T>(PacketData requestData)
+	public async UniTask<T> TryPost<T>(PacketData requestData)
 	{
 		string requestJsonData = JsonUtility.ToJson(requestData);
 
@@ -209,7 +209,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		return JsonUtility.FromJson<T>(responseJsonData);
 	}
 
-	private Task<string> PostRoutine(string url, string data)
+	private UniTask<string> PostRoutine(string url, string data)
 	{
 		UnityWebRequest www = UnityWebRequest.PostWwwForm(url, data);
 
@@ -222,13 +222,13 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		return OnRequest(www);
 	}
 
-	private Task<string> GetRoutine(string url)
+	private UniTask<string> GetRoutine(string url)
 	{
 		UnityWebRequest www = UnityWebRequest.Get(url);
 		return OnRequest(www);
 	}
 
-	private async Task<string> OnRequest(UnityWebRequest request)
+	private async UniTask<string> OnRequest(UnityWebRequest request)
 	{
 		await request.SendWebRequest();
 

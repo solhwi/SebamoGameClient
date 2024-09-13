@@ -1,8 +1,8 @@
+using Cysharp.Threading.Tasks;
 using NPOI.SS.Formula.PTG;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -54,7 +54,7 @@ public class Inventory : ScriptableObject
 		return true;
 	}
 
-	public async Task<bool> TryEquipOn(string itemCode)
+	public async UniTask<bool> TryEquipOn(string itemCode)
 	{
 		bool bResult = EquipOnItem(itemCode);
 		if (bResult == false)
@@ -63,7 +63,7 @@ public class Inventory : ScriptableObject
 		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
 	}
 
-	public async Task<bool> TryEquipOff(string itemCode)
+	public async UniTask<bool> TryEquipOff(string itemCode)
 	{
 		bool bResult = EquipOffItem(itemCode);
 		if (bResult == false)
@@ -83,7 +83,7 @@ public class Inventory : ScriptableObject
 	}
 
 
-	public async Task<bool> TryApplyBuff(string itemCode)
+	public async UniTask<bool> TryApplyBuff(string itemCode)
 	{
 		bool bResult = ApplyBuff(itemCode);
 		if (bResult == false)

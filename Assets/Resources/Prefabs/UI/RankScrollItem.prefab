@@ -95,6 +95,7 @@ MonoBehaviour:
   rankText: {fileID: 5959236249212954623}
   profileSetter: {fileID: 1587660907565613277}
   trigger: {fileID: 2642698699929677951}
+  playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   playerNameText: {fileID: 850848046681611114}
 --- !u!1 &5850278900300424273
 GameObject:

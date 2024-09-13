@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,9 +26,9 @@ public class ItemToolTipParameter : UIParameter
 public class ShopBuyUIParameter : UIParameter
 {
 	public readonly ItemTable.ShopItemData shopItemData = null;
-	public readonly Func<string, int, Task> onClickBuy;
+	public readonly Func<string, int, UniTask> onClickBuy;
 
-	public ShopBuyUIParameter(ItemTable.ShopItemData shopItemData, Func<string, int, Task> onClickBuy)
+	public ShopBuyUIParameter(ItemTable.ShopItemData shopItemData, Func<string, int, UniTask> onClickBuy)
 	{
 		this.shopItemData = shopItemData;
 		this.onClickBuy = onClickBuy;
@@ -37,9 +38,9 @@ public class ShopBuyUIParameter : UIParameter
 public class SellUIParameter : UIParameter
 {
 	public readonly string itemCode;
-	public readonly Func<string, int, Task> onClickSell;
+	public readonly Func<string, int, UniTask> onClickSell;
 
-	public SellUIParameter(string itemCode, Func<string, int, Task> onClickBuy)
+	public SellUIParameter(string itemCode, Func<string, int, UniTask> onClickBuy)
 	{
 		this.itemCode = itemCode;
 		this.onClickSell = onClickBuy;
@@ -81,7 +82,7 @@ public class ItemToolTipPopup : BoardGamePopup
 
 	private ToolTipType currentToolTipType;
 
-	private Func<string, int, Task> onClickConfirm;
+	private Func<string, int, UniTask> onClickConfirm;
 	private Action onClickCancel;
 
 	protected override void Reset()
@@ -200,7 +201,7 @@ public class ItemToolTipPopup : BoardGamePopup
 
 	public void OnClickConfirm()
 	{
-		onClickConfirm?.Invoke(currentItemCode, selectedCount).Wait();
+		onClickConfirm?.Invoke(currentItemCode, selectedCount).Forget();
 		OnClickClose();
 	}
 

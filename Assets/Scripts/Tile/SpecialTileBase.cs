@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -22,9 +23,9 @@ public abstract class SpecialTileBase : Tile
 		
 	}
 
-	public async virtual Task OnDoTileAction(int currentOrder, int nextOrder)
+	public async virtual UniTask OnDoTileAction(int currentOrder, int nextOrder)
 	{
-		await Task.Yield();
+		await UniTask.Yield();
 	}
 
 	protected virtual void Reset()

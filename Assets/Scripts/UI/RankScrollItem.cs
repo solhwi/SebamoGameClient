@@ -8,6 +8,7 @@ public class RankScrollItem : MonoBehaviour
 	[SerializeField] private Text rankText;
 	[SerializeField] private ProfileSetter profileSetter;
 	[SerializeField] private PressEventTrigger trigger;
+	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Text playerNameText;
 
 	private string playerGroup = string.Empty;
@@ -28,11 +29,12 @@ public class RankScrollItem : MonoBehaviour
 	{
 		playerGroup = data.playerGroup;
 		playerName = data.playerName;
+		playerComment = data.profileComment;
 
 		playerNameText.text = playerName;
 		rankText.text = rankNumber.ToString();
 
-		profileSetter.SetPlayerData(playerGroup, playerName);
+		profileSetter.SetPlayerData(playerGroup, playerName, playerComment);
 	}
 
 	public void OnClick()
@@ -47,6 +49,13 @@ public class RankScrollItem : MonoBehaviour
 
 	public void OnPress(float time)
 	{
-		UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, playerComment));
+		if (playerDataContainer.IsMine(playerGroup, playerName))
+		{
+			UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, playerDataContainer.profileComment));
+		}
+		else
+		{
+			UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, playerComment));
+		}
 	}
 }

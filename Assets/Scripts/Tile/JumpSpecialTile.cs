@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -28,8 +29,8 @@ public class JumpSpecialTile : SpecialTileBase
 		playerDataContainer.SaveCurrentOrder(nextOrder);
 	}
 		
-	public async override Task OnDoTileAction(int currentOrder, int nextOrder)
+	public async override UniTask OnDoTileAction(int currentOrder, int nextOrder)
 	{
-		await Task.Yield();
+		await UniTask.Yield();
 	}
 }	

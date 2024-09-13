@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -67,7 +68,7 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		if (currentReplaceItem.IsReplaceable(playerDataContainer, currentTileOrder) == false)
 			return;
 
-		currentReplaceItem?.Replace(currentTileOrder);
+		currentReplaceItem?.Replace(currentTileOrder).Forget();
 		
 		if (currentDummyReplaceItem != null)
 		{
