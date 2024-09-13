@@ -19,10 +19,12 @@ public class ProfilePopup : BoardGamePopup
 		}
 	}
 
+	[SerializeField] private PlayerDataContainer playerDataContainer;
+
 	[SerializeField] private ProfileSetter profileSetter;
 	[SerializeField] private Text playerGroupText;
 	[SerializeField] private Text playerNameText;
-	[SerializeField] private Text playerCommentText;
+	[SerializeField] private InputField playerCommentField;
 	
 	private string playerGroup = string.Empty;
 	private string playerName = string.Empty;
@@ -41,7 +43,9 @@ public class ProfilePopup : BoardGamePopup
 
 		playerGroupText.text = playerGroup;
 		playerNameText.text = playerName;
-		playerCommentText.text = playerComment;
+
+		playerCommentField.text = playerComment;
+		playerCommentField.interactable = false;
 
 		profileSetter.SetPlayerData(playerGroup, playerName, playerComment);
 	}
@@ -51,5 +55,13 @@ public class ProfilePopup : BoardGamePopup
 		base.Reset();
 
 		popupType = PopupType.Profile;
+	}
+
+	public void OnClickEdit()
+	{
+		if (playerDataContainer.IsMine(playerGroup, playerName) == false)
+			return;
+
+		playerCommentField.interactable = !playerCommentField.interactable;
 	}
 }

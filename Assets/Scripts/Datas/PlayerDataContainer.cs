@@ -110,6 +110,11 @@ public class PlayerDataContainer : ScriptableObject
 		NextBonusMultiplyDiceCount = 1;
 	}
 
+	public bool IsMine(string group, string name)
+	{
+		return playerGroup == group && playerName == name;
+	}
+
 	public void SetMyPacketData(MyPlayerPacketData myData)
 	{
 		if (myData == null)
