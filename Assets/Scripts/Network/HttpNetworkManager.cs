@@ -40,8 +40,11 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	public bool IsConnected { get; private set; }
 	private float t = 0.0f;
 
-	public async void TryConnect()
+	public async void TryConnect(string group, string name)
 	{
+		playerDataContainer.playerGroup = group;
+		playerDataContainer.playerName = name;
+
 		if (isOnNetworkMode)
 		{
 			IsConnected = await TryGetAll();
