@@ -28,12 +28,11 @@ public class RankScrollItem : MonoBehaviour
 	{
 		playerGroup = data.playerGroup;
 		playerName = data.playerName;
-		playerComment = data.profileComment;
 
 		playerNameText.text = playerName;
 		rankText.text = rankNumber.ToString();
 
-		profileSetter.SetPlayerData(playerGroup, playerName, playerComment);
+		profileSetter.SetPlayerData(playerGroup, playerName);
 	}
 
 	public void OnClick()

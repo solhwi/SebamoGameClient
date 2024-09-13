@@ -19,16 +19,23 @@ public class ProfilePopup : BoardGamePopup
 		}
 	}
 
+	private bool IsMine => playerDataContainer.IsMine(playerGroup, playerName);
+
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 
 	[SerializeField] private ProfileSetter profileSetter;
 	[SerializeField] private Text playerGroupText;
 	[SerializeField] private Text playerNameText;
 	[SerializeField] private InputField playerCommentField;
+
+	[SerializeField] private Button editButton;
+	[SerializeField] private Button editCompleteButton;
 	
 	private string playerGroup = string.Empty;
 	private string playerName = string.Empty;
 	private string playerComment = string.Empty;
+
+	private bool isEditing = false;
 
 	public override void OnOpen(UIParameter parameter = null)
 	{
@@ -45,9 +52,28 @@ public class ProfilePopup : BoardGamePopup
 		playerNameText.text = playerName;
 
 		playerCommentField.text = playerComment;
-		playerCommentField.interactable = false;
 
-		profileSetter.SetPlayerData(playerGroup, playerName, playerComment);
+		isEditing = false;
+
+		editButton.gameObject.SetActive(IsMine);
+
+		profileSetter.SetPlayerData(playerGroup, playerName);
+	}
+
+	private void Update()
+	{
+		if (playerCommentField.interactable != isEditing)
+		{
+			playerCommentField.interactable = isEditing;
+
+			if (isEditing)
+			{
+				playerCommentField.ActivateInputField();
+			}
+		}
+
+		editButton.gameObject.SetActive(isEditing == false);
+		editCompleteButton.gameObject.SetActive(isEditing);
 	}
 
 	protected override void Reset()
@@ -59,9 +85,17 @@ public class ProfilePopup : BoardGamePopup
 
 	public void OnClickEdit()
 	{
-		if (playerDataContainer.IsMine(playerGroup, playerName) == false)
+		if (IsMine == false)
 			return;
 
-		playerCommentField.interactable = !playerCommentField.interactable;
+		isEditing = true;
+	}
+
+	public void OnEndEdit()
+	{
+		playerComment = playerCommentField.text;
+		playerDataContainer.profileComment = playerComment;
+
+		isEditing = false;
 	}
 }

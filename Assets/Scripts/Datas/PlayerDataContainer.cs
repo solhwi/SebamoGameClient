@@ -168,7 +168,7 @@ public class PlayerDataContainer : ScriptableObject
 
 	public PlayerPacketData GetPlayerData(string group, string name)
 	{
-		if (playerGroup == group && playerName == name)
+		if (IsMine(group, name))
 		{
 			return GetMyPlayerData();
 		}
