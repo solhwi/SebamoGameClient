@@ -6,10 +6,7 @@ using UnityEngine;
 
 public class AuthManager : Singleton<AuthManager>
 {
-	[SerializeField] private bool isDebugMode = false;
-
 	[SerializeField] private string guestEmailAddress = string.Empty;
-	[SerializeField] private string guestEmailPassword = string.Empty;
 
 	private Action<string> onLoginSuccess;
 	private Action<string> onLoginFailed;
@@ -23,14 +20,11 @@ public class AuthManager : Singleton<AuthManager>
 
 	public void TryLogin(Action<string> onSuccess, Action<string> onFailed)
 	{
-		if (isDebugMode)
-		{
-			onSuccess?.Invoke(guestEmailAddress);
-			return;
-		}
+		onLoginSuccess = onSuccess;
+		onLoginFailed = onFailed;
 
 #if UNITY_EDITOR
-		FirebaseAuth.SignInWithEmailAndPassword(guestEmailAddress, guestEmailPassword, gameObject.name, "OnLoginSuccess", "OnLoginFailed");
+		OnLoginSuccess(guestEmailAddress);
 #elif UNITY_WEBGL
 		FirebaseAuth.SignInWithGoogle(gameObject.name, "OnLoginSuccess", "OnLoginFailed");
 #endif

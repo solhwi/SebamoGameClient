@@ -8,6 +8,7 @@ public class LoginCanvas : MonoBehaviour
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private AuthDataTable authDataTable;
 
+
     public void OnClickLogin()
 	{
 		AuthManager.Instance.TryLogin(OnLoginSuccess, null);
@@ -27,11 +28,15 @@ public class LoginCanvas : MonoBehaviour
 
 	private KeyValuePair<string, string> GetGroupAndName(string address)
 	{
-		var authData = authDataTable.GetAuthData(address);
+		var authDatas = authDataTable.GetAllAuthData(address);
+		if (authDatas == null)
+			return default;
+
+		var authData = authDatas.LastOrDefault();
 		if (authData == null)
 			return default;
 
-		return authData.LastOrDefault();
+		return new KeyValuePair<string, string>(authData.group, authData.name);
 	}
 
 	private bool IsConnected()

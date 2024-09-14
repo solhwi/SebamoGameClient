@@ -23,6 +23,8 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 {
 	[SerializeField] private string BaseURL = "http://localhost:8001";
 
+	[SerializeField] private WaitingPopup waitingPopup = null;
+
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private TileDataContainer tileDataContainer;
@@ -220,30 +222,40 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	public async UniTask<T> TryGet<T>(string urlParameter)
 	{
+		if (IsConnected == false)
+			return default;
+
 		string group = playerDataContainer.playerGroup;
 		string name = playerDataContainer.playerName;
 
+		waitingPopup.SetActive(true);
+
 		for (int tryCount = 0; tryCount < reconnectCount; tryCount++)
 		{
-			string responseData = string.Empty;
+			string responseJsonData = string.Empty;
 
 			try
 			{
 				await UniTask.Create(async (t) =>
 				{
-					responseData = await GetRoutine($"{BaseURL}/{group}?p1={name}&p2={urlParameter}");
+					responseJsonData = await GetRoutine($"{BaseURL}/{group}?p1={name}&p2={urlParameter}");
 
 				}, getCancelToken.Token);
 
-				if (responseData != null)
+				if (responseJsonData != null)
 				{
-					return JsonUtility.FromJson<T>(responseData);
+					T responseData = JsonUtility.FromJson<T>(responseJsonData);
+
+					waitingPopup.SetActive(false);
+					IsConnected = true;
+
+					return responseData;
 				}
 			}
 			catch (Exception e)
 			{
 				Debug.LogError(e.ToString());
-				Debug.LogError($"{responseData}");
+				Debug.LogError($"{responseJsonData}");
 			}
 		}
 
@@ -253,33 +265,45 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	public async UniTask<T> TryPost<T>(PacketData requestData)
 	{
+		if (IsConnected == false)
+			return default;
+
 		string requestJsonData = JsonUtility.ToJson(requestData);
+
+		waitingPopup.SetActive(true);
 
 		for (int tryCount = 0; tryCount < reconnectCount; tryCount++)
 		{
-			string responseData = string.Empty;
+			string responseJsonData = string.Empty;
 
 			try
 			{
 				await UniTask.Create(async (t) =>
 				{
-					responseData = await PostRoutine(BaseURL, requestJsonData);
+					responseJsonData = await PostRoutine(BaseURL, requestJsonData);
 
 				}, postCancelToken.Token);
 
-				if (responseData != null)
+				if (responseJsonData != null)
 				{
-					return JsonUtility.FromJson<T>(responseData);
+					T responseData = JsonUtility.FromJson<T>(responseJsonData);
+
+					waitingPopup.SetActive(false);
+					IsConnected = true;
+
+					return responseData;
 				}
 			}
 			catch (Exception e)
 			{
 				Debug.LogError(e.ToString());
-				Debug.LogError($"{responseData}");
+				Debug.LogError($"{responseJsonData}");
 			}
 		}
 
+		waitingPopup.SetActive(false);
 		IsConnected = false;
+
 		return default;
 	}
 

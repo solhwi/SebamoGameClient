@@ -13,6 +13,8 @@ public enum SceneType
 
 public class SceneManager : Singleton<SceneManager>
 {
+	[SerializeField] private WaitingPopup waitingPopup;
+
 	public override bool IsDestroyOnLoad => false;
 
 	private Coroutine loadCoroutine = null;
@@ -38,6 +40,8 @@ public class SceneManager : Singleton<SceneManager>
 
 		loadProcess.allowSceneActivation = false;
 
+		waitingPopup.SetActive(true);
+
 		while (loadProcess.isDone == false)
 		{
 			yield return null;
@@ -57,6 +61,8 @@ public class SceneManager : Singleton<SceneManager>
 		{
 			yield return null;
 		}
+
+		waitingPopup.SetActive(false);
 
 		loadProcess.allowSceneActivation = true;
 		loadCoroutine = null;
