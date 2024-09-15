@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LoginCanvas : MonoBehaviour
@@ -8,22 +9,79 @@ public class LoginCanvas : MonoBehaviour
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private AuthDataTable authDataTable;
 
+	[SerializeField] private GameObject groupPopupObj = null;
+	[SerializeField] private ScrollContent groupScrollContent = null;
 
-    public void OnClickLogin()
+	private List<AuthData> authGroupList = new List<AuthData>();
+
+	private void Awake()
+	{
+		groupPopupObj.SetActive(false);
+		authGroupList.Clear();
+
+		groupScrollContent.onUpdateContents += OnUpdateContents;
+		groupScrollContent.onGetItemCount += OnGetItemCount;
+	}
+
+	public void OnClickLogin()
 	{
 		AuthManager.Instance.TryLogin(OnLoginSuccess, null);
 	}
 
+	private void OnUpdateContents(int index, GameObject contentsObj)
+	{
+		if (index < 0 || authGroupList.Count <= index)
+			return;
+
+		if (contentsObj == null)
+			return;
+
+		var groupSelectScrollItem = contentsObj.GetComponent<GroupSelectScrollItem>();
+		if (groupSelectScrollItem == null)
+			return;
+
+		var authGroup = authGroupList[index];
+		if (authGroup == null)
+			return;
+
+		groupSelectScrollItem.SetData(authGroup);
+		groupSelectScrollItem.SetItemClick(TryConnect);
+	}
+
+	private void TryConnect(AuthData authData)
+	{
+		HttpNetworkManager.Instance.TryConnect(authData.group, authData.name);
+		SceneManager.Instance.LoadSceneAsync(SceneType.Game, IsConnected);
+	}
+
+	private int OnGetItemCount(int tabType)
+	{
+		return authGroupList.Count;
+	}
+
 	private void OnLoginSuccess(string address)
 	{
-		// 1. data를 파싱하여 그룹이 있는 지를 확인한다.
-		// 2. 그룹이 있다면 UI를 띄우고, 아니라면 데이터 세팅 후 하위 로직 진행
-		// 2-1. UI에서 클릭한 그룹으로 데이터 세팅 후 하위 로직 진행
+		string group = string.Empty;
+		string name = string.Empty;
 
-		var data = GetGroupAndName(address);
+		authGroupList = authDataTable.GetAllAuthData(address).ToList();
+		if (authGroupList.Count > 1)
+		{
+			groupPopupObj.SetActive(true);
+			groupScrollContent.UpdateContents();
+		}
+		else if (authGroupList.Count > 0)
+		{
+			var authData = authGroupList.FirstOrDefault();
+			if (authData == null)
+				return;
 
-		HttpNetworkManager.Instance.TryConnect(data.Key, data.Value);
-		SceneManager.Instance.LoadSceneAsync(SceneType.Game, IsConnected);
+			TryConnect(authData);
+		}
+		else
+		{
+			Debug.LogError($"다음 메일 주소 {address}는 등록되지 않은 계정입니다.");
+		}
 	}
 
 	private KeyValuePair<string, string> GetGroupAndName(string address)
