@@ -14,6 +14,7 @@ public enum SceneType
 public class SceneManager : Singleton<SceneManager>
 {
 	[SerializeField] private WaitingPopup waitingPopup;
+	[SerializeField] private float minLoadTime = 1.0f;
 
 	public override bool IsDestroyOnLoad => false;
 
@@ -40,10 +41,12 @@ public class SceneManager : Singleton<SceneManager>
 
 		loadProcess.allowSceneActivation = false;
 
+		float t = 0.0f;
 		waitingPopup.SetActive(true);
 
 		while (loadProcess.isDone == false)
 		{
+			t += Time.deltaTime;
 			yield return null;
 
 			if (loadProcess.progress > 0.89f)
@@ -59,6 +62,13 @@ public class SceneManager : Singleton<SceneManager>
 
 		while (barrierFunc != null && barrierFunc() == false)
 		{
+			t += Time.deltaTime;
+			yield return null;
+		}
+
+		while (t < minLoadTime)
+		{
+			t += Time.deltaTime;
 			yield return null;
 		}
 
