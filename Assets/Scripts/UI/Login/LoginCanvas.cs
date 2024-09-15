@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoginCanvas : MonoBehaviour
 {
@@ -12,12 +13,28 @@ public class LoginCanvas : MonoBehaviour
 	[SerializeField] private GameObject groupPopupObj = null;
 	[SerializeField] private ScrollContent groupScrollContent = null;
 
-	private List<AuthData> authGroupList = new List<AuthData>();
+	[SerializeField] private Text currentNameText = null;
+	[SerializeField] private GameObject greetingTextObj = null;
+	[SerializeField] private GameObject clickTextObj = null;
+
+	[SerializeField] private GameObject loginButtonobj = null;
+	[SerializeField] private GameObject startButtonObj = null;
+
+	private List<AuthData> authDataList = new List<AuthData>();
+	private AuthData currentAuthData = null;
+
 
 	private void Awake()
 	{
 		groupPopupObj.SetActive(false);
-		authGroupList.Clear();
+		currentNameText.gameObject.SetActive(false);
+		greetingTextObj.SetActive(false);
+		clickTextObj.SetActive(false);
+		startButtonObj.SetActive(false);
+
+		loginButtonobj.SetActive(true);
+
+		authDataList.Clear();
 
 		groupScrollContent.onUpdateContents += OnUpdateContents;
 		groupScrollContent.onGetItemCount += OnGetItemCount;
@@ -30,7 +47,7 @@ public class LoginCanvas : MonoBehaviour
 
 	private void OnUpdateContents(int index, GameObject contentsObj)
 	{
-		if (index < 0 || authGroupList.Count <= index)
+		if (index < 0 || authDataList.Count <= index)
 			return;
 
 		if (contentsObj == null)
@@ -40,43 +57,59 @@ public class LoginCanvas : MonoBehaviour
 		if (groupSelectScrollItem == null)
 			return;
 
-		var authGroup = authGroupList[index];
+		var authGroup = authDataList[index];
 		if (authGroup == null)
 			return;
 
 		groupSelectScrollItem.SetData(authGroup);
-		groupSelectScrollItem.SetItemClick(TryConnect);
+		groupSelectScrollItem.SetItemClick(OnAuthSuccess);
 	}
 
-	private void TryConnect(AuthData authData)
+	private void OnAuthSuccess(AuthData authData)
 	{
-		HttpNetworkManager.Instance.TryConnect(authData.group, authData.name);
+		currentAuthData = authData;
+		currentNameText.text = $"{authData.name}({authData.group}) 님,";
+
+		groupPopupObj.SetActive(false);
+		loginButtonobj.SetActive(false);
+
+		currentNameText.gameObject.SetActive(true);
+		greetingTextObj.SetActive(true);
+		clickTextObj.SetActive(true);
+		startButtonObj.SetActive(true);
+	}
+
+	public void TryStartGame()
+	{
+		if (currentAuthData == null)
+			return;
+
+		HttpNetworkManager.Instance.TryConnect(currentAuthData.group, currentAuthData.name);
 		SceneManager.Instance.LoadSceneAsync(SceneType.Game, IsConnected);
 	}
 
 	private int OnGetItemCount(int tabType)
 	{
-		return authGroupList.Count;
+		return authDataList.Count;
 	}
 
 	private void OnLoginSuccess(string address)
 	{
-		string group = string.Empty;
-		string name = string.Empty;
+		groupPopupObj.SetActive(false);
 
-		authGroupList = authDataTable.GetAllAuthData(address).ToList();
-		if (authGroupList.Count > 1)
+		authDataList = authDataTable.GetAllAuthData(address).ToList();
+		if (authDataList.Count > 1)
 		{
 			groupPopupObj.SetActive(true);
 			groupScrollContent.UpdateContents();
 		}
-		else if (authGroupList.Count > 0)
+		else if (authDataList.Count > 0)
 		{
-			var authData = authGroupList.FirstOrDefault();
+			var authData = authDataList.FirstOrDefault();
 			if (authData == null)
 				return;
 
-			TryConnect(authData);
+			OnAuthSuccess(authData);
 		}
 		else
 		{
