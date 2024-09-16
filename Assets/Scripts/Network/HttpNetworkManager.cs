@@ -270,8 +270,6 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 		string requestJsonData = JsonUtility.ToJson(requestData);
 
-		waitingPopup.SetActive(true);
-
 		for (int tryCount = 0; tryCount < reconnectCount; tryCount++)
 		{
 			string responseJsonData = string.Empty;
@@ -296,6 +294,8 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 			}
 			catch (Exception e)
 			{
+				waitingPopup.SetActive(true);
+
 				Debug.LogError(e.ToString());
 				Debug.LogError($"{responseJsonData}");
 			}
