@@ -1,12 +1,8 @@
 using Cysharp.Threading.Tasks;
-using NPOI.SS.Formula.PTG;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using static UnityEditor.Timeline.Actions.MenuPriority;
 
 [CreateAssetMenu(fileName = "Inventory")]
 public class Inventory : ScriptableObject

@@ -30,6 +30,8 @@ public abstract class SpecialTileBase : Tile
 
 	protected virtual void Reset()
 	{
+#if UNITY_EDITOR
 		playerDataContainer = AssetDatabase.LoadAssetAtPath<PlayerDataContainer>("Assets/Resources/Datas/PlayerDataContainer.asset");
+#endif
 	}
 }
