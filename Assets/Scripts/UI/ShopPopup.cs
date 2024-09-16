@@ -15,8 +15,6 @@ public class ShopPopup : BoardGamePopup
 		Normal = 1,
 	}
 
-	[SerializeField] private CharacterView gameCharacterView;
-
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private ScrollContent scrollContent;
@@ -38,7 +36,11 @@ public class ShopPopup : BoardGamePopup
 	{
 		base.OnOpen(parameter);
 
-		gameCharacterView.gameObject.SetActive(false);
+		var myCharacter = BoardGameManager.Instance.GetMyPlayerCharacter();
+		if (myCharacter != null)
+		{
+			myCharacter.gameObject.SetActive(false);
+		}
 
 		normalItemIndex = itemTable.sortedShopItemList.FindIndex(i => i.isRandom == 0);
 
@@ -59,8 +61,12 @@ public class ShopPopup : BoardGamePopup
 
 		scrollContent.SelectTab((int)TabType.None);
 
-		gameCharacterView.gameObject.SetActive(true);
-		gameCharacterView.Replay();
+		var myCharacter = BoardGameManager.Instance.GetMyPlayerCharacter();
+		if (myCharacter != null)
+		{
+			myCharacter.gameObject.SetActive(true);
+			myCharacter.Refresh();
+		}
 
 		base.OnClose();
 	}

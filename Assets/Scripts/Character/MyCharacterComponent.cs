@@ -72,5 +72,4 @@ public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
 				break;
 		}
 	}
-
 }

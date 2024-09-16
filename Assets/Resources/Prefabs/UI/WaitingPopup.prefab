@@ -107,7 +107,7 @@ RectTransform:
   m_GameObject: {fileID: 2977767073576564559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8349171577814230826}
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5130759063584822439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,9 +193,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7291363e49b835a4eaa93975306233f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popupType: 6
+  canvas: {fileID: 1759331724917170796}
   spinnerObj: {fileID: 1773668676979723916}
   waitingText: {fileID: 3570305289378383641}
-  waitingBaseString: "\uAC8C\uC784 \uB85C\uB529 \uC911"
   waitingAddString: .
   maxAddStringCount: 3
   changeTime: 1

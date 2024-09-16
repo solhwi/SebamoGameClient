@@ -11,12 +11,18 @@ public enum PopupType
 	BatchMode,
 	Notify,
 	Profile,
+	Wait,
 }
 
 public class UIManager : Singleton<UIManager>
 {
+	[SerializeField] private Canvas backgroundCanvas;
+
+	[SerializeField] private LoginCanvas loginCanvas;
 	[SerializeField] private BoardGameCanvas boardGameCanvas;
 	[SerializeField] private Canvas popupRootCanvas;
+
+	public override bool IsDestroyOnLoad => false;
 
 	[System.Serializable]
 	public class PopupDictionary : SerializableDictionary<PopupType, BoardGamePopup> { }
@@ -24,11 +30,17 @@ public class UIManager : Singleton<UIManager>
 
 	private Stack<BoardGamePopup> popupStack = new Stack<BoardGamePopup>();
 
+	protected override void Awake()
+	{
+		base.Awake();
+
+	}
+
 	public void TryOpen(PopupType popupType, UIParameter parameter = null)
 	{
 		if (popupDictionary.TryGetValue(popupType, out var newPopup))
 		{
-			if (newPopup != null)
+			if (newPopup != null && newPopup.IsOpen == false)
 			{
 				newPopup.Open(popupRootCanvas, popupStack.Count);
 				newPopup.OnOpen(parameter);
@@ -46,19 +58,44 @@ public class UIManager : Singleton<UIManager>
 		popupCanvas.Close();
 	}
 
-	public void OpenMainCanvas()
+	private void SetActiveBackgroundCanvas(bool isActive)
 	{
-		boardGameCanvas.gameObject.SetActive(true);
+		backgroundCanvas.gameObject.SetActive(isActive);
+		backgroundCanvas.worldCamera = isActive ? Camera.main : null;
+	}
+
+	public void OpenMainCanvas(SceneType sceneType)
+	{
+		if (sceneType == SceneType.Login)
+		{
+			loginCanvas.gameObject.SetActive(true);
+			boardGameCanvas.gameObject.SetActive(false);
+		}
+		else if(sceneType == SceneType.Game)
+		{
+			loginCanvas.gameObject.SetActive(false);
+			boardGameCanvas.gameObject.SetActive(true);
+		}
+
+		SetActiveBackgroundCanvas(sceneType == SceneType.Game);
 	}
 
 	public void CloseMainCanvas()
 	{
+		loginCanvas.gameObject.SetActive(false);
 		boardGameCanvas.gameObject.SetActive(false);
+
+		SetActiveBackgroundCanvas(false);
 	}
 
 	public bool IsOpenMainCanvas()
 	{
 		return boardGameCanvas.gameObject.activeSelf;
+	}
+
+	public bool IsOpenBackgroundCanvas()
+	{
+		return backgroundCanvas.gameObject.activeSelf;
 	}
 
 	public void CloseAll(PopupType popupType)

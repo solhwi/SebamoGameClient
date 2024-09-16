@@ -23,8 +23,6 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 {
 	[SerializeField] private string BaseURL = "http://localhost:8001";
 
-	[SerializeField] private WaitingPopup waitingPopup = null;
-
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private TileDataContainer tileDataContainer;
@@ -222,13 +220,8 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	public async UniTask<T> TryGet<T>(string urlParameter)
 	{
-		if (IsConnected == false)
-			return default;
-
 		string group = playerDataContainer.playerGroup;
 		string name = playerDataContainer.playerName;
-
-		waitingPopup.SetActive(true);
 
 		for (int tryCount = 0; tryCount < reconnectCount; tryCount++)
 		{
@@ -246,7 +239,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 				{
 					T responseData = JsonUtility.FromJson<T>(responseJsonData);
 
-					waitingPopup.SetActive(false);
+					UIManager.Instance.Close(PopupType.Wait);
 					IsConnected = true;
 
 					return responseData;
@@ -254,11 +247,14 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 			}
 			catch (Exception e)
 			{
+				UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("서버에 접속 중"));
+
 				Debug.LogError(e.ToString());
 				Debug.LogError($"{responseJsonData}");
 			}
 		}
 
+		UIManager.Instance.Close(PopupType.Wait);
 		IsConnected = false;
 		return default;
 	}
@@ -286,7 +282,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 				{
 					T responseData = JsonUtility.FromJson<T>(responseJsonData);
 
-					waitingPopup.SetActive(false);
+					UIManager.Instance.Close(PopupType.Wait);
 					IsConnected = true;
 
 					return responseData;
@@ -294,14 +290,14 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 			}
 			catch (Exception e)
 			{
-				waitingPopup.SetActive(true);
+				UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("서버에 접속 중"));
 
 				Debug.LogError(e.ToString());
 				Debug.LogError($"{responseJsonData}");
 			}
 		}
 
-		waitingPopup.SetActive(false);
+		UIManager.Instance.Close(PopupType.Wait);
 		IsConnected = false;
 
 		return default;

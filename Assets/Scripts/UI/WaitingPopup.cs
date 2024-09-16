@@ -4,32 +4,49 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WaitingPopup : MonoBehaviour
+public class WaitingPopup : BoardGamePopup
 {
+	public class Parameter : UIParameter
+	{
+		public readonly string waitingBaseText = string.Empty;
+
+		public Parameter(string waitingBaseText)
+		{
+			this.waitingBaseText = waitingBaseText;
+		}
+	}
+
 	[SerializeField] private GameObject spinnerObj;
 	[SerializeField] private Text waitingText;
-
-
-	[SerializeField] private string waitingBaseString = string.Empty;
 
 	[SerializeField] private string waitingAddString = ".";
 	[SerializeField] private int maxAddStringCount = 1;
 
 	[SerializeField] private float changeTime = 1.0f;
 
+	private string waitingBaseString = string.Empty;
+
 	private float t = 0.0f;
 	private int currentAddCount = 0;
 
-	public void SetActive(bool isActive)
+	protected override void Reset()
 	{
-		gameObject.SetActive(isActive);
+		base.Reset();
+
+		popupType = PopupType.Wait;
 	}
 
-	private void OnEnable()
+	public override void OnOpen(UIParameter parameter = null)
 	{
-		spinnerObj.SetActive(true);
-		waitingText.text = waitingBaseString;
+		base.OnOpen(parameter);
 
+		if (parameter is Parameter p)
+		{
+			waitingBaseString = p.waitingBaseText;
+			waitingText.text = waitingBaseString;
+		}
+
+		spinnerObj.SetActive(true);
 		t = 0.0f;
 	}
 

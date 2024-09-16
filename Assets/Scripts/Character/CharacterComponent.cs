@@ -12,6 +12,12 @@ public class CharacterComponent : MonoBehaviour
 		characterView.SetPlayerData(playerGroup, playerName);
 	}
 
+	public void Refresh()
+	{
+		characterView.RefreshCharacter();
+		characterView.Replay();
+	}
+
 	public IEnumerator ProcessMove(int currentOrder, int nextOrder, float speedRate)
 	{
 		var tiles = TileDataManager.Instance.GetTilePath(currentOrder, nextOrder - currentOrder);

@@ -13,7 +13,6 @@ public enum SceneType
 
 public class SceneManager : Singleton<SceneManager>
 {
-	[SerializeField] private WaitingPopup waitingPopup;
 	[SerializeField] private float minLoadTime = 1.0f;
 
 	public override bool IsDestroyOnLoad => false;
@@ -33,17 +32,28 @@ public class SceneManager : Singleton<SceneManager>
 		// UI 처리
 	}
 
+	private void OnLoadSceneCompleted(Scene scene, LoadSceneMode sceneMode)
+	{
+		if (Enum.TryParse<SceneType>(scene.name.ToString(), out var sceneType) == false)
+			return;
+
+		UIManager.Instance.OpenMainCanvas(sceneType);
+	}
+
 	private IEnumerator LoadSceneProcess(SceneType type, Func<bool> barrierFunc, Action<float> onProgress)
 	{
+		UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnLoadSceneCompleted;
+		UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnLoadSceneCompleted;
+
 		var loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(type.ToString());
 		if (loadProcess == null)
 			yield break;
 
 		loadProcess.allowSceneActivation = false;
 
-		float t = 0.0f;
-		waitingPopup.SetActive(true);
+		UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("게임 로딩 중"));
 
+		float t = 0.0f;
 		while (loadProcess.isDone == false)
 		{
 			t += Time.deltaTime;
@@ -72,9 +82,10 @@ public class SceneManager : Singleton<SceneManager>
 			yield return null;
 		}
 
-		waitingPopup.SetActive(false);
+		UIManager.Instance.Close(PopupType.Wait);
 
 		loadProcess.allowSceneActivation = true;
+
 		loadCoroutine = null;
 	}
 }

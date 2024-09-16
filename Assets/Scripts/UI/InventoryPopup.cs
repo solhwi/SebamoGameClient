@@ -96,7 +96,6 @@ public class InventoryPopup : BoardGamePopup
 	[SerializeField] private FieldItemFactory fieldItemFactory;
 
 	[SerializeField] private CharacterView uiCharacterView;
-	[SerializeField] private CharacterView gameCharacterView;
 	[SerializeField] private ItemObjectView itemObjectView;
 
 	[SerializeField] private ProfileSetter profileSetter;
@@ -132,7 +131,11 @@ public class InventoryPopup : BoardGamePopup
 	{
 		base.OnOpen(parameter);
 
-		gameCharacterView.gameObject.SetActive(false);
+		var myCharacter = BoardGameManager.Instance.GetMyPlayerCharacter();
+		if (myCharacter != null)
+		{
+			myCharacter.gameObject.SetActive(false);
+		}
 
 		currentItemCode = string.Empty;
 		sortingComparer = new ItemSortingComparer(itemTable);
@@ -169,10 +172,12 @@ public class InventoryPopup : BoardGamePopup
 		equipmentBoard.onClickItem -= OnClickEquippedItem;
 		profileEquipmentBoard.onClickItem -= OnClickProfileItem;
 
-		gameCharacterView.gameObject.SetActive(true);
-
-		gameCharacterView.RefreshCharacter();
-		gameCharacterView.Replay();
+		var myCharacter = BoardGameManager.Instance.GetMyPlayerCharacter();
+		if (myCharacter != null)
+		{
+			myCharacter.gameObject.SetActive(true);
+			myCharacter.Refresh();
+		}
 
 		scrollContent.SelectTab((int)TabType.None);
 

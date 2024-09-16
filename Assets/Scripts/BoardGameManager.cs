@@ -499,6 +499,14 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		UIManager.Instance.TryOpen(PopupType.BatchMode, new BatchModePopup.Parameter(currentReplaceFieldItem));
 	}
 
+	public CharacterComponent GetMyPlayerCharacter()
+	{
+		string group = playerDataContainer.playerGroup;
+		string name = playerDataContainer.playerName;
+
+		return GetPlayerCharacter(group, name);
+	}
+
 	public CharacterComponent GetPlayerCharacter(string group, string name)
 	{
 		if (playerCharacterDictionary.TryGetValue((group, name), out var character))
@@ -532,7 +540,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 		TileDataManager.Instance.ClearSelectTile();
 
-		UIManager.Instance.OpenMainCanvas();
+		UIManager.Instance.OpenMainCanvas(SceneType.Game);
 		UIManager.Instance.Close(PopupType.BatchMode);
 
 		if (isReplaced == false)

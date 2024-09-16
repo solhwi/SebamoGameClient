@@ -2370,10 +2370,9 @@ MonoBehaviour:
   canvas: {fileID: 425117931129430697}
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
-  playerDataContainer: {fileID: 0}
+  playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   fieldItemFactory: {fileID: 11400000, guid: a6e06216073cb404eb58dd2ea48f4cee, type: 2}
   uiCharacterView: {fileID: 4956089002030172752}
-  gameCharacterView: {fileID: 0}
   itemObjectView: {fileID: 5318426985131059814}
   profileSetter: {fileID: 3080074877838900271}
   scrollContent: {fileID: 4894684593749433627}
