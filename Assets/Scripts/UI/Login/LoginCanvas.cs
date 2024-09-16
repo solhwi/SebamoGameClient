@@ -14,6 +14,10 @@ public class LoginCanvas : MonoBehaviour
 	[SerializeField] private ScrollContent groupScrollContent = null;
 
 	[SerializeField] private Text currentNameText = null;
+
+	[SerializeField] private GameObject currentGroupTextObj = null;
+	[SerializeField] private Text currentGroupText = null;
+
 	[SerializeField] private GameObject greetingTextObj = null;
 	[SerializeField] private GameObject clickTextObj = null;
 
@@ -28,6 +32,7 @@ public class LoginCanvas : MonoBehaviour
 	{
 		groupPopupObj.SetActive(false);
 		currentNameText.gameObject.SetActive(false);
+		currentGroupTextObj.SetActive(false);
 		greetingTextObj.SetActive(false);
 		clickTextObj.SetActive(false);
 		startButtonObj.SetActive(false);
@@ -40,9 +45,21 @@ public class LoginCanvas : MonoBehaviour
 		groupScrollContent.onGetItemCount += OnGetItemCount;
 	}
 
+	private void OnDestroy()
+	{
+		groupScrollContent.onUpdateContents -= OnUpdateContents;
+		groupScrollContent.onGetItemCount -= OnGetItemCount;
+	}
+
 	public void OnClickLogin()
 	{
 		AuthManager.Instance.TryLogin(OnLoginSuccess, null);
+	}
+
+	public void OnClickSelectGroup()
+	{
+		groupScrollContent.UpdateContents();
+		groupPopupObj.SetActive(true);
 	}
 
 	private void OnUpdateContents(int index, GameObject contentsObj)
@@ -68,11 +85,14 @@ public class LoginCanvas : MonoBehaviour
 	private void OnAuthSuccess(AuthData authData)
 	{
 		currentAuthData = authData;
+
+		currentGroupText.text = $"{authData.group}";
 		currentNameText.text = $"{authData.name}({authData.group}) 님,";
 
 		groupPopupObj.SetActive(false);
 		loginButtonobj.SetActive(false);
 
+		currentGroupTextObj.SetActive(true);
 		currentNameText.gameObject.SetActive(true);
 		greetingTextObj.SetActive(true);
 		clickTextObj.SetActive(true);
@@ -115,19 +135,6 @@ public class LoginCanvas : MonoBehaviour
 		{
 			Debug.LogError($"다음 메일 주소 {address}는 등록되지 않은 계정입니다.");
 		}
-	}
-
-	private KeyValuePair<string, string> GetGroupAndName(string address)
-	{
-		var authDatas = authDataTable.GetAllAuthData(address);
-		if (authDatas == null)
-			return default;
-
-		var authData = authDatas.LastOrDefault();
-		if (authData == null)
-			return default;
-
-		return new KeyValuePair<string, string>(authData.group, authData.name);
 	}
 
 	private bool IsConnected()
