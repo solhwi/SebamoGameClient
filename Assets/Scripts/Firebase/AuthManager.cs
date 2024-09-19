@@ -37,14 +37,4 @@ public class AuthManager : Singleton<AuthManager>
 		onLoginFailed = null;
 		onLoginSuccess = null;
 	}
-
-	public void OnAuthStateChanged(string data)
-	{
-		Debug.Log($"{data}");
-	}
-
-	public void OnAuthStateChangeFailed(string error)
-	{
-		Debug.LogError($"{error}");
-	}
 }
