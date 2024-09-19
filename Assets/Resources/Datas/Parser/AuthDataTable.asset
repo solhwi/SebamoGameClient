@@ -24,9 +24,14 @@ MonoBehaviour:
   expAuthDataList:
   - key: psh50zmfhtm@gmail.com
     name: "\uC194\uD718"
+  - key: yjhjulia1@gmail.com
+    name: "\uC9C0\uD604"
   expAuthDataDictionary:
     m_keys:
     - psh50zmfhtm@gmail.com
+    - yjhjulia1@gmail.com
     m_values:
     - key: psh50zmfhtm@gmail.com
       name: "\uC194\uD718"
+    - key: yjhjulia1@gmail.com
+      name: "\uC9C0\uD604"
