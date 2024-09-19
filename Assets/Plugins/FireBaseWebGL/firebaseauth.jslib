@@ -1,110 +1,45 @@
 mergeInto(LibraryManager.library, {
 
-    SignInAnonymously: function (objectName, callback, fallback) {
-        var parsedObjectName = UTF8ToString(objectName);
-        var parsedCallback = UTF8ToString(callback);
-        var parsedFallback = UTF8ToString(fallback);
-
-        try {
-            firebase.auth().signInAnonymously().then(function (result) {
-                window.unityInstance.SendMessage(parsedObjectName, parsedCallback, "Success: signed up for " + result);
-            }).catch(function (error) {
-                window.unityInstance.SendMessage(parsedObjectName, parsedFallback, JSON.stringify(error, Object.getOwnPropertyNames(error)));
-            });
-
-        } catch (error) {
-            window.unityInstance.SendMessage(parsedObjectName, parsedFallback, JSON.stringify(error, Object.getOwnPropertyNames(error)));
-        }
-    },
-    
-    CreateUserWithEmailAndPassword: function (email, password, objectName, callback, fallback) {
-        var parsedEmail = UTF8ToString(email);
-        var parsedPassword = UTF8ToString(password);
-        var parsedObjectName = UTF8ToString(objectName);
-        var parsedCallback = UTF8ToString(callback);
-        var parsedFallback = UTF8ToString(fallback);
-
-        try {
-
-            firebase.auth().createUserWithEmailAndPassword(parsedEmail, parsedPassword).then(function (unused) {
-                window.unityInstance.SendMessage(parsedObjectName, parsedCallback, "Success: signed up for " + parsedEmail);
-            }).catch(function (error) {
-                window.unityInstance.SendMessage(parsedObjectName, parsedFallback, JSON.stringify(error, Object.getOwnPropertyNames(error)));
-            });
-
-        } catch (error) {
-            window.unityInstance.SendMessage(parsedObjectName, parsedFallback, JSON.stringify(error, Object.getOwnPropertyNames(error)));
-        }
-    },
-
-    SignInWithEmailAndPassword: function (email, password, objectName, callback, fallback) {
-        var parsedEmail = UTF8ToString(email);
-        var parsedPassword = UTF8ToString(password);
-        var parsedObjectName = UTF8ToString(objectName);
-        var parsedCallback = UTF8ToString(callback);
-        var parsedFallback = UTF8ToString(fallback);
-
-        try {
-
-            firebase.auth().signInWithEmailAndPassword(parsedEmail, parsedPassword).then(function (unused) {
-                window.unityInstance.SendMessage(parsedObjectName, parsedCallback, "Success: signed in for " + parsedEmail);
-            }).catch(function (error) {
-                window.unityInstance.SendMessage(parsedObjectName, parsedFallback, JSON.stringify(error, Object.getOwnPropertyNames(error)));
-            });
-
-        } catch (error) {
-            window.unityInstance.SendMessage(parsedObjectName, parsedFallback, JSON.stringify(error, Object.getOwnPropertyNames(error)));
-        }
-    },
-
     SignInWithGoogle: function (objectName, callback, fallback) {
         var parsedObjectName = UTF8ToString(objectName);
         var parsedCallback = UTF8ToString(callback);
         var parsedFallback = UTF8ToString(fallback);
 
-        try {
-            var provider = new firebase.auth.GoogleAuthProvider();
-            firebase.auth().signInWithRedirect(provider).then(function (unused) {
-                window.unityInstance.SendMessage(parsedObjectName, parsedCallback, "Success: signed in with Google!");
-            }).catch(function (error) {
-                window.unityInstance.SendMessage(parsedObjectName, parsedFallback, JSON.stringify(error, Object.getOwnPropertyNames(error)));
-            });
+        (async () => {
+            const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js');
+            const { getAuth, signInWithPopup, GoogleAuthProvider } = await import('https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js');
 
-        } catch (error) {
-            window.unityInstance.SendMessage(parsedObjectName, parsedFallback, JSON.stringify(error, Object.getOwnPropertyNames(error)));
-        }
-    },
+            // Firebase 앱 초기화
+            const firebaseConfig = {
+                apiKey: "AIzaSyAHm55JW_S4i_D-C3QUcpu4SIjlwKpSLtw",
+                authDomain: "sebamogame.firebaseapp.com",
+                projectId: "sebamogame",
+                storageBucket: "sebamogame.appspot.com",
+                messagingSenderId: "659799069037",
+                appId: "1:659799069037:web:11b3d97618697215d58a64",
+                measurementId: "G-W1KECLMW4V",
+                googleAppId: "659799069037-t3mjqgrq9iq4ohbmfsri41h11ruc7r6e.apps.googleusercontent.com"
+            };
+    
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
 
-    SignInWithFacebook: function (objectName, callback, fallback) {
-        var parsedObjectName = UTF8ToString(objectName);
-        var parsedCallback = UTF8ToString(callback);
-        var parsedFallback = UTF8ToString(fallback);
+            // Google 제공자 초기화
+            const provider = new GoogleAuthProvider();
 
-        try {
-            var provider = new firebase.auth.FacebookAuthProvider();
-            firebase.auth().signInWithRedirect(provider).then(function (unused) {
-                window.unityInstance.SendMessage(parsedObjectName, parsedCallback, "Success: signed in with Facebook!");
-            }).catch(function (error) {
-                window.unityInstance.SendMessage(parsedObjectName, parsedFallback, JSON.stringify(error, Object.getOwnPropertyNames(error)));
-            });
-
-        } catch (error) {
-            window.unityInstance.SendMessage(parsedObjectName, parsedFallback, JSON.stringify(error, Object.getOwnPropertyNames(error)));
-        }
-    },
-
-    OnAuthStateChanged: function (objectName, onUserSignedIn, onUserSignedOut) {
-        var parsedObjectName = UTF8ToString(objectName);
-        var parsedOnUserSignedIn = UTF8ToString(onUserSignedIn);
-        var parsedOnUserSignedOut = UTF8ToString(onUserSignedOut);
-
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                window.unityInstance.SendMessage(parsedObjectName, parsedOnUserSignedIn, JSON.stringify(user));
-            } else {
-                window.unityInstance.SendMessage(parsedObjectName, parsedOnUserSignedOut, "User signed out");
-            }
-        });
-
+            // 팝업을 통한 Google 로그인 시도
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    const user = result.user;
+                    console.log("Google Sign-In successful! User: " + user.email);
+                    // 성공 시 Unity로 성공 메시지 전달
+                    SendMessage(parsedObjectName, parsedCallback, user.email);
+                })
+                .catch((error) => {
+                    console.error("Google Sign-In error: " + error.message);
+                    // 실패 시 Unity로 에러 메시지 전달
+                    SendMessage(parsedObjectName, parsedFallback, error.message);
+                });
+        })();
     }
 });
