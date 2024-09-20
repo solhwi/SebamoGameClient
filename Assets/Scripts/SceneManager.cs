@@ -19,7 +19,7 @@ public class SceneManager : Singleton<SceneManager>
 
 	private Coroutine loadCoroutine = null;
 
-    public void LoadSceneAsync(SceneType type, Func<bool> barrierFunc = null)
+    public void LoadScene(SceneType type, Func<bool> barrierFunc = null)
 	{
 		if (loadCoroutine != null)
 			return;

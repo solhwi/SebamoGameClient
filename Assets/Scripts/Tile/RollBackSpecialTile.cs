@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -21,8 +21,8 @@ public class RollBackSpecialTile : SpecialTileBase
 		playerDataContainer.AddCurrentOrder(-count);
 	}
 
-	public async override UniTask OnDoTileAction(int currentOrder, int nextOrder)
+	public  override IEnumerator OnDoTileAction(int currentOrder, int nextOrder)
 	{
-		await UniTask.Yield();
+		yield return null;
 	}
 }

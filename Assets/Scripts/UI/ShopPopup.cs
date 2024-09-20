@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -150,7 +150,7 @@ public class ShopPopup : BoardGamePopup
 		}
 	}
 
-	private async UniTask OnBuyItem(string itemCode, int buyCount)
+	private IEnumerator OnBuyItem(string itemCode, int buyCount)
 	{
 		int price = itemTable.GetItemBuyPrice(itemCode);
 
@@ -160,7 +160,13 @@ public class ShopPopup : BoardGamePopup
 			isSuccess = inventory.TryAddItem(itemCode, buyCount);
 			if (isSuccess)
 			{
-				isSuccess = await HttpNetworkManager.Instance.TryPostMyPlayerData();
+				yield return HttpNetworkManager.Instance.TryPostMyPlayerData((d) =>
+				{
+					isSuccess = true;
+				}, (s) =>
+				{
+					isSuccess = false;
+				});
 			}
 		}
 

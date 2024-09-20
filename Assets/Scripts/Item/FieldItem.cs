@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -126,23 +126,23 @@ public abstract class ReplaceFieldItem : FieldItem
 		return bResult;
 	}
 
-	public async virtual UniTask<bool> Replace(int tileOrder)
+	public virtual IEnumerator Replace(int tileOrder, Action<TilePacketData> onSuccess)
 	{
 		if (TileDataManager.Instance.IsAlreadyReplaced(tileOrder))
-			return false;
+			yield break;
 
 		if (TileDataManager.Instance.IsSpecialTile(tileOrder))
-			return false;
+			yield break;
 
 		bool bResult = inventory.TryRemoveItem(fieldItemCode);
 		if (bResult == false)
-			return false;
+			yield break;
 
 		bResult = TileDataManager.Instance.TrySetTileItem(tileOrder, this);
 		if (bResult == false)
-			return false;
+			yield break;
 
-		return await HttpNetworkManager.Instance.TryPostTileData();
+		yield return HttpNetworkManager.Instance.TryPostTileData(onSuccess);
 	}
 }
 

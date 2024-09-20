@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -126,7 +125,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	private GameState currentGameState = GameState.None;
 
-	private Dictionary<GameState, Func<UniTask>> stateFuncMap = new Dictionary<GameState, Func<UniTask>>();
+	private Dictionary<GameState, Func<IEnumerator>> stateFuncMap = new Dictionary<GameState, Func<IEnumerator>>();
 	private Dictionary<GameState, Func<bool>> stateCheckFuncMap = new Dictionary<GameState, Func<bool>>();
 
 	private StateData currentStateData = null;
@@ -136,7 +135,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	{
 		base.Awake();
 
-		stateFuncMap = new Dictionary<GameState, Func<UniTask>>()
+		stateFuncMap = new Dictionary<GameState, Func<IEnumerator>>()
 		{
 			{ GameState.None, null },
 			{ GameState.RollDice, ProcessRollDice },
@@ -177,7 +176,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		subscribers.Remove(subscriber);
 	}
 
-	private async void Start()
+	private IEnumerator Start()
 	{
 		myPlayerCharacter.gameObject.SetActive(false);
 
@@ -188,7 +187,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		PrepareCharacter();
 
 		// 보드 게임 시작
-		await ProcessBoardGame();
+		yield return ProcessBoardGame();
 	}
 
 	private void PrepareCharacter()
@@ -278,7 +277,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	}
 
 
-	private async UniTask ProcessBoardGame()
+	private IEnumerator ProcessBoardGame()
 	{
 		while (true)
 		{
@@ -286,41 +285,68 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			{
 				if (stateFuncMap[currentGameState] != null)
 				{
-					await stateFuncMap[currentGameState].Invoke();
+					yield return stateFuncMap[currentGameState].Invoke();
 				}
 			}
 
-			await UniTask.Yield();
+			yield return null;
 		}
 	}
 
-	private async UniTask ProcessRollDice()
+	private IEnumerator ProcessRollDice()
 	{
-		// 서버와 타일 데이터 동기화
-		bool bResult = await HttpNetworkManager.Instance.TryGetOtherPlayerDatas();
-		if (bResult == false)
-			return;
+		bool isSuccess = false;
 
-		bResult = await HttpNetworkManager.Instance.TryGetTileData();
-		if (bResult == false)
-			return;
+		// 서버와 타일 데이터 동기화
+		yield return HttpNetworkManager.Instance.TryGetOtherPlayerDatas((d) =>
+		{
+			isSuccess = true;
+		});
+
+		if (isSuccess == false)
+			yield break;
+
+		yield return HttpNetworkManager.Instance.TryGetTileData((d) =>
+		{
+			isSuccess = true;
+		}, (s) =>
+		{
+			isSuccess = false;
+		});
+
+		if (isSuccess == false)
+			yield break;
 
 		// 버프를 포함한 데이터 세팅
 		ProcessData();
 
 		// 서버에 내 정보, 타일 데이터 동기화
-		bResult = await HttpNetworkManager.Instance.TryPostMyPlayerData();
-		if (bResult == false)
-			return;
+		yield return HttpNetworkManager.Instance.TryPostMyPlayerData((d) =>
+		{
+			isSuccess = true;
+		}, (s) =>
+		{
+			isSuccess = false;
+		});
 
-		bResult = await HttpNetworkManager.Instance.TryPostTileData();
-		if (bResult == false)
-			return;
+		if (isSuccess == false)
+			yield break;
+
+		yield return HttpNetworkManager.Instance.TryPostTileData((d) =>
+		{
+			isSuccess = true;
+		}, (s) =>
+		{
+			isSuccess = false;
+		});
+
+		if (isSuccess == false)
+			yield break;
 
 		// 주사위 굴리기 연출 시작
 		foreach (var subscriber in subscribers)
 		{
-			await subscriber?.OnRollDice(currentStateData.diceCount, currentStateData.bonusAddDiceCount, currentStateData.bonusMultiplyDiceCount); 
+			yield return subscriber?.OnRollDice(currentStateData.diceCount, currentStateData.bonusAddDiceCount, currentStateData.bonusMultiplyDiceCount); 
 		}
 
 		TryChangeState(GameState.MoveCharacter, currentStateData);
@@ -419,7 +445,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		}
 	}
 
-	private async UniTask ProcessMoveCharacter()
+	private  IEnumerator ProcessMoveCharacter()
 	{
 		if (currentStateData != null)
 		{
@@ -429,21 +455,21 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 			foreach (var subscriber in subscribers)
 			{
-				await subscriber?.OnMove(currentOrder, nextOrder, diceCount); // 캐릭터 움직임 관련 연출
+				yield return subscriber?.OnMove(currentOrder, nextOrder, diceCount); // 캐릭터 움직임 관련 연출
 			}
 		}
 
 		TryChangeState(GameState.GetItem, currentStateData);
 	}
 
-	private async UniTask ProcessGetItem()
+	private IEnumerator ProcessGetItem()
 	{
 		if (currentStateData == null)
-			return;
+			yield break;
 
 		int currentOrder = currentStateData.CurrentOrder;
 		if (currentStateData.TryGetNextOrder(currentGameState, out var currentItemCode, out var nextState, out int nextOrder) == false)
-			return;
+			yield break;
 
 		FieldItem item = TileDataManager.Instance.GetFieldItem(currentOrder);
 		if (item != null)
@@ -452,28 +478,28 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 			foreach (var subscriber in subscribers)
 			{
-				await subscriber?.OnGetItem(item, currentOrder, nextOrder);
+				yield return subscriber?.OnGetItem(item, currentOrder, nextOrder);
 			}
 		}
 
 		TryChangeState(nextState, currentStateData);
 	}
 
-	private async UniTask ProcessTileAction()
+	private  IEnumerator ProcessTileAction()
 	{
 		if (currentStateData == null)
-			return;
+			yield break;
 
 		int currentOrder = currentStateData.CurrentOrder;
 		if (currentStateData.TryGetNextOrder(currentGameState, out var currentItemCode, out var nextState, out int nextOrder) == false)
-			return;
+			yield break;
 
 		var specialTile = TileDataManager.Instance.GetCurrentSpecialTile(currentOrder);
 		if (specialTile != null)
 		{
 			foreach (var subscriber in subscribers)
 			{
-				await subscriber?.OnDoTileAction(currentOrder, nextOrder);
+				yield return subscriber?.OnDoTileAction(currentOrder, nextOrder);
 			}
 		}
 

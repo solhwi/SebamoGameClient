@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,7 +57,7 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		base.OnClose();
 	}
 
-	public async void OnClickBatch()
+	public  void OnClickBatch()
 	{
 		if (currentTileOrder == -1)
 			return;
@@ -68,17 +68,16 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		if (currentReplaceItem.IsReplaceable(playerDataContainer, currentTileOrder) == false)
 			return;
 
-		bool bResult = await currentReplaceItem.Replace(currentTileOrder);
-		if (bResult == false)
-			return;
-
-		if (currentDummyReplaceItem != null)
+		StartCoroutine(currentReplaceItem.Replace(currentTileOrder, (d) =>
 		{
-			currentDummyReplaceItem.Destroy();
-			currentDummyReplaceItem = null;
-		}
+			if (currentDummyReplaceItem != null)
+			{
+				currentDummyReplaceItem.Destroy();
+				currentDummyReplaceItem = null;
+			}
 
-		BoardGameManager.Instance.EndReplaceMode(true);
+			BoardGameManager.Instance.EndReplaceMode(true);
+		}));
 	}
 
 	public void OnClickStop()

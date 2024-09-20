@@ -1,12 +1,9 @@
-using Cysharp.Threading.Tasks;
-using System.Threading;
-using JetBrains.Annotations;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -25,28 +22,40 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private TileDataContainer tileDataContainer;
-	[SerializeField] private float reconnectCount = 5;
 
 	[SerializeField] private float updateFrequency = 60.0f;
 
 	[SerializeField] private bool isOnNetworkMode = false;
-
-	private CancellationTokenSource getCancelToken = new CancellationTokenSource();
-	private CancellationTokenSource postCancelToken = new CancellationTokenSource();
 
 	public override bool IsDestroyOnLoad => false;
 
 	public bool IsConnected { get; private set; }
 	private float t = 0.0f;
 
-	public async void TryConnect(string group, string name)
+	private Coroutine connectCoroutine = null;
+	private Coroutine updateCoroutine = null;
+
+	public void TryConnect(string group, string name)
 	{
 		playerDataContainer.playerGroup = group;
 		playerDataContainer.playerName = name;
 
 		if (isOnNetworkMode)
 		{
-			IsConnected = await TryGetAll();
+			if (connectCoroutine != null)
+			{
+				StopCoroutine(connectCoroutine);
+			}
+
+			if (updateCoroutine != null)
+			{
+				StopCoroutine(updateCoroutine);
+			}
+
+			connectCoroutine = StartCoroutine(TryGetAll(() =>
+			{
+				updateCoroutine = StartCoroutine(OnUpdate());
+			}));
 		}
 		else
 		{
@@ -54,7 +63,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		}
 	}
 
-	private async void Update()
+	private IEnumerator OnUpdate()
 	{
 		if (isOnNetworkMode && IsConnected)
 		{
@@ -63,115 +72,123 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 			{
 				t = 0.0f;
 
-				IsConnected = await TryGetOtherPlayerDatas();
-				IsConnected = await TryGetTileData();
+				yield return TryGetOtherPlayerDatas(null, null);
+				yield return TryGetTileData(null, null);
 			}
 		}
 	}
 
-	private async UniTask<bool> TryGetAll()
+	private IEnumerator TryGetAll(Action onGetAll)
 	{
-		bool b = await TryGetMyPlayerData();
-		if (b == false)
-			return false;
+		bool isSuccess = false;
 
-		b &= await TryGetOtherPlayerDatas();
-		if (b == false)
-			return false;
+		yield return TryGetMyPlayerData((d) => { isSuccess = true; });
+		if (isSuccess == false)
+			yield break;
 
-		b &= await TryGetTileData();
-		if (b == false)
-			return false;
+		yield return TryGetOtherPlayerDatas((d) => { isSuccess = true; });
+		if (isSuccess == false)
+			yield break;
 
-		return true;
+		yield return TryGetTileData((d) => { isSuccess = true; });
+		if (isSuccess == false)
+			yield break;
+
+		IsConnected = true;
+		onGetAll?.Invoke();
 	}
 
 	private void OnDestroy()
 	{
-		if (getCancelToken != null && getCancelToken.Token.CanBeCanceled)
+		if (connectCoroutine != null)
 		{
-			getCancelToken.Cancel();
-			getCancelToken.Dispose();
+			StopCoroutine(connectCoroutine);
 		}
 
-		if (postCancelToken != null && postCancelToken.Token.CanBeCanceled)
+		if (updateCoroutine != null)
 		{
-			postCancelToken.Cancel();
-			postCancelToken.Dispose();
+			StopCoroutine(updateCoroutine);
 		}
 	}
 
 	// 최초 1회
-	private async UniTask<bool> TryGetMyPlayerData()
+	private IEnumerator TryGetMyPlayerData(Action<MyPlayerPacketData> onSuccess, Action<string> onFailed = null)
 	{
-		var data = await TryGet<MyPlayerPacketData>("My");
-		if (data == default)
-			return false;
-
-		playerDataContainer.SetMyPacketData(data);
-		return true;
+		yield return TryGet<MyPlayerPacketData>("My", (data) =>
+		{
+			playerDataContainer.SetMyPacketData(data);
+			onSuccess?.Invoke(data);
+		}, onFailed);
 	}
 
 	// 주기적으로 다른 플레이어 정보 가져옴
-	public async UniTask<bool> TryGetOtherPlayerDatas()
+	public IEnumerator TryGetOtherPlayerDatas(Action<PlayerPacketData[]> onSuccess, Action<string> onFailed = null)
 	{
 		if (isOnNetworkMode == false)
-			return true;
+		{
+			onSuccess?.Invoke(playerDataContainer.otherPlayerPacketDatas.ToArray());
+			yield break;
+		}
 
-		var otherDatas = await TryGet<PlayerPacketDataCollection>("Other");
-		if (otherDatas == default) 
-			return false;
-
-		playerDataContainer.SetOtherPacketData(otherDatas.playerDatas);
-		return true;
+		yield return TryGet<PlayerPacketDataCollection>("Other", (otherDatas) =>
+		{
+			playerDataContainer.SetOtherPacketData(otherDatas.playerDatas);
+			onSuccess?.Invoke(otherDatas.playerDatas);
+		}, onFailed);
 	}
 
 	// 자신의 정보가 변경될 때마다 업데이트쳐줌
-	public async UniTask<bool> TryPostMyPlayerData()
+	public IEnumerator TryPostMyPlayerData(Action<MyPlayerPacketData> onSuccess, Action<string> onFailed = null)
 	{
 		if (isOnNetworkMode == false)
-			return true;
+		{
+			onSuccess?.Invoke(MakePlayerPacketData());
+			yield break;
+		}
 
 		if (IsConnected == false)
-			return false;
+			yield break;
 
 		var sendData = MakePlayerPacketData();
-		var receiveData = await TryPost<MyPlayerPacketData>(sendData);
-		if (receiveData == default)
-			return false;
-
-		playerDataContainer.SetMyPacketData(receiveData);
-		return true;
+		yield return TryPost<MyPlayerPacketData>(sendData, (receiveData) =>
+		{
+			playerDataContainer.SetMyPacketData(receiveData);
+			onSuccess?.Invoke(receiveData);
+		}, onFailed);
 	}
 
-	public async UniTask<bool> TryGetTileData()
+	public IEnumerator TryGetTileData(Action<TilePacketData> onSuccess, Action<string> onFailed = null)
 	{
 		if (isOnNetworkMode == false)
-			return true;
+		{
+			onSuccess?.Invoke(MakeTilePacketData());
+			yield break;
+		}
 
-		var receiveData = await TryGet<TilePacketData>("Tile");
-		if (receiveData == default)
-			return false;
-
-		tileDataContainer.SetTileItemPacket(receiveData);
-		return true;
+		yield return TryGet<TilePacketData>("Tile", (receiveData) =>
+		{
+			tileDataContainer.SetTileItemPacket(receiveData);
+			onSuccess?.Invoke(receiveData);
+		}, onFailed);
 	}
 
-	public async UniTask<bool> TryPostTileData()
+	public IEnumerator TryPostTileData(Action<TilePacketData> onSuccess, Action<string> onFailed = null)
 	{
 		if (isOnNetworkMode == false)
-			return true;
+		{
+			onSuccess?.Invoke(MakeTilePacketData());
+			yield break;
+		}
 
 		if (IsConnected == false)
-			return false;
+			yield break;
 
 		var sendData = MakeTilePacketData();
-		var receiveData = await TryPost<TilePacketData>(sendData);
-		if (receiveData == default)
-			return false;
-
-		tileDataContainer.SetTileItemPacket(receiveData);
-		return true;
+		yield return TryPost<TilePacketData>(sendData, (receiveData) =>
+		{
+			tileDataContainer.SetTileItemPacket(receiveData);
+			onSuccess?.Invoke(receiveData);
+		}, onFailed);
 	}
 
 	private MyPlayerPacketData MakePlayerPacketData()
@@ -217,95 +234,65 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		return data;
 	}
 
-	public async UniTask<T> TryGet<T>(string urlParameter)
+	public IEnumerator TryGet<T>(string urlParameter, Action<T> onGetSuccess, Action<string> OnGetFailed)
 	{
 		string group = playerDataContainer.playerGroup;
 		string name = playerDataContainer.playerName;
 
-		for (int tryCount = 0; tryCount < reconnectCount; tryCount++)
+		yield return GetRoutine($"{BaseURL}/{group}?p1={name}&p2={urlParameter}", (responseJsonData) =>
 		{
-			string responseJsonData = string.Empty;
-
 			try
 			{
-				await UniTask.Create(async (t) =>
-				{
-					responseJsonData = await GetRoutine($"{BaseURL}/{group}?p1={name}&p2={urlParameter}");
-
-				}, getCancelToken.Token);
-
 				if (responseJsonData != null)
 				{
 					T responseData = JsonUtility.FromJson<T>(responseJsonData);
 
-					UIManager.Instance.Close(PopupType.Wait);
 					IsConnected = true;
 
-					return responseData;
+					onGetSuccess?.Invoke(responseData);
 				}
 			}
 			catch (Exception e)
 			{
-				if (UIManager.Instance != null)
-				{
-					UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("서버에 접속 중"));
-				}
+				IsConnected = false;
 
 				Debug.LogError(e.ToString());
-				Debug.LogError($"{responseJsonData}");
+				OnGetFailed?.Invoke(e.ToString());
 			}
-		}
-
-		UIManager.Instance.Close(PopupType.Wait);
-		IsConnected = false;
-		return default;
+		});
 	}
 
-	public async UniTask<T> TryPost<T>(PacketData requestData)
+	public IEnumerator TryPost<T>(PacketData requestData, Action<T> onGetSuccess, Action<string> OnGetFailed)
 	{
 		if (IsConnected == false)
-			return default;
+			yield break;
 
 		string requestJsonData = JsonUtility.ToJson(requestData);
 
-		for (int tryCount = 0; tryCount < reconnectCount; tryCount++)
+		yield return PostRoutine(BaseURL, requestJsonData, (responseJsonData) =>
 		{
-			string responseJsonData = string.Empty;
-
 			try
 			{
-				await UniTask.Create(async (t) =>
-				{
-					responseJsonData = await PostRoutine(BaseURL, requestJsonData);
-
-				}, postCancelToken.Token);
-
 				if (responseJsonData != null)
 				{
 					T responseData = JsonUtility.FromJson<T>(responseJsonData);
 
-					UIManager.Instance.Close(PopupType.Wait);
 					IsConnected = true;
 
-					return responseData;
+					onGetSuccess?.Invoke(responseData);
 				}
 			}
 			catch (Exception e)
 			{
-				UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("서버에 접속 중"));
+				IsConnected = false;
 
 				Debug.LogError(e.ToString());
-				Debug.LogError($"{responseJsonData}");
+				OnGetFailed?.Invoke(e.ToString());
 			}
-		}
-
-		UIManager.Instance.Close(PopupType.Wait);
-		IsConnected = false;
-
-		return default;
+		});
 	}
 
-	private UniTask<string> PostRoutine(string url, string data)
+	private IEnumerator PostRoutine(string url, string data, Action<string> onGet)
 	{
 		UnityWebRequest www = UnityWebRequest.PostWwwForm(url, data);
 
@@ -314,28 +301,34 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 		//json 헤더 추가
 		www.SetRequestHeader("Content-Type", "application/json");
-
-		return OnRequest(www);
+		yield return OnRequest(www, onGet);
 	}
 
-	private UniTask<string> GetRoutine(string url)
+	private IEnumerator GetRoutine(string url, Action<string> onGet)
 	{
 		UnityWebRequest www = UnityWebRequest.Get(url);
-		return OnRequest(www);
+		yield return OnRequest(www, onGet);
 	}
 
-	private async UniTask<string> OnRequest(UnityWebRequest request)
+	private IEnumerator OnRequest(UnityWebRequest www, Action<string> onGet)
 	{
-		await request.SendWebRequest();
-
-		if (request.error == null)
+		if (UIManager.Instance != null)
 		{
-			return request.downloadHandler.text;
+			UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("서버에 접속 중"));
+		}
+
+		yield return www.SendWebRequest();
+
+		if (www.error == null)
+		{
+			onGet?.Invoke(www.downloadHandler.text);
 		}
 		else
 		{
-			return request.error;
+			onGet?.Invoke(www.error);
 		}
+
+		UIManager.Instance.Close(PopupType.Wait);
 	}
 
 #if UNITY_EDITOR

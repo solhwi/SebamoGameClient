@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -263,7 +263,7 @@ public class InventoryPopup : BoardGamePopup
 		scrollItem.SetItemPressCallback(OnPressItem);
 	}
 
-	private async void OnClickItem(string itemCode)
+	private void OnClickItem(string itemCode)
 	{
 		if (itemCode == null || itemCode == string.Empty)
 			return;
@@ -272,20 +272,24 @@ public class InventoryPopup : BoardGamePopup
 		{
 			currentItemCode = itemCode;
 			itemObjectView.SetItem(currentItemCode);
+
+			hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
+			scrollContent.UpdateContents();
 		}
 		else
 		{
-			await inventory.TryEquipOn(itemCode);
-
-			if (itemTable.IsEquipmentItem(itemCode))
+			StartCoroutine(inventory.TryEquipOn(itemCode, (d) =>
 			{
-				uiCharacterView.RefreshCharacter();
-				uiCharacterView.DoIdle(0.3f);
-			}
-		}
+				if (itemTable.IsEquipmentItem(itemCode))
+				{
+					uiCharacterView.RefreshCharacter();
+					uiCharacterView.DoIdle(0.3f);
+				}
 
-		hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
-		scrollContent.UpdateContents();
+				hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
+				scrollContent.UpdateContents();
+			}));
+		}
 	}
 
 	private void OnPressItem(string itemCode)
@@ -296,7 +300,7 @@ public class InventoryPopup : BoardGamePopup
 		UIManager.Instance.TryOpen(PopupType.ItemToolTip, new SellUIParameter(itemCode, OnClickSell));
 	}
 
-	private async UniTask OnClickSell(string itemCode, int count)
+	private IEnumerator OnClickSell(string itemCode, int count)
 	{
 		bool isSuccess = inventory.TryRemoveItem(itemCode, count);
 		if (isSuccess)
@@ -308,10 +312,10 @@ public class InventoryPopup : BoardGamePopup
 			scrollContent.UpdateContents();
 		}
 
-		await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		yield return HttpNetworkManager.Instance.TryPostMyPlayerData(null);
 	}
 
-	private async void OnClickEquippedItem(string itemCode)
+	private  void OnClickEquippedItem(string itemCode)
 	{
 		if (itemCode == null || itemCode == string.Empty)
 			return;
@@ -322,13 +326,14 @@ public class InventoryPopup : BoardGamePopup
 		}
 		else
 		{
-			await inventory.TryEquipOff(itemCode);
+			StartCoroutine(inventory.TryEquipOff(itemCode, (d) =>
+			{
+				uiCharacterView.RefreshCharacter();
+				uiCharacterView.DoIdle(0.3f);
 
-			uiCharacterView.RefreshCharacter();
-			uiCharacterView.DoIdle(0.3f);
-
-			hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
-			scrollContent.UpdateContents();
+				hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
+				scrollContent.UpdateContents();
+			}));
 		}
 	}
 
@@ -348,10 +353,10 @@ public class InventoryPopup : BoardGamePopup
 		}
 		else if (itemTable.IsBuffItem(currentItemCode))
 		{
-			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter($"버프 아이템 {currentItemCode}이 사용되었습니다.", 
-			onClickConfirm: async () =>
+			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter($"버프 아이템 {currentItemCode}이 사용되었습니다.",
+			onClickConfirm: () =>
 			{
-				await inventory.TryApplyBuff(currentItemCode);
+				StartCoroutine(inventory.TryApplyBuff(currentItemCode, null));
 			}));
 		}
 	}

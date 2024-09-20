@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,22 +50,22 @@ public class Inventory : ScriptableObject
 		return true;
 	}
 
-	public async UniTask<bool> TryEquipOn(string itemCode)
+	public IEnumerator TryEquipOn(string itemCode, Action<MyPlayerPacketData> onSuccess)
 	{
 		bool bResult = EquipOnItem(itemCode);
 		if (bResult == false)
-			return false;
+			yield break;
 
-		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		yield return HttpNetworkManager.Instance.TryPostMyPlayerData(onSuccess);
 	}
 
-	public async UniTask<bool> TryEquipOff(string itemCode)
+	public IEnumerator TryEquipOff(string itemCode, Action<MyPlayerPacketData> onSuccess)
 	{
 		bool bResult = EquipOffItem(itemCode);
 		if (bResult == false)
-			return false;
+			yield break;
 
-		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		yield return HttpNetworkManager.Instance.TryPostMyPlayerData(onSuccess);
 	}
 
 	public string GetUsableBuffItemCode()
@@ -79,13 +79,13 @@ public class Inventory : ScriptableObject
 	}
 
 
-	public async UniTask<bool> TryApplyBuff(string itemCode)
+	public IEnumerator TryApplyBuff(string itemCode, Action<MyPlayerPacketData> onSuccess)
 	{
 		bool bResult = ApplyBuff(itemCode);
 		if (bResult == false)
-			return false;
+			yield break;
 
-		return await HttpNetworkManager.Instance.TryPostMyPlayerData();
+		yield return HttpNetworkManager.Instance.TryPostMyPlayerData(onSuccess);
 	}
 
 	public bool TryUseBuff(string itemCode)

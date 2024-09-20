@@ -105,7 +105,7 @@ public class LoginCanvas : MonoBehaviour
 			return;
 
 		HttpNetworkManager.Instance.TryConnect(currentAuthData.group, currentAuthData.name);
-		SceneManager.Instance.LoadSceneAsync(SceneType.Game, IsConnected);
+		SceneManager.Instance.LoadScene(SceneType.Game, IsConnected);
 	}
 
 	private int OnGetItemCount(int tabType)
