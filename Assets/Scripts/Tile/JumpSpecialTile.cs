@@ -1,7 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "JumpSpecialTile", menuName = "2D/Tiles/Jump Special Tile")]
