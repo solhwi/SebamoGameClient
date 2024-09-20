@@ -82,15 +82,15 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	{
 		bool isSuccess = false;
 
-		yield return TryGetMyPlayerData((d) => { isSuccess = true; });
+		yield return TryGetMyPlayerData((d) => { isSuccess = true; }, (s) => { isSuccess = false; });
 		if (isSuccess == false)
 			yield break;
 
-		yield return TryGetOtherPlayerDatas((d) => { isSuccess = true; });
+		yield return TryGetOtherPlayerDatas((d) => { isSuccess = true; }, (s) => { isSuccess = false; });
 		if (isSuccess == false)
 			yield break;
 
-		yield return TryGetTileData((d) => { isSuccess = true; });
+		yield return TryGetTileData((d) => { isSuccess = true; }, (s) => { isSuccess = false; });
 		if (isSuccess == false)
 			yield break;
 
