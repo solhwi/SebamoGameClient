@@ -20,7 +20,15 @@ public class SceneManager : Singleton<SceneManager>
 
 	private Coroutine loadCoroutine = null;
 
-    public void LoadScene(SceneType type, Func<bool> barrierFunc = null)
+	protected override void Awake()
+	{
+		base.Awake();
+
+		var currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+		OnLoadSceneCompleted(currentScene, LoadSceneMode.Single);
+	}
+
+	public void LoadScene(SceneType type, Func<bool> barrierFunc = null)
 	{
 		if (loadCoroutine != null)
 			return;
@@ -45,10 +53,9 @@ public class SceneManager : Singleton<SceneManager>
 	{
 		UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnLoadSceneCompleted;
 
-		var loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(SceneType.Loading.ToString());
-		if (loadProcess == null)
-			yield break;
+		UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("게임 로딩 중"));
 
+		var loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Loading");
 		while (loadProcess.isDone == false)
 		{
 			yield return null;
@@ -56,18 +63,13 @@ public class SceneManager : Singleton<SceneManager>
 
 		UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnLoadSceneCompleted;
 
-		loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(type.ToString());
-		if (loadProcess == null)
-			yield break;
-
+		loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Game");
 		loadProcess.allowSceneActivation = false;
 
-		UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("게임 로딩 중"));
-
-		float t = 0.0f;
+		float currentLoadTime = 0.0f;
 		while (loadProcess.isDone == false)
 		{
-			t += Time.deltaTime;
+			currentLoadTime += Time.deltaTime;
 			yield return null;
 
 			if (loadProcess.progress > 0.89f)
@@ -81,22 +83,22 @@ public class SceneManager : Singleton<SceneManager>
 			}
 		}
 
+		loadProcess.allowSceneActivation = true;
+
 		while (!loadProcess.isDone || barrierFunc != null && barrierFunc() == false)
 		{
-			t += Time.deltaTime;
+			currentLoadTime += Time.deltaTime;
 			yield return null;
 		}
 
-		while (t < minLoadTime)
+		// 최소 로드 시간을 채움
+		while (currentLoadTime < minLoadTime)
 		{
-			t += Time.deltaTime;
+			currentLoadTime += Time.deltaTime;
 			yield return null;
 		}
 
 		UIManager.Instance.Close(PopupType.Wait);
-
-		loadProcess.allowSceneActivation = true;
-
 		loadCoroutine = null;
 	}
 }

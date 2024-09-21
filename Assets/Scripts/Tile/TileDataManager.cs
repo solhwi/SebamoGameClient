@@ -227,20 +227,22 @@ public class TileDataManager : Singleton<TileDataManager>
 		return dataContainer.tileOrders[tileIndex];
 	}
 
-	public void PrepareTile()
+	public IEnumerator PrepareTile()
 	{
 		for (int i = 0; i < dataContainer.tileItems.Length; i++)
 		{
 			var itemCode = dataContainer.tileItems[i];
 			if (itemCode == string.Empty)
-				continue;
+				yield break;
 
 			var fieldItem = fieldItemFactory.Make(itemCode);
 			if (fieldItem == null)
-				continue;
+				yield break;
 
 			fieldItemDictionary[i] = fieldItem;
 			fieldItem.Create(tileBoardDatas[i]);
+
+			yield return null;
 		}
 	}
 

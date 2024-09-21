@@ -23,13 +23,14 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private TileDataContainer tileDataContainer;
 
+	[SerializeField] private int reconnectCount = 5;
 	[SerializeField] private float updateFrequency = 60.0f;
 
 	[SerializeField] private bool isOnNetworkMode = false;
 
 	public override bool IsDestroyOnLoad => false;
 
-	public bool IsConnected { get; private set; }
+	public bool IsConnected;
 	private float t = 0.0f;
 
 	private Coroutine connectCoroutine = null;
@@ -312,23 +313,30 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	private IEnumerator OnRequest(UnityWebRequest www, Action<string> onGet)
 	{
-		if (UIManager.Instance != null)
+		for (int i = 0; i < reconnectCount; i++)
 		{
-			UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("서버에 접속 중"));
-		}
+			yield return www.SendWebRequest();
 
-		yield return www.SendWebRequest();
+			if (www.error == null)
+			{
+				if (UIManager.Instance != null)
+				{
+					UIManager.Instance.Close(PopupType.Wait);
+				}
 
-		if (www.error == null)
-		{
-			onGet?.Invoke(www.downloadHandler.text);
-		}
-		else
-		{
-			onGet?.Invoke(www.error);
-		}
+				onGet?.Invoke(www.downloadHandler.text);
+				break;
+			}
+			else
+			{
+				onGet?.Invoke(www.error);
 
-		UIManager.Instance.Close(PopupType.Wait);
+				if (UIManager.Instance != null)
+				{
+					UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("서버에 접속 중"));
+				}
+			}
+		}
 	}
 
 #if UNITY_EDITOR

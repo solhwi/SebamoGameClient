@@ -4,7 +4,11 @@ using System.Diagnostics.Contracts;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
 	public static T Instance
 	{
@@ -24,9 +28,21 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
 	protected virtual void Awake()
 	{
+		if (instance == null)
+		{
+			instance = this as T;
+		}
+
 		if (IsDestroyOnLoad == false)
 		{
-			DontDestroyOnLoad(gameObject);
+			if (instance != null && instance != this)
+			{
+				Destroy(gameObject);
+			}
+			else
+			{
+				DontDestroyOnLoad(gameObject);
+			}
 		}
 	}
 }
@@ -44,9 +60,18 @@ public class ResourceManager : Singleton<ResourceManager>
 
 	public override bool IsDestroyOnLoad => false;
 
+#if UNITY_EDITOR
+	[MenuItem("WebGL/Enable Embedded Resources")]
+	public static void EnableEmbeddedResources()
+	{
+		PlayerSettings.WebGL.useEmbeddedResources = true;
+		PlayerSettings.WebGL.emscriptenArgs = "--memoryprofiler --profiling-funcs";
+	}
+#endif
+
 	private void Start()
 	{
-		for(int i = 0; i < 10; i++)
+		for (int i = 0; i < 10; i++)
 		{
 			var obj = Instantiate(fieldItemPrefab, transform);
 
@@ -157,7 +182,8 @@ public class ResourceManager : Singleton<ResourceManager>
 	{
 		if (cachedObjectDictionary.ContainsKey(path) == false)
 		{
-			return Resources.Load<T>(path);
+			var o = Resources.Load<T>(path);
+			cachedObjectDictionary[path] = o;
 		}
 
 		return cachedObjectDictionary[path] as T;

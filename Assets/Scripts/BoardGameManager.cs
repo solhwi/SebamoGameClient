@@ -107,6 +107,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		}
 	}
 
+	[SerializeField] private bool isOfflineMode = false;
 	[SerializeField] private bool isDiceDebugMode = false;
 
 	[SerializeField] private Inventory inventory;
@@ -178,23 +179,28 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	{
 		myPlayerCharacter.gameObject.SetActive(false);
 
+		if (isOfflineMode)
+		{
+			HttpNetworkManager.Instance.IsConnected = true;
+		}
+
 		// 타일 위 아이템 이미지 배치
-		TileDataManager.Instance.PrepareTile();
+		yield return TileDataManager.Instance.PrepareTile();
 
 		// 캐릭터 준비
-		PrepareCharacter();
+		yield return PrepareCharacter();
 
 		// 보드 게임 시작
 		yield return ProcessBoardGame();
 	}
 
-	private void PrepareCharacter()
+	private IEnumerator PrepareCharacter()
 	{
 		playerCharacterDictionary.Clear();
 
 		var myPlayerData = playerDataContainer.GetMyPlayerData();
 		if (myPlayerData == null)
-			return;
+			yield break;
 
 		// 플레이어 본인 캐릭터 타일 위로 배치
 		int myTileOrder = playerDataContainer.currentTileOrder;
@@ -212,10 +218,12 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 		// 타 유저 캐릭터 타일 위로 배치
 		if (playerDataContainer.otherPlayerPacketDatas == null)
-			return;
+			yield break;
 
 		foreach (var otherPlayerData in playerDataContainer.otherPlayerPacketDatas)
 		{
+			yield return null;
+
 			var otherPlayerCharacter = Instantiate(otherPlayerCharacterPrefab);
 			if (otherPlayerCharacter == null)
 				continue;
@@ -443,7 +451,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		}
 	}
 
-	private  IEnumerator ProcessMoveCharacter()
+	private IEnumerator ProcessMoveCharacter()
 	{
 		if (currentStateData != null)
 		{
