@@ -9,6 +9,7 @@ public enum SceneType
 {
 	Login = 0,
 	Game = 1,
+	Loading = 2,
 }
 
 public class SceneManager : Singleton<SceneManager>
@@ -43,9 +44,19 @@ public class SceneManager : Singleton<SceneManager>
 	private IEnumerator LoadSceneProcess(SceneType type, Func<bool> barrierFunc, Action<float> onProgress)
 	{
 		UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnLoadSceneCompleted;
+
+		var loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(SceneType.Loading.ToString());
+		if (loadProcess == null)
+			yield break;
+
+		while (loadProcess.isDone == false)
+		{
+			yield return null;
+		}
+
 		UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnLoadSceneCompleted;
 
-		var loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(type.ToString());
+		loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(type.ToString());
 		if (loadProcess == null)
 			yield break;
 
@@ -70,7 +81,7 @@ public class SceneManager : Singleton<SceneManager>
 			}
 		}
 
-		while (barrierFunc != null && barrierFunc() == false)
+		while (!loadProcess.isDone || barrierFunc != null && barrierFunc() == false)
 		{
 			t += Time.deltaTime;
 			yield return null;
