@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GameSceneModule : SceneModuleBase
 {
-	[SerializeField] private bool isOfflineMode = false;
-
 	private Coroutine gameRoutine = null;
 
 	public override IEnumerator OnPrepareEnter()
@@ -21,7 +19,7 @@ public class GameSceneModule : SceneModuleBase
 	{
 		base.OnEnter();
 
-		if (isOfflineMode)
+		if (HttpNetworkManager.Instance.isOfflineMode)
 		{
 			HttpNetworkManager.Instance.IsConnected = true;
 		}

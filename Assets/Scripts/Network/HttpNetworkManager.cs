@@ -26,8 +26,9 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	[SerializeField] private int reconnectCount = 5;
 	[SerializeField] private float updateFrequency = 60.0f;
 
-	[SerializeField] private bool isOnNetworkMode = false;
 	[HideInInspector] public bool IsConnected = false;
+
+	[SerializeField] public bool isOfflineMode = false;
 
 	private float t = 0.0f;
 
@@ -39,7 +40,11 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		playerDataContainer.playerGroup = group;
 		playerDataContainer.playerName = name;
 
-		if (isOnNetworkMode)
+		if (isOfflineMode)
+		{
+			IsConnected = true;
+		}
+		else
 		{
 			if (connectCoroutine != null)
 			{
@@ -56,15 +61,11 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 				updateCoroutine = StartCoroutine(OnUpdate());
 			}));
 		}
-		else
-		{
-			IsConnected = true;
-		}
 	}
 
 	private IEnumerator OnUpdate()
 	{
-		if (isOnNetworkMode && IsConnected)
+		if (!isOfflineMode && IsConnected)
 		{
 			t += Time.deltaTime;
 			if (t > updateFrequency)
@@ -123,7 +124,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	// 주기적으로 다른 플레이어 정보 가져옴
 	public IEnumerator TryGetOtherPlayerDatas(Action<PlayerPacketData[]> onSuccess, Action<string> onFailed = null)
 	{
-		if (isOnNetworkMode == false)
+		if (isOfflineMode)
 		{
 			onSuccess?.Invoke(playerDataContainer.otherPlayerPacketDatas.ToArray());
 			yield break;
@@ -139,7 +140,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	// 자신의 정보가 변경될 때마다 업데이트쳐줌
 	public IEnumerator TryPostMyPlayerData(Action<MyPlayerPacketData> onSuccess, Action<string> onFailed = null)
 	{
-		if (isOnNetworkMode == false)
+		if (isOfflineMode)
 		{
 			onSuccess?.Invoke(MakePlayerPacketData());
 			yield break;
@@ -158,7 +159,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	public IEnumerator TryGetTileData(Action<TilePacketData> onSuccess, Action<string> onFailed = null)
 	{
-		if (isOnNetworkMode == false)
+		if (isOfflineMode)
 		{
 			onSuccess?.Invoke(MakeTilePacketData());
 			yield break;
@@ -173,7 +174,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	public IEnumerator TryPostTileData(Action<TilePacketData> onSuccess, Action<string> onFailed = null)
 	{
-		if (isOnNetworkMode == false)
+		if (isOfflineMode)
 		{
 			onSuccess?.Invoke(MakeTilePacketData());
 			yield break;

@@ -1213,8 +1213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78058307c7b2e9e489e1fcf025da33b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStartScene: 0
-  isOfflineMode: 1
+  isStartScene: 1
 --- !u!1 &1714855698
 GameObject:
   m_ObjectHideFlags: 0

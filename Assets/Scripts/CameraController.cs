@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class CameraController : Singleton<
-	CameraController>
+public class CameraController : Singleton<CameraController>
 {
 	[SerializeField] private CinemachineVirtualCamera virtualCamera;
 
