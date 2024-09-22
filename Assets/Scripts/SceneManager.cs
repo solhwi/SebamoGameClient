@@ -25,11 +25,6 @@ public class SceneManager : Singleton<SceneManager>
 
 		var currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
 		OnLoadSceneCompleted(currentScene, LoadSceneMode.Single);
-
-		if (currentSceneModule != null)
-		{
-			currentSceneModule.OnEnter();
-		}
 	}
 
 	public void LoadScene(SceneType type, Func<bool> barrierFunc = null)
@@ -97,14 +92,7 @@ public class SceneManager : Singleton<SceneManager>
 			yield return null;
 		}
 
-		// 최소 로드 시간
-		while (currentLoadTime < minLoadTime)
-		{
-			currentLoadTime += Time.deltaTime;
-			yield return null;
-		}
-
-		// 실제 로드 대기
+		// 로드 대기
 		loadProcess.allowSceneActivation = true;
 		while (loadProcess.isDone == false)
 		{
@@ -121,6 +109,13 @@ public class SceneManager : Singleton<SceneManager>
 		{
 			yield return currentSceneModule.OnPrepareEnter();
 			currentSceneModule.OnEnter();
+		}
+
+		// 최종 로드 시간 보정
+		while (currentLoadTime < minLoadTime)
+		{
+			currentLoadTime += Time.deltaTime;
+			yield return null;
 		}
 
 		UIManager.Instance.Close(PopupType.Wait);

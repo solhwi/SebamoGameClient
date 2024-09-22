@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class SceneModuleBase : MonoBehaviour
 {
+	[SerializeField] private bool isStartScene = false;
+
+	private IEnumerator Start()
+	{
+		if (isStartScene)
+		{
+			yield return OnPrepareEnter();
+			OnEnter();
+		}
+	}
+
 	public virtual IEnumerator OnPrepareEnter()
 	{
 		yield return null;
