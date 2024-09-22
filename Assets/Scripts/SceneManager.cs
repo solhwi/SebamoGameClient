@@ -16,6 +16,7 @@ public class SceneManager : Singleton<SceneManager>
 {
 	[SerializeField] private float minLoadTime = 1.0f;
 
+	private SceneModuleBase currentSceneModule = null;
 	private Coroutine loadCoroutine = null;
 
 	protected override void OnAwakeInstance()
@@ -24,6 +25,11 @@ public class SceneManager : Singleton<SceneManager>
 
 		var currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
 		OnLoadSceneCompleted(currentScene, LoadSceneMode.Single);
+
+		if (currentSceneModule != null)
+		{
+			currentSceneModule.OnEnter();
+		}
 	}
 
 	public void LoadScene(SceneType type, Func<bool> barrierFunc = null)
@@ -41,19 +47,22 @@ public class SceneManager : Singleton<SceneManager>
 
 	private void OnLoadSceneCompleted(Scene scene, LoadSceneMode sceneMode)
 	{
-		if (Enum.TryParse<SceneType>(scene.name.ToString(), out var sceneType) == false)
-			return;
-
-		UIManager.Instance.OpenMainCanvas(sceneType);
+		currentSceneModule = FindAnyObjectByType<SceneModuleBase>();
 	}
 
 	private IEnumerator LoadSceneProcess(SceneType type, Func<bool> barrierFunc, Action<float> onProgress)
 	{
+		if (currentSceneModule != null)
+		{
+			yield return currentSceneModule.OnPrepareExit();
+			currentSceneModule.OnExit();
+		}
+
 		UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnLoadSceneCompleted;
 
 		UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("게임 로딩 중"));
 
-		var loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Loading");
+		var loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(SceneType.Loading.ToString());
 		while (loadProcess.isDone == false)
 		{
 			yield return null;
@@ -61,7 +70,7 @@ public class SceneManager : Singleton<SceneManager>
 
 		UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnLoadSceneCompleted;
 
-		loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Game");
+		loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(type.ToString());
 		loadProcess.allowSceneActivation = false;
 
 		float currentLoadTime = 0.0f;
@@ -81,19 +90,37 @@ public class SceneManager : Singleton<SceneManager>
 			}
 		}
 
-		loadProcess.allowSceneActivation = true;
-
-		while (!loadProcess.isDone || barrierFunc != null && barrierFunc() == false)
+		// 씬 로드 요청자의 방어 조건
+		while (barrierFunc != null && barrierFunc() == false)
 		{
 			currentLoadTime += Time.deltaTime;
 			yield return null;
 		}
 
-		// 최소 로드 시간을 채움
+		// 최소 로드 시간
 		while (currentLoadTime < minLoadTime)
 		{
 			currentLoadTime += Time.deltaTime;
 			yield return null;
+		}
+
+		// 실제 로드 대기
+		loadProcess.allowSceneActivation = true;
+		while (loadProcess.isDone == false)
+		{
+			yield return null;
+		}
+
+		// 로드 이후 준비 작업
+		while (currentSceneModule == null)
+		{
+			yield return null;
+		}
+
+		if (currentSceneModule != null)
+		{
+			yield return currentSceneModule.OnPrepareEnter();
+			currentSceneModule.OnEnter();
 		}
 
 		UIManager.Instance.Close(PopupType.Wait);

@@ -71,7 +71,7 @@ public class UIManager : Singleton<UIManager>
 		popupCanvas.Close();
 	}
 
-	public void OpenMainCanvas(SceneType sceneType)
+	public void OpenMainCanvas()
 	{
 		boardGameMainCanvas = FindAnyObjectByType<BoardGameCanvasBase>();
 

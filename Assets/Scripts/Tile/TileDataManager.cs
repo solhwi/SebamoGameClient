@@ -113,11 +113,18 @@ public class TileDataManager : Singleton<TileDataManager>
 
 	private Dictionary<int, FieldItem> fieldItemDictionary = new Dictionary<int, FieldItem>();
 
-	protected override void OnAwakeInstance()
+	public IEnumerator PrepareBoardData()
 	{
-		base.OnAwakeInstance();
+		List<WorldTileData> tileBoardDataList = new List<WorldTileData>();
 
-		tileBoardDatas = MakeBoardData().ToArray();
+		foreach (var d in MakeBoardData())
+		{
+			yield return null;
+
+			tileBoardDataList.Add(d);
+		}
+
+		tileBoardDatas = tileBoardDataList.ToArray();
 	}
 
 	public void SetSelectTiles(IEnumerable<int> tileOrders)

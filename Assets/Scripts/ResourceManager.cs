@@ -39,6 +39,7 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 			if (instance != null && instance != this)
 			{
 				Destroy(gameObject);
+				return;
 			}
 			else
 			{
@@ -75,7 +76,7 @@ public class ResourceManager : Singleton<ResourceManager>
 	}
 #endif
 
-	private void Start()
+	public IEnumerator PreloadFieldItemObject()
 	{
 		for (int i = 0; i < 10; i++)
 		{
@@ -94,6 +95,8 @@ public class ResourceManager : Singleton<ResourceManager>
 			}
 
 			objectPool[RecyclingType.fieldItem].Push(obj);
+
+			yield return null;
 		}
 	}
 

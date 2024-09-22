@@ -107,7 +107,6 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		}
 	}
 
-	[SerializeField] private bool isOfflineMode = false;
 	[SerializeField] private bool isDiceDebugMode = false;
 
 	[SerializeField] private Inventory inventory;
@@ -175,26 +174,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		subscribers.Remove(subscriber);
 	}
 
-	private IEnumerator Start()
-	{
-		myPlayerCharacter.gameObject.SetActive(false);
-
-		if (isOfflineMode)
-		{
-			HttpNetworkManager.Instance.IsConnected = true;
-		}
-
-		// 타일 위 아이템 이미지 배치
-		yield return TileDataManager.Instance.PrepareTile();
-
-		// 캐릭터 준비
-		yield return PrepareCharacter();
-
-		// 보드 게임 시작
-		yield return ProcessBoardGame();
-	}
-
-	private IEnumerator PrepareCharacter()
+	public IEnumerator PrepareCharacter()
 	{
 		playerCharacterDictionary.Clear();
 
@@ -283,7 +263,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	}
 
 
-	private IEnumerator ProcessBoardGame()
+	public IEnumerator ProcessBoardGame()
 	{
 		while (true)
 		{
@@ -572,7 +552,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 		TileDataManager.Instance.ClearSelectTile();
 
-		UIManager.Instance.OpenMainCanvas(SceneType.Game);
+		UIManager.Instance.OpenMainCanvas();
 		UIManager.Instance.Close(PopupType.BatchMode);
 
 		if (isReplaced == false)
