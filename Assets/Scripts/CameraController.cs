@@ -24,9 +24,9 @@ public class CameraController : Singleton<
 	private bool isFollowingTarget;
 	private bool isZooming = false;
 
-	protected override void Awake()
+	protected override void OnAwakeInstance()
 	{
-		base.Awake();
+		base.OnAwakeInstance();
 
 		transposer = virtualCamera.GetCinemachineComponent<CinemachineTransposer>();
 		initialFOV = virtualCamera.m_Lens.Orthographic ? virtualCamera.m_Lens.OrthographicSize : virtualCamera.m_Lens.FieldOfView;

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BoardGameCanvas : MonoBehaviour, IBoardGameSubscriber, IBeginDragHandler, IDragHandler
+public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBeginDragHandler, IDragHandler
 {
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Inventory inventory;
@@ -14,7 +14,7 @@ public class BoardGameCanvas : MonoBehaviour, IBoardGameSubscriber, IBeginDragHa
 
 	[SerializeField] private List<PopupType> cameraResetPopupTypes = new List<PopupType>();
 
-	private void Start()
+	protected override void OnOpen()
 	{
 		if (BoardGameManager.Instance != null)
 		{
@@ -22,7 +22,7 @@ public class BoardGameCanvas : MonoBehaviour, IBoardGameSubscriber, IBeginDragHa
 		}
 	}
 
-	private void OnDestroy()
+	protected override void OnClose()
 	{
 		if (BoardGameManager.Instance != null)
 		{

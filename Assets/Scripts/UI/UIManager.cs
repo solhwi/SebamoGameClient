@@ -16,29 +16,42 @@ public enum PopupType
 
 public class UIManager : Singleton<UIManager>
 {
-	[SerializeField] private Canvas backgroundCanvas;
-
-	[SerializeField] private LoginCanvas loginCanvas;
-	[SerializeField] private BoardGameCanvas boardGameCanvas;
-	[SerializeField] private Canvas popupRootCanvas;
-
-	public override bool IsDestroyOnLoad => false;
-
 	[System.Serializable]
-	public class PopupDictionary : SerializableDictionary<PopupType, BoardGamePopup> { }
-	[SerializeField] private PopupDictionary popupDictionary = new PopupDictionary();
+	public class PopupPathDictionary : SerializableDictionary<PopupType, string> { }
+	[SerializeField] private PopupPathDictionary popupPathDictionary = new PopupPathDictionary();
 
+	private Dictionary<PopupType, BoardGamePopup> popupDictionary = new Dictionary<PopupType, BoardGamePopup>();
 	private Stack<BoardGamePopup> popupStack = new Stack<BoardGamePopup>();
 
-	protected override void Awake()
-	{
-		base.Awake();
+	private BoardGameCanvasBase boardGameMainCanvas;
+	private Canvas popupRootCanvas;
 
+	protected override void OnAwakeInstance()
+	{
+		base.OnAwakeInstance();
+
+		popupRootCanvas = GetComponentInChildren<Canvas>();
 	}
 
 	public void TryOpen(PopupType popupType, UIParameter parameter = null)
 	{
-		if (popupDictionary.TryGetValue(popupType, out var newPopup))
+		if (popupDictionary.TryGetValue(popupType, out var newPopup) == false)
+		{
+			if (popupPathDictionary.TryGetValue(popupType, out string path))
+			{
+				newPopup = ResourceManager.Instance.Instantiate<BoardGamePopup>(path, popupRootCanvas.transform);
+			}
+
+			if (newPopup != null)
+			{
+				newPopup.Open(popupRootCanvas, popupStack.Count);
+				newPopup.OnOpen(parameter);
+				popupStack.Push(newPopup);
+
+				popupDictionary[popupType] = newPopup;
+			}
+		}
+		else
 		{
 			if (newPopup != null && newPopup.IsOpen == false)
 			{
@@ -58,44 +71,22 @@ public class UIManager : Singleton<UIManager>
 		popupCanvas.Close();
 	}
 
-	private void SetActiveBackgroundCanvas(bool isActive)
-	{
-		backgroundCanvas.gameObject.SetActive(isActive);
-		backgroundCanvas.worldCamera = isActive ? Camera.main : null;
-	}
-
 	public void OpenMainCanvas(SceneType sceneType)
 	{
-		if (sceneType == SceneType.Login)
-		{
-			loginCanvas.gameObject.SetActive(true);
-			boardGameCanvas.gameObject.SetActive(false);
-		}
-		else if(sceneType == SceneType.Game)
-		{
-			loginCanvas.gameObject.SetActive(false);
-			boardGameCanvas.gameObject.SetActive(true);
-		}
+		boardGameMainCanvas = FindAnyObjectByType<BoardGameCanvasBase>();
 
-		SetActiveBackgroundCanvas(sceneType == SceneType.Game);
+		if (boardGameMainCanvas != null)
+		{
+			boardGameMainCanvas.gameObject.SetActive(true);
+		}
 	}
 
 	public void CloseMainCanvas()
 	{
-		loginCanvas.gameObject.SetActive(false);
-		boardGameCanvas.gameObject.SetActive(false);
-
-		SetActiveBackgroundCanvas(false);
-	}
-
-	public bool IsOpenMainCanvas()
-	{
-		return boardGameCanvas.gameObject.activeSelf;
-	}
-
-	public bool IsOpenBackgroundCanvas()
-	{
-		return backgroundCanvas.gameObject.activeSelf;
+		if (boardGameMainCanvas != null)
+		{
+			boardGameMainCanvas.gameObject.SetActive(false);
+		}
 	}
 
 	public void CloseAll(PopupType popupType)

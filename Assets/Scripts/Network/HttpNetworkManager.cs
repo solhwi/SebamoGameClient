@@ -27,10 +27,8 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	[SerializeField] private float updateFrequency = 60.0f;
 
 	[SerializeField] private bool isOnNetworkMode = false;
+	[HideInInspector] public bool IsConnected = false;
 
-	public override bool IsDestroyOnLoad => false;
-
-	public bool IsConnected;
 	private float t = 0.0f;
 
 	private Coroutine connectCoroutine = null;

@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoginCanvas : MonoBehaviour
+public class LoginCanvas : BoardGameCanvasBase
 {
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private AuthDataTable authDataTable;
@@ -28,7 +28,7 @@ public class LoginCanvas : MonoBehaviour
 	private AuthData currentAuthData = null;
 
 
-	private void Awake()
+	protected override void OnOpen()
 	{
 		groupPopupObj.SetActive(false);
 		currentNameText.gameObject.SetActive(false);
@@ -45,7 +45,7 @@ public class LoginCanvas : MonoBehaviour
 		groupScrollContent.onGetItemCount += OnGetItemCount;
 	}
 
-	private void OnDestroy()
+	protected override void OnClose()
 	{
 		groupScrollContent.onUpdateContents -= OnUpdateContents;
 		groupScrollContent.onGetItemCount -= OnGetItemCount;

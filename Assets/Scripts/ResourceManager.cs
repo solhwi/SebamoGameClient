@@ -10,6 +10,8 @@ using UnityEditor;
 
 public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
+	[SerializeField] protected bool IsDontDestroyOnLoad = false;
+
 	public static T Instance
 	{
 		get
@@ -24,16 +26,15 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 	}
 
 	private static T instance;
-	public virtual bool IsDestroyOnLoad => true;
 
-	protected virtual void Awake()
+	private void Awake()
 	{
 		if (instance == null)
 		{
 			instance = this as T;
 		}
 
-		if (IsDestroyOnLoad == false)
+		if (IsDontDestroyOnLoad)
 		{
 			if (instance != null && instance != this)
 			{
@@ -44,6 +45,13 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 				DontDestroyOnLoad(gameObject);
 			}
 		}
+
+		OnAwakeInstance();
+	}
+
+	protected virtual void OnAwakeInstance()
+	{
+
 	}
 }
 
@@ -57,8 +65,6 @@ public class ResourceManager : Singleton<ResourceManager>
 	};
 	
 	private Dictionary<string, Object> cachedObjectDictionary = new Dictionary<string, Object>();
-
-	public override bool IsDestroyOnLoad => false;
 
 #if UNITY_EDITOR
 	[MenuItem("WebGL/Enable Embedded Resources")]
@@ -193,5 +199,17 @@ public class ResourceManager : Singleton<ResourceManager>
 	{
 		// 이 언로드는 리소스가 더이상 사용되지 않을 때를 체크하여 사용하도록 한다.
 		Resources.UnloadAsset(obj);
+	}
+
+	public T Instantiate<T>(string path, Transform parent = null) where T : Object
+	{
+		var prefab = Load<T>(path);
+		if (prefab != null)
+		{
+			return Instantiate(prefab, parent);
+		}
+
+		Debug.LogError($"다음 경로는 정상적이지 않습니다. {path}");
+		return null;
 	}
 }

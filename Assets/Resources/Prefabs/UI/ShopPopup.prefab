@@ -571,6 +571,9 @@ MonoBehaviour:
   isFixedRotation: 1
   isOrthoSize: 0
   FOV: 4.5
+  height: 512
+  width: 512
+  depth: 32
   startStateName: Thankful
 --- !u!1 &2233708043810653688
 GameObject:
@@ -722,17 +725,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1080, y: 1920}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1287162789821903444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -764,6 +767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupType: 0
   canvas: {fileID: 7637825223483721277}
+  canvasScaler: {fileID: 5359207363855157688}
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
   scrollContent: {fileID: 245556934196482391}

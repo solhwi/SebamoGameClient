@@ -130,9 +130,9 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	private StateData currentStateData = null;
 	private ReplaceFieldItem currentReplaceFieldItem = null;
 
-	protected override void Awake()
+	protected override void OnAwakeInstance()
 	{
-		base.Awake();
+		base.OnAwakeInstance();
 
 		stateFuncMap = new Dictionary<GameState, Func<IEnumerator>>()
 		{

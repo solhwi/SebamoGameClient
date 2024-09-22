@@ -113,9 +113,9 @@ public class TileDataManager : Singleton<TileDataManager>
 
 	private Dictionary<int, FieldItem> fieldItemDictionary = new Dictionary<int, FieldItem>();
 
-	protected override void Awake()
+	protected override void OnAwakeInstance()
 	{
-		base.Awake();
+		base.OnAwakeInstance();
 
 		tileBoardDatas = MakeBoardData().ToArray();
 	}

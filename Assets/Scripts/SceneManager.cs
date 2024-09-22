@@ -16,13 +16,11 @@ public class SceneManager : Singleton<SceneManager>
 {
 	[SerializeField] private float minLoadTime = 1.0f;
 
-	public override bool IsDestroyOnLoad => false;
-
 	private Coroutine loadCoroutine = null;
 
-	protected override void Awake()
+	protected override void OnAwakeInstance()
 	{
-		base.Awake();
+		base.OnAwakeInstance();
 
 		var currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
 		OnLoadSceneCompleted(currentScene, LoadSceneMode.Single);
