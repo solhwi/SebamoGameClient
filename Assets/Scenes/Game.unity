@@ -7181,8 +7181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a301d22a5f95804b9337a22b632b1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  canvasScaler: {fileID: 0}
+  canvas: {fileID: 4977116580292514995}
+  canvasScaler: {fileID: 4871495465518758757}
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   profileSetter: {fileID: 4031270868934608430}
