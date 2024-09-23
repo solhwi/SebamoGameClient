@@ -71,9 +71,12 @@ public class UIManager : Singleton<UIManager>
 		popupCanvas.Close();
 	}
 
-	public void OpenMainCanvas()
+	public void OpenMainCanvas(bool isFirstOpen = false)
 	{
-		boardGameMainCanvas = FindAnyObjectByType<BoardGameCanvasBase>();
+		if (isFirstOpen)
+		{
+			boardGameMainCanvas = FindAnyObjectByType<BoardGameCanvasBase>(FindObjectsInactive.Include);
+		}
 
 		if (boardGameMainCanvas != null)
 		{

@@ -27,7 +27,7 @@ public class SceneModuleBase : MonoBehaviour
 
     public virtual void OnEnter()
     {
-		UIManager.Instance.OpenMainCanvas();
+		UIManager.Instance.OpenMainCanvas(true);
 	}
 
 	public virtual void OnExit()
