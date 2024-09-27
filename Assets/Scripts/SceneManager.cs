@@ -54,18 +54,11 @@ public class SceneManager : Singleton<SceneManager>
 		}
 
 		UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnLoadSceneCompleted;
+		UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnLoadSceneCompleted;
 
 		UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("게임 로딩 중"));
 
-		var loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(SceneType.Loading.ToString());
-		while (loadProcess.isDone == false)
-		{
-			yield return null;
-		}
-
-		UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnLoadSceneCompleted;
-
-		loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(type.ToString());
+		var loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(type.ToString());
 		loadProcess.allowSceneActivation = false;
 
 		float currentLoadTime = 0.0f;

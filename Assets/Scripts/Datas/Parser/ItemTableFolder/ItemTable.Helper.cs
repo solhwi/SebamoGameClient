@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,11 +21,8 @@ public static class ItemTableExtension
 
 	public static string GetAssetPathWithoutResources(this string path)
 	{
-		path = path.Replace("Assets/Resources/", "");
-		string noExtensionFileName = Path.GetFileNameWithoutExtension(path);
-		string fileName = Path.GetFileName(path);
-
-		return path.Replace(fileName, noExtensionFileName);
+		path = path.Replace("Assets/Bundles/", "");
+		return "Assets/Bundles/" + path;
 	}
 }
 
@@ -40,6 +38,24 @@ public partial class ItemTable
 		sortedShopItemList = shopItemDataList
 						.OrderByDescending(d => d.isRandom)
 						.ToList();
+	}
+
+	public IEnumerable<string> GetPreLoadTableDataPath()
+	{
+		foreach (var d in itemToolTipDataList)
+		{
+			yield return d.iconAssetPath.GetAssetPathWithoutResources();
+		}
+
+		foreach (var d in fieldItemDataList)
+		{
+			yield return d.fieldIconAssetPath.GetAssetPathWithoutResources();
+		}
+
+		foreach (var d in buffItemDataList)
+		{
+			yield return d.buffIconAssetPath.GetAssetPathWithoutResources();
+		}
 	}
 
 	public string GetItemNPCDescription(string itemCode)

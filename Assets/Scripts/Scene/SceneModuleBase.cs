@@ -32,6 +32,6 @@ public class SceneModuleBase : MonoBehaviour
 
 	public virtual void OnExit()
     {
-		UIManager.Instance.CloseMainCanvas();
+		UIManager.Instance.CloseMainCanvas(true);
 	}
 }

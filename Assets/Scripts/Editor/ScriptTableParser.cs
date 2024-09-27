@@ -16,7 +16,7 @@ public class ScriptableObjectHelper
 {
 	public static ScriptableObject GenerateSO(string assetPath, Type assetType)
 	{
-		string fullAssetPath = $"Assets/Resources/{assetPath}";
+		string fullAssetPath = $"Assets/Bundles/{assetPath}";
 		Directory.CreateDirectory(Path.GetDirectoryName(fullAssetPath));
 
 		var asset = AssetDatabase.LoadAssetAtPath(fullAssetPath, assetType) as ScriptableObject;

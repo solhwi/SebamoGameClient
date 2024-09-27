@@ -63,11 +63,6 @@ public class CharacterAnimationController : MonoBehaviour
 	private string playerGroup = string.Empty;
 	private string playerName = string.Empty;
 
-	private void Start()
-	{
-		DoIdle();
-	}
-
 	public void SetPlayerData(string playerGroup, string playerName)
 	{
 		this.playerGroup = playerGroup;

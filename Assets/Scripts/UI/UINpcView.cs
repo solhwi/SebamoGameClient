@@ -7,9 +7,9 @@ public class UINpcView : ObjectView
 	[SerializeField] private string startStateName = string.Empty;
 	private Animator objAnimator;
 
-	protected override void InitializeTarget()
+	protected override IEnumerator OnPrepareRendering()
 	{
-		base.InitializeTarget();
+		yield return base.OnPrepareRendering();
 
 		objAnimator = originObj.GetComponent<Animator>();
 		if (objAnimator != null)

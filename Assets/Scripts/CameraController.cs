@@ -7,7 +7,6 @@ public class CameraController : Singleton<CameraController>
 {
 	[SerializeField] private CinemachineVirtualCamera virtualCamera;
 
-	[SerializeField] private Transform targetTransform;
 	[SerializeField] private float cameraMoveSpeed = 0.5f;
 	[SerializeField] private float cameraZoomSpeed = 5f;
 	[SerializeField] private Vector2 dampingVec = new Vector2(0.1f, 0.1f);
@@ -29,14 +28,6 @@ public class CameraController : Singleton<CameraController>
 
 		transposer = virtualCamera.GetCinemachineComponent<CinemachineTransposer>();
 		initialFOV = virtualCamera.m_Lens.Orthographic ? virtualCamera.m_Lens.OrthographicSize : virtualCamera.m_Lens.FieldOfView;
-
-		ResetTarget();
-	}
-
-	private void Start()
-	{
-		SetDamping(dampingVec);
-		SetFollow(true);
 	}
 
 	private void LateUpdate()
@@ -62,7 +53,14 @@ public class CameraController : Singleton<CameraController>
 
 	public void ResetTarget()
 	{
-		currentTargetTransform = targetTransform;
+		var myCharacter = BoardGameManager.Instance.GetMyPlayerCharacter();
+		if (myCharacter != null)
+		{
+			currentTargetTransform = myCharacter.transform;
+		}
+
+		SetDamping(dampingVec);
+		SetFollow(true);
 	}
 
 	public void ChangeTarget(Transform targetTransform)

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class GameSceneModule : SceneModuleBase
 {
+	[SerializeField] private Canvas backgroundCanvas = null;
+
 	private Coroutine gameRoutine = null;
 
 	public override IEnumerator OnPrepareEnter()
 	{
 		yield return base.OnPrepareEnter();
 		yield return TileDataManager.Instance.PrepareBoardData();
-		yield return ResourceManager.Instance.PreloadFieldItemObject();
 		yield return TileDataManager.Instance.PrepareTile();
-		yield return BoardGameManager.Instance.PrepareCharacter();
+		yield return BoardGameManager.Instance.OnPrepareInstance();
 	}
 
 	public override void OnEnter()
@@ -24,6 +25,8 @@ public class GameSceneModule : SceneModuleBase
 			HttpNetworkManager.Instance.IsConnected = true;
 		}
 
+		CameraController.Instance.ResetTarget();
+		backgroundCanvas.worldCamera = Camera.main;
 		gameRoutine = StartCoroutine(ProcessGame());
 	}
 

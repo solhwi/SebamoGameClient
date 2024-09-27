@@ -20,12 +20,12 @@ public class BoardGameCanvasBase : MonoBehaviour
 		canvasScaler.referencePixelsPerUnit = 100;
 	}
 
-	private void Start()
+	public void OnEnter()
 	{
 		OnOpen();
 	}
 
-	private void OnDestroy()
+	public void OnExit()
 	{
 		OnClose();
 	}

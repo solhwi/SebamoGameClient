@@ -137,6 +137,9 @@ public class InventoryPopup : BoardGamePopup
 			myCharacter.gameObject.SetActive(false);
 		}
 
+		uiCharacterView.Initialize();
+		itemObjectView.Initialize();
+
 		currentItemCode = string.Empty;
 		sortingComparer = new ItemSortingComparer(itemTable);
 

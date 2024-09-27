@@ -18,9 +18,9 @@ public class UICharacterView : CharacterView, IBeginDragHandler, IEndDragHandler
 	private bool isDragging = false;
 	private float defaultFOV = 10.0f;
 
-	protected override void Awake()
+	public override void Initialize()
 	{
-		base.Awake();
+		base.Initialize();
 		defaultFOV = cam.fieldOfView;
 
 		SetPlayerData(playerDataContainer.playerGroup, playerDataContainer.playerName);

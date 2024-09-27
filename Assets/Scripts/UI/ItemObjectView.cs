@@ -10,9 +10,9 @@ public class ItemObjectView : ObjectView
 	private FieldItem currentFieldItem = null;
 
 	// 아이템은 기존 생성 로직을 타지 않음
-	protected override void InitializeTarget()
+	protected override IEnumerator OnPrepareRendering()
 	{
-		
+		yield return null;
 	}
 
 	public void UnsetItem()

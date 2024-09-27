@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public interface IBoardGameSubscriber
 {
@@ -114,8 +115,8 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	[SerializeField] private BuffItemFactory buffItemFactory;
 	[SerializeField] private FieldItemFactory fieldItemFactory;
 
-	[SerializeField] private MyCharacterComponent myPlayerCharacter;
-	[SerializeField] private CharacterComponent otherPlayerCharacterPrefab;
+	[SerializeField] private AssetReferenceGameObject myPlayerCharacterPrefab;
+	[SerializeField] private AssetReferenceGameObject otherPlayerCharacterPrefab;
 
 	private Dictionary<(string, string), CharacterComponent> playerCharacterDictionary = new Dictionary<(string, string), CharacterComponent>();
 
@@ -174,27 +175,37 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		subscribers.Remove(subscriber);
 	}
 
-	public IEnumerator PrepareCharacter()
+	public override IEnumerator OnPrepareInstance()
+	{
+		yield return PrepareCharacter();
+	}
+
+	private IEnumerator PrepareCharacter()
 	{
 		playerCharacterDictionary.Clear();
 
-		var myPlayerData = playerDataContainer.GetMyPlayerData();
-		if (myPlayerData == null)
-			yield break;
+		yield return ResourceManager.Instance.InstantiateAsync<CharacterComponent>(myPlayerCharacterPrefab, transform, (p) =>
+		{
+			if (p == null)
+				return;
 
-		// 플레이어 본인 캐릭터 타일 위로 배치
-		int myTileOrder = playerDataContainer.currentTileOrder;
-		Vector2 playerPos = TileDataManager.Instance.GetPlayerPosByOrder(myTileOrder);
+			var myPlayerData = playerDataContainer.GetMyPlayerData();
+			if (myPlayerData == null)
+				return;
 
-		myPlayerCharacter.SetPlayerData(myPlayerData.playerGroup, myPlayerData.playerName);
-		myPlayerCharacter.SetPosition(playerPos);
-		myPlayerCharacter.gameObject.SetActive(true);
+			// 플레이어 본인 캐릭터 타일 위로 배치
+			int myTileOrder = playerDataContainer.currentTileOrder;
+			Vector2 playerPos = TileDataManager.Instance.GetPlayerPosByOrder(myTileOrder);
+
+			p.SetPlayerData(myPlayerData.playerGroup, myPlayerData.playerName);
+			p.SetPosition(playerPos);
+			p.gameObject.SetActive(true);
 
 #if UNITY_EDITOR
-		myPlayerCharacter.gameObject.name = $"MyPlayer ({playerDataContainer.playerName})";
+			p.gameObject.name = $"MyPlayer ({playerDataContainer.playerName})";
 #endif
-
-		playerCharacterDictionary.Add((myPlayerData.playerGroup, myPlayerData.playerName), myPlayerCharacter);
+			playerCharacterDictionary.Add((myPlayerData.playerGroup, myPlayerData.playerName), p);
+		});
 
 		// 타 유저 캐릭터 타일 위로 배치
 		if (playerDataContainer.otherPlayerPacketDatas == null)
@@ -202,24 +213,22 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 		foreach (var otherPlayerData in playerDataContainer.otherPlayerPacketDatas)
 		{
-			yield return null;
+			yield return ResourceManager.Instance.InstantiateAsync<CharacterComponent>(otherPlayerCharacterPrefab, transform, (p) =>
+			{
+				if (p == null)
+					return;
 
-			var otherPlayerCharacter = Instantiate(otherPlayerCharacterPrefab);
-			if (otherPlayerCharacter == null)
-				continue;
+				int tileOrder = otherPlayerData.playerTileOrder;
+				Vector2 playerPos = TileDataManager.Instance.GetPlayerPosByOrder(tileOrder);
 
-			int tileOrder = otherPlayerData.playerTileOrder;
-			playerPos = TileDataManager.Instance.GetPlayerPosByOrder(tileOrder);
-
-			otherPlayerCharacter.SetPlayerData(otherPlayerData.playerGroup, otherPlayerData.playerName);
-			otherPlayerCharacter.SetPosition(playerPos);
-			otherPlayerCharacter.gameObject.SetActive(true);
-
+				p.SetPlayerData(otherPlayerData.playerGroup, otherPlayerData.playerName);
+				p.SetPosition(playerPos);
+				p.gameObject.SetActive(true);
 #if UNITY_EDITOR
-			otherPlayerCharacter.gameObject.name = $"Player ({otherPlayerData.playerName})" ;
+				p.gameObject.name = $"Player ({otherPlayerData.playerName})";
 #endif
-
-			playerCharacterDictionary.Add((otherPlayerData.playerGroup, otherPlayerData.playerName), otherPlayerCharacter);
+				playerCharacterDictionary.Add((otherPlayerData.playerGroup, otherPlayerData.playerName), p);
+			});
 		}
 	}
 
@@ -262,9 +271,13 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		return currentGameState == GameState.GetItem;
 	}
 
-
 	public IEnumerator ProcessBoardGame()
 	{
+		foreach (var playerCharacter in playerCharacterDictionary.Values)
+		{
+			playerCharacter.gameObject.SetActive(true);
+		}
+
 		while (true)
 		{
 			if (HttpNetworkManager.Instance.IsConnected)
@@ -521,12 +534,14 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	public CharacterComponent GetPlayerCharacter(string group, string name)
 	{
-		if (playerCharacterDictionary.TryGetValue((group, name), out var character))
-		{
-			return character;
-		}
+		var data = playerDataContainer.GetPlayerData(group, name);
+		if (data == null)
+			return null;
 
-		return null;
+		if (playerCharacterDictionary.TryGetValue((data.playerGroup, data.playerName), out var character) == false)
+			return null;
+
+		return character;
 	}
 
 	private IEnumerable<int> GetReplaceableTileOrders(ReplaceFieldItem replaceItem, int min, int max)

@@ -14,9 +14,9 @@ public class CharacterView : ObjectView
 	private bool currentFlipX;
 	private bool currentFlipY;
 
-	protected override void Awake()
+	public override void Initialize()
 	{
-		base.Awake();
+		base.Initialize();
 
 		if (spriteView != null)
 		{
@@ -31,9 +31,9 @@ public class CharacterView : ObjectView
 		Replay();
 	}
 
-	protected override void Start()
+	protected override IEnumerator OnPrepareRendering()
 	{
-		base.Start();
+		yield return base.OnPrepareRendering();
 
 		characterDataSetter = originObj.GetComponent<CharacterDataSetter>();
 		if (characterDataSetter != null)

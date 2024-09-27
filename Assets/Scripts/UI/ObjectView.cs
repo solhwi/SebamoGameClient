@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
 public class ObjectView : MonoBehaviour
 {
-	[SerializeField] private GameObject originPrefab = null;
+	[SerializeField] private AssetReferenceGameObject originPrefab = null;
 
 	[SerializeField] protected Vector3 spawnLocalPos = new Vector3(0, -0.5f, 0);
 	[SerializeField] protected Vector3 spawnLocalRot = new Vector3(0, 180, 0);
@@ -35,8 +36,14 @@ public class ObjectView : MonoBehaviour
 	private Texture2D texture = null;
 	private Rect rect;
 
-	protected virtual void Awake()
+	private bool isInitialized = false;
+
+
+	public virtual void Initialize()
 	{
+		if (isInitialized)
+			return;
+
 		spriteView = GetComponent<SpriteRenderer>();
 		textureView = GetComponent<RawImage>();
 		meshView = GetComponent<MeshRenderer2D>();
@@ -45,37 +52,47 @@ public class ObjectView : MonoBehaviour
 		cameraArm = cam.transform.GetChild(0);
 
 		initialCameraArmRot = cameraArm.transform.localEulerAngles;
-	}
 
-	protected virtual void Start()
-	{
 		renderTexture = new RenderTexture(width, height, depth);
 		rect = new Rect(0, 0, width, height);
 		texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
 
 		cam.targetTexture = renderTexture;
 
-		InitializeTarget();
+		gameObject.SetActive(true);
+		isInitialized = true;
+
+		StartCoroutine(OnPrepareRendering());
 	}
 
 	protected virtual void OnEnable()
 	{
+		if (originObj == null)
+			return;
+
 		cam.gameObject.SetActive(true);
 	}
 
 	protected virtual void OnDisable()
 	{
+		if (originObj == null)
+			return;
+
 		if (cam != null)
 		{
 			cam.gameObject.SetActive(false);
 		}
 	}
 
-	protected virtual void InitializeTarget()
+	protected virtual IEnumerator OnPrepareRendering()
 	{
-		originObj = Instantiate(originPrefab, cameraArm);
-		originObj.transform.localPosition = spawnLocalPos;
-		originObj.transform.localEulerAngles = spawnLocalRot;
+		yield return ResourceManager.Instance.InstantiateAsync<GameObject>(originPrefab, cameraArm, (obj) =>
+		{
+			originObj = obj;
+
+			originObj.transform.localPosition = spawnLocalPos;
+			originObj.transform.localEulerAngles = spawnLocalRot;
+		});
 	}
 
 	protected virtual void Update()
@@ -107,11 +124,20 @@ public class ObjectView : MonoBehaviour
 
 	protected virtual void OnBecameVisible()
 	{
-		cam.gameObject.SetActive(true);
+		if (originObj == null)
+			return;
+
+		if (cam != null)
+		{
+			cam.gameObject.SetActive(true);
+		}
 	}
 
 	protected virtual void OnBecameInvisible()
 	{
+		if (originObj == null)
+			return;
+
 		if (cam != null)
 		{
 			cam.gameObject.SetActive(false);

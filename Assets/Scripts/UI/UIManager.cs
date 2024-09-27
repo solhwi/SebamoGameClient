@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public enum PopupType
 {
@@ -17,11 +18,11 @@ public enum PopupType
 public class UIManager : Singleton<UIManager>
 {
 	[System.Serializable]
-	public class PopupPathDictionary : SerializableDictionary<PopupType, string> { }
-	[SerializeField] private PopupPathDictionary popupPathDictionary = new PopupPathDictionary();
+	public class PopupRefDictionary : SerializableDictionary<PopupType, AssetReferenceGameObject> { }
+	[SerializeField] private PopupRefDictionary popupRefDictionary = new PopupRefDictionary();
 
 	private Dictionary<PopupType, BoardGamePopup> popupDictionary = new Dictionary<PopupType, BoardGamePopup>();
-	private Stack<BoardGamePopup> popupStack = new Stack<BoardGamePopup>();
+	private readonly Stack<BoardGamePopup> popupStack = new Stack<BoardGamePopup>();
 
 	private BoardGameCanvasBase boardGameMainCanvas;
 	private Canvas popupRootCanvas;
@@ -33,22 +34,41 @@ public class UIManager : Singleton<UIManager>
 		popupRootCanvas = GetComponentInChildren<Canvas>();
 	}
 
+	public override IEnumerator OnPrepareInstance()
+	{
+		foreach (var p in popupRefDictionary)
+		{
+			var popupType = p.Key;
+			var referenceObj = p.Value;
+
+			yield return ResourceManager.Instance.TryInstantiateAsync<BoardGamePopup>(referenceObj, transform, (newPopup) =>
+			{
+				if (newPopup != null)
+				{
+					newPopup.gameObject.SetActive(false);
+					popupDictionary[popupType] = newPopup;
+				}
+			});
+		}
+	}
+
 	public void TryOpen(PopupType popupType, UIParameter parameter = null)
 	{
 		if (popupDictionary.TryGetValue(popupType, out var newPopup) == false)
 		{
-			if (popupPathDictionary.TryGetValue(popupType, out string path))
+			if (popupRefDictionary.TryGetValue(popupType, out var popupPrefabRef))
 			{
-				newPopup = ResourceManager.Instance.Instantiate<BoardGamePopup>(path, popupRootCanvas.transform);
-			}
+				ResourceManager.Instance.TryInstantiateAsync<BoardGamePopup>(popupPrefabRef, popupRootCanvas.transform, (newPopup) =>
+				{
+					if (newPopup != null)
+					{
+						newPopup.Open(popupRootCanvas, popupStack.Count);
+						newPopup.OnOpen(parameter);
+						popupStack.Push(newPopup);
 
-			if (newPopup != null)
-			{
-				newPopup.Open(popupRootCanvas, popupStack.Count);
-				newPopup.OnOpen(parameter);
-				popupStack.Push(newPopup);
-
-				popupDictionary[popupType] = newPopup;
+						popupDictionary[popupType] = newPopup;
+					}
+				});
 			}
 		}
 		else
@@ -76,6 +96,7 @@ public class UIManager : Singleton<UIManager>
 		if (isFirstOpen)
 		{
 			boardGameMainCanvas = FindAnyObjectByType<BoardGameCanvasBase>(FindObjectsInactive.Include);
+			boardGameMainCanvas.OnEnter();
 		}
 
 		if (boardGameMainCanvas != null)
@@ -84,8 +105,13 @@ public class UIManager : Singleton<UIManager>
 		}
 	}
 
-	public void CloseMainCanvas()
+	public void CloseMainCanvas(bool isLastClose = false)
 	{
+		if (isLastClose)
+		{
+			boardGameMainCanvas.OnExit();
+		}
+
 		if (boardGameMainCanvas != null)
 		{
 			boardGameMainCanvas.gameObject.SetActive(false);

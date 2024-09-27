@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using System.IO;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -54,18 +57,24 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 	{
 
 	}
+
+	public virtual IEnumerator OnPrepareInstance()
+	{
+		yield return null;
+	}
 }
 
 public class ResourceManager : Singleton<ResourceManager>
 {
-	[SerializeField] private RecyclingObject fieldItemPrefab;
+	[SerializeField] private ItemTable itemTable;
+	[SerializeField] private AssetReferenceGameObject fieldItemPrefabRef;
 
 	private Dictionary<RecyclingType, Stack<RecyclingObject>> objectPool = new Dictionary<RecyclingType, Stack<RecyclingObject>>()
 	{
 		{ RecyclingType.fieldItem, new Stack<RecyclingObject>() },
 	};
 	
-	private Dictionary<string, Object> cachedObjectDictionary = new Dictionary<string, Object>();
+	private Dictionary<string, UnityEngine.Object> cachedObjectDictionary = new Dictionary<string, UnityEngine.Object>();
 
 #if UNITY_EDITOR
 	[MenuItem("WebGL/Enable Embedded Resources")]
@@ -76,27 +85,48 @@ public class ResourceManager : Singleton<ResourceManager>
 	}
 #endif
 
-	public IEnumerator PreloadFieldItemObject()
+	public override IEnumerator OnPrepareInstance()
+	{
+		yield return PreLoadItemData();
+		yield return PreLoadFieldItemObject();
+	}
+
+	private IEnumerator PreLoadFieldItemObject()
 	{
 		for (int i = 0; i < 10; i++)
 		{
-			var obj = Instantiate(fieldItemPrefab, transform);
-
-#if UNITY_EDITOR
-			obj.name = $"fieldItemPrefab ({i}) - Cached";
-#endif
-			obj.transform.position = new Vector3(-1000, -1000, 0);
-			obj.gameObject.SetActive(false);
-
-			var renderer = obj.GetComponentInChildren<Renderer>();
-			if (renderer != null)
+			yield return PreInstantiateAsync<RecyclingObject>(fieldItemPrefabRef, transform, (obj) =>
 			{
-				renderer.sortingOrder = (int)LayerConfig.Item;
+#if UNITY_EDITOR
+				obj.name = $"fieldItemPrefab ({i}) - Cached";
+#endif
+				obj.transform.position = new Vector3(-1000, -1000, 0);
+				obj.gameObject.SetActive(false);
+
+				var renderer = obj.GetComponentInChildren<Renderer>();
+				if (renderer != null)
+				{
+					renderer.sortingOrder = (int)LayerConfig.Item;
+				}
+
+				objectPool[RecyclingType.fieldItem].Push(obj);
+			});
+		}
+	}
+
+	private IEnumerator PreLoadItemData()
+	{
+		foreach (string path in itemTable.GetPreLoadTableDataPath())
+		{
+			string extension = Path.GetExtension(path);
+			if (extension == ".png" || extension == ".jpg" || extension == ".jpeg")
+			{
+				yield return PreLoadAsync<Sprite>(path);
 			}
-
-			objectPool[RecyclingType.fieldItem].Push(obj);
-
-			yield return null;
+			else
+			{
+				yield return PreLoadAsync<Object>(path);
+			}
 		}
 	}
 
@@ -119,15 +149,12 @@ public class ResourceManager : Singleton<ResourceManager>
 		RecyclingObject obj = null;
 		if (objectPool[RecyclingType.fieldItem].TryPop(out obj) == false)
 		{
-			obj = Instantiate(fieldItemPrefab, transform);
-
-#if UNITY_EDITOR
-			obj.name = $"fieldItemPrefab ({objectPool[RecyclingType.fieldItem].Count}) - Cached";
-#endif
+			Debug.LogError($"{RecyclingType.fieldItem}에 풀링이 더욱 필요합니다.");
+			return null;
 		}
 
 		string path = rawData.GetAssetPathWithoutResources();
-		Object res = Load<Sprite>(path);
+		UnityEngine.Object res = Load<Sprite>(path);
 		if (res == null)
 		{
 			res = Load<RuntimeAnimatorController>(path);
@@ -187,32 +214,100 @@ public class ResourceManager : Singleton<ResourceManager>
 		}
 	}
 
-	public T Load<T>(string path) where T : Object
+	public T Load<T>(string path) where T : UnityEngine.Object
 	{
 		if (cachedObjectDictionary.ContainsKey(path) == false)
 		{
-			var o = Resources.Load<T>(path);
-			cachedObjectDictionary[path] = o;
+			// Debug.LogError($"{path}에 프리로드가 필요합니다.");
+			return null;
 		}
 
 		return cachedObjectDictionary[path] as T;
 	}
 
-	public void Unload<T>(T obj) where T : Object
+	public IEnumerator PreInstantiateAsync<T>(AssetReference reference, Transform parent, System.Action<T> onCompleted) where T : UnityEngine.Object
 	{
-		// 이 언로드는 리소스가 더이상 사용되지 않을 때를 체크하여 사용하도록 한다.
-		Resources.UnloadAsset(obj);
+		string path = reference.AssetGUID;
+		yield return PreInstantiateAsync(path, parent, onCompleted);
 	}
 
-	public T Instantiate<T>(string path, Transform parent = null) where T : Object
+	public IEnumerator PreInstantiateAsync<T>(string path, Transform parent, System.Action<T> onCompleted) where T : UnityEngine.Object
 	{
-		var prefab = Load<T>(path);
-		if (prefab != null)
+		yield return InstantiateAsync<T>(path, parent, (r) =>
 		{
-			return Instantiate(prefab, parent);
+			cachedObjectDictionary[path] = r;
+			onCompleted?.Invoke(r);
+		});
+	}
+
+	public IEnumerator PreLoadAsync<T>(string path) where T : UnityEngine.Object
+	{
+		yield return LoadAsync<T>(path, (r) =>
+		{
+			cachedObjectDictionary[path] = r;
+		});
+	}
+
+	public IEnumerator InstantiateAsync<T>(AssetReference reference, Transform parent, System.Action<T> onCompleted) where T : UnityEngine.Object
+	{
+		yield return InstantiateAsync<T>(reference.AssetGUID, parent, onCompleted);
+	}
+
+
+	public IEnumerator InstantiateAsync<T>(string path, Transform parent, System.Action<T> onCompleted) where T : UnityEngine.Object
+	{
+		var asyncOperation = Addressables.InstantiateAsync(path, parent);
+
+		while (asyncOperation.IsDone == false)
+		{
+			yield return null;
 		}
 
-		Debug.LogError($"다음 경로는 정상적이지 않습니다. {path}");
-		return null;
+		var g = asyncOperation.Result;
+		if (g == null)
+			yield break;
+
+		if (typeof(T) == typeof(UnityEngine.GameObject))
+		{
+			onCompleted?.Invoke(g as T);
+		}
+		else
+		{
+			var result = g.GetComponent<T>();
+			if (result == null)
+				yield break;
+
+			onCompleted?.Invoke(result);
+		}
+	}
+
+
+	private IEnumerator LoadAsync<T>(string path, System.Action<T> onCompleted) where T : UnityEngine.Object
+	{
+		if (cachedObjectDictionary.ContainsKey(path))
+			yield break;
+
+		var asyncOperation = Addressables.LoadAssetAsync<T>(path);
+		
+		while (asyncOperation.IsDone == false)
+		{
+			yield return null;
+		}
+
+		var result = asyncOperation.Result;
+		if (result == null)
+			yield break;
+
+		onCompleted?.Invoke(result);
+	}
+
+	public Coroutine TryInstantiateAsync<T>(AssetReferenceGameObject reference, Transform parent, System.Action<T> onCompleted) where T : UnityEngine.Object
+	{
+		return TryInstantiateAsync(reference.AssetGUID, parent, onCompleted);
+	}
+
+	public Coroutine TryInstantiateAsync<T>(string path, Transform parent, System.Action<T> onCompleted) where T : UnityEngine.Object
+	{
+		return StartCoroutine(InstantiateAsync(path, parent, onCompleted));
 	}
 }

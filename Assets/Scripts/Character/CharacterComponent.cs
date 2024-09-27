@@ -9,6 +9,7 @@ public class CharacterComponent : MonoBehaviour
 
 	public void SetPlayerData(string playerGroup, string playerName)
 	{
+		characterView.Initialize();
 		characterView.SetPlayerData(playerGroup, playerName);
 	}
 

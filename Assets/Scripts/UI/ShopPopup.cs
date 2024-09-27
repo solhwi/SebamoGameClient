@@ -17,6 +17,7 @@ public class ShopPopup : BoardGamePopup
 
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private ItemTable itemTable;
+	[SerializeField] private UINpcView npcView;
 	[SerializeField] private ScrollContent scrollContent;
 	[SerializeField] private Text npcText;
 	[SerializeField] private Text coinText;
@@ -44,6 +45,7 @@ public class ShopPopup : BoardGamePopup
 
 		normalItemIndex = itemTable.sortedShopItemList.FindIndex(i => i.isRandom == 0);
 
+		npcView.Initialize();
 		npcText.text = npcDefaultText;
 
 		scrollContent.onChangedTab += OnChangedTab;
