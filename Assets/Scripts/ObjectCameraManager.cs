@@ -8,11 +8,11 @@ public class ObjectCameraManager : Singleton<ObjectCameraManager>
 	[SerializeField] private AssetReferenceGameObject objectCameraRef;
 	[SerializeField] private int preloadCount = 0;
 
-	private Stack<Camera> objectCameras = new Stack<Camera>();
+	private Stack<Camera> preloadStack = new Stack<Camera>();
 
 	public override IEnumerator OnPrepareInstance()
 	{
-		objectCameras.Clear();
+		preloadStack.Clear();
 
 		for(int i = 0; i < preloadCount; i++)
 		{
@@ -22,33 +22,33 @@ public class ObjectCameraManager : Singleton<ObjectCameraManager>
 					return;
 
 				newCamera.gameObject.SetActive(false);
-				objectCameras.Push(newCamera);
+				preloadStack.Push(newCamera);
 			});
 		}
 	}
 
 	public Camera MakeCamera(bool isOrtho, float FOV)
 	{
-		if (objectCameras.TryPop(out Camera newCamera))
+		if (preloadStack.TryPop(out Camera newCamera) == false)
 		{
-			newCamera.gameObject.SetActive(true);
-			newCamera.orthographic = isOrtho;
-
-			if (isOrtho)
-			{
-				newCamera.orthographicSize = FOV;
-			}
-			else
-			{
-				newCamera.fieldOfView = FOV;
-			}
-
-			int offset = objectCameras.Count * 100;
-			newCamera.transform.localPosition = new Vector3(offset, offset, 0);
-
-			return newCamera;
+			newCamera = ResourceManager.Instance.Instantiate<Camera>(objectCameraRef, transform);
 		}
 
-		return null;
+		newCamera.gameObject.SetActive(true);
+		newCamera.orthographic = isOrtho;
+
+		if (isOrtho)
+		{
+			newCamera.orthographicSize = FOV;
+		}
+		else
+		{
+			newCamera.fieldOfView = FOV;
+		}
+
+		int offset = preloadStack.Count * 100;
+		newCamera.transform.localPosition = new Vector3(offset, offset, 0);
+
+		return newCamera;
 	}
 }

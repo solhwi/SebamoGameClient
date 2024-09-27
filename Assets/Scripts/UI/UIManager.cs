@@ -41,7 +41,7 @@ public class UIManager : Singleton<UIManager>
 			var popupType = p.Key;
 			var referenceObj = p.Value;
 
-			yield return ResourceManager.Instance.TryInstantiateAsync<BoardGamePopup>(referenceObj, transform, (newPopup) =>
+			yield return ResourceManager.Instance.InstantiateAsync<BoardGamePopup>(referenceObj, transform, (newPopup) =>
 			{
 				if (newPopup != null)
 				{
