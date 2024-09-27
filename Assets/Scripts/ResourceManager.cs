@@ -59,11 +59,6 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 	{
 
 	}
-
-	public virtual IEnumerator OnPrepareInstance()
-	{
-		yield return null;
-	}
 }
 
 public class ResourceManager : Singleton<ResourceManager>
@@ -89,14 +84,7 @@ public class ResourceManager : Singleton<ResourceManager>
 	}
 #endif
 
-	public override IEnumerator OnPrepareInstance()
-	{
-		yield return PreLoadItemData();
-		yield return PreLoadFieldItemObject();
-		yield return PreLoadCharacter();
-	}
-
-	private IEnumerator PreLoadFieldItemObject()
+	public IEnumerator PreLoadFieldItemObject()
 	{
 		for (int i = 0; i < 10; i++)
 		{
@@ -119,7 +107,7 @@ public class ResourceManager : Singleton<ResourceManager>
 		}
 	}
 
-	private IEnumerator PreLoadItemData()
+	public IEnumerator PreLoadItemData()
 	{
 		foreach (string path in itemTable.GetPreLoadTableDataPath())
 		{
@@ -135,7 +123,7 @@ public class ResourceManager : Singleton<ResourceManager>
 		}
 	}
 
-	private IEnumerator PreLoadCharacter()
+	public IEnumerator PreLoadCharacter()
 	{
 		yield return LoadAsync<MyCharacterComponent>(myCharacterRef);
 		yield return LoadAsync<CharacterComponent>(characterRef);

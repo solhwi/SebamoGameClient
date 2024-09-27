@@ -10,7 +10,7 @@ public class ObjectCameraManager : Singleton<ObjectCameraManager>
 
 	private Stack<Camera> preloadStack = new Stack<Camera>();
 
-	public override IEnumerator OnPrepareInstance()
+	public IEnumerator PreLoadObjectCamera()
 	{
 		preloadStack.Clear();
 

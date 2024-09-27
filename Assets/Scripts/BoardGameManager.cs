@@ -175,12 +175,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		subscribers.Remove(subscriber);
 	}
 
-	public override IEnumerator OnPrepareInstance()
-	{
-		yield return PrepareCharacter();
-	}
-
-	private IEnumerator PrepareCharacter()
+	public IEnumerator PrepareCharacter()
 	{
 		playerCharacterDictionary.Clear();
 

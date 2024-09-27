@@ -13,7 +13,7 @@ public class GameSceneModule : SceneModuleBase
 		yield return base.OnPrepareEnter();
 		yield return TileDataManager.Instance.PrepareBoardData();
 		yield return TileDataManager.Instance.PrepareTile();
-		yield return BoardGameManager.Instance.OnPrepareInstance();
+		yield return BoardGameManager.Instance.PrepareCharacter();
 	}
 
 	public override void OnEnter()
@@ -27,6 +27,7 @@ public class GameSceneModule : SceneModuleBase
 
 		CameraController.Instance.ResetTarget();
 		backgroundCanvas.worldCamera = Camera.main;
+
 		gameRoutine = StartCoroutine(ProcessGame());
 	}
 

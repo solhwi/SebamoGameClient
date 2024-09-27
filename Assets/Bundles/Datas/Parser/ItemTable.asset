@@ -545,7 +545,7 @@ MonoBehaviour:
       sellPrice: 1000
   fieldItemDataList:
   - key: DropCoin
-    fieldIconAssetPath: Sprites/Coin.asset
+    fieldIconAssetPath: Sprites/ItemIcon_Badge_Gold.png
     actionType: 0
     actionParameter: 3
   - key: Box
@@ -568,7 +568,7 @@ MonoBehaviour:
     - Barricade
     m_values:
     - key: DropCoin
-      fieldIconAssetPath: Sprites/Coin.asset
+      fieldIconAssetPath: Sprites/ItemIcon_Badge_Gold.png
       actionType: 0
       actionParameter: 3
     - key: Box

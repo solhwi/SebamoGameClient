@@ -34,7 +34,7 @@ public class UIManager : Singleton<UIManager>
 		popupRootCanvas = GetComponentInChildren<Canvas>();
 	}
 
-	public override IEnumerator OnPrepareInstance()
+	public IEnumerator PreLoadPopup()
 	{
 		foreach (var p in popupRefDictionary)
 		{

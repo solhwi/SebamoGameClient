@@ -357,8 +357,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e53711cdc676cc2459bdabce9c24a304
-    m_Address: Assets/Bundles/Sprites/ShopCategoryButton.png
+  - m_GUID: 5030a8018c5eb9f43a6e0dee092c7d46
+    m_Address: Assets/Bundles/Sprites/Shop/ShopCategoryButtonL.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -387,8 +387,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9096d74b0026f9a46845dc0cb650f93b
-    m_Address: Assets/Bundles/Sprites/ShopCategoryButtonOnR.png
+  - m_GUID: 44b6e43777d0b2d4dad99c939d989a22
+    m_Address: Assets/Bundles/Sprites/Shop/ShopCategoryButtonOnL.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -397,13 +397,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5030a8018c5eb9f43a6e0dee092c7d46
-    m_Address: Assets/Bundles/Sprites/ShopCategoryButtonL.png
+  - m_GUID: e53711cdc676cc2459bdabce9c24a304
+    m_Address: Assets/Bundles/Sprites/Shop/ShopCategoryButton.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 44b6e43777d0b2d4dad99c939d989a22
-    m_Address: Assets/Bundles/Sprites/ShopCategoryButtonOnL.png
+  - m_GUID: 9096d74b0026f9a46845dc0cb650f93b
+    m_Address: Assets/Bundles/Sprites/Shop/ShopCategoryButtonOnR.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -427,8 +427,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 68c20d7ba7d9f9443849be19b7430023
-    m_Address: Assets/Bundles/Sprites/ShopCategoryButtonR.png
+  - m_GUID: a79cebd2160964a73a3f454931baaa8f
+    m_Address: Assets/Bundles/Sprites/Shop/BubbleFrame03_Arrow_Left.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1014,6 +1014,96 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 41e65d63955fc3d4ca4521eca5ff63e7
     m_Address: Assets/Bundles/Prefabs/Manager/ObjectCameraManager.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2fb2908ab004842cd905197e58065db3
+    m_Address: Assets/Bundles/Sprites/BannerFrame00_03_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b79d32d790319e43a32ad40f7b65938
+    m_Address: Assets/Bundles/Sprites/ItemIcon_Badge_Gold.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1af658d53981a422ca4eebf101abb6ce
+    m_Address: Assets/Bundles/Sprites/BubbleFrame03_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 710870570ec23411badc9e568d71671a
+    m_Address: Assets/Bundles/Sprites/BorderFrame_Oval46_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8638447d0c4a40fd9a7e32c25783d96
+    m_Address: Assets/Bundles/Sprites/Button_Circle122.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f55938eddd7244701901594884889eeb
+    m_Address: Assets/Bundles/Sprites/Button_Round07.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee30b302c44c546158237019ae729a1b
+    m_Address: Assets/Bundles/Sprites/Button_Round10_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f31d73f5bbe64581b866dd5f6671947
+    m_Address: Assets/Bundles/Sprites/PictoIcon_Again_2.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2a6dbea1594141cb848817b105dc1d9
+    m_Address: Assets/Bundles/Sprites/PictoIcon_Arrow_Right_1.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6f0b1d4ab4bd4fc1ac36f5d60a2ee9b
+    m_Address: Assets/Bundles/Sprites/PictoIcon_Camera.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49e80464e44ff4fd1bccfb693d9fe97a
+    m_Address: Assets/Bundles/Sprites/PictoIcon_Camera_Off.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bd06dd44f28c41ebac87b908313e284
+    m_Address: Assets/Bundles/Sprites/Popup02~09_Topber_White_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 747d121aed7bc3c4dbdaff4872db9b48
+    m_Address: Assets/Bundles/Sprites/Popup02~09_Topber_White_Bg 1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb5f2999723b840f1899e5e01cbba819
+    m_Address: Assets/Bundles/Sprites/Title_Ribbon01_Orange.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8a3e7288e03247ec8f56796382ec1a1
+    m_Address: Assets/Bundles/Sprites/Profile/BasicFrame_Circle160.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4abb56e0278f141f3b2eeb5cc7eb91d7
+    m_Address: Assets/Bundles/Sprites/Profile/Icon_Property.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5368592eacfda44c191265e7475562df
+    m_Address: Assets/Bundles/Sprites/Profile/Icon_Check01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68c20d7ba7d9f9443849be19b7430023
+    m_Address: Assets/Bundles/Sprites/Shop/ShopCategoryButtonR.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

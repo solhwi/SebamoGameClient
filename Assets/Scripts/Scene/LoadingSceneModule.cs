@@ -7,9 +7,11 @@ public class LoadingSceneModule : SceneModuleBase
 	public override IEnumerator OnPrepareEnter()
 	{
 		yield return base.OnPrepareEnter();
-		yield return ResourceManager.Instance.OnPrepareInstance();
-		yield return UIManager.Instance.OnPrepareInstance();
-		yield return ObjectCameraManager.Instance.OnPrepareInstance();
+		yield return ResourceManager.Instance.PreLoadItemData();
+		yield return ResourceManager.Instance.PreLoadFieldItemObject();
+		yield return ResourceManager.Instance.PreLoadCharacter();
+		yield return UIManager.Instance.PreLoadPopup();
+		yield return ObjectCameraManager.Instance.PreLoadObjectCamera();
 	}
 
 
