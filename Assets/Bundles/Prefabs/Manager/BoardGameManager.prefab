@@ -50,12 +50,12 @@ MonoBehaviour:
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   buffItemFactory: {fileID: 11400000, guid: 90850b6b0c5d6a44eba35d118322da3f, type: 2}
   fieldItemFactory: {fileID: 11400000, guid: a6e06216073cb404eb58dd2ea48f4cee, type: 2}
-  myPlayerCharacterPrefab:
+  myPlayerCharacterRef:
     m_AssetGUID: b8b35928236dc804c93e20f7f015c0a1
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  otherPlayerCharacterPrefab:
+  otherPlayerCharacterRef:
     m_AssetGUID: 8a365a1e988edf342bad8901c939fb17
     m_SubObjectName: 
     m_SubObjectType: 

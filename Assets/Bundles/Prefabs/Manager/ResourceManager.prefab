@@ -51,3 +51,13 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  characterRef:
+    m_AssetGUID: 8a365a1e988edf342bad8901c939fb17
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  myCharacterRef:
+    m_AssetGUID: b8b35928236dc804c93e20f7f015c0a1
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

@@ -37,32 +37,40 @@ public class ObjectView : MonoBehaviour
 	private Rect rect;
 
 	private bool isInitialized = false;
-
+	private Coroutine prepareRoutine = null;
 
 	public virtual void Initialize()
 	{
-		if (isInitialized)
-			return;
+		if (!isInitialized)
+		{
+			spriteView = GetComponent<SpriteRenderer>();
+			textureView = GetComponent<RawImage>();
+			meshView = GetComponent<MeshRenderer2D>();
 
-		spriteView = GetComponent<SpriteRenderer>();
-		textureView = GetComponent<RawImage>();
-		meshView = GetComponent<MeshRenderer2D>();
+			renderTexture = new RenderTexture(width, height, depth);
+			rect = new Rect(0, 0, width, height);
+			texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
 
-		cam = ObjectCameraManager.Instance.MakeCamera(isOrthoSize, FOV);
-		cameraArm = cam.transform.GetChild(0);
+			cam = ObjectCameraManager.Instance.MakeCamera(isOrthoSize, FOV);
+			cameraArm = cam.transform.GetChild(0);
+			cam.targetTexture = renderTexture;
 
-		initialCameraArmRot = cameraArm.transform.localEulerAngles;
+			initialCameraArmRot = cameraArm.transform.localEulerAngles;
 
-		renderTexture = new RenderTexture(width, height, depth);
-		rect = new Rect(0, 0, width, height);
-		texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
-
-		cam.targetTexture = renderTexture;
+			isInitialized = true;
+		}
 
 		gameObject.SetActive(true);
-		isInitialized = true;
 
-		StartCoroutine(OnPrepareRendering());
+		if (originObj == null)
+		{
+			if (prepareRoutine != null)
+			{
+				StopCoroutine(prepareRoutine);
+			}
+
+			prepareRoutine = StartCoroutine(OnPrepareRendering());
+		}
 	}
 
 	protected virtual void OnEnable()

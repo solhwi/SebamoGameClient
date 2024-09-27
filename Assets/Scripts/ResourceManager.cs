@@ -70,6 +70,8 @@ public class ResourceManager : Singleton<ResourceManager>
 {
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private AssetReferenceT<RecyclingObject> fieldItemPrefabRef;
+	[SerializeField] private AssetReferenceGameObject characterRef;
+	[SerializeField] private AssetReferenceGameObject myCharacterRef;
 
 	private Dictionary<RecyclingType, Stack<RecyclingObject>> objectPool = new Dictionary<RecyclingType, Stack<RecyclingObject>>()
 	{
@@ -91,6 +93,7 @@ public class ResourceManager : Singleton<ResourceManager>
 	{
 		yield return PreLoadItemData();
 		yield return PreLoadFieldItemObject();
+		yield return PreLoadCharacter();
 	}
 
 	private IEnumerator PreLoadFieldItemObject()
@@ -130,6 +133,12 @@ public class ResourceManager : Singleton<ResourceManager>
 				yield return LoadAsync<Object>(path);
 			}
 		}
+	}
+
+	private IEnumerator PreLoadCharacter()
+	{
+		yield return LoadAsync<MyCharacterComponent>(myCharacterRef);
+		yield return LoadAsync<CharacterComponent>(characterRef);
 	}
 
 	// 실질적인 리소스 관리를 위해 fieldItemFactory 쪽에서 일로 이관함
@@ -247,6 +256,11 @@ public class ResourceManager : Singleton<ResourceManager>
 		});
 
 		onCompleted?.Invoke(obj);
+	}
+
+	private IEnumerator LoadAsync<T>(AssetReference reference, System.Action<T> onCompleted = null) where T : UnityEngine.Object
+	{
+		yield return LoadAsync(reference.AssetGUID, onCompleted);
 	}
 
 	private IEnumerator LoadAsync<T>(string path, System.Action<T> onCompleted = null) where T : UnityEngine.Object

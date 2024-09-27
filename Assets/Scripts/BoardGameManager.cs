@@ -115,8 +115,8 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	[SerializeField] private BuffItemFactory buffItemFactory;
 	[SerializeField] private FieldItemFactory fieldItemFactory;
 
-	[SerializeField] private AssetReferenceGameObject myPlayerCharacterPrefab;
-	[SerializeField] private AssetReferenceGameObject otherPlayerCharacterPrefab;
+	[SerializeField] private AssetReferenceGameObject myPlayerCharacterRef;
+	[SerializeField] private AssetReferenceGameObject otherPlayerCharacterRef;
 
 	private Dictionary<(string, string), CharacterComponent> playerCharacterDictionary = new Dictionary<(string, string), CharacterComponent>();
 
@@ -184,7 +184,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	{
 		playerCharacterDictionary.Clear();
 
-		yield return ResourceManager.Instance.InstantiateAsync<CharacterComponent>(myPlayerCharacterPrefab, transform, (p) =>
+		yield return ResourceManager.Instance.InstantiateAsync<CharacterComponent>(myPlayerCharacterRef, transform, (p) =>
 		{
 			if (p == null)
 				return;
@@ -213,7 +213,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 		foreach (var otherPlayerData in playerDataContainer.otherPlayerPacketDatas)
 		{
-			yield return ResourceManager.Instance.InstantiateAsync<CharacterComponent>(otherPlayerCharacterPrefab, transform, (p) =>
+			yield return ResourceManager.Instance.InstantiateAsync<CharacterComponent>(otherPlayerCharacterRef, transform, (p) =>
 			{
 				if (p == null)
 					return;

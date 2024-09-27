@@ -9,7 +9,11 @@ public class UINpcView : ObjectView
 
 	protected override IEnumerator OnPrepareRendering()
 	{
+		textureView.color = Color.clear;
+
 		yield return base.OnPrepareRendering();
+
+		textureView.color = Color.white;
 
 		objAnimator = originObj.GetComponent<Animator>();
 		if (objAnimator != null)
