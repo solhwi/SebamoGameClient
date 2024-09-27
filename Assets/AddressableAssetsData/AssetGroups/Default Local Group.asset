@@ -297,11 +297,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1254f90d415671b4dabd2fefe175c76e
-    m_Address: Assets/Bundles/Sprites/Coin.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d5353e788b1d127429ea03a1d3c2204b
     m_Address: Assets/Bundles/Sprites/BackButtonOrange 1.png
     m_ReadOnly: 0
@@ -309,11 +304,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 02d9d2d200f2dc446adf84fd69c5d155
     m_Address: Assets/Bundles/Sprites/BackButton.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9111b8a0da4d72c4f9a712944cd67de2
-    m_Address: Assets/Bundles/Sprites/Button.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -337,18 +327,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: eca6c0cde3707ee439bc040dc21fc140
-    m_Address: Assets/Bundles/Sprites/Frame_01.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf83de3f775299f47bceccb58e967e01
     m_Address: Assets/Bundles/Sprites/dice.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7cd4fae14ccf1d04d99a61ce4aec0b5b
-    m_Address: Assets/Bundles/Sprites/Frame_02.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
