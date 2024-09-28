@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 
 public class UnusedAssetRemover : Editor
@@ -14,15 +15,7 @@ public class UnusedAssetRemover : Editor
 		// 사용되지 않는 에셋을 삭제합니다.
 		foreach (string asset in unusedAssets)
 		{
-			bool success = AssetDatabase.DeleteAsset(asset);
-			if (success)
-			{
-				Debug.Log($"Deleted unused asset: {asset}");
-			}
-			else
-			{
-				Debug.LogWarning($"Failed to delete asset: {asset}");
-			}
+			AssetDatabase.DeleteAsset(asset);
 		}
 
 		// 변경 사항을 적용합니다.
@@ -57,7 +50,9 @@ public class UnusedAssetRemover : Editor
 			dependencies.AddRange(AssetDatabase.GetDependencies(scene.path));
 		}
 
-		string[] allPrefabs = AssetDatabase.FindAssets("t:Prefab");
+		var allPrefabs = AssetDatabase.FindAssets("t:Prefab")
+			.Where(p => p.StartsWith("Assets/Bundles/Prefabs"));
+
 		foreach (var prefabGUID in allPrefabs)
 		{
 			string prefabPath = AssetDatabase.GUIDToAssetPath(prefabGUID);
@@ -71,8 +66,8 @@ public class UnusedAssetRemover : Editor
 	{
 		bool b = assetPath.StartsWith("Assets/Bundles/") == false;
 
-		b |= assetPath.StartsWith("Assets/Bundles/Datas");
-		b |= assetPath.StartsWith("Assets/Bundles/Prefabs");
+		b |= assetPath.StartsWith("Assets/Bundles/Z_GUI Pro-SuperCasual") == false &&
+			assetPath.StartsWith("Assets/Bundles/Tiles") == false;
 
 		return b;
 	}
