@@ -491,6 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartScene: 1
+  itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
 --- !u!4 &2110501418
 Transform:
   m_ObjectHideFlags: 0

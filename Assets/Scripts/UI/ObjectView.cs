@@ -73,6 +73,14 @@ public class ObjectView : MonoBehaviour
 		}
 	}
 
+	protected virtual void OnCreateObject(GameObject obj)
+	{
+		originObj = obj;
+
+		originObj.transform.localPosition = spawnLocalPos;
+		originObj.transform.localEulerAngles = spawnLocalRot;
+	}
+
 	protected virtual void OnEnable()
 	{
 		if (originObj == null)
@@ -94,13 +102,7 @@ public class ObjectView : MonoBehaviour
 
 	protected virtual IEnumerator OnPrepareRendering()
 	{
-		yield return ResourceManager.Instance.InstantiateAsync<GameObject>(originPrefab, cameraArm, (obj) =>
-		{
-			originObj = obj;
-
-			originObj.transform.localPosition = spawnLocalPos;
-			originObj.transform.localEulerAngles = spawnLocalRot;
-		});
+		yield return ResourceManager.Instance.InstantiateAsync<GameObject>(originPrefab, cameraArm, OnCreateObject);
 	}
 
 	protected virtual void Update()

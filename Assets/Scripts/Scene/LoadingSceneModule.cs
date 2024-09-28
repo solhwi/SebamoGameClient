@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class LoadingSceneModule : SceneModuleBase
 {
+	[SerializeField] private ItemTable itemTable;
+
 	public override IEnumerator OnPrepareEnter()
 	{
 		yield return base.OnPrepareEnter();
-		yield return ResourceManager.Instance.PreLoadItemData();
-		yield return ResourceManager.Instance.PreLoadFieldItemObject();
-		yield return ResourceManager.Instance.PreLoadCharacter();
+		yield return itemTable.PreLoadTableAssets();
+		yield return BoardGameManager.Instance.PreLoadCharacter();
 		yield return UIManager.Instance.PreLoadPopup();
 		yield return ObjectCameraManager.Instance.PreLoadObjectCamera();
+
+		yield return ResourceManager.Instance.PreInstantiateFieldItemObject();
 	}
 
 

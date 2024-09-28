@@ -40,7 +40,7 @@ public partial class ItemTable
 						.ToList();
 	}
 
-	public IEnumerable<string> GetPreLoadTableDataPath()
+	private IEnumerable<string> GetPreLoadTableDataPath()
 	{
 		foreach (var d in itemToolTipDataList)
 		{
@@ -55,6 +55,22 @@ public partial class ItemTable
 		foreach (var d in buffItemDataList)
 		{
 			yield return d.buffIconAssetPath.GetAssetPathWithoutResources();
+		}
+	}
+
+	public IEnumerator PreLoadTableAssets()
+	{
+		foreach (string path in GetPreLoadTableDataPath())
+		{
+			string extension = Path.GetExtension(path);
+			if (extension == ".png" || extension == ".jpg" || extension == ".jpeg")
+			{
+				yield return ResourceManager.Instance.LoadAsync<Sprite>(path);
+			}
+			else
+			{
+				yield return ResourceManager.Instance.LoadAsync<UnityEngine.Object>(path);
+			}
 		}
 	}
 

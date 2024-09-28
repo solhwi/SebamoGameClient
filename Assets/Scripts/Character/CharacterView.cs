@@ -31,6 +31,15 @@ public class CharacterView : ObjectView
 		Replay();
 	}
 
+	protected override void OnCreateObject(GameObject obj)
+	{
+		base.OnCreateObject(obj);
+
+#if UNITY_EDITOR
+		obj.name = $"{playerName} ({playerGroup})";
+#endif
+	}
+
 	protected override IEnumerator OnPrepareRendering()
 	{
 		yield return base.OnPrepareRendering();

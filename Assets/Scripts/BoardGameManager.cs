@@ -175,6 +175,12 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		subscribers.Remove(subscriber);
 	}
 
+	public IEnumerator PreLoadCharacter()
+	{
+		yield return ResourceManager.Instance.LoadAsync<MyCharacterComponent>(myPlayerCharacterRef);
+		yield return ResourceManager.Instance.LoadAsync<CharacterComponent>(otherPlayerCharacterRef);
+	}
+
 	public IEnumerator PrepareCharacter()
 	{
 		playerCharacterDictionary.Clear();
