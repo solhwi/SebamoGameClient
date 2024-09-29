@@ -587,11 +587,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 131d3b5abd3ad0c41b89336b7416f251
-    m_Address: Assets/Bundles/Prefabs/LoginCanvas.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23da6dad61a6290448866d3548d31ca2
     m_Address: Assets/Bundles/Prefabs/NPC.prefab
     m_ReadOnly: 0
@@ -644,11 +639,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b2b89b8750db10443a970de168d0be60
     m_Address: Assets/Bundles/Prefabs/Hair
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: eaee61632465c9544996f9ef629fc130
-    m_Address: Assets/Bundles/Prefabs/Manager
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -924,36 +914,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ce066024f1007f468cd00d3b96b4e55
     m_Address: Assets/Bundles/Animated Loading Icons/Animations/Bars anim/Bars 6/bars_6_1.anim
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8e7a24e060680a44c833f7e0922a916d
-    m_Address: Assets/Bundles/Prefabs/Manager/ResourceManager.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 984bd3b5fed6c4c4f865279ea822c7d7
-    m_Address: Assets/Bundles/Prefabs/Manager/SceneManager.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: aaf65adca4da3174888691a60f0f19d3
-    m_Address: Assets/Bundles/Prefabs/Manager/NetworkManager.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: af62af043d97fb34389aa8a06177049c
-    m_Address: Assets/Bundles/Prefabs/Manager/UIManager.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2cb77953d4be32c408a079397d9f6111
-    m_Address: Assets/Bundles/Prefabs/Manager/BoardGameManager.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 41e65d63955fc3d4ca4521eca5ff63e7
-    m_Address: Assets/Bundles/Prefabs/Manager/ObjectCameraManager.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

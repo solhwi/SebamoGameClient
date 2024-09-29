@@ -34,13 +34,13 @@ public abstract class FieldItem
 	// 월드 타일 위에만 생성이 가능함
 	public virtual GameObject Create(WorldTileData worldTileData)
 	{
-		obj = ResourceManager.Instance.GetFieldItemObject(rawData, worldTileData);
+		obj = ObjectManager.Instance.GetFieldItemObject(rawData, worldTileData);
 		return obj;
 	}
 
 	public virtual GameObject Create(Transform parent, Vector3 pos, Vector3 rot)
 	{
-		obj = ResourceManager.Instance.GetFieldItemObject(rawData);
+		obj = ObjectManager.Instance.GetFieldItemObject(rawData);
 		
 		if(obj != null)
 		{
@@ -56,7 +56,7 @@ public abstract class FieldItem
 	{
 		if (obj != null)
 		{
-			ResourceManager.Instance.Destroy(obj);
+			ObjectManager.Instance.Destroy(obj);
 		}
 	}
 

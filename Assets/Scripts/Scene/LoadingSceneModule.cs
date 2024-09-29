@@ -14,7 +14,7 @@ public class LoadingSceneModule : SceneModuleBase
 		yield return UIManager.Instance.PreLoadPopup();
 		yield return ObjectCameraManager.Instance.PreLoadObjectCamera();
 
-		yield return ResourceManager.Instance.PreInstantiateFieldItemObject();
+		yield return ObjectManager.Instance.PreInstantiateFieldItemObject();
 	}
 
 
