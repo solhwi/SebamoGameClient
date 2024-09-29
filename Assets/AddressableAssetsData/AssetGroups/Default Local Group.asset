@@ -443,7 +443,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 07bc56813f47949448ff3c09fb172a5e
-    m_Address: Assets/Bundles/AnimationController/FieldItem/Box.controller
+    m_Address: Assets/Bundles/Animations/FieldItem/Box.controller
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -657,11 +657,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c46564b9680adb34c9880a57273bb0d8
-    m_Address: Assets/Bundles/Prefabs/Set
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e95aba4698b0f1449930880d4bbb860
     m_Address: Assets/Bundles/Prefabs/UI
     m_ReadOnly: 0
@@ -837,56 +832,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0da59bd1f7117f84a8b59d383effdaef
-    m_Address: Assets/Bundles/Prefabs/Set/Set Costume_02 SD Misaki.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9567168e85118da4a9e668d51492efb1
-    m_Address: Assets/Bundles/Prefabs/Set/Set Costume_02 SD Unity-Chan WTD.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 485d662c63590f74dac20be0cf684019
-    m_Address: Assets/Bundles/Prefabs/Set/Set Costume_02 SD Unity-Chan WGS.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fdf678a7193c58346a367114b3da57ac
-    m_Address: Assets/Bundles/Prefabs/Set/LS Preview SD Unity-chan.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9d4dd85afa58a17438e34b09e8d15f77
-    m_Address: Assets/Bundles/Prefabs/Set/Set Costume_02 SD Unity-Chan.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b2dfadfada0fd634ebbfc36909e42c1c
-    m_Address: Assets/Bundles/Prefabs/Set/Set Costume_02 SD Yuko.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ca32052da591292429d1375304e1cc62
-    m_Address: Assets/Bundles/Prefabs/Set/Set Costume_03 SD Misaki.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3ce5f30162abffb4cb663f89f504ae9e
-    m_Address: Assets/Bundles/Prefabs/Set/Set Costume_03 SD Unity-Chan.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2b530a6fa5657a341950a3628aadffda
-    m_Address: Assets/Bundles/Prefabs/Set/Set Costume_03 SD Yuko.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 234a458d2bc9de040834a24c42610268
-    m_Address: Assets/Bundles/Prefabs/Set/Set Costume_01 SD Unity-Chan.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1821b6446536834faf5c7a7909fc7ba
     m_Address: Assets/Bundles/Prefabs/UI/RankScrollItem.prefab
     m_ReadOnly: 0
@@ -954,11 +899,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8449606903a41a94290986053aef219c
     m_Address: Assets/Bundles/Prefabs/UI/BatchModePopup.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4cf0cd23c05729b4790b6607f81c9884
-    m_Address: Assets/Bundles/AnimationController/Character
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -1104,6 +1044,419 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 68c20d7ba7d9f9443849be19b7430023
     m_Address: Assets/Bundles/Sprites/Shop/ShopCategoryButtonR.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0eadf72ceff049b43b0b4fa9b5aab98f
+    m_Address: Assets/Bundles/Animations/NPC.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9b9c331100714b47a848764e0b6d8c7
+    m_Address: Assets/Bundles/Animations/Character.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bd5bac4ccdae4f9c85135b8fd7da355
+    m_Address: Assets/Bundles/Animations/SplashScreen/FadeIn.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62ab4018993ae47b9a2a4b0d86b52035
+    m_Address: Assets/Bundles/Animations/SplashScreen/Voice.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2945d5f95b61c458c9651895a514de58
+    m_Address: Assets/Bundles/Animations/SplashScreen/FadeOut.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a37f6aca9c6bf45fa819c001b4e8016e
+    m_Address: Assets/Bundles/Animations/SplashScreen/SplashScreen.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd421e0ffdb444e4ca78408fe5f56d58
+    m_Address: Assets/Bundles/Animations/Animation Setting/_Humanoid And Add-Bone
+      LS PropC Umbrella On-off.mask
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb72bbf3e3c68af4dab54beaace5f8f0
+    m_Address: Assets/Bundles/Animations/Animation Setting/_Humanoid And Add-Bone
+      LS PropB.mask
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 457fa94621a1e6f469ad75beb836d5fd
+    m_Address: Assets/Bundles/Animations/Animation Setting/_Humanoid And Add-Bone.mask
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4fa91498cca3e6a43ab7cc70e4d73f5b
+    m_Address: Assets/Bundles/Animations/Common/StandB@Loop.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f43c480b035585478fe173e248b316f
+    m_Address: Assets/Bundles/Animations/Common/RunA_front@loop.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e52881c00660be44186051ef1aea189f
+    m_Address: Assets/Bundles/Animations/Common/Emotion_Clap(StandC)@loop.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50792827726d6fd41a383c360ea28e95
+    m_Address: Assets/Bundles/Animations/Common/StandA_idleA.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5387fcc593f75d24fb7c25dacd9dc3d5
+    m_Address: Assets/Bundles/Animations/FieldItem/Box.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df081cb4033ef664389754b36dc787bc
+    m_Address: Assets/Bundles/Animations/PropA/RunA(PropA)_Front@loop.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b915e2c331c709947a926cb7d9c1d8bb
+    m_Address: Assets/Bundles/Animations/PropA/StandB(PropA)@Loop.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3664b1764bd2c9c488dec7cb83e2637a
+    m_Address: Assets/Bundles/Animations/PropB/StandB(PropB)@Loop.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb93cd03822ea7748867454e659f4949
+    m_Address: Assets/Bundles/Animations/PropB/RunA(PropB)_Front@loop.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df9abc68efd703c4cac226942ed62f7f
+    m_Address: Assets/Bundles/Animations/PropC/RunA(PropC)_Front@loop.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef0b712b14b1bf2498bb323a2e547863
+    m_Address: Assets/Bundles/Animations/PropC/StandB(PropC)@Loop.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fb03d376ad069541a29d2775f77d2f8
+    m_Address: Assets/Bundles/Animations/WeaponMaster Greatsword(WGS)/WGS_Stand@loop.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b59309de8516bd42ba22693273a31de
+    m_Address: Assets/Bundles/Animations/WeaponMaster Greatsword(WGS)/WGS_attackA5.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f748f2c9b0fa1a547882f841248da07a
+    m_Address: Assets/Bundles/Animations/WeaponMaster Greatsword(WGS)/WGS_Run_Front@Loop.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71069583ea856344b83fb2781e7ce5b0
+    m_Address: Assets/Bundles/Animations/WeaponMaster Twin dagger(WTD)/WTD_Stand@loop.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5ac6d3811d41564099d645ef4cb0183
+    m_Address: Assets/Bundles/Animations/WeaponMaster Twin dagger(WTD)/WTD_Run_Front@Loop.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96c1d1a79bf4b4e4eb4822c27087121f
+    m_Address: Assets/Bundles/Animations/WeaponMaster Twin dagger(WTD)/WTD_AttackA3
+      np.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f118bbfc2dca66744bcf0f170971269b
+    m_Address: Assets/Bundles/Materials/Accessory
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1264fa59b9e53ff45a7824e8bd6ef984
+    m_Address: Assets/Bundles/Materials/Costume/Costume_02_10.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95ffce823b1abf14aacbd57f06bd890c
+    m_Address: Assets/Bundles/Materials/Costume/Costume_01_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e08d9d78ccec1c647bab6c3da6c08784
+    m_Address: Assets/Bundles/Materials/Costume/Costume_02_09.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71b5f8c19fc10f14d98410a4d317939b
+    m_Address: Assets/Bundles/Materials/Costume/Costume_02_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16b7c504c8d154d43ad4e860a8015732
+    m_Address: Assets/Bundles/Materials/Accessory/Accessory_02_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15d96d2c7830a5049a78f7ee90b96513
+    m_Address: Assets/Bundles/Materials/Accessory/Accessory_00_03.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11f1d3ee889f6b14b97ff7d28355af34
+    m_Address: Assets/Bundles/Materials/Accessory/Accessory_00_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab9953d905ee7ed46a310174aa50e985
+    m_Address: Assets/Bundles/Materials/Accessory/Accessory_00_16.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1df7ce879f4863b409153f33e5d602b4
+    m_Address: Assets/Bundles/Materials/Accessory/Accessory_01_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2224e89cc1e56d4cae3c4928f7a3259
+    m_Address: Assets/Bundles/Materials/Eye/Eye_02/Eye_02_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88421aee3ec89704bbbcb5fa2e4dac3f
+    m_Address: Assets/Bundles/Materials/Eye/Eye_01/Eye_01_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3cfe04bc23b69a4ca0f8ea6ee436a3b
+    m_Address: Assets/Bundles/Materials/Eyeblow/Eyeblow_00_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ac650214eaf3c14faca71e9ed0a120c
+    m_Address: Assets/Bundles/Materials/Eyeblow/Eyeblow_02_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a9d64bdfffc26b4c823a3f361e671b6
+    m_Address: Assets/Bundles/Materials/Eyeblow/Eyeblow_01_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1385c16acf120f5439036f80493419cd
+    m_Address: Assets/Bundles/Materials/Eyeblow/Eyeblow_00_34.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c21484dcc829834f98b6227895b8fdd
+    m_Address: Assets/Bundles/Materials/Eyeblow/Eyeblow_00_24.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81ad7b800dfff9140a1863646943009e
+    m_Address: Assets/Bundles/Materials/Faceskin/FaceSkin_00_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e331741e025c064fb9d0b750d96a72e
+    m_Address: Assets/Bundles/Materials/Hair/Hair_00/Hair_00_34.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40a40e230ee63494289e259648cc4538
+    m_Address: Assets/Bundles/Materials/Hair/Hair_00/Hair_00_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8d79a3c95cbf4146b9579a0ff83f933
+    m_Address: Assets/Bundles/Materials/Hair/Hair_00/Hair_00_subAB_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d301bc3a78f87bb499a36a837ec025c9
+    m_Address: Assets/Bundles/Materials/Hair/Hair_00/Hair_00_14.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4059e6247d444e04f8c8fd4aa1f40e7e
+    m_Address: Assets/Bundles/Materials/Hair/Hair_00/Hair_00_25.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54417b293cf0edd4d92f5d6e93da8646
+    m_Address: Assets/Bundles/Materials/Hair/Hair_00/Hair_00_subAB_15.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81704c3286a636b439adff085faa4aaa
+    m_Address: Assets/Bundles/Materials/Hair/Hair_01/Hair_01_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bf29ef1e5ae4704788dd3ade13ef915
+    m_Address: Assets/Bundles/Materials/Hair/Hair_01/Hair_01_14.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d19c21918ebec94dba6dacb5f33835f
+    m_Address: Assets/Bundles/Materials/Hair/Hair_02/Hair_02_14.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ea1b709b079f794fbcc4c36e6e50c82
+    m_Address: Assets/Bundles/Materials/Hair/Hair_02/Hair_02_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d8b6835179da674ab2fd69801edf39f
+    m_Address: Assets/Bundles/Materials/Prop/Guide_13.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4d9371a04676084287dd669690b54fb
+    m_Address: Assets/Bundles/Materials/Prop/Guide_05.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1db037c65dd72b747ba32f3261afe55e
+    m_Address: Assets/Bundles/Materials/Prop/Guide_04.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c5c37d6532e08e40849552c31b841a4
+    m_Address: Assets/Bundles/Materials/Prop/Guide_14.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc40897573ff2c54595acc89854a245b
+    m_Address: Assets/Bundles/Materials/Prop/Guide_03.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d1a31077a239cd4bbcf96855c11a197
+    m_Address: Assets/Bundles/Materials/Prop/Guide_09.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36dd57da35750c649bdc5f04e66b3a57
+    m_Address: Assets/Bundles/Materials/Prop/Guide_11.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d56895390028dcb43aaf44d3da374a55
+    m_Address: Assets/Bundles/Materials/Prop/Prop_03.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19d0de5b2e2e2904fbe0630757926aa0
+    m_Address: Assets/Bundles/Materials/Prop/Prop_04.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1bfaeffa2660714b89d9abd06616fe3
+    m_Address: Assets/Bundles/Materials/Prop/Guide_06.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9f2ab01c0cf0ae49a7f59bc12b9829f
+    m_Address: Assets/Bundles/Materials/Prop/Guide_01.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aacc73bb37e19044b87908c29a39b792
+    m_Address: Assets/Bundles/Materials/Prop/Guide_12.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce19c2630d2085d43bb43fd85536829a
+    m_Address: Assets/Bundles/Materials/RigProp/RigProp_R_Umbrella_01_10.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cade0cf166c5da34681e0c24647b45a1
+    m_Address: Assets/Bundles/Models/Parts/Hair_02_Front.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 00ee1ce116088f34f8e78f315f67212e
+    m_Address: Assets/Bundles/Models/Prop/Prop_03_GreatSword.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50ac0be924e355245b643db100ca996e
+    m_Address: Assets/Bundles/Models/Prop/Prop_04_L_TwinDagger.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0ebdb230c595b04cb736b16f37c59c4
+    m_Address: Assets/Bundles/Models/Prop/Prop_04_R_TwinDagger.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f603373e0a26094182053027300dbc2
+    m_Address: Assets/Bundles/Models/Prop/Prop_R_Axe_00_dummy.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e8bab9e323b2514192d52b0cb710510
+    m_Address: Assets/Bundles/Models/Prop/Prop_R_Pickax_00_dummy.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4af84749dae5b5c4d87038ca37a860a6
+    m_Address: Assets/Bundles/Models/Prop/Prop_R_Shovel_00_dummy.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a198bea6d4318d498bb767996f7d68d
+    m_Address: Assets/Bundles/Models/rigProp/RigProp_R_Umbrella_00_dummy.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8373282ff8d105641bcaf7860943b400
+    m_Address: Assets/Bundles/Models/rigProp/RigProp_R_Net_00_dummy.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f05a18b4b843c3f46a2adf89526d16c9
+    m_Address: Assets/Bundles/Models/rigProp/RigProp_R_FishingRod_00_dummy.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b8e0c93abf9f2144b669942896b6aae
+    m_Address: Assets/Bundles/Prefabs/UI/UI_Selection/Money.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed3a9eea449d2604a94825c2cb666baa
+    m_Address: Assets/Bundles/Prefabs/UI/UI_Selection/Ribbon_Short_Orange.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 237f0753701d59a47b120d5cc96caac9
+    m_Address: Assets/Bundles/Prefabs/UI/UI_Selection/Bubble.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4fdcb0691db1d3c488dfa942d96662d6
+    m_Address: Assets/Bundles/Prefabs/UI/UI_Selection/Dice.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be1efd564e0ad304db633e012331b711
+    m_Address: Assets/Bundles/Prefabs/UI/UI_Selection/Ribbon_Long_Orange.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

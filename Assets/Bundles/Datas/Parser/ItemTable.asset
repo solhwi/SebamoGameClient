@@ -549,7 +549,7 @@ MonoBehaviour:
     actionType: 0
     actionParameter: 3
   - key: Box
-    fieldIconAssetPath: AnimationController/FieldItem/Box.controller
+    fieldIconAssetPath: Animations/FieldItem/Box.controller
     actionType: 1
     actionParameter: UnityChanAccessory:30/GreatSword:70
   - key: Banana
@@ -572,7 +572,7 @@ MonoBehaviour:
       actionType: 0
       actionParameter: 3
     - key: Box
-      fieldIconAssetPath: AnimationController/FieldItem/Box.controller
+      fieldIconAssetPath: Animations/FieldItem/Box.controller
       actionType: 1
       actionParameter: UnityChanAccessory:30/GreatSword:70
     - key: Banana
