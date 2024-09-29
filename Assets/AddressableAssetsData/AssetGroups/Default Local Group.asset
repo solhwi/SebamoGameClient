@@ -1420,6 +1420,156 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11f4affbf4e6de749bf5ab2feed4ba35
+    m_Address: Assets/Bundles/Materials/Character.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 957f2f44eb1eaa547b4a4ca7f8ada4d4
+    m_Address: Assets/Bundles/Materials/Eye/Eye-EyeBall_00_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbcba65bb1c696d4597482dfecbdbd85
+    m_Address: Assets/Bundles/Materials/Eye/EyeLight_02.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c1db893a9d84ae42b5f40edda45fce3
+    m_Address: Assets/Bundles/Materials/Eye/EyeLight_00.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 193a954f66f3cf943bceaccec7ce331e
+    m_Address: Assets/Bundles/Models/Parts/Costume_01.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd4802cc7972ecb4699ed0b29916793f
+    m_Address: Assets/Bundles/Models/Parts/Costume_02.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2425d323ad15a14db2323ecd7b462ac
+    m_Address: Assets/Bundles/Models/Parts/Costume_03.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e82b72d6ee6004469434238fcc4887a
+    m_Address: Assets/Bundles/Models/Parts/Hair_00_Base.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0001e8f856c67ce4cbd40fee65534082
+    m_Address: Assets/Bundles/Models/Parts/Hair_01_Base.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a146594ebbaebc84a801b8e87505f844
+    m_Address: Assets/Bundles/Models/Parts/Hair_02_Base.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba08044b46b9d274191503b96449b16e
+    m_Address: Assets/Bundles/Models/Parts/Hair_00_Front.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 731ecf5991c41524e81af48795bf9092
+    m_Address: Assets/Bundles/Models/Parts/Hair_01_Front.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6a92ea2a0c495f458a00ff908e394e3
+    m_Address: Assets/Bundles/Models/Parts/Accessory_00.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc94cc429b47dd84e8a527376d6e05d1
+    m_Address: Assets/Bundles/Models/Parts/Accessory_01.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61aec2bbd941a4c45831b3509a290539
+    m_Address: Assets/Bundles/Models/Parts/Accessory_02.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddd8fa7b3e90f5a47ac055791c33cd33
+    m_Address: Assets/Bundles/Models/Parts/Eye_00_L.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1916394ce5d6072439e502357a407567
+    m_Address: Assets/Bundles/Models/Parts/Eye_00_R.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f676b8f712ef0f40825ad6df2132f8d
+    m_Address: Assets/Bundles/Models/Parts/Eye_01_L.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c36a19694fa33d4f8972df9cab583c5
+    m_Address: Assets/Bundles/Models/Parts/Eye_01_R.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ce156784ef209045be338a368e13d9d
+    m_Address: Assets/Bundles/Models/Parts/Eye_02_L.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd27e7964625c84449f2ac3e445385f3
+    m_Address: Assets/Bundles/Models/Parts/Eye_02_R.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6131178e2a1e42242b6d58f6ba6aa6d7
+    m_Address: Assets/Bundles/Models/Parts/EyeLight_00_L.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0d3992b3ab5d664f86ebedbc2f7f32c
+    m_Address: Assets/Bundles/Models/Parts/EyeLight_00_R.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5ef0863cbef51144b0d036586e669ba
+    m_Address: Assets/Bundles/Models/Parts/EyeLight_01_L.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f5f7a3051964b14d8eb48a0ba574e3f
+    m_Address: Assets/Bundles/Models/Parts/EyeLight_01_R.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 040243e6c1a99954f8f374657c13f19d
+    m_Address: Assets/Bundles/Models/Parts/EyeLight_02_L.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c92d641718bd7944bc1c13062d8a562
+    m_Address: Assets/Bundles/Models/Parts/EyeLight_02_R.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 207f23503b6a22448a7c7139ed5e8286
+    m_Address: Assets/Bundles/Models/Parts/Face_00.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19b3520048fec7345982be6761526df3
+    m_Address: Assets/Bundles/Models/Parts/Face_01.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f615bae3b4fc944cae59f91b568747f
+    m_Address: Assets/Bundles/Models/Parts/Face_02.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0cf4cec20434bb14c93e9a6780056d24, type: 2}
   m_SchemaSet:

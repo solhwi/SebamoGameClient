@@ -36,12 +36,9 @@ public class UIManager : Singleton<UIManager>
 
 	public IEnumerator PreLoadPopup()
 	{
-		foreach (var p in popupRefDictionary)
+		foreach (var p in popupRefDictionary.Values)
 		{
-			var popupType = p.Key;
-			var referenceObj = p.Value;
-
-			yield return ResourceManager.Instance.LoadAsync<BoardGamePopup>(referenceObj);
+			yield return ResourceManager.Instance.LoadAsync<BoardGamePopup>(p);
 		}
 	}
 
@@ -89,7 +86,10 @@ public class UIManager : Singleton<UIManager>
 		if (isFirstOpen)
 		{
 			boardGameMainCanvas = FindAnyObjectByType<BoardGameCanvasBase>(FindObjectsInactive.Include);
-			boardGameMainCanvas.OnEnter();
+			if (boardGameMainCanvas != null)
+			{
+				boardGameMainCanvas.OnEnter();
+			}
 		}
 
 		if (boardGameMainCanvas != null)
@@ -100,13 +100,13 @@ public class UIManager : Singleton<UIManager>
 
 	public void CloseMainCanvas(bool isLastClose = false)
 	{
-		if (isLastClose)
-		{
-			boardGameMainCanvas.OnExit();
-		}
-
 		if (boardGameMainCanvas != null)
 		{
+			if (isLastClose)
+			{
+				boardGameMainCanvas.OnExit();
+			}
+
 			boardGameMainCanvas.gameObject.SetActive(false);
 		}
 	}
