@@ -69,17 +69,6 @@ public class CharacterDataSetter : MonoBehaviour
 
 		MakeParts();
 		SetMeshes();
-		SetAvatar();
-	}
-
-	public void SetAvatar()
-	{
-		CharacterType characterType = playerDataContainer.GetCurrentPartsCharacterType(playerGroup, playerName, CharacterPartsType.Body);
-		if (characterType == CharacterType.Max)
-			return;
-
-		var avatar = characterDataContainer.characterAvatars[(int)characterType];
-		animationController.SetAvatar(avatar);
 	}
 
 	public void SetMeshes()

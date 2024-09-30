@@ -5,11 +5,15 @@ using UnityEngine;
 public class LoadingSceneModule : SceneModuleBase
 {
 	[SerializeField] private ItemTable itemTable;
+	[SerializeField] private CharacterDataContainer characterDataContainer;
 
 	public override IEnumerator OnPrepareEnter()
 	{
 		yield return base.OnPrepareEnter();
+
 		yield return itemTable.PreLoadTableAssets();
+		yield return characterDataContainer.PreLoadCharacterParts();
+
 		yield return BoardGameManager.Instance.PreLoadCharacter();
 		yield return UIManager.Instance.PreLoadPopup();
 		yield return ObjectCameraManager.Instance.PreLoadObjectCamera();

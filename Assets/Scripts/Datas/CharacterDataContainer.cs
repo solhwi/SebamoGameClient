@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public enum CharacterType
 {
@@ -42,26 +43,142 @@ public class CharacterDataContainer : ScriptableObject
 	[Header("[0 : UnityChan, 1 : Yuco, 2 : Misaki]")]
 	[Space]
 
-    public Avatar[] characterAvatars = new Avatar[(int)CharacterType.Max];
+	[HideInInspector] public List<GameObject> characterBodyPrefabs = new List<GameObject>();
+	[SerializeField] private AssetReferenceGameObject[] characterBodyPrefabRefs = new AssetReferenceGameObject[(int)CharacterType.Max];
 
-	public GameObject[] characterBodyPrefabs = new GameObject[(int)CharacterType.Max];
-	public GameObject[] characterBackHairPrefabs = new GameObject[(int)CharacterType.Max];
-	public GameObject[] characterFrontHairPrefabs = new GameObject[(int)CharacterType.Max];
-	public GameObject[] characterHeadAccessoryPrefabs = new GameObject[(int)CharacterType.Max];
+	[HideInInspector] public List<GameObject> characterBackHairPrefabs = new List<GameObject>();
+	[SerializeField] private AssetReferenceGameObject[] characterBackHairPrefabRefs = new AssetReferenceGameObject[(int)CharacterType.Max];
+
+	[HideInInspector] public List<GameObject> characterFrontHairPrefabs = new List<GameObject>();
+	[SerializeField] private AssetReferenceGameObject[] characterFrontHairPrefabRefs = new AssetReferenceGameObject[(int)CharacterType.Max];
+
+	[HideInInspector] public List<GameObject> characterHeadAccessoryPrefabs = new List<GameObject>();
+	[SerializeField] private AssetReferenceGameObject[] characterHeadAccessoryPrefabRefs = new AssetReferenceGameObject[(int)CharacterType.Max];
 
 	[Header("[0 : 대검 / 1, 2 : 쌍검 /  3 : 도끼 / 4 : 곡괭이 / 5 : 삽 / 6 : 우산 / 7 : 잠자리채]")]
 	[Space]
-	public GameObject[] characterPropPrefabs = new GameObject[(int)PropType.Max];
+	[HideInInspector] public List<GameObject> characterPropPrefabs = new List<GameObject>();
+	[SerializeField] private AssetReferenceGameObject[] characterPropPrefabRefs = new AssetReferenceGameObject[(int)CharacterType.Max];
 
-	public GameObject characterLeftEyePrefab = null;
-	public GameObject characterRightEyePrefab = null;
-	public GameObject characterFacePrefab = null;
+	[HideInInspector] public GameObject characterLeftEyePrefab = null;
+	[SerializeField] private AssetReferenceGameObject characterLeftEyePrefabRef = null;
 
-	public Mesh[] characterLeftEyeMeshes = new Mesh[(int)CharacterType.Max];
-	public Mesh[] characterRightEyeMeshes = new Mesh[(int)CharacterType.Max];
-	public Mesh[] characterFaceMeshes = new Mesh[(int)CharacterType.Max];
+	[HideInInspector] public GameObject characterRightEyePrefab = null;
+	[SerializeField] private AssetReferenceGameObject characterRightEyePrefabRef	= null;
 
-	public Material[] characterEyeMaterials = new Material[(int)CharacterType.Max];
+	[HideInInspector] public GameObject characterFacePrefab = null;
+	[SerializeField] private AssetReferenceGameObject characterFacePrefabRef = null;
+
+	[HideInInspector] public List<Mesh> characterLeftEyeMeshes = new List<Mesh>();
+	[SerializeField] private AssetReferenceT<Mesh>[] characterLeftEyeMeshRefs = new AssetReferenceT<Mesh>[(int)CharacterType.Max];
+
+	[HideInInspector] public List<Mesh> characterRightEyeMeshes = new List<Mesh>();
+	[SerializeField] private AssetReferenceT<Mesh>[] characterRightEyeMeshRefs = new AssetReferenceT<Mesh>[(int)CharacterType.Max];
+
+	[HideInInspector] public List<Mesh> characterFaceMeshes = new List<Mesh>();
+	[SerializeField] private AssetReferenceT<Mesh>[] characterFaceMeshRefs = new AssetReferenceT<Mesh>[(int)CharacterType.Max];
+
+	[HideInInspector] public List<Material> characterEyeMaterials = new List<Material>();
+	[SerializeField] private AssetReferenceT<Material>[] characterEyeMaterialRefs = new AssetReferenceT<Material>[(int)CharacterType.Max];
+
+	public IEnumerator PreLoadCharacterParts()
+	{
+		characterBodyPrefabs.Clear();
+		foreach (var reference in characterBodyPrefabRefs)
+		{
+			yield return ResourceManager.Instance.LoadAsync<GameObject>(reference, (o) =>
+			{
+				characterBodyPrefabs.Add(o);
+			});
+		}
+
+		characterBackHairPrefabs.Clear();
+		foreach (var reference in characterBackHairPrefabRefs)
+		{
+			yield return ResourceManager.Instance.LoadAsync<GameObject>(reference, (o) =>
+			{
+				characterBackHairPrefabs.Add(o);
+			});
+		}
+
+		characterFrontHairPrefabs.Clear();
+		foreach (var reference in characterFrontHairPrefabRefs)
+		{
+			yield return ResourceManager.Instance.LoadAsync<GameObject>(reference, (o) =>
+			{
+				characterFrontHairPrefabs.Add(o);
+			});
+		}
+
+		characterHeadAccessoryPrefabs.Clear();
+		foreach (var reference in characterHeadAccessoryPrefabRefs)
+		{
+			yield return ResourceManager.Instance.LoadAsync<GameObject>(reference, (o) =>
+			{
+				characterHeadAccessoryPrefabs.Add(o);
+			});
+		}
+
+		characterPropPrefabs.Clear();
+		foreach (var reference in characterPropPrefabRefs)
+		{
+			yield return ResourceManager.Instance.LoadAsync<GameObject>(reference, (o) =>
+			{
+				characterPropPrefabs.Add(o);
+			});
+		}
+
+		yield return ResourceManager.Instance.LoadAsync<GameObject>(characterLeftEyePrefabRef, (o) =>
+		{
+			characterLeftEyePrefab = o;
+		});
+
+		yield return ResourceManager.Instance.LoadAsync<GameObject>(characterRightEyePrefabRef, (o) =>
+		{
+			characterRightEyePrefab = o;
+		});
+
+		yield return ResourceManager.Instance.LoadAsync<GameObject>(characterFacePrefabRef, (o) =>
+		{
+			characterFacePrefab = o;
+		});
+
+		characterLeftEyeMeshes.Clear();
+		foreach (var reference in characterLeftEyeMeshRefs)
+		{
+			yield return ResourceManager.Instance.LoadAsync<Mesh>(reference, (m) =>
+			{
+				characterLeftEyeMeshes.Add(m);
+			});
+		}
+
+		characterRightEyeMeshes.Clear();
+		foreach (var reference in characterRightEyeMeshRefs)
+		{
+			yield return ResourceManager.Instance.LoadAsync<Mesh>(reference, (m) =>
+			{
+				characterRightEyeMeshes.Add(m);
+			});
+		}
+
+		characterFaceMeshes.Clear();
+		foreach (var reference in characterFaceMeshRefs)
+		{
+			yield return ResourceManager.Instance.LoadAsync<Mesh>(reference, (m) =>
+			{
+				characterFaceMeshes.Add(m);
+			});
+		}
+
+		characterEyeMaterials.Clear();
+		foreach (var reference in characterEyeMaterialRefs)
+		{
+			yield return ResourceManager.Instance.LoadAsync<Material>(reference, (m) =>
+			{
+				characterEyeMaterials.Add(m);
+			});
+		}
+	}
 
 	public GameObject GetPartsObject(CharacterType characterType, CharacterPartsType meshType)
 	{
