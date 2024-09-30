@@ -44,8 +44,22 @@ public class ObjectView : MonoBehaviour
 		if (!isInitialized)
 		{
 			spriteView = GetComponent<SpriteRenderer>();
+			if (spriteView != null)
+			{
+				spriteView.color = Color.clear;
+			}
+
 			textureView = GetComponent<RawImage>();
+			if (textureView != null)
+			{
+				textureView.color = Color.clear;
+			}
+
 			meshView = GetComponent<MeshRenderer2D>();
+			if (meshView != null)
+			{
+				meshView.SetColor(Color.clear);
+			}
 
 			renderTexture = new RenderTexture(width, height, depth);
 			rect = new Rect(0, 0, width, height);
@@ -103,6 +117,9 @@ public class ObjectView : MonoBehaviour
 	protected virtual IEnumerator OnPrepareRendering()
 	{
 		yield return ResourceManager.Instance.InstantiateAsync<GameObject>(originPrefab, cameraArm, OnCreateObject);
+		
+		// 그 다음 프레임부터 렌더링 업데이트가 유효하므로 한 프레임 쉼
+		yield return null;
 	}
 
 	protected virtual void Update()

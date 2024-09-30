@@ -1555,6 +1555,201 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2729e2a44b0cc9742a0e7e48e38501be
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/unitychan_hw.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b65af01c810f1ed47831455272f1e7d8
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/uniRibbon.FBX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8026e4970d43f84cb232ddfcf36a1ff
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/eye_L1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f99c9588a538904cab68ea39c507a33
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/skin.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10ad1d2b761374b4db26a2c94f46d8b6
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/cheek1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7807b42b34ef7854d9f55bd7c56502b0
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/body_trans.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e6c590fb0004b14c832e50a0d04c026
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/hw_hat.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4642d6e5e64b3e24d86ebed58339c81e
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/hair.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1981922bfb12c3f4595c6c495206e6f1
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/eye_R1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bc90fc0552720140b17decd787eef04
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/face.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e7cde1d68e9cca4088d3bf1296caf88
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/mat_cheek.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7187a1a39e591674386a378f9c78bc58
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/eyebase.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c74b8e95d80471c47893ad90d71207d0
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/eyeline.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d79134b664b7413479eeec2fecf48b18
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/hw_body.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46c2a43873840d940ad2cdcd896dee6b
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/skin1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43c535d4a3bf6d74ab7279c0cd24c48f
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/Effector.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1bffb9914fea824c9a5572ba592bcda
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/body.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c49fd401f55d4274d802e2967a0621de
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/body_01_NRM.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 797ccb589e9c2564dab860f5303fcf93
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/body_01_SPEC.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69f862e9b9e411946901fcfa286673e5
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/body_02.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80dc83962b762ba4bbdf325fb872307f
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/cheek_00.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9581ec9894f0d146a726dd4043ee69d
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/ENV2.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c1e46f69b0715148b553c333461f69d
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/eye_iris_L_00.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a272c0985ddcb11438636609e65a2d0e
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/eye_iris_R_00.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f2d7d2ecf6c53f429ed1a004715ff87
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/eyeline_00.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1fd0ade28f574684fa2b5b6a1669154e
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/face_00.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1fad21d5f44b8fb4c8fca1ab6e44a949
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/FO_CLOTH1.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43d2377c14a483148bc182576a60f3c7
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/FO_RIM1.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b578df9ad9832e48be9ee72c7c5f7c9
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/FO_SKIN1.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d33a39d5bf42774fb4a5b9e8399bbfe
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/hair_01.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 950da47aee5a3fb408b3cd0d501f141f
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/hair_01_NRM.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d6fb3c1b31c06f47a32ebe4b49dc951
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/hair_01_SPEC.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aab965975258cf444a764ce931f0e1a1
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/hw_cloth.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30fba262ba0b75141a8deec864c8e71d
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/hw_cloth_NRM.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4d53e998aff9a842973db936c058ab3
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/hw_cloth_SPEC.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a985cfda99e21e47bf6e613e5fd1242
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/hw_hat_NRM.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5944c11bb643c784ba5b2fb4f289936f
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/hw_hat.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c21591f42e9c4e143a8dc74e31643df2
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/hw_hat_SPEC.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e14163fe28c5e546885d7cd0d49dcfc
+    m_Address: Assets/Bundles/Texture/Unitychan_hw/skin_01.tga
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0cf4cec20434bb14c93e9a6780056d24, type: 2}
   m_SchemaSet:

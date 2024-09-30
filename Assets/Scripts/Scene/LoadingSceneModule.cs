@@ -6,6 +6,7 @@ public class LoadingSceneModule : SceneModuleBase
 {
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private CharacterDataContainer characterDataContainer;
+	[SerializeField] private NPCResourceLoader npcPreLoader;
 
 	[SerializeField] private float loadingCompleteWaitTime = 3.0f;
 	private bool isLoaded = false;
@@ -43,6 +44,7 @@ public class LoadingSceneModule : SceneModuleBase
 
 		loadingCanvas.SetWaitDescription("아이템 준비 중");
 
+		yield return npcPreLoader.PreLoadNPC();
 		yield return UIManager.Instance.PreLoadPopup();
 		yield return ObjectCameraManager.Instance.PreLoadObjectCamera();
 		yield return ObjectManager.Instance.PreInstantiateFieldItemObject();

@@ -44,6 +44,9 @@ public class CharacterView : ObjectView
 	{
 		yield return base.OnPrepareRendering();
 
+		if (originObj == null)
+			yield break;
+
 		characterDataSetter = originObj.GetComponent<CharacterDataSetter>();
 		if (characterDataSetter != null)
 		{
