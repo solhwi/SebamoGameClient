@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 3840656792491273268}
   - component: {fileID: 5130759063584822439}
   - component: {fileID: 7350261402996513973}
+  - component: {fileID: 6899133154665906815}
   m_Layer: 5
   m_Name: WaitingPopup
   m_TagString: Untagged
@@ -196,6 +197,19 @@ MonoBehaviour:
   canvas: {fileID: 1759331724917170796}
   canvasScaler: {fileID: 3840656792491273268}
   spinnerObj: {fileID: 1773668676979723916}
+  waitingText: {fileID: 6899133154665906815}
+--- !u!114 &6899133154665906815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2977767073576564559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6424e91aeb3fd64696d65b809eec57c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   waitingText: {fileID: 3570305289378383641}
   waitingAddString: .
   maxAddStringCount: 3

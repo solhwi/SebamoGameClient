@@ -1017,26 +1017,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4bd5bac4ccdae4f9c85135b8fd7da355
-    m_Address: Assets/Bundles/Animations/SplashScreen/FadeIn.anim
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 62ab4018993ae47b9a2a4b0d86b52035
-    m_Address: Assets/Bundles/Animations/SplashScreen/Voice.anim
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2945d5f95b61c458c9651895a514de58
-    m_Address: Assets/Bundles/Animations/SplashScreen/FadeOut.anim
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a37f6aca9c6bf45fa819c001b4e8016e
-    m_Address: Assets/Bundles/Animations/SplashScreen/SplashScreen.controller
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd421e0ffdb444e4ca78408fe5f56d58
     m_Address: Assets/Bundles/Animations/Animation Setting/_Humanoid And Add-Bone
       LS PropC Umbrella On-off.mask

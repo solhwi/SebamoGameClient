@@ -12,26 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f33dfafa199a346a1cefef897d7b80, type: 3}
   m_Name: CharacterDataContainer
   m_EditorClassIdentifier: 
-  characterAvatars:
-  - {fileID: 9000000, guid: 193a954f66f3cf943bceaccec7ce331e, type: 3}
-  - {fileID: 9000000, guid: dd4802cc7972ecb4699ed0b29916793f, type: 3}
-  - {fileID: 9000000, guid: e2425d323ad15a14db2323ecd7b462ac, type: 3}
-  characterAvatarRefs:
-  - m_AssetGUID: 193a954f66f3cf943bceaccec7ce331e
-    m_SubObjectName: Costume_01Avatar
-    m_SubObjectType: UnityEngine.Avatar, UnityEngine.AnimationModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: dd4802cc7972ecb4699ed0b29916793f
-    m_SubObjectName: Costume_02Avatar
-    m_SubObjectType: UnityEngine.Avatar, UnityEngine.AnimationModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: e2425d323ad15a14db2323ecd7b462ac
-    m_SubObjectName: Costume_03Avatar
-    m_SubObjectType: UnityEngine.Avatar, UnityEngine.AnimationModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 0
   characterBodyPrefabs:
   - {fileID: 919132149155446097, guid: 193a954f66f3cf943bceaccec7ce331e, type: 3}
   - {fileID: 919132149155446097, guid: dd4802cc7972ecb4699ed0b29916793f, type: 3}

@@ -17,17 +17,7 @@ public class WaitingPopup : BoardGamePopup
 	}
 
 	[SerializeField] private GameObject spinnerObj;
-	[SerializeField] private Text waitingText;
-
-	[SerializeField] private string waitingAddString = ".";
-	[SerializeField] private int maxAddStringCount = 1;
-
-	[SerializeField] private float changeTime = 1.0f;
-
-	private string waitingBaseString = string.Empty;
-
-	private float t = 0.0f;
-	private int currentAddCount = 0;
+	[SerializeField] private WaitingText waitingText;
 
 	protected override void Reset()
 	{
@@ -42,36 +32,17 @@ public class WaitingPopup : BoardGamePopup
 
 		if (parameter is Parameter p)
 		{
-			waitingBaseString = p.waitingBaseText;
-			waitingText.text = waitingBaseString;
+			waitingText.StartWaiting(p.waitingBaseText);
 		}
 
 		spinnerObj.SetActive(true);
-		t = 0.0f;
 	}
 
-	private void Update()
+	protected override void OnClose()
 	{
-		t += Time.deltaTime;
+		base.OnClose();
 
-		if (t > changeTime)
-		{
-			currentAddCount = currentAddCount >= maxAddStringCount ? 0 : currentAddCount + 1;
-			waitingText.text = GetWaitingText(currentAddCount);
-
-			t = 0.0f;
-		}
+		waitingText.StopWaiting();
 	}
 
-	private string GetWaitingText(int addCount)
-	{
-		StringBuilder sb = new StringBuilder(waitingBaseString);
-
-		for(int i = 0; i < addCount; i++)
-		{
-			sb.Append(waitingAddString);
-		}
-
-		return sb.ToString();
-	}
 }
