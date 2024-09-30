@@ -1555,16 +1555,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2729e2a44b0cc9742a0e7e48e38501be
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/unitychan_hw.fbx
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b65af01c810f1ed47831455272f1e7d8
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/uniRibbon.FBX
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e8026e4970d43f84cb232ddfcf36a1ff
     m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/eye_L1.mat
     m_ReadOnly: 0

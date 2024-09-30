@@ -299,11 +299,7 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   modelRefs:
-  - m_AssetGUID: 2729e2a44b0cc9742a0e7e48e38501be
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: b65af01c810f1ed47831455272f1e7d8
+  - m_AssetGUID: c43c258af683313409bb8cdfbdd03a3e
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
