@@ -560,10 +560,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae18d2cbe977b1d4da58a075eaedff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStartScene: 1
+  boardGameCanvas: {fileID: 607191619}
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
   characterDataContainer: {fileID: 11400000, guid: 73468ef0f89e7f846bb837967a881fad, type: 2}
-  loadingCanvas: {fileID: 607191619}
   loadingCompleteWaitTime: 2.3
 --- !u!4 &2110501418
 Transform:

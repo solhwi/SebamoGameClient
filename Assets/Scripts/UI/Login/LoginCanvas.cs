@@ -105,7 +105,7 @@ public class LoginCanvas : BoardGameCanvasBase
 			return;
 
 		HttpNetworkManager.Instance.TryConnect(currentAuthData.group, currentAuthData.name);
-		SceneManager.Instance.LoadScene(SceneType.Game, IsConnected);
+		SceneManager.Instance.LoadScene(SceneType.Game, true, IsConnected);
 	}
 
 	private int OnGetItemCount(int tabType)

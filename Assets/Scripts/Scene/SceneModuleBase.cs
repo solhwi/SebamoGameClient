@@ -4,16 +4,7 @@ using UnityEngine;
 
 public class SceneModuleBase : MonoBehaviour
 {
-	[SerializeField] private bool isStartScene = false;
-
-	private IEnumerator Start()
-	{
-		if (isStartScene)
-		{
-			yield return OnPrepareEnter();
-			OnEnter();
-		}
-	}
+	[SerializeField] protected BoardGameCanvasBase boardGameCanvas;
 
 	public virtual IEnumerator OnPrepareEnter()
 	{
@@ -27,11 +18,14 @@ public class SceneModuleBase : MonoBehaviour
 
     public virtual void OnEnter()
     {
-		UIManager.Instance.OpenMainCanvas(true);
+		UIManager.Instance.SetMainCanvas(boardGameCanvas);
+		UIManager.Instance.OpenMainCanvas();
+
+		boardGameCanvas.OnEnter();
 	}
 
 	public virtual void OnExit()
     {
-		UIManager.Instance.CloseMainCanvas(true);
+		boardGameCanvas.OnExit();
 	}
 }

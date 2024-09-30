@@ -6,14 +6,24 @@ public class LoadingSceneModule : SceneModuleBase
 {
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private CharacterDataContainer characterDataContainer;
-	[SerializeField] private LoadingCanvas loadingCanvas;
 
 	[SerializeField] private float loadingCompleteWaitTime = 3.0f;
 	private bool isLoaded = false;
 
+	private IEnumerator Start()
+	{
+		yield return OnPrepareEnter();
+		OnEnter();
+	}
+
 	public override IEnumerator OnPrepareEnter()
 	{
 		isLoaded = false;
+
+		if (boardGameCanvas is LoadingCanvas loadingCanvas == false)
+			yield break;
+
+		loadingCanvas = boardGameCanvas as LoadingCanvas;
 
 		loadingCanvas.OnEnter();
 
@@ -52,11 +62,6 @@ public class LoadingSceneModule : SceneModuleBase
 
 	public override void OnEnter()
 	{
-		SceneManager.Instance.LoadScene(SceneType.Login);
-	}
-
-	public override void OnExit()
-	{
-		loadingCanvas.OnExit();
+		SceneManager.Instance.LoadScene(SceneType.Login, false);
 	}
 }

@@ -27,12 +27,12 @@ public class SceneManager : Singleton<SceneManager>
 		OnLoadSceneCompleted(currentScene, LoadSceneMode.Single);
 	}
 
-	public void LoadScene(SceneType type, Func<bool> barrierFunc = null)
+	public void LoadScene(SceneType type, bool bUseBackground, Func<bool> barrierFunc = null)
 	{
 		if (loadCoroutine != null)
 			return;
 
-		loadCoroutine = StartCoroutine(LoadSceneProcess(type, barrierFunc, OnLoading));
+		loadCoroutine = StartCoroutine(LoadSceneProcess(type, bUseBackground, barrierFunc, OnLoading));
 	}
 
 	private void OnLoading(float progress)
@@ -45,7 +45,7 @@ public class SceneManager : Singleton<SceneManager>
 		currentSceneModule = FindAnyObjectByType<SceneModuleBase>();
 	}
 
-	private IEnumerator LoadSceneProcess(SceneType type, Func<bool> barrierFunc, Action<float> onProgress)
+	private IEnumerator LoadSceneProcess(SceneType type, bool bUseBackground, Func<bool> barrierFunc, Action<float> onProgress)
 	{
 		if (currentSceneModule != null)
 		{
@@ -56,7 +56,7 @@ public class SceneManager : Singleton<SceneManager>
 		UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnLoadSceneCompleted;
 		UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnLoadSceneCompleted;
 
-		UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("게임 로딩 중"));
+		UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("게임 로딩 중", bUseBackground));
 
 		var loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(type.ToString());
 		loadProcess.allowSceneActivation = false;

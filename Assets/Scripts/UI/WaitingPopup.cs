@@ -9,13 +9,16 @@ public class WaitingPopup : BoardGamePopup
 	public class Parameter : UIParameter
 	{
 		public readonly string waitingBaseText = string.Empty;
+		public readonly bool bUseBackGround = false;
 
-		public Parameter(string waitingBaseText)
+		public Parameter(string waitingBaseText, bool bUseBackGround = false)
 		{
 			this.waitingBaseText = waitingBaseText;
+			this.bUseBackGround = bUseBackGround;
 		}
 	}
 
+	[SerializeField] private Image backgroundImage;
 	[SerializeField] private GameObject spinnerObj;
 	[SerializeField] private WaitingText waitingText;
 
@@ -33,6 +36,7 @@ public class WaitingPopup : BoardGamePopup
 		if (parameter is Parameter p)
 		{
 			waitingText.StartWaiting(p.waitingBaseText);
+			backgroundImage.color = backgroundImage.color.Alpha(p.bUseBackGround ? 1f : 0f);
 		}
 
 		spinnerObj.SetActive(true);

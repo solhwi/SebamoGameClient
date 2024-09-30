@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a5d78bc962443e94ab3df0a75bae5e73, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -196,6 +196,7 @@ MonoBehaviour:
   popupType: 6
   canvas: {fileID: 1759331724917170796}
   canvasScaler: {fileID: 3840656792491273268}
+  backgroundImage: {fileID: 8347085880733034949}
   spinnerObj: {fileID: 1773668676979723916}
   waitingText: {fileID: 6899133154665906815}
 --- !u!114 &6899133154665906815

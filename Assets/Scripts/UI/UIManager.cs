@@ -81,32 +81,23 @@ public class UIManager : Singleton<UIManager>
 		popupCanvas.Close();
 	}
 
-	public void OpenMainCanvas(bool isFirstOpen = false)
+	public void SetMainCanvas(BoardGameCanvasBase canvas)
 	{
-		if (isFirstOpen)
-		{
-			boardGameMainCanvas = FindAnyObjectByType<BoardGameCanvasBase>(FindObjectsInactive.Include);
-			if (boardGameMainCanvas != null)
-			{
-				boardGameMainCanvas.OnEnter();
-			}
-		}
+		boardGameMainCanvas = canvas;
+	}
 
+	public void OpenMainCanvas()
+	{
 		if (boardGameMainCanvas != null)
 		{
 			boardGameMainCanvas.gameObject.SetActive(true);
 		}
 	}
 
-	public void CloseMainCanvas(bool isLastClose = false)
+	public void CloseMainCanvas()
 	{
 		if (boardGameMainCanvas != null)
 		{
-			if (isLastClose)
-			{
-				boardGameMainCanvas.OnExit();
-			}
-
 			boardGameMainCanvas.gameObject.SetActive(false);
 		}
 	}
