@@ -1619,8 +1619,7 @@ MonoBehaviour:
   - m_GUID: 11f4affbf4e6de749bf5ab2feed4ba35
     m_Address: Assets/Bundles/Materials/Character.mat
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 957f2f44eb1eaa547b4a4ca7f8ada4d4
     m_Address: Assets/Bundles/Materials/Eye/Eye-EyeBall_00_00.mat
@@ -1805,8 +1804,7 @@ MonoBehaviour:
   - m_GUID: f1bffb9914fea824c9a5572ba592bcda
     m_Address: Assets/Bundles/Materials/Unitychan_hw/body.mat
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - NPC
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 43c535d4a3bf6d74ab7279c0cd24c48f
     m_Address: Assets/Bundles/Materials/Unitychan_hw/Effector.mat
