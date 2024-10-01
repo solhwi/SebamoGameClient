@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 118ed15129315a045909dd9fe0457d7a
+guid: cc51a9a8397e3c5498dda60419ad3ec9
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
@@ -64,3 +64,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18705
+  packageName: '"Unity-Chan!" Model'
+  packageVersion: 1.2.2
+  assetPath: Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Texture/skin_01.tga
+  uploadId: 374231

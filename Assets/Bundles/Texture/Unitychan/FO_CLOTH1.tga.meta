@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dedc6f5038b67934fb2f25c3b75c1ccb
+guid: cc8f70f2ec571e9478efa98c041cde7b
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
@@ -64,3 +64,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18705
+  packageName: '"Unity-Chan!" Model'
+  packageVersion: 1.2.2
+  assetPath: Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Texture/FO_CLOTH1.tga
+  uploadId: 374231

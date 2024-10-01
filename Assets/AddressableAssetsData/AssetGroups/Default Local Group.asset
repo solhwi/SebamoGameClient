@@ -1802,92 +1802,92 @@ MonoBehaviour:
     m_SerializedLabels:
     - Character
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e8026e4970d43f84cb232ddfcf36a1ff
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/eye_L1.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - NPC
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4f99c9588a538904cab68ea39c507a33
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/skin.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - NPC
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 10ad1d2b761374b4db26a2c94f46d8b6
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/cheek1.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - NPC
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7807b42b34ef7854d9f55bd7c56502b0
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/body_trans.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - NPC
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2e6c590fb0004b14c832e50a0d04c026
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/hw_hat.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - NPC
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4642d6e5e64b3e24d86ebed58339c81e
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/hair.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - NPC
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1981922bfb12c3f4595c6c495206e6f1
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/eye_R1.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - NPC
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2bc90fc0552720140b17decd787eef04
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/face.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - NPC
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8e7cde1d68e9cca4088d3bf1296caf88
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/mat_cheek.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - NPC
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7187a1a39e591674386a378f9c78bc58
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/eyebase.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - NPC
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c74b8e95d80471c47893ad90d71207d0
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/eyeline.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - NPC
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d79134b664b7413479eeec2fecf48b18
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/hw_body.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - NPC
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 46c2a43873840d940ad2cdcd896dee6b
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/skin1.mat
+  - m_GUID: f1bffb9914fea824c9a5572ba592bcda
+    m_Address: Assets/Bundles/Materials/Unitychan_hw/body.mat
     m_ReadOnly: 0
     m_SerializedLabels:
     - NPC
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 43c535d4a3bf6d74ab7279c0cd24c48f
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/Effector.mat
+    m_Address: Assets/Bundles/Materials/Unitychan_hw/Effector.mat
     m_ReadOnly: 0
     m_SerializedLabels:
     - NPC
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f1bffb9914fea824c9a5572ba592bcda
-    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Materials/body.mat
+  - m_GUID: 46c2a43873840d940ad2cdcd896dee6b
+    m_Address: Assets/Bundles/Materials/Unitychan_hw/skin1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d79134b664b7413479eeec2fecf48b18
+    m_Address: Assets/Bundles/Materials/Unitychan_hw/hw_body.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c74b8e95d80471c47893ad90d71207d0
+    m_Address: Assets/Bundles/Materials/Unitychan_hw/eyeline.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7187a1a39e591674386a378f9c78bc58
+    m_Address: Assets/Bundles/Materials/Unitychan_hw/eyebase.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e7cde1d68e9cca4088d3bf1296caf88
+    m_Address: Assets/Bundles/Materials/Unitychan_hw/mat_cheek.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bc90fc0552720140b17decd787eef04
+    m_Address: Assets/Bundles/Materials/Unitychan_hw/face.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1981922bfb12c3f4595c6c495206e6f1
+    m_Address: Assets/Bundles/Materials/Unitychan_hw/eye_R1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4642d6e5e64b3e24d86ebed58339c81e
+    m_Address: Assets/Bundles/Materials/Unitychan_hw/hair.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e6c590fb0004b14c832e50a0d04c026
+    m_Address: Assets/Bundles/Materials/Unitychan_hw/hw_hat.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7807b42b34ef7854d9f55bd7c56502b0
+    m_Address: Assets/Bundles/Materials/Unitychan_hw/body_trans.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10ad1d2b761374b4db26a2c94f46d8b6
+    m_Address: Assets/Bundles/Materials/Unitychan_hw/cheek1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f99c9588a538904cab68ea39c507a33
+    m_Address: Assets/Bundles/Materials/Unitychan_hw/skin.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8026e4970d43f84cb232ddfcf36a1ff
+    m_Address: Assets/Bundles/Materials/Unitychan_hw/eye_L1.mat
     m_ReadOnly: 0
     m_SerializedLabels:
     - NPC
@@ -2264,119 +2264,590 @@ MonoBehaviour:
     m_SerializedLabels:
     - Character
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a18067604964b5a4d8fd5552ed0d789e
-    m_Address: Assets/Bundles/UnityChan/Texture/FO_RIM1.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e315db926a0705845b12da3cc80ea306
-    m_Address: Assets/Bundles/UnityChan/Texture/eyeline_00.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a1d5b2277eb3f6245900378e6fa97575
-    m_Address: Assets/Bundles/UnityChan/Texture/FO_SKIN1.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f9c6074c5a78e71448f9efd3013cadda
-    m_Address: Assets/Bundles/UnityChan/Texture/body_01.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3a3c0acc807e9264ca0b32602a928a9a
-    m_Address: Assets/Bundles/UnityChan/Texture/body_01_NRM.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7ae1142e9b3a72048960dd9561e0e0d9
-    m_Address: Assets/Bundles/UnityChan/Texture/body_01_SPEC.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 89ede59217e3847c39c444f223f4084e
-    m_Address: Assets/Bundles/UnityChan/Texture/cheek_00.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f90e3449ad3674016962a3aba3d31a06
-    m_Address: Assets/Bundles/UnityChan/Texture/DEFAULT_NORMAL.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 763c5d30206d1d54a9b49b3309e37fe1
-    m_Address: Assets/Bundles/UnityChan/Texture/ENV2.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 66f06726158899242adaf95180360b7b
-    m_Address: Assets/Bundles/UnityChan/Texture/eye_iris_L_00.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7521661d2d6cebb479dea03e7336e5de
-    m_Address: Assets/Bundles/UnityChan/Texture/eye_iris_R_00.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3cf2e516b5353d5499c41818747b4155
-    m_Address: Assets/Bundles/UnityChan/Texture/face_00.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cc8f70f2ec571e9478efa98c041cde7b
-    m_Address: Assets/Bundles/UnityChan/Texture/FO_CLOTH1.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d04d722a0c808412ea85876950eec517
-    m_Address: Assets/Bundles/UnityChan/Texture/guide.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cbb65ec17f92eb44fb0dde6381b6a415
-    m_Address: Assets/Bundles/UnityChan/Texture/hair_01.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9eea3b9b4b755f64da2c821145616f44
-    m_Address: Assets/Bundles/UnityChan/Texture/hair_01_NRM.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c4271b2b1e8bfa949aa9230abaa7709e
-    m_Address: Assets/Bundles/UnityChan/Texture/hair_01_SPEC.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cc51a9a8397e3c5498dda60419ad3ec9
-    m_Address: Assets/Bundles/UnityChan/Texture/skin_01.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1034cbddf46c3ab41a3d0f17d44cb902
     m_Address: Assets/Bundles/Datas/NPCResourceLoader.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Data
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2729e2a44b0cc9742a0e7e48e38501be
+    m_Address: Assets/Bundles/Models/unitychan_hw.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca131910d5c9a634dbdd38e77111033f
+    m_Address: Assets/Bundles/Materials/Unitychan/skin1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a87def7cf3654cc43add52e645fee2ce
+    m_Address: Assets/Bundles/Materials/Unitychan/eye_R1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 00cf17fb11d4e76448c2096f7ee6aa4f
+    m_Address: Assets/Bundles/Materials/Unitychan/Left.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f9d44654b83160428d7c4cf276b3572
+    m_Address: Assets/Bundles/Materials/Unitychan/mat_cheek.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb570020a8c3bad4bbf803af20e78937
+    m_Address: Assets/Bundles/Materials/Unitychan/body.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bec51fc47eda6047ba5cc01addbf46f
+    m_Address: Assets/Bundles/Materials/Unitychan/eyebase.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4987862c1c195e74c86994ba4bcbd812
+    m_Address: Assets/Bundles/Materials/Unitychan/eye_L1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 407f97b032a277c44b753ed1c256a3b8
+    m_Address: Assets/Bundles/Materials/Unitychan/eyeline.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88157e674d7d0314db76940c73b69405
+    m_Address: Assets/Bundles/Materials/Unitychan/Right.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d83bd267b90e934e88637afcd02cb8a
+    m_Address: Assets/Bundles/Materials/Unitychan/face.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ebb6caef8207d243a588a574971408c
+    m_Address: Assets/Bundles/Materials/Unitychan/hair.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a18067604964b5a4d8fd5552ed0d789e
+    m_Address: Assets/Bundles/Texture/Unitychan/FO_RIM1.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e315db926a0705845b12da3cc80ea306
+    m_Address: Assets/Bundles/Texture/Unitychan/eyeline_00.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1d5b2277eb3f6245900378e6fa97575
+    m_Address: Assets/Bundles/Texture/Unitychan/FO_SKIN1.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9c6074c5a78e71448f9efd3013cadda
+    m_Address: Assets/Bundles/Texture/Unitychan/body_01.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a3c0acc807e9264ca0b32602a928a9a
+    m_Address: Assets/Bundles/Texture/Unitychan/body_01_NRM.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ae1142e9b3a72048960dd9561e0e0d9
+    m_Address: Assets/Bundles/Texture/Unitychan/body_01_SPEC.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89ede59217e3847c39c444f223f4084e
+    m_Address: Assets/Bundles/Texture/Unitychan/cheek_00.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f90e3449ad3674016962a3aba3d31a06
+    m_Address: Assets/Bundles/Texture/Unitychan/DEFAULT_NORMAL.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 763c5d30206d1d54a9b49b3309e37fe1
+    m_Address: Assets/Bundles/Texture/Unitychan/ENV2.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66f06726158899242adaf95180360b7b
+    m_Address: Assets/Bundles/Texture/Unitychan/eye_iris_L_00.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7521661d2d6cebb479dea03e7336e5de
+    m_Address: Assets/Bundles/Texture/Unitychan/eye_iris_R_00.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cf2e516b5353d5499c41818747b4155
+    m_Address: Assets/Bundles/Texture/Unitychan/face_00.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc8f70f2ec571e9478efa98c041cde7b
+    m_Address: Assets/Bundles/Texture/Unitychan/FO_CLOTH1.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d04d722a0c808412ea85876950eec517
+    m_Address: Assets/Bundles/Texture/Unitychan/guide.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbb65ec17f92eb44fb0dde6381b6a415
+    m_Address: Assets/Bundles/Texture/Unitychan/hair_01.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9eea3b9b4b755f64da2c821145616f44
+    m_Address: Assets/Bundles/Texture/Unitychan/hair_01_NRM.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4271b2b1e8bfa949aa9230abaa7709e
+    m_Address: Assets/Bundles/Texture/Unitychan/hair_01_SPEC.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc51a9a8397e3c5498dda60419ad3ec9
+    m_Address: Assets/Bundles/Texture/Unitychan/skin_01.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: feba437d8ff93f745a78828529e9a272
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_ShadingGradeMap_TransClipping_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3fb22770ec830b43bdb5ccb973e6f76
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_ShadingGradeMap_AngelRing_Tess_TransClipping.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a1af221400a61a4b94bae19aa79da2b
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_ShadingGradeMap_AngelRing_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60fe384b76fb67d40bc7e38411073dd6
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_DoubleShadeWithFeather_TransClipping_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a0d4af863770404faee6488b86fe3c9
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_DoubleShadeWithFeather_TransClipping_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 148d1eca2cf299e4eb949d15c4cf95ee
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_DoubleShadeWithFeather_Clipping_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf840a439c33c8b4a99d52e6c3d8511f
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_ShadingGradeMap_TransClipping_Tess_StencilMask.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0cb6c9e6216a91e4a9d38cd2acb4ccb6
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_DoubleShadeWithFeather_Transparent_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 682e6e6cf60a51040ade19437a3f53e2
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_DoubleShadeWithFeather_Clipping_Tess_StencilMask.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c94ee3046ef0574f87f6b658b4e4691
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_DoubleShadeWithFeather_Clipping_Tess_StencilMask.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97df86a7afe06ef41b2a2c242b10593e
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_DoubleShadeWithFeather_Tess_StencilMask.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d1395a9f4bfad44d8fddd0f2af19b1e
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_ShadingGradeMap_TransClipping_Tess_StencilMask.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d799eb857c0e2c45bbdfb2c033d33e6
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_ShadingGradeMap_Tess_StencilMask.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08c6bb334aed21c4198cf46b71ebca2d
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_ShadingGradeMap_TransClipping_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0959cb8822a344c4da890457e668fdc9
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_ShadingGradeMap_Transparent_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffadecfbd9e31f840ba4109fea0f0436
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_ShadingGradeMap_Tess_Light_StencilMask.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98ac5d198a471494da681b7b8d1e1727
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_ShadingGradeMap_Tess_Light_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54a94f776a43a074c8c2d205bb934005
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_ShadingGradeMap_AngelRing_TransClipping_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9855f226cd8152d4e99085272aceede6
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_DoubleShadeWithFeather_TransClipping_Tess_StencilMask.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4876871966ca2344793e439d7391d7b0
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_ShadingGradeMap_AngelRing_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 183ea557143786346b1bfc862ad22636
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_ShadingGradeMap_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11e8f1e181e558a47a387492d3ecdb88
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_ShadingGradeMap_AngelRing_TransClipping_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08c65988dc25d9f44b791fcc18fb543a
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_DoubleShadeWithFeather_Tess_StencilMask.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c39a77fda28b5043a7a17c7877cf7b2
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_ShadingGradeMap_TransClipping_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 06cae78b869a3234bab02eeb52197e1c
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_OutlineObject_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b8a1502578ed764c9880a7be65c9672
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_DoubleShadeWithFeather_Clipping_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e7690a767a07da4f943439680e70db8
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_DoubleShadeWithFeather_Tess_Light_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f28bba8b2f259bb40b697d91849c8794
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_DoubleShadeWithFeather_Transparent_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0b2fc9b8a189134da9c7d24f361caf4
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_DoubleShadeWithFeather_Clipping_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d115cf94d14d1842a56dfff76b57f42
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_ShadingGradeMap_Transparent_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4aed8662ca0f194284f3ab649e66d23
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_DoubleShadeWithFeather_Clipping_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3073cd2564e4cde45a19c05e0012d22a
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_DoubleShadeWithFeather_Tess_Light_StencilMask.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79d3dc54c32b69b42be17c48d33575f2
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_ShadingGradeMap_AngelRing_Tess_Light_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1449ab672051624ca3160737b630f5e
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_ShadingGradeMap_AngelRing_Tess_Light.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7842aa9522c7584cae2169b8e1ddb86
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_DoubleShadeWithFeather_TransClipping_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24c20b8ed5be113499b40f4e3b6b03e6
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_ShadingGradeMap_Tess_StencilMask.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b179fb8a87955a347b5f594a18b43475
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_DoubleShadeWithFeather_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e667137c8b6fd3d4390fc364b2e5c70b
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_ShadingGradeMap_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 356dd5af8f0d40e41b647d3d0a0555c1
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_ShadingGradeMap_Tess_Light.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f937ea4ce96dfbe448afc0fb671198e5
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_DoubleShadeWithFeather_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e987cf9cca0941042aa68d1dd51ee20f
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_DoubleShadeWithFeather_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d496a1c70c797ad43836d5bfff575b5f
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_ShadingGradeMap_AngelRing_TransClipping_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01494e58d87212f44ab51d29caea84e4
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_ShadingGradeMap_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f248db3b28fc5f44aabd7aca618bd1e
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_DoubleShadeWithFeather_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a20b66d106d3f5409f759b5193ecdc2
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_DoubleShadeWithFeather_TransClipping_Tess_StencilMask.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3fb99ac3775edeb4aa9530db5a614c92
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_DoubleShadeWithFeather_TransClipping_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cf7e8eb46e9128438d50adf7a841de6
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_ShadingGradeMap_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1847c44f729b68e49ba63610abdf9132
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_OutlineObject_Tess.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3214384442742648aa664ef0039d397
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_DoubleShadeWithFeather_Tess_Light.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c48bdc9fed28c14b8ad0748673b1369
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_ShadingGradeMap_AngelRing_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18c9172cdf36a344f9aca9bbc0e7002d
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/Toon_ShadingGradeMap_AngelRing_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8eff803eae89c994fae3acf2f686fafa
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/ToonColor_ShadingGradeMap_TransClipping_Tess_StencilOut.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d04fc34e9717d34d9589f39decf8333
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/UCTS_DoubleShadeWithFeather_tess.cginc
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c139664fde6401f45a09b0f32279484b
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/UCTS_Outline_Tess.cginc
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad7807131760d5544843d7424e535b75
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/UCTS_ShadingGradeMap_tess.cginc
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6261ac20c5dfa024a98d6ce3921bab70
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/UCTS_ShadowCaster_Tess.cginc
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13aee1e1f6c49d94fa292dca9910126e
+    m_Address: Assets/Bundles/SD Unity-Chan Haon Custom/Unity-chan Toon Shader Ver
+      2.0.6/Tess/UCTS_Tess.cginc
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0cf4cec20434bb14c93e9a6780056d24, type: 2}

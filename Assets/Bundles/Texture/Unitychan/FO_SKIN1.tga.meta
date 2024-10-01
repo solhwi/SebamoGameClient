@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a8a2451848e14b84cb71b3bda12be5e1
+guid: a1d5b2277eb3f6245900378e6fa97575
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
@@ -64,3 +64,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18705
+  packageName: '"Unity-Chan!" Model'
+  packageVersion: 1.2.2
+  assetPath: Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Texture/FO_SKIN1.tga
+  uploadId: 374231

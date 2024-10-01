@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6633d6727d4feae47afe1e41d4f1861d
+guid: 9eea3b9b4b755f64da2c821145616f44
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
@@ -64,3 +64,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18705
+  packageName: '"Unity-Chan!" Model'
+  packageVersion: 1.2.2
+  assetPath: Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Texture/hair_01_NRM.tga
+  uploadId: 374231

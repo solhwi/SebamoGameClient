@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c95444f42ae5f3a40ad40eeed1495d45
+guid: cbb65ec17f92eb44fb0dde6381b6a415
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
@@ -64,3 +64,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18705
+  packageName: '"Unity-Chan!" Model'
+  packageVersion: 1.2.2
+  assetPath: Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Texture/hair_01.tga
+  uploadId: 374231

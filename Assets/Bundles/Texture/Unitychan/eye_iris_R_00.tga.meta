@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d8b0d04b6e292d14ca8ba03eac482eb6
+guid: 7521661d2d6cebb479dea03e7336e5de
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
@@ -64,3 +64,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18705
+  packageName: '"Unity-Chan!" Model'
+  packageVersion: 1.2.2
+  assetPath: Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Texture/eye_iris_R_00.tga
+  uploadId: 374231

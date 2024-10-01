@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5e5270ec3cb44ff46b85759aed3e29d9
+guid: 3a3c0acc807e9264ca0b32602a928a9a
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
@@ -64,3 +64,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18705
+  packageName: '"Unity-Chan!" Model'
+  packageVersion: 1.2.2
+  assetPath: Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Texture/body_01_NRM.tga
+  uploadId: 374231

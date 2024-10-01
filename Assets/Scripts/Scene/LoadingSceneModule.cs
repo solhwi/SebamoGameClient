@@ -23,8 +23,6 @@ public class LoadingSceneModule : SceneModuleBase
 		if (boardGameCanvas is LoadingCanvas loadingCanvas == false)
 			yield break;
 
-		loadingCanvas = boardGameCanvas as LoadingCanvas;
-
 		loadingCanvas.OnEnter();
 
 		loadingCanvas.barrierFunc -= IsLoaded;

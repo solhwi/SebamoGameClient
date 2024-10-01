@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f2bbc727f44f143479ada7c0ecdc1263
+guid: d04d722a0c808412ea85876950eec517
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
@@ -64,3 +64,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18705
+  packageName: '"Unity-Chan!" Model'
+  packageVersion: 1.2.2
+  assetPath: Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Texture/guide.tga
+  uploadId: 374231

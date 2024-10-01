@@ -562,7 +562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boardGameCanvas: {fileID: 607191619}
   loadingCompleteWaitTime: 2.3
-  bDownLoadAsset: 0
+  bDownLoadAsset: 1
 --- !u!4 &2110501418
 Transform:
   m_ObjectHideFlags: 0

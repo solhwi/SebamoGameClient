@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8a032dd9985ca5e46a51c9647a8961fa
+guid: 7ae1142e9b3a72048960dd9561e0e0d9
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
@@ -64,3 +64,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18705
+  packageName: '"Unity-Chan!" Model'
+  packageVersion: 1.2.2
+  assetPath: Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Texture/body_01_SPEC.tga
+  uploadId: 374231

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 163d8662e7d80744bb387fd8d2c2bbf1
+guid: e315db926a0705845b12da3cc80ea306
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
@@ -64,3 +64,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 18705
+  packageName: '"Unity-Chan!" Model'
+  packageVersion: 1.2.2
+  assetPath: Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Texture/eyeline_00.tga
+  uploadId: 374231
