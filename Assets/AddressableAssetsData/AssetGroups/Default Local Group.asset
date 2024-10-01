@@ -702,7 +702,7 @@ MonoBehaviour:
     - NPC
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e7dd8a5044552844c9d3350b83c082dd
-    m_Address: Assets/Bundles/Prefabs/FieldItem.prefab
+    m_Address: Assets/Bundles/Prefabs/FieldItem/FieldItem.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Tile

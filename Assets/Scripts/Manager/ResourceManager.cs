@@ -63,7 +63,7 @@ public class ResourceManager : Singleton<ResourceManager>
 	[SerializeField] private NPCResourceLoader npcPreLoader;
 	[SerializeField] private List<AssetLabelReference> labelRefs = new List<AssetLabelReference>();
 
-	private Dictionary<string, Object> cachedObjectDictionary = new Dictionary<string, Object>();
+	private Dictionary<string, AsyncOperationHandle> cachedObjectHandleDictionary = new Dictionary<string, AsyncOperationHandle>();
 
 	private IEnumerator DownLoadAssets(AssetLabelReference labelRef, System.Action onCompleted = null)
 	{
@@ -91,13 +91,13 @@ public class ResourceManager : Singleton<ResourceManager>
 
 	public T Load<T>(string path) where T : UnityEngine.Object
 	{
-		if (cachedObjectDictionary.ContainsKey(path) == false)
+		if (cachedObjectHandleDictionary.ContainsKey(path) == false)
 		{
 			Debug.LogError($"{path}에 프리로드가 필요합니다.");
 			return null;
 		}
 
-		return cachedObjectDictionary[path] as T;
+		return cachedObjectHandleDictionary[path] as T;
 	}
 
 	public IEnumerator InstantiateAsync<T>(AssetReference reference, Transform parent, System.Action<T> onCompleted) where T : UnityEngine.Object
@@ -128,43 +128,57 @@ public class ResourceManager : Singleton<ResourceManager>
 
 	public IEnumerator LoadAsync<T>(string path, System.Action<T> onCompleted = null) where T : UnityEngine.Object
 	{
-		if (cachedObjectDictionary.TryGetValue(path, out var value))
+		if (cachedObjectHandleDictionary.TryGetValue(path, out var handle))
 		{
-			onCompleted?.Invoke(value as T);
+			var r = GetResult<T>(handle.Result);
+			onCompleted?.Invoke(r);
 			yield break;
 		}
 
-		T result = null;
+		var asyncOperation = LoadAssetAsync<T>(path);
+		while (asyncOperation.IsDone == false)
+		{
+			yield return null;
+		}
 
+		cachedObjectHandleDictionary[path] = asyncOperation;
+
+		var result = GetResult<T>(asyncOperation.Result);
+		onCompleted?.Invoke(result);
+	}
+
+	private AsyncOperationHandle LoadAssetAsync<T>(string path)
+	{
 		if (typeof(T).IsSubclassOf(typeof(Component)))
 		{
-			var asyncOperation = Addressables.LoadAssetAsync<GameObject>(path);
-			while (asyncOperation.IsDone == false)
-			{
-				yield return null;
-			}
-
-			var g = asyncOperation.Result;
-			if (g == null)
-				yield break;
-
-			result = g.GetComponent<T>();
-			Addressables.Release(asyncOperation);
+			return Addressables.LoadAssetAsync<GameObject>(path);
 		}
 		else
 		{
-			var asyncOperation = Addressables.LoadAssetAsync<T>(path);
-			while (asyncOperation.IsDone == false)
-			{
-				yield return null;
-			}
+			return Addressables.LoadAssetAsync<T>(path);
+		}
+	}
 
-			result = asyncOperation.Result;
-			Addressables.Release(asyncOperation);
+	private T GetResult<T>(object result) where T : UnityEngine.Object
+	{
+		if (result is T r)
+		{
+			return r;
+		}
+		else if (result is GameObject g)
+		{
+			return g.GetComponent<T>();
 		}
 
-		onCompleted?.Invoke(result);
-		cachedObjectDictionary[path] = result;
+		return null;
+	}
+
+	public void ReleaseCache()
+	{
+		foreach (var handle in cachedObjectHandleDictionary.Values)
+		{
+			Addressables.Release(handle);
+		}
 	}
 
 	public Coroutine TryInstantiateAsync<T>(AssetReference reference, Transform parent, System.Action<T> onCompleted) where T : UnityEngine.Object
@@ -184,13 +198,13 @@ public class ResourceManager : Singleton<ResourceManager>
 
 	public T Instantiate<T>(string path, Transform parent) where T : Object
 	{
-		if (cachedObjectDictionary.ContainsKey(path) == false)
+		if (cachedObjectHandleDictionary.ContainsKey(path) == false)
 		{
 			Debug.LogError($"{path}에 프리 로드가 필요합니다.");
 			return null;
 		}
 
-		if (cachedObjectDictionary[path] is T prefab == false)
+		if (cachedObjectHandleDictionary[path] is T prefab == false)
 			return null;
 
 		return Object.Instantiate<T>(prefab, parent);

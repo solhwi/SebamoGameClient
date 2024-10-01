@@ -185,12 +185,15 @@ public class CharacterDataSetter : MonoBehaviour
 
 			Transform propTransform = GetPropTransform(propType);
 			var propPrefab = characterDataContainer.GetPropObject(propType);
-			var propObj = Instantiate(propPrefab, propTransform);
+			if (propPrefab != null)
+			{
+				var propObj = Instantiate(propPrefab, propTransform);
 
-			propObj.transform.localPosition = Vector3.zero;
-			propObj.transform.localRotation = Quaternion.identity;
+				propObj.transform.localPosition = Vector3.zero;
+				propObj.transform.localRotation = Quaternion.identity;
 
-			partsObjList.Add(propObj);
+				partsObjList.Add(propObj);
+			}
 		}
 	}
 
