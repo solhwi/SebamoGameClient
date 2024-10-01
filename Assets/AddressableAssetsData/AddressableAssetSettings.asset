@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 8037ee078051559458c43fa8cc857b37
   m_currentHash:
     serializedVersion: 2
-    Hash: 3c1b157bf94cdd4134baecb88b8f7dee
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -86,7 +86,11 @@ MonoBehaviour:
     m_ProfileVersion: 1
   m_LabelTable:
     m_LabelNames:
-    - default
+    - Character
+    - NPC
+    - UI
+    - Tile
+    - Data
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: b42306ad24af2de43b86c6ec8b0fa41d, type: 2}
