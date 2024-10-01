@@ -1,3 +1,4 @@
+using NPOI.POIFS.FileSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -74,23 +75,46 @@ public class CharacterDataSetter : MonoBehaviour
 	public void SetMeshes()
 	{
 		Transform leftEye = GetLeftEyeTransform();
-		var leftEyeFilter = leftEye.GetComponentInChildren<MeshFilter>();
+		if (leftEye != null)
+		{
+			var leftEyeFilter = leftEye.GetComponentInChildren<MeshFilter>();
+			if (leftEyeFilter != null)
+			{
+				leftEyeFilter.mesh = GetMesh(CharacterPartsType.Eye);
+			}
 
-		leftEyeFilter.mesh = GetMesh(CharacterPartsType.Eye);
-
-		var leftEyeRenderer = leftEye.GetComponentInChildren<MeshRenderer>();
-		leftEyeRenderer.material = GetMaterial(CharacterPartsType.Eye);
-
+			var leftEyeRenderer = leftEye.GetComponentInChildren<MeshRenderer>();
+			if (leftEyeRenderer != null)
+			{
+				leftEyeRenderer.material = GetMaterial(CharacterPartsType.Eye);
+			}
+		}
+		
 		Transform rightEye = GetRightEyeTransform();
-		var rightEyeFilter = rightEye.GetComponentInChildren<MeshFilter>();
-		rightEyeFilter.mesh = GetMesh(CharacterPartsType.RightEye);
+		if (rightEye != null)
+		{
+			var rightEyeFilter = rightEye.GetComponentInChildren<MeshFilter>();
+			if (rightEyeFilter != null)
+			{
+				rightEyeFilter.mesh = GetMesh(CharacterPartsType.RightEye);
+			}
 
-		var rightEyeRenderer = rightEye.GetComponentInChildren<MeshRenderer>();
-		rightEyeRenderer.material = GetMaterial(CharacterPartsType.Eye);
+			var rightEyeRenderer = rightEye.GetComponentInChildren<MeshRenderer>();
+			if (rightEyeRenderer != null)
+			{
+				rightEyeRenderer.material = GetMaterial(CharacterPartsType.Eye);
+			}
+		}
 
 		Transform face = GetHeadTransform();
-		var faceRenderer = face.GetComponentInChildren<SkinnedMeshRenderer>();
-		faceRenderer.sharedMesh = GetMesh(CharacterPartsType.Face);
+		if (face != null)
+		{
+			var faceRenderer = face.GetComponentInChildren<SkinnedMeshRenderer>();
+			if (faceRenderer != null)
+			{
+				faceRenderer.sharedMesh = GetMesh(CharacterPartsType.Face);
+			}
+		}
 	}
 
 	public void MakeParts()

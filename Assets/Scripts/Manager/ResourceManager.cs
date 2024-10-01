@@ -50,7 +50,20 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 		OnAwakeInstance();
 	}
 
+	private void OnDestroy()
+	{
+		if (instance == this)
+		{
+			OnReleaseInstance();
+		}
+	}
+
 	protected virtual void OnAwakeInstance()
+	{
+
+	}
+
+	protected virtual void OnReleaseInstance()
 	{
 
 	}
@@ -97,14 +110,13 @@ public class ResourceManager : Singleton<ResourceManager>
 			return null;
 		}
 
-		return cachedObjectHandleDictionary[path] as T;
+		return GetResult<T>(cachedObjectHandleDictionary[path].Result);
 	}
 
 	public IEnumerator InstantiateAsync<T>(AssetReference reference, Transform parent, System.Action<T> onCompleted) where T : UnityEngine.Object
 	{
 		yield return InstantiateAsync(reference.AssetGUID, parent, onCompleted);
 	}
-
 
 	private IEnumerator InstantiateAsync<T>(string path, Transform parent, System.Action<T> onCompleted) where T : UnityEngine.Object
 	{
@@ -147,6 +159,11 @@ public class ResourceManager : Singleton<ResourceManager>
 		onCompleted?.Invoke(result);
 	}
 
+	protected override void OnReleaseInstance()
+	{
+		ReleaseAllCache();
+	}
+
 	private AsyncOperationHandle LoadAssetAsync<T>(string path)
 	{
 		if (typeof(T).IsSubclassOf(typeof(Component)))
@@ -173,12 +190,14 @@ public class ResourceManager : Singleton<ResourceManager>
 		return null;
 	}
 
-	public void ReleaseCache()
+	public void ReleaseAllCache()
 	{
 		foreach (var handle in cachedObjectHandleDictionary.Values)
 		{
 			Addressables.Release(handle);
 		}
+
+		cachedObjectHandleDictionary.Clear();
 	}
 
 	public Coroutine TryInstantiateAsync<T>(AssetReference reference, Transform parent, System.Action<T> onCompleted) where T : UnityEngine.Object
