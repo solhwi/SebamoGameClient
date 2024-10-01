@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public class LoadingSceneModule : SceneModuleBase
 {
-	[SerializeField] private ItemTable itemTable;
-	[SerializeField] private CharacterDataContainer characterDataContainer;
-	[SerializeField] private NPCResourceLoader npcPreLoader;
-
 	[SerializeField] private float loadingCompleteWaitTime = 3.0f;
+	[SerializeField] private bool bDownLoadAsset = false;
+
 	private bool isLoaded = false;
 
 	private IEnumerator Start()
@@ -31,20 +30,19 @@ public class LoadingSceneModule : SceneModuleBase
 		loadingCanvas.barrierFunc -= IsLoaded;
 		loadingCanvas.barrierFunc += IsLoaded;
 
-		yield return base.OnPrepareEnter();
+		if (bDownLoadAsset)
+		{
+			loadingCanvas.SetWaitDescription("리소스 다운로드 중");
+			yield return ResourceManager.Instance.DownLoadAssets();
+		}
 
-		loadingCanvas.SetWaitDescription("테이블 준비 중");
+		loadingCanvas.SetWaitDescription("리소스 준비 중");
 
-		yield return itemTable.PreLoadTableAssets();
+		yield return ResourceManager.Instance.PreLoadAssets();
 
-		loadingCanvas.SetWaitDescription("캐릭터 리소스 준비 중");
+		loadingCanvas.SetWaitDescription("리소스 캐싱 중");
 
-		yield return characterDataContainer.PreLoadCharacterParts();
 		yield return BoardGameManager.Instance.PreLoadCharacter();
-
-		loadingCanvas.SetWaitDescription("아이템 준비 중");
-
-		yield return npcPreLoader.PreLoadNPC();
 		yield return UIManager.Instance.PreLoadPopup();
 		yield return ObjectCameraManager.Instance.PreLoadObjectCamera();
 		yield return ObjectManager.Instance.PreInstantiateFieldItemObject();

@@ -2024,6 +2024,360 @@ MonoBehaviour:
     m_SerializedLabels:
     - NPC
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0298b868476735f41857e9ba8f0d4cd1
+    m_Address: Assets/Bundles/UnityChan/Shader/Unitychan_chara_akarami_blend.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9627902a73805264c818754ecb22c8f9
+    m_Address: Assets/Bundles/UnityChan/Shader/Unitychan_chara_eyelash_blend.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf944057124b80b4e84496139e3b072c
+    m_Address: Assets/Bundles/UnityChan/Shader/Unitychan_chara_eye_blend.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 235ca6f7bbc0ead4990f386a7ec24292
+    m_Address: Assets/Bundles/UnityChan/Shader/Unitychan_chara_hair_ds.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abaf2020b803b6847b5c081ed22c05c5
+    m_Address: Assets/Bundles/UnityChan/Shader/Unitychan_chara_eye.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b35a2abbdd5b15d4ca40103088758eac
+    m_Address: Assets/Bundles/UnityChan/Shader/Unitychan_chara_hada.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96d05de60c5f7474491f9f94568cf623
+    m_Address: Assets/Bundles/UnityChan/Shader/Unitychan_chara_fuku_ds.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 00262b50562beb14cbab9b52bced4f9f
+    m_Address: Assets/Bundles/UnityChan/Shader/Unitychan_chara_fuku.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a95784c68f03494d8c7911e15fab82a
+    m_Address: Assets/Bundles/UnityChan/Shader/Unitychan_chara_hada_blend.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe3954a9664afb042a2af588b53680b0
+    m_Address: Assets/Bundles/UnityChan/Shader/Unitychan_chara_hair.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3d0f1648f39e1a408ca5a56b25e96bf
+    m_Address: Assets/Bundles/UnityChan/Shader/CharaMain.cg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98e9eccf54dd0e34c9cb77865555483f
+    m_Address: Assets/Bundles/UnityChan/Shader/CharaOutline.cg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe01eae1ec1d1c24b99530833c8c8241
+    m_Address: Assets/Bundles/UnityChan/Shader/CharaSkin.cg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d370b912a05da2c48a2776308cd85293
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Shader/CharaMain.cg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8377fcf923f4e26478b6b494c5983537
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Shader/CharaOutline.cg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb29876c895b20e40a30d57567b80740
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Shader/CharaSkin.cg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e58962b676ef4804a8c4fd0e995f926
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Shader/Unlit.cg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d4751b102f0ca742917903616b83b02
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Shader/Unitychan_chara_fuku_ds.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a07cd04bf4247e541b2de6074a949277
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Shader/Unitychan_chara_hair_ds.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69f5588554358c7469c555f1ef9ca212
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Shader/Unitychan_chara_eye_blend.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 906f26baca35c1c4a95743fa6ff5edc2
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Shader/Unitychan_chara_eyelash_blend.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 005aa9816765e7c45920bc4189ff858a
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Shader/Unitychan_chara_hair.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2dc7984bc4cd82e4999d64325724e0ae
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Shader/Unitychan_chara_hada.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59ee9b536d3553c4792eee6301f9c33b
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Shader/Unitychan_chara_akarami_blend.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b37bbec40697c349903604f1874d523
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Shader/Unitychan_chara_eye.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd4d7db499d42d547860527a6cca4f99
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Shader/Unitychan_chara_hada_blend.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d2f14d3d8ea101419934b4e89cb6754
+    m_Address: Assets/Bundles/UnityChan/unitychan_hw/Shader/Unitychan_chara_fuku.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - NPC
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 491273486c80a8544b7a2cd70dcbfe92
+    m_Address: Assets/Bundles/UnityChan/UnityChanShader/Shader/CharaMain.cg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb9128fbbb0c2614d93c8323b91ad930
+    m_Address: Assets/Bundles/UnityChan/UnityChanShader/Shader/CharaOutline.cg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf3b2dfa571d6eb4494a6831f15dc375
+    m_Address: Assets/Bundles/UnityChan/UnityChanShader/Shader/CharaSkin.cg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 536a8ed463f7bbd4bb402d1a9a788db5
+    m_Address: Assets/Bundles/UnityChan/UnityChanShader/Shader/Unitychan_chara_eyelash_blend.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71af6e818ec3ab643b425082a9b0d220
+    m_Address: Assets/Bundles/UnityChan/UnityChanShader/Shader/Unitychan_chara_eye.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21255c0bc238ed94f87457421dc59d46
+    m_Address: Assets/Bundles/UnityChan/UnityChanShader/Shader/Unitychan_chara_hada_blend.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bac6894cebea0904d8aea99d0ca9e05a
+    m_Address: Assets/Bundles/UnityChan/UnityChanShader/Shader/Unitychan_chara_hair.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: faaeb755005b6394d9ace8f7ff8e7ce0
+    m_Address: Assets/Bundles/UnityChan/UnityChanShader/Shader/Unitychan_chara_akarami_blend.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfbf28efa58447f4badfc11daf4ba3a7
+    m_Address: Assets/Bundles/UnityChan/UnityChanShader/Shader/Unitychan_chara_eye_blend.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c844a081e5f52e94290f25d3e5ae09d2
+    m_Address: Assets/Bundles/UnityChan/UnityChanShader/Shader/Unitychan_chara_fuku.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 212bab82666386a4ab8e6d69e7ea1747
+    m_Address: Assets/Bundles/UnityChan/UnityChanShader/Shader/Unitychan_chara_hada.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30c15a5e143f18d4296fc17972591f79
+    m_Address: Assets/Bundles/UnityChan/UnityChanShader/Shader/Unitychan_chara_hair_ds.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae8d78fff18c7e74aba6d0e18ed75a7a
+    m_Address: Assets/Bundles/UnityChan/UnityChanShader/Shader/Unitychan_chara_fuku_ds.shader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a18067604964b5a4d8fd5552ed0d789e
+    m_Address: Assets/Bundles/UnityChan/Texture/FO_RIM1.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e315db926a0705845b12da3cc80ea306
+    m_Address: Assets/Bundles/UnityChan/Texture/eyeline_00.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1d5b2277eb3f6245900378e6fa97575
+    m_Address: Assets/Bundles/UnityChan/Texture/FO_SKIN1.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9c6074c5a78e71448f9efd3013cadda
+    m_Address: Assets/Bundles/UnityChan/Texture/body_01.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a3c0acc807e9264ca0b32602a928a9a
+    m_Address: Assets/Bundles/UnityChan/Texture/body_01_NRM.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ae1142e9b3a72048960dd9561e0e0d9
+    m_Address: Assets/Bundles/UnityChan/Texture/body_01_SPEC.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89ede59217e3847c39c444f223f4084e
+    m_Address: Assets/Bundles/UnityChan/Texture/cheek_00.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f90e3449ad3674016962a3aba3d31a06
+    m_Address: Assets/Bundles/UnityChan/Texture/DEFAULT_NORMAL.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 763c5d30206d1d54a9b49b3309e37fe1
+    m_Address: Assets/Bundles/UnityChan/Texture/ENV2.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66f06726158899242adaf95180360b7b
+    m_Address: Assets/Bundles/UnityChan/Texture/eye_iris_L_00.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7521661d2d6cebb479dea03e7336e5de
+    m_Address: Assets/Bundles/UnityChan/Texture/eye_iris_R_00.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cf2e516b5353d5499c41818747b4155
+    m_Address: Assets/Bundles/UnityChan/Texture/face_00.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc8f70f2ec571e9478efa98c041cde7b
+    m_Address: Assets/Bundles/UnityChan/Texture/FO_CLOTH1.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d04d722a0c808412ea85876950eec517
+    m_Address: Assets/Bundles/UnityChan/Texture/guide.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbb65ec17f92eb44fb0dde6381b6a415
+    m_Address: Assets/Bundles/UnityChan/Texture/hair_01.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9eea3b9b4b755f64da2c821145616f44
+    m_Address: Assets/Bundles/UnityChan/Texture/hair_01_NRM.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4271b2b1e8bfa949aa9230abaa7709e
+    m_Address: Assets/Bundles/UnityChan/Texture/hair_01_SPEC.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc51a9a8397e3c5498dda60419ad3ec9
+    m_Address: Assets/Bundles/UnityChan/Texture/skin_01.tga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1034cbddf46c3ab41a3d0f17d44cb902
+    m_Address: Assets/Bundles/Datas/NPCResourceLoader.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Data
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0cf4cec20434bb14c93e9a6780056d24, type: 2}
   m_SchemaSet:

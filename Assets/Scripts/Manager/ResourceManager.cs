@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using System.IO;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Linq;
 
 public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
@@ -57,7 +58,36 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 
 public class ResourceManager : Singleton<ResourceManager>
 {
+	[SerializeField] private ItemTable itemTable;
+	[SerializeField] private CharacterDataContainer characterDataContainer;
+	[SerializeField] private NPCResourceLoader npcPreLoader;
+	[SerializeField] private List<AssetLabelReference> labelRefs = new List<AssetLabelReference>();
+
 	private Dictionary<string, Object> cachedObjectDictionary = new Dictionary<string, Object>();
+
+	private IEnumerator DownLoadAssets(AssetLabelReference labelRef, System.Action onCompleted = null)
+	{
+		var handle = Addressables.DownloadDependenciesAsync(labelRef);
+
+		while (handle.IsDone == false)
+		{
+			yield return null;
+		}
+
+		onCompleted?.Invoke();
+	}
+
+	public IEnumerator DownLoadAssets()
+	{
+		yield return DownLoadAssets(labelRefs.FirstOrDefault());
+	}
+
+	public IEnumerator PreLoadAssets()
+	{
+		yield return itemTable.PreLoadTableAssets();
+		yield return characterDataContainer.PreLoadCharacterParts();
+		yield return npcPreLoader.PreLoadNPC();
+	}
 
 	public T Load<T>(string path) where T : UnityEngine.Object
 	{

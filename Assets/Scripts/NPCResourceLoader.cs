@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-public class NPCResourceLoader : MonoBehaviour
+[CreateAssetMenu(fileName = "NPCResourceLoader")]
+public class NPCResourceLoader : ScriptableObject
 {
 	[SerializeField] List<AssetReferenceTexture2D> textureRefs = new List<AssetReferenceTexture2D>();
 	[SerializeField] List<AssetReferenceT<Material>> materialRefs = new List<AssetReferenceT<Material>>();
