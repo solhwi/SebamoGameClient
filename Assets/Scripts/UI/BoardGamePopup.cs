@@ -14,6 +14,11 @@ public class BoardGamePopup : MonoBehaviour
 	[SerializeField] private Canvas canvas;
 	[SerializeField] private CanvasScaler canvasScaler;
 
+	[SerializeField] private RectTransform rectTransform;
+	[SerializeField] private float openTime = 1.0f;
+
+	private Coroutine openRoutine = null;
+
 	public bool IsOpen
 	{
 		get
@@ -32,6 +37,8 @@ public class BoardGamePopup : MonoBehaviour
 		canvasScaler.referenceResolution = new Vector2(1080, 1920);
 		canvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
 		canvasScaler.referencePixelsPerUnit = 100;
+
+		rectTransform = GetComponent<RectTransform>();
 	}
 
 	public void Open(Canvas rootCanvas, int sortingOrder)
@@ -41,6 +48,33 @@ public class BoardGamePopup : MonoBehaviour
 
 		canvas.overrideSorting = true;
 		canvas.sortingOrder = rootCanvas.sortingOrder + sortingOrder;
+
+		if (openTime > 0.0f)
+		{
+			rectTransform.localScale = Vector3.zero;
+			openRoutine = StartCoroutine(OpenRoutine());
+		}
+		else
+		{
+			rectTransform.localScale = Vector3.one;
+		}
+	}
+
+	private IEnumerator OpenRoutine()
+	{
+		float t = 0.0f;
+
+		while (t < openTime)
+		{
+			yield return null;
+
+			t += Time.deltaTime;
+
+			float per = t / openTime;
+			rectTransform.localScale = new Vector3(per, per, per);
+		}
+
+		rectTransform.localScale = Vector3.one;
 	}
 
 	public void OnClickClose()
@@ -52,6 +86,11 @@ public class BoardGamePopup : MonoBehaviour
 	{
 		gameObject.SetActive(false);
 		canvas.sortingOrder = -1;
+
+		if (openRoutine != null)
+		{
+			StopCoroutine(openRoutine);
+		}
 
 		OnClose();
 	}

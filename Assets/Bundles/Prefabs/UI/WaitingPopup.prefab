@@ -196,6 +196,8 @@ MonoBehaviour:
   popupType: 6
   canvas: {fileID: 1759331724917170796}
   canvasScaler: {fileID: 3840656792491273268}
+  rectTransform: {fileID: 3260093451381914784}
+  openTime: 0
   backgroundImage: {fileID: 8347085880733034949}
   spinnerObj: {fileID: 1773668676979723916}
   waitingText: {fileID: 6899133154665906815}

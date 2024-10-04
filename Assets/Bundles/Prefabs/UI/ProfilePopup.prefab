@@ -1388,6 +1388,8 @@ MonoBehaviour:
   popupType: 5
   canvas: {fileID: 5412981390698186014}
   canvasScaler: {fileID: 234856065818146389}
+  rectTransform: {fileID: 8520705630049837517}
+  openTime: 0.1
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   profileSetter: {fileID: 9123793884006248106}
   playerGroupText: {fileID: 2545975252340358448}

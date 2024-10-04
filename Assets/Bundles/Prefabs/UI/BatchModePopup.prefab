@@ -118,6 +118,8 @@ MonoBehaviour:
   popupType: 3
   canvas: {fileID: 3298674547014149717}
   canvasScaler: {fileID: 4821099409463957644}
+  rectTransform: {fileID: 6785819070793302009}
+  openTime: 0
   fieldItemFactory: {fileID: 11400000, guid: a6e06216073cb404eb58dd2ea48f4cee, type: 2}
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
 --- !u!1 &1281454723315343180

@@ -149,6 +149,7 @@ public class ResourceManager : Singleton<ResourceManager>
 				return;
 
 			obj = Instantiate<T>(res, parent);
+			obj.GameObject()?.SetActive(false);
 		});
 
 		onCompleted?.Invoke(obj);

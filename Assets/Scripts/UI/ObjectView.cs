@@ -90,6 +90,7 @@ public class ObjectView : MonoBehaviour
 	protected virtual void OnCreateObject(GameObject obj)
 	{
 		originObj = obj;
+		originObj.SetActive(true);
 
 		originObj.transform.localPosition = spawnLocalPos;
 		originObj.transform.localEulerAngles = spawnLocalRot;

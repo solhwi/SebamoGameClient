@@ -971,6 +971,8 @@ MonoBehaviour:
   popupType: 4
   canvas: {fileID: 5856884632462948127}
   canvasScaler: {fileID: 8189149500756592890}
+  rectTransform: {fileID: 2443531210149898885}
+  openTime: 0.1
   titleText: {fileID: 2311651264250437282}
   descriptionText: {fileID: 8355411124122633363}
 --- !u!1 &7623950604876717749

@@ -198,9 +198,9 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			int myTileOrder = playerDataContainer.currentTileOrder;
 			Vector2 playerPos = TileDataManager.Instance.GetPlayerPosByOrder(myTileOrder);
 
+			p.gameObject.SetActive(true);
 			p.SetPlayerData(myPlayerData.playerGroup, myPlayerData.playerName);
 			p.SetPosition(playerPos);
-			p.gameObject.SetActive(true);
 
 #if UNITY_EDITOR
 			p.gameObject.name = $"MyPlayer ({playerDataContainer.playerName})";
@@ -222,9 +222,9 @@ public class BoardGameManager : Singleton<BoardGameManager>
 				int tileOrder = otherPlayerData.playerTileOrder;
 				Vector2 playerPos = TileDataManager.Instance.GetPlayerPosByOrder(tileOrder);
 
+				p.gameObject.SetActive(true);
 				p.SetPlayerData(otherPlayerData.playerGroup, otherPlayerData.playerName);
 				p.SetPosition(playerPos);
-				p.gameObject.SetActive(true);
 #if UNITY_EDITOR
 				p.gameObject.name = $"Player ({otherPlayerData.playerName})";
 #endif

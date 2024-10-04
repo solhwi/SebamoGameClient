@@ -2377,6 +2377,8 @@ MonoBehaviour:
   popupType: 1
   canvas: {fileID: 425117931129430697}
   canvasScaler: {fileID: 793447173461761052}
+  rectTransform: {fileID: 6294511320456068095}
+  openTime: 0
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
