@@ -12,9 +12,17 @@ public enum SceneType
 	Loading = 2,
 }
 
+[System.Serializable]
+public class SceneLoadData
+{
+	public bool useWaitingPopup = false;
+	public bool useBackground = false;
+}
+
 public class SceneManager : Singleton<SceneManager>
 {
-	[SerializeField] private float minLoadTime = 1.0f;
+	[System.Serializable] public class SceneLoadingDataDictionary : SerializableDictionary<SceneType, SceneLoadData> { }
+	[SerializeField] private SceneLoadingDataDictionary sceneLoadingDataDictionary = new SceneLoadingDataDictionary();
 
 	private SceneModuleBase currentSceneModule = null;
 	private Coroutine loadCoroutine = null;
@@ -27,12 +35,12 @@ public class SceneManager : Singleton<SceneManager>
 		OnLoadSceneCompleted(currentScene, LoadSceneMode.Single);
 	}
 
-	public void LoadScene(SceneType type, bool bUseBackground, Func<bool> barrierFunc = null)
+	public void LoadScene(SceneType type, Func<bool> barrierFunc = null)
 	{
 		if (loadCoroutine != null)
 			return;
 
-		loadCoroutine = StartCoroutine(LoadSceneProcess(type, bUseBackground, barrierFunc, OnLoading));
+		loadCoroutine = StartCoroutine(LoadSceneProcess(type, barrierFunc, OnLoading));
 	}
 
 	private void OnLoading(float progress)
@@ -45,7 +53,7 @@ public class SceneManager : Singleton<SceneManager>
 		currentSceneModule = FindAnyObjectByType<SceneModuleBase>();
 	}
 
-	private IEnumerator LoadSceneProcess(SceneType type, bool bUseBackground, Func<bool> barrierFunc, Action<float> onProgress)
+	private IEnumerator LoadSceneProcess(SceneType type, Func<bool> barrierFunc, Action<float> onProgress)
 	{
 		if (currentSceneModule != null)
 		{
@@ -56,7 +64,13 @@ public class SceneManager : Singleton<SceneManager>
 		UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnLoadSceneCompleted;
 		UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnLoadSceneCompleted;
 
-		UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("게임 로딩 중", bUseBackground));
+		if (sceneLoadingDataDictionary.TryGetValue(type, out var sceneLoadData))
+		{
+			if (sceneLoadData.useWaitingPopup)
+			{
+				UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("게임 로딩 중", sceneLoadData.useBackground));
+			}
+		}
 
 		var loadProcess = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(type.ToString());
 		loadProcess.allowSceneActivation = false;
@@ -102,13 +116,6 @@ public class SceneManager : Singleton<SceneManager>
 		{
 			yield return currentSceneModule.OnPrepareEnter();
 			currentSceneModule.OnEnter();
-		}
-
-		// 최종 로드 시간 보정
-		while (currentLoadTime < minLoadTime)
-		{
-			currentLoadTime += Time.deltaTime;
-			yield return null;
 		}
 
 		UIManager.Instance.Close(PopupType.Wait);

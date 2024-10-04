@@ -18,6 +18,10 @@ public class PopupDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawe
 [CustomPropertyDrawer(typeof(Inventory.HasItemDataDictionary))]
 public class HasItemDataDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
 
+[CustomPropertyDrawer(typeof(SceneManager.SceneLoadingDataDictionary))]
+public class SceneLoadingDataDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
+
+
 
 public class SerializableDictionaryPropertyDrawer : PropertyDrawer
 {

@@ -78,21 +78,42 @@ public class ResourceManager : Singleton<ResourceManager>
 
 	private Dictionary<string, AsyncOperationHandle> cachedObjectHandleDictionary = new Dictionary<string, AsyncOperationHandle>();
 
-	private IEnumerator DownLoadAssets(AssetLabelReference labelRef, System.Action onCompleted = null)
+	/// <summary>
+	/// 메가바이트 단위로 돌려준다.
+	/// </summary>
+	private IEnumerator GetDownLoadSize(AssetLabelReference labelRef, System.Action<float> onCompleted)
 	{
-		var handle = Addressables.DownloadDependenciesAsync(labelRef);
+		var handle = Addressables.GetDownloadSizeAsync(labelRef);
 
 		while (handle.IsDone == false)
 		{
 			yield return null;
 		}
 
+		onCompleted?.Invoke(handle.Result / 1024f / 1024f);
+	}
+
+	private IEnumerator DownLoadAssets(AssetLabelReference labelRef, System.Action<float> onProgress, System.Action onCompleted = null)
+	{
+		var handle = Addressables.DownloadDependenciesAsync(labelRef);
+
+		while (handle.IsDone == false)
+		{
+			yield return null;
+			onProgress?.Invoke(handle.PercentComplete);
+		}
+
 		onCompleted?.Invoke();
 	}
 
-	public IEnumerator DownLoadAssets()
+	public IEnumerator DownLoadAssets(System.Action<float> onProgress = null)
 	{
-		yield return DownLoadAssets(labelRefs.FirstOrDefault());
+		yield return DownLoadAssets(labelRefs.FirstOrDefault(), onProgress);
+	}
+
+	public IEnumerator GetDownLoadSize(System.Action<float> onCompleted = null)
+	{
+		yield return GetDownLoadSize(labelRefs.FirstOrDefault(), onCompleted);
 	}
 
 	public IEnumerator PreLoadAssets()
