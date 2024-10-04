@@ -677,24 +677,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - NPC
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: dcc056306b03dd94ba1a7f3bade15736
-    m_Address: Assets/Bundles/Fonts/CookieRun Bold.ttf
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 087f7b08e10c1824d86e732a7081cb1a
-    m_Address: Assets/Bundles/Fonts/CookieRun Black.ttf
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: acb9654a9ca9e6a428fc02aa0af703dc
-    m_Address: Assets/Bundles/Fonts/CookieRun Regular.ttf
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c43c258af683313409bb8cdfbdd03a3e
     m_Address: Assets/Bundles/Prefabs/NPC_hw.prefab
     m_ReadOnly: 0
@@ -983,12 +965,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e00b551fcd953f144979a7b605b2e61a
-    m_Address: Assets/Bundles/Prefabs/UI/NotifyPopup.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ce3a24d1c834d24a972499c0ddde090
     m_Address: Assets/Bundles/Prefabs/UI/InventoryPopup.prefab
     m_ReadOnly: 0
@@ -1079,12 +1055,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ee30b302c44c546158237019ae729a1b
-    m_Address: Assets/Bundles/Sprites/Button_Round10_Bg.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f31d73f5bbe64581b866dd5f6671947
     m_Address: Assets/Bundles/Sprites/PictoIcon_Again_2.Png
     m_ReadOnly: 0
@@ -1105,18 +1075,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49e80464e44ff4fd1bccfb693d9fe97a
     m_Address: Assets/Bundles/Sprites/PictoIcon_Camera_Off.Png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2bd06dd44f28c41ebac87b908313e284
-    m_Address: Assets/Bundles/Sprites/Popup02~09_Topber_White_Bg.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 747d121aed7bc3c4dbdaff4872db9b48
-    m_Address: Assets/Bundles/Sprites/Popup02~09_Topber_White_Bg 1.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI

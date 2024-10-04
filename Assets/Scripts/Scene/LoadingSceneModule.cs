@@ -23,6 +23,8 @@ public class LoadingSceneModule : SceneModuleBase
 		if (boardGameCanvas is LoadingCanvas loadingCanvas == false)
 			yield break;
 
+		yield return UIManager.Instance.PreLoadByResources();
+
 		loadingCanvas.OnEnter();
 		yield return loadingCanvas.FadeRoutine(LogoType.UnityChan);
 

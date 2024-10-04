@@ -21,6 +21,8 @@ public class UIManager : Singleton<UIManager>
 	public class PopupRefDictionary : SerializableDictionary<PopupType, AssetReferenceGameObject> { }
 	[SerializeField] private PopupRefDictionary popupRefDictionary = new PopupRefDictionary();
 
+	[SerializeField] private NotifyPopup notifyPopupPrefab = null;
+
 	private Dictionary<PopupType, BoardGamePopup> popupDictionary = new Dictionary<PopupType, BoardGamePopup>();
 	private readonly Stack<BoardGamePopup> popupStack = new Stack<BoardGamePopup>();
 
@@ -40,6 +42,16 @@ public class UIManager : Singleton<UIManager>
 		{
 			yield return ResourceManager.Instance.LoadAsync<BoardGamePopup>(p);
 		}
+	}
+
+	public IEnumerator PreLoadByResources()
+	{
+		var notifyPopup = Instantiate(notifyPopupPrefab, popupRootCanvas.transform);
+		notifyPopup.gameObject.SetActive(false);
+
+		popupDictionary[PopupType.Notify] = notifyPopup;
+
+		yield return null;
 	}
 
 	public void TryOpen(PopupType popupType, UIParameter parameter = null)

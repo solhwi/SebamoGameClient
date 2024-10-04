@@ -378,7 +378,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bf83de3f775299f47bceccb58e967e01, type: 3}
+  m_Sprite: {fileID: 21300008, guid: 0fd21678280ad9c47aa2d32baf438c5d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -639,7 +639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boardGameCanvas: {fileID: 607191619}
   loadingCompleteWaitTime: 2.3
-  isDownLoadAsset: 0
+  isDownLoadAsset: 1
 --- !u!4 &2110501418
 Transform:
   m_ObjectHideFlags: 0
@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDontDestroyOnLoad: 1
   popupRefDictionary:
-    m_keys: 00000000010000000200000003000000040000000500000006000000
+    m_keys: 000000000100000002000000030000000500000006000000
     m_values:
     - m_AssetGUID: 57cc03aacc153094190614cb668c0069
       m_SubObjectName: 
@@ -1304,10 +1304,6 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
-    - m_AssetGUID: e00b551fcd953f144979a7b605b2e61a
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
     - m_AssetGUID: 86b394c398e35504d8e40cc44c5d6e81
       m_SubObjectName: 
       m_SubObjectType: 
@@ -1316,6 +1312,7 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+  notifyPopupPrefab: {fileID: 9111824023335857569, guid: e00b551fcd953f144979a7b605b2e61a, type: 3}
 --- !u!4 &7892889533910618190
 Transform:
   m_ObjectHideFlags: 0
