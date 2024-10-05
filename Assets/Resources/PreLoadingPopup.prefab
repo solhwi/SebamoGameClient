@@ -294,7 +294,7 @@ MonoBehaviour:
     fadeWaitingTime: 2
     fadeOutTime: 2
   - logoImage: {fileID: 1589750133109463356}
-    fadeInTime: 2
+    fadeInTime: 1
     fadeWaitingTime: 0
     fadeOutTime: 2
   - logoImage: {fileID: 4017448446006723552}
