@@ -267,7 +267,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardGameCanvas: {fileID: 0}
-  loadingCompleteWaitTime: 2.3
   isDownLoadAsset: 1
 --- !u!4 &2110501418
 Transform:
@@ -297,13 +296,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDontDestroyOnLoad: 1
-  sceneLoadingDataDictionary:
-    m_keys: 0000000001000000
+  sceneLoadDataDictionary:
+    m_keys: 01000000
     m_values:
-    - useWaitingPopup: 0
-      useBackground: 0
     - useWaitingPopup: 1
-      useBackground: 1
 --- !u!114 &289538845196217388
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -79,6 +79,12 @@ public class PreLoadingPopup : BoardGamePopup
 	[SerializeField] private LogoData[] logoDatas = new LogoData[(int)LogoType.Max];
 	[SerializeField] private WaitingText descriptionText = null;
 
+	protected override void Reset()
+	{
+		base.Reset();
+
+		popupType = PopupType.PreLoading;
+	}
 	public IEnumerator FadeRoutine(LogoType logoType)
 	{
 		yield return FadeInRoutine(logoType);

@@ -330,7 +330,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 			{
 				if (UIManager.Instance != null)
 				{
-					UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("서버에 접속 중"));
+					UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter(WaitingPopup.Type.Network));
 				}
 			}
 		}

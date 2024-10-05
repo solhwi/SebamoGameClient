@@ -16,13 +16,12 @@ public enum SceneType
 public class SceneLoadData
 {
 	public bool useWaitingPopup = false;
-	public bool useBackground = false;
 }
 
 public class SceneManager : Singleton<SceneManager>
 {
-	[System.Serializable] public class SceneLoadingDataDictionary : SerializableDictionary<SceneType, SceneLoadData> { }
-	[SerializeField] private SceneLoadingDataDictionary sceneLoadingDataDictionary = new SceneLoadingDataDictionary();
+	[System.Serializable] public class SceneLoadDataDictionary : SerializableDictionary<SceneType, SceneLoadData> { }
+	[SerializeField] private SceneLoadDataDictionary sceneLoadDataDictionary = new SceneLoadDataDictionary();
 
 	private SceneModuleBase currentSceneModule = null;
 	private Coroutine loadCoroutine = null;
@@ -64,11 +63,11 @@ public class SceneManager : Singleton<SceneManager>
 		UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnLoadSceneCompleted;
 		UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnLoadSceneCompleted;
 
-		if (sceneLoadingDataDictionary.TryGetValue(type, out var sceneLoadData))
+		if (sceneLoadDataDictionary.TryGetValue(type, out var sceneLoadData))
 		{
 			if (sceneLoadData.useWaitingPopup)
 			{
-				UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter("게임 로딩 중", sceneLoadData.useBackground));
+				UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter(WaitingPopup.Type.Scene));
 			}
 		}
 

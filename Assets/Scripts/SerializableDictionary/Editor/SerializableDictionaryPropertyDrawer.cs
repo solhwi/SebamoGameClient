@@ -22,7 +22,7 @@ public class PopupPrefabDictionaryPropertyDrawer : SerializableDictionaryPropert
 [CustomPropertyDrawer(typeof(Inventory.HasItemDataDictionary))]
 public class HasItemDataDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
 
-[CustomPropertyDrawer(typeof(SceneManager.SceneLoadingDataDictionary))]
+[CustomPropertyDrawer(typeof(SceneManager.SceneLoadDataDictionary))]
 public class SceneLoadingDataDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
 
 
