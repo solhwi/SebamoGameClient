@@ -118,9 +118,7 @@ public class SceneManager : Singleton<SceneManager>
 			currentSceneModule.OnEnter();
 		}
 
-		UIManager.Instance.Close(PopupType.PreLoading);
 		UIManager.Instance.Close(PopupType.Wait);
-
 		loadCoroutine = null;
 	}
 }

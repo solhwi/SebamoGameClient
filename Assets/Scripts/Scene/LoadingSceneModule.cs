@@ -5,10 +5,7 @@ using UnityEngine.AddressableAssets;
 
 public class LoadingSceneModule : SceneModuleBase
 {
-	[SerializeField] private float loadingCompleteWaitTime = 3.0f;
 	[SerializeField] private bool isDownLoadAsset = false;
-
-	private bool isLoaded = false;
 
 	private IEnumerator Start()
 	{
@@ -18,8 +15,6 @@ public class LoadingSceneModule : SceneModuleBase
 
 	public override IEnumerator OnPrepareEnter()
 	{
-		isLoaded = false;
-
 		yield return UIManager.Instance.PreLoadByResources();
 
 		UIManager.Instance.TryOpen(PopupType.PreLoading);
@@ -32,9 +27,6 @@ public class LoadingSceneModule : SceneModuleBase
 		}
 
 		yield return preLoadPopup.FadeRoutine(LogoType.UnityChan);
-
-		preLoadPopup.barrierFunc -= IsLoaded;
-		preLoadPopup.barrierFunc += IsLoaded;
 
 		if (isDownLoadAsset)
 		{
@@ -56,7 +48,7 @@ public class LoadingSceneModule : SceneModuleBase
 				yield return null;
 			}
 
-			preLoadPopup.StartFadeRoutine(LogoType.Sebamo);
+			yield return preLoadPopup.FadeInRoutine(LogoType.Sebamo);
 
 			yield return ResourceManager.Instance.DownLoadAssets((p) =>
 			{
@@ -65,7 +57,7 @@ public class LoadingSceneModule : SceneModuleBase
 		}
 		else
 		{
-			preLoadPopup.StartFadeRoutine(LogoType.Sebamo);
+			yield return preLoadPopup.FadeInRoutine(LogoType.Sebamo);
 		}
 
 		preLoadPopup.SetWaitDescription("리소스 준비 중");
@@ -79,16 +71,7 @@ public class LoadingSceneModule : SceneModuleBase
 		yield return ObjectCameraManager.Instance.PreLoadObjectCamera();
 		yield return ObjectManager.Instance.PreInstantiateFieldItemObject();
 
-		isLoaded = true;
-
 		preLoadPopup.SetDescription("로딩 완료, 즐거운 게임 되십시오.");
-
-		yield return new WaitForSeconds(loadingCompleteWaitTime);
-	}
-
-	private bool IsLoaded()
-	{
-		return isLoaded;
 	}
 
 	public override void OnEnter()

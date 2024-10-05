@@ -16,42 +16,75 @@ public enum LogoType
 {
 	UnityChan,
 	Sebamo,
+	All,
 	Max
+}
+
+[System.Serializable]
+public class LogoData
+{
+	[SerializeField] private CanvasGroup logoImage;
+	[SerializeField] private float fadeInTime = 1.0f;
+	[SerializeField] private float fadeWaitingTime = 1.0f;
+	[SerializeField] private float fadeOutTime = 1.0f;
+
+	public IEnumerator FadeIn(float deltaTime)
+	{
+		float t = 0.0f;
+
+		logoImage.alpha = t;
+
+		while (t < fadeInTime)
+		{
+			yield return null;
+			t += deltaTime;
+
+			logoImage.alpha = t / fadeInTime;
+		}
+
+		logoImage.alpha = 1.0f;
+	}
+
+	public IEnumerator FadeWaiting(float deltaTime)
+	{
+		float t = 0.0f;
+
+		while (t < fadeWaitingTime)
+		{
+			yield return null;
+			t += deltaTime;
+		}
+	}
+
+	public IEnumerator FadeOut(float deltaTime)
+	{
+		float t = fadeOutTime;
+
+		logoImage.alpha = 1.0f;
+
+		while (t > 0.0f)
+		{
+			yield return null;
+			t -= deltaTime;
+
+			logoImage.alpha = t / fadeOutTime;
+		}
+
+		logoImage.alpha = 0f;
+	}
 }
 
 public class PreLoadingPopup : BoardGamePopup
 {
-	[SerializeField] private Image[] logoImages = new Image[(int)LogoType.Max];
+	[SerializeField] private LogoData[] logoDatas = new LogoData[(int)LogoType.Max];
 	[SerializeField] private WaitingText descriptionText = null;
 
-	[SerializeField] private float fadeInTime = 1.0f;
-	[SerializeField] private float fadeOutTime = 1.0f;
-
 	private Coroutine fadeCoroutine = null;
-	public event Func<bool> barrierFunc = null;
-
-	public override void OnOpen(UIParameter parameter)
-	{
-		base.OnOpen(parameter);
-
-		foreach (var logo in logoImages)
-		{
-			logo.color = logo.color.Alpha(0);
-		}
-	}
 
 	public IEnumerator FadeRoutine(LogoType logoType)
 	{
 		yield return FadeInRoutine(logoType);
-
-		if (barrierFunc != null)
-		{
-			while (barrierFunc() == false)
-			{
-				yield return null;
-			}
-		}
-		
+		yield return FadeWaitingRoutine(logoType);
 		yield return FadeOutRoutine(logoType);
 	}
 
@@ -80,40 +113,22 @@ public class PreLoadingPopup : BoardGamePopup
 		descriptionText.SetText(description);
 	}
 
-	private IEnumerator FadeInRoutine(LogoType logoType)
+	public IEnumerator FadeInRoutine(LogoType logoType)
 	{
-		float t = 0.0f;
-
-		Image logoImage = logoImages[(int)logoType];
-		logoImage.color = logoImage.color.Alpha(t);
-
-		while (t < fadeInTime)
-		{
-			yield return null;
-			t += Time.deltaTime;
-
-			logoImage.color = logoImage.color.Alpha(t / fadeInTime);
-		}
-
-		logoImage.color = logoImage.color.Alpha(1.0f);
+		var logoData = logoDatas[(int)logoType];
+		yield return logoData.FadeIn(Time.deltaTime);
 	}
 
-	private IEnumerator FadeOutRoutine(LogoType logoType)
+	public IEnumerator FadeWaitingRoutine(LogoType logoType)
 	{
-		float t = fadeOutTime;
+		var logoData = logoDatas[(int)logoType];
+		yield return logoData.FadeWaiting(Time.deltaTime);
+	}
 
-		Image logoImage = logoImages[(int)logoType];
-		logoImage.color = logoImage.color.Alpha(t);
-
-		while (t > 0.0f)
-		{
-			yield return null;
-			t -= Time.deltaTime;
-
-			logoImage.color = logoImage.color.Alpha(t / fadeOutTime);
-		}
-
-		logoImage.color = logoImage.color.Alpha(0f);
+	public IEnumerator FadeOutRoutine(LogoType logoType)
+	{
+		var logoData = logoDatas[(int)logoType];
+		yield return logoData.FadeOut(Time.deltaTime);
 	}
 
 	protected override void OnClose()
