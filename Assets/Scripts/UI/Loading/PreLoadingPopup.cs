@@ -79,23 +79,11 @@ public class PreLoadingPopup : BoardGamePopup
 	[SerializeField] private LogoData[] logoDatas = new LogoData[(int)LogoType.Max];
 	[SerializeField] private WaitingText descriptionText = null;
 
-	private Coroutine fadeCoroutine = null;
-
 	public IEnumerator FadeRoutine(LogoType logoType)
 	{
 		yield return FadeInRoutine(logoType);
 		yield return FadeWaitingRoutine(logoType);
 		yield return FadeOutRoutine(logoType);
-	}
-
-	public void StartFadeRoutine(LogoType logoType)
-	{
-		fadeCoroutine = StartCoroutine(FadeRoutine(logoType));
-	}
-
-	public void SetWaitDescription(string description, float progress)
-	{
-		descriptionText.StartWaiting($"{description} ({progress})");
 	}
 
 	public void SetWaitDescription(string description)
@@ -129,15 +117,5 @@ public class PreLoadingPopup : BoardGamePopup
 	{
 		var logoData = logoDatas[(int)logoType];
 		yield return logoData.FadeOut(Time.deltaTime);
-	}
-
-	protected override void OnClose()
-	{
-		base.OnClose();
-
-		if (fadeCoroutine != null)
-		{
-			StopCoroutine(fadeCoroutine);
-		}
 	}
 }
