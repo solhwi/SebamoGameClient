@@ -20,6 +20,8 @@ public class SceneLoadData
 
 public class SceneManager : Singleton<SceneManager>
 {
+	[SerializeField] private float minLoadTime = 1.0f;
+
 	[System.Serializable] public class SceneLoadDataDictionary : SerializableDictionary<SceneType, SceneLoadData> { }
 	[SerializeField] private SceneLoadDataDictionary sceneLoadDataDictionary = new SceneLoadDataDictionary();
 
@@ -115,6 +117,13 @@ public class SceneManager : Singleton<SceneManager>
 		{
 			yield return currentSceneModule.OnPrepareEnter();
 			currentSceneModule.OnEnter();
+		}
+
+		// 최소 로드 시간 보장
+		while (currentLoadTime < minLoadTime)
+		{
+			currentLoadTime += Time.deltaTime;
+			yield return null;
 		}
 
 		UIManager.Instance.Close(PopupType.Wait);
