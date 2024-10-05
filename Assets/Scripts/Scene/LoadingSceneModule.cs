@@ -20,16 +20,21 @@ public class LoadingSceneModule : SceneModuleBase
 	{
 		isLoaded = false;
 
-		if (boardGameCanvas is LoadingCanvas loadingCanvas == false)
-			yield break;
-
 		yield return UIManager.Instance.PreLoadByResources();
 
-		loadingCanvas.OnEnter();
-		yield return loadingCanvas.FadeRoutine(LogoType.UnityChan);
+		UIManager.Instance.TryOpen(PopupType.PreLoading);
 
-		loadingCanvas.barrierFunc -= IsLoaded;
-		loadingCanvas.barrierFunc += IsLoaded;
+		PreLoadingPopup preLoadPopup = null;
+		
+		while (preLoadPopup == null) 
+		{
+			preLoadPopup = UIManager.Instance.GetPopup<PreLoadingPopup>(PopupType.PreLoading);
+		}
+
+		yield return preLoadPopup.FadeRoutine(LogoType.UnityChan);
+
+		preLoadPopup.barrierFunc -= IsLoaded;
+		preLoadPopup.barrierFunc += IsLoaded;
 
 		if (isDownLoadAsset)
 		{
@@ -51,23 +56,23 @@ public class LoadingSceneModule : SceneModuleBase
 				yield return null;
 			}
 
-			loadingCanvas.StartFadeRoutine(LogoType.Sebamo);
+			preLoadPopup.StartFadeRoutine(LogoType.Sebamo);
 
 			yield return ResourceManager.Instance.DownLoadAssets((p) =>
 			{
-				loadingCanvas.SetDescription("리소스 다운로드 중", p * downLoadSize);
+				preLoadPopup.SetDescription("리소스 다운로드 중", p * downLoadSize);
 			});
 		}
 		else
 		{
-			loadingCanvas.StartFadeRoutine(LogoType.Sebamo);
+			preLoadPopup.StartFadeRoutine(LogoType.Sebamo);
 		}
 
-		loadingCanvas.SetWaitDescription("리소스 준비 중");
+		preLoadPopup.SetWaitDescription("리소스 준비 중");
 
 		yield return ResourceManager.Instance.PreLoadAssets();
 
-		loadingCanvas.SetWaitDescription("리소스 캐싱 중");
+		preLoadPopup.SetWaitDescription("리소스 캐싱 중");
 
 		yield return BoardGameManager.Instance.PreLoadCharacter();
 		yield return UIManager.Instance.PreLoadPopup();
@@ -76,7 +81,7 @@ public class LoadingSceneModule : SceneModuleBase
 
 		isLoaded = true;
 
-		loadingCanvas.SetDescription("로딩 완료, 즐거운 게임 되십시오.");
+		preLoadPopup.SetDescription("로딩 완료, 즐거운 게임 되십시오.");
 
 		yield return new WaitForSeconds(loadingCompleteWaitTime);
 	}

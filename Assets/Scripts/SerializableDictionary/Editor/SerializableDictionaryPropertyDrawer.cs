@@ -15,12 +15,15 @@ public class NotifyTitleDictionaryPropertyDrawer : SerializableDictionaryPropert
 [CustomPropertyDrawer(typeof(UIManager.PopupRefDictionary))]
 public class PopupDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
 
+[CustomPropertyDrawer(typeof(UIManager.PopupPrefabDictionary))]
+public class PopupPrefabDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
+
+
 [CustomPropertyDrawer(typeof(Inventory.HasItemDataDictionary))]
 public class HasItemDataDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
 
 [CustomPropertyDrawer(typeof(SceneManager.SceneLoadingDataDictionary))]
 public class SceneLoadingDataDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
-
 
 
 public class SerializableDictionaryPropertyDrawer : PropertyDrawer

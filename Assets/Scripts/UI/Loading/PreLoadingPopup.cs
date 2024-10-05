@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +19,7 @@ public enum LogoType
 	Max
 }
 
-public class LoadingCanvas : BoardGameCanvasBase
+public class PreLoadingPopup : BoardGamePopup
 {
 	[SerializeField] private Image[] logoImages = new Image[(int)LogoType.Max];
 	[SerializeField] private WaitingText descriptionText = null;
@@ -32,9 +30,9 @@ public class LoadingCanvas : BoardGameCanvasBase
 	private Coroutine fadeCoroutine = null;
 	public event Func<bool> barrierFunc = null;
 
-	protected override void OnOpen()
+	public override void OnOpen(UIParameter parameter)
 	{
-		base.OnOpen();
+		base.OnOpen(parameter);
 
 		foreach (var logo in logoImages)
 		{

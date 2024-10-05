@@ -13,6 +13,7 @@ public enum PopupType
 	Notify,
 	Profile,
 	Wait,
+	PreLoading,
 }
 
 public class UIManager : Singleton<UIManager>
@@ -21,7 +22,9 @@ public class UIManager : Singleton<UIManager>
 	public class PopupRefDictionary : SerializableDictionary<PopupType, AssetReferenceGameObject> { }
 	[SerializeField] private PopupRefDictionary popupRefDictionary = new PopupRefDictionary();
 
-	[SerializeField] private NotifyPopup notifyPopupPrefab = null;
+	[System.Serializable]
+	public class PopupPrefabDictionary : SerializableDictionary<PopupType, BoardGamePopup> { }
+	[SerializeField] private PopupPrefabDictionary popupPrefabDictionary = new PopupPrefabDictionary();
 
 	private Dictionary<PopupType, BoardGamePopup> popupDictionary = new Dictionary<PopupType, BoardGamePopup>();
 	private readonly Stack<BoardGamePopup> popupStack = new Stack<BoardGamePopup>();
@@ -46,12 +49,15 @@ public class UIManager : Singleton<UIManager>
 
 	public IEnumerator PreLoadByResources()
 	{
-		var notifyPopup = Instantiate(notifyPopupPrefab, popupRootCanvas.transform);
-		notifyPopup.gameObject.SetActive(false);
+		foreach (var p in popupPrefabDictionary)
+		{
+			var notifyPopup = Instantiate(p.Value, popupRootCanvas.transform);
+			notifyPopup.gameObject.SetActive(false);
 
-		popupDictionary[PopupType.Notify] = notifyPopup;
+			popupDictionary[p.Key] = notifyPopup;
 
-		yield return null;
+			yield return null;
+		}
 	}
 
 	public void TryOpen(PopupType popupType, UIParameter parameter = null)
@@ -112,6 +118,19 @@ public class UIManager : Singleton<UIManager>
 		{
 			boardGameMainCanvas.gameObject.SetActive(false);
 		}
+	}
+
+	public T GetPopup<T>(PopupType popupType, bool includeClosedPopup = false) where T : BoardGamePopup
+	{
+		if (popupDictionary.TryGetValue(popupType, out var popup))
+		{
+			if (includeClosedPopup || popup.IsOpen)
+			{
+				return popup as T;
+			}
+		}
+
+		return null;
 	}
 
 	public void CloseAll(PopupType popupType)

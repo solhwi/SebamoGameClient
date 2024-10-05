@@ -21,11 +21,17 @@ public class SceneModuleBase : MonoBehaviour
 		UIManager.Instance.SetMainCanvas(boardGameCanvas);
 		UIManager.Instance.OpenMainCanvas();
 
-		boardGameCanvas.OnEnter();
+		if (boardGameCanvas != null)
+		{
+			boardGameCanvas.OnEnter();
+		}
 	}
 
 	public virtual void OnExit()
     {
-		boardGameCanvas.OnExit();
+		if (boardGameCanvas != null)
+		{
+			boardGameCanvas.OnExit();
+		}
 	}
 }
