@@ -1000,6 +1000,7 @@ MonoBehaviour:
   - m_LabelString: Data
   - m_LabelString: UI
   - m_LabelString: Tile
+  - m_LabelString: Sound
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

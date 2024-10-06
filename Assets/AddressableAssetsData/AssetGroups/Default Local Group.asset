@@ -992,27 +992,32 @@ MonoBehaviour:
   - m_GUID: 8a0c11aa6f95c4498a3767dc82a73553
     m_Address: Assets/Bundles/Sprites/Misaki/Misaki_Run_8.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4c7ba6958f0da47c2a77207bbe947140
     m_Address: Assets/Bundles/Sprites/Misaki/Misaki_Run_3.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a3d86ee156bd04e248587289d41221ee
     m_Address: Assets/Bundles/Sprites/Misaki/Misaki_Run_7.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e29f829f23b0046e59876c23bc1ef6ad
     m_Address: Assets/Bundles/Sprites/Misaki/Misaki_Run_5.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ea9dd38d499424ca9abcbca68ad5117b
     m_Address: Assets/Bundles/Sprites/Misaki/Misaki_Run_6.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2fb2908ab004842cd905197e58065db3
     m_Address: Assets/Bundles/Sprites/BannerFrame00_03_Bg.png
@@ -2805,242 +2810,290 @@ MonoBehaviour:
   - m_GUID: c708465cc730449ecb589b4d90f309ca
     m_Address: Assets/Bundles/Sprites/Misaki/Misaki_Run_1.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58ee8625d86884ba6bc2a317a86acf39
     m_Address: Assets/Bundles/Sprites/Misaki/Misaki_Run_4.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a2e34f78e47db45a69e7404f56e8ffd7
     m_Address: Assets/Bundles/Sprites/Misaki/Misaki_Run_2.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b822765375654a08a4a582889f7b59f
     m_Address: Assets/Bundles/Sprites/Yuko/Yuko_Run_3.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e35bb05bc7904203b181fac479e8f7a
     m_Address: Assets/Bundles/Sprites/Yuko/Yuko_Run_7.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a8d9cdeff09e44795bd42c2b87176e3e
     m_Address: Assets/Bundles/Sprites/Yuko/Yuko_Run_6.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a3837f5560b7e4bdf944f484abcf748a
     m_Address: Assets/Bundles/Sprites/Yuko/Yuko_Run_4.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f72dfdc61b9a44bca7c482cabf605a3
     m_Address: Assets/Bundles/Sprites/Yuko/Yuko_Run_2.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f69bb1958cbcd49699166dcb18f2b1a7
     m_Address: Assets/Bundles/Sprites/Yuko/Yuko_Run_5.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a78b56834837437ca9a49cbf67d14e5
     m_Address: Assets/Bundles/Sprites/Yuko/Yuko_Run_1.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 334ad164462634fe2b92376811b79f4f
     m_Address: Assets/Bundles/Sprites/Yuko/Yuko_Run_8.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ded1314526d734a30b782477ccb81f84
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_2.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d3789df07d5c4f5388c9bb155e5ae39
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_5.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c5412683f08684e80a11105ff19a6776
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_1.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8252460d618cd49ec9cc9a326c5b8f20
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_13.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa95d67788916480f89b972f2341810e
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_4.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 85019b89ef7394334b27c7b296888bef
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_10.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 74df56dc166cc453e857ef26d8f8c1e5
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_14.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a9075af33b1449bda15a20857cc9d15
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_7.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef28d564d0f63475cbf3665e550d023b
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_11.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3bbeb8104fe37434cb412f9680aa4f58
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_17.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5719086c587214603adc1a2941f25c45
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_18.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 835f3c9a959a34036897d4a323c2bf17
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_8.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 40574ed4299db4b54bcc7cff39071a15
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_3.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee897059ff44b456bbf794d109e0242f
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_12.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9618d27302e014c899a01dd835bab204
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_9.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 737db22059a824cb1a06270096e24ada
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_16.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8bac042d1565f4b71b9efb52ae4ca9e5
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_15.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 56528b26934ef40eeb2186cdad01ec87
     m_Address: Assets/Bundles/Sprites/Unitychan/Unitychan_Run_6.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bad840230196b4efd987bf871d6a1e2b
     m_Address: Assets/Bundles/Sounds/Music/title.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4dd43bb437e454be4a5cffc8d1065c21
     m_Address: Assets/Bundles/Sounds/Music/stage.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2d8028ae2a1cd43248c98d7ae1f6897f
     m_Address: Assets/Bundles/Sounds/Music/start.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: be9248eb9c743471cb459a93bff52b56
     m_Address: Assets/Bundles/Sounds/SE/start.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 71ccb8d2b0fe9404f8cc4f59bfaafab6
     m_Address: Assets/Bundles/Sounds/SE/get.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f8143aad405640449bf253091449c6b
     m_Address: Assets/Bundles/Sounds/SE/block_hit.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a11d77af3c0be4eb684a4cf9f47ea146
     m_Address: Assets/Bundles/Sounds/SE/block_break.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 431f7b07d1e854f14860c28585f9b9d4
     m_Address: Assets/Bundles/Sounds/Voice/univ0010.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e1e32c51f4da464c97260039524fe15
     m_Address: Assets/Bundles/Sounds/Voice/univ0001.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 752f3604d760a4929a1a81d203125e4f
     m_Address: Assets/Bundles/Sounds/Voice/univ0006.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 91c291b784ff846febdd7e04e295f4fa
     m_Address: Assets/Bundles/Sounds/Voice/univ0002_trim.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 668a107660fa54fe98e03b698a09aa49
     m_Address: Assets/Bundles/Sounds/Voice/univ1091.wav
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 79f27df757c9449579f4970ecd9c8cbc
     m_Address: Assets/Bundles/Animations/2DCharacter/Misaki_Run.anim
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 848c31dea71e44e47835db9cc32dd09e
     m_Address: Assets/Bundles/Animations/2DCharacter/Unitychan_Run.anim
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7b6a9e13995004d1d935d3709d772ad6
     m_Address: Assets/Bundles/Animations/2DCharacter/Yuko_Run.anim
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 89a180377dc5c944bb53291694ca78eb
     m_Address: Assets/Bundles/Animations/Yuco.controller
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a0eecab0942004440bf23747edfbf2c2
     m_Address: Assets/Bundles/Animations/UnityChan.controller
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f763a21658b145418aab0593cae9fe0
     m_Address: Assets/Bundles/Animations/Misaki.controller
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b71a9985e9a8d24196f7c2e803eb329
     m_Address: Assets/Bundles/Prefabs/Loading/Circle half rotating fading 6.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0cf4cec20434bb14c93e9a6780056d24, type: 2}
