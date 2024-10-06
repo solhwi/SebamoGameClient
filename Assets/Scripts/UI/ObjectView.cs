@@ -39,6 +39,8 @@ public class ObjectView : MonoBehaviour
 	private bool isInitialized = false;
 	private Coroutine prepareRoutine = null;
 
+	protected bool isVisible = false;
+
 	public virtual void Initialize()
 	{
 		if (!isInitialized)
@@ -128,48 +130,44 @@ public class ObjectView : MonoBehaviour
 		if (originObj == null)
 			return;
 
-		if (cam.gameObject.activeSelf == false)
+		if (cam == null)
 			return;
 
-		if (spriteView != null)
+		if (cam.gameObject.activeSelf != isVisible)
 		{
-			spriteView.color = Color.white;
-			spriteView.sprite = GetScreenShotSprite();
+			cam.gameObject.SetActive(isVisible);
 		}
-		else if (textureView != null)
-		{
-			textureView.color = Color.white;
-			textureView.texture = GetScreenShotTexture();
-		}
-		else if (meshView != null)
-		{
-			meshView.SetColor(Color.white);
 
-			var texture = GetScreenShotTexture();
-			meshView.SetTexture(texture);
+		if (isVisible)
+		{
+			if (spriteView != null)
+			{
+				spriteView.color = Color.white;
+				spriteView.sprite = GetScreenShotSprite();
+			}
+			else if (textureView != null)
+			{
+				textureView.color = Color.white;
+				textureView.texture = GetScreenShotTexture();
+			}
+			else if (meshView != null)
+			{
+				meshView.SetColor(Color.white);
+
+				var texture = GetScreenShotTexture();
+				meshView.SetTexture(texture);
+			}
 		}
 	}
 
 	protected virtual void OnBecameVisible()
 	{
-		if (originObj == null)
-			return;
-
-		if (cam != null)
-		{
-			cam.gameObject.SetActive(true);
-		}
+		isVisible = true;
 	}
 
 	protected virtual void OnBecameInvisible()
 	{
-		if (originObj == null)
-			return;
-
-		if (cam != null)
-		{
-			cam.gameObject.SetActive(false);
-		}
+		isVisible = false;
 	}
 
 	private void LateUpdate()

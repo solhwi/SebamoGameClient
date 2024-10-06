@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharacterView : ObjectView
 {
+	[SerializeField] protected CharacterHeadOnUI characterHeadOnUI = null;
+
 	private Transform originCharacterTransform = null;
 	private CharacterDataSetter characterDataSetter = null;
 	private CharacterAnimationController characterAnimationController = null;
@@ -22,6 +24,11 @@ public class CharacterView : ObjectView
 		{
 			spriteView.sortingOrder = (int)LayerConfig.Character;
 		}
+
+		if (characterHeadOnUI != null)
+		{
+			characterHeadOnUI.Initialize();
+		}
 	}
 
 	protected override void OnBecameVisible()
@@ -29,6 +36,21 @@ public class CharacterView : ObjectView
 		base.OnBecameVisible();
 
 		Replay();
+
+		if (characterHeadOnUI != null)
+		{
+			characterHeadOnUI.gameObject.SetActive(true);
+		}
+	}
+
+	protected override void OnBecameInvisible()
+	{
+		base.OnBecameInvisible();
+
+		if (characterHeadOnUI != null)
+		{
+			characterHeadOnUI.gameObject.SetActive(false);
+		}
 	}
 
 	protected override void OnCreateObject(GameObject obj)
@@ -69,6 +91,11 @@ public class CharacterView : ObjectView
 	{
 		this.playerGroup = playerGroup;
 		this.playerName = playerName;
+
+		if (characterHeadOnUI != null)
+		{
+			characterHeadOnUI.SetPlayerData(playerGroup, playerName);
+		}
 	}
 
 	public void RefreshCharacter()

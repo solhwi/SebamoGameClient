@@ -63,6 +63,7 @@ MonoBehaviour:
   height: 512
   width: 512
   depth: 32
+  characterHeadOnUI: {fileID: 2319985502064407338}
 --- !u!114 &3510483763571804042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,7 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5290c761dbf086b4594cf95661a11bff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterHeadOnUI: {fileID: 2319985502064407338}
   characterView: {fileID: 1036656776075584803}
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
 --- !u!23 &1141042929661194243

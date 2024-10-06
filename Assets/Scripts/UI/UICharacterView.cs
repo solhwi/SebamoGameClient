@@ -30,7 +30,25 @@ public class UICharacterView : CharacterView, IBeginDragHandler, IEndDragHandler
 	{
 		base.OnEnable();
 
+		isVisible = true;
 		DoIdle(0.3f);
+	}
+
+	protected override void OnDisable()
+	{
+		base.OnDisable();
+
+		isVisible = false;
+	}
+
+	protected override void OnBecameVisible()
+	{
+		
+	}
+
+	protected override void OnBecameInvisible()
+	{
+		
 	}
 
 	protected override void Update()

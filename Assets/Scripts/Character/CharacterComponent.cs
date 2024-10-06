@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CharacterComponent : MonoBehaviour 
 {
-	[SerializeField] protected CharacterHeadOnUI characterHeadOnUI = null;
 	[SerializeField] protected CharacterView characterView = null;
 	[SerializeField] protected PlayerDataContainer playerDataContainer = null;
 
@@ -12,9 +11,6 @@ public class CharacterComponent : MonoBehaviour
 	{
 		characterView.Initialize();
 		characterView.SetPlayerData(playerGroup, playerName);
-
-		characterHeadOnUI.Initialize();
-		characterHeadOnUI.SetPlayerData(playerGroup, playerName);
 	}
 
 	public void Refresh()
