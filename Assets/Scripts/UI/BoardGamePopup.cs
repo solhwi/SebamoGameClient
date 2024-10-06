@@ -15,7 +15,7 @@ public class BoardGamePopup : MonoBehaviour
 	[SerializeField] private CanvasScaler canvasScaler;
 
 	[SerializeField] private RectTransform rectTransform;
-	[SerializeField] private float openTime = 1.0f;
+	[SerializeField] private float openTime = 0.1f;
 
 	private Coroutine openRoutine = null;
 

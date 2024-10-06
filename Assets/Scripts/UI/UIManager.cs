@@ -14,6 +14,7 @@ public enum PopupType
 	Profile,
 	Wait,
 	PreLoading,
+	Setting,
 	Max,
 }
 
