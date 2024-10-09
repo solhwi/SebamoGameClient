@@ -3,32 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerConfig
-{
-	public static float bgmSoundValue;
-	public static float sfxSoundValue;
-	public static bool useOptionUserName;
-
-	public static void Save()
-	{
-		PlayerPrefs.SetFloat("bgmSoundValue", bgmSoundValue);
-		PlayerPrefs.SetFloat("sfxSoundValue", sfxSoundValue);
-		PlayerPrefs.SetInt("useOptionUserName", useOptionUserName ? 1 : 0);
-	}
-
-	public static void Load()
-	{
-		bgmSoundValue = PlayerPrefs.GetFloat("bgmSoundValue");
-		sfxSoundValue = PlayerPrefs.GetFloat("sfxSoundValue");
-		useOptionUserName = GetBool("useOptionUserName");
-	}
-
-	public static bool GetBool(string key)
-	{
-		return PlayerPrefs.GetInt(key) > 0;
-	}
-}
-
 public class SettingPopup : BoardGamePopup
 {
 	[SerializeField] private Slider bgmSlider;
