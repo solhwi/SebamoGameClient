@@ -31,16 +31,6 @@ public class CharacterView : ObjectView
 		}
 	}
 
-	protected override void OnBecameVisible()
-	{
-		base.OnBecameVisible();
-
-		if (characterHeadOnUI != null)
-		{
-			characterHeadOnUI.gameObject.SetActive(true);
-		}
-	}
-
 	protected override void OnChangeVisibleObject(bool isVisible)
 	{
 		base.OnChangeVisibleObject(isVisible);
@@ -51,16 +41,6 @@ public class CharacterView : ObjectView
 		}
 	}
 
-	protected override void OnBecameInvisible()
-	{
-		base.OnBecameInvisible();
-
-		if (characterHeadOnUI != null)
-		{
-			characterHeadOnUI.gameObject.SetActive(false);
-		}
-	}
-
 	protected override void OnCreateObject(GameObject obj)
 	{
 		base.OnCreateObject(obj);
@@ -68,6 +48,16 @@ public class CharacterView : ObjectView
 #if UNITY_EDITOR
 		obj.name = $"{playerName} ({playerGroup})";
 #endif
+	}
+
+	protected override void Update()
+	{
+		base.Update();
+
+		if (characterHeadOnUI != null)
+		{
+			characterHeadOnUI.TrySetActive(isVisible);
+		}
 	}
 
 	protected override IEnumerator OnPrepareRendering()

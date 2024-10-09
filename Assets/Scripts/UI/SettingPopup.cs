@@ -54,6 +54,16 @@ public class SettingPopup : BoardGamePopup
 		userNameToggle.isOn = PlayerConfig.useOptionUserName;
 	}
 
+	public void OnValueChangedBGM()
+	{
+		PlayerConfig.bgmSoundValue = bgmSlider.value;
+	}
+
+	public void OnValueChangedSFX()
+	{
+		PlayerConfig.sfxSoundValue = sfxSlider.value;
+	}
+
 	protected override void OnClose()
 	{
 		base.OnClose();

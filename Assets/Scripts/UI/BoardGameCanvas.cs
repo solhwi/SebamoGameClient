@@ -84,6 +84,11 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 		UIManager.Instance.TryOpen(PopupType.Inventory);
 	}
 
+	public void OnClickSetting()
+	{
+		UIManager.Instance.TryOpen(PopupType.Setting);
+	}
+
 	public void OnBeginDrag(PointerEventData data)
 	{
 		CameraController.Instance.SetFollow(false);

@@ -20,6 +20,14 @@ public class CharacterHeadOnUI : MonoBehaviour
 		canvas.sortingOrder = 1000 + (int)PopupType.Max;
 	}
 
+	public void TrySetActive(bool isActive)
+	{
+		bool useOption = PlayerConfig.useOptionUserName;
+		bool isMine = playerDataContainer.IsMine(playerGroup, playerName);
+
+		gameObject.SetActive(isActive && (isMine || useOption));
+	}
+
 	public void Initialize()
 	{
 		canvas.worldCamera = Camera.main;
