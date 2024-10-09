@@ -15,6 +15,8 @@ public class LoadingSceneModule : SceneModuleBase
 
 	public override IEnumerator OnPrepareEnter()
 	{
+		PlayerConfig.Load();
+
 		yield return UIManager.Instance.PreLoadByResources();
 
 		UIManager.Instance.TryOpen(PopupType.PreLoading);
@@ -26,6 +28,7 @@ public class LoadingSceneModule : SceneModuleBase
 			preLoadPopup = UIManager.Instance.GetPopup<PreLoadingPopup>(PopupType.PreLoading);
 		}
 
+		SoundManager.Instance.PlaySFX(SoundManager.SFXType.Start);
 		yield return preLoadPopup.FadeRoutine(LogoType.UnityChan);
 
 		if (isDownLoadAsset)
@@ -48,7 +51,6 @@ public class LoadingSceneModule : SceneModuleBase
 				yield return null;
 			}
 
-			SoundManager.Instance.PlaySFX(SoundManager.SFXType.Start);
 			yield return preLoadPopup.FadeInRoutine(LogoType.Sebamo);
 
 			yield return ResourceManager.Instance.DownLoadAssets((p) =>
@@ -58,7 +60,6 @@ public class LoadingSceneModule : SceneModuleBase
 		}
 		else
 		{
-			SoundManager.Instance.PlaySFX(SoundManager.SFXType.Start);
 			yield return preLoadPopup.FadeInRoutine(LogoType.Sebamo);
 		}
 

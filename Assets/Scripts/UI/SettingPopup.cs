@@ -21,8 +21,6 @@ public class SettingPopup : BoardGamePopup
 	{
 		base.OnOpen(parameter);
 
-		PlayerConfig.Load();
-
 		bgmSlider.value = PlayerConfig.bgmSoundValue;
 		sfxSlider.value = PlayerConfig.sfxSoundValue;
 		userNameToggle.isOn = PlayerConfig.useOptionUserName;

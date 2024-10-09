@@ -43,8 +43,6 @@ public class SoundManager : Singleton<SoundManager>
 	{
 		base.OnAwakeInstance();
 
-		PlayerConfig.Load();
-
 		bgmAudioSource.loop = true;
 		bgmAudioSource.volume = PlayerConfig.bgmSoundValue;
 		bgmAudioSource.Play();
