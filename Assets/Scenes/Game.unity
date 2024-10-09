@@ -6492,7 +6492,7 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   profileSetter: {fileID: 4031270868934608430}
   statusText: {fileID: 2928166941546334051}
-  cameraResetPopupTypes: 000000000100000003000000
+  cameraResetPopupTypes: 00000000010000000300000008000000
 --- !u!224 &7357011605251307702
 RectTransform:
   m_ObjectHideFlags: 0
