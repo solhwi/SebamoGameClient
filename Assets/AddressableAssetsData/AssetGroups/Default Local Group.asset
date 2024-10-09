@@ -3011,44 +3011,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7f8143aad405640449bf253091449c6b
-    m_Address: Assets/Bundles/Sounds/SE/block_hit.wav
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a11d77af3c0be4eb684a4cf9f47ea146
     m_Address: Assets/Bundles/Sounds/SE/block_break.wav
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 431f7b07d1e854f14860c28585f9b9d4
-    m_Address: Assets/Bundles/Sounds/Voice/univ0010.wav
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7e1e32c51f4da464c97260039524fe15
-    m_Address: Assets/Bundles/Sounds/Voice/univ0001.wav
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 752f3604d760a4929a1a81d203125e4f
-    m_Address: Assets/Bundles/Sounds/Voice/univ0006.wav
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 91c291b784ff846febdd7e04e295f4fa
-    m_Address: Assets/Bundles/Sounds/Voice/univ0002_trim.wav
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 668a107660fa54fe98e03b698a09aa49
-    m_Address: Assets/Bundles/Sounds/Voice/univ1091.wav
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound

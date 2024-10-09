@@ -8,6 +8,8 @@ public class LoginSceneModule : SceneModuleBase
 	{
 		yield return base.OnPrepareEnter();
 
+		SoundManager.Instance.PlayBGM(SoundManager.BGMType.Login, false);
+
 		var preLoadPopup = UIManager.Instance.GetPopup<PreLoadingPopup>(PopupType.PreLoading);
 		if (preLoadPopup != null)
 		{

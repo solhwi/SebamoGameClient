@@ -11,6 +11,9 @@ public class GameSceneModule : SceneModuleBase
 	public override IEnumerator OnPrepareEnter()
 	{
 		yield return base.OnPrepareEnter();
+
+		SoundManager.Instance.PlayBGM(SoundManager.BGMType.Game, true);
+
 		yield return TileDataManager.Instance.PrepareBoardData();
 		yield return TileDataManager.Instance.PrepareTile();
 		yield return BoardGameManager.Instance.PrepareCharacter();

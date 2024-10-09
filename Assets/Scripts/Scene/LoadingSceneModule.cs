@@ -48,6 +48,7 @@ public class LoadingSceneModule : SceneModuleBase
 				yield return null;
 			}
 
+			SoundManager.Instance.PlaySFX(SoundManager.SFXType.Start);
 			yield return preLoadPopup.FadeInRoutine(LogoType.Sebamo);
 
 			yield return ResourceManager.Instance.DownLoadAssets((p) =>
@@ -57,6 +58,7 @@ public class LoadingSceneModule : SceneModuleBase
 		}
 		else
 		{
+			SoundManager.Instance.PlaySFX(SoundManager.SFXType.Start);
 			yield return preLoadPopup.FadeInRoutine(LogoType.Sebamo);
 		}
 
