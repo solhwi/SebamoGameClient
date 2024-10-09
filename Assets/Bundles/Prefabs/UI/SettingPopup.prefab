@@ -2392,7 +2392,7 @@ MonoBehaviour:
   popupType: 8
   canvas: {fileID: 5856884632462948127}
   canvasScaler: {fileID: 8189149500756592890}
-  rectTransform: {fileID: 4116302313995248042}
+  rectTransform: {fileID: 2443531210149898885}
   openTime: 0.1
   bgmSlider: {fileID: 2772845297901801427}
   sfxSlider: {fileID: 5463460194037227951}
