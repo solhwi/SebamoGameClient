@@ -35,11 +35,19 @@ public class CharacterView : ObjectView
 	{
 		base.OnBecameVisible();
 
-		Replay();
-
 		if (characterHeadOnUI != null)
 		{
 			characterHeadOnUI.gameObject.SetActive(true);
+		}
+	}
+
+	protected override void OnChangeVisibleObject(bool isVisible)
+	{
+		base.OnChangeVisibleObject(isVisible);
+
+		if (isVisible)
+		{
+			Replay();
 		}
 	}
 

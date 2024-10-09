@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
@@ -103,7 +102,10 @@ public class ObjectView : MonoBehaviour
 		if (originObj == null)
 			return;
 
-		cam.gameObject.SetActive(true);
+		if (cam != null)
+		{
+			cam.gameObject.SetActive(true);
+		}
 	}
 
 	protected virtual void OnDisable()
@@ -136,6 +138,7 @@ public class ObjectView : MonoBehaviour
 		if (cam.gameObject.activeSelf != isVisible)
 		{
 			cam.gameObject.SetActive(isVisible);
+			OnChangeVisibleObject(isVisible);
 		}
 
 		if (isVisible)
@@ -163,6 +166,11 @@ public class ObjectView : MonoBehaviour
 	protected virtual void OnBecameVisible()
 	{
 		isVisible = true;
+	}
+
+	protected virtual void OnChangeVisibleObject(bool isVisible)
+	{
+
 	}
 
 	protected virtual void OnBecameInvisible()
