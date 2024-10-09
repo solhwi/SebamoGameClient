@@ -2370,6 +2370,9 @@ MonoBehaviour:
   canvasScaler: {fileID: 8189149500756592890}
   rectTransform: {fileID: 4116302313995248042}
   openTime: 0.1
+  bgmSlider: {fileID: 2772845297901801427}
+  sfxSlider: {fileID: 5463460194037227951}
+  userNameToggle: {fileID: 5620561762660453782}
 --- !u!1 &7467169805809170911
 GameObject:
   m_ObjectHideFlags: 0
