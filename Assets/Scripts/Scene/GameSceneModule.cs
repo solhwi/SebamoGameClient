@@ -12,7 +12,7 @@ public class GameSceneModule : SceneModuleBase
 	{
 		yield return base.OnPrepareEnter();
 
-		SoundManager.Instance.PlayBGM(SoundManager.BGMType.Game, true);
+		SoundManager.Instance.PlayBGM(BGMType.Game, true);
 
 		yield return TileDataManager.Instance.PrepareBoardData();
 		yield return TileDataManager.Instance.PrepareTile();

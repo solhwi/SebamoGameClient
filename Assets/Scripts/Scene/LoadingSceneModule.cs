@@ -28,7 +28,6 @@ public class LoadingSceneModule : SceneModuleBase
 			preLoadPopup = UIManager.Instance.GetPopup<PreLoadingPopup>(PopupType.PreLoading);
 		}
 
-		SoundManager.Instance.PlaySFX(SoundManager.SFXType.Start);
 		yield return preLoadPopup.FadeRoutine(LogoType.UnityChan);
 
 		if (isDownLoadAsset)
@@ -69,6 +68,7 @@ public class LoadingSceneModule : SceneModuleBase
 
 		preLoadPopup.SetWaitDescription("리소스 캐싱 중");
 
+		yield return SoundManager.Instance.PreLoadSound();
 		yield return BoardGameManager.Instance.PreLoadCharacter();
 		yield return UIManager.Instance.PreLoadPopup();
 		yield return ObjectCameraManager.Instance.PreLoadObjectCamera();

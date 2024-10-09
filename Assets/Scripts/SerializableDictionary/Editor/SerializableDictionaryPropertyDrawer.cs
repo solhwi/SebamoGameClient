@@ -18,10 +18,10 @@ public class PopupDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawe
 [CustomPropertyDrawer(typeof(UIManager.PopupPrefabDictionary))]
 public class PopupPrefabDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
 
-[CustomPropertyDrawer(typeof(SoundManager.BGMAudioDictionary))]
+[CustomPropertyDrawer(typeof(AudioClipContainer.BGMAudioDictionary))]
 public class BGMAudioDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
 
-[CustomPropertyDrawer(typeof(SoundManager.SFXAudioDictionary))]
+[CustomPropertyDrawer(typeof(AudioClipContainer.SFXAudioDictionary))]
 public class SFXAudioDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer { }
 
 [CustomPropertyDrawer(typeof(Inventory.HasItemDataDictionary))]

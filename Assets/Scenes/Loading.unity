@@ -279,17 +279,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDontDestroyOnLoad: 1
   bgmFadeTime: 2
+  clipContainer: {fileID: 11400000, guid: 4820449f39e7f7b4c9361128c7a95b24, type: 2}
   bgmAudioSource: {fileID: 1678110402}
   sfxAudioSource: {fileID: 688435583}
-  bgmAudioClipDictionary:
-    m_keys: 0000000001000000
-    m_values:
-    - {fileID: 8300000, guid: 2d8028ae2a1cd43248c98d7ae1f6897f, type: 3}
-    - {fileID: 8300000, guid: 4dd43bb437e454be4a5cffc8d1065c21, type: 3}
-  sfxAudioClipDictionary:
-    m_keys: 00000000
-    m_values:
-    - {fileID: 8300000, guid: be9248eb9c743471cb459a93bff52b56, type: 3}
 --- !u!4 &853045750
 Transform:
   m_ObjectHideFlags: 0

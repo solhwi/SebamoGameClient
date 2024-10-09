@@ -2,42 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SoundType
+{
+	BGM,
+	SFX,
+	Max
+}
+
+public enum BGMType
+{
+	None = -1,
+	Login,
+	Game
+}
+
+public enum SFXType
+{
+	Start,
+}
+
 public class SoundManager : Singleton<SoundManager>
 {
-	public enum SoundType
-	{
-		BGM,
-		SFX,
-		Max
-	}
-
-	public enum BGMType
-	{
-		None = -1,
-		Login,
-		Game
-	}
-
-	public enum SFXType
-	{
-		Start,
-	}
-
 	[SerializeField] private float bgmFadeTime = 1.0f;
+
+	[SerializeField] private AudioClipContainer clipContainer = null;
 
 	[SerializeField] private AudioSource bgmAudioSource = null;
 	[SerializeField] private AudioSource sfxAudioSource = null;
 
-	[System.Serializable]
-	public class BGMAudioDictionary : SerializableDictionary<BGMType, AudioClip> { }
-	[SerializeField] private BGMAudioDictionary bgmAudioClipDictionary = new BGMAudioDictionary();
-
-	[System.Serializable]
-	public class SFXAudioDictionary : SerializableDictionary<SFXType, AudioClip> { }
-	[SerializeField] private SFXAudioDictionary sfxAudioClipDictionary = new SFXAudioDictionary();
-
 	private Coroutine bgmCoroutine = null;
 	private BGMType currentBgmType = BGMType.None;
+
+	public IEnumerator PreLoadSound()
+	{
+		yield return clipContainer.PreLoadSound();
+	}
 
 	protected override void OnAwakeInstance()
 	{
@@ -53,11 +52,8 @@ public class SoundManager : Singleton<SoundManager>
 
 	public void PlaySFX(SFXType type)
 	{
-		if (sfxAudioClipDictionary.TryGetValue(type, out var clip))
-		{
-			sfxAudioSource.clip = clip;
-			sfxAudioSource.Play();
-		}
+		sfxAudioSource.clip = clipContainer.GetAudioClip(type);
+		sfxAudioSource.Play();
 	}
 
 	public void PlayBGM(BGMType type, bool useFade)
@@ -85,11 +81,8 @@ public class SoundManager : Singleton<SoundManager>
 
 	private void PlayBGM(BGMType type)
 	{
-		if (bgmAudioClipDictionary.TryGetValue(type, out var clip))
-		{
-			bgmAudioSource.clip = clip;
-			bgmAudioSource.Play();
-		}
+		bgmAudioSource.clip = clipContainer.GetAudioClip(type);
+		bgmAudioSource.Play();
 	}
 
 	private void Update()
