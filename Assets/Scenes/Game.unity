@@ -417,6 +417,7 @@ GameObject:
   - component: {fileID: 1041676698}
   - component: {fileID: 1041676697}
   - component: {fileID: 1041676696}
+  - component: {fileID: 1041676700}
   m_Layer: 5
   m_Name: BackgroundCanvas
   m_TagString: Untagged
@@ -507,6 +508,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1041676700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041676695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2cb54efed01bc14cbae611eb5fa42b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backGroundImage: {fileID: 1714855700}
+  playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
+  tileDataContainer: {fileID: 11400000, guid: 6bff3bcc2db60844cb56ca069bb23b8c, type: 2}
 --- !u!1 &1122771669
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +772,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: cc234374fd2eab84eb20c442be263096, type: 3}
+  m_Texture: {fileID: 0}
   m_UVRect:
     serializedVersion: 2
     x: 0

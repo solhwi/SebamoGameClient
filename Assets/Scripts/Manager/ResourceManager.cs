@@ -69,11 +69,15 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 	}
 }
 
+
+
 public class ResourceManager : Singleton<ResourceManager>
 {
 	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private CharacterDataContainer characterDataContainer;
 	[SerializeField] private NPCResourceLoader npcPreLoader;
+	[SerializeField] private TileDataContainer tileDataContainer;
+
 	[SerializeField] private List<AssetLabelReference> labelRefs = new List<AssetLabelReference>();
 
 	private Dictionary<string, AsyncOperationHandle> cachedObjectHandleDictionary = new Dictionary<string, AsyncOperationHandle>();
@@ -121,6 +125,12 @@ public class ResourceManager : Singleton<ResourceManager>
 		yield return itemTable.PreLoadTableAssets();
 		yield return characterDataContainer.PreLoadCharacterParts();
 		yield return npcPreLoader.PreLoadNPC();
+		yield return tileDataContainer.PreLoad();
+	}
+
+	public T Load<T>(AssetReference reference) where T : UnityEngine.Object
+	{
+		return Load<T>(reference.AssetGUID);
 	}
 
 	public T Load<T>(string path) where T : UnityEngine.Object

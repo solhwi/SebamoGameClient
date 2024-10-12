@@ -1307,6 +1307,7 @@ MonoBehaviour:
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
   characterDataContainer: {fileID: 11400000, guid: 73468ef0f89e7f846bb837967a881fad, type: 2}
   npcPreLoader: {fileID: 11400000, guid: 1034cbddf46c3ab41a3d0f17d44cb902, type: 2}
+  tileDataContainer: {fileID: 11400000, guid: 6bff3bcc2db60844cb56ca069bb23b8c, type: 2}
   labelRefs:
   - m_LabelString: Character
   - m_LabelString: NPC

@@ -4,12 +4,22 @@ using System.Linq;
 
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Tilemaps;
+
+[System.Serializable]
+public class TileBackGroundData
+{
+	public int tileOrder;
+	public AssetReferenceTexture2D backGroundResource;
+}
 
 [CreateAssetMenu(fileName = "TileDataContainer")]
 public class TileDataContainer : ScriptableObject
 {
-    // 고정값
+	public List<TileBackGroundData> backGroundDataList = new List<TileBackGroundData>();
+
+	// 고정값
 	// https://docs.unity3d.com/kr/2020.3/Manual/Tilemap-Isometric-CreateIso.html
 	public Vector3 transparencySortAxis = new Vector3(0, 0.1f, -0.26f);
 	public Vector3 isometricGridCellSize = new Vector3(1, 0.57735f, 1);
@@ -32,6 +42,14 @@ public class TileDataContainer : ScriptableObject
 	public string[] tileItems = null;
 
 	private Dictionary<int, int> orderToTileIndexMap = new Dictionary<int, int>();
+
+	public IEnumerator PreLoad()
+	{
+		foreach (var data in backGroundDataList)
+		{
+			yield return ResourceManager.Instance.LoadAsync<Texture2D>(data.backGroundResource);
+		}
+	}
 
 	public void SetTileOrder(IEnumerable<int> orders)
 	{
@@ -70,6 +88,33 @@ public class TileDataContainer : ScriptableObject
 
 		tileItems[index] = itemCode;
 		return true;
+	}
+
+	public Texture2D GetBackGroundResource(int currentOrder)
+	{
+		int index = GetBackGroundIndex(currentOrder);
+
+		var backGroundData = backGroundDataList[index];
+		if (backGroundData == null)
+			return null;
+
+		return ResourceManager.Instance.Load<Texture2D>(backGroundData.backGroundResource);
+	}
+
+	private int GetBackGroundIndex(int currentOrder)
+	{
+		int index = 0;
+
+		for (int i = 0; i < backGroundDataList.Count; i++)
+		{
+			var backGroundData = backGroundDataList[i];
+			if (backGroundData.tileOrder <= currentOrder)
+			{
+				index = i;
+			}
+		}
+
+		return index;
 	}
 
 	public Vector3 GetGridCellSize(TileType type)

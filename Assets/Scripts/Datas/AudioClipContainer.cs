@@ -32,7 +32,7 @@ public class AudioClipContainer : ScriptableObject
 	{
 		if (bgmAudioClipDictionary.TryGetValue(bgmType, out var asset))
 		{
-			return ResourceManager.Instance.Load<AudioClip>(asset.AssetGUID);
+			return ResourceManager.Instance.Load<AudioClip>(asset);
 		}
 
 		return null;
@@ -42,7 +42,7 @@ public class AudioClipContainer : ScriptableObject
 	{
 		if (sfxAudioClipDictionary.TryGetValue(sfxType, out var asset))
 		{
-			return ResourceManager.Instance.Load<AudioClip>(asset.AssetGUID);
+			return ResourceManager.Instance.Load<AudioClip>(asset);
 		}
 
 		return null;

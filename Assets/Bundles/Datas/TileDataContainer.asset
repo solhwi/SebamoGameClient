@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9697d3cf13c27d849adc1f00db504f5f, type: 3}
   m_Name: TileDataContainer
   m_EditorClassIdentifier: 
+  backGroundDataList:
+  - tileOrder: 0
+    backGroundResource:
+      m_AssetGUID: cc234374fd2eab84eb20c442be263096
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
   transparencySortAxis: {x: 0, y: 0.1, z: -0.26}
   isometricGridCellSize: {x: 1, y: 0.57735, z: 1}
   dimetricGridCellSize: {x: 1, y: 0.51, z: 1}
