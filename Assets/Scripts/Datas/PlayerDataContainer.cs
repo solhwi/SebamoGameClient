@@ -70,7 +70,7 @@ public class PlayerDataContainer : ScriptableObject
 	[MenuItem("Tools/캐릭터 위치 초기화")]
 	public static void ResetCharacterPosition()
 	{
-		var container = AssetDatabase.LoadAssetAtPath<PlayerDataContainer>("Assets/Resources/Datas/PlayerDataContainer.asset");
+		var container = AssetDatabase.LoadAssetAtPath<PlayerDataContainer>("Assets/Bundles/Datas/PlayerDataContainer.asset");
 		if (container != null)
 		{
 			container.SaveCurrentOrder(0);
