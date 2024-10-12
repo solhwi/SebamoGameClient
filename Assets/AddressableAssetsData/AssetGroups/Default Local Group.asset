@@ -323,36 +323,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Tile
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fb2a81a95e5abd74c93af0663f1e36c9
-    m_Address: Assets/Bundles/Sprites/Tile/Original/isometric_0021.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Tile
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1af266b308767ce4ba7d776dfe4ad8fb
-    m_Address: Assets/Bundles/Sprites/Tile/Original/isometric_0064.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Tile
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e13a6cd190c7865489109a5601f91fd4
-    m_Address: Assets/Bundles/Sprites/Tile/Original/isometric_0035.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Tile
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5e83f2c45e307c44096b30b6ca14fa7d
-    m_Address: Assets/Bundles/Sprites/Tile/Original/isometric_0087.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Tile
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: be0edacf55dbbc14199b4cb41fb87a0e
-    m_Address: Assets/Bundles/Sprites/Tile/Original/isometric_0014.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Tile
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d5353e788b1d127429ea03a1d3c2204b
     m_Address: Assets/Bundles/Sprites/BackButtonOrange 1.png
     m_ReadOnly: 0
