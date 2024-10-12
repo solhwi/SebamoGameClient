@@ -23,6 +23,8 @@ public class ObjectView : MonoBehaviour
 	protected Camera cam = null;
 	protected Transform cameraArm = null;
 
+	protected Animator objAnimator;
+
 	protected Vector3 initialCameraArmRot = Vector3.zero;
 
 	protected GameObject originObj;
@@ -92,6 +94,8 @@ public class ObjectView : MonoBehaviour
 	{
 		originObj = obj;
 		originObj.SetActive(true);
+
+		objAnimator = originObj.GetComponent<Animator>();
 
 		originObj.transform.localPosition = spawnLocalPos;
 		originObj.transform.localEulerAngles = spawnLocalRot;

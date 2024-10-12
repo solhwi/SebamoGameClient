@@ -5,16 +5,11 @@ using UnityEngine;
 public class UINpcView : ObjectView
 {
 	[SerializeField] private string startStateName = string.Empty;
-	private Animator objAnimator;
 
-	protected override IEnumerator OnPrepareRendering()
+	protected override void OnCreateObject(GameObject obj)
 	{
-		yield return base.OnPrepareRendering();
+		base.OnCreateObject(obj);
 
-		if (originObj == null)
-			yield break;
-
-		objAnimator = originObj.GetComponent<Animator>();
 		if (objAnimator != null)
 		{
 			objAnimator.Play(startStateName, 0, 0);

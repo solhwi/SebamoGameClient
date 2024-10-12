@@ -9,6 +9,7 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Inventory inventory;
 
+	[SerializeField] private DiceView diceView = null; 
 	[SerializeField] private ProfileSetter profileSetter;
 	[SerializeField] private Text statusText = null;
 
@@ -20,6 +21,8 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 		{
 			BoardGameManager.Instance.Subscribe(this);
 		}
+
+		diceView.Initialize();
 	}
 
 	protected override void OnClose()
@@ -44,8 +47,8 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 
 	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, int nextBonusMultiplyCount)
 	{
-		yield return null;
 		statusText.text = $"나온 주사위 값 : {diceCount} x {nextBonusMultiplyCount} + {nextBonusAddCount}";
+		yield return diceView.DoDiceAction(diceCount);
 	}
 
 	public IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder)
