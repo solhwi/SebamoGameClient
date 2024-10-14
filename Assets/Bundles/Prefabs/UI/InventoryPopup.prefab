@@ -99,6 +99,7 @@ MonoBehaviour:
   height: 512
   width: 512
   depth: 32
+  characterHeadOnUI: {fileID: 0}
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   xMinRotationLimit: 0
   xMaxRotationLimit: 0
@@ -4022,6 +4023,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2931410895021776433}
     m_Modifications:
+    - target: {fileID: 5456408278025129828, guid: ed3a9eea449d2604a94825c2cb666baa, type: 3}
+      propertyPath: m_Text
+      value: "\uC778\uBCA4\uD1A0\uB9AC"
+      objectReference: {fileID: 0}
     - target: {fileID: 7504667133652362908, guid: ed3a9eea449d2604a94825c2cb666baa, type: 3}
       propertyPath: m_Name
       value: Title
@@ -4807,7 +4812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4184736004695744567, guid: 0b8e0c93abf9f2144b669942896b6aae, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 431
+      value: 405
       objectReference: {fileID: 0}
     - target: {fileID: 4184736004695744567, guid: 0b8e0c93abf9f2144b669942896b6aae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
