@@ -359,11 +359,10 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bf83de3f775299f47bceccb58e967e01
-    m_Address: Assets/Bundles/Sprites/dice.png
+  - m_GUID: 9a3b1fd91b62f524eac2e1562c9969b5
+    m_Address: Assets/Bundles/Sprites/DiceButton.png
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8e043661962ef149970978e6f5baaef
     m_Address: Assets/Bundles/Sprites/EquipBackground.png
