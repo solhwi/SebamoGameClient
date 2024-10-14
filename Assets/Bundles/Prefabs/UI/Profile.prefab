@@ -159,7 +159,7 @@ RectTransform:
   m_GameObject: {fileID: 2402032637658820407}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 725319219945818944}
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.49019608, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -470,7 +470,8 @@ MonoBehaviour:
   profileImage:
   - {fileID: 8014935712230015319}
   - {fileID: 1594211248724699458}
-  isInitializeByInventory: 0
+  isClickable: 0
+  isPressable: 0
 --- !u!114 &2759570403130913097
 MonoBehaviour:
   m_ObjectHideFlags: 0
