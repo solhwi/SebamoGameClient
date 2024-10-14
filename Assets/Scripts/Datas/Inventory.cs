@@ -30,7 +30,7 @@ public class Inventory : ScriptableObject
 	[Space]
 	public string[] appliedProfileItems = new string[2];
 
-	private const int MaxBuffItemCount = 10;
+	private const int MaxBuffItemCount = 8;
 
 	public bool TryAddItem(string itemCode, int count = 1)
 	{
