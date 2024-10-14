@@ -211,6 +211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Profile
       objectReference: {fileID: 0}
+    - target: {fileID: 6948242550242999274, guid: 1e365f35df1e72341adb3125261991f4, type: 3}
+      propertyPath: isClickable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -221,6 +225,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 725319219945818944, guid: 1e365f35df1e72341adb3125261991f4, type: 3}
   m_PrefabInstance: {fileID: 199540052}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &199540054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6948242550242999274, guid: 1e365f35df1e72341adb3125261991f4, type: 3}
+  m_PrefabInstance: {fileID: 199540052}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33dfd60e35b03944fb363f5d8eeb2895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &547121917
 GameObject:
   m_ObjectHideFlags: 0
@@ -5806,7 +5821,7 @@ MonoBehaviour:
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   diceView: {fileID: 922771671}
-  profileSetter: {fileID: 0}
+  profileSetter: {fileID: 199540054}
   statusText: {fileID: 2928166941546334051}
   cameraResetPopupTypes: 00000000010000000300000008000000
 --- !u!224 &7357011605251307702
