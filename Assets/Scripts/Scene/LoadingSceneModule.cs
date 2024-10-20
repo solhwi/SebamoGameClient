@@ -50,23 +50,25 @@ public class LoadingSceneModule : SceneModuleBase
 				yield return null;
 			}
 
-			yield return preLoadPopup.FadeInRoutine(LogoType.Sebamo);
+			StartCoroutine(preLoadPopup.FadeInRoutine(LogoType.Sebamo));
 
 			yield return ResourceManager.Instance.DownLoadAssets((p) =>
 			{
-				preLoadPopup.SetDescription("DownLoad Resources", p * downLoadSize);
+				preLoadPopup.SetDescription("Downloading Resources", p * downLoadSize);
 			});
 		}
 		else
 		{
-			yield return preLoadPopup.FadeInRoutine(LogoType.Sebamo);
+			StartCoroutine(preLoadPopup.FadeInRoutine(LogoType.Sebamo));
 		}
 
-		preLoadPopup.SetWaitDescription("Ready to Resources");
+		yield return null;
+
+		preLoadPopup.SetWaitDescription("Preparing Resources");
 
 		yield return ResourceManager.Instance.PreLoadAssets();
 
-		preLoadPopup.SetWaitDescription("Caching to Resources");
+		preLoadPopup.SetWaitDescription("Caching Resources");
 
 		yield return SoundManager.Instance.PreLoadSound();
 		yield return BoardGameManager.Instance.PreLoadCharacter();

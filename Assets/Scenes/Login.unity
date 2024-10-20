@@ -827,7 +827,9 @@ MonoBehaviour:
   tr: {fileID: 1431232991}
   scalingTime: 1
   maxScale: 1
-  minScale: 0.5
+  minScale: 0.9
+  isMaxStart: 1
+  scalingLoopCount: -1
 --- !u!1 &1988029011
 GameObject:
   m_ObjectHideFlags: 0
