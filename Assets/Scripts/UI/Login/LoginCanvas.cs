@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +17,7 @@ public class LoginCanvas : BoardGameCanvasBase
 	[SerializeField] private Text currentNameText = null;
 
 	[SerializeField] private GameObject currentGroupTextObj = null;
-	[SerializeField] private Text currentGroupText = null;
+	[SerializeField] private TextMeshProUGUI currentGroupText = null;
 
 	[SerializeField] private GameObject greetingTextObj = null;
 	[SerializeField] private GameObject clickTextObj = null;
