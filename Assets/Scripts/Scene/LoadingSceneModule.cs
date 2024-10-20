@@ -54,7 +54,7 @@ public class LoadingSceneModule : SceneModuleBase
 
 			yield return ResourceManager.Instance.DownLoadAssets((p) =>
 			{
-				preLoadPopup.SetDescription("리소스 다운로드 중", p * downLoadSize);
+				preLoadPopup.SetDescription("DownLoad Resources", p * downLoadSize);
 			});
 		}
 		else
@@ -62,11 +62,11 @@ public class LoadingSceneModule : SceneModuleBase
 			yield return preLoadPopup.FadeInRoutine(LogoType.Sebamo);
 		}
 
-		preLoadPopup.SetWaitDescription("리소스 준비 중");
+		preLoadPopup.SetWaitDescription("Ready to Resources");
 
 		yield return ResourceManager.Instance.PreLoadAssets();
 
-		preLoadPopup.SetWaitDescription("리소스 캐싱 중");
+		preLoadPopup.SetWaitDescription("Caching to Resources");
 
 		yield return SoundManager.Instance.PreLoadSound();
 		yield return BoardGameManager.Instance.PreLoadCharacter();
@@ -74,7 +74,7 @@ public class LoadingSceneModule : SceneModuleBase
 		yield return ObjectCameraManager.Instance.PreLoadObjectCamera();
 		yield return ObjectManager.Instance.PreInstantiateFieldItemObject();
 
-		preLoadPopup.SetDescription("로딩 완료, 즐거운 게임 되십시오.");
+		preLoadPopup.SetDescription("Load Complete, Enjoy Your Game");
 	}
 
 	public override void OnEnter()

@@ -1222,7 +1222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDontDestroyOnLoad: 1
   popupRefDictionary:
-    m_keys: 00000000010000000200000003000000050000000600000008000000
+    m_keys: 0000000001000000020000000300000005000000060000000800000009000000
     m_values:
     - m_AssetGUID: 57cc03aacc153094190614cb668c0069
       m_SubObjectName: 
@@ -1249,6 +1249,10 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     - m_AssetGUID: 40f0c306ba53ad64cb9e047cafa637fa
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 35e80542722e4fe47bd066de2d92ad5f
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0

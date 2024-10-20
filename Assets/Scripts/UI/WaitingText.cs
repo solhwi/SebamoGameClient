@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class WaitingText : MonoBehaviour
 {
-	[SerializeField] private Text waitingText;
+	[SerializeField] private TextMeshProUGUI waitingText;
 
 	[SerializeField] private string waitingAddString = ".";
 	[SerializeField] private int maxAddStringCount = 1;

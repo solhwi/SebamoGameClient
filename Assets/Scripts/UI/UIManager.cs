@@ -15,6 +15,7 @@ public enum PopupType
 	Wait,
 	PreLoading,
 	Setting,
+	GroupSelect,
 	Max,
 }
 
