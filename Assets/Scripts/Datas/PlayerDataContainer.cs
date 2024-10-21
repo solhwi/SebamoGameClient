@@ -195,7 +195,14 @@ public class PlayerDataContainer : ScriptableObject
 		if (data == null)
 			yield break;
 
+		if (data.equippedItems == null)
+			yield break;
+
 		int index = 5;
+
+		if (data.equippedItems.Length <= index)
+			yield break;
+
 		string itemCode = data.equippedItems[index];
 
 		var propType = itemTable.GetItemPropType(itemCode);

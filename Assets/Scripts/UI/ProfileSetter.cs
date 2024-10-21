@@ -59,6 +59,12 @@ public class ProfileSetter : MonoBehaviour
 		if (playerData == null)
 			return;
 
+		if (playerData.appliedProfileItems == null)
+			return;
+
+		if (playerData.appliedProfileItems.Length <= type)
+			return;
+
 		string itemCode = playerData.appliedProfileItems[type];
 		profileImage[type].sprite = itemTable.GetItemIconSprite(itemCode);
 	}
