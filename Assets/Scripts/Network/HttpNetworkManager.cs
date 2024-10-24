@@ -193,45 +193,12 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	private MyPlayerPacketData MakePlayerPacketData()
 	{
-		var data = new MyPlayerPacketData();
-		data.playerData = new PlayerPacketData();
-
-		data.playerData.playerName = playerDataContainer.playerName;
-		data.playerData.playerGroup = playerDataContainer.playerGroup;
-		data.playerData.hasDiceCount = playerDataContainer.hasDiceCount;
-		data.playerData.playerTileOrder = playerDataContainer.currentTileOrder;
-
-		data.playerData.equippedItems = playerDataContainer.equippedItems;
-		data.playerData.appliedProfileItems = playerDataContainer.appliedProfileItems;
-
-		data.hasItems = inventory.hasItems.Keys.ToArray();
-		data.hasItemCounts = inventory.hasItems.Values.ToArray();
-		data.appliedBuffItems = inventory.appliedBuffItems.ToArray();
-
-		return data;
+		return MyPlayerPacketData.Create(playerDataContainer, inventory);
 	}
 
 	private TilePacketData MakeTilePacketData()
 	{
-		var data = new TilePacketData();
-
-		List<int> indexes = new List<int>();
-		List<string> itemCodes = new List<string>();
-
-		for (int i = 0; i < tileDataContainer.tileItems.Length; i++)
-		{
-			string itemCode = tileDataContainer.tileItems[i];
-			if (itemCode == null || itemCode == string.Empty)
-				continue;
-
-			indexes.Add(i);
-			itemCodes.Add(itemCode);
-		}
-
-		data.tileItemIndexes = indexes.ToArray();
-		data.tileItemCodes = itemCodes.ToArray();
-
-		return data;
+		return TilePacketData.Create(tileDataContainer.tileItems);
 	}
 
 	public IEnumerator TryGet<T>(string urlParameter, Action<T> onGetSuccess, Action<string> OnGetFailed)
@@ -337,78 +304,4 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 		onGet?.Invoke(www.error);
 	}
-
-#if UNITY_EDITOR
-
-	[ContextMenu("페이크 패킷 데이터로 세팅")]
-	public void SetFakePacketData()
-	{
-		var data = MakeMyFakeFacketData();
-
-		playerDataContainer.SetMyPacketData(data);
-
-		var otherData = MakeOtherFakePacketData();
-
-		playerDataContainer.SetOtherPacketData(otherData.playerDatas);
-		
-		EditorUtility.SetDirty(playerDataContainer);
-		EditorUtility.SetDirty(inventory);
-
-		AssetDatabase.SaveAssetIfDirty(playerDataContainer);
-		AssetDatabase.SaveAssetIfDirty(inventory);
-	}
-
-	private MyPlayerPacketData MakeMyFakeFacketData()
-	{
-		var data = new MyPlayerPacketData();
-		data.playerData = new PlayerPacketData();
-
-		data.playerData.playerGroup = GroupType.Exp.ToString();
-		data.playerData.playerName = "솔휘";
-
-		data.playerData.hasDiceCount = 3;
-		data.playerData.playerTileOrder = 0;
-
-		data.playerData.equippedItems = new string[6] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword" };
-		data.playerData.appliedProfileItems = new string[2] { "", "" };
-
-		data.playerData.profileComment = "안녕하세요.";
-
-		data.hasItems = new string[8] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword", "TwinDagger", "Coin" };
-		data.hasItemCounts = new int[8] { 1, 1, 1, 1, 1, 1, 1, 100000 };
-		data.appliedBuffItems = new string[] { };
-
-		return data;
-	}
-
-	private PlayerPacketDataCollection MakeOtherFakePacketData()
-	{
-		var collection = new PlayerPacketDataCollection();
-
-		List<PlayerPacketData> otherDatas = new List<PlayerPacketData>();
-
-		string[] otherNames = new string[5] { "지현", "지홍", "동현", "상훈", "강욱" };
-
-		foreach (string name in otherNames)
-		{
-			PlayerPacketData newData = new PlayerPacketData();
-
-			newData.playerGroup = GroupType.Exp.ToString();
-			newData.playerName = name;
-
-			newData.hasDiceCount = 3;
-			newData.playerTileOrder = 0;
-
-			newData.profileComment = "안녕하세요.";
-
-			newData.equippedItems = new string[6] { "YucoBody", "MisakiHair", "UnityChanEye", "UnityChanFace", "MisakiAccessory", "GreatSword" };
-			newData.appliedProfileItems = new string[2] { "", "" };
-
-			otherDatas.Add(newData);
-		}
-
-		collection.playerDatas = otherDatas.ToArray();
-		return collection;
-	}
-#endif
 }

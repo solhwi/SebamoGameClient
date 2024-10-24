@@ -71,13 +71,15 @@ public class TileDataContainer : ScriptableObject
 
 	public void SetTileItemPacket(TilePacketData data)
 	{
-		if (data == null)
-			return;
+		tileItems = new string[tileOrders.Length];
 
-		for (int i = 0; i < data.tileItemIndexes.Length; i++)
+		if (data != null)
 		{
-			int index = data.tileItemIndexes[i];
-			tileItems[index] = data.tileItemCodes[index];
+			for (int i = 0; i < data.tileItemIndexes.Length; i++)
+			{
+				int index = data.tileItemIndexes[i];
+				tileItems[index] = data.tileItemCodes[index];
+			}
 		}
 	}
 

@@ -23,7 +23,9 @@ MonoBehaviour:
     - GreatSword
     - TwinDagger
     - Coin
-    m_values: 01000000010000000100000001000000010000000100000001000000a0860100
+    - Profile_01
+    - Frame_01
+    m_values: 01000000010000000100000001000000010000000100000001000000a08601000100000001000000
   equippedItems:
   - YucoBody
   - MisakiHair

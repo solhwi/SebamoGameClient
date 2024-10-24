@@ -129,7 +129,7 @@ public class PlayerDataContainer : ScriptableObject
 		inventory.SetMyPacketData(myData);
 	}
 
-	public void SetOtherPacketData(PlayerPacketData[] playerDatas)
+	public void SetOtherPacketData(IEnumerable<PlayerPacketData> playerDatas)
 	{
 		if (playerDatas == null)
 		{
