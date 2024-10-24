@@ -35,7 +35,7 @@ public class ScriptableObjectHelper
 
 public class ScriptParserEditor : AssetPostprocessor
 {
-	public static string ExcelRootPath = "Assets/Excels/";
+	public static string ExcelRootPath = "../SebamoScript/Excels/";
 	public static string CSRootPath = "Assets/Scripts/Datas/Parser/";
 
 	public static readonly int FixedDataStartRow = 2;
