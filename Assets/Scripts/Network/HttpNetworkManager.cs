@@ -167,7 +167,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 		yield return TryGet<TilePacketData>("Tile", (receiveData) =>
 		{
-			tileDataContainer.SetTileItemPacket(receiveData);
+			tileDataContainer.SetTileItemPacketData(receiveData);
 			onSuccess?.Invoke(receiveData);
 		}, onFailed);
 	}
@@ -186,7 +186,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		var sendData = MakeTilePacketData();
 		yield return TryPost<TilePacketData>(sendData, (receiveData) =>
 		{
-			tileDataContainer.SetTileItemPacket(receiveData);
+			tileDataContainer.SetTileItemPacketData(receiveData);
 			onSuccess?.Invoke(receiveData);
 		}, onFailed);
 	}

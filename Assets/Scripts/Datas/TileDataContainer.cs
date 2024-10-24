@@ -69,7 +69,7 @@ public class TileDataContainer : ScriptableObject
 #endif
 	}
 
-	public void SetTileItemPacket(TilePacketData data)
+	public void SetTileItemPacketData(TilePacketData data)
 	{
 		tileItems = new string[tileOrders.Length];
 

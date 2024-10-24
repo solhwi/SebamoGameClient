@@ -13,19 +13,14 @@ public class DefaultDataContainer : ScriptableObject
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private TileDataContainer tileDataContainer;
 
-	[Header("디폴트로 지정할 타 플레이어의 인덱스")]
-	[Space]
-	[SerializeField] private int defaultOtherPlayerIndex = 0;
-
-	[Header("디폴트로 지정할 타 플레이어의 수")]
+	[Header("불러올 타 플레이어의 수")]
 	[Space]
 	[SerializeField] private int otherPlayerCount = 5;
 
-	private const string defaultMyPlayerDataPath = "../SebamoScript/DefaultMyPlayerData.json";
-	private const string defaultOtherPlayerDataPath = "../SebamoScript/DefaultOtherPlayerData.json";
+	private const string defaultPlayerDataPath = "../SebamoScript/DefaultPlayerData.json";
 	private const string defaultDataPath = "../SebamoScript/DefaultTileData.json";
 
-	[ContextMenu("데이터 초기화")]
+	[ContextMenu("데이터 초기화 (저장은 되지 않음)")]
 	public void Initialize()
 	{
 		var data = MakeMyFakeFacketData();
@@ -36,32 +31,39 @@ public class DefaultDataContainer : ScriptableObject
 
 		playerDataContainer.SetOtherPacketData(otherData.playerDatas);
 
+		tileDataContainer.SetTileItemPacketData(null);
+
 		EditorUtility.SetDirty(playerDataContainer);
 		EditorUtility.SetDirty(inventory);
+		EditorUtility.SetDirty(tileDataContainer);
 
 		AssetDatabase.SaveAssetIfDirty(playerDataContainer);
 		AssetDatabase.SaveAssetIfDirty(inventory);
+		AssetDatabase.SaveAssetIfDirty(tileDataContainer);
 	}
 
 	[ContextMenu("데이터 저장")]
 	public void Save()
 	{
-		SaveMyPlayerData();
-		SaveOtherPlayerData();
+		SavePlayerData();
 		SaveTileData();
 	}
 
 	[ContextMenu("데이터 불러오기")]
 	public void Load()
 	{
-		var myData = LoadMyPlayerData();
+		var myData = LoadPlayerData();
 		playerDataContainer.SetMyPacketData(myData);
 
-		var otherDatas = LoadOtherPlayerData();
+		List<PlayerPacketData> otherDatas = new List<PlayerPacketData>();
+		for (int i = 0; i <  otherPlayerCount; i++)
+		{
+			otherDatas.Add(myData.playerData);
+		}
 		playerDataContainer.SetOtherPacketData(otherDatas);
 
 		var tileData = LoadTileData();
-		tileDataContainer.SetTileItemPacket(tileData);
+		tileDataContainer.SetTileItemPacketData(tileData);
 
 		EditorUtility.SetDirty(playerDataContainer);
 		EditorUtility.SetDirty(inventory);
@@ -70,20 +72,12 @@ public class DefaultDataContainer : ScriptableObject
 		AssetDatabase.SaveAssets();
 	}
 
-	private void SaveMyPlayerData()
+	private void SavePlayerData()
 	{
 		var data = MyPlayerPacketData.Create(playerDataContainer, inventory);
 
 		string jsonData = JsonUtility.ToJson(data);
-		File.WriteAllText(defaultMyPlayerDataPath, jsonData);
-	}
-
-	private void SaveOtherPlayerData()
-	{
-		var data = playerDataContainer.otherPlayerPacketDatas[defaultOtherPlayerIndex];
-
-		string jsonData = JsonUtility.ToJson(data);
-		File.WriteAllText(defaultOtherPlayerDataPath, jsonData);
+		File.WriteAllText(defaultPlayerDataPath, jsonData);
 	}
 
 	private void SaveTileData()
@@ -94,21 +88,10 @@ public class DefaultDataContainer : ScriptableObject
 		File.WriteAllText(defaultDataPath, jsonData);
 	}
 
-	private MyPlayerPacketData LoadMyPlayerData()
+	private MyPlayerPacketData LoadPlayerData()
 	{
-		string jsonData = File.ReadAllText(defaultMyPlayerDataPath);
+		string jsonData = File.ReadAllText(defaultPlayerDataPath);
 		return JsonUtility.FromJson<MyPlayerPacketData>(jsonData);
-	}
-
-	private IEnumerable<PlayerPacketData> LoadOtherPlayerData()
-	{
-		string jsonData = File.ReadAllText(defaultOtherPlayerDataPath);
-		var data = JsonUtility.FromJson<PlayerPacketData>(jsonData);
-
-		for (int i = 0; i < otherPlayerCount; i++)
-		{
-			yield return data;
-		}
 	}
 
 	private TilePacketData LoadTileData()
