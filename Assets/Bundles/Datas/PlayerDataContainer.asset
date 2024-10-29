@@ -22,7 +22,8 @@ MonoBehaviour:
   profileComment: "\uC548\uB155\uD558\uC138\uC694."
   moveTimeByOneTile: 1
   otherPlayerPacketDatas:
-  - playerGroup: Exp
+  - type: 0
+    playerGroup: Exp
     playerName: "\uC9C0\uD604"
     playerTileOrder: 0
     hasDiceCount: 3
@@ -37,7 +38,8 @@ MonoBehaviour:
     appliedProfileItems:
     - Profile_01
     - Frame_01
-  - playerGroup: Exp
+  - type: 0
+    playerGroup: Exp
     playerName: "\uC9C0\uD64D"
     playerTileOrder: 0
     hasDiceCount: 3
@@ -52,7 +54,8 @@ MonoBehaviour:
     appliedProfileItems:
     - Profile_01
     - Frame_01
-  - playerGroup: Exp
+  - type: 0
+    playerGroup: Exp
     playerName: "\uB3D9\uD604"
     playerTileOrder: 0
     hasDiceCount: 3
@@ -67,7 +70,8 @@ MonoBehaviour:
     appliedProfileItems:
     - Profile_01
     - Frame_01
-  - playerGroup: Exp
+  - type: 0
+    playerGroup: Exp
     playerName: "\uC0C1\uD6C8"
     playerTileOrder: 0
     hasDiceCount: 3
@@ -82,7 +86,8 @@ MonoBehaviour:
     appliedProfileItems:
     - Profile_01
     - Frame_01
-  - playerGroup: Exp
+  - type: 0
+    playerGroup: Exp
     playerName: "\uAC15\uC6B1"
     playerTileOrder: 0
     hasDiceCount: 3

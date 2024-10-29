@@ -53,6 +53,8 @@ public class WaitingPopup : BoardGamePopup
 	[SerializeField] private GameObject[] spinnerObjs = new GameObject[(int)Type.Max];
 	[SerializeField] private WaitingText[] waitingTexts = new WaitingText[(int)Type.Max];
 
+	public Type WaitType { get; private set; }
+
 	protected override void Reset()
 	{
 		base.Reset();

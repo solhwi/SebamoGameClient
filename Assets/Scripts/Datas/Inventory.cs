@@ -175,9 +175,12 @@ public class Inventory : ScriptableObject
 		this.appliedProfileItems = new string[2];
 		this.equippedItems = new string[6];
 
-		foreach (var item in appliedProfileItems)
+		if (appliedProfileItems != null)
 		{
-			EquipOnItem(item);
+			foreach (var item in appliedProfileItems)
+			{
+				EquipOnItem(item);
+			}
 		}
 
 		foreach (var item in equippedItems)

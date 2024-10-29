@@ -82,7 +82,7 @@ public class DefaultDataContainer : ScriptableObject
 
 	private void SaveTileData()
 	{
-		var data = TilePacketData.Create(tileDataContainer.tileItems);
+		var data = TilePacketData.Create(playerDataContainer, tileDataContainer.tileItems);
 
 		string jsonData = JsonUtility.ToJson(data);
 		File.WriteAllText(defaultDataPath, jsonData);
@@ -103,10 +103,13 @@ public class DefaultDataContainer : ScriptableObject
 	private MyPlayerPacketData MakeMyFakeFacketData()
 	{
 		var data = new MyPlayerPacketData();
+		data.playerGroup = GroupType.Exp.ToString();
+		data.playerName = "솔휘"; 
+
 		data.playerData = new PlayerPacketData();
 
-		data.playerData.playerGroup = GroupType.Exp.ToString();
-		data.playerData.playerName = "솔휘";
+		data.playerData.playerGroup = data.playerGroup;
+		data.playerData.playerName = data.playerName;
 
 		data.playerData.hasDiceCount = 3;
 		data.playerData.playerTileOrder = 0;

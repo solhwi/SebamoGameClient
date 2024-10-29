@@ -198,7 +198,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	private TilePacketData MakeTilePacketData()
 	{
-		return TilePacketData.Create(tileDataContainer.tileItems);
+		return TilePacketData.Create(playerDataContainer, tileDataContainer.tileItems);
 	}
 
 	public IEnumerator TryGet<T>(string urlParameter, Action<T> onGetSuccess, Action<string> OnGetFailed)
@@ -287,7 +287,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 			{
 				if (UIManager.Instance != null)
 				{
-					UIManager.Instance.Close(PopupType.Wait);
+					UIManager.Instance.TryCloseWaitPopup(WaitingPopup.Type.Network);
 				}
 
 				onGet?.Invoke(www.downloadHandler.text);
@@ -297,7 +297,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 			{
 				if (UIManager.Instance != null)
 				{
-					UIManager.Instance.TryOpen(PopupType.Wait, new WaitingPopup.Parameter(WaitingPopup.Type.Network));
+					UIManager.Instance.TryOpenWaitPopup(new WaitingPopup.Parameter(WaitingPopup.Type.Network));
 				}
 			}
 		}

@@ -5,6 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+public enum PacketType
+{
+	My,
+	Other,
+	Tile
+}
 
 [System.Serializable]
 public class MyPlayerPacketData : PacketData
@@ -19,6 +25,11 @@ public class MyPlayerPacketData : PacketData
 	public static MyPlayerPacketData Create(PlayerDataContainer playerDataContainer, Inventory inventory)
 	{
 		var data = new MyPlayerPacketData();
+
+		data.type = (int)PacketType.My;
+		data.playerGroup = playerDataContainer.playerGroup;
+		data.playerName = playerDataContainer.playerName;
+
 		data.playerData = new PlayerPacketData();
 
 		data.playerData.playerName = playerDataContainer.playerName;
@@ -47,9 +58,6 @@ public class PlayerPacketDataCollection : PacketData
 [System.Serializable]
 public class PlayerPacketData : PacketData, IEquatable<PlayerPacketData>
 {
-	public string playerGroup; // 플레이어 그룹
-	public string playerName; // 플레이어 이름
-
 	public int playerTileOrder; // 현재 위치한 타일 순서
 	public int hasDiceCount; // 가진 주사위 개수
 
@@ -73,9 +81,12 @@ public class TilePacketData : PacketData
 	public int[] tileItemIndexes = null;
 	public string[] tileItemCodes = null;
 
-	public static TilePacketData Create(string[] tileItems)
+	public static TilePacketData Create(PlayerDataContainer playerDataContainer, string[] tileItems)
 	{
 		var data = new TilePacketData();
+		data.playerGroup = playerDataContainer.playerGroup;
+		data.playerName = playerDataContainer.playerName;
+		data.type = (int)PacketType.Tile;
 
 		List<int> indexes = new List<int>();
 		List<string> itemCodes = new List<string>();
@@ -101,5 +112,13 @@ public class TilePacketData : PacketData
 [System.Serializable]
 public class PacketData
 {
+	public int type; // 패킷 타입
 
+	public string playerGroup; // 플레이어 그룹
+	public string playerName; // 플레이어 이름
+
+	public bool IsTile()
+	{
+		return this.type == 2;
+	}
 }

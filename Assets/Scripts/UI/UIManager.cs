@@ -93,6 +93,24 @@ public class UIManager : Singleton<UIManager>
 		}
 	}
 
+	public void TryOpenWaitPopup(WaitingPopup.Parameter parameter = null)
+	{
+		var waitingPopup = GetPopup<WaitingPopup>(PopupType.Wait);
+		if (waitingPopup != null && waitingPopup.WaitType <= parameter.type)
+			return;
+
+		TryOpen(PopupType.Wait, parameter);
+	}
+
+	public void TryCloseWaitPopup(WaitingPopup.Type waitType)
+	{
+		var waitingPopup = GetPopup<WaitingPopup>(PopupType.Wait);
+		if (waitingPopup != null && waitingPopup.WaitType <= waitType)
+			return;
+
+		Close(PopupType.Wait);
+	}
+
 	public void Close()
 	{
 		var popupCanvas = popupStack.Pop();
