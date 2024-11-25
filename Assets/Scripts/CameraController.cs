@@ -36,6 +36,7 @@ public class CameraController : Singleton<CameraController>
 		{
 			if (Input.GetMouseButton(0))
 			{
+				// 이 부분 mousePositionDelta가 갑자기 확 튀는 경우가 있음
 				Vector2 deltaPos = Input.mousePositionDelta;
 				Move(Time.deltaTime * -deltaPos);
 			}
