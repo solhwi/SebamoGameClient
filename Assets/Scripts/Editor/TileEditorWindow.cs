@@ -9,7 +9,7 @@ public abstract class TileEditorWindow : CustomEditorWindow
 	protected static List<WorldTileData> boardTileDatas = new List<WorldTileData>();
 
 	protected static TileDataContainer tileDataContainer;
-	protected const string TileDataContainerPath = "Assets/Resources/Datas/TileDataContainer.asset";
+	protected const string TileDataContainerPath = "Assets/Bundles/Datas/TileDataContainer.asset";
 
 	protected static Vector2 windowCenterPos = new Vector2(300, 150);
 	protected static float tileButtonSize = 50.0f;

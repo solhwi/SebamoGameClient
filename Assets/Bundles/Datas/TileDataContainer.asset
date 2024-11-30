@@ -19,7 +19,7 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
-  - tileOrder: 10
+  - tileOrder: 130
     backGroundResource:
       m_AssetGUID: 14939cc7e03f0c84896f645960bebe4d
       m_SubObjectName: 
