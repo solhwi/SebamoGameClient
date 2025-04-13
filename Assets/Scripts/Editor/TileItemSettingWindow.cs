@@ -10,7 +10,7 @@ public class TileItemSettingWindow : TileEditorWindow
 	private static int selectedToggleIndex = 0;
 
 	protected static ItemTable itemTable;
-	protected const string ItemTablePath = "Assets/Resources/Datas/Parser/ItemTable.asset";
+	protected const string ItemTablePath = "Assets/Bundles/Datas/Parser/ItemTable.asset";
 
 	[MenuItem("Tools/타일 아이템 배치 도우미 %#S")]
 	public static void OpenWindow()
