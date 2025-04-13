@@ -20,6 +20,9 @@ public class FieldItemFactory : ScriptableObject
 
 			case FieldActionType.Barricade:
 				return new BarricadeItem(inventory, data);
+
+			case FieldActionType.NextDiceBuff:
+				return new NextDiceBuffFieldItem(inventory, data);
 		}
 
 		return new NormalFieldItem(inventory, data);

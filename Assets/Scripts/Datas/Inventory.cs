@@ -23,7 +23,7 @@ public class Inventory : ScriptableObject
 
 	[Header("[적용 중인 버프 아이템]")]
 	[Space]
-	public List<string> appliedBuffItems = new List<string>();
+	public LinkedList<string> appliedBuffItems = new LinkedList<string>();
 
 	[Header("[적용 중인 프로필 아이템]")]
 	[Header("[(0) 이미지 / (1) 프레임")]
@@ -72,7 +72,7 @@ public class Inventory : ScriptableObject
 	{
 		if (appliedBuffItems != null && appliedBuffItems.Count > 0)
 		{
-			return appliedBuffItems[0];
+			return appliedBuffItems.First();
 		}
 
 		return string.Empty;
@@ -81,7 +81,7 @@ public class Inventory : ScriptableObject
 
 	public IEnumerator TryApplyBuff(string itemCode, Action<MyPlayerPacketData> onSuccess)
 	{
-		bool bResult = ApplyBuff(itemCode);
+		bool bResult = ApplyBuffLast(itemCode);
 		if (bResult == false)
 			yield break;
 
@@ -139,12 +139,22 @@ public class Inventory : ScriptableObject
 		return true;
 	}
 
-	private bool ApplyBuff(string buffItemCode)
+	// 사용 시 서버 동기화 챙길 것
+	public bool ApplyBuffLast(string buffItemCode)
 	{
 		if (appliedBuffItems.Count >= MaxBuffItemCount)
 			return false;
 
-		appliedBuffItems.Add(buffItemCode);
+		appliedBuffItems.AddLast(buffItemCode);
+		return true;
+	}
+
+	public bool ApplyBuffFirst(string buffItemCode)
+	{
+		if (appliedBuffItems.Count >= MaxBuffItemCount)
+			return false;
+
+		appliedBuffItems.AddFirst(buffItemCode);
 		return true;
 	}
 
@@ -166,7 +176,7 @@ public class Inventory : ScriptableObject
 
 		foreach (var buffItem in buffItems)
 		{
-			ApplyBuff(buffItem);
+			ApplyBuffLast(buffItem);
 		}
 	}
 

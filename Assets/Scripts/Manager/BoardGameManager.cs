@@ -379,7 +379,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 		currentStateData = new StateData(currentOrder, nextOrder, diceCount, bonusAddDiceCount, bonusMultiplyDiceCount);
 
-		playerDataContainer.ClearBonusDiceCount();
+		playerDataContainer.ClearBonusDiceData();
 		playerDataContainer.SaveCurrentOrder(nextOrder);
 
 		// 아이템, 타일 반영
@@ -438,6 +438,18 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		if (isDiceDebugMode)
 		{
 			return playerDataContainer.NextDiceCount;
+		}
+		else if (playerDataContainer.nextDiceBuffType == NextDiceBuffType.OneOrSix)
+		{
+			return UnityEngine.Random.Range(1, 3) == 1 ? 1 : 6;
+		}
+		else if (playerDataContainer.nextDiceBuffType == NextDiceBuffType.Odd)
+		{
+			return UnityEngine.Random.Range(1, 4) * 2 - 1;
+		}
+		else if (playerDataContainer.nextDiceBuffType == NextDiceBuffType.Even)
+		{
+			return UnityEngine.Random.Range(1, 4) * 2;
 		}
 		else
 		{

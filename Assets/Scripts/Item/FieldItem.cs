@@ -11,6 +11,16 @@ public enum FieldActionType
 	Random, // 내부에 등록된 아이템을 획득함
 	Banana, // 바나나
 	Barricade, // 바리케이트
+	NextDiceBuff, // 다음 주사위에 적용되는 버프
+}
+
+public enum NextDiceBuffType
+{
+	None = -1,
+
+	OneOrSix, // 1회 1 or 6
+	Odd,	// 홀수
+	Even,	// 짝수
 }
 
 public abstract class FieldItem
@@ -61,9 +71,11 @@ public abstract class FieldItem
 	}
 
 	// 아이템 사용 후 반드시 서버와 동기화를 해야 하나, 이 곳에서 하면 통신을 너무 자주 하게 되어 밖으로 뺌
-	public virtual void Use(PlayerDataContainer playerDataContainer, int tileOrder)
+	// 이 경우 Use Process에서 실패한다하여 되감거나 다른 처리룰 해줄 방법은 없음
+	// 그냥 실행한다.
+	public virtual bool Use(PlayerDataContainer playerDataContainer, int tileOrder)
 	{
-		TileDataManager.Instance.TrySetTileItem(tileOrder, null);
+		return TileDataManager.Instance.TrySetTileItem(tileOrder, null);
 	}
 }
 
@@ -76,7 +88,7 @@ public abstract class DropFieldItem : FieldItem
 
 	}
 
-	public override void Use(PlayerDataContainer playerDataContainer, int tileOrder)
+	public override bool Use(PlayerDataContainer playerDataContainer, int tileOrder)
 	{
 		for (int i = 0; i < dropCount; i++)
 		{
@@ -84,6 +96,8 @@ public abstract class DropFieldItem : FieldItem
 		}
 
 		base.Use(playerDataContainer,tileOrder);
+
+		return true;
 	}
 }
 
@@ -173,7 +187,7 @@ public class BananaItem : ReplaceFieldItem
 		count = ItemTable.ParseCountData(rawData.actionParameter);
 	}
 
-	public override void Use(PlayerDataContainer playerDataContainer, int tileOrder)
+	public override bool Use(PlayerDataContainer playerDataContainer, int tileOrder)
 	{
 		int nextOrder = TileDataManager.Instance.GetNextOrder(tileOrder, count, out var item);
 		if (item != null)
@@ -186,6 +200,8 @@ public class BananaItem : ReplaceFieldItem
 		{
 			base.Use(playerDataContainer, tileOrder);
 		}
+
+		return true;
 	}
 }
 
@@ -194,5 +210,20 @@ public class BarricadeItem : ReplaceFieldItem
 	public BarricadeItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
 	{
 
+	}
+}
+
+public class NextDiceBuffFieldItem : ReplaceFieldItem
+{
+	public NextDiceBuffFieldItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
+	{
+		
+	}
+
+	public override bool Use(PlayerDataContainer playerDataContainer, int tileOrder)
+	{
+		base.Use(playerDataContainer, tileOrder);
+
+		return inventory.ApplyBuffFirst(fieldItemCode);
 	}
 }
