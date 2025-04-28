@@ -18,14 +18,14 @@ MonoBehaviour:
   playerGroup: Exp
   playerName: "\uC194\uD718"
   hasDiceCount: 3
-  currentTileOrder: 0
+  currentTileOrder: 6
   profileComment: "\uC548\uB155\uD558\uC138\uC694."
   moveTimeByOneTile: 1
   otherPlayerPacketDatas:
   - type: 0
     playerGroup: Exp
     playerName: "\uC9C0\uD604"
-    playerTileOrder: 0
+    playerTileOrder: 1
     hasDiceCount: 3
     profileComment: "\uC548\uB155\uD558\uC138\uC694."
     equippedItems:
@@ -41,7 +41,7 @@ MonoBehaviour:
   - type: 0
     playerGroup: Exp
     playerName: "\uC9C0\uD64D"
-    playerTileOrder: 0
+    playerTileOrder: 2
     hasDiceCount: 3
     profileComment: "\uC548\uB155\uD558\uC138\uC694."
     equippedItems:
@@ -57,7 +57,7 @@ MonoBehaviour:
   - type: 0
     playerGroup: Exp
     playerName: "\uB3D9\uD604"
-    playerTileOrder: 0
+    playerTileOrder: 3
     hasDiceCount: 3
     profileComment: "\uC548\uB155\uD558\uC138\uC694."
     equippedItems:
@@ -73,7 +73,7 @@ MonoBehaviour:
   - type: 0
     playerGroup: Exp
     playerName: "\uC0C1\uD6C8"
-    playerTileOrder: 0
+    playerTileOrder: 7
     hasDiceCount: 3
     profileComment: "\uC548\uB155\uD558\uC138\uC694."
     equippedItems:
@@ -106,3 +106,4 @@ MonoBehaviour:
   NextDiceCount: 3
   NextBonusAddDiceCount: 0
   NextBonusMultiplyDiceCount: 1
+  nextDiceBuffType: -1
