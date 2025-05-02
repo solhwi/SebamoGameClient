@@ -548,54 +548,174 @@ MonoBehaviour:
     fieldIconAssetPath: Sprites/ItemIcon_Badge_Gold.png
     actionType: 0
     actionParameter: 3
+    effectPath: -1
   - key: Box
     fieldIconAssetPath: Animations/FieldItem/Box.controller
     actionType: 1
     actionParameter: UnityChanAccessory:30/GreatSword:70
-  - key: Banana
-    fieldIconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
-    actionType: 2
-    actionParameter: Min:-15/Max:15/-2
+    effectPath: -1
   - key: Barricade
-    fieldIconAssetPath: Sprites/ItemIcon_Chest_Wood.png
+    fieldIconAssetPath: Sprites/SpecialItem/Barricade.png
     actionType: 3
     actionParameter: Min:-100/Max:100
+    effectPath: -1
+  - key: MinusDice
+    fieldIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
+    actionType: 4
+    actionParameter: Min:-100/Max:100/*:-1
+    effectPath: -1
+  - key: DoubleDice
+    fieldIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
+    actionType: 4
+    actionParameter: Min:-100/Max:100/*:2
+    effectPath: -1
+  - key: HalfDice
+    fieldIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
+    actionType: 4
+    actionParameter: Min:-100/Max:100/*:0.5
+    effectPath: -1
+  - key: Drunk
+    fieldIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
+    actionType: 5
+    actionParameter: Min:-100/Max:100/OneOrSix
+    effectPath: -1
+  - key: Odd
+    fieldIconAssetPath: Sprites/SpecialItem/OddBuff.png
+    actionType: 5
+    actionParameter: Min:-100/Max:100/Odd
+    effectPath: -1
+  - key: Even
+    fieldIconAssetPath: Sprites/SpecialItem/EvenBuff.png
+    actionType: 5
+    actionParameter: Min:-100/Max:100/Even
+    effectPath: -1
   fieldItemDataDictionary:
     m_keys:
     - DropCoin
     - Box
-    - Banana
     - Barricade
+    - MinusDice
+    - DoubleDice
+    - HalfDice
+    - Drunk
+    - Odd
+    - Even
     m_values:
     - key: DropCoin
       fieldIconAssetPath: Sprites/ItemIcon_Badge_Gold.png
       actionType: 0
       actionParameter: 3
+      effectPath: -1
     - key: Box
       fieldIconAssetPath: Animations/FieldItem/Box.controller
       actionType: 1
       actionParameter: UnityChanAccessory:30/GreatSword:70
-    - key: Banana
-      fieldIconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
-      actionType: 2
-      actionParameter: Min:-15/Max:15/-2
+      effectPath: -1
     - key: Barricade
-      fieldIconAssetPath: Sprites/ItemIcon_Chest_Wood.png
+      fieldIconAssetPath: Sprites/SpecialItem/Barricade.png
       actionType: 3
       actionParameter: Min:-100/Max:100
+      effectPath: -1
+    - key: MinusDice
+      fieldIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
+      actionType: 4
+      actionParameter: Min:-100/Max:100/*:-1
+      effectPath: -1
+    - key: DoubleDice
+      fieldIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
+      actionType: 4
+      actionParameter: Min:-100/Max:100/*:2
+      effectPath: -1
+    - key: HalfDice
+      fieldIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
+      actionType: 4
+      actionParameter: Min:-100/Max:100/*:0.5
+      effectPath: -1
+    - key: Drunk
+      fieldIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
+      actionType: 5
+      actionParameter: Min:-100/Max:100/OneOrSix
+      effectPath: -1
+    - key: Odd
+      fieldIconAssetPath: Sprites/SpecialItem/OddBuff.png
+      actionType: 5
+      actionParameter: Min:-100/Max:100/Odd
+      effectPath: -1
+    - key: Even
+      fieldIconAssetPath: Sprites/SpecialItem/EvenBuff.png
+      actionType: 5
+      actionParameter: Min:-100/Max:100/Even
+      effectPath: -1
   buffItemDataList:
-  - key: DoubleDice
-    buffIconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
+  - key: MinusDiceBuff
+    buffIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
+    actionType: 0
+    actionParameter: '*:-1'
+    effectPath: -1
+  - key: DoubleDiceBuff
+    buffIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
     actionType: 0
     actionParameter: '*:2'
+    effectPath: -1
+  - key: HalfDiceBuff
+    buffIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
+    actionType: 0
+    actionParameter: '*:0.5'
+    effectPath: -1
+  - key: DrunkBuff
+    buffIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
+    actionType: 1
+    actionParameter: OneOrSix
+    effectPath: -1
+  - key: OddBuff
+    buffIconAssetPath: Sprites/SpecialItem/OddBuff.png
+    actionType: 1
+    actionParameter: Odd
+    effectPath: -1
+  - key: EvenBuff
+    buffIconAssetPath: Sprites/SpecialItem/EvenBuff.png
+    actionType: 1
+    actionParameter: Even
+    effectPath: -1
   buffItemDataDictionary:
     m_keys:
-    - DoubleDice
+    - MinusDiceBuff
+    - DoubleDiceBuff
+    - HalfDiceBuff
+    - DrunkBuff
+    - OddBuff
+    - EvenBuff
     m_values:
-    - key: DoubleDice
-      buffIconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
+    - key: MinusDiceBuff
+      buffIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
+      actionType: 0
+      actionParameter: '*:-1'
+      effectPath: -1
+    - key: DoubleDiceBuff
+      buffIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
       actionType: 0
       actionParameter: '*:2'
+      effectPath: -1
+    - key: HalfDiceBuff
+      buffIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
+      actionType: 0
+      actionParameter: '*:0.5'
+      effectPath: -1
+    - key: DrunkBuff
+      buffIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
+      actionType: 1
+      actionParameter: OneOrSix
+      effectPath: -1
+    - key: OddBuff
+      buffIconAssetPath: Sprites/SpecialItem/OddBuff.png
+      actionType: 1
+      actionParameter: Odd
+      effectPath: -1
+    - key: EvenBuff
+      buffIconAssetPath: Sprites/SpecialItem/EvenBuff.png
+      actionType: 1
+      actionParameter: Even
+      effectPath: -1
   profileItemDataList:
   - key: Frame_01
     isFrame: 1
