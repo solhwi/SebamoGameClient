@@ -255,19 +255,22 @@ public class NextDiceOperationBuffFieldItem : ReplaceFieldItem
 	{
 		yield return base.ChangeState(controller);
 
+		CharacterState nextState = CharacterState.Idle;
+
 		if (mathType == MathType.Mul && count > 1)
 		{
-			controller.ChangeState(CharacterStateType.DropItem, CharacterState.DoubleDiceBuff);
+			nextState = CharacterState.DoubleDiceBuff;
 		}
 		else if (mathType == MathType.Mul && count > 0)
 		{
-			controller.ChangeState(CharacterStateType.DropItem, CharacterState.HalfDiceDeBuff);
+			nextState = CharacterState.HalfDiceDeBuff;
 		}
 		else if (mathType == MathType.Mul && count < 0)
 		{
-			controller.ChangeState(CharacterStateType.DropItem, CharacterState.MinusDiceDeBuff);
+			nextState = CharacterState.MinusDiceDeBuff;
 		}
 
+		controller.ChangeState(CharacterStateType.DropItem, nextState);
 		yield return controller.WaitForEnd(CharacterState.DoubleDiceBuff.ToString());
 	}
 }
@@ -297,19 +300,22 @@ public class NextDiceChangeBuffFieldItem : ReplaceFieldItem
 	{
 		yield return base.ChangeState(controller);
 
+		CharacterState nextState = CharacterState.Idle;
+
 		if (nextDiceBuffType == NextDiceChangeBuffType.OneOrSix)
 		{
-			controller.ChangeState(CharacterStateType.DropItem, CharacterState.DrunkBuff);
+			nextState = CharacterState.DrunkBuff;
 		}
 		else if (nextDiceBuffType == NextDiceChangeBuffType.Odd)
 		{
-			controller.ChangeState(CharacterStateType.DropItem, CharacterState.OddBuff);
+			nextState = CharacterState.OddBuff;
 		}
 		else if (nextDiceBuffType == NextDiceChangeBuffType.Even)
 		{
-			controller.ChangeState(CharacterStateType.DropItem, CharacterState.EvenBuff);
+			nextState = CharacterState.EvenBuff;
 		}
 
+		controller.ChangeState(CharacterStateType.DropItem, nextState);
 		yield return controller.WaitForEnd(CharacterState.DoubleDiceBuff.ToString());
 	}
 }
