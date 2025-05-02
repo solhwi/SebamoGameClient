@@ -559,32 +559,32 @@ MonoBehaviour:
     actionType: 3
     actionParameter: Min:-100/Max:100
     effectPath: -1
-  - key: MinusDice
+  - key: MinusDiceBuff
     fieldIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
     actionType: 4
     actionParameter: Min:-100/Max:100/*:-1
     effectPath: -1
-  - key: DoubleDice
+  - key: DoubleDiceBuff
     fieldIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
     actionType: 4
     actionParameter: Min:-100/Max:100/*:2
     effectPath: -1
-  - key: HalfDice
+  - key: HalfDiceBuff
     fieldIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
     actionType: 4
     actionParameter: Min:-100/Max:100/*:0.5
     effectPath: -1
-  - key: Drunk
+  - key: DrunkBuff
     fieldIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
     actionType: 5
     actionParameter: Min:-100/Max:100/OneOrSix
     effectPath: -1
-  - key: Odd
+  - key: OddBuff
     fieldIconAssetPath: Sprites/SpecialItem/OddBuff.png
     actionType: 5
     actionParameter: Min:-100/Max:100/Odd
     effectPath: -1
-  - key: Even
+  - key: EvenBuff
     fieldIconAssetPath: Sprites/SpecialItem/EvenBuff.png
     actionType: 5
     actionParameter: Min:-100/Max:100/Even
@@ -594,12 +594,12 @@ MonoBehaviour:
     - DropCoin
     - Box
     - Barricade
-    - MinusDice
-    - DoubleDice
-    - HalfDice
-    - Drunk
-    - Odd
-    - Even
+    - MinusDiceBuff
+    - DoubleDiceBuff
+    - HalfDiceBuff
+    - DrunkBuff
+    - OddBuff
+    - EvenBuff
     m_values:
     - key: DropCoin
       fieldIconAssetPath: Sprites/ItemIcon_Badge_Gold.png
@@ -616,32 +616,32 @@ MonoBehaviour:
       actionType: 3
       actionParameter: Min:-100/Max:100
       effectPath: -1
-    - key: MinusDice
+    - key: MinusDiceBuff
       fieldIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
       actionType: 4
       actionParameter: Min:-100/Max:100/*:-1
       effectPath: -1
-    - key: DoubleDice
+    - key: DoubleDiceBuff
       fieldIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
       actionType: 4
       actionParameter: Min:-100/Max:100/*:2
       effectPath: -1
-    - key: HalfDice
+    - key: HalfDiceBuff
       fieldIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
       actionType: 4
       actionParameter: Min:-100/Max:100/*:0.5
       effectPath: -1
-    - key: Drunk
+    - key: DrunkBuff
       fieldIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
       actionType: 5
       actionParameter: Min:-100/Max:100/OneOrSix
       effectPath: -1
-    - key: Odd
+    - key: OddBuff
       fieldIconAssetPath: Sprites/SpecialItem/OddBuff.png
       actionType: 5
       actionParameter: Min:-100/Max:100/Odd
       effectPath: -1
-    - key: Even
+    - key: EvenBuff
       fieldIconAssetPath: Sprites/SpecialItem/EvenBuff.png
       actionType: 5
       actionParameter: Min:-100/Max:100/Even
