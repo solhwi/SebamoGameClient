@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class TileItemSettingWindow : TileEditorWindow
@@ -15,6 +16,8 @@ public class TileItemSettingWindow : TileEditorWindow
 	[MenuItem("Tools/타일 아이템 배치 도우미 %#S")]
 	public static void OpenWindow()
 	{
+		EditorSceneManager.OpenScene($"Assets/Scenes/{SceneType.Game}.unity");
+
 		InitializeTileData();
 		InitializeTileItems();
 

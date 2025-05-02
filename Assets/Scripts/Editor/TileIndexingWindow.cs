@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 public class TileIndexingWindow : TileEditorWindow
 {
@@ -11,6 +12,8 @@ public class TileIndexingWindow : TileEditorWindow
 	[MenuItem("Tools/타일 인덱싱 도우미 %I")]
 	public static void OpenWindow()
 	{
+		EditorSceneManager.OpenScene($"Assets/Scenes/{SceneType.Game}.unity");
+		
 		InitializeTileData();
 		InitializeTileOrder();
 
