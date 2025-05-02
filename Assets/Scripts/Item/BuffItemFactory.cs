@@ -12,11 +12,11 @@ public class BuffItemFactory : ScriptableObject
 	{
 		switch (data.actionType)
 		{
-			case BuffActionType.BonusDiceEffect:
-				return new MoreDiceBuffItem(inventory, data);
+			case BuffActionType.NextDiceOperationBuff:
+				return new NextDiceOperationBuffItem(inventory, data);
 
-			case BuffActionType.NextDiceChange:
-				return new NextDiceBuffItem(inventory, data);
+			case BuffActionType.NextDiceChangeBuff:
+				return new NextDiceChangeBuffItem(inventory, data);
 		}
 
 		return null;

@@ -159,4 +159,13 @@ public class CharacterView : ObjectView
 			characterAnimationController.DoRun();
 		}
 	}
+
+	public IEnumerator ChangeItemDropState(FieldItem dropItem)
+	{
+		if (characterAnimationController != null)
+		{
+			yield return characterAnimationController.ChangeItemDropState(dropItem);
+		}
+	}
+
 }

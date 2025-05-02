@@ -240,11 +240,11 @@ public class TileDataManager : Singleton<TileDataManager>
 		{
 			var itemCode = dataContainer.tileItems[i];
 			if (itemCode == string.Empty)
-				yield break;
+				continue;
 
 			var fieldItem = fieldItemFactory.Make(itemCode);
 			if (fieldItem == null)
-				yield break;
+				continue;
 
 			fieldItemDictionary[i] = fieldItem;
 			fieldItem.Create(tileBoardDatas[i]);

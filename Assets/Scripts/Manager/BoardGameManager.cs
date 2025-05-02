@@ -439,15 +439,15 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		{
 			return playerDataContainer.NextDiceCount;
 		}
-		else if (playerDataContainer.nextDiceBuffType == NextDiceBuffType.OneOrSix)
+		else if (playerDataContainer.nextDiceBuffType == NextDiceChangeBuffType.OneOrSix)
 		{
 			return UnityEngine.Random.Range(1, 3) == 1 ? 1 : 6;
 		}
-		else if (playerDataContainer.nextDiceBuffType == NextDiceBuffType.Odd)
+		else if (playerDataContainer.nextDiceBuffType == NextDiceChangeBuffType.Odd)
 		{
 			return UnityEngine.Random.Range(1, 4) * 2 - 1;
 		}
-		else if (playerDataContainer.nextDiceBuffType == NextDiceBuffType.Even)
+		else if (playerDataContainer.nextDiceBuffType == NextDiceChangeBuffType.Even)
 		{
 			return UnityEngine.Random.Range(1, 4) * 2;
 		}

@@ -1,8 +1,5 @@
-
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public enum FieldActionType
@@ -11,10 +8,11 @@ public enum FieldActionType
 	Random, // 내부에 등록된 아이템을 획득함
 	Banana, // 바나나
 	Barricade, // 바리케이트
-	NextDiceBuff, // 다음 주사위에 적용되는 버프
+	NextDiceOperationBuff, // 다음 주사위에 적용되는 추가 계산 버프
+	NextDiceChangeBuff,	// 다음 주사위에 적용되는 버프
 }
 
-public enum NextDiceBuffType
+public enum NextDiceChangeBuffType
 {
 	None = -1,
 
@@ -76,6 +74,16 @@ public abstract class FieldItem
 	public virtual bool Use(PlayerDataContainer playerDataContainer, int tileOrder)
 	{
 		return TileDataManager.Instance.TrySetTileItem(tileOrder, null);
+	}
+
+	public virtual void CreateEffect(MonoBehaviour owner)
+	{
+		
+	}
+
+	public virtual IEnumerator ChangeState(CharacterAnimationController controller)
+	{
+		yield return null;
 	}
 }
 
@@ -211,13 +219,29 @@ public class BarricadeItem : ReplaceFieldItem
 	{
 
 	}
+
+	public override IEnumerator ChangeState(CharacterAnimationController controller)
+	{
+		yield return base.ChangeState(controller);
+
+		controller.ChangeState(CharacterStateType.DropItem, CharacterState.BarricadeDown);
+		yield return controller.WaitForEnd(CharacterState.BarricadeDown.ToString());
+	}
 }
 
-public class NextDiceBuffFieldItem : ReplaceFieldItem
+public class NextDiceOperationBuffFieldItem : ReplaceFieldItem
 {
-	public NextDiceBuffFieldItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
+	MathType mathType; 
+	int count = 0;
+
+	public NextDiceOperationBuffFieldItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
 	{
-		
+		string[] columns = rawData.actionParameter.Split('/');
+
+		var pair = ItemTable.ParseBuffData(columns[2]);
+
+		mathType = pair.Key;
+		count = pair.Value;
 	}
 
 	public override bool Use(PlayerDataContainer playerDataContainer, int tileOrder)
@@ -225,5 +249,67 @@ public class NextDiceBuffFieldItem : ReplaceFieldItem
 		base.Use(playerDataContainer, tileOrder);
 
 		return inventory.ApplyBuffFirst(fieldItemCode);
+	}
+
+	public override IEnumerator ChangeState(CharacterAnimationController controller)
+	{
+		yield return base.ChangeState(controller);
+
+		if (mathType == MathType.Mul && count > 1)
+		{
+			controller.ChangeState(CharacterStateType.DropItem, CharacterState.DoubleDiceBuff);
+		}
+		else if (mathType == MathType.Mul && count > 0)
+		{
+			controller.ChangeState(CharacterStateType.DropItem, CharacterState.HalfDiceDeBuff);
+		}
+		else if (mathType == MathType.Mul && count < 0)
+		{
+			controller.ChangeState(CharacterStateType.DropItem, CharacterState.MinusDiceDeBuff);
+		}
+
+		yield return controller.WaitForEnd(CharacterState.DoubleDiceBuff.ToString());
+	}
+}
+
+public class NextDiceChangeBuffFieldItem : ReplaceFieldItem
+{
+	NextDiceChangeBuffType nextDiceBuffType = NextDiceChangeBuffType.None;
+
+	public NextDiceChangeBuffFieldItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
+	{
+		string[] columns = rawData.actionParameter.Split('/');
+
+		if (System.Enum.TryParse<NextDiceChangeBuffType>(columns[2], out var buffType))
+		{
+			nextDiceBuffType = buffType;
+		}
+	}
+
+	public override bool Use(PlayerDataContainer playerDataContainer, int tileOrder)
+	{
+		base.Use(playerDataContainer, tileOrder);
+
+		return inventory.ApplyBuffFirst(fieldItemCode);
+	}
+
+	public override IEnumerator ChangeState(CharacterAnimationController controller)
+	{
+		yield return base.ChangeState(controller);
+
+		if (nextDiceBuffType == NextDiceChangeBuffType.OneOrSix)
+		{
+			controller.ChangeState(CharacterStateType.DropItem, CharacterState.DrunkBuff);
+		}
+		else if (nextDiceBuffType == NextDiceChangeBuffType.Odd)
+		{
+			controller.ChangeState(CharacterStateType.DropItem, CharacterState.OddBuff);
+		}
+		else if (nextDiceBuffType == NextDiceChangeBuffType.Even)
+		{
+			controller.ChangeState(CharacterStateType.DropItem, CharacterState.EvenBuff);
+		}
+
+		yield return controller.WaitForEnd(CharacterState.DoubleDiceBuff.ToString());
 	}
 }

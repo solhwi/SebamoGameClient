@@ -70,6 +70,13 @@ public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
 				yield return ProcessMove(currentOrder, nextOrder, 2.5f);
 				characterView.DoIdle();
 				break;
+
+			case FieldActionType.NextDiceOperationBuff:
+			case FieldActionType.NextDiceChangeBuff:
+				yield return characterView.ChangeItemDropState(fieldItem);
+				fieldItem.CreateEffect(this);
+				characterView.DoIdle();
+				break;
 		}
 	}
 }

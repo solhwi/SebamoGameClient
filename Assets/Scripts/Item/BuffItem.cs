@@ -5,8 +5,8 @@ using UnityEngine;
 
 public enum BuffActionType
 {
-	BonusDiceEffect,
-	NextDiceChange,
+	NextDiceOperationBuff,
+	NextDiceChangeBuff,
 }
 
 public class BuffItem
@@ -30,12 +30,12 @@ public class BuffItem
 	}
 }
 
-public class MoreDiceBuffItem : BuffItem
+public class NextDiceOperationBuffItem : BuffItem
 {
 	public readonly MathType mathType;
 	public readonly int count;
 
-	public MoreDiceBuffItem(Inventory inventory, ItemTable.BuffItemData data) : base(inventory, data)
+	public NextDiceOperationBuffItem(Inventory inventory, ItemTable.BuffItemData data) : base(inventory, data)
 	{
 		var pair = ItemTable.ParseBuffData(data.actionParameter);
 
@@ -62,12 +62,12 @@ public class MoreDiceBuffItem : BuffItem
 	}
 }
 
-public class NextDiceBuffItem : BuffItem
+public class NextDiceChangeBuffItem : BuffItem
 {
-	private NextDiceBuffType nextDiceBuffType;
-	public NextDiceBuffItem(Inventory inventory, ItemTable.BuffItemData data) : base(inventory, data)
+	private NextDiceChangeBuffType nextDiceBuffType;
+	public NextDiceChangeBuffItem(Inventory inventory, ItemTable.BuffItemData data) : base(inventory, data)
 	{
-		if (System.Enum.TryParse<NextDiceBuffType>(data.actionParameter, out var buffType))
+		if (System.Enum.TryParse<NextDiceChangeBuffType>(data.actionParameter, out var buffType))
 		{
 			nextDiceBuffType = buffType;
 		}

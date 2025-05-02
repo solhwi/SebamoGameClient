@@ -24,6 +24,14 @@ public enum CharacterState
 
 	Clap, // 박수치기
 	LookAround, // 둘러보기
+	BarricadeDown,      // 바리케이드에 맞고 넘어짐
+
+	DoubleDiceBuff, // 주사위 두배 버프 획득
+	HalfDiceDeBuff,	// 주사위 반감 디버프 획득
+	MinusDiceDeBuff,	// 주사위 마이너스 디버프 획득
+	DrunkBuff,			// 1 또는 6 버프 획득
+	OddBuff,			// 홀수 버프 획득
+	EvenBuff,			// 짝수 버프 획득
 }
 
 public enum CharacterStateType
@@ -32,7 +40,8 @@ public enum CharacterStateType
 	Run,
 	Attack,
 	LookAround,
-	Clap
+	Clap,
+	DropItem
 }
 
 public class CharacterAnimationController : MonoBehaviour
@@ -42,7 +51,7 @@ public class CharacterAnimationController : MonoBehaviour
 	
 	private float crossFadeTime = 0.0f;
 
-	private Animator Animator
+	public Animator Animator
 	{
 		get
 		{
@@ -83,27 +92,27 @@ public class CharacterAnimationController : MonoBehaviour
 		var propType = playerDataContainer.GetEquippedPropType(playerGroup, playerName).FirstOrDefault();
 		if (propType == PropType.GreatSword)
 		{
-			ChangeState(CharacterState.Idle_GreatSword);
+			ChangeState(CharacterStateType.Idle, CharacterState.Idle_GreatSword);
 		}
 		else if (propType == PropType.Net)
 		{
-			ChangeState(CharacterState.Idle_Net);
+			ChangeState(CharacterStateType.Idle, CharacterState.Idle_Net);
 		}
 		else if (propType == PropType.Umbrella)
 		{
-			ChangeState(CharacterState.Idle_Umbrella);
+			ChangeState(CharacterStateType.Idle, CharacterState.Idle_Umbrella);
 		}
 		else if (propType == PropType.TwinDagger_L || propType == PropType.TwinDagger_R)
 		{
-			ChangeState(CharacterState.Idle_TwinHand);
+			ChangeState(CharacterStateType.Idle, CharacterState.Idle_TwinHand);
 		}
 		else if (propType == PropType.Axe || propType == PropType.PickAx || propType == PropType.Shovel)
 		{
-			ChangeState(CharacterState.Idle_TwoHand);
+			ChangeState(CharacterStateType.Idle, CharacterState.Idle_TwoHand);
 		}
 		else
 		{
-			ChangeState(CharacterState.Idle);
+			ChangeState(CharacterStateType.Idle, CharacterState.Idle);
 		}
 	}
 
@@ -116,27 +125,27 @@ public class CharacterAnimationController : MonoBehaviour
 		var propType = playerDataContainer.GetEquippedPropType(playerGroup, playerName).FirstOrDefault();
 		if (propType == PropType.GreatSword)
 		{
-			ChangeState(CharacterState.Run_GreatSword);
+			ChangeState(CharacterStateType.Run, CharacterState.Run_GreatSword);
 		}
 		else if (propType == PropType.Net)
 		{
-			ChangeState(CharacterState.Run_Net);
+			ChangeState(CharacterStateType.Run, CharacterState.Run_Net);
 		}
 		else if (propType == PropType.Umbrella)
 		{
-			ChangeState(CharacterState.Run_Umbrella);
+			ChangeState(CharacterStateType.Run, CharacterState.Run_Umbrella);
 		}
 		else if (propType == PropType.TwinDagger_L || propType == PropType.TwinDagger_R)
 		{
-			ChangeState(CharacterState.Run_TwinHand);
+			ChangeState(CharacterStateType.Run, CharacterState.Run_TwinHand);
 		}
 		else if (propType == PropType.Axe || propType == PropType.PickAx || propType == PropType.Shovel)
 		{
-			ChangeState(CharacterState.Run_TwoHand);
+			ChangeState(CharacterStateType.Run, CharacterState.Run_TwoHand);
 		}
 		else
 		{
-			ChangeState(CharacterState.Run);
+			ChangeState(CharacterStateType.Run, CharacterState.Run);
 		}
 	}
 
@@ -147,30 +156,25 @@ public class CharacterAnimationController : MonoBehaviour
 		var propType = playerDataContainer.GetEquippedPropType(playerGroup, playerName).FirstOrDefault();
 		if (propType == PropType.GreatSword)
 		{
-			ChangeState(CharacterState.Attack_GreatSword);
+			ChangeState(CharacterStateType.Attack, CharacterState.Attack_GreatSword);
 		}
 		else if (propType == PropType.TwinDagger_L || propType == PropType.TwinDagger_R)
 		{
-			ChangeState(CharacterState.Attack_TwinHand);
+			ChangeState(CharacterStateType.Attack, CharacterState.Attack_TwinHand);
 		}
 	}
 
-	public void DoLookAround()
+	public void ChangeState(CharacterStateType stateType, CharacterState state)
 	{
-		currentStateType = CharacterStateType.LookAround;
-		ChangeState(CharacterState.LookAround);
-	}
+		currentStateType = stateType;
 
-	public void DoClap()
-	{
-		currentStateType = CharacterStateType.Clap;
-		ChangeState(CharacterState.Clap);
-	}
-
-	private void ChangeState(CharacterState state)
-    {
 		currentState = state;
 		Animator.CrossFade(state.ToString(), crossFadeTime);
+	}
+
+	public IEnumerator ChangeItemDropState(FieldItem dropItem)
+	{
+		yield return dropItem.ChangeState(this);
 	}
 
 	public void Replay()
@@ -189,12 +193,8 @@ public class CharacterAnimationController : MonoBehaviour
 				DoAttack();
 				break;
 
-			case CharacterStateType.LookAround:
-				DoLookAround();
-				break;
-
-			case CharacterStateType.Clap:
-				DoClap();
+			default:
+				ChangeState(currentStateType, currentState);
 				break;
 		}
 	}
