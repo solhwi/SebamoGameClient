@@ -66,7 +66,7 @@ public class PlayerDataContainer : ScriptableObject
 	[Range(1, 6)]
 	public int NextBonusMultiplyDiceCount = 1;
 
-	public NextDiceBuffType nextDiceBuffType = NextDiceBuffType.None;
+	public NextDiceChangeBuffType nextDiceBuffType = NextDiceChangeBuffType.None;
 
 #if UNITY_EDITOR
 	[MenuItem("Tools/캐릭터 위치 초기화")]
@@ -110,7 +110,7 @@ public class PlayerDataContainer : ScriptableObject
 	{
 		NextBonusAddDiceCount = 0;
 		NextBonusMultiplyDiceCount = 1;
-		nextDiceBuffType = NextDiceBuffType.None;
+		nextDiceBuffType = NextDiceChangeBuffType.None;
 	}
 
 	public bool IsMine(string group, string name)
