@@ -109,6 +109,7 @@ public partial class ItemTable : ScriptParser
 		public string fieldIconAssetPath;
 		public FieldActionType actionType;
 		public string actionParameter;
+		public string effectPath;
 	}
 
 	public List<FieldItemData> fieldItemDataList = new List<FieldItemData>();
@@ -123,6 +124,7 @@ public partial class ItemTable : ScriptParser
 		public string buffIconAssetPath;
 		public BuffActionType actionType;
 		public string actionParameter;
+		public string effectPath;
 	}
 
 	public List<BuffItemData> buffItemDataList = new List<BuffItemData>();
