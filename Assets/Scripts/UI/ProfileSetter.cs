@@ -66,7 +66,7 @@ public class ProfileSetter : MonoBehaviour
 			return;
 
 		string itemCode = playerData.appliedProfileItems[type];
-		profileImage[type].sprite = itemTable.GetItemIconSprite(itemCode);
+		profileImage[type].sprite = itemTable.GetItemToolTipIconSprite(itemCode);
 	}
 
 	public void OnClick()

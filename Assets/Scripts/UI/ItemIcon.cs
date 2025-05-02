@@ -46,7 +46,16 @@ public class ItemIcon : MonoBehaviour
 	public void SetItemData(ItemTable.ShopItemData itemData)
 	{
 		itemCode = itemData.key;
-		itemImage.sprite = itemTable.GetItemIconSprite(itemCode);
+		itemImage.sprite = itemTable.GetItemToolTipIconSprite(itemCode);
+	}
+
+	public void SetBuffItemData(string itemCode)
+	{
+		if (this.itemCode == itemCode && this.itemCount == itemCount)
+			return;
+
+		this.itemCode = itemCode;
+		itemImage.sprite = itemTable.GetBuffItemIconSprite(itemCode);
 	}
 
 	public void SetItemData(string itemCode, int itemCount = 1)
@@ -55,7 +64,7 @@ public class ItemIcon : MonoBehaviour
 			return;
 
 		this.itemCode = itemCode;
-		itemImage.sprite = itemTable.GetItemIconSprite(itemCode);
+		itemImage.sprite = itemTable.GetItemToolTipIconSprite(itemCode);
 	}
 
 	public void SetItemClickCallback(Action<string> callback)

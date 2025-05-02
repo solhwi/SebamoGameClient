@@ -19,7 +19,7 @@ public class BuffItemComponent : MonoBehaviour
 			else
 			{
 				string buffItemCode = inventory.appliedBuffItems.ElementAt(i);
-				buffItemIcons[i].SetItemData(buffItemCode);
+				buffItemIcons[i].SetBuffItemData(buffItemCode);
 
 				buffItemIcons[i].gameObject.SetActive(true);
 			}

@@ -192,7 +192,7 @@ public class ItemToolTipPopup : BoardGamePopup
 				break;
 		}
 
-		itemIconImage.sprite = itemTable.GetItemIconSprite(currentItemCode);
+		itemIconImage.sprite = itemTable.GetItemToolTipIconSprite(currentItemCode);
 		itemNameText.text = itemTable.GetItemName(currentItemCode);
 		itemDescriptionText.text = itemTable.GetItemDescription(currentItemCode);
 

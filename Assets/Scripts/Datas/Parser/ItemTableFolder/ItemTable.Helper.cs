@@ -113,7 +113,7 @@ public partial class ItemTable
 		return string.Empty;
 	}
 
-	public Sprite GetItemIconSprite(string itemCode)
+	public Sprite GetItemToolTipIconSprite(string itemCode)
 	{
 		if (itemCode == null || itemCode == string.Empty)
 			return null;
@@ -121,6 +121,19 @@ public partial class ItemTable
 		if (itemToolTipDataDictionary.TryGetValue(itemCode, out var iconData))
 		{
 			return ResourceManager.Instance.Load<Sprite>(iconData.GetAssetPathWithoutResources());
+		}
+
+		return null;
+	}
+
+	public Sprite GetBuffItemIconSprite(string itemCode)
+	{
+		if (itemCode == null || itemCode == string.Empty)
+			return null;
+
+		if (buffItemDataDictionary.TryGetValue(itemCode, out var itemData))
+		{
+			return ResourceManager.Instance.Load<Sprite>(itemData.buffIconAssetPath);
 		}
 
 		return null;
