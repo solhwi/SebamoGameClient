@@ -13,7 +13,9 @@ public class DontMoveSpecialTile : SpecialTileBase
 	{
 		base.Reset();
 
+#if UNITY_EDITOR
 		inventory = AssetDatabase.LoadAssetAtPath<Inventory>("Assets/Bundles/Datas/Inventory.asset");
+#endif
 		buffItemCode = "ZeroDiceBuff";
 		specialTileType = SpecialTileType.DontMove;
 	}
