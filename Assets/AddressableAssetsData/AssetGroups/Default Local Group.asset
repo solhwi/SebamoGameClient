@@ -3193,13 +3193,38 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d2d80b8835783042b8510bae9552c07
+    m_Address: Assets/Bundles/Sprites/SpecialItem/OddBuff.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 97ca17286f4bfa24697d6d7bbfcc28f7
     m_Address: Assets/Bundles/Sprites/SpecialItem/Barricade.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3d2d80b8835783042b8510bae9552c07
-    m_Address: Assets/Bundles/Sprites/SpecialItem/OddBuff.png
+  - m_GUID: 811d63e055636f14884f4e299325a26c
+    m_Address: Assets/Bundles/Sprites/SpecialItem/DoubleDiceBuff.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f883abcea9844043b1128704dd8c061
+    m_Address: Assets/Bundles/Sprites/SpecialItem/EvenBuff.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efdfed49423292d44a1a6f6f3a701097
+    m_Address: Assets/Bundles/Sprites/SpecialItem/HalfDiceBuff.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a81e26b71bc38b4fa0b89725fabd974
+    m_Address: Assets/Bundles/Sprites/SpecialItem/MinusDiceBuff.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0dd79222527c0a4585cc6cb404a16e8
+    m_Address: Assets/Bundles/Sprites/SpecialItem/DrunkBuff.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
