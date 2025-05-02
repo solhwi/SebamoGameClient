@@ -40,7 +40,7 @@ public class NextDiceOperationBuffItem : BuffItem
 		var pair = ItemTable.ParseBuffData(data.actionParameter);
 
 		mathType = pair.Key;
-		count = pair.Value;
+		count = (int)pair.Value;
 	}
 
 	public override bool TryUse(PlayerDataContainer playerDataContainer)

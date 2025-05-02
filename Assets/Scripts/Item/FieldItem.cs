@@ -232,7 +232,7 @@ public class BarricadeItem : ReplaceFieldItem
 public class NextDiceOperationBuffFieldItem : ReplaceFieldItem
 {
 	MathType mathType; 
-	int count = 0;
+	float count = 0;
 
 	public NextDiceOperationBuffFieldItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
 	{

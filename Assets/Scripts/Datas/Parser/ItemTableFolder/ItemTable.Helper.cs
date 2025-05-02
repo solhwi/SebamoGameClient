@@ -361,17 +361,17 @@ public partial class ItemTable
 		return res;
 	}
 
-	public static KeyValuePair<MathType, int> ParseBuffData(string rawRecipe)
+	public static KeyValuePair<MathType, float> ParseBuffData(string rawRecipe)
 	{
 		string[] columns = rawRecipe.Split(':');
 
 		var mathTypeStr = columns[0];
 		var mathType = CommonFunc.GetMathType(mathTypeStr);
 			
-		if (int.TryParse(columns[1], out int value) == false)
+		if (float.TryParse(columns[1], out float value) == false)
 			return default;
 
-		return new KeyValuePair<MathType, int>(mathType, value);
+		return new KeyValuePair<MathType, float>(mathType, value);
 	}
 
 	public static int[] ParseRangeData(string rawRecipe)
