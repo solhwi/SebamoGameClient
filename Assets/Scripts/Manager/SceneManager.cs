@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +17,7 @@ public class SceneLoadData
 {
 	public bool useWaitingPopup = false;
 }
+
 
 public class SceneManager : Singleton<SceneManager>
 {
@@ -129,4 +130,13 @@ public class SceneManager : Singleton<SceneManager>
 		UIManager.Instance.Close(PopupType.Wait);
 		loadCoroutine = null;
 	}
+
+#if UNITY_EDITOR
+	[UnityEditor.MenuItem("Tools/로딩 씬에서 플레이 시작")]
+	public static void ResetLoadingScene()
+	{
+		UnityEditor.SceneManagement.EditorSceneManager.OpenScene($"Assets/Scenes/{SceneType.Loading}.unity");
+		EditorApplication.isPlaying = true;
+	}
+#endif
 }
