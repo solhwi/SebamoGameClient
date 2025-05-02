@@ -45,7 +45,7 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 		statusText.text = $"일반 이동 후 위치 : {nextOrder}";
 	}
 
-	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, int nextBonusMultiplyCount)
+	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, float nextBonusMultiplyCount)
 	{
 		statusText.text = $"나온 주사위 값 : {diceCount} x {nextBonusMultiplyCount} + {nextBonusAddCount}";
 		yield return diceView.DoDiceAction(diceCount);

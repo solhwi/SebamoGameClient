@@ -41,7 +41,7 @@ public class BackGroundCanvas : MonoBehaviour, IBoardGameSubscriber
 		}
 	}
 
-	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, int nextBonusMultiplyCount)
+	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, float nextBonusMultiplyCount)
 	{
 		yield return null;
 	}

@@ -7,7 +7,7 @@ using UnityEngine.AddressableAssets;
 
 public interface IBoardGameSubscriber
 {
-	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, int nextBonusMultiplyCount);
+	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, float nextBonusMultiplyCount);
 	public IEnumerator OnMove(int currentOrder, int nextOrder, int diceCount);
 	public IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder);
 	public IEnumerator OnDoTileAction(int currentOrder, int nextOrder);
@@ -48,13 +48,13 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		public readonly int diceCount = 0;
 		public readonly int moveNextOrder = 0;
 		public readonly int bonusAddDiceCount = 0;
-		public readonly int bonusMultiplyDiceCount = 1;
+		public readonly float bonusMultiplyDiceCount = 1.0f;
 
 		public int CurrentOrder { get; private set; }
 
 		private Queue<StateOrderData> stateOrderQueue = new Queue<StateOrderData>();
 
-		public StateData(int startOrder, int moveNextOrder, int diceCount, int bonusAddDiceCount, int bonusMultiplyDiceCount)
+		public StateData(int startOrder, int moveNextOrder, int diceCount, int bonusAddDiceCount, float bonusMultiplyDiceCount)
 		{
 			this.startOrder = startOrder;
 			this.moveNextOrder = moveNextOrder;
@@ -368,9 +368,9 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		int diceCount = GetNextDiceCount();
 
 		int bonusAddDiceCount = playerDataContainer.NextBonusAddDiceCount;
-		int bonusMultiplyDiceCount = playerDataContainer.NextBonusMultiplyDiceCount;
+		float bonusMultiplyDiceCount = playerDataContainer.NextBonusMultiplyDiceCount;
 
-		int nextOrder = TileDataManager.Instance.GetNextOrder(currentOrder, diceCount * bonusMultiplyDiceCount + bonusAddDiceCount, out var barricadeItem);
+		int nextOrder = TileDataManager.Instance.GetNextOrder(currentOrder, (int)(diceCount * bonusMultiplyDiceCount) + bonusAddDiceCount, out var barricadeItem);
 
 		if (barricadeItem != null)
 		{

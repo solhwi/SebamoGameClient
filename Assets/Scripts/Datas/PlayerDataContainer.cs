@@ -63,8 +63,8 @@ public class PlayerDataContainer : ScriptableObject
 	public int NextBonusAddDiceCount = 0;
 
 	[Header("[보너스 주사위 (x)]")]
-	[Range(1, 6)]
-	public int NextBonusMultiplyDiceCount = 1;
+	[Range(0, 6)]
+	public float NextBonusMultiplyDiceCount = 1.0f;
 
 	public NextDiceChangeBuffType nextDiceBuffType = NextDiceChangeBuffType.None;
 
@@ -109,7 +109,7 @@ public class PlayerDataContainer : ScriptableObject
 	public void ClearBonusDiceData()
 	{
 		NextBonusAddDiceCount = 0;
-		NextBonusMultiplyDiceCount = 1;
+		NextBonusMultiplyDiceCount = 1.0f;
 		nextDiceBuffType = NextDiceChangeBuffType.None;
 	}
 

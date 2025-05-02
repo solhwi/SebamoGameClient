@@ -33,14 +33,14 @@ public class BuffItem
 public class NextDiceOperationBuffItem : BuffItem
 {
 	public readonly MathType mathType;
-	public readonly int count;
+	public readonly float count;
 
 	public NextDiceOperationBuffItem(Inventory inventory, ItemTable.BuffItemData data) : base(inventory, data)
 	{
 		var pair = ItemTable.ParseBuffData(data.actionParameter);
 
 		mathType = pair.Key;
-		count = (int)pair.Value;
+		count = pair.Value;
 	}
 
 	public override bool TryUse(PlayerDataContainer playerDataContainer)
@@ -50,7 +50,7 @@ public class NextDiceOperationBuffItem : BuffItem
 		{
 			if (mathType == MathType.Add)
 			{
-				playerDataContainer.NextBonusAddDiceCount = count;
+				playerDataContainer.NextBonusAddDiceCount = (int)count;
 			}
 			else if (mathType == MathType.Mul)
 			{
