@@ -361,6 +361,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		if (buffItem != null)
 		{
 			buffItem.TryUse(playerDataContainer);
+			buffItem.CreateEffect(GetMyPlayerCharacter());
 		}
 
 		// 주사위 굴리기

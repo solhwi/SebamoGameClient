@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public enum BuffActionType
 {
@@ -27,6 +28,12 @@ public class BuffItem
 	public virtual bool TryUse(PlayerDataContainer playerDataContainer)
 	{
 		return inventory.TryUseBuff(itemCode);
+	}
+
+	public virtual void CreateEffect(MonoBehaviour owner)
+	{
+		var reference = new AssetReference(data.effectPath);
+		ResourceManager.Instance.TryInstantiateAsync<GameObject>(reference, owner.transform, null);
 	}
 }
 

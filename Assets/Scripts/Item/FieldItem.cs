@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public enum FieldActionType
 {
@@ -78,7 +79,8 @@ public abstract class FieldItem
 
 	public virtual void CreateEffect(MonoBehaviour owner)
 	{
-		
+		var reference = new AssetReference(rawData.effectPath);
+		ResourceManager.Instance.TryInstantiateAsync<GameObject>(reference, owner.transform, null);
 	}
 
 	public virtual IEnumerator ChangeState(CharacterAnimationController controller)
@@ -263,11 +265,11 @@ public class NextDiceOperationBuffFieldItem : ReplaceFieldItem
 		}
 		else if (mathType == MathType.Mul && count > 0)
 		{
-			nextState = CharacterState.HalfDiceDeBuff;
+			nextState = CharacterState.HalfDiceBuff;
 		}
 		else if (mathType == MathType.Mul && count < 0)
 		{
-			nextState = CharacterState.MinusDiceDeBuff;
+			nextState = CharacterState.MinusDiceBuff;
 		}
 
 		controller.ChangeState(CharacterStateType.DropItem, nextState);

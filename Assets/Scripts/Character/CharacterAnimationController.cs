@@ -27,8 +27,8 @@ public enum CharacterState
 	BarricadeDown,      // 바리케이드에 맞고 넘어짐
 
 	DoubleDiceBuff, // 주사위 두배 버프 획득
-	HalfDiceDeBuff,	// 주사위 반감 디버프 획득
-	MinusDiceDeBuff,	// 주사위 마이너스 디버프 획득
+	HalfDiceBuff,	// 주사위 반감 디버프 획득
+	MinusDiceBuff,	// 주사위 마이너스 디버프 획득
 	DrunkBuff,			// 1 또는 6 버프 획득
 	OddBuff,			// 홀수 버프 획득
 	EvenBuff,			// 짝수 버프 획득
