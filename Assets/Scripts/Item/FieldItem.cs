@@ -273,7 +273,7 @@ public class NextDiceOperationBuffFieldItem : ReplaceFieldItem
 		}
 
 		controller.ChangeState(CharacterStateType.DropItem, nextState);
-		yield return controller.WaitForEnd(CharacterState.DoubleDiceBuff.ToString());
+		yield return controller.WaitForEnd(nextState.ToString());
 	}
 }
 
@@ -313,11 +313,11 @@ public class NextDiceChangeBuffFieldItem : ReplaceFieldItem
 			nextState = CharacterState.OddBuff;
 		}
 		else if (nextDiceBuffType == NextDiceChangeBuffType.Even)
-		{
+		{s
 			nextState = CharacterState.EvenBuff;
 		}
 
 		controller.ChangeState(CharacterStateType.DropItem, nextState);
-		yield return controller.WaitForEnd(CharacterState.DoubleDiceBuff.ToString());
+		yield return controller.WaitForEnd(nextState.ToString());
 	}
 }
