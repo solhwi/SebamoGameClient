@@ -163,17 +163,6 @@ MonoBehaviour:
   - 
   - 
   - 
-  - Odd
-  - Odd
-  - Even
-  - Even
-  - 
-  - 
-  - 
-  - 
-  - 
-  - Odd
-  - Even
   - 
   - 
   - 
@@ -182,29 +171,40 @@ MonoBehaviour:
   - 
   - 
   - 
-  - Drunk
-  - Drunk
-  - 
-  - 
-  - Drunk
   - 
   - 
   - 
   - 
-  - HalfDice
-  - HalfDice
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - DrunkBuff
+  - 
+  - 
+  - DrunkBuff
+  - 
+  - 
+  - 
+  - 
+  - DrunkBuff
+  - HalfDiceBuff
+  - HalfDiceBuff
+  - HalfDiceBuff
+  - DoubleDiceBuff
+  - DoubleDiceBuff
   - Barricade
-  - HalfDice
-  - DoubleDice
   - Barricade
   - Barricade
-  - MinusDice
-  - DoubleDice
-  - DoubleDice
-  - MinusDice
-  - MinusDice
-  - MinusDice
-  - 
+  - DoubleDiceBuff
+  - DropCoin
+  - DoubleDiceBuff
+  - DoubleDiceBuff
+  - DoubleDiceBuff
   - 
   - 
   - 

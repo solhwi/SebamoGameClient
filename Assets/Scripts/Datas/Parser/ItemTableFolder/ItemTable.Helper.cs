@@ -133,7 +133,7 @@ public partial class ItemTable
 
 		if (buffItemDataDictionary.TryGetValue(itemCode, out var itemData))
 		{
-			return ResourceManager.Instance.Load<Sprite>(itemData.buffIconAssetPath);
+			return ResourceManager.Instance.Load<Sprite>(itemData.buffIconAssetPath.GetAssetPathWithoutResources());
 		}
 
 		return null;
