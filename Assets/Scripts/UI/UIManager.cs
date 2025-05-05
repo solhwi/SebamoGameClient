@@ -69,7 +69,7 @@ public class UIManager : Singleton<UIManager>
 		{
 			if (popupRefDictionary.TryGetValue(popupType, out var popupPrefabRef))
 			{
-				ResourceManager.Instance.TryInstantiateAsync<BoardGamePopup>(popupPrefabRef, popupRootCanvas.transform, (newPopup) =>
+				ResourceManager.Instance.TryInstantiateAsync<BoardGamePopup>(popupPrefabRef, popupRootCanvas.transform, false, (newPopup) =>
 				{
 					if (newPopup != null)
 					{

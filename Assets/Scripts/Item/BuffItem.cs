@@ -30,10 +30,9 @@ public class BuffItem
 		return inventory.TryUseBuff(itemCode);
 	}
 
-	public virtual void CreateEffect(MonoBehaviour owner)
+	public virtual void CreateEffect(Transform owner)
 	{
-		var reference = new AssetReference(data.effectPath);
-		ResourceManager.Instance.TryInstantiateAsync<GameObject>(reference, owner.transform, null);
+		ResourceManager.Instance.TryInstantiateAsync<GameObject>(data.effectPath, owner, true);
 	}
 }
 

@@ -16,7 +16,7 @@ public class ObjectCameraManager : Singleton<ObjectCameraManager>
 
 		for(int i = 0; i < preloadCount; i++)
 		{
-			yield return ResourceManager.Instance.InstantiateAsync<Camera>(objectCameraRef, transform, (newCamera) =>
+			yield return ResourceManager.Instance.InstantiateAsync<Camera>(objectCameraRef, transform, false, (newCamera) =>
 			{
 				if (newCamera == null)
 					return;

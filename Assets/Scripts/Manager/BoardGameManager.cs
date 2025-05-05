@@ -185,7 +185,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	{
 		playerCharacterDictionary.Clear();
 
-		yield return ResourceManager.Instance.InstantiateAsync<CharacterComponent>(myPlayerCharacterRef, transform, (p) =>
+		yield return ResourceManager.Instance.InstantiateAsync<CharacterComponent>(myPlayerCharacterRef, transform, false, (p) =>
 		{
 			if (p == null)
 				return;
@@ -214,7 +214,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 		foreach (var otherPlayerData in playerDataContainer.otherPlayerPacketDatas)
 		{
-			yield return ResourceManager.Instance.InstantiateAsync<CharacterComponent>(otherPlayerCharacterRef, transform, (p) =>
+			yield return ResourceManager.Instance.InstantiateAsync<CharacterComponent>(otherPlayerCharacterRef, transform, false, (p) =>
 			{
 				if (p == null)
 					return;
@@ -361,7 +361,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		if (buffItem != null)
 		{
 			buffItem.TryUse(playerDataContainer);
-			buffItem.CreateEffect(GetMyPlayerCharacter());
+			buffItem.CreateEffect(GetMyPlayerCharacter().transform);
 		}
 
 		// 주사위 굴리기

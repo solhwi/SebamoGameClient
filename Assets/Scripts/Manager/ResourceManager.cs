@@ -144,12 +144,12 @@ public class ResourceManager : Singleton<ResourceManager>
 		return GetResult<T>(cachedObjectHandleDictionary[path].Result);
 	}
 
-	public IEnumerator InstantiateAsync<T>(AssetReference reference, Transform parent, System.Action<T> onCompleted) where T : UnityEngine.Object
+	public IEnumerator InstantiateAsync<T>(AssetReference reference, Transform parent, bool isActive = false, System.Action<T> onCompleted = null) where T : UnityEngine.Object
 	{
-		yield return InstantiateAsync(reference.AssetGUID, parent, onCompleted);
+		yield return InstantiateAsync(reference.AssetGUID, parent, isActive,onCompleted);
 	}
 
-	private IEnumerator InstantiateAsync<T>(string path, Transform parent, System.Action<T> onCompleted) where T : UnityEngine.Object
+	private IEnumerator InstantiateAsync<T>(string path, Transform parent, bool isActive, System.Action<T> onCompleted) where T : UnityEngine.Object
 	{
 		T obj = null;
 
@@ -159,7 +159,7 @@ public class ResourceManager : Singleton<ResourceManager>
 				return;
 
 			obj = Instantiate<T>(res, parent);
-			obj.GameObject().SetActive(false);
+			obj.GameObject().SetActive(isActive);
 		});
 
 		onCompleted?.Invoke(obj);
@@ -232,14 +232,14 @@ public class ResourceManager : Singleton<ResourceManager>
 		cachedObjectHandleDictionary.Clear();
 	}
 
-	public Coroutine TryInstantiateAsync<T>(AssetReference reference, Transform parent, System.Action<T> onCompleted) where T : UnityEngine.Object
+	public Coroutine TryInstantiateAsync<T>(AssetReference reference, Transform parent, bool isActive = false, System.Action<T> onCompleted = null) where T : UnityEngine.Object
 	{
-		return TryInstantiateAsync(reference.AssetGUID, parent, onCompleted);
+		return TryInstantiateAsync(reference.AssetGUID, parent, isActive, onCompleted);
 	}
 
-	private Coroutine TryInstantiateAsync<T>(string path, Transform parent, System.Action<T> onCompleted) where T : UnityEngine.Object
+	public Coroutine TryInstantiateAsync<T>(string path, Transform parent, bool isActive = false, System.Action<T> onCompleted = null) where T : UnityEngine.Object
 	{
-		return StartCoroutine(InstantiateAsync(path, parent, onCompleted));
+		return StartCoroutine(InstantiateAsync(path, parent, isActive, onCompleted));
 	}
 
 	public T Instantiate<T>(AssetReference reference, Transform parent) where T : Object

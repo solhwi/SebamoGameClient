@@ -6,7 +6,12 @@ public class CharacterView : ObjectView
 {
 	[SerializeField] protected CharacterHeadOnUI characterHeadOnUI = null;
 
-	private Transform originCharacterTransform = null;
+	public Transform originCharacterTransform
+	{
+		get;
+		private set;
+	}
+
 	private CharacterDataSetter characterDataSetter = null;
 	private CharacterAnimationController characterAnimationController = null;
 

@@ -125,7 +125,7 @@ public class ObjectView : MonoBehaviour
 
 	protected virtual IEnumerator OnPrepareRendering()
 	{
-		yield return ResourceManager.Instance.InstantiateAsync<GameObject>(originPrefab, cameraArm, OnCreateObject);
+		yield return ResourceManager.Instance.InstantiateAsync<GameObject>(originPrefab, cameraArm, false, OnCreateObject);
 		
 		// 그 다음 프레임부터 렌더링 업데이트가 유효하므로 한 프레임 쉼
 		yield return null;

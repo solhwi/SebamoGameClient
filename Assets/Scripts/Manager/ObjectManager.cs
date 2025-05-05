@@ -16,7 +16,7 @@ public class ObjectManager : Singleton<ObjectManager>
 	{
 		for (int i = 0; i < 50; i++)
 		{
-			yield return ResourceManager.Instance.InstantiateAsync<RecyclingObject>(fieldItemPrefabRef, transform, (obj) =>
+			yield return ResourceManager.Instance.InstantiateAsync<RecyclingObject>(fieldItemPrefabRef, transform, false, (obj) =>
 			{
 #if UNITY_EDITOR
 				obj.name = $"fieldItemPrefab ({i}) - Cached";

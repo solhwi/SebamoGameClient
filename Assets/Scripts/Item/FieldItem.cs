@@ -77,10 +77,9 @@ public abstract class FieldItem
 		return TileDataManager.Instance.TrySetTileItem(tileOrder, null);
 	}
 
-	public virtual void CreateEffect(MonoBehaviour owner)
+	public virtual void CreateEffect(Transform owner)
 	{
-		var reference = new AssetReference(rawData.effectPath);
-		ResourceManager.Instance.TryInstantiateAsync<GameObject>(reference, owner.transform, null);
+		ResourceManager.Instance.TryInstantiateAsync<GameObject>(rawData.effectPath, owner, true);
 	}
 
 	public virtual IEnumerator ChangeState(CharacterAnimationController controller)
