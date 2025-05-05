@@ -80,6 +80,81 @@ MonoBehaviour:
   DefaultItemCount: 5
   tabScrollSpeed: 1
   prefab: {fileID: 3946708819375666388, guid: f1821b6446536834faf5c7a7909fc7ba, type: 3}
+--- !u!1 &2745992333878609523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7500867149646394392}
+  - component: {fileID: 1277404129808934995}
+  - component: {fileID: 1487470317523704295}
+  m_Layer: 5
+  m_Name: Toggle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7500867149646394392
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745992333878609523}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2824683429361692925}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 128, y: 128}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!222 &1277404129808934995
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745992333878609523}
+  m_CullTransparentMesh: 1
+--- !u!114 &1487470317523704295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745992333878609523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5dfa38a1418354ff39a7e32de90c8b58, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2850035495284607082
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +168,7 @@ GameObject:
   - component: {fileID: 8708016293107519313}
   - component: {fileID: 2246429659397340432}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: ButtonArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,13 +185,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7500867149646394392}
   m_Father: {fileID: 1071501085811077665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 50, y: 0}
-  m_SizeDelta: {x: 50, y: 110}
+  m_AnchoredPosition: {x: 130, y: -10}
+  m_SizeDelta: {x: 128, y: 641.4165}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &6235831569918046052
 CanvasRenderer:
@@ -139,15 +215,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a8ab42194041f49fc9ce69d2eba022cd, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -383,7 +459,7 @@ MonoBehaviour:
   panel: {fileID: 1071501085811077665}
   isReset: 1
   isResetToggleOn: 0
-  offPos: -1080
+  offPos: -1060
   onPos: -680
   isY: 0
 --- !u!114 &4459218121526130546
@@ -401,6 +477,12 @@ MonoBehaviour:
   tileDataContainer: {fileID: 11400000, guid: 6bff3bcc2db60844cb56ca069bb23b8c, type: 2}
   scrollContent: {fileID: 6203788711938301839}
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
+  rankingToggleImage: {fileID: 1487470317523704295}
+  rankingImages:
+  - {fileID: 21300000, guid: 5dfa38a1418354ff39a7e32de90c8b58, type: 3}
+  - {fileID: 21300000, guid: dfcc4f1eb9f374682a2cb9f0da26869f, type: 3}
+  - {fileID: 21300000, guid: fa4b0fc63fee94cc8978a3a1b9b6b625, type: 3}
+  - {fileID: 21300000, guid: 869b5dc7a895e4952a944178a123e3b8, type: 3}
 --- !u!1 &6973592603904948525
 GameObject:
   m_ObjectHideFlags: 0

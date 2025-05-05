@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TileSortingComparer : IComparer<int>
 {
@@ -24,6 +26,9 @@ public class RankingBoard : MonoBehaviour
 	[SerializeField] private TileDataContainer tileDataContainer;
 	[SerializeField] private ScrollContent scrollContent;
 	[SerializeField] private PlayerDataContainer playerDataContainer;
+
+	[SerializeField] private Image rankingToggleImage = null;
+	[SerializeField] private Sprite[] rankingImages = null;
 
 	private TileSortingComparer tileSortingComparer = null;
 	private List<PlayerPacketData> playerDatas = new List<PlayerPacketData>();
@@ -53,6 +58,11 @@ public class RankingBoard : MonoBehaviour
 
 		playerDatas.Clear();
 		playerDatas.AddRange(currentPlayerDatas);
+
+		int myPlayerIndex = playerDatas.FindIndex(p => playerDataContainer.IsMine(p.playerGroup, p.playerName));
+		myPlayerIndex = Math.Clamp(myPlayerIndex, 0, rankingImages.Length - 1);
+
+		rankingToggleImage.sprite = rankingImages[myPlayerIndex];
 
 		scrollContent.UpdateContents();
 	}
