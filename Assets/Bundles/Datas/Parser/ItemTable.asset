@@ -558,37 +558,44 @@ MonoBehaviour:
     fieldIconAssetPath: Sprites/SpecialItem/Barricade.png
     actionType: 3
     actionParameter: Min:-100/Max:100
-    effectPath: -1
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
+      Magic Aura A (Runic).prefab
   - key: MinusDiceBuff
     fieldIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
     actionType: 4
     actionParameter: Min:-100/Max:100/*:-1
-    effectPath: -1
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR4
+      Magic Aura A (Runic).prefab
   - key: DoubleDiceBuff
     fieldIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
     actionType: 4
     actionParameter: Min:-100/Max:100/*:2
-    effectPath: -1
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR5
+      Magic Aura A (Runic).prefab
   - key: HalfDiceBuff
     fieldIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
     actionType: 4
     actionParameter: Min:-100/Max:100/*:0.5
-    effectPath: -1
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR6
+      Magic Aura A (Runic).prefab
   - key: DrunkBuff
     fieldIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
     actionType: 5
     actionParameter: Min:-100/Max:100/OneOrSix
-    effectPath: -1
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR7
+      Magic Aura A (Runic).prefab
   - key: OddBuff
     fieldIconAssetPath: Sprites/SpecialItem/OddBuff.png
     actionType: 5
     actionParameter: Min:-100/Max:100/Odd
-    effectPath: -1
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR8
+      Magic Aura A (Runic).prefab
   - key: EvenBuff
     fieldIconAssetPath: Sprites/SpecialItem/EvenBuff.png
     actionType: 5
     actionParameter: Min:-100/Max:100/Even
-    effectPath: -1
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR9
+      Magic Aura A (Runic).prefab
   fieldItemDataDictionary:
     m_keys:
     - DropCoin
@@ -615,37 +622,44 @@ MonoBehaviour:
       fieldIconAssetPath: Sprites/SpecialItem/Barricade.png
       actionType: 3
       actionParameter: Min:-100/Max:100
-      effectPath: -1
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
+        Magic Aura A (Runic).prefab
     - key: MinusDiceBuff
       fieldIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
       actionType: 4
       actionParameter: Min:-100/Max:100/*:-1
-      effectPath: -1
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR4
+        Magic Aura A (Runic).prefab
     - key: DoubleDiceBuff
       fieldIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
       actionType: 4
       actionParameter: Min:-100/Max:100/*:2
-      effectPath: -1
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR5
+        Magic Aura A (Runic).prefab
     - key: HalfDiceBuff
       fieldIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
       actionType: 4
       actionParameter: Min:-100/Max:100/*:0.5
-      effectPath: -1
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR6
+        Magic Aura A (Runic).prefab
     - key: DrunkBuff
       fieldIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
       actionType: 5
       actionParameter: Min:-100/Max:100/OneOrSix
-      effectPath: -1
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR7
+        Magic Aura A (Runic).prefab
     - key: OddBuff
       fieldIconAssetPath: Sprites/SpecialItem/OddBuff.png
       actionType: 5
       actionParameter: Min:-100/Max:100/Odd
-      effectPath: -1
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR8
+        Magic Aura A (Runic).prefab
     - key: EvenBuff
       fieldIconAssetPath: Sprites/SpecialItem/EvenBuff.png
       actionType: 5
       actionParameter: Min:-100/Max:100/Even
-      effectPath: -1
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR9
+        Magic Aura A (Runic).prefab
   buffItemDataList:
   - key: MinusDiceBuff
     buffIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
