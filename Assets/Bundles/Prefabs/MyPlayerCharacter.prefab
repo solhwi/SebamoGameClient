@@ -78,6 +78,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterView: {fileID: 2012936445174958189}
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
+  inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
+  buffItemFactory: {fileID: 11400000, guid: 90850b6b0c5d6a44eba35d118322da3f, type: 2}
 --- !u!23 &1490093213175528809
 MeshRenderer:
   m_ObjectHideFlags: 0

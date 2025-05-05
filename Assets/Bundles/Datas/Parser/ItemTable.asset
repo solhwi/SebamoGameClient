@@ -569,7 +569,7 @@ MonoBehaviour:
   - key: DropCoin
     fieldIconAssetPath: Sprites/ItemIcon_Badge_Gold.png
     actionType: 0
-    actionParameter: 3
+    actionParameter: Coin:3
     effectPath: -1
   - key: Box
     fieldIconAssetPath: Animations/FieldItem/Box.controller
@@ -633,7 +633,7 @@ MonoBehaviour:
     - key: DropCoin
       fieldIconAssetPath: Sprites/ItemIcon_Badge_Gold.png
       actionType: 0
-      actionParameter: 3
+      actionParameter: Coin:3
       effectPath: -1
     - key: Box
       fieldIconAssetPath: Animations/FieldItem/Box.controller

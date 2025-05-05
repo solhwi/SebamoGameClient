@@ -185,7 +185,10 @@ public class NormalFieldItem : DropFieldItem
 {
 	public NormalFieldItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
 	{
-		dropCount = int.Parse(rawData.actionParameter);
+		string[] columns = rawData.actionParameter.Split(':');
+
+		fieldItemCode = columns[0];
+		dropCount = int.Parse(columns[1]);
 	}
 }
 

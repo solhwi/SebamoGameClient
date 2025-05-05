@@ -17,6 +17,8 @@ public class BuffItem
 
 	public readonly string itemCode = string.Empty;
 
+	private GameObject effectObj;
+
 	public BuffItem(Inventory inventory, ItemTable.BuffItemData data)
 	{
 		this.inventory = inventory;
@@ -32,7 +34,18 @@ public class BuffItem
 
 	public virtual void CreateEffect(Transform owner)
 	{
-		ResourceManager.Instance.TryInstantiateAsync<GameObject>(data.effectPath, owner, true);
+		ResourceManager.Instance.TryInstantiateAsync<GameObject>(data.effectPath, owner, true, (obj) =>
+		{
+			effectObj = obj;
+		});
+	}
+
+	public virtual void DestroyEffect()
+	{
+		if (effectObj != null)
+		{
+			ObjectManager.Instance.Destroy(effectObj);
+		}
 	}
 }
 

@@ -39,6 +39,16 @@ public class ItemObjectView : ObjectView
 		isVisible = false;
 	}
 
+	protected override void OnBecameVisible()
+	{
+
+	}
+
+	protected override void OnBecameInvisible()
+	{
+
+	}
+
 	public void SetItem(string currentItemCode)
 	{
 		if (currentFieldItem != null)

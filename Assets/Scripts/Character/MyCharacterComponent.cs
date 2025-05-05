@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
 {
+	[SerializeField] private Inventory inventory;
+	[SerializeField] private BuffItemFactory buffItemFactory;
+
+	private BuffItem currentBuffItem = null;
+
 	private void Start()
 	{
 		if (BoardGameManager.Instance != null)
@@ -20,6 +25,22 @@ public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
 		}
 	}
 
+	private void OnEnable()
+	{
+		string buffItemCode = inventory.GetUsableBuffItemCode();
+
+		currentBuffItem = buffItemFactory.Make(buffItemCode);
+		if (currentBuffItem != null)
+		{
+			currentBuffItem.CreateEffect(characterView.originCharacterTransform);
+		}
+	}
+
+	private void OnDisable()
+	{
+		currentBuffItem?.DestroyEffect();
+	}
+
 	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, float nextBonusMultiplyCount)
 	{
 		yield return null;
@@ -27,6 +48,8 @@ public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
 
 	public IEnumerator OnMove(int currentOrder, int nextOrder, int diceCount)
 	{
+		currentBuffItem?.DestroyEffect();
+
 		characterView.DoRun();
 
 		yield return ProcessMove(currentOrder, nextOrder, 1.0f);
