@@ -9,6 +9,8 @@ public interface IBoardGameSubscriber
 {
 	public void OnStartTurn();
 
+	public void OnEndTurn();
+
 	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, float nextBonusMultiplyCount);
 	public IEnumerator OnMove(int currentOrder, int nextOrder, int diceCount);
 	public IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder);
@@ -138,7 +140,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 		stateFuncMap = new Dictionary<GameState, Func<IEnumerator>>()
 		{
-			{ GameState.None, null },
+			{ GameState.None, ProcessNone },
 			{ GameState.RollDice, ProcessRollDice },
 			{ GameState.MoveCharacter, ProcessMoveCharacter },
 			{ GameState.GetItem, ProcessGetItem },
@@ -294,6 +296,16 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			yield return null;
 		}
 	}
+	
+	private IEnumerator ProcessNone()
+	{
+		foreach (var subscriber in subscribers)
+		{
+			subscriber?.OnEndTurn();
+		}
+
+		yield return null;
+	}
 
 	private IEnumerator ProcessRollDice()
 	{
@@ -319,6 +331,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		if (isSuccess == false)
 			yield break;
 
+		// 시작 전 노티
 		foreach (var subscriber in subscribers)
 		{
 			subscriber?.OnStartTurn();

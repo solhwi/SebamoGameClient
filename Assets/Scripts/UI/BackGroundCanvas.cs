@@ -118,6 +118,10 @@ public class BackGroundCanvas : MonoBehaviour, IBoardGameSubscriber
 	{
 
 	}
+	public void OnEndTurn()
+	{
+
+	}
 
 	public IEnumerator OnDoTileAction(int currentOrder, int nextOrder)
 	{

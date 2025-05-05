@@ -46,6 +46,11 @@ public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
 
 	}
 
+	public void OnEndTurn()
+	{
+
+	}
+
 	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, float nextBonusMultiplyCount)
 	{
 		yield return null;

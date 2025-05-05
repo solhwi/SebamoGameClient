@@ -29,15 +29,18 @@ public class BuffItemComponent : MonoBehaviour, IBoardGameSubscriber
 		isUpdateBuffItem = false;
 	}
 
-	public IEnumerator OnDoTileAction(int currentOrder, int nextOrder)
+	public void OnEndTurn()
 	{
 		isUpdateBuffItem = true;
+	}
+
+	public IEnumerator OnDoTileAction(int currentOrder, int nextOrder)
+	{
 		yield break;
 	}
 
 	public IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder)
 	{
-		isUpdateBuffItem = true;
 		yield break;
 	}
 

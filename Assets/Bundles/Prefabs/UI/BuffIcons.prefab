@@ -207,6 +207,7 @@ MonoBehaviour:
   - {fileID: 1085781857955600918}
   - {fileID: 8410324545614962685}
   - {fileID: 3008409847426373365}
+  highLightObj: {fileID: 41484672505759624}
 --- !u!1 &835392470882760257
 GameObject:
   m_ObjectHideFlags: 0

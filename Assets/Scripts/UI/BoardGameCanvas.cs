@@ -36,6 +36,10 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 	{
 
 	}
+	public void OnEndTurn()
+	{
+
+	}
 
 	public IEnumerator OnDoTileAction(int currentOrder, int nextOrder)
 	{
