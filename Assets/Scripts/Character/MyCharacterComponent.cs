@@ -41,6 +41,11 @@ public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
 		currentBuffItem?.DestroyEffect();
 	}
 
+	public void OnStartTurn()
+	{
+
+	}
+
 	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, float nextBonusMultiplyCount)
 	{
 		yield return null;

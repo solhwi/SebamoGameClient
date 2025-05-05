@@ -32,6 +32,10 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 			BoardGameManager.Instance.Unsubscribe(this);
 		}
 	}
+	public void OnStartTurn()
+	{
+
+	}
 
 	public IEnumerator OnDoTileAction(int currentOrder, int nextOrder)
 	{

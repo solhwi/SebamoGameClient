@@ -114,6 +114,10 @@ public class BackGroundCanvas : MonoBehaviour, IBoardGameSubscriber
 
 		fadeRoutine = StartCoroutine(FadeBackGround(nextOrder));
 	}
+	public void OnStartTurn()
+	{
+
+	}
 
 	public IEnumerator OnDoTileAction(int currentOrder, int nextOrder)
 	{

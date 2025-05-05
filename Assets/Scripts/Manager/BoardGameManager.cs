@@ -7,6 +7,8 @@ using UnityEngine.AddressableAssets;
 
 public interface IBoardGameSubscriber
 {
+	public void OnStartTurn();
+
 	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, float nextBonusMultiplyCount);
 	public IEnumerator OnMove(int currentOrder, int nextOrder, int diceCount);
 	public IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder);
@@ -316,6 +318,11 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 		if (isSuccess == false)
 			yield break;
+
+		foreach (var subscriber in subscribers)
+		{
+			subscriber?.OnStartTurn();
+		}
 
 		// 버프를 포함한 데이터 세팅
 		ProcessData();

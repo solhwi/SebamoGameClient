@@ -8,6 +8,8 @@ public class BuffItemComponent : MonoBehaviour, IBoardGameSubscriber
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private List<ItemIcon> buffItemIcons = new List<ItemIcon>();
 
+	[SerializeField] private GameObject highLightObj = null;
+
 	private bool isUpdateBuffItem = true;
 
 	private void OnEnable()
@@ -19,6 +21,11 @@ public class BuffItemComponent : MonoBehaviour, IBoardGameSubscriber
 	private void OnDisable()
 	{
 		BoardGameManager.Instance?.Unsubscribe(this);
+		isUpdateBuffItem = false;
+	}
+
+	public void OnStartTurn()
+	{
 		isUpdateBuffItem = false;
 	}
 
@@ -41,7 +48,6 @@ public class BuffItemComponent : MonoBehaviour, IBoardGameSubscriber
 
 	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, float nextBonusMultiplyCount)
 	{
-		isUpdateBuffItem = false;
 		yield break;
 	}
 
@@ -49,6 +55,8 @@ public class BuffItemComponent : MonoBehaviour, IBoardGameSubscriber
 	{
 		if (isUpdateBuffItem == false)
 			return;
+
+		highLightObj.SetActive(inventory.appliedBuffItems.Count > 0);
 
 		for (int i = 0; i < buffItemIcons.Count; i++)
 		{
