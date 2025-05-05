@@ -25,6 +25,20 @@ public class ItemObjectView : ObjectView
 		currentFieldItem = null;
 	}
 
+	protected override void OnEnable()
+	{
+		base.OnEnable();
+
+		isVisible = true;
+	}
+
+	protected override void OnDisable()
+	{
+		base.OnDisable();
+
+		isVisible = false;
+	}
+
 	public void SetItem(string currentItemCode)
 	{
 		if (currentFieldItem != null)

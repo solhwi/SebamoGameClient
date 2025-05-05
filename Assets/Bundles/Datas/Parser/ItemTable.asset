@@ -40,16 +40,12 @@ MonoBehaviour:
     price: 30000
     shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
       \uB2E4\uB140\uC694."
-  - key: Banana
+  - key: Barricade
     isRandom: 0
     price: 100
     shopItemDescription: "\uB9DB\uC788\uB294 \uBC14\uB098\uB098!\\n\u2026 \uB97C
       \uBA39\uACE0 \uB0A8\uC740 \uAECD\uC9C8\uC774\uC5D0\uC694."
-  - key: Barricade
-    isRandom: 0
-    price: 100
-    shopItemDescription: "\uAC10\uCABD\uAC19\uC740 \uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790\uC608\uC694."
-  - key: DoubleDice
+  - key: DoubleDiceBuff
     isRandom: 0
     price: 100
     shopItemDescription: "\uB450\uBC30\uB450\uBC30"
@@ -61,9 +57,8 @@ MonoBehaviour:
     - UnityChanBody
     - YucoBody
     - MisakiBody
-    - Banana
     - Barricade
-    - DoubleDice
+    - DoubleDiceBuff
     m_values:
     - key: UnityChanAccessory
       isRandom: 1
@@ -92,16 +87,12 @@ MonoBehaviour:
       price: 30000
       shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
         \uB2E4\uB140\uC694."
-    - key: Banana
+    - key: Barricade
       isRandom: 0
       price: 100
       shopItemDescription: "\uB9DB\uC788\uB294 \uBC14\uB098\uB098!\\n\u2026 \uB97C
         \uBA39\uACE0 \uB0A8\uC740 \uAECD\uC9C8\uC774\uC5D0\uC694."
-    - key: Barricade
-      isRandom: 0
-      price: 100
-      shopItemDescription: "\uAC10\uCABD\uAC19\uC740 \uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790\uC608\uC694."
-    - key: DoubleDice
+    - key: DoubleDiceBuff
       isRandom: 0
       price: 100
       shopItemDescription: "\uB450\uBC30\uB450\uBC30"
@@ -362,27 +353,41 @@ MonoBehaviour:
     itemName: "\uBBF8\uC0AC\uD0A4 \uD504\uB85C\uD544"
     itemDescription: "\uBBF8\uC0AC\uD0A4\uC758 \uCD08\uC0C1\uD654"
     sellPrice: 1000
-  - key: Banana
-    iconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
-    itemName: "\uBC14\uB098\uB098"
-    itemDescription: "\uBC14\uB098\uB098"
-    sellPrice: 1000
-  - key: Banana2
-    iconAssetPath: Sprites/ShopItem_l_CoinPack_3.png
-    itemName: "\uB179\uC0C9 \uBC14\uB098\uB098"
-    itemDescription: "\uB179\uC0C9\uC778 \uBC14\uB098\uB098\uB2E4"
-    sellPrice: 1000
   - key: Barricade
-    iconAssetPath: Sprites/ItemIcon_Chest_Wood.png
-    itemName: "\uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790"
-    itemDescription: "\uC544\uBB34\uB3C4 \uADF8\uB0E5 \uC9C0\uB098\uCE60 \uC218 \uC5C6\uB294
-      \uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790. \uC5F4\uC5B4\uBCF4\uAE30 \uC804\uAE4C\uC9C0\uB294
-      \uBAA8\uB978\uB2E4."
+    iconAssetPath: Sprites/SpecialItem/Barricade.png
+    itemName: "\uBC14\uB098\uB098"
+    itemDescription: "\uB099\uC0C1 \uC8FC\uC758! \uBC1F\uC73C\uBA74 \uBB34\uC870\uAC74
+      \uB118\uC5B4\uC9D1\uB2C8\uB2E4. \uBB34\uC870\uAC74!"
     sellPrice: 1000
-  - key: DoubleDice
-    iconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
-    itemName: "\uB450\uBC30 \uC8FC\uC0AC\uC704 \uBC84\uD504"
-    itemDescription: "\uBC84\uD504\uBC84\uD504"
+  - key: MinusDiceBuff
+    iconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
+    itemName: "\uC8FC\uC0AC\uC704 \uC74C\uC218 \uBC84\uD504"
+    itemDescription: "\uC74C\uC218"
+    sellPrice: 1000
+  - key: DoubleDiceBuff
+    iconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
+    itemName: "\uC8FC\uC0AC\uC704 \uB450 \uBC30 \uBC84\uD504"
+    itemDescription: "\uB450 \uBC30"
+    sellPrice: 1000
+  - key: HalfDiceBuff
+    iconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
+    itemName: "\uC8FC\uC0AC\uC704 \uBC18\uAC10 \uBC84\uD504"
+    itemDescription: "\uBC18\uAC10"
+    sellPrice: 1000
+  - key: DrunkBuff
+    iconAssetPath: Sprites/SpecialItem/DrunkBuff.png
+    itemName: DrunkBuff
+    itemDescription: "\uC74C\uC8FC!"
+    sellPrice: 1000
+  - key: OddBuff
+    iconAssetPath: Sprites/SpecialItem/OddBuff.png
+    itemName: "\uD640\uC218 \uC8FC\uC0AC\uC704 \uBC84\uD504"
+    itemDescription: "\uD640\uC218"
+    sellPrice: 1000
+  - key: EvenBuff
+    iconAssetPath: Sprites/SpecialItem/EvenBuff.png
+    itemName: "\uC9DD\uC218 \uC8FC\uC0AC\uC704 \uBC84\uD504"
+    itemDescription: "\uC9DD\uC218"
     sellPrice: 1000
   itemToolTipDataDictionary:
     m_keys:
@@ -407,10 +412,13 @@ MonoBehaviour:
     - Frame_02
     - Profile_01
     - Profile_02
-    - Banana
-    - Banana2
     - Barricade
-    - DoubleDice
+    - MinusDiceBuff
+    - DoubleDiceBuff
+    - HalfDiceBuff
+    - DrunkBuff
+    - OddBuff
+    - EvenBuff
     m_values:
     - key: GreatSword
       iconAssetPath: Sprites/ItemIcon/Prop_A.png
@@ -521,27 +529,41 @@ MonoBehaviour:
       itemName: "\uBBF8\uC0AC\uD0A4 \uD504\uB85C\uD544"
       itemDescription: "\uBBF8\uC0AC\uD0A4\uC758 \uCD08\uC0C1\uD654"
       sellPrice: 1000
-    - key: Banana
-      iconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
-      itemName: "\uBC14\uB098\uB098"
-      itemDescription: "\uBC14\uB098\uB098"
-      sellPrice: 1000
-    - key: Banana2
-      iconAssetPath: Sprites/ShopItem_l_CoinPack_3.png
-      itemName: "\uB179\uC0C9 \uBC14\uB098\uB098"
-      itemDescription: "\uB179\uC0C9\uC778 \uBC14\uB098\uB098\uB2E4"
-      sellPrice: 1000
     - key: Barricade
-      iconAssetPath: Sprites/ItemIcon_Chest_Wood.png
-      itemName: "\uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790"
-      itemDescription: "\uC544\uBB34\uB3C4 \uADF8\uB0E5 \uC9C0\uB098\uCE60 \uC218
-        \uC5C6\uB294 \uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790. \uC5F4\uC5B4\uBCF4\uAE30
-        \uC804\uAE4C\uC9C0\uB294 \uBAA8\uB978\uB2E4."
+      iconAssetPath: Sprites/SpecialItem/Barricade.png
+      itemName: "\uBC14\uB098\uB098"
+      itemDescription: "\uB099\uC0C1 \uC8FC\uC758! \uBC1F\uC73C\uBA74 \uBB34\uC870\uAC74
+        \uB118\uC5B4\uC9D1\uB2C8\uB2E4. \uBB34\uC870\uAC74!"
       sellPrice: 1000
-    - key: DoubleDice
-      iconAssetPath: Sprites/Icon_GradeBadge_Challenger.png
-      itemName: "\uB450\uBC30 \uC8FC\uC0AC\uC704 \uBC84\uD504"
-      itemDescription: "\uBC84\uD504\uBC84\uD504"
+    - key: MinusDiceBuff
+      iconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
+      itemName: "\uC8FC\uC0AC\uC704 \uC74C\uC218 \uBC84\uD504"
+      itemDescription: "\uC74C\uC218"
+      sellPrice: 1000
+    - key: DoubleDiceBuff
+      iconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
+      itemName: "\uC8FC\uC0AC\uC704 \uB450 \uBC30 \uBC84\uD504"
+      itemDescription: "\uB450 \uBC30"
+      sellPrice: 1000
+    - key: HalfDiceBuff
+      iconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
+      itemName: "\uC8FC\uC0AC\uC704 \uBC18\uAC10 \uBC84\uD504"
+      itemDescription: "\uBC18\uAC10"
+      sellPrice: 1000
+    - key: DrunkBuff
+      iconAssetPath: Sprites/SpecialItem/DrunkBuff.png
+      itemName: DrunkBuff
+      itemDescription: "\uC74C\uC8FC!"
+      sellPrice: 1000
+    - key: OddBuff
+      iconAssetPath: Sprites/SpecialItem/OddBuff.png
+      itemName: "\uD640\uC218 \uC8FC\uC0AC\uC704 \uBC84\uD504"
+      itemDescription: "\uD640\uC218"
+      sellPrice: 1000
+    - key: EvenBuff
+      iconAssetPath: Sprites/SpecialItem/EvenBuff.png
+      itemName: "\uC9DD\uC218 \uC8FC\uC0AC\uC704 \uBC84\uD504"
+      itemDescription: "\uC9DD\uC218"
       sellPrice: 1000
   fieldItemDataList:
   - key: DropCoin
@@ -564,37 +586,37 @@ MonoBehaviour:
     fieldIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
     actionType: 4
     actionParameter: Min:-100/Max:100/*:-1
-    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR4
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
       Magic Aura A (Runic).prefab
   - key: DoubleDiceBuff
     fieldIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
     actionType: 4
     actionParameter: Min:-100/Max:100/*:2
-    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR5
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
       Magic Aura A (Runic).prefab
   - key: HalfDiceBuff
     fieldIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
     actionType: 4
     actionParameter: Min:-100/Max:100/*:0.5
-    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR6
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
       Magic Aura A (Runic).prefab
   - key: DrunkBuff
     fieldIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
     actionType: 5
     actionParameter: Min:-100/Max:100/OneOrSix
-    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR7
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
       Magic Aura A (Runic).prefab
   - key: OddBuff
     fieldIconAssetPath: Sprites/SpecialItem/OddBuff.png
     actionType: 5
     actionParameter: Min:-100/Max:100/Odd
-    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR8
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
       Magic Aura A (Runic).prefab
   - key: EvenBuff
     fieldIconAssetPath: Sprites/SpecialItem/EvenBuff.png
     actionType: 5
     actionParameter: Min:-100/Max:100/Even
-    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR9
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
       Magic Aura A (Runic).prefab
   fieldItemDataDictionary:
     m_keys:
@@ -628,37 +650,37 @@ MonoBehaviour:
       fieldIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
       actionType: 4
       actionParameter: Min:-100/Max:100/*:-1
-      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR4
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
         Magic Aura A (Runic).prefab
     - key: DoubleDiceBuff
       fieldIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
       actionType: 4
       actionParameter: Min:-100/Max:100/*:2
-      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR5
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
         Magic Aura A (Runic).prefab
     - key: HalfDiceBuff
       fieldIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
       actionType: 4
       actionParameter: Min:-100/Max:100/*:0.5
-      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR6
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
         Magic Aura A (Runic).prefab
     - key: DrunkBuff
       fieldIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
       actionType: 5
       actionParameter: Min:-100/Max:100/OneOrSix
-      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR7
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
         Magic Aura A (Runic).prefab
     - key: OddBuff
       fieldIconAssetPath: Sprites/SpecialItem/OddBuff.png
       actionType: 5
       actionParameter: Min:-100/Max:100/Odd
-      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR8
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
         Magic Aura A (Runic).prefab
     - key: EvenBuff
       fieldIconAssetPath: Sprites/SpecialItem/EvenBuff.png
       actionType: 5
       actionParameter: Min:-100/Max:100/Even
-      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR9
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
         Magic Aura A (Runic).prefab
   buffItemDataList:
   - key: MinusDiceBuff
@@ -782,16 +804,12 @@ MonoBehaviour:
     price: 30000
     shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
       \uB2E4\uB140\uC694."
-  - key: Banana
+  - key: Barricade
     isRandom: 0
     price: 100
     shopItemDescription: "\uB9DB\uC788\uB294 \uBC14\uB098\uB098!\\n\u2026 \uB97C
       \uBA39\uACE0 \uB0A8\uC740 \uAECD\uC9C8\uC774\uC5D0\uC694."
-  - key: Barricade
-    isRandom: 0
-    price: 100
-    shopItemDescription: "\uAC10\uCABD\uAC19\uC740 \uAC00\uC9DC \uBCF4\uBB3C\uC0C1\uC790\uC608\uC694."
-  - key: DoubleDice
+  - key: DoubleDiceBuff
     isRandom: 0
     price: 100
     shopItemDescription: "\uB450\uBC30\uB450\uBC30"
