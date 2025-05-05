@@ -9,6 +9,7 @@ public class BuffItemComponent : MonoBehaviour, IBoardGameSubscriber
 	[SerializeField] private List<ItemIcon> buffItemIcons = new List<ItemIcon>();
 
 	[SerializeField] private GameObject highLightObj = null;
+	[SerializeField] private GameObject noBuffTextObj = null;
 
 	private bool isUpdateBuffItem = true;
 
@@ -59,7 +60,16 @@ public class BuffItemComponent : MonoBehaviour, IBoardGameSubscriber
 		if (isUpdateBuffItem == false)
 			return;
 
-		highLightObj.SetActive(inventory.appliedBuffItems.Count > 0);
+		if (inventory.appliedBuffItems.Count > 0)
+		{
+			highLightObj.SetActive(true);
+			noBuffTextObj.SetActive(false);
+		}
+		else
+		{
+			highLightObj.SetActive(false);
+			noBuffTextObj.SetActive(true);
+		}
 
 		for (int i = 0; i < buffItemIcons.Count; i++)
 		{
