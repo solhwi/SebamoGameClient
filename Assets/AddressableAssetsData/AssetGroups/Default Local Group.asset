@@ -3234,6 +3234,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7d3491409918e1489f05e7842dc45ac
+    m_Address: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 963850f307158b24b844120eda73b26d
+    m_Address: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Rune_Pink.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0cf4cec20434bb14c93e9a6780056d24, type: 2}
   m_SchemaSet:

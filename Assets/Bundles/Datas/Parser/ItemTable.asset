@@ -580,44 +580,37 @@ MonoBehaviour:
     fieldIconAssetPath: Sprites/SpecialItem/Barricade.png
     actionType: 3
     actionParameter: Min:-100/Max:100
-    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
-      Magic Aura A (Runic).prefab
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
   - key: MinusDiceBuff
     fieldIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
     actionType: 4
     actionParameter: Min:-100/Max:100/*:-1
-    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
-      Magic Aura A (Runic).prefab
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
   - key: DoubleDiceBuff
     fieldIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
     actionType: 4
     actionParameter: Min:-100/Max:100/*:2
-    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
-      Magic Aura A (Runic).prefab
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
   - key: HalfDiceBuff
     fieldIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
     actionType: 4
     actionParameter: Min:-100/Max:100/*:0.5
-    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
-      Magic Aura A (Runic).prefab
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
   - key: DrunkBuff
     fieldIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
     actionType: 5
     actionParameter: Min:-100/Max:100/OneOrSix
-    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
-      Magic Aura A (Runic).prefab
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
   - key: OddBuff
     fieldIconAssetPath: Sprites/SpecialItem/OddBuff.png
     actionType: 5
     actionParameter: Min:-100/Max:100/Odd
-    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
-      Magic Aura A (Runic).prefab
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
   - key: EvenBuff
     fieldIconAssetPath: Sprites/SpecialItem/EvenBuff.png
     actionType: 5
     actionParameter: Min:-100/Max:100/Even
-    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
-      Magic Aura A (Runic).prefab
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
   fieldItemDataDictionary:
     m_keys:
     - DropCoin
@@ -644,75 +637,68 @@ MonoBehaviour:
       fieldIconAssetPath: Sprites/SpecialItem/Barricade.png
       actionType: 3
       actionParameter: Min:-100/Max:100
-      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
-        Magic Aura A (Runic).prefab
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
     - key: MinusDiceBuff
       fieldIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
       actionType: 4
       actionParameter: Min:-100/Max:100/*:-1
-      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
-        Magic Aura A (Runic).prefab
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
     - key: DoubleDiceBuff
       fieldIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
       actionType: 4
       actionParameter: Min:-100/Max:100/*:2
-      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
-        Magic Aura A (Runic).prefab
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
     - key: HalfDiceBuff
       fieldIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
       actionType: 4
       actionParameter: Min:-100/Max:100/*:0.5
-      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
-        Magic Aura A (Runic).prefab
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
     - key: DrunkBuff
       fieldIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
       actionType: 5
       actionParameter: Min:-100/Max:100/OneOrSix
-      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
-        Magic Aura A (Runic).prefab
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
     - key: OddBuff
       fieldIconAssetPath: Sprites/SpecialItem/OddBuff.png
       actionType: 5
       actionParameter: Min:-100/Max:100/Odd
-      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
-        Magic Aura A (Runic).prefab
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
     - key: EvenBuff
       fieldIconAssetPath: Sprites/SpecialItem/EvenBuff.png
       actionType: 5
       actionParameter: Min:-100/Max:100/Even
-      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
-        Magic Aura A (Runic).prefab
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
   buffItemDataList:
   - key: MinusDiceBuff
     buffIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
     actionType: 0
     actionParameter: '*:-1'
-    effectPath: -1
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Rune_Pink.prefab
   - key: DoubleDiceBuff
     buffIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
     actionType: 0
     actionParameter: '*:2'
-    effectPath: -1
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Rune_Pink.prefab
   - key: HalfDiceBuff
     buffIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
     actionType: 0
     actionParameter: '*:0.5'
-    effectPath: -1
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Rune_Pink.prefab
   - key: DrunkBuff
     buffIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
     actionType: 1
     actionParameter: OneOrSix
-    effectPath: -1
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Rune_Pink.prefab
   - key: OddBuff
     buffIconAssetPath: Sprites/SpecialItem/OddBuff.png
     actionType: 1
     actionParameter: Odd
-    effectPath: -1
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Rune_Pink.prefab
   - key: EvenBuff
     buffIconAssetPath: Sprites/SpecialItem/EvenBuff.png
     actionType: 1
     actionParameter: Even
-    effectPath: -1
+    effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Rune_Pink.prefab
   buffItemDataDictionary:
     m_keys:
     - MinusDiceBuff
@@ -726,32 +712,32 @@ MonoBehaviour:
       buffIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
       actionType: 0
       actionParameter: '*:-1'
-      effectPath: -1
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Rune_Pink.prefab
     - key: DoubleDiceBuff
       buffIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
       actionType: 0
       actionParameter: '*:2'
-      effectPath: -1
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Rune_Pink.prefab
     - key: HalfDiceBuff
       buffIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
       actionType: 0
       actionParameter: '*:0.5'
-      effectPath: -1
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Rune_Pink.prefab
     - key: DrunkBuff
       buffIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
       actionType: 1
       actionParameter: OneOrSix
-      effectPath: -1
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Rune_Pink.prefab
     - key: OddBuff
       buffIconAssetPath: Sprites/SpecialItem/OddBuff.png
       actionType: 1
       actionParameter: Odd
-      effectPath: -1
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Rune_Pink.prefab
     - key: EvenBuff
       buffIconAssetPath: Sprites/SpecialItem/EvenBuff.png
       actionType: 1
       actionParameter: Even
-      effectPath: -1
+      effectPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Rune_Pink.prefab
   profileItemDataList:
   - key: Frame_01
     isFrame: 1
