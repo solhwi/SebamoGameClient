@@ -28,6 +28,7 @@ public abstract class FieldItem
 	protected ItemTable.FieldItemData rawData = null;
 
 	private GameObject obj;
+	private GameObject effectObj;
 
 	public string fieldItemCode { get; protected set; }
 	public FieldActionType fieldActionType => rawData.actionType;
@@ -79,7 +80,18 @@ public abstract class FieldItem
 
 	public virtual void CreateEffect(Transform owner)
 	{
-		ResourceManager.Instance.TryInstantiateAsync<GameObject>(rawData.effectPath, owner, true);
+		ResourceManager.Instance.TryInstantiateAsync<GameObject>(rawData.effectPath, owner, true, (obj) =>
+		{
+			effectObj = obj;
+		});
+	}
+
+	public virtual void DestroyEffect()
+	{
+		if (obj != null)
+		{
+			ObjectManager.Instance.Destroy(effectObj);
+		}
 	}
 
 	public virtual IEnumerator ChangeState(CharacterAnimationController controller)

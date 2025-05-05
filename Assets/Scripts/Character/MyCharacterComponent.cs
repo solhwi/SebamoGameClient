@@ -74,8 +74,9 @@ public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
 			case FieldActionType.Barricade:
 			case FieldActionType.NextDiceOperationBuff:
 			case FieldActionType.NextDiceChangeBuff:
-				yield return characterView.ChangeItemDropState(fieldItem);
 				fieldItem.CreateEffect(characterView.originCharacterTransform);
+				yield return characterView.ChangeItemDropState(fieldItem);
+				fieldItem.DestroyEffect();
 				characterView.DoIdle();
 				break;
 		}
