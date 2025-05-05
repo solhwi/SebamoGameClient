@@ -27,13 +27,7 @@ public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
 
 	private void OnEnable()
 	{
-		string buffItemCode = inventory.GetUsableBuffItemCode();
-
-		currentBuffItem = buffItemFactory.Make(buffItemCode);
-		if (currentBuffItem != null)
-		{
-			currentBuffItem.CreateEffect(characterView.originCharacterTransform);
-		}
+		CreateEffect();
 	}
 
 	private void OnDisable()
@@ -43,12 +37,23 @@ public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
 
 	public void OnStartTurn()
 	{
-
+		currentBuffItem?.DestroyEffect();
 	}
 
 	public void OnEndTurn()
 	{
+		CreateEffect();
+	}
 
+	private void CreateEffect()
+	{
+		string buffItemCode = inventory.GetUsableBuffItemCode();
+
+		currentBuffItem = buffItemFactory.Make(buffItemCode);
+		if (currentBuffItem != null)
+		{
+			currentBuffItem.CreateEffect(characterView.originCharacterTransform);
+		}
 	}
 
 	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, float nextBonusMultiplyCount)
@@ -58,8 +63,6 @@ public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
 
 	public IEnumerator OnMove(int currentOrder, int nextOrder, int diceCount)
 	{
-		currentBuffItem?.DestroyEffect();
-
 		characterView.DoRun();
 
 		yield return ProcessMove(currentOrder, nextOrder, 1.0f);
