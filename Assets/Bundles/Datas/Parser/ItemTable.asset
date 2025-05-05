@@ -14,39 +14,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopItemDataList:
   - key: UnityChanAccessory
-    isRandom: 1
+    isEquipment: 1
     price: 30000
     shopItemDescription: "\uC5BC\uB9C8 \uC804\uAE4C\uC9C0 \uC81C\uAC00 \uC4F0\uB358\\n\uBA38\uB9AC\uB760\uC5D0\uC694."
   - key: GreatSword
-    isRandom: 0
+    isEquipment: 1
     price: 50000
     shopItemDescription: "\uB9C8\uB825\uC774 \uB290\uAEF4\uC9C0\uB294 \uD478\uB978
       \uAC80\\n\uC774\uB78D\uB2C8\uB2E4."
   - key: TwinDagger
-    isRandom: 0
+    isEquipment: 1
     price: 50000
     shopItemDescription: "\uBE14\uB799 \uD551\uD06C \uC778 \uC720\uC5B4 \uC5D0\uB9AC\uC544"
   - key: UnityChanBody
-    isRandom: 0
+    isEquipment: 1
     price: 30000
     shopItemDescription: "\uC81C\uAC00 \uC81C\uC77C \uC88B\uC544\uD558\uB294 \uC637\uC774\uC5D0\uC694!"
   - key: YucoBody
-    isRandom: 0
+    isEquipment: 1
     price: 30000
     shopItemDescription: "\uBBF8\uC0AC\uD0A4\uB294 \uB9E4\uC77C \uC774\uAC83\uB9CC
       \uC785\uB354\uB77C\uACE0\uC694."
   - key: MisakiBody
-    isRandom: 0
+    isEquipment: 1
     price: 30000
     shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
       \uB2E4\uB140\uC694."
   - key: Barricade
-    isRandom: 0
+    isEquipment: 0
     price: 100
     shopItemDescription: "\uB9DB\uC788\uB294 \uBC14\uB098\uB098!\\n\u2026 \uB97C
       \uBA39\uACE0 \uB0A8\uC740 \uAECD\uC9C8\uC774\uC5D0\uC694."
   - key: DoubleDiceBuff
-    isRandom: 0
+    isEquipment: 0
     price: 100
     shopItemDescription: "\uB450\uBC30\uB450\uBC30"
   shopItemDataDictionary:
@@ -61,39 +61,39 @@ MonoBehaviour:
     - DoubleDiceBuff
     m_values:
     - key: UnityChanAccessory
-      isRandom: 1
+      isEquipment: 1
       price: 30000
       shopItemDescription: "\uC5BC\uB9C8 \uC804\uAE4C\uC9C0 \uC81C\uAC00 \uC4F0\uB358\\n\uBA38\uB9AC\uB760\uC5D0\uC694."
     - key: GreatSword
-      isRandom: 0
+      isEquipment: 1
       price: 50000
       shopItemDescription: "\uB9C8\uB825\uC774 \uB290\uAEF4\uC9C0\uB294 \uD478\uB978
         \uAC80\\n\uC774\uB78D\uB2C8\uB2E4."
     - key: TwinDagger
-      isRandom: 0
+      isEquipment: 1
       price: 50000
       shopItemDescription: "\uBE14\uB799 \uD551\uD06C \uC778 \uC720\uC5B4 \uC5D0\uB9AC\uC544"
     - key: UnityChanBody
-      isRandom: 0
+      isEquipment: 1
       price: 30000
       shopItemDescription: "\uC81C\uAC00 \uC81C\uC77C \uC88B\uC544\uD558\uB294 \uC637\uC774\uC5D0\uC694!"
     - key: YucoBody
-      isRandom: 0
+      isEquipment: 1
       price: 30000
       shopItemDescription: "\uBBF8\uC0AC\uD0A4\uB294 \uB9E4\uC77C \uC774\uAC83\uB9CC
         \uC785\uB354\uB77C\uACE0\uC694."
     - key: MisakiBody
-      isRandom: 0
+      isEquipment: 1
       price: 30000
       shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
         \uB2E4\uB140\uC694."
     - key: Barricade
-      isRandom: 0
+      isEquipment: 0
       price: 100
       shopItemDescription: "\uB9DB\uC788\uB294 \uBC14\uB098\uB098!\\n\u2026 \uB97C
         \uBA39\uACE0 \uB0A8\uC740 \uAECD\uC9C8\uC774\uC5D0\uC694."
     - key: DoubleDiceBuff
-      isRandom: 0
+      isEquipment: 0
       price: 100
       shopItemDescription: "\uB450\uBC30\uB450\uBC30"
   partsItemDataList:
@@ -764,38 +764,38 @@ MonoBehaviour:
       isFrame: 0
   sortedShopItemList:
   - key: UnityChanAccessory
-    isRandom: 1
+    isEquipment: 1
     price: 30000
     shopItemDescription: "\uC5BC\uB9C8 \uC804\uAE4C\uC9C0 \uC81C\uAC00 \uC4F0\uB358\\n\uBA38\uB9AC\uB760\uC5D0\uC694."
   - key: GreatSword
-    isRandom: 0
+    isEquipment: 1
     price: 50000
     shopItemDescription: "\uB9C8\uB825\uC774 \uB290\uAEF4\uC9C0\uB294 \uD478\uB978
       \uAC80\\n\uC774\uB78D\uB2C8\uB2E4."
   - key: TwinDagger
-    isRandom: 0
+    isEquipment: 1
     price: 50000
     shopItemDescription: "\uBE14\uB799 \uD551\uD06C \uC778 \uC720\uC5B4 \uC5D0\uB9AC\uC544"
   - key: UnityChanBody
-    isRandom: 0
+    isEquipment: 1
     price: 30000
     shopItemDescription: "\uC81C\uAC00 \uC81C\uC77C \uC88B\uC544\uD558\uB294 \uC637\uC774\uC5D0\uC694!"
   - key: YucoBody
-    isRandom: 0
+    isEquipment: 1
     price: 30000
     shopItemDescription: "\uBBF8\uC0AC\uD0A4\uB294 \uB9E4\uC77C \uC774\uAC83\uB9CC
       \uC785\uB354\uB77C\uACE0\uC694."
   - key: MisakiBody
-    isRandom: 0
+    isEquipment: 1
     price: 30000
     shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
       \uB2E4\uB140\uC694."
   - key: Barricade
-    isRandom: 0
+    isEquipment: 0
     price: 100
     shopItemDescription: "\uB9DB\uC788\uB294 \uBC14\uB098\uB098!\\n\u2026 \uB97C
       \uBA39\uACE0 \uB0A8\uC740 \uAECD\uC9C8\uC774\uC5D0\uC694."
   - key: DoubleDiceBuff
-    isRandom: 0
+    isEquipment: 0
     price: 100
     shopItemDescription: "\uB450\uBC30\uB450\uBC30"

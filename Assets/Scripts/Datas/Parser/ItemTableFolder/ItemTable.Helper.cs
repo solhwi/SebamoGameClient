@@ -36,7 +36,7 @@ public partial class ItemTable
 		base.RuntimeParser();
 
 		sortedShopItemList = shopItemDataList
-						.OrderByDescending(d => d.isRandom)
+						.OrderByDescending(d => d.isEquipment)
 						.ToList();
 	}
 

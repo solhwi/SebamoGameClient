@@ -11,7 +11,7 @@ public class ShopPopup : BoardGamePopup
 	public enum TabType
 	{
 		None = -1,
-		Random = 0,
+		Equipment = 0,
 		Normal = 1,
 	}
 
@@ -43,7 +43,7 @@ public class ShopPopup : BoardGamePopup
 			myCharacter.gameObject.SetActive(false);
 		}
 
-		normalItemIndex = itemTable.sortedShopItemList.FindIndex(i => i.isRandom == 0);
+		normalItemIndex = itemTable.sortedShopItemList.FindIndex(i => i.isEquipment == 0);
 
 		npcView.Initialize();
 		npcText.text = npcDefaultText;
@@ -52,7 +52,7 @@ public class ShopPopup : BoardGamePopup
 		scrollContent.onUpdateContents += OnUpdateContents;
 		scrollContent.onGetItemCount += GetItemCount;
 
-		scrollContent.SelectTab((int)TabType.Random);
+		scrollContent.SelectTab((int)TabType.Equipment);
 	}
 
 	protected override void OnClose()
@@ -132,7 +132,7 @@ public class ShopPopup : BoardGamePopup
 				}
 				else if (currentYPos < itemSize)
 				{
-					scrollContent.SelectTab((int)TabType.Random);
+					scrollContent.SelectTab((int)TabType.Equipment);
 				}
 			}
 		}
@@ -142,7 +142,7 @@ public class ShopPopup : BoardGamePopup
 	{
 		switch(tabType)
 		{
-			case TabType.Random:
+			case TabType.Equipment:
 				scrollContent.StartFocusTarget(0);
 				break;
 

@@ -52,7 +52,7 @@ public partial class ItemTable : ScriptParser
 	public class ShopItemData
 	{
 		public string key;
-		public int isRandom;
+		public int isEquipment;
 		public int price;
 		public string shopItemDescription;
 	}
