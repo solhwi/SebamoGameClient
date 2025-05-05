@@ -1096,7 +1096,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 9111824023335857569}
         m_TargetAssemblyTypeName: BoardGamePopup, Assembly-CSharp
         m_MethodName: OnClickClose
         m_Mode: 1
