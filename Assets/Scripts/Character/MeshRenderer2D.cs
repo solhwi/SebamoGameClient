@@ -26,6 +26,11 @@ public class MeshRenderer2D : MonoBehaviour
 		SetCutOff(0.1f);
 	}
 
+	public void SetSortingOrder(int order)
+	{
+		meshRenderer.sortingOrder = order;
+	}
+
 	public void SetTexture(Texture texture)
 	{
 		mainMaterial.SetTexture(textureParameterName, texture);

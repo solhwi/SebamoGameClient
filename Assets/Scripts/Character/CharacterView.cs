@@ -30,6 +30,11 @@ public class CharacterView : ObjectView
 			spriteView.sortingOrder = (int)LayerConfig.Character;
 		}
 
+		if (meshView != null)
+		{
+			meshView.SetSortingOrder((int)LayerConfig.Character);
+		}
+
 		if (characterHeadOnUI != null)
 		{
 			characterHeadOnUI.Initialize();

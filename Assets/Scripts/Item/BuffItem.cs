@@ -44,7 +44,7 @@ public class BuffItem
 	{
 		if (effectObj != null)
 		{
-			ObjectManager.Instance.Destroy(effectObj);
+			ObjectManager.Instance?.Destroy(effectObj);
 		}
 	}
 }
