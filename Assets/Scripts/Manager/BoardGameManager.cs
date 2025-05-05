@@ -149,7 +149,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 		stateCheckFuncMap = new Dictionary<GameState, Func<bool>>()
 		{
-			{ GameState.None, () => true },
+			{ GameState.None, CanNone },
 			{ GameState.RollDice, CanRollDice },
 			{ GameState.MoveCharacter, CanMoveCharacter },
 			{ GameState.GetItem, CanGetItem },
@@ -250,10 +250,23 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			{
 				Debug.Log($"Change Game State : {currentGameState} > {newState}");
 
+				if (newState == GameState.None)
+				{
+					foreach (var subscriber in subscribers)
+					{
+						subscriber?.OnEndTurn();
+					}
+				}
+
 				currentGameState = newState;
 				currentStateData = data;
 			}
 		}
+	}
+
+	private bool CanNone()
+	{
+		return currentGameState != GameState.None;
 	}
 
 	private bool CanRollDice()
@@ -299,11 +312,6 @@ public class BoardGameManager : Singleton<BoardGameManager>
 	
 	private IEnumerator ProcessNone()
 	{
-		foreach (var subscriber in subscribers)
-		{
-			subscriber?.OnEndTurn();
-		}
-
 		yield return null;
 	}
 
