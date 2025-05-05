@@ -567,7 +567,7 @@ MonoBehaviour:
       sellPrice: 1000
   fieldItemDataList:
   - key: DropCoin
-    fieldIconAssetPath: Sprites/ItemIcon_Badge_Gold.png
+    fieldIconAssetPath: Sprites/SpecialItem/Coin.png
     actionType: 0
     actionParameter: Coin:3
     effectPath: -1
@@ -624,7 +624,7 @@ MonoBehaviour:
     - EvenBuff
     m_values:
     - key: DropCoin
-      fieldIconAssetPath: Sprites/ItemIcon_Badge_Gold.png
+      fieldIconAssetPath: Sprites/SpecialItem/Coin.png
       actionType: 0
       actionParameter: Coin:3
       effectPath: -1

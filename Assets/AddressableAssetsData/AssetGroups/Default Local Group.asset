@@ -988,12 +988,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1b79d32d790319e43a32ad40f7b65938
-    m_Address: Assets/Bundles/Sprites/ItemIcon_Badge_Gold.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1af658d53981a422ca4eebf101abb6ce
     m_Address: Assets/Bundles/Sprites/BubbleFrame03_Bg.png
     m_ReadOnly: 0
@@ -3241,6 +3235,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 963850f307158b24b844120eda73b26d
     m_Address: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Rune_Pink.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4aa12add5fdb81f48bd16df39a0fd578
+    m_Address: Assets/Bundles/Sprites/SpecialItem/Coin.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
