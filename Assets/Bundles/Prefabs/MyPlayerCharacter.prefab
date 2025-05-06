@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1490093213175528809}
   - component: {fileID: 4695262064296838764}
   - component: {fileID: 7587915522649461684}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: MyPlayerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4906438418611041077, guid: 909cc49027f5aac47a6bcca4d3eb8258, type: 3}
       propertyPath: m_Layer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5275063127331453581, guid: 909cc49027f5aac47a6bcca4d3eb8258, type: 3}
       propertyPath: m_Pivot.x
@@ -246,11 +246,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8037747461844871073, guid: 909cc49027f5aac47a6bcca4d3eb8258, type: 3}
       propertyPath: m_Layer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9085035309551514432, guid: 909cc49027f5aac47a6bcca4d3eb8258, type: 3}
       propertyPath: m_Layer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
