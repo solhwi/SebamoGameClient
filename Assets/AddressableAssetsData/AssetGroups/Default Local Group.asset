@@ -3222,24 +3222,78 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a71be3e7990efb040a07565c43cbb198
-    m_Address: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Magic Misc/CFXR3
-      Magic Aura A (Runic).prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b7d3491409918e1489f05e7842dc45ac
-    m_Address: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Shiny.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 963850f307158b24b844120eda73b26d
-    m_Address: Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Rune_Pink.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4aa12add5fdb81f48bd16df39a0fd578
     m_Address: Assets/Bundles/Sprites/SpecialItem/Coin.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b787cf72a229d894eb110a852a24d11b
+    m_Address: Assets/JMO Assets/Firework.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b0e5d4d4b605fe4696367e6970a3a2f
+    m_Address: Assets/JMO Assets/Text.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7b5c5c3c51bfa34e86274ddab40dfcc
+    m_Address: Assets/JMO Assets/Stun.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b26a65401cf032458abf7f304cb1d1a
+    m_Address: Assets/JMO Assets/Angry.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e433bc66d3b3d148a6998ed8da40c02
+    m_Address: Assets/JMO Assets/Happy.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4ed686ac70984449b7ab222218f91ab
+    m_Address: Assets/JMO Assets/Very_Happy.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 117f25523000555419dbb546a258eba6
+    m_Address: Assets/JMO Assets/Bubbles.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a42d1efb65eaa9c4f90fcfa7fd227ef0
+    m_Address: Assets/JMO Assets/Magic Poof.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5dcb122e4da29d6409d1637ac270155c
+    m_Address: Assets/JMO Assets/Magic_Poof_Text.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35483319ec87e2640bf148da37d2e399
+    m_Address: Assets/JMO Assets/Hit_C.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2651a0b9451a89c49ba31e977ecb1c07
+    m_Address: Assets/JMO Assets/Light_Green.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81dbfeb24bb9e4a41b8393634ddddc4e
+    m_Address: Assets/JMO Assets/Light_Orange.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c02db13274aa5e4486e1da9b153eda8
+    m_Address: Assets/JMO Assets/Light_Blue.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25abeafb78e20a04d98e3ed240e7b691
+    m_Address: Assets/JMO Assets/Light_Drunk.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

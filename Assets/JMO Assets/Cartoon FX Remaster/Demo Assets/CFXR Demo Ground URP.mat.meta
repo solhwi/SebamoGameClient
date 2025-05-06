@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 542e5e9d1f2d2e74eb33676a59eca6f2
+guid: 52b4fc2b618da404cb8e564da8b2fed4
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
@@ -8,8 +8,8 @@ NativeFormatImporter:
   assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
-  productId: 109565
-  packageName: Cartoon FX Remaster Free
+  productId: 23634
+  packageName: Cartoon FX 4 Remaster
   packageVersion: R 1.4.2
   assetPath: Assets/JMO Assets/Cartoon FX Remaster/Demo Assets/CFXR Demo Ground URP.mat
-  uploadId: 717883
+  uploadId: 717885

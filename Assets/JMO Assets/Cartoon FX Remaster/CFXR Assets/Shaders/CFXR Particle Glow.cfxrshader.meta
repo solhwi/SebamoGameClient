@@ -70,9 +70,9 @@ ScriptedImporter:
   variantCountUsed: 4
 AssetOrigin:
   serializedVersion: 1
-  productId: 109565
-  packageName: Cartoon FX Remaster Free
+  productId: 23634
+  packageName: Cartoon FX 4 Remaster
   packageVersion: R 1.4.2
   assetPath: Assets/JMO Assets/Cartoon FX Remaster/CFXR Assets/Shaders/CFXR Particle
     Glow.cfxrshader
-  uploadId: 717883
+  uploadId: 717885
