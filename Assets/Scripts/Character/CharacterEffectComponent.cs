@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class EffectData
+{
+	public string path;
+	public Vector3 offset;
+}
+
 public class CharacterEffectComponent : MonoBehaviour, IBoardGameSubscriber
 {
 	[SerializeField] private PlayerDataContainer playerDataContainer = null;
@@ -11,7 +18,7 @@ public class CharacterEffectComponent : MonoBehaviour, IBoardGameSubscriber
 
 	[SerializeField] protected CharacterView characterView = null;
 
-	[SerializeField] private string goalEffectPath;
+	[SerializeField] private List<EffectData> goalEffectDataList = new List<EffectData>();
 
 	private BuffItem currentBuffItem = null;
 
@@ -55,7 +62,13 @@ public class CharacterEffectComponent : MonoBehaviour, IBoardGameSubscriber
 	{
 		if (playerDataContainer.IsEnded)
 		{
-			ResourceManager.Instance.TryInstantiateAsync<GameObject>(goalEffectPath, transform, true);
+			foreach (var data in goalEffectDataList)
+			{
+				ResourceManager.Instance.TryInstantiateAsync<GameObject>(data.path, transform, true, (obj) =>
+				{
+					obj.transform.SetLocalPositionAndRotation(data.offset, Quaternion.identity);
+				});
+			}
 		}
 		else
 		{
