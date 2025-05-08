@@ -2,60 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
+public class MyCharacterComponent : CharacterComponent
 {
-	[SerializeField] private Inventory inventory;
-	[SerializeField] private BuffItemFactory buffItemFactory;
-
-	private BuffItem currentBuffItem = null;
-
-	private void Start()
-	{
-		if (BoardGameManager.Instance != null)
-		{
-			BoardGameManager.Instance.Subscribe(this);
-		}
-	}
-
-	private void OnDestroy()
-	{
-		if (BoardGameManager.Instance != null)
-		{
-			BoardGameManager.Instance.Unsubscribe(this);
-		}
-	}
-
-	private void OnEnable()
-	{
-		CreateEffect();
-	}
-
-	private void OnDisable()
-	{
-		currentBuffItem?.DestroyEffect();
-	}
-
-	public void OnStartTurn()
-	{
-		currentBuffItem?.DestroyEffect();
-	}
-
-	public void OnEndTurn()
-	{
-		CreateEffect();
-	}
-
-	private void CreateEffect()
-	{
-		string buffItemCode = inventory.GetUsableBuffItemCode();
-
-		currentBuffItem = buffItemFactory.Make(buffItemCode);
-		if (currentBuffItem != null)
-		{
-			currentBuffItem.CreateEffect(characterView.originCharacterTransform);
-		}
-	}
-
 	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, float nextBonusMultiplyCount)
 	{
 		yield return null;

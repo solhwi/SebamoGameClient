@@ -45,6 +45,14 @@ public class PlayerDataContainer : ScriptableObject
 		}
 	}
 
+	public bool IsEnded
+	{
+		get
+		{
+			return currentTileOrder == tileDataContainer.tileOrders.Length - 1;
+		}
+	}
+
 	[Header("[타일 당 이동 시간]")]
 	public float moveTimeByOneTile = 1.0f;
 

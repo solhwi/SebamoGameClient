@@ -1,0 +1,91 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CharacterEffectComponent : MonoBehaviour, IBoardGameSubscriber
+{
+	[SerializeField] private PlayerDataContainer playerDataContainer = null;
+
+	[SerializeField] private Inventory inventory;
+	[SerializeField] private BuffItemFactory buffItemFactory;
+
+	[SerializeField] protected CharacterView characterView = null;
+
+	[SerializeField] private string goalEffectPath;
+
+	private BuffItem currentBuffItem = null;
+
+	private void Start()
+	{
+		if (BoardGameManager.Instance != null)
+		{
+			BoardGameManager.Instance.Subscribe(this);
+		}
+	}
+
+	private void OnDestroy()
+	{
+		if (BoardGameManager.Instance != null)
+		{
+			BoardGameManager.Instance.Unsubscribe(this);
+		}
+	}
+
+	private void OnEnable()
+	{
+		CreateEffect();
+	}
+
+	private void OnDisable()
+	{
+		currentBuffItem?.DestroyEffect();
+	}
+
+	public void OnStartTurn()
+	{
+		currentBuffItem?.DestroyEffect();
+	}
+
+	public void OnEndTurn()
+	{
+		CreateEffect();
+	}
+
+	private void CreateEffect()
+	{
+		if (playerDataContainer.IsEnded)
+		{
+			ResourceManager.Instance.TryInstantiateAsync<GameObject>(goalEffectPath, transform, true);
+		}
+		else
+		{
+			string buffItemCode = inventory.GetUsableBuffItemCode();
+
+			currentBuffItem = buffItemFactory.Make(buffItemCode);
+			if (currentBuffItem != null)
+			{
+				currentBuffItem.CreateEffect(characterView.originCharacterTransform);
+			}
+		}
+	}
+
+	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, float nextBonusMultiplyCount)
+	{
+		yield break;
+	}
+
+	public IEnumerator OnMove(int currentOrder, int nextOrder, int diceCount)
+	{
+		yield break;
+	}
+
+	public IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder)
+	{
+		yield break;
+	}
+
+	public IEnumerator OnDoTileAction(int currentOrder, int nextOrder)
+	{
+		yield break;
+	}
+}
