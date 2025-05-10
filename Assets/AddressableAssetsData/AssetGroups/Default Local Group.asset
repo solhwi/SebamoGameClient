@@ -3227,13 +3227,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b787cf72a229d894eb110a852a24d11b
-    m_Address: Assets/JMO Assets/Firework.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8b0e5d4d4b605fe4696367e6970a3a2f
-    m_Address: Assets/JMO Assets/Text.prefab
+    m_Address: Assets/JMO Assets/Text_GoalIn.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -3294,6 +3289,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25abeafb78e20a04d98e3ed240e7b691
     m_Address: Assets/JMO Assets/Light_Drunk.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ae74451c578b1b4288f154309b69271
+    m_Address: Assets/JMO Assets/Firework.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
