@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Wood_2
+  m_Script: {fileID: 11500000, guid: ca2d822d84543044fb1857dc35368388, type: 3}
+  m_Name: Wood_1_Positive_3
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 55140667439cf6e4fabc01430673d88f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7dfc589ffd8e1164a8fd57fdb53dc31d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -34,3 +34,6 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 1
+  specialTileType: 0
+  playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
+  count: 3
