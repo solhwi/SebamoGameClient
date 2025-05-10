@@ -2,8 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MyCharacterComponent : CharacterComponent
+public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
 {
+	private void Start()
+	{
+		if (BoardGameManager.Instance != null)
+		{
+			BoardGameManager.Instance.Subscribe(this);
+		}
+	}
+
+	private void OnDestroy()
+	{
+		if (BoardGameManager.Instance != null)
+		{
+			BoardGameManager.Instance.Unsubscribe(this);
+		}
+	}
+
 	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, float nextBonusMultiplyCount)
 	{
 		yield return null;
@@ -64,5 +80,15 @@ public class MyCharacterComponent : CharacterComponent
 				characterView.DoIdle();
 				break;
 		}
+	}
+
+	public void OnStartTurn()
+	{
+		
+	}
+
+	public void OnEndTurn()
+	{
+		
 	}
 }
