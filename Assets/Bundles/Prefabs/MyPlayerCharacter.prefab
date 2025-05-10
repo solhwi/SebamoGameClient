@@ -97,7 +97,7 @@ MonoBehaviour:
   characterView: {fileID: 2012936445174958189}
   goalEffectDataList:
   - path: Assets/JMO Assets/Text_GoalIn.prefab
-    offset: {x: 0, y: 0, z: 0}
+    offset: {x: 0, y: 0.6, z: 0}
   - path: Assets/JMO Assets/Firework.prefab
     offset: {x: 0, y: 0, z: 0}
 --- !u!23 &1490093213175528809
