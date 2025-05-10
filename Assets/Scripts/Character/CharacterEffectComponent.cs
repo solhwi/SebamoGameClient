@@ -20,6 +20,7 @@ public class CharacterEffectComponent : MonoBehaviour, IBoardGameSubscriber
 
 	[SerializeField] private List<EffectData> goalEffectDataList = new List<EffectData>();
 
+	private List<GameObject> goalEffectObjs = new List<GameObject>();
 	private BuffItem currentBuffItem = null;
 
 	private void Start()
@@ -28,6 +29,8 @@ public class CharacterEffectComponent : MonoBehaviour, IBoardGameSubscriber
 		{
 			BoardGameManager.Instance.Subscribe(this);
 		}
+
+		CreateEffect();
 	}
 
 	private void OnDestroy()
@@ -36,20 +39,21 @@ public class CharacterEffectComponent : MonoBehaviour, IBoardGameSubscriber
 		{
 			BoardGameManager.Instance.Unsubscribe(this);
 		}
-	}
 
-	private void OnEnable()
-	{
-		CreateEffect();
-	}
-
-	private void OnDisable()
-	{
-		currentBuffItem?.DestroyEffect();
+		DestroyEffect();
 	}
 
 	public void OnStartTurn()
 	{
+		DestroyEffect();
+	}
+
+	private void DestroyEffect()
+	{
+		foreach (var obj in goalEffectObjs)
+		{
+			ObjectManager.Instance?.Destroy(obj);
+		}
 		currentBuffItem?.DestroyEffect();
 	}
 
@@ -60,6 +64,8 @@ public class CharacterEffectComponent : MonoBehaviour, IBoardGameSubscriber
 
 	private void CreateEffect()
 	{
+		DestroyEffect();
+
 		if (playerDataContainer.IsEnded)
 		{
 			foreach (var data in goalEffectDataList)
@@ -67,6 +73,11 @@ public class CharacterEffectComponent : MonoBehaviour, IBoardGameSubscriber
 				ResourceManager.Instance.TryInstantiateAsync<GameObject>(data.path, transform, true, (obj) =>
 				{
 					obj.transform.SetLocalPositionAndRotation(data.offset, Quaternion.identity);
+
+					if (goalEffectObjs.Contains(obj) == false)
+					{
+						goalEffectObjs.Add(obj);
+					}
 				});
 			}
 		}

@@ -22,21 +22,6 @@ namespace CartoonFX
 
 		void SetRandomText()
 		{
-			// set text and properties according to the random damage:
-			// - bigger damage = big text, red to yellow gradient
-			// - lower damage = smaller text, fully red
-			//int damage = Random.Range(10, 1000);
-			//string text = damage.ToString();
-			//float intensity = damage / 1000f;
-			//float size = Mathf.Lerp(0.8f, 1.3f, intensity);
-			//Color color1 = Color.Lerp(Color.red, Color.yellow, intensity);
-
-			string text = "GOAL IN!";
-			float size = Mathf.Lerp(0.8f, 1.3f, 200);
-			Color color1 = Color.Lerp(Color.red, Color.yellow, 200);
-			
-			dynamicParticleText.UpdateText(text, size, color1);
-
 			particles.Play(true);
 		}
 	}
