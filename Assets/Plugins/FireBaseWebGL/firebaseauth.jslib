@@ -14,7 +14,7 @@ mergeInto(LibraryManager.library, {
                 apiKey: "AIzaSyAHm55JW_S4i_D-C3QUcpu4SIjlwKpSLtw",
                 authDomain: "sebamogame.firebaseapp.com",
                 projectId: "sebamogame",
-                storageBucket: "sebamogame.appspot.com",
+                storageBucket: "sebamogame.firebasestorage.app",
                 messagingSenderId: "659799069037",
                 appId: "1:659799069037:web:11b3d97618697215d58a64",
                 measurementId: "G-W1KECLMW4V",
