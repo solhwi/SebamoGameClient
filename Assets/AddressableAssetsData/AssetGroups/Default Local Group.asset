@@ -29,42 +29,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 14939cc7e03f0c84896f645960bebe4d
-    m_Address: Assets/Bundles/Sprites/Background/KakaoTalk_20240807_163043561.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 26d749092f657bd44be60438d6c6149b
-    m_Address: Assets/Bundles/Sprites/Background/KakaoTalk_20240807_163310195.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 62508b76f3492984c86d634c72126011
-    m_Address: Assets/Bundles/Sprites/Background/_e1c18c9c-91df-478a-b05a-82c5ed36c64d.jpg
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cc9253df90135c74790dde2599157ab6
-    m_Address: Assets/Bundles/Sprites/Background/AIBg.png
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a5d78bc962443e94ab3df0a75bae5e73
-    m_Address: Assets/Bundles/Sprites/Background/_e1c18c9c-91df-478a-b05a-82c5ed36c64d_.jpg
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cc234374fd2eab84eb20c442be263096
-    m_Address: Assets/Bundles/Sprites/Background/_807e7d06-dd48-4f13-b48a-a0efa5966737.jpg
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - UI
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d5aa4e32ca13df4b80db54b3ccf0493
     m_Address: Assets/Bundles/Sprites/ItemIcon/Eye_B.png
     m_ReadOnly: 0
@@ -3296,6 +3260,43 @@ MonoBehaviour:
     m_Address: Assets/JMO Assets/Firework.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cb8d0be08d312a439d15ee45fab76c6
+    m_Address: Assets/Bundles/Sprites/GoldCoin_BlackBoarder.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37410fdec4c4ad344b209181f9928370
+    m_Address: "Assets/Bundles/Sprites/Background/ChatGPT Image 2025\uB144 5\uC6D4
+      13\uC77C \uC624\uC804 12_56_49.png"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35b554a2e0955b945a2eee01ecabde62
+    m_Address: "Assets/Bundles/Sprites/Background/ChatGPT Image 2025\uB144 5\uC6D4
+      13\uC77C \uC624\uC804 12_52_58.png"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e3607373da3dbc41a69c546745e3613
+    m_Address: Assets/Bundles/Sprites/Background/1.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 528151c20d2f22c4490f8e5b0a9f4635
+    m_Address: Assets/Bundles/Sprites/Background/2_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07996711472b0e647bc51363ad93ae96
+    m_Address: Assets/Bundles/Sprites/Background/2_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0cf4cec20434bb14c93e9a6780056d24, type: 2}
