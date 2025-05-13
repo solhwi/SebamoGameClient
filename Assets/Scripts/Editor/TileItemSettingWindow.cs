@@ -116,12 +116,17 @@ public class TileItemSettingWindow : TileEditorWindow
 					yPos = data.tilePlaneWorldPosition.y;
 				}
 
-				string currentItemCode = tileItems[i];
-
-				DrawTileButton(xPos, yPos, tileButtonSize, tileButtonSize, windowCenterPos, () =>
+				if (data.IsSpecialTile())
 				{
-					OnClickIndex(i);
-				}, tileItems[i]);
+					DrawTileButton(xPos, yPos, tileButtonSize, tileButtonSize, windowCenterPos, null, "X");
+				}
+				else
+				{
+					DrawTileButton(xPos, yPos, tileButtonSize, tileButtonSize, windowCenterPos, () =>
+					{
+						OnClickIndex(i);
+					}, tileItems[i]);
+				}
 			}
 		});
 	}

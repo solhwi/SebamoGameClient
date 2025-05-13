@@ -94,6 +94,11 @@ public struct WorldTileData
 
 		return null;
 	}
+
+	public bool IsSpecialTile()
+	{
+		return tileBase is SpecialTileBase;
+	}
 }
 
 public class TileDataManager : Singleton<TileDataManager>

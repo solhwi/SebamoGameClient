@@ -22,6 +22,7 @@ namespace CartoonFX
 
 		void SetRandomText()
 		{
+			dynamicParticleText.UpdateText("GOAL IN!");
 			particles.Play(true);
 		}
 	}
