@@ -48,7 +48,7 @@ MonoBehaviour:
   - key: DoubleDiceBuff
     isEquipment: 0
     price: 100
-    shopItemDescription: "\uB450\uBC30\uB450\uBC30"
+    shopItemDescription: "\uB354 \uBA40\uB9AC \uAC08 \uC218 \uC788\uC8E0!"
   shopItemDataDictionary:
     m_keys:
     - UnityChanAccessory
@@ -95,7 +95,7 @@ MonoBehaviour:
     - key: DoubleDiceBuff
       isEquipment: 0
       price: 100
-      shopItemDescription: "\uB450\uBC30\uB450\uBC30"
+      shopItemDescription: "\uB354 \uBA40\uB9AC \uAC08 \uC218 \uC788\uC8E0!"
   partsItemDataList:
   - key: UnityChanAccessory
     partsType: 6
@@ -362,32 +362,32 @@ MonoBehaviour:
   - key: MinusDiceBuff
     iconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
     itemName: "\uC8FC\uC0AC\uC704 \uC74C\uC218 \uBC84\uD504"
-    itemDescription: "\uC74C\uC218"
+    itemDescription: "\uB4A4\uB85C\uB3C4 \uAC78\uC744 \uC218 \uC788\uC5B4\uC694"
     sellPrice: 1000
   - key: DoubleDiceBuff
     iconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
     itemName: "\uC8FC\uC0AC\uC704 \uB450 \uBC30 \uBC84\uD504"
-    itemDescription: "\uB450 \uBC30"
+    itemDescription: "\uB450 \uBC30\uB85C \uAC78\uC744 \uC218 \uC788\uC5B4\uC694"
     sellPrice: 1000
   - key: HalfDiceBuff
     iconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
     itemName: "\uC8FC\uC0AC\uC704 \uBC18\uAC10 \uBC84\uD504"
-    itemDescription: "\uBC18\uAC10"
+    itemDescription: "\uBC18\uBC16\uC5D0 \uBABB \uAC78\uC5B4\uC694"
     sellPrice: 1000
   - key: DrunkBuff
     iconAssetPath: Sprites/SpecialItem/DrunkBuff.png
     itemName: DrunkBuff
-    itemDescription: "\uC74C\uC8FC!"
+    itemDescription: "\uD5E4\uB871\uD5E4\uB871\u2026 1 \uB610\uB294 6!"
     sellPrice: 1000
   - key: OddBuff
     iconAssetPath: Sprites/SpecialItem/OddBuff.png
     itemName: "\uD640\uC218 \uC8FC\uC0AC\uC704 \uBC84\uD504"
-    itemDescription: "\uD640\uC218"
+    itemDescription: "\uC624\uC9C1 \uD640\uC218\uB9CC!"
     sellPrice: 1000
   - key: EvenBuff
     iconAssetPath: Sprites/SpecialItem/EvenBuff.png
     itemName: "\uC9DD\uC218 \uC8FC\uC0AC\uC704 \uBC84\uD504"
-    itemDescription: "\uC9DD\uC218"
+    itemDescription: "\uC624\uC9C1 \uC9DD\uC218\uB9CC!"
     sellPrice: 1000
   itemToolTipDataDictionary:
     m_keys:
@@ -538,32 +538,32 @@ MonoBehaviour:
     - key: MinusDiceBuff
       iconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
       itemName: "\uC8FC\uC0AC\uC704 \uC74C\uC218 \uBC84\uD504"
-      itemDescription: "\uC74C\uC218"
+      itemDescription: "\uB4A4\uB85C\uB3C4 \uAC78\uC744 \uC218 \uC788\uC5B4\uC694"
       sellPrice: 1000
     - key: DoubleDiceBuff
       iconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
       itemName: "\uC8FC\uC0AC\uC704 \uB450 \uBC30 \uBC84\uD504"
-      itemDescription: "\uB450 \uBC30"
+      itemDescription: "\uB450 \uBC30\uB85C \uAC78\uC744 \uC218 \uC788\uC5B4\uC694"
       sellPrice: 1000
     - key: HalfDiceBuff
       iconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
       itemName: "\uC8FC\uC0AC\uC704 \uBC18\uAC10 \uBC84\uD504"
-      itemDescription: "\uBC18\uAC10"
+      itemDescription: "\uBC18\uBC16\uC5D0 \uBABB \uAC78\uC5B4\uC694"
       sellPrice: 1000
     - key: DrunkBuff
       iconAssetPath: Sprites/SpecialItem/DrunkBuff.png
       itemName: DrunkBuff
-      itemDescription: "\uC74C\uC8FC!"
+      itemDescription: "\uD5E4\uB871\uD5E4\uB871\u2026 1 \uB610\uB294 6!"
       sellPrice: 1000
     - key: OddBuff
       iconAssetPath: Sprites/SpecialItem/OddBuff.png
       itemName: "\uD640\uC218 \uC8FC\uC0AC\uC704 \uBC84\uD504"
-      itemDescription: "\uD640\uC218"
+      itemDescription: "\uC624\uC9C1 \uD640\uC218\uB9CC!"
       sellPrice: 1000
     - key: EvenBuff
       iconAssetPath: Sprites/SpecialItem/EvenBuff.png
       itemName: "\uC9DD\uC218 \uC8FC\uC0AC\uC704 \uBC84\uD504"
-      itemDescription: "\uC9DD\uC218"
+      itemDescription: "\uC624\uC9C1 \uC9DD\uC218\uB9CC!"
       sellPrice: 1000
   fieldItemDataList:
   - key: DropCoin
@@ -674,41 +674,49 @@ MonoBehaviour:
     actionType: 0
     actionParameter: '*:-1'
     effectPath: Assets/JMO Assets/Angry.prefab
+    isDeBuff: 1
   - key: DoubleDiceBuff
     buffIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
     actionType: 0
     actionParameter: '*:2'
     effectPath: Assets/JMO Assets/Very_Happy.prefab
+    isDeBuff: 0
   - key: HalfDiceBuff
     buffIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
     actionType: 0
     actionParameter: '*:0.5'
     effectPath: Assets/JMO Assets/Happy.prefab
+    isDeBuff: 1
   - key: DrunkBuff
     buffIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
     actionType: 1
     actionParameter: OneOrSix
     effectPath: Assets/JMO Assets/Stun.prefab
+    isDeBuff: 1
   - key: OddBuff
     buffIconAssetPath: Sprites/SpecialItem/OddBuff.png
     actionType: 1
     actionParameter: Odd
     effectPath: Assets/JMO Assets/Bubbles.prefab
+    isDeBuff: 1
   - key: EvenBuff
     buffIconAssetPath: Sprites/SpecialItem/EvenBuff.png
     actionType: 1
     actionParameter: Even
     effectPath: Assets/JMO Assets/Bubbles.prefab
+    isDeBuff: 1
   - key: OddDeBuff
     buffIconAssetPath: Sprites/SpecialItem/OddBuff.png
     actionType: 1
     actionParameter: Odd
     effectPath: Assets/JMO Assets/Bubbles.prefab
+    isDeBuff: 0
   - key: EvenDeBuff
     buffIconAssetPath: Sprites/SpecialItem/EvenBuff.png
     actionType: 1
     actionParameter: Even
     effectPath: Assets/JMO Assets/Bubbles.prefab
+    isDeBuff: 0
   buffItemDataDictionary:
     m_keys:
     - MinusDiceBuff
@@ -725,41 +733,49 @@ MonoBehaviour:
       actionType: 0
       actionParameter: '*:-1'
       effectPath: Assets/JMO Assets/Angry.prefab
+      isDeBuff: 1
     - key: DoubleDiceBuff
       buffIconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
       actionType: 0
       actionParameter: '*:2'
       effectPath: Assets/JMO Assets/Very_Happy.prefab
+      isDeBuff: 0
     - key: HalfDiceBuff
       buffIconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
       actionType: 0
       actionParameter: '*:0.5'
       effectPath: Assets/JMO Assets/Happy.prefab
+      isDeBuff: 1
     - key: DrunkBuff
       buffIconAssetPath: Sprites/SpecialItem/DrunkBuff.png
       actionType: 1
       actionParameter: OneOrSix
       effectPath: Assets/JMO Assets/Stun.prefab
+      isDeBuff: 1
     - key: OddBuff
       buffIconAssetPath: Sprites/SpecialItem/OddBuff.png
       actionType: 1
       actionParameter: Odd
       effectPath: Assets/JMO Assets/Bubbles.prefab
+      isDeBuff: 1
     - key: EvenBuff
       buffIconAssetPath: Sprites/SpecialItem/EvenBuff.png
       actionType: 1
       actionParameter: Even
       effectPath: Assets/JMO Assets/Bubbles.prefab
+      isDeBuff: 1
     - key: OddDeBuff
       buffIconAssetPath: Sprites/SpecialItem/OddBuff.png
       actionType: 1
       actionParameter: Odd
       effectPath: Assets/JMO Assets/Bubbles.prefab
+      isDeBuff: 0
     - key: EvenDeBuff
       buffIconAssetPath: Sprites/SpecialItem/EvenBuff.png
       actionType: 1
       actionParameter: Even
       effectPath: Assets/JMO Assets/Bubbles.prefab
+      isDeBuff: 0
   profileItemDataList:
   - key: Frame_01
     isFrame: 1
@@ -820,4 +836,4 @@ MonoBehaviour:
   - key: DoubleDiceBuff
     isEquipment: 0
     price: 100
-    shopItemDescription: "\uB450\uBC30\uB450\uBC30"
+    shopItemDescription: "\uB354 \uBA40\uB9AC \uAC08 \uC218 \uC788\uC8E0!"

@@ -807,7 +807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDontDestroyOnLoad: 0
   virtualCamera: {fileID: 4155894962007408808}
-  cameraMoveSpeed: 0.5
+  cameraMoveSpeed: 5
   cameraZoomSpeed: 5
   dampingVec: {x: 0.5, y: 0.5}
   minFOV: 5
