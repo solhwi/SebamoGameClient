@@ -699,6 +699,16 @@ MonoBehaviour:
     actionType: 1
     actionParameter: Even
     effectPath: Assets/JMO Assets/Bubbles.prefab
+  - key: OddDeBuff
+    buffIconAssetPath: Sprites/SpecialItem/OddBuff.png
+    actionType: 1
+    actionParameter: Odd
+    effectPath: Assets/JMO Assets/Bubbles.prefab
+  - key: EvenDeBuff
+    buffIconAssetPath: Sprites/SpecialItem/EvenBuff.png
+    actionType: 1
+    actionParameter: Even
+    effectPath: Assets/JMO Assets/Bubbles.prefab
   buffItemDataDictionary:
     m_keys:
     - MinusDiceBuff
@@ -707,6 +717,8 @@ MonoBehaviour:
     - DrunkBuff
     - OddBuff
     - EvenBuff
+    - OddDeBuff
+    - EvenDeBuff
     m_values:
     - key: MinusDiceBuff
       buffIconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
@@ -734,6 +746,16 @@ MonoBehaviour:
       actionParameter: Odd
       effectPath: Assets/JMO Assets/Bubbles.prefab
     - key: EvenBuff
+      buffIconAssetPath: Sprites/SpecialItem/EvenBuff.png
+      actionType: 1
+      actionParameter: Even
+      effectPath: Assets/JMO Assets/Bubbles.prefab
+    - key: OddDeBuff
+      buffIconAssetPath: Sprites/SpecialItem/OddBuff.png
+      actionType: 1
+      actionParameter: Odd
+      effectPath: Assets/JMO Assets/Bubbles.prefab
+    - key: EvenDeBuff
       buffIconAssetPath: Sprites/SpecialItem/EvenBuff.png
       actionType: 1
       actionParameter: Even

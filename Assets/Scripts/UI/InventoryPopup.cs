@@ -126,7 +126,7 @@ public class InventoryPopup : BoardGamePopup
 
 		popupType = PopupType.Inventory;
 	}
-	
+
 	public override void OnOpen(UIParameter parameter = null)
 	{
 		base.OnOpen(parameter);
@@ -157,7 +157,7 @@ public class InventoryPopup : BoardGamePopup
 		{
 			scrollContent.SelectTab((int)p.tabType);
 		}
-		else 
+		else
 		{
 			scrollContent.SelectTab((int)TabType.Props);
 		}
@@ -318,7 +318,7 @@ public class InventoryPopup : BoardGamePopup
 		yield return HttpNetworkManager.Instance.TryPostMyPlayerData(null);
 	}
 
-	private  void OnClickEquippedItem(string itemCode)
+	private void OnClickEquippedItem(string itemCode)
 	{
 		if (itemCode == null || itemCode == string.Empty)
 			return;
@@ -358,7 +358,7 @@ public class InventoryPopup : BoardGamePopup
 				StartCoroutine(inventory.TryApplyBuff(currentItemCode, null));
 			}));
 		}
-		else if (itemTable.IsFieldItem(currentItemCode))
+		else if (itemTable.IsFieldItem(currentItemCode) || itemTable.IsDeBuffItem(currentItemCode))
 		{
 			BoardGameManager.Instance.StartReplaceMode(currentItemCode);
 		}
@@ -430,7 +430,7 @@ public class InventoryPopup : BoardGamePopup
 					if (currentItemCode == itemCode)
 						continue;
 
-					if (itemTable.IsFieldItem(itemCode) || itemTable.IsBuffItem(itemCode))
+					if (itemTable.IsFieldItem(itemCode) || itemTable.IsBuffItem(itemCode) || itemTable.IsDeBuffItem(itemCode))
 					{
 						yield return iterator;
 					}

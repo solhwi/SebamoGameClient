@@ -207,7 +207,10 @@ public partial class ItemTable
 		if (IsValidItem(itemCode) == false)
 			return false;
 
-		return buffItemDataDictionary.ContainsKey(itemCode);
+		if (buffItemDataDictionary.TryGetValue(itemCode, out var data) == false)
+			return false;
+
+		return data.isDeBuff == 0;
 	}
 
 	public bool IsAvatarItem(string itemCode)
@@ -268,6 +271,17 @@ public partial class ItemTable
 		}
 
 		return false;
+	}
+
+	public bool IsDeBuffItem(string itemCode)
+	{
+		if (IsValidItem(itemCode) == false)
+			return false;
+
+		if (buffItemDataDictionary.TryGetValue(itemCode, out var data) == false)
+			return false;
+
+		return data.isDeBuff > 0;
 	}
 
 	public bool IsFrameItem(string itemCode)

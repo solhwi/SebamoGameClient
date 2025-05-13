@@ -125,6 +125,7 @@ public partial class ItemTable : ScriptParser
 		public BuffActionType actionType;
 		public string actionParameter;
 		public string effectPath;
+		public int isDeBuff;
 	}
 
 	public List<BuffItemData> buffItemDataList = new List<BuffItemData>();
