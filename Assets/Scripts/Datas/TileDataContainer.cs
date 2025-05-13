@@ -78,7 +78,7 @@ public class TileDataContainer : ScriptableObject
 			for (int i = 0; i < data.tileItemIndexes.Length; i++)
 			{
 				int index = data.tileItemIndexes[i];
-				tileItems[index] = data.tileItemCodes[index];
+				tileItems[index] = data.tileItemCodes[i];
 			}
 		}
 	}
