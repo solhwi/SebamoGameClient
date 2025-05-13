@@ -13,13 +13,13 @@ public class BuffItemComponent : MonoBehaviour, IBoardGameSubscriber
 
 	private bool isUpdateBuffItem = true;
 
-	private void OnEnable()
+	private void Start()
 	{
 		BoardGameManager.Instance?.Subscribe(this);
 		isUpdateBuffItem = true;
 	}
 
-	private void OnDisable()
+	private void OnDestroy()
 	{
 		BoardGameManager.Instance?.Unsubscribe(this);
 		isUpdateBuffItem = false;
