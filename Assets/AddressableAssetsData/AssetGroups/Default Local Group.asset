@@ -3298,6 +3298,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2443acf297e026f4fa206dc1a02e7bb3
+    m_Address: Assets/Bundles/Sprites/Picto_With_Thicker_Black_Border.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0cf4cec20434bb14c93e9a6780056d24, type: 2}
   m_SchemaSet:
