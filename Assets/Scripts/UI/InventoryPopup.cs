@@ -350,17 +350,17 @@ public class InventoryPopup : BoardGamePopup
 
 	public void OnClickUseItem()
 	{
-		if (itemTable.IsFieldItem(currentItemCode))
-		{
-			BoardGameManager.Instance.StartReplaceMode(currentItemCode);
-		}
-		else if (itemTable.IsBuffItem(currentItemCode))
+		if (itemTable.IsBuffItem(currentItemCode))
 		{
 			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter($"버프 아이템 {currentItemCode}이 사용되었습니다.",
 			onClickConfirm: () =>
 			{
 				StartCoroutine(inventory.TryApplyBuff(currentItemCode, null));
 			}));
+		}
+		else if (itemTable.IsFieldItem(currentItemCode))
+		{
+			BoardGameManager.Instance.StartReplaceMode(currentItemCode);
 		}
 	}
 
