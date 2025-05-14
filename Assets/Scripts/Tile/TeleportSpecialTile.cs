@@ -9,7 +9,8 @@ public class TeleportSpecialTile : SpecialTileBase
 {
 	[SerializeField] private AssetReference teleportPrefab = null;
 	[SerializeField] private float teleportStartDelay = 1.0f;
-	[SerializeField] private float teleportWaitTime = 2.0f;
+	[SerializeField] private float teleportCharacterDelay = 0.25f;
+	[SerializeField] private float effectWaitTime = 2.0f;
 	[SerializeField] private int count;
 
 	private GameObject effectObj;
@@ -35,15 +36,17 @@ public class TeleportSpecialTile : SpecialTileBase
 	{
 		yield return new WaitForSeconds(teleportStartDelay);
 
-		owner.gameObject.SetActive(false);
-
 		yield return ResourceManager.Instance.InstantiateAsync<GameObject>(teleportPrefab, null, true, (obj) =>
 		{
 			effectObj = obj;
 			effectObj.transform.position = owner.transform.position;
 		});
 
-		yield return new WaitForSeconds(teleportWaitTime);
+		yield return new WaitForSeconds(teleportCharacterDelay);
+
+		owner.gameObject.SetActive(false);
+
+		yield return new WaitForSeconds(effectWaitTime);
 	}
 
 	public IEnumerator ArriveEffect(Transform owner)
@@ -56,7 +59,7 @@ public class TeleportSpecialTile : SpecialTileBase
 			effectObj.transform.position = owner.transform.position;
 		});
 
-		yield return new WaitForSeconds(teleportWaitTime);
+		yield return new WaitForSeconds(effectWaitTime);
 	}
 
 	public void DestroyEffect()
