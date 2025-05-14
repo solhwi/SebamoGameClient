@@ -59,9 +59,13 @@ public class CharacterComponent : MonoBehaviour
 
 		characterView.isVisible = false;
 		yield return specialTile.PlayEffect(characterView.transform);
+		specialTile.DestroyEffect();
 
 		SetPosition(nextTile.tilePlayerPosition);
 		characterView.isVisible = true;
+
+		yield return specialTile.PlayEffect(characterView.transform);
+		specialTile.DestroyEffect();
 	}
 
 
