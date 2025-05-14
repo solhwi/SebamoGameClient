@@ -8,6 +8,7 @@ using UnityEngine.AddressableAssets;
 public class TeleportSpecialTile : SpecialTileBase
 {
 	[SerializeField] private AssetReference teleportPrefab = null;
+	[SerializeField] private float teleportStartDelay = 1.0f;
 	[SerializeField] private float teleportWaitTime = 2.0f;
 	[SerializeField] private int count;
 
@@ -30,8 +31,12 @@ public class TeleportSpecialTile : SpecialTileBase
 		yield return null;
 	}
 
-	public IEnumerator PlayEffect(Transform owner)
+	public IEnumerator DepartEffect(Transform owner)
 	{
+		yield return new WaitForSeconds(teleportStartDelay);
+
+		owner.gameObject.SetActive(false);
+
 		yield return ResourceManager.Instance.InstantiateAsync<GameObject>(teleportPrefab, null, true, (obj) =>
 		{
 			effectObj = obj;
@@ -39,6 +44,17 @@ public class TeleportSpecialTile : SpecialTileBase
 		});
 
 		yield return new WaitForSeconds(teleportWaitTime);
+	}
+
+	public IEnumerator ArriveEffect(Transform owner)
+	{
+		yield return ResourceManager.Instance.InstantiateAsync<GameObject>(teleportPrefab, null, true, (obj) =>
+		{
+			effectObj = obj;
+			effectObj.transform.position = owner.transform.position;
+		});
+
+		owner.gameObject.SetActive(true);
 	}
 
 	public void DestroyEffect()
