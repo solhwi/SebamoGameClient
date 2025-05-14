@@ -3221,15 +3221,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a42d1efb65eaa9c4f90fcfa7fd227ef0
-    m_Address: Assets/JMO Assets/Magic Poof.prefab
+  - m_GUID: f78f3049d682f044abf241258c363d21
+    m_Address: Assets/JMO Assets/Magic Poof 1.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5dcb122e4da29d6409d1637ac270155c
-    m_Address: Assets/JMO Assets/Magic_Poof_Text.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Character
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35483319ec87e2640bf148da37d2e399
     m_Address: Assets/JMO Assets/Hit_C.prefab
