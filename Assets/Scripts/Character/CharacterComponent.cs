@@ -58,13 +58,13 @@ public class CharacterComponent : MonoBehaviour
 		ProcessFlip(startPos, nextTile.tilePlayerPosition);
 
 		characterView.isVisible = false;
-		yield return specialTile.PlayEffect(characterView.transform);
+		yield return specialTile.PlayEffect(characterView.originCharacterTransform);
 		specialTile.DestroyEffect();
 
 		SetPosition(nextTile.tilePlayerPosition);
 		characterView.isVisible = true;
 
-		yield return specialTile.PlayEffect(characterView.transform);
+		yield return specialTile.PlayEffect(characterView.originCharacterTransform);
 		specialTile.DestroyEffect();
 	}
 

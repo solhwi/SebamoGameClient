@@ -36,7 +36,6 @@ public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
 
 	public IEnumerator OnDoTileAction(int currentOrder, int nextOrder)
 	{
-		characterView.DoRun();
 
 		var specialTile = TileDataManager.Instance.GetCurrentSpecialTile(currentOrder);
 		if (specialTile == null)
@@ -48,6 +47,7 @@ public class MyCharacterComponent : CharacterComponent, IBoardGameSubscriber
 		{
 			case SpecialTileType.Jump:
 			case SpecialTileType.RollBack:
+				characterView.DoRun();
 				yield return ProcessMove(currentOrder, nextOrder, 2.5f);
 				break;
 
