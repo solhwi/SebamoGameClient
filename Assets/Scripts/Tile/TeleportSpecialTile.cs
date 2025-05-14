@@ -48,13 +48,13 @@ public class TeleportSpecialTile : SpecialTileBase
 
 	public IEnumerator ArriveEffect(Transform owner)
 	{
+		owner.gameObject.SetActive(true);
+
 		yield return ResourceManager.Instance.InstantiateAsync<GameObject>(teleportPrefab, null, true, (obj) =>
 		{
 			effectObj = obj;
 			effectObj.transform.position = owner.transform.position;
 		});
-
-		owner.gameObject.SetActive(true);
 	}
 
 	public void DestroyEffect()
