@@ -55,6 +55,8 @@ public class TeleportSpecialTile : SpecialTileBase
 			effectObj = obj;
 			effectObj.transform.position = owner.transform.position;
 		});
+
+		yield return new WaitForSeconds(teleportWaitTime);
 	}
 
 	public void DestroyEffect()
