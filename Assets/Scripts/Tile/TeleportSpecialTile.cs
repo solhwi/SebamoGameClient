@@ -32,9 +32,10 @@ public class TeleportSpecialTile : SpecialTileBase
 
 	public IEnumerator PlayEffect(Transform owner)
 	{
-		yield return ResourceManager.Instance.InstantiateAsync<GameObject>(teleportPrefab, owner, true, (obj) =>
+		yield return ResourceManager.Instance.InstantiateAsync<GameObject>(teleportPrefab, null, true, (obj) =>
 		{
 			effectObj = obj;
+			effectObj.transform.position = owner.transform.position;
 		});
 
 		yield return new WaitForSeconds(teleportWaitTime);

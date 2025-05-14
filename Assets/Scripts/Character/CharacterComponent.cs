@@ -57,8 +57,8 @@ public class CharacterComponent : MonoBehaviour
 		// 방향 전환
 		ProcessFlip(startPos, nextTile.tilePlayerPosition);
 
-		yield return specialTile.PlayEffect(characterView.originCharacterTransform);
 		characterView.isVisible = false;
+		yield return specialTile.PlayEffect(characterView.originCharacterTransform);
 		specialTile.DestroyEffect();
 
 		SetPosition(nextTile.tilePlayerPosition);
