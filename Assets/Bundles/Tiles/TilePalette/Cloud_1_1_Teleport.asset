@@ -36,4 +36,12 @@ MonoBehaviour:
   m_ColliderType: 1
   specialTileType: 2
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
+  teleportPrefab:
+    m_AssetGUID: f78f3049d682f044abf241258c363d21
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  teleportStartDelay: 0.5
+  teleportCharacterDelay: 0.25
+  effectWaitTime: 2
   count: 6
