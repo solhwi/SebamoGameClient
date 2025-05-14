@@ -40,7 +40,7 @@ public class ObjectView : MonoBehaviour
 	private bool isInitialized = false;
 	private Coroutine prepareRoutine = null;
 
-	protected bool isVisible = false;
+	public bool isVisible = false;
 
 	public virtual void Initialize()
 	{

@@ -46,6 +46,10 @@ public class CharacterComponent : MonoBehaviour
 
 	public IEnumerator ProcessTeleport(int currentOrder, int nextOrder, float speedRate)
 	{
+		var currentTile = TileDataManager.Instance.GetTileData(currentOrder);
+		if (currentTile.tileBase is TeleportSpecialTile specialTile == false)
+			yield break;
+
 		var nextTile = TileDataManager.Instance.GetTileData(nextOrder);
 
 		Vector3 startPos = transform.position;
@@ -53,18 +57,11 @@ public class CharacterComponent : MonoBehaviour
 		// 방향 전환
 		ProcessFlip(startPos, nextTile.tilePlayerPosition);
 
-		float t = 0.0f;
-		float moveTime = playerDataContainer.moveTimeByOneTile;
-		while (t < moveTime)
-		{
-			t += Time.deltaTime * speedRate;
-			var currentPos = Vector2.Lerp(startPos, nextTile.tilePlayerPosition, t);
+		characterView.isVisible = false;
+		yield return specialTile.PlayEffect(characterView.transform);
 
-			yield return null;
-
-			// 실제 이동
-			SetPosition(currentPos);
-		}
+		SetPosition(nextTile.tilePlayerPosition);
+		characterView.isVisible = true;
 	}
 
 
