@@ -27,7 +27,7 @@ public class ObjectView : MonoBehaviour
 
 	protected Vector3 initialCameraArmRot = Vector3.zero;
 
-	protected GameObject originObj;
+	public GameObject originObj;
 
 	protected SpriteRenderer spriteView = null;
 	protected MeshRenderer2D meshView = null;
