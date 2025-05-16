@@ -64,6 +64,8 @@ MonoBehaviour:
   height: 512
   width: 512
   depth: 32
+  originObj: {fileID: 0}
+  isVisible: 0
   characterHeadOnUI: {fileID: 1660296009466121727}
 --- !u!114 &4136017040609805539
 MonoBehaviour:
@@ -96,9 +98,9 @@ MonoBehaviour:
   buffItemFactory: {fileID: 11400000, guid: 90850b6b0c5d6a44eba35d118322da3f, type: 2}
   characterView: {fileID: 2012936445174958189}
   goalEffectDataList:
-  - path: Assets/JMO Assets/Text_GoalIn.prefab
+  - path: Assets/Bundles/JMO Assets/Text_GoalIn.prefab
     offset: {x: 0, y: 0.6, z: 0}
-  - path: Assets/JMO Assets/Firework.prefab
+  - path: Assets/Bundles/JMO Assets/Firework.prefab
     offset: {x: 0, y: 0, z: 0}
 --- !u!23 &1490093213175528809
 MeshRenderer:
