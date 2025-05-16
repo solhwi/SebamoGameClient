@@ -497,7 +497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitingText: {fileID: 2087245922075466261}
   waitingAddString: .
-  maxAddStringCount: 1
+  maxAddStringCount: 3
   changeTime: 1
 --- !u!1 &4797080930836060981
 GameObject:
@@ -729,7 +729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitingText: {fileID: 4643720955930378640}
   waitingAddString: .
-  maxAddStringCount: 1
+  maxAddStringCount: 3
   changeTime: 1
 --- !u!1 &8653841227791474420
 GameObject:
