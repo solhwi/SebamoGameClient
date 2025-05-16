@@ -18,89 +18,89 @@ MonoBehaviour:
   playerGroup: Exp
   playerName: "\uC194\uD718"
   hasDiceCount: 3
-  currentTileOrder: 12
-  profileComment: "\uC548\uB155\uD558\uC138\uC694."
+  currentTileOrder: 13
+  profileComment: 
   moveTimeByOneTile: 1
   otherPlayerPacketDatas:
   - type: 0
     playerGroup: Exp
-    playerName: "\uC9C0\uD604"
-    playerTileOrder: 1
+    playerName: "\uC194\uD718"
+    playerTileOrder: 13
     hasDiceCount: 3
-    profileComment: "\uC548\uB155\uD558\uC138\uC694."
+    profileComment: 
     equippedItems:
     - YucoBody
-    - MisakiHair
+    - UnityChanHair
     - UnityChanEye
     - UnityChanFace
     - MisakiAccessory
     - GreatSword
     appliedProfileItems:
-    - Profile_01
+    - Profile_02
     - Frame_01
   - type: 0
     playerGroup: Exp
-    playerName: "\uC9C0\uD64D"
-    playerTileOrder: 2
+    playerName: "\uC194\uD718"
+    playerTileOrder: 13
     hasDiceCount: 3
-    profileComment: "\uC548\uB155\uD558\uC138\uC694."
+    profileComment: 
     equippedItems:
     - YucoBody
-    - MisakiHair
+    - UnityChanHair
     - UnityChanEye
     - UnityChanFace
     - MisakiAccessory
     - GreatSword
     appliedProfileItems:
-    - Profile_01
+    - Profile_02
     - Frame_01
   - type: 0
     playerGroup: Exp
-    playerName: "\uB3D9\uD604"
-    playerTileOrder: 3
+    playerName: "\uC194\uD718"
+    playerTileOrder: 13
     hasDiceCount: 3
-    profileComment: "\uC548\uB155\uD558\uC138\uC694."
+    profileComment: 
     equippedItems:
     - YucoBody
-    - MisakiHair
+    - UnityChanHair
     - UnityChanEye
     - UnityChanFace
     - MisakiAccessory
     - GreatSword
     appliedProfileItems:
-    - Profile_01
+    - Profile_02
     - Frame_01
   - type: 0
     playerGroup: Exp
-    playerName: "\uC0C1\uD6C8"
-    playerTileOrder: 7
+    playerName: "\uC194\uD718"
+    playerTileOrder: 13
     hasDiceCount: 3
-    profileComment: "\uC548\uB155\uD558\uC138\uC694."
+    profileComment: 
     equippedItems:
     - YucoBody
-    - MisakiHair
+    - UnityChanHair
     - UnityChanEye
     - UnityChanFace
     - MisakiAccessory
     - GreatSword
     appliedProfileItems:
-    - Profile_01
+    - Profile_02
     - Frame_01
   - type: 0
     playerGroup: Exp
-    playerName: "\uAC15\uC6B1"
-    playerTileOrder: 0
+    playerName: "\uC194\uD718"
+    playerTileOrder: 13
     hasDiceCount: 3
-    profileComment: "\uC548\uB155\uD558\uC138\uC694."
+    profileComment: 
     equippedItems:
     - YucoBody
-    - MisakiHair
+    - UnityChanHair
     - UnityChanEye
     - UnityChanFace
     - MisakiAccessory
     - GreatSword
     appliedProfileItems:
-    - Profile_01
+    - Profile_02
     - Frame_01
   MaxDiceCount: 10
   NextDiceCount: 3

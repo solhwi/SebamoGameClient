@@ -49,21 +49,26 @@ MonoBehaviour:
   tileRenderMode: 1
   sortingOrderType: 3
   tileAnimationFrameRate: 1
-  tileOrders: 54010000550100005201000053010000510100004f010000500100004e0100004c0100004d0100004b0100004a0100004901000048010000470100004601000045010000440100003e0100003d0100003c010000430100004201000041010000400100003f0100003b0100003a010000390100003801000037010000350100003601000033010000340100003201000030010000310100002f0100002d0100002e0100002b0100002c0100002a0100002901000028010000270100002601000025010000200100001f0100001e0100001d010000240100002301000022010000210100001c0100001b0100001a0100001901000017010000180100001601000008010000070100000601000015010000140100000a01000009010000050100000401000013010000120100000d0100000c0100000b0100000301000011010000100100000f0100000e0100000101000002010000ff00000000010000fe000000fc000000fd000000fa000000fb000000ec000000eb000000ea000000e9000000f9000000f1000000f0000000ef000000ee000000ed000000e7000000e8000000f8000000f7000000f3000000f2000000e5000000e6000000f6000000f5000000f4000000e3000000e4000000e2000000e1000000e0000000dc000000db000000da000000d9000000df000000de000000dd000000d8000000be000000bf000000c0000000c1000000d7000000bc000000bd000000c2000000c3000000c4000000d6000000d5000000bb000000c5000000c6000000d4000000d3000000b9000000ba000000c7000000c8000000d2000000d1000000b8000000c9000000ca000000cb000000d0000000b7000000cc000000cd000000ce000000cf000000b6000000b5000000b4000000b3000000b2000000b1000000b0000000af000000ae000000ad000000a3000000a4000000ac000000a2000000a5000000a6000000a7000000a8000000a9000000aa000000ab000000a1000000a00000009f0000009e0000009d0000009c000000890000008a0000008b0000008c0000009b00000087000000880000008d0000008e0000008f0000009a00000086000000900000009100000099000000850000009200000093000000940000009800000084000000830000009500000096000000970000008200000081000000800000007f0000007e0000007d0000007c0000006c0000006d0000006e0000006f000000700000007b0000006b00000071000000790000007a0000006700000068000000690000006a00000072000000730000007800000066000000740000007500000076000000770000006500000064000000630000006200000061000000600000005f000000540000005500000056000000570000005e0000005300000058000000590000005d00000052000000510000005a0000005b0000005c0000004600000047000000480000004900000050000000450000004a0000004e0000004f000000440000004b0000004c0000004d00000043000000420000004100000040000000350000003600000037000000380000003f00000034000000390000003e000000330000003a0000003b0000003c0000003d000000320000001a0000001b0000001c0000001d00000022000000230000002f0000003000000031000000190000001e0000001f000000200000002100000024000000250000002c0000002d0000002e0000001800000017000000260000002b000000160000002700000028000000290000002a0000001500000014000000130000001200000011000000100000000c0000000d0000000e0000000f0000000b0000000a00000009000000080000000700000006000000050000000200000003000000040000000000000001000000
+  tileOrders: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
   tileItems:
+  - MinusDiceBuff
   - 
   - 
   - 
   - 
   - 
   - 
+  - HalfDiceBuff
+  - EvenBuff
   - 
   - 
+  - DoubleDiceBuff
   - 
   - 
   - 
   - 
   - 
+  - Barricade
   - 
   - 
   - 
@@ -71,116 +76,178 @@ MonoBehaviour:
   - 
   - 
   - 
+  - OddBuff
   - 
   - 
+  - MinusDiceBuff
   - 
   - 
   - 
+  - OddBuff
   - 
   - 
+  - HalfDiceBuff
   - 
+  - HalfDiceBuff
+  - OddBuff
   - 
   - 
   - 
+  - DoubleDiceBuff
   - 
   - 
   - 
+  - DoubleDiceBuff
   - 
   - 
+  - DrunkBuff
+  - DoubleDiceBuff
   - 
   - 
   - 
+  - OddBuff
+  - EvenBuff
   - 
+  - MinusDiceBuff
   - 
   - 
+  - Barricade
   - 
+  - OddBuff
   - 
+  - DrunkBuff
   - 
   - 
+  - DoubleDiceBuff
   - 
+  - MinusDiceBuff
+  - HalfDiceBuff
   - 
   - 
   - 
   - 
+  - DoubleDiceBuff
   - 
   - 
   - 
+  - Barricade
   - 
   - 
+  - Barricade
   - 
   - 
   - 
   - 
+  - HalfDiceBuff
   - 
   - 
+  - DoubleDiceBuff
   - 
   - 
   - 
   - 
+  - MinusDiceBuff
+  - Barricade
   - 
+  - DrunkBuff
   - 
   - 
+  - OddBuff
+  - OddBuff
+  - DoubleDiceBuff
+  - EvenBuff
   - 
   - 
   - 
+  - EvenBuff
   - 
+  - DrunkBuff
   - 
   - 
+  - Barricade
   - 
+  - DrunkBuff
   - 
   - 
+  - HalfDiceBuff
   - 
   - 
+  - DoubleDiceBuff
   - 
+  - Barricade
   - 
   - 
   - 
   - 
+  - MinusDiceBuff
   - 
+  - MinusDiceBuff
+  - OddBuff
   - 
   - 
   - 
   - 
+  - DoubleDiceBuff
   - 
   - 
   - 
   - 
+  - HalfDiceBuff
   - 
   - 
+  - EvenBuff
+  - OddBuff
   - 
   - 
   - 
+  - OddBuff
+  - DoubleDiceBuff
+  - EvenBuff
   - 
   - 
   - 
   - 
   - 
+  - MinusDiceBuff
+  - DoubleDiceBuff
   - 
+  - DrunkBuff
   - 
   - 
   - 
   - 
   - 
+  - DoubleDiceBuff
   - 
   - 
   - 
+  - Barricade
   - 
   - 
+  - OddBuff
   - 
   - 
+  - MinusDiceBuff
   - 
+  - Barricade
+  - DoubleDiceBuff
   - 
   - 
   - 
   - 
+  - MinusDiceBuff
   - 
   - 
+  - HalfDiceBuff
   - 
   - 
   - 
   - 
+  - DrunkBuff
+  - DoubleDiceBuff
   - 
   - 
+  - DrunkBuff
   - 
   - 
   - 
@@ -188,33 +255,51 @@ MonoBehaviour:
   - 
   - 
   - 
+  - HalfDiceBuff
   - 
   - 
+  - DoubleDiceBuff
+  - OddBuff
+  - EvenBuff
   - 
+  - OddBuff
   - 
+  - Barricade
   - 
   - 
+  - EvenBuff
   - 
   - 
+  - Barricade
   - 
+  - DoubleDiceBuff
   - 
+  - MinusDiceBuff
   - 
   - 
+  - DoubleDiceBuff
   - 
   - 
   - 
   - 
+  - MinusDiceBuff
   - 
   - 
   - 
   - 
   - 
+  - HalfDiceBuff
   - 
   - 
+  - OddBuff
   - 
+  - EvenBuff
+  - MinusDiceBuff
   - 
   - 
+  - DrunkBuff
   - 
+  - DoubleDiceBuff
   - 
   - 
   - 
@@ -223,19 +308,27 @@ MonoBehaviour:
   - 
   - 
   - 
+  - OddBuff
   - 
   - 
   - 
+  - EvenBuff
   - 
+  - Barricade
   - 
   - 
   - 
   - 
   - 
+  - OddBuff
   - 
   - 
   - 
+  - EvenBuff
+  - Barricade
   - 
+  - DrunkBuff
+  - HalfDiceBuff
   - 
   - 
   - 
@@ -249,144 +342,70 @@ MonoBehaviour:
   - 
   - 
   - 
+  - MinusDiceBuff
+  - DoubleDiceBuff
+  - Barricade
   - 
+  - DoubleDiceBuff
   - 
+  - OddBuff
   - 
   - 
   - 
   - 
+  - EvenBuff
   - 
   - 
   - 
+  - MinusDiceBuff
   - 
   - 
   - 
   - 
+  - MinusDiceBuff
   - 
   - 
   - 
   - 
+  - Barricade
   - 
+  - DrunkBuff
   - 
   - 
+  - DoubleDiceBuff
+  - HalfDiceBuff
   - 
   - 
   - 
   - 
   - 
   - 
+  - OddBuff
   - 
   - 
+  - HalfDiceBuff
   - 
   - 
   - 
   - 
+  - DrunkBuff
   - 
+  - DrunkBuff
   - 
   - 
   - 
   - 
+  - DoubleDiceBuff
+  - Barricade
   - 
   - 
+  - DoubleDiceBuff
   - 
   - 
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - DoubleDiceBuff
   - 
   - 
   - 
