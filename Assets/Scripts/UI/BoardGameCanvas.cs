@@ -12,6 +12,8 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 	[SerializeField] private DiceView diceView = null; 
 	[SerializeField] private ProfileSetter profileSetter;
 	[SerializeField] private Text statusText = null;
+	
+	[SerializeField] private GameObject diceButtonGoalObj;
 
 	[SerializeField] private List<PopupType> cameraResetPopupTypes = new List<PopupType>();
 
@@ -23,6 +25,7 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 		}
 
 		diceView.Initialize();
+		diceButtonGoalObj.SetActive(playerDataContainer.IsEnded);
 	}
 
 	protected override void OnClose()
@@ -34,11 +37,12 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 	}
 	public void OnStartTurn()
 	{
-
+		diceButtonGoalObj.SetActive(playerDataContainer.IsEnded);
 	}
+
 	public void OnEndTurn()
 	{
-
+		diceButtonGoalObj.SetActive(playerDataContainer.IsEnded);
 	}
 
 	public IEnumerator OnDoTileAction(int currentOrder, int nextOrder)
@@ -66,9 +70,12 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 
 	public void OnClickRollDice()
 	{
-		CameraController.Instance.ResetTarget();
-		CameraController.Instance.SetFollow(true);
-		BoardGameManager.Instance.OnClickRollDice();
+		if (playerDataContainer.IsEnded == false)
+		{
+			CameraController.Instance.ResetTarget();
+			CameraController.Instance.SetFollow(true);
+			BoardGameManager.Instance.OnClickRollDice();
+		}
 	}
 
 	private void Update()
