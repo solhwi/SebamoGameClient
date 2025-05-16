@@ -3191,69 +3191,69 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8b0e5d4d4b605fe4696367e6970a3a2f
-    m_Address: Assets/JMO Assets/Text_GoalIn.prefab
+  - m_GUID: 46c8af0034d530641a0cd0789d43d222
+    m_Address: Assets/Bundles/JMO Assets/CFXR2 Expression Happy (Loop).prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d7b5c5c3c51bfa34e86274ddab40dfcc
-    m_Address: Assets/JMO Assets/Stun.prefab
+  - m_GUID: 019cb9075f201514cbc67c9694ce7f77
+    m_Address: Assets/Bundles/JMO Assets/CFXR2 Potion Bubbles (Loop).prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8b26a65401cf032458abf7f304cb1d1a
-    m_Address: Assets/JMO Assets/Angry.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1e433bc66d3b3d148a6998ed8da40c02
-    m_Address: Assets/JMO Assets/Happy.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e4ed686ac70984449b7ab222218f91ab
-    m_Address: Assets/JMO Assets/Very_Happy.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 117f25523000555419dbb546a258eba6
-    m_Address: Assets/JMO Assets/Bubbles.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f78f3049d682f044abf241258c363d21
-    m_Address: Assets/JMO Assets/Magic Poof 1.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 35483319ec87e2640bf148da37d2e399
-    m_Address: Assets/JMO Assets/Hit_C.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2651a0b9451a89c49ba31e977ecb1c07
-    m_Address: Assets/JMO Assets/Light_Green.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 81dbfeb24bb9e4a41b8393634ddddc4e
-    m_Address: Assets/JMO Assets/Light_Orange.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1c02db13274aa5e4486e1da9b153eda8
-    m_Address: Assets/JMO Assets/Light_Blue.prefab
+  - m_GUID: afa54037ffe627545886e2741abb365d
+    m_Address: Assets/Bundles/JMO Assets/CFXR4 Firework HDR Shoot Single (Random
+      Color).prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25abeafb78e20a04d98e3ed240e7b691
-    m_Address: Assets/JMO Assets/Light_Drunk.prefab
+    m_Address: Assets/Bundles/JMO Assets/Light_Drunk.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0ae74451c578b1b4288f154309b69271
-    m_Address: Assets/JMO Assets/Firework.prefab
+  - m_GUID: 59565e376666cb34e9dcc5eb1a9297a9
+    m_Address: Assets/Bundles/JMO Assets/CFXR2 Expression Angry (Loop).prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c02db13274aa5e4486e1da9b153eda8
+    m_Address: Assets/Bundles/JMO Assets/Light_Blue.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b0e5d4d4b605fe4696367e6970a3a2f
+    m_Address: Assets/Bundles/JMO Assets/Text_GoalIn.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2651a0b9451a89c49ba31e977ecb1c07
+    m_Address: Assets/Bundles/JMO Assets/Light_Green.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b2489e8495217a4090bc9e4c0ed5f58
+    m_Address: Assets/Bundles/JMO Assets/Magic Poof_Sub.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7b5c5c3c51bfa34e86274ddab40dfcc
+    m_Address: Assets/Bundles/JMO Assets/Stun.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81dbfeb24bb9e4a41b8393634ddddc4e
+    m_Address: Assets/Bundles/JMO Assets/Light_Orange.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f78f3049d682f044abf241258c363d21
+    m_Address: Assets/Bundles/JMO Assets/Magic Poof.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae07f2a45f14a82428409cfe410e6002
+    m_Address: Assets/Bundles/JMO Assets/CFXR4 Firework 1 Cyan-Purple (HDR).prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -3871,6 +3871,4167 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 113eb05ea9ee52b42932e7dc68b693cf
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr electric arcs x4
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2c9932117f901f4cbb019f29bda1c69
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr skull distort hdr
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1efb59804352a2458135e8203cbcc37
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch rectangle
+      ray hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa101072e5a628f439ecf55c03dfe940
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch triangle
+      fade ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56e9b0d5f7f278045887edbfcb1f6e08
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smiley smile ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b30794e932b29df4a9627af9df89645a
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme plain stable
+      fine hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1907056c31c502d498df765288c92228
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch rain blur
+      ab nosp.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6b83a8798dc3f748822ba3b239a8728
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris flat unlit
+      3x3 ab hdr.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9815bbe84bbafb469825c25a64c229a
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch spike fade
+      add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cc083982df3cf54fbce604867ef0cd9
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr line loop electric
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39029f13e4f0bd94493ed939a7feff9c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr star ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56dcdb394ebaf9841bfd56db0f1ea05c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr card heart ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5e165bd20254774d84be998858676af
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ring spikes revert
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79d590b9f60f0114d9f0c1686411167e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch triangle
+      smooth nosp ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae1cda08a7621e649acb7738ffb73620
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire small anim hdr
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63106879cfd3c96478c2feec3fcb4c4a
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc ring electric
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d94053f8609f0e14aadb270ec29d672f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch triangle
+      smooth nosp add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4319f9a8af0f204884e3fd4c73fb4fa
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch triangle
+      to diamond ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb2beee5db2731d46b9243941fc0c31e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch rectangle
+      ray blur hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3057ceabfc760ef45ba602a86f46bbe0
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire full blurred
+      fade hdr add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 301dce4846efde14394aa2a2b88960b1
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr heart break dissolve
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0aed4f47f3bcce64b83be8b64904bab4
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr electric sparks hdr
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82d1a4b93a158084aa5868eaed32cc23
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme blur mid hdr
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98a37e62d72196e409812a54c3cdd8a5
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail tech.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b92f1c26cdaedce418d969ac30ed8cb6
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail slash.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 813a3e7e863a760429b02e9070a41e2c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme blur stable
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f57f1e6bf79b22448e57c6ed217ee06
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme plain unstable
+      fine hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59cf83a58db62b64bba7b9a6275da6af
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud corner
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdad1b7ca29dbf2408c5900bd6cc5a8f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc ring local space
+      add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ab14112d95c069419bd90ef39fba9b2
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris unlit 3x3
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c12227a2de3f76b448b3af32949c646c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc ring water ripple
+      local space ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 355ca83212eccc2478e699133aee2677
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme candle unstable
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da4be36c7194b6245a88a2732d0fcfcb
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc ring local space
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef871ae36c32a564cbe3c39713e711f5
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch triangle
+      add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f933b3ea1afc3c43b76b5dafa33bdb8
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr puddle dissolve ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a81df4963508f8c4e9c854c919c93b67
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc ring hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2beba2f11be47c4b93abe40da54b177
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch rain blur
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d244b42458199344aaea0c6c77cbb90
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc glow soft add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75b0637026ec53946a826eb34b74157e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr electric sparks ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50350a9c0e5b6454d873d1984e97cde4
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch inv spike
+      fade add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6444139dd170a7249acc68e412bfd00f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 ab
+      lit soft individual mid shadow.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a16809106044f5b41b7cbe1d711a1c98
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch smoke fume
+      blur ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5291c8379d0117f47bf0a76d17512364
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr screen distortion
+      perlin.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95769915f5c8ef14a924fa707fea6761
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc ring water ripple
+      local space arc ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdebe8f9090761f44a629442b2b5cf57
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr card spade ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 173b6b1a6db432f44b3636e0ca19e4db
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme blur unstable
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ff4585d5d3df2945b6b02ee4ff389bb
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr water drop blur anim
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efec9ca1c146ade489c4943c6ab0ede5
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr water small splash
+      hollow stretch nosp ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef64dc8784962734c8b0980d3aa7b21a
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme crisp stable
+      fine hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37976d5d4486ae547867ea7ea8e80356
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr screen distortion
+      ring nosp.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 433cfee66f74fd94fa6149666cfbea29
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire crisp fade hdr
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2e32673805f8974a888782e19aa2bbf
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch rectangle
+      ray ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6516bbddb2a0474cad423886d0f904c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc glow soft hdr
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a85f072ce29bad4f98e0984616fc152
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr spikes impact hdr
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9a9e8bac511e0f40935dbea31a91a3d
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr water small splash
+      stretch nosp ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e65055c579688c4d8037b12e2dcd7a1
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris wood 3x3 ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7e9776f896c4604a9f054a862e1b21e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr heart break parts
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e78955b2cfcfa73479b0cfe8e7ba17f5
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch spikes smooth
+      x2 hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b86a91b570220b49a878c53343f2c79
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire blur fade hdr
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b723f81f440998d42a4d4b393cac870c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr bubble ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 906ae4d407ec09644b01a6902dbb9ea6
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc glow crisp ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22df6ea84842b434c9b2c6e5008d3db3
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail flames
+      hit.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbb6f419bbe7c6e4d9ce7e0322aa267d
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr aura runic hdr ab
+      nosp.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab90f773c2babb1458313e761a0181b0
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch smoke arc
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad419ece368c4894188f8b17a48a26a7
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire crisp fade nosp
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8134160c9be0aa42ad349f9232c6073
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire circle drawn
+      blurred hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bbcb67e3b86fe64f9cf425aad7e9404
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr puddle dissolve soft
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2bdf77339f206246b012880ccbdf189
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 ab
+      lit soft.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db1fcb702d3796547b8a490b3a64b41e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc glow soft ground
+      nosp add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efaa1dd14471b6143b5ee7827566c1e0
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc glow soft invert
+      add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7ffbf43e28f7014d968ef0d50836718
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris 3x3 ab lit
+      emission.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16b22ff79ad97474eb609b48400ecf22
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr skull dissolve ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04d0f020002082e4db140d8c0954e83e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr spikes impact add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84d4cc499ffaa5940975f7aba4fcbb24
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 ab
+      lit normal.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e4bb08e9ff5d134fa0d5b0bfe6a2eb9
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris flat unlit
+      3x3 ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b41c12b9e8d21c442affcda9d5c050f7
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr electric small anim
+      4x2 hdr.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71ef950d76e4a6149b53e2136eaf4b2c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fly anim.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a73ea21367565fe478f25a8a2e33ade3
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ww smoke glow ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2297254cc96f53141bb29fae4fcca6ea
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail ice thin.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94ef692e9d05cb748aa09d827d566c78
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme candle hdr
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e32f93f5ce765e47b0cabd37ce2b73d
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch fire crisp
+      fade hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e06e7973fae97da47931c6ffb2b23468
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr water foam ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbc2ae6c61d51b04ea1a55fbeff6341e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch trait ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4814d2dd466a574d8746a53e0ab0443
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr card diamond ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21417cf5ab018164f9d28d2e35ad8cb7
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr bubble 2 ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c705a3bc7b78f542b313e57c16ba83d
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail plain.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87210e6cc6e78844cb678fb0fac0a15f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme crisp mid
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e1ad496c3904bd4085bb4f0a5db972d
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc glow soft invert
+      add nosp.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f1fea85f791b4f4b8fabff9da93491a
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch spikes x2
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80eaf5e9f1028e04b87ba508cb40858f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr leave a ab lit normal.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3971f198822757548a4891ef95ae7a80
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme plain stable
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 995e2324eb1b03f4babb8105764afa89
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch trait blur
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3b36b67920c18a4a8df7edba245e809
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire plain fade hdr
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59dbbf9caca36934f947599cb0e569d2
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme crisp unstable
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fd7b93f5b2bb4340b23ceb8bf5f8ad9
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire small anim blurred
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53d68b6f738580245aa24697e491caae
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail tech
+      thin.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f99a4d6e0727b6c47b5a03d567bbcf75
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc ring add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8e9ac83c7b8f874dbd012d38148c845
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr steam blur dissolve
+      hdr add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6df8f0b716259a419119383db26d8bf
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr screen distortion
+      sphere.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a79d1a32a9adbbf4a9791a6dfb84f5fb
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc glow soft p4
+      add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21758c48417fe2e43b8845f710749ad7
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris 3x3 ab lit.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 900acfa037f7a0242b5afdeea8ff53bc
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire circle plain
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b296f62480ad2d438c02cbde3b5767f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme plain unstable
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c965a6802e32f5847ad2bc4342b74778
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ghost trail add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df4afccabf3812f4eb84570337f5bcd3
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr electric arcs fade
+      x4 hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 935ab430b9a17de4caf00054e74116f4
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch ray blur
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2925b559433ea934aa621370ff411a6b
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme blur mid fine
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b312598f1eedcea46af6f9284bb88a27
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris wood unlit
+      3x3 ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36dcca5227bbc824d80abd795d31fe48
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr water small splash
+      stretch nosp hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cb5eb823b3ed694da756f5a2070e45d
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 ab
+      lit soft individual bright shadow.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ccfff22ed954c6f41ade040a8a7c8f22
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr blood splash dissolve
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08d47308464a99942ad8db9b460417d3
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smiley frown ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30c41c686541ab64bb4c79d84567f3ed
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flare add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3dacf7558eb39c44990dc773a3c06cc6
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire circle crisp
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82c96ba0983dc1a40b9a0e835c34e75f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr spikes half impact
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd8fafce67740d843a22115b87dc8486
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail flames.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5df4345cfe22e7a459953f7b80823e19
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 hdr
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: adb742b9c93b8094d9cb160b70554b75
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr water small splash
+      hollow stretch nosp hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75be7a7b742586840beb0b9c8ce4b273
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr line loop electric
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a76fd099da21c04eb9cf9233c27d709
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 ab
+      lit crisp.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21ce22ee4a68b854f8df2b3f4de750e1
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr electric arc anim
+      x4.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35237ea33857dfc4e86c96692e18cd71
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr water drop blur anim
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8ec7a237c4ca3645bc1bac3fa060a69
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc glow soft invert
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db8a5b9ece13e724aa993174dc3c6843
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr electric small anim2
+      7x2 ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 546ab889d8c044b49b7fc3dc12ea2a58
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch inv spike
+      fade ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2ecac8feccfe974193da022a0301cc2
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail bubbles.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cd2d08f4a4d93542aa0004bdac91566
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ember blur hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e00e5f048f949bc4dac1b85325a691bf
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme plain mid
+      fine hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfd324e65db2ae141bc4247a0d100a8a
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr skull 2 dissolve
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c29917daa5f6504394824921193ace0
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail tech
+      hit.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e85fde2ff708fdf40ac2e97a57beea96
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire stepped fade
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8466bb13bf17094d8bf1afdc8e05072
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr petal pink x4 ab
+      lit normal.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 851a3f25e203f584bbe9dea88fc580a4
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc ring local space
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4b2919529f88e345804ef0e7e13b9bf
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr star blurred add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4df8a5993f951b04581df7cc5fbb1254
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc ring ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0eb2f2d564c8c87418392fdf927b2cee
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr cloud blur add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb6da5b571861ca488a6dc05de02c74e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc glow soft invert
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a1909e1ac5325d4584311708230d0ca
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme blur stable
+      fine hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 131d5a2c82c6cbb469ab522af6fe9aff
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch ray blur
+      add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6645e3e6774e3ea468774208c1569b29
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc ring ice hdr
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9c5aa6680f32ab48a1e81e4c58c4851
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire edge hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ecda7c5e4daf18347bb18f7b90e02fd1
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail light.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28dde998c7abf234498a42d0aab38421
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr blood dissolve ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 211e690ffcd5bf1469e778995a8b144b
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 crisp
+      dissolve ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bd82b05ed622074c9301727f11252d7
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr no texture hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 869742a199537664ea313c65dc8525cc
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ww smoke second color
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59b66e1956031654985c136e6927a7d8
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr aura rays hdr ab
+      nosp.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0762aad6c86c7184482fd5c0cdea3b0e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr spikes impact dissolve
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7840d900dc0a4ed4dbcd26e23f064dd8
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d716ca3122c94e408d5c2393be4780d
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr screen distortion
+      debug.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41e018a6cf0c896418fc0b89dda748c6
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr magic star hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec1892961c3d27347b1ed3a3cb5f854e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 second
+      color ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e2873ecce8ff4d438870b16c581b2e9
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail ice.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e3ff0d2def0b2a4d88ba94ab7c3e683
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr hidden.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a760562f145a5643b3f7f0a60377141
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch rectangle
+      ray blur add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79806570957f1ae44a69055e0fad62f0
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme plain mid
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b51eed9cffd8c854ea795d648e28601e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 mult
+      blurred.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f516e595f99d2c54f882cf46f2255cd4
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc glow soft p8
+      add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 424e98b62df55be42a3ee2c2406d06b4
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail ice hit.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbd97a3a0f0d5c04f8d0225f1ea847d8
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc glow soft ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d33b4e9cb7fcd474c99d6762456a3d92
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc ring local space
+      partial ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75bda02c67d09b04399d1912243a32b2
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 ab
+      lit soft individual.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 832254a1e17e6d242922c401632ff9cd
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme blur unstable
+      fine hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c07041c51f99748459f6c348337b94d1
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smiley angry ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f62768e2cc4a1ca479d7e62fb0dade76
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme crisp stable
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 369528a8e86340647aa15194b2aee375
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smiley happy ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0f171ffe44ba0d41bb931bbefcee094
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc glow soft nosp
+      add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c0d180acd07ffd4183763050b4d1d22
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch triangle
+      smooth add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6736a9c9adab91a48960113bc5758c7b
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch triangle
+      to diamond add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c6442f9b7d64f94a8a76402e777f706
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr spikes impact dissolve
+      invert ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4edd533d90ebd34db5a5946aa12255b
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail bubbles
+      hit.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92f497a3f1c7b5d49ad1b2854dd5d2bd
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire circle blur
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9a8501c60f73c14c9c50a72b1af44b4
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc glow soft hdr
+      p4 add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7db40b0f0e0ac045b7b14e8f37ade3e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris ice 2x2 ab
+      lit.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5005ee354c9f83748aaf746cea1880d9
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 second
+      color underlit ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94e7635f3a92a7245abb4b56e5834fa2
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ww smoke bright hdr
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92f3f05a0e6f8e840b8e4367b2c7713b
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr bubble hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e58b05bbb47341847a331e7b5b579772
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch trait hdr
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 003c1ad2de9b7564795d3236f6794b7c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr leave b ab lit normal.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a36ba77acbf3644f855c8700b01c682
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr card club ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 160fda4affae1f44fbec73dc79ef43eb
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch skull dissolve
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20fdd157129f03a40ae447534dd4603c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch trait hdr
+      ab nosp.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee138ee3fa241e54ea78ea424baa1f7e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 ab
+      blurred.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd90ae0fa3165884da778202eace3071
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire circle drawn
+      hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2175ac793e235894da12a78ea274cb1f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch trait blur
+      add.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5d24f24a809168479fdfa62ee80f803
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr proc glow soft p4
+      add nosp.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79f345c78339add488a435e22037fc87
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr screen distortion
+      ring.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79d0c47029980c04caed1c1327f99c17
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr spikes impact ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5638a7e47b8a65a42aa1d63e2a59f925
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr skull outer outline
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8a21f1c09eaf4d40a9e977784629cfa
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme crisp mid
+      fine hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f0274981b7991749a3c2a25ef4ec527
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr spikes impact dissolve
+      ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e046315f6ccc43746abef96249d6e977
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme crisp unstable
+      fine hdr ab.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6ce39f7cf5788047aa637110fa7ebe1
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr particle_electric_arc_2.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 192a51b0671a3e949b6876606c3205db
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr particle_electric_arc.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e82f2cbd6def7ff4c98963f706f00d3e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr mesh sword_slashes.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb0f8bc3240c8144cb32581b07e12ef0
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr mesh star8.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04eb6fb558fc96e408adfdc22a919448
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr mesh star6.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3e854b0e6a2a7d48ad61e15d33575de
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr mesh star4.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd9225d663ccb334dbfa1e5255190553
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr mesh ring.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8defa343e39b2545bf3101b50eefa17
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr mesh leave.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efd0ff1193063db498e9ddb30e96e4ee
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr mesh foam.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d48695472dfda94b92ac5316397da95
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr mesh donut.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7874f2765cea0a547827d03a8933235d
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr mesh disk.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a6345b23d834ab4290d4498136e1abc
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr electric_barrier.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b10f0a773262b9c478542ff2d1a04863
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr electric_arc_circle.fbx
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ece64fbaa1a3d14091abf505199104e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr aura rays.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ccb58def4933d4e46b7a1fc023bf6259
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr aura runic.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0611efd272757c345a8ded5f38dd3f88
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr blood dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66389432937edf24a943c3944a78bd01
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr blood splash dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b00dc0b0f4174b14aa9e3caa8d9b0859
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr blood splash.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a29f55dbea218ca4fbd94deb36027aee
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr blood.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e60eda0ccf5343e46b8cb114df9ba50d
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr bubble 2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c78c2071651a73d4db16ad0155af4dad
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr bubble.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d92fa0efcefbc2e4db627980b9abdb4c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr card club.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8c4f60c4d65b1d40a18db39349c9439
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr card diamond.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38af1cf4cdd0bb047a178879cbb9bf1f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr card heart.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 495bf78b2a79c4049ba5feebcc016c39
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr card spade.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f4b2ef884de1f64e90da1a73016c1fd
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr cloud blur.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89e84656724ca9045bb4f742113d74be
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris 3x3 normal.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c77bd9e350bb29b47bf79c281d43f52c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris 3x3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0fc63002361baf4a903d44ab024b19b
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris flat unlit
+      3x3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19748a8ba2114654bbdc0e540f47baba
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris ice 2x2 normal.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5631ad2c0e51148479f2586eb8ce868e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris ice 2x2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce355ddea16ad0a41abee534af68b82a
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris unlit 3x3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2becb40852344304cb0ba0dae53f5dbe
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris wood 3x3 normal.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87ce40d5900abcf4e8019548afbdffe8
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris wood 3x3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba5c573490b77f942a086e98994192a0
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr debris wood unlit
+      3x3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0badb2586ed1fe64db1a9fc0e2776e10
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr electric arc anim
+      x4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90641168f18ed794b9d271029cb78069
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr electric arcs fade
+      x4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e6ca8f19188f064ebdcc1a69545d8f4
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr electric arcs x4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d245859d55c51b4c8a708d3d521f0c0
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr electric small anim
+      4x2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f26118f31cdd28d4a925ca12705e1519
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr electric small anim2
+      7x2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cc6081aa8e628d49bc8c5fcbc8d6a9f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr electric spark.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 209460ccb2aaaf847a61d7e73c92f193
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ember blur.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbe9410b182e9cd4787d6f068c564ad7
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr explosion second
+      color map.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 914231f4fc2a7194b9323d6e2cf86df0
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr explosion smoke alpha.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d435dfcfea1eb64dba196af2f9490f4
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr explosion smoke dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e0f8dcfc1b16c849ac880e3cd107176
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire circle blur.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c1a09a40334bc843813eff765b8c5a8
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire circle crisp.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 232ec32264aa04142ba34374d9989110
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire circle drawn
+      blurred.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0003acfc8bb663142b3444749651d29e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire circle drawn.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0855038b7bf8ecc4eb77dc56090675cd
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire circle plain.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12db9c7e88bd8f149a35ba6e84f1c749
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire edge dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6caad382f72a7084a87daaebe964cc7e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire edge.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7dd21a42fcbbb4d49b7ce998ddc61e29
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire small anim blurred.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fef5bd719a2b6cf4ab443c0b29bc50c8
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fire small anim.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5ec3d9d039e8204d8b72ffc3ba810a6
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme blur.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54cc6c4605b85d848b2de2aeaabdae41
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme candle.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 315b3593c4d9c5248858d9154173c6f6
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme crisp.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d890239defb33943a2d8b9ca0c3d474
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme full blurred.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 988b86849df536746b9659b7af57cb9d
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme plain.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ebc012edac58f14f9b7ae76254eea38
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flamme stepped.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4c058e0744fa8b4f89db9d3171f4eb9
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr flare.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d580173d07130794fbd69bdb9a1d3793
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr fly anim x4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04e3293bfc8a48745964aeac5aa64a6e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ghost trail.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5a348224aafbd442b8932a3fac961f3
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr heart break dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ee7dd8c3ff246a4896a05ac6f0bf041
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr heart break parts.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 736af86f347135b42b82f6a7cedde546
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr heart.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dcb00a55dda387f438bff3349756e787
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr hit triangle 2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6157b46c6aaef04c858b3b9b40aba7f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr hit triangle diamond
+      dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb6973fd296f0164f9879f3cb40f8b8b
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr hit triangle dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c08b3b0c3f6cf7c4f97be55c047834fd
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr hit triangle.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb4db6c7750445e46b0ddffd6a67c7e8
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr leave a normal.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6e796ea2be38514d8620ce99d61c74f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr leave a.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 369b2c490985c3d4d8ab8ef86979a111
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr leave b normal.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f93a7c9ff4065bb44a39162daa688962
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr leave b.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24be193b88e84e042a08eab09c47f3c0
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr line loop electric.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 081073d8f2209c949819e1e5872845b3
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr magic star.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb4e37cc365b8ff48b62687d56f76b97
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr noise clouds big.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1022ad40a4a391c40831e109fe789c87
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr perlin big.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d30b359af34f9049bdf5863b06dd25f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr perlin mid.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af4c21dd7781b7f4da5276e74b012890
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr perlin smudge.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e53b5c2d791d1f3479923823ece5e628
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr petal normal.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4377f3b1fab63b4dae2320667d81bd4
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr petal pink x4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d00343a43012e0f46bc7adad3504c61b
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr puddle dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: baaf2418f9f5617428e011679bbc62ea
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr puddle.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0c00eedf1e61d742bf5a97f9ae59b75
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ring arc.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b33cdc46c2218a1478cc45e3144cd2a7
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ring electric.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a19154c5a84e906469922890c029a7f8
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ring ice.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e09598ca19faace49acaf7b6bfb5516c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ring ripple arc dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e58503026c7eb45498f82668dbd6294c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ring ripple dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bcd4f0c1c99fcfe42bd88ec27630ff17
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ring spikes revert.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f7b16d6f942a47449cc79337706918f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr screen distortion
+      debug.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 938e85c994e3c604d806f2597900cc97
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr screen distortion
+      perlin.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffd6561da19547744878ef631ea6ed88
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr screen distortion
+      ring.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbdf2f03e04c2de4eae98f98ddecc232
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr screen distortion
+      sphere.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2fc2915dbd02ea3469862ee7b98ad954
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr skull 2 dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03a188aeeaecbb9478d9ae70eae185f6
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr skull 2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e836bd489a87ea7488ab2754f292ffdc
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr skull dissolve alt.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5141db1a578958c4cb94ff08ee9dbcff
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr skull dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f1b8589804ad594e98c1773d82cb6ec
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr skull outer outline.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3332c7f01d8a1934fbd377760beaae90
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr skull.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd9438f3ff0307746abfcd3fdb7e6fb9
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smiley angry.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2132e90e9604772419962b40957b517f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smiley frown.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0316052264c4a3b428cbbd2605699ec2
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smiley happy.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0920f0cd8cdcc54dae4bf8edd8797b2
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smiley smile.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70e59802148656040a785d8510ecc501
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud corner
+      dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a251e9a9a7bb9e4f9806508ee938106
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud corner.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44001ef5b09b59b44a589b1c0c0fd31f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 blurred.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1819aef53deedf40af80257ccb5b1a8
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0608e2018b01b60429ffce642b5c689a
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 normal.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a93bc51afc11864393e806e706c3b19
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 second
+      color.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6865613fc11fc54298789bbd0f23296
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 white.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a4bd2804b2d1ff46ab18baabfc526da
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0507e48ffacf40549a96d4efaa55672a
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr spikes half impact
+      gradient.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e72721b1694d9941876dee6ff532672
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr spikes impact dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac41fdcd17fc3634c80841c01775dd35
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr spikes impact.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33a57f503c2907f45914f326df7fb72e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr star blurred.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e87876b19af3de43947a0cb28d5a578
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr star.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bad5d0fa763e08742a9f746be9781732
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch flamme crisp
+      dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 221462f4c3da8604c9dcc63641989a98
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch flamme crisp.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f396005b9d2a904aaaccab1ad4b77a2
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch inv spike
+      fade.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0e7dff5c9a656b4395f3cbc90ceac51
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch rain blur.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea08f0da7f459e147ba80e6dd6e38bb9
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch ray blur.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4077fe32903779747aeb714946d83235
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch rectangle
+      ray blur.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6169cfc312e54a94ba501b9c3a5d7357
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch rectangle
+      ray.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 646bf55dbf79b3f449a60721bdc705f7
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch sipkes blur
+      x2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8b834b74904e894bb4ecee603370bec
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch sipkes dissolve
+      smooth x2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e602f08edb29fdd4ebee9cadcb97354c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch sipkes dissolve
+      x2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a1e6e59577f67c4a9ce04f247ba9cd8
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch sipkes x2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04be3ad5586249443a01af1cbc46120e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch skull dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e22e3ce7ca869a543a53b43e66618963
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch skull.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e79e0214c94f11d48a90f90768737ef9
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch smoke arc
+      dissolve.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aee727f4833685e4b989448e47b815ef
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch smoke arc.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3844cb7852127d4e9b11bf32b43ceda
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch smoke fume.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd75c6870f75c9f41a4192fcff652997
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch spike fade.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abbe7d8f7afddbb43985056fe6012b8e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch steam blur
+      distort.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acdb793533f4e154c9ba0b0f665f5445
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch trait blur.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 851bab4bc28a67d47b301a47a0b7ba7f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch trait.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b1da517105dcb24f8ff9bcb98aefea2
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch triangle
+      fade.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f828f606993d83b4b9e0d6f939f6c960
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail mask
+      light.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d184232afb846a84f94834db83916933
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail mask
+      lines.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 647dd2d88112fc1439dff973d45dfe75
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail mask
+      plain.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0c552b9a0531564dbf486ea02aab0e8
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail noise
+      bubbles.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 895a907c47b33e445a620c6c353da305
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail noise
+      ice.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bdef6750b9903840adfc6846382f0d1
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr sword trail noise
+      tech.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c423e707e7388d4f951b065d66bf7dd
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr uv distortion fire
+      perlin.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74db0952acdd7ba488d3d0b114954504
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr uv distortion fire
+      smudge.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6a0e0bc1c42998409e62e44a50cd816
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr water drop blur anim.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f6e48026c6d24d4d8e7fc74722c663c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr water foam.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfbd5d193a2416e4c8cfb696eaf6252f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr water small splash
+      hollow stretch.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86831a029ed34ee44a572951013dc93d
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr water small splash
+      stretch.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61ba904dd6bbf9e44be37f634459f9b9
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ww smoke bright.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6386773108360044293d98e435fb73bd
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ww smoke first color.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74188c415cb23a7419698120d00ae9cc
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ww smoke glow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb254775819c9984b9be66d44452477c
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr ww smoke second color.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03b90fa8ed1d4104abc8b7431ab290e6
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr blood splash mesh.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 928806a91d0b01541aa11e36bb755ab7
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr spikes impact mesh.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0ee99ac161e4ba45b09ccd7072aed4b
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr stretch sipkes x2
+      mesh.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a71649bde553d6f4b9b8ae820c34748f
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr puddle mesh.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd8a92b47db41f644ae7188f06a986a2
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr magic star mesh.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5cd3984e3d521b949b5dbeff045f62b9
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr star mesh.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 215b94bafc110894881bb24975d050ee
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr card diamond mesh.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0df52a77851b6214792776cda02da918
+    m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr electric small anim2
+      7x2 mesh.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a78b06c58d03f5d4fbb74ba21020241e
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr ring mesh.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0456bb37d6ff3b4e956cba074fb9253
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr ring mesh local space.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce103771ce3690f4c89d46b35e47d417
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr ring mesh half.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72b4aba81b7370a4e966fe9b365b8b19
+    m_Address: Assets/Bundles/Cartoon FX Remaster Meshes/cfxr ring mesh local space
+      smoother.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6107d49d5744fb24eb855f7abb997756
+    m_Address: Assets/Bundles/Cartoon FX Remaster Misc/cfxr ParticleFont AmazGoDaBold.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 248c4661420fe3d48b7f14d4c8afe6ab
+    m_Address: Assets/Bundles/Cartoon FX Remaster Misc/cfxr ParticleFont WashYourHand.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ab74e659e1f0a34d9cfec21c478fc12
+    m_Address: Assets/Bundles/Cartoon FX Remaster Misc/cfxr font AmazGoDaBold.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09e4c6a7d75923945afe43953ef58ad2
+    m_Address: Assets/Bundles/Cartoon FX Remaster Misc/cfxr font WashYourHand.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: daedbca3d89ee8640bed0c051d176ff9
+    m_Address: Assets/Bundles/Cartoon FX Remaster Misc/cfxr particle font.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3dab2eb6bcf5df42a6c45d4638e0f46
+    m_Address: Assets/Bundles/Cartoon FX Remaster Shaders/CFXR.cginc
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0abf89ecb90eb024cbbc2a2dee76edf1
+    m_Address: Assets/Bundles/Cartoon FX Remaster Shaders/CFXR_PASSES.cginc
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12c0fc6ff46c9b64a99fb4b921970883
+    m_Address: Assets/Bundles/Cartoon FX Remaster Shaders/CFXR_SETTINGS.cginc
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3eab241579cd5514388d88f452714385
+    m_Address: Assets/Bundles/Cartoon FX Remaster Shaders/CFXR_URP.cginc
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a29b4d27eb8b04479ef89c00dea533d
+    m_Address: Assets/Bundles/Cartoon FX Remaster Shaders/CFXR Particle Ubershader.cfxrshader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67dfcda17071f4a41be79c4049965e67
+    m_Address: Assets/Bundles/Cartoon FX Remaster Shaders/CFXR Particle Glow.cfxrshader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1581eccce46ba384596a1dce7936ab19
+    m_Address: Assets/Bundles/Cartoon FX Remaster Shaders/CFXR Particle Procedural
+      Ring.cfxrshader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 304630dc6079b47419e5333f284382fd
+    m_Address: Assets/Bundles/Cartoon FX Remaster Shaders/CFXR Particle Distortion.cfxrshader
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4ed686ac70984449b7ab222218f91ab
+    m_Address: Assets/Bundles/JMO Assets/Very_Happy.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35483319ec87e2640bf148da37d2e399
+    m_Address: Assets/Bundles/JMO Assets/Hit_C.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e433bc66d3b3d148a6998ed8da40c02
+    m_Address: Assets/Bundles/JMO Assets/Happy.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ae74451c578b1b4288f154309b69271
+    m_Address: Assets/Bundles/JMO Assets/Firework.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 117f25523000555419dbb546a258eba6
+    m_Address: Assets/Bundles/JMO Assets/Bubbles.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b26a65401cf032458abf7f304cb1d1a
+    m_Address: Assets/Bundles/JMO Assets/Angry.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 339f93fc9ae4f4b34a290edf14d7261f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_SkillBtn_White_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0b0ae59f0c014ed381d6cfef6aee28d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_l_Blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9c7e2599594a48ab8216ee3bf7e7912
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_l_DarkGray.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3817ed24122f74c45b6815084b7bf1a0
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_l_Gray.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33800ea627b19439fa59fbd2667c8eda
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_l_Green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a000c4e763ab749399d6edfc9a424718
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_l_Mint.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98cf5a13c055d45a1a73a1e1e4486b88
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_l_Pink.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83474942a109b4cdbb4726b7ee33120f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_l_Purple.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24a37202cf8a143a0bf8ca494ff3b6ec
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_l_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb9b001f46fb043f4a4f6450d7d3e6c1
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_l_Sky.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3eba92f7629b145ae9366b196000a3f3
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_l_White_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b802653e90c694dd0966490b86866a22
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_l_White_Light1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87ad6647d179342c39fe217b1d916be1
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_l_White_Light2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cdadcc1a39954748abf7d3d4351e1e6
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_l_Yellow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 769ff630d5d724abbafe6154aa0ef82f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_s_Blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6811196040b84412ea2ffd2686edae8e
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_s_DarkGray.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea6ca9bb5310b4c989d4bf020439c50d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_s_Flat.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5dc9d06d37e614ecdbcaa9ec360e5100
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_s_Gray.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d734a17e89824d30b1f014a9c1f5f60
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_s_Green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b53139c9116d475ba23bccd98bd2714
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_s_Mint.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 559dae762928741d8b3aa82b66e7c2f8
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_s_PInk.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ccda849190f74a499129a46716088b3
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_s_Purple.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ebb6a7a6b3654bd78584cb6dd9d12b5
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_s_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f1de124832454aaa89e2816cf5bd1e9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_s_Sky.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 615459ca724384003a91b93533033ab1
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_s_White_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1047c0bcbda25440faf8332b872b3529
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_s_White_Light1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f934b77f732944011aeaaa44e3617f31
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_s_White_Light2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f696c5de5bea644b3ba78434e4939f8d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button01_s_Yellow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2d3acb5f1a5847df85947b6a08f7a69
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Circle74_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca010bd907dff4ef7a53a1691f957d43
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Circle74_Border.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acae18507d33647f198c08dafd73d2f7
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Circle82.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8457e4cb18eeb4fc68f8f45644d45a60
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Circle118.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a851dc75528334df7bc1ba16f48c38ec
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Circle120.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56efe016fb484d0468935146ce2475a5
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Circle122.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c7fecbb8a1f449a3aac1543a0fef8ef
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_LeftFlush_Dark.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1898d2a583e94487a81bc99281abc37
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_LeftFlush_White1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0dc2f62e741f7492fb136b8c18cb04fe
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_LeftFlush_White2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61f1196b625a347d3866bd6113d99698
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round01_White_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62440540b3b244286ac00c868248f6bd
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round01_White_Light1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 171772096ca2e43798c5e1b2ea5737b6
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round01_White_Light2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92f979357cfea48fdb95f632e4a747f0
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round01_Yellow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13ce375a1c35f4323ac9f3ae74f5f307
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round02_Blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 048495ad29a2f46abbb73dea09cd98a7
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round02_White_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d8d6680516944d168f7b34b74b51293
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round02_White_Light.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13bb59864f8ee4bd0948e2f4bebb30dd
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round03_Dark.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 366ed6da040d84c12a20c67be1cb524b
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round03_White_Light.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd57fe2a51cb941fdac00cc855f2b9e1
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round03_WhiteBg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95de963ab6a6e4dcb98c57e3e3fe900d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round04_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff2bf8b7ad0e5475b9b2f797d571588d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round04_Oblique.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 115f8ae4932d748248b2d5065f3a5537
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round05.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac729c6a63c5c46578bef27ddfc3c0fe
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round06_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2266096b87ea437e9e748246aaff9b8
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round06_White.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e064d154aa2b3b4e8e9b2bbb7e5345c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round07.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55518d36418274014bfad80756376cc9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round08.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9cd8b88428084a34a4b93f9cd67b0b5
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round09.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cf9668d17e824f428149804a74b3171
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round10_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1890af01f2abc49128fb21bde6734a57
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Round10_Light.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4335ec254d794483ba6e7ecaa9fe094f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_SkillBtn_Blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9316653827d554a708a2aaa3dc5fb397
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_SkillBtn_Dark.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 934a6c404978f4df09a022a04222f339
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_SkillBtn_Orange.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22dffd660277b469b8eebb29ec0ae0cc
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_SkillBtn_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 568877dc002654079b85bbc0e5e8ce65
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_SkillBtn_White_Light.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4edfc1a06e48c4dc6a0e64d0a76b8787
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_SkillBtnMask.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c529ef2aff4e4be290f9a9fc303572d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Tapered_White1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 061d65a86429c4eafa1b8edcca19d6f0
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Tapered_White2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 461f4fe6d783646e993c8a7f39d054eb
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Tapered_White3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd810aa3d18294d74b1afd016fba89ce
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Button_Tapered_Yellow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03cc62a06f5fc44639b0a7ec241ee65f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Menu_BottomBtn_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 419b7c003126040348a9fb62c5e2964c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Menu_BottomBtn_TabFocus.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b2a2f8e287cc41e4860d17e32352dbc
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Menu_BottomBtn_TabFocus_Light.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1bbbd22ed97e492f8605c6df8fdeeac
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Menu_MiddleBtn_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ec17660bd6ba48a5be036a3af8a6ea9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Button/Menu_MiddleBtn_TabFocus.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e3e88c80644941acab7b5bfc3d02d78
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_GradeBadge/128/Icon_GradeBadge_Silver.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ae43bb338f6c4486b21b6220a1cac9d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_GradeBadge/128/Icon_GradeBadge_Beginner.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b3a9b4d9f2ed4a92996c71af3ba0c42
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_GradeBadge/128/Icon_GradeBadge_Bronze.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 290775db30af44166ab81fbc716cc5d9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_GradeBadge/128/Icon_GradeBadge_Challenger.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65172c8f38641400dbb8dea2f06a5fcd
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_GradeBadge/128/Icon_GradeBadge_Diamond.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f4622e1fadad4b7680182e7309efca3
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_GradeBadge/128/Icon_GradeBadge_Gold.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a8989f8f6db843c587dc7001fff6476
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_GradeBadge/128/Icon_GradeBadge_Grandmaster.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbe57c0243cf5440e9934cffa4681019
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_GradeBadge/128/Icon_GradeBadge_Iron.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 583fbe5b6a693485f84510171921b141
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_GradeBadge/128/Icon_GradeBadge_Master.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1054306ffb8884ea8a2e142d780c85cb
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_GradeBadge/128/Icon_GradeBadge_Platinum.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5dfa38a1418354ff39a7e32de90c8b58
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Medal_Gold_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfcc4f1eb9f374682a2cb9f0da26869f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Medal_Silver_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa4b0fc63fee94cc8978a3a1b9b6b625
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Medal_Bronze_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 869b5dc7a895e4952a944178a123e3b8
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Medal_Bronze_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d49c0aac30764cde93957570569f245
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Clover_Gold.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5f6342b075b249218cde33c6e409c47
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Clover_Green.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac32f3ddc909945b6a16ca046336c135
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Medal_Silver_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0ae9b20e922e4e32a7b5bd94a74f7d7
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Star_Silver.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0292c457c1604e9f9a85382f8122817
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Trophy_Silver.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6832029756c14e05a79241b3ab8bfd5
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Bag_Brown.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e07c16cced13542f59c7400aff52d8a7
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Gear_Boots.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba5483ff7f88c4c3ca881c0f56955f28
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Key_Gold.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42854c0d5a9654da395ed40f0e7443ed
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Gem_Circle.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fbc73ca5a41b488ab132bfce22acb0c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Energy_Blue.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d92c17c8c154484fbb43578e244eac3
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Calendar_Check.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8a7ce45a272b430b902cc0e08b8b30d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Meat.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad4bc321097294c24a0c473ed42a280b
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Calendar.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 723d15c82e7304b828034eae9956892e
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Shop.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a61c1b700e4ec4444891ebfce56ba7ab
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Chat.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98fe70bd90a5b4440a56e18c46757af0
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Heart_Dimmed.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81b7d5aee59e5420b9baa91a05eb781f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame00~03_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2da2b113697d64141abe33ff689a8b0c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Dungeon.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d2f7af422e764292af4986e919f1362
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Trophy_Gold.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d64c8ca24c87d427a91c4267854cb81c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame00~03_BgGlow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9460de80ecd334ab396b86d2239f883e
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Round30.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d828b669d63a451c8ae0a8541df8dc1
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Gem_Diamond_Purple.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cadefdd2c8ef4523bd35390bab0359e
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_MemoPad.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b833f8a5c5d3342ac9dccc17a9e2507b
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Earth.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc0123185ba7741a893a0e44b403120a
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Money_Bill.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a7edeaf507834376b86179b0a989ec1
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Gift_Blue.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d031f4b21493c4841914d4257119a4e3
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Battle.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4489a584739874fb58fb42eb191b095a
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Gem_Ellipse_Red.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2980f45b153444c98b7079a3da71fda
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Gem_Star_Blue.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4883dc586d13a4c49b65f16c20b31559
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Gear_Armor_Bottom.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3dc6cc2f892f949159d657e745eb5cd6
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Gift_Green.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01c3928588fcc45dc8900be0be547c16
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Star_Bronze.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9de9bb779c7694b08bf5aabc148b1dd3
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Chest_Premium.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d5687fb0dd3a428d9cd26a6f36c6d78
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Money_Coin.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ea16497cec35499e8fcb6e48452aa29
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Book_1_Purple.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36c378f3ccf8c40fe8c6a3ae69624bae
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Medal_Gold_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67f5e0fdd0f6b4952a22b99269db6096
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Pot.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b612739a88dc3470490b0c38fb7ffcd5
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Gift_Red.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43cd41da4856a4880b2669b2faa31301
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Star_Gold.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99225861569984f349a535e76bfe9902
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Star_Blue.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f879b99a6d47478cb141e0de942ce95
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Skull.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae898e04b74ec47d8bb33582fcf24b12
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Heart_Red.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c1113f8f71014d559d173fc0b727960
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Medalstand.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 859e506a04bfc4c86904f22ddd99f128
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Gear_Hat_Witch.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc6acee845c27405faf0d58b7f748057
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Ticket_Red.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e0c68aef263a4872aeb68e1d10466f9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Bag_Gray.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d6c9feeaf8654469bb396af2537650a
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame00~03_BgLight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a480ffcca13b444cc828ffb178e72a88
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Star_Purple.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c16591869b2474a649dac6761e3e4b7e
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Book_1_Wine.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eed4e49fc1a0344219abdd134bcbfe69
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame00~03_Border.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd7a2020060844292b286576606000ab
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Chest_Wood.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b23fb0df2c4474124bcec7b152ff27d9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Badge_Gold.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dbf3304eff6f400485301378075b0fa
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Gear_Ring.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9007274747f9c49228a1e7ded91e42c9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Trophy_Bronze.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a3a5d970e2d94998818421e4e0e384b
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Gear_Armor_Top.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ca4b50341717411f9ad901950edfc2b
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Ticket_Gold.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 145874fd002594d928ac4f1cc9046b3d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Chest_Gold.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e20691330cbc54b3885c3f77c99523e8
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Star_Red.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3aad013ac9a74286a3cf57df76f510f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Gear.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5864b32a142be4809ab2ccc225cae6bf
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Damage.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41bc376691e7a4aef8398c3f84ee249f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Gear_Sword.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3fab8619b568843a1a5766e0df6d5300
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Badge_Crown.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05b4c15e805fa4156812361f1797f526
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Icon_ItemIcons/128/ItemIcon_Chest_Gem.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03b45c7677bac42ff8d4781d6b48881c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/SkillFrame_s_Empty.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6155268ef5554166be2953806d78a9d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ListFrame00_01~02_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8632c5f676d85465691bbb7c3f82e925
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame01_Hexagon_FocusGlow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e81e41eb11f94c9180ce94c71837b70
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame04_White_Arrow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9511f49ab14445748bf116e92873c12
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Squrare_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 076fcf17e926d4ba2b26c7b72c82c69c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame00_04~06_BgLight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a263718a226e54b009c0cfc63e646872
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame01_Bg_d_Pattern.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3c1d650e67a94aa6b25f5948dd7ff7a
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame03_Demo_Hologram.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73263860035014b878e0de200d6123c9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame03_Arrow_Right.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73c4905667933bb4db504ba36d6d35ff
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Oval46_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d39085bb0991451392165e2e08c0b56
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ProfileFrame_Circle275_Inner.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2aafe14d1c3148d280838902a81c067
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ProfileFrame_Circle275_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b982a0ca466374cd6a05c60234ce9d64
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame01_Bg_d.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8230450ea84f74341b6fc57488b64dc4
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame01_Demo_Navy.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b0fe9da180b24078920cf3a14780939
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ListFrame04_Demo_f_Yellow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7234813320ac4932b73dcf530f4db8f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame03_Demo.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cafaa6f6d451d428b82adaeb79683c9d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ListFrame00_03~04_Dim.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae8f1b0f7f2424a2aa6c639e8f88de23
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame03_Demo_Purple.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 555b142732e774962897f672b89e14a9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Circle78.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8863cb3a8e97f48a8b92dddb1102b5ca
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame05_Glow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40fa6e9867a2840f9b935dd056da6a22
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame06_Demo_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 845bf4e19714a40d4be8af1124aa7159
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Flag_White_BgLine01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0311dcd69620e47f4b965eb345ef9b35
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame05_Demo.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f4f58d9a1c0649dbbdfa8103b565623
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Flag_White_BgLine02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 02d16dbf98f24414b9a2de2e2eb827c4
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame04_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ef0231c46d364104bd3fe326da45569
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame00_04~06_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca46b732649bb4ac48263e83114d9693
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame05_Left_BgShadow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a296c851782747d6810f508dc64c5b1
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame05_InnerBorder.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9475d9daadce5488f8e89fb0740835be
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame01_Demo_Yellow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 970263cba937148d1b1263716a0b32b6
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Circle75_Light.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e1521f3695314935908ce0d6e8d13c7
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Round20_Demo_Dark.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94c2bb5b3bc5e4127901d01daca2a45f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame03_Demo_Yellow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2c98bfbb087c4b05ba8430f094096d7
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame03_Demo_Blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5cea3465831244361b5d5df5ce5f2624
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame06_White_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b39571f2e1bfc405eacb0d41d917a675
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame02_n_Light.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e869cf154fb34018a3f38c895854228
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/PanelFrame01_Line.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68c763767c7204cb1b147d31da6903e5
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Rhombus_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7473e1933d85a41a88e61f02d9a6ddd4
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame02_d_Border.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4afdbc8ba755f45c69639d7d40484c83
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Round18_Transparent.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 080d13bcc014044d688284f13bf21d9f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame00_03_Border.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd94f4347eefc44b4a450f52139752be
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame01_BgShadow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f6a14d682faf48c89a3683dfff2850b
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame01_Demo_Hologram2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7040cbcbb34694f0ca15166f3e986709
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame05_Right_BgShadow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31c0e7a96f9d740689da1c075292e7e3
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Round20_Demo_Yellow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2b250f7f78b14905a89e73950289beb
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Oval58.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 269983f7991d743e8bdec3212c98d9d7
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame01_Glow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77f134ec6ac9242159b726a856fa7d7a
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame06_White_Bg_Glow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f688ac75447344253aaff377b96301da
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ProfileFrame01_m~s_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0386c61d06bee46feb8e6bca9882cb40
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame04_Demo.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1f1d0d718a174456a2fd8b5052239b7
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame04_Blue_Arrow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74ae39be6091048c7a16b3cd8712ce2c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame03_n_InnerBg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ecc45c8183e448e286bf52d44e8e99e
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame00_01~02_Pattern.psd
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a68a4faa81064e6c8ca27a8f6673baf
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame01_Gradient.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aecd3f85f0c11473388fb73bc0b9b441
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame03_Demo_Green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e39e1f28c1e7d44fe8b9785dfb4ad878
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame06_White_Deco.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38eaeec10e72f4aad93b259203ced372
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Rhombus_Inner.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3150707d3f1e24a92817036c94b55984
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame00_01~02_InnerBg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3232ff78954fa4adda76800021be2ba1
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame05_Right_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c9211bc1d90b4e35a3a080121e93d05
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BasicFrame_Round20.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a5d51c74186d4836bb26b7d1292c3ea
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame06_Demo_Bg_Glow_Green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d12e222b78234cc5a88c79940597acf
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ProfileFrame02_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f8c944da644b42e09c7342aa5735ff9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Flag_Demo_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f66f8d453972f4b46ab16ddc30214efa
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame05_FocusGlow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d68bf5274d1a44ceae6e9c06feb7d5f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame01_Demo_Green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d09ad73d04ea4ec5912f278cacd2ed0
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame01_Hexagon_FocusBorder.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37578498ade654b1b968f060db7d7ec0
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame01_Demo_Purple.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b971632f7203a4a53be56b90bcb60549
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame02_n_Bottom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 199b3eccd4b474329a11fdca5ae76123
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame03_Demo_Navy.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eec9fec3539ce40a6b8e96591a80d9aa
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame01_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3cf67c3014c34e548fb1744e50a81e1
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame00~03_Bg_Hologram.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a8df115f431246388eb43603d15c101
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ListFrame00_01~02_Oblique.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc03017da3bbc4b8aa7267af8a565159
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Oval46_InnerLine.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 995b65c129d114ee5a9a6c71d1bf630e
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame05_FocusBorder.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8fba7532d13440c2878eeca2a486f91
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame06_Demo_Blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2dbcf53094f227f41a157afb16302ee4
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame03_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cd43d4887bea46f5ba2b77d25206fad
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame01_Demo_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a5c9c81769b5494597553794c126925
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/SkillFrame_l~m_Border.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b72c17d3498a47b89c1b638d686dfb4
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame02_d_Bg_Pattern.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b31cc26b044a54db88302afadc39ed11
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Circle60.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c08c18768b4cb4429bf0071ed4219bb3
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame02_Demo_Hologram2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a716e534a1f049a3b6b4bbde5748b94
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ProfileFrame02_Inner.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b52a541c96494d59bc3ed951e7bacf6
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ListFrame00_01~02_BgInner.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6bfed5702eb944e1969b6af820883e1
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame01_Hexagon_Bg_Green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 266ad80e258c14796995663321df1c2c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame03_Demo_Gray.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f905473b28b6d4b80adcbcf8424a581f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame04_FocusGlow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a84ee6ff7901d446aadc4adb875145a8
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/PanelFrame04_OutTilte1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12e2f59e45c9e4f6280b38d49ef68605
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame03_n_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eebd5d88ad8c94308a78cffcd517b736
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame01_Bg_n.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 946f1c01b6ce14631a249b555b9d5a84
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BasicFrame_Round24.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 841205f87286043da8da3918c1d7eafa
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/SkillFrame_l~m_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d2a584f857a84b9c8e44ddd25fdc40f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Round24.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d9eab39063214eeba16deb4498687d9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame02_Demo_Gray.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e628dc11848744b1c8b2cf768e50aaeb
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame02_Demo_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 177751fae61c24a1cbc711d6727a2a50
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Flag_White_BgGradient.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76c36a9837f00e44c87df1ec87591ee1
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame03_Arrow_Left.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fcf03f6d78d884e1cbe241e8e15ad58a
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ProfileFrame01_l_Border.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a29d8c7aa7d540fdb8de5a6de1026c7
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame03_d.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56bbee8a4d33a4ea3974171706cf979c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame04_White_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7ee2d029b1dc4b78bfcf9b62318c3f3
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame00~03_CornerDeco.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa8f463307ac74b3e86f810032af5177
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/PanelFrame02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b75949b3a23a049fb814d9cb21aa2c39
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame00_01~02_Pattern.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a25a392cf93544beb9c3d76420b92ef
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Circle75_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2c03cb5e0e9b42f398207ee0e3bf743
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame04_Border.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e55ebc53ce00b48458f603b8bf23c378
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/SkillFrame_l~m_Empty.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43146b890859542fa9c8292cb76250a7
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame03_Demo_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bf9c9514cd974d6a94564566376244b
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/PanelFrame04_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29c872ce119db42b6b51d80231f7c4c7
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BasicFrame_Oval44.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f23dee49868b4ee4bb927e2eebe0f5a
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Flag_White_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56da3085107814245a2857e49dd46859
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame06_Demo_Frame_Green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4eceea6da2d694535ac928af33dd3be0
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame00_01~02_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8434ffad584b740b5bf665b9539c709d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame02_d_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac21a039d843c49bba26533beda20554
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame01_BgArrow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33f66db08268747a79612facacdfc2e9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/PanelFrame03_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c43b3cadd09cc4cfb831f398553411b9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame04_Glow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03b8ddf33774a5c4197860faa7f4d2ea
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame00_03_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca6ab62179a66442588aacd94b454ffe
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Flag_Demo_Blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0be0473f6c5544b1095f780ece967e04
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame02_Arrow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cee3faceebf04b08946d7ad4202f081
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame01_Hexagon_Bg_Yellow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74650fc98d6824d4093c9c4a189e271d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/SkillFrame_s_Border.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab8d086fcfd424dca87bb2259a8d75f9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ListFrame00_03~04_BgInner.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95060b33e71e74e76b3254b8d7764e29
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame01_Demo_Hologram1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34dac20198f504d9aa9669248e19917f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BasicFrame_Round17.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43c1ec3f749034784b199be808b378b4
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame02_Demo_Hologram1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5ce4c79096b4408d8fb9165f5f2bafe
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame04_Bg_DividerLine.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4887b65133c314292adaa5a633c76dea
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame00_01~02_InnerLine.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c5561610851346bd8916322a8820620
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame05_Bg_Corner.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82e1a8489f0f344caa7739f72fb7a895
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame01_Demo_OffWhite.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eec09452a276b47358387e9f677d02f8
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame05_Border.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f49fde8476c8644f3b1c1e7b8a0b9cdf
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ProfileFrame01_m~s_Inner.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c0e0c673c0bae24c8b9201ba82b14c9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BasicFrame_Circle160.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f35fe1eafc144c9d8a45b2db958a471
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BasicFrame_Hexagon87.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e915d0bf336547b99658208e2770e34
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame01_Bottom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17de008b7f0e647c08b1c2061a8b8de8
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame06_Demo__Gray.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7878a4afed4e6465c9785efcd828aaec
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame02_Demo_Purple.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91ce37e2e53c64e69aba94f3369214f6
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Squrare_Inner.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c39a2bee6de7a4012bd2ab0430b8e4ae
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame02_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e3be42adc3764266a675f18a9605de1
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame00_04~06_Pattern.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 868eddca46d664f5f9135b1bad3ec0fb
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ListFrame04_Demo_f_Blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef857f602af44424082a7e10f89c9a85
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame06_Demo_Deco_Green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63128e5af0cdc46bfbd4a90aac012629
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame02_Demo_Blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e66a15574776046b0b91385d21e1ac2a
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame00_01~02_Light.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae11cdefb6cd4436393f83b724ceb984
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BasicFrame_Round12.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1770708854e744ed38c73e598b95a8ff
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame00_04~06_Border.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3ed2cc3ba43a449ca414493c0c2b8ae
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame00~03_FocusLine.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d8260f0e77ae47f286f805470dc12b1
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame06_White_Frame.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7fb69d6ea97d4278bb93f388e385b7e
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ProfileFrame01_l_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ceb35dfabe2ce40abb01a30415560767
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/PanelFrame04_OutTilte2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf3e36f58b7084484bf9b2cf2fb6f142
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame02_Demo_Yellow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4d4397b068a146afb97820c51a021cd
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame02_Demo_Navy.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09f147be2ee2f41a7961ba8cad34879d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame04_FocusBorder.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0bcfe6fc62a614b258ed80fc124b663b
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame01_Gradient_Hologram.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ff17e58c7f8b43588b1bb5b2a93da3b
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame02_BgShadow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac1a5e19ad4b94781b52ca72c7602efe
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame01_Border.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f5976efc00a04bbf9d3a01ac0219c63
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame02_Demo_Green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 27636ef1aa25b42f2adbf47c7fb5aaa4
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame05_Left_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88ade633d1be34c29bc855c3aa4b2fac
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BannerFrame07.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d6ec25e5a91643a696a5e0a318beaae
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame01_Demo_Blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0bdcf4700e3143dd941fff695e8c391
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame02_Demo_OffWhite.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a73dd47f482a44dfa54aec47a76d5af
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame04_Blue_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 389360c8577e3475e8c5e394ddcd7175
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame05_InnerBg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a8edd74e50a346ed87536daf571800e
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame05_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b2f70c200f624e07a6131de2c4f0d6e
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BubbleFrame01_Hexagon_Bg_Blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d9bc170ff9a14c579332eb23615dddf
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BasicFrame_Oval50.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3070a6f23e6ca4273897acf1b7e8c5ce
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Round20_White_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b625cd3838cc0477ca073199439588b5
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Flag_Demo_Green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80ceec858171f48edb75266510fefc80
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ItemFrame01_Demo_Gray.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32ccd57e2f8154282844a611c096e84a
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/ListFrame00_03~04_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab3a1764a033d4c09a5892a64ddc8c78
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/PanelFrame03_Oblique.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 822a6c1b625c7423a8c0097a9cd0e67a
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame04_Bg_Gradient.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a504c5ea67c76407c8801b5e36582e0c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/SkillFrame_s_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d332162b7f97a44c8968e3570e42e325
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/BorderFrame_Round20_White_Light.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 212ce289512aa4467b30be3675a3b10a
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame02_n_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cd33b9fcf759447fa159757f293591b
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Frame/CardFrame03_n_Light.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8156e024930c4ac4a6172098546f475
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Image/Image_AssetLogo.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3436256caefb64a8f8a08d97beec01b8
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Image/Image_Badge.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45505ae0b73654561a68b0bc7708c585
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Image/Image_Demo_Coin.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 834fac9ad12854ec2afec36da0b54492
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Image/Image_Bagde_Wing2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f680a8dc27c64cb8a479b24c128628c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Image/Image_Chest05.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 397eb6cbcbb8b4a49805b475f4f4a351
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Image/Image_Badge_Skull.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c78ad13e576db4472a83ae1dba215554
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Image/Image_Chest02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ae8d9da5b1ea40ce8e1d72c054c262b
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Image/Image_Bagde_Wing1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 405e1d64d87794698b9e8e1f484bfa2c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Image/Glow_Circle01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 626de528af21241cf9f9cc2aa9c92d7c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Image/Image_BadgePassive.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c8eb1f63d0f34c2bbc5c7dcdd3b6ab9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Image/Image_Chest03.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 673fe075f74e64bad8a995ea497d47c1
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Image/Glow_Circle02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15b7a8a25dc884c97ac36556001f4895
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Image/Image_Chest04.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 091d5d7b1516340e2ba171422a9507ad
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Image/Image_Chest01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5841b8d51e12542169bb2a4b8d957af3
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Icon/Icon_Check03_l.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1a552dc9b3ec4a1d9dcf13086561b7f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Icon/Icon_Sns_Google.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3b88d8ffc0ed43a9877519fd3d30d6d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Icon/Icon_Back.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9857d34fe55ed42a4ab59948882f20bb
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Icon/Icon_Check02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84c3adc90c0da4f009a1cfa76fa9363c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Icon/Icon_Arrow_Next1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 26459d86a13194dc1ab0997e73d7c594
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Icon/Icon_Arrow_Back.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 598c081bd6eaf40bfba9db8c9e2862a9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Icon/Icon_Check03_s.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a342ab9f0d8782408ad7fcb6a7319a0
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Icon/Icon_Check01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9987152c36a3b4365ba46f7be2a44777
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Icon/Icon_Arrow_Down.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41b7030f0d92b4aecbb1bc21a3a44e3e
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Background/Background_Sample02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13dcbe3501e5d4c799b639755562b1e8
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Demo/Demo_Background/Background_Sample01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 620879c9ab62c447b82f0c54e1e88fee
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup02~09_Topber_White_BgTop.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab01a2531c35a4aafb31413b44dd1bcb
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup02~09_Topber_White_BgTopLight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2a4904341dad4041b84bc1394859787
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup_List_VerticalLayout.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d608dfee618cd49749a7aca2c3ce2538
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup01_Basic_White_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d26ade07588f04d55b6b0e1564358b93
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup_FullWidth_Dark.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b929d78367ffb44a69ccd7a7a0228d0e
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup_Chat_TabFocus.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4cd50266f0ef340608f3287a10bf6a66
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup_Chat_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d30e139c21b44ed5bc6e216b9c75915
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup_OutTitle_Bg_Title.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a2209cbcc4f051479b20b2df9efec4a
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup02~09_Topber_White_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 072f888a65f754d15987d3046dbe7227
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup09_Topber_White_Label_Inner.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35420d682ebce479a970a41dc10881be
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup_OutTitle_Inner_Top.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 00472170ed2d74b28ba975b0e6e1ac09
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup_Chat_BgLight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b21557e99501f456baef302a686db908
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup06_Glow_Bottom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd2ae1e74bf37449995a725f69f9c6bb
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup_OutTitle_Inner_Bottom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94d2c8585e09744cb8fc08d2a38e0887
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup03_Gradient.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e5aa25d22e02401c904638f9c38609a
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup01_Basic_White_Light.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6e82f829d5624a7ab5055618cb8b9f6
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup02~09_Topber_Demo_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 806d7cdd13e984d568fcd1a67f83276c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup_FullWidth_White.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fff6d7bfdc4e4592adf69e94faaf13d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup09_Topber_White_Label_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95f9ec13367f946e0bea5a45049c948e
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup01_Basic_Demo.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1278b9c3423f9478e872117807249e44
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Popup/Popup_OutTitle_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bd29f4c60d205d4782418b1ecb165e4
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon01_Orange.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1b870f1b460a4adf85d57ecc60ba7ca
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Tail_White_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 416373bd160f344f4a2f5ba7c4766e0f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Bubble_Arrow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb1d8e08604694727870155dc20ed5f9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon01_Yellow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46d72fa068f1c473cacf5009c97a9b9c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon01_Gray.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3373a8176d5314ea9a63d51e7e241cd2
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Bubble_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cb016cd370d94085926892ee32c13b5
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Oval.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c3ea799aad7c48919b36b752f77ead4
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Line01_Divider_Right.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0387aa3821274a35b00020e1848abc5
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Parallelogram_Blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 878668f672fc94e3b92df41daa6fb966
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Line01_Divider_Left.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9be1374ca9ae47fdb7208668217021c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Badge01_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23f2a4b29dbb84e63aa2dece68b4aed8
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Tail_Demo_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb3e8ff77824f466aa94f46ebe089001
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Parallelogram_Purple.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f88a2f661ca6d47abb431ad1f3d965f4
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon01_Navy.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0aaf3422a6a1e45d6b6ce40912ebc5b4
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Tapered03.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffdd900f4611841bfbbbf8a77c0214e0
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Badge02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69b14f27367a34e7282e8a38ce8ebfcd
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Ribbon_White.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4705dc388c8e646b08b96ac581e8e1ae
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon01_Blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed8538d26b20d44a687c0ad16b5e2f5f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon04_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 205b81059899941c9a9596378eea8d34
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon01_Purple.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77ef9d3b0b12a4a4d954bfce8b142152
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Badge01_Yellow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1448023b89a1a4c5abc7040617b86ec9
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon02_White2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0342fef3f86604434b0d5bfb626d8036
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon01_Magenta.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7dc3806767ea94fe989a068043de22ae
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon01_Plum.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbf97bff87bcc475cab2f6cb6f47c01f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Ribbon_Hologram.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2495840c8944f4f05b1d8aa2a409ad7c
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon01_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8e24962710be4eb6bdd9678e4512ddd
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon01_Green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 408a7fe1339af4f3ca3cd0108b89ef39
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon03_White2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f993b6f81dd304cd3b0a88053d7c6c7d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Badge01_Green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4408d8930079e45218c8cd945478b7b2
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon02_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a139028d88ad4bf4283877d2ee29179b
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon05.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16dda5ae59c29457a8bc9b6bba0c1283
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Badge01_Purple.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1fe952d851bed4807a05ddbc281bbba4
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon03_White1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aaed3abe3feca418db592d9ca21fac4d
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon02_White1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f902adce59d3b4e8f993d11ba251e7d2
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Tapered02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16b461912c24e42989f2bc1fad4161cf
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon01_Peacock.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 754c259ae425b4508a2236d6b6fcb75e
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Line02_Divider_Right.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 06dd1d3f3653345a983ebd74926a3321
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Parallelogram_Hologram.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e681112e9467f4f8db4f8ebcf921a46a
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon01_Sky.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbea2c6ab52e7479cb3b9800af57be73
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Parallelogram_White_Inner.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 534931a9afbea4c82b4c2260a63529fc
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Parallelogram_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dad47e9b3f72d4253bd4959b57289345
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Parallelogram_Green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c18e637bc71d4fc887d62f484000575
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Line03_Divider.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20d7528c7b568411697bcdb05cc89f02
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Tapered01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ad85dbca4b1c43cea2b3e9e74001ca8
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Tail_White_Border.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14ccb8b339cd7499e9b847dc0612ac63
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_LIne04_Under.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c72e954ffbfb641f19daa57f644d7fda
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Ribbon03_Red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d96f1c6be6b8d42e7a8e1d30ba2f963f
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Parallelogram_Yellow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7ccbfa6107794eeea67066266d2ce37
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Title_Line02_Divider_Left.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0eaf6715a248844b3b94a9d322d282c4
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Parallelogram_Gray.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8440d003b569841998e16e31f70f9b28
+    m_Address: Assets/Bundles/Z_GUI Pro-SuperCasual/Sprites/Components/Label/Label_Parallelogram_White_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0cf4cec20434bb14c93e9a6780056d24, type: 2}
