@@ -71,7 +71,12 @@ public class PlayerPacketData : PacketData, IEquatable<PlayerPacketData>
 		if (other == null)
 			return false;
 
-		return playerGroup == other.playerGroup && playerName == other.playerName;
+		return Equals(other.playerGroup, other.playerName);
+	}
+
+	public bool Equals(string group, string name)
+	{
+		return playerGroup == group && playerName == name;
 	}
 
 	public PlayerPacketData Clone()

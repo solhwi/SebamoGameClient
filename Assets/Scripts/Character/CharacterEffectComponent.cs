@@ -66,7 +66,7 @@ public class CharacterEffectComponent : MonoBehaviour, IBoardGameSubscriber
 	{
 		DestroyEffect();
 
-		if (playerDataContainer.IsEnded)
+		if (playerDataContainer.IsMeEnded)
 		{
 			foreach (var data in goalEffectDataList)
 			{

@@ -10,6 +10,7 @@ public class RankScrollItem : MonoBehaviour
 	[SerializeField] private PressEventTrigger trigger;
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Text playerNameText;
+	[SerializeField] private GameObject goalInObj;
 
 	private string playerGroup = string.Empty;
 	private string playerName = string.Empty;
@@ -23,6 +24,12 @@ public class RankScrollItem : MonoBehaviour
 	private void OnDestroy()
 	{
 		trigger.onEndPress -= OnPress;
+	}
+
+	private void Update()
+	{
+		bool isEnded = playerDataContainer.IsEnded(playerGroup, playerName);
+		goalInObj.SetActive(isEnded);
 	}
 
 	public void SetData(PlayerPacketData data, int rankNumber)

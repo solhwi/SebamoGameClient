@@ -45,13 +45,15 @@ public class PlayerDataContainer : ScriptableObject
 		}
 	}
 
-	public bool IsEnded
+	public bool IsMeEnded
 	{
 		get
 		{
-			return currentTileOrder == tileDataContainer.tileOrders.Length - 1;
+			return currentTileOrder == LastTileOrder;
 		}
 	}
+
+	public int LastTileOrder => tileDataContainer.tileOrders.Length - 1;
 
 	[Header("[타일 당 이동 시간]")]
 	public float moveTimeByOneTile = 1.0f;
@@ -248,5 +250,26 @@ public class PlayerDataContainer : ScriptableObject
 			index = 0;
 
 		return GetEquippedBodyType(group, name, index);
+	}
+
+	public bool IsEnded(string group, string name)
+	{
+		if (IsMine(group, name))
+		{
+			return IsMeEnded;
+		}
+
+		foreach (var data in otherPlayerPacketDatas)
+		{
+			if (data.Equals(group, name))
+			{
+				if (data.playerTileOrder == LastTileOrder)
+				{
+					return true;
+				}
+			}	
+		}
+
+		return false;
 	}
 }

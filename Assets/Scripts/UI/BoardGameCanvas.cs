@@ -25,7 +25,7 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 		}
 
 		diceView.Initialize();
-		diceButtonGoalObj.SetActive(playerDataContainer.IsEnded);
+		diceButtonGoalObj.SetActive(playerDataContainer.IsMeEnded);
 	}
 
 	protected override void OnClose()
@@ -37,12 +37,12 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 	}
 	public void OnStartTurn()
 	{
-		diceButtonGoalObj.SetActive(playerDataContainer.IsEnded);
+		diceButtonGoalObj.SetActive(playerDataContainer.IsMeEnded);
 	}
 
 	public void OnEndTurn()
 	{
-		diceButtonGoalObj.SetActive(playerDataContainer.IsEnded);
+		diceButtonGoalObj.SetActive(playerDataContainer.IsMeEnded);
 	}
 
 	public IEnumerator OnDoTileAction(int currentOrder, int nextOrder)
@@ -70,7 +70,7 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 
 	public void OnClickRollDice()
 	{
-		if (playerDataContainer.IsEnded == false)
+		if (playerDataContainer.IsMeEnded == false)
 		{
 			CameraController.Instance.ResetTarget();
 			CameraController.Instance.SetFollow(true);
