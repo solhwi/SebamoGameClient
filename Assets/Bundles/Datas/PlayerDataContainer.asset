@@ -18,7 +18,7 @@ MonoBehaviour:
   playerGroup: Exp
   playerName: "\uC194\uD718"
   hasDiceCount: 3
-  currentTileOrder: 13
+  currentTileOrder: 360
   profileComment: 
   moveTimeByOneTile: 1
   otherPlayerPacketDatas:
