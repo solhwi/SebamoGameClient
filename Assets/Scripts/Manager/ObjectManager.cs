@@ -6,7 +6,8 @@ using UnityEngine.AddressableAssets;
 public class ObjectManager : Singleton<ObjectManager>
 {
 	[SerializeField] private AssetReferenceGameObject fieldItemPrefabRef;
-
+	[SerializeField] private int poolingCount = 200;
+	
 	private Dictionary<RecyclingType, Stack<RecyclingObject>> objectPool = new Dictionary<RecyclingType, Stack<RecyclingObject>>()
 	{
 		{ RecyclingType.fieldItem, new Stack<RecyclingObject>() },
@@ -14,7 +15,7 @@ public class ObjectManager : Singleton<ObjectManager>
 
 	public IEnumerator PreInstantiateFieldItemObject()
 	{
-		for (int i = 0; i < 50; i++)
+		for (int i = 0; i < poolingCount; i++)
 		{
 			yield return ResourceManager.Instance.InstantiateAsync<RecyclingObject>(fieldItemPrefabRef, transform, false, (obj) =>
 			{
