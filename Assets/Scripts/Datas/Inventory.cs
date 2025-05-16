@@ -85,6 +85,10 @@ public class Inventory : ScriptableObject
 		if (bResult == false)
 			yield break;
 
+		bResult = TryRemoveItem(itemCode);
+		if (bResult == false)
+			yield break;
+
 		yield return HttpNetworkManager.Instance.TryPostMyPlayerData(onSuccess);
 	}
 
