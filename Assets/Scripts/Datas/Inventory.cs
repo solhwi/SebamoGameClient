@@ -23,7 +23,9 @@ public class Inventory : ScriptableObject
 
 	[Header("[적용 중인 버프 아이템]")]
 	[Space]
-	public LinkedList<string> appliedBuffItems = new LinkedList<string>();
+	public List<string> appliedBuffItemList = new List<string>();
+
+	private LinkedList<string> appliedBuffItems = new LinkedList<string>();
 
 	[Header("[적용 중인 프로필 아이템]")]
 	[Header("[(0) 이미지 / (1) 프레임")]
@@ -150,6 +152,7 @@ public class Inventory : ScriptableObject
 			return false;
 
 		appliedBuffItems.AddLast(buffItemCode);
+		appliedBuffItemList = appliedBuffItems.ToList();
 		return true;
 	}
 
@@ -159,6 +162,7 @@ public class Inventory : ScriptableObject
 			return false;
 
 		appliedBuffItems.AddFirst(buffItemCode);
+		appliedBuffItemList = appliedBuffItems.ToList();
 		return true;
 	}
 
@@ -168,6 +172,8 @@ public class Inventory : ScriptableObject
 			return false;
 
 		appliedBuffItems.Remove(buffItemCode);
+		appliedBuffItemList = appliedBuffItems.ToList();
+
 		return true;
 	}
 
