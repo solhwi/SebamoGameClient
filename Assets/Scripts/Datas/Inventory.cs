@@ -21,7 +21,7 @@ public class Inventory : ScriptableObject
 	[Space]
 	public string[] equippedItems = new string[6];
 
-	[Header("[적용 중인 버프 아이템]")]
+	[Header("[적용 중인 버프 아이템 (임의 수정 금지)]")]
 	[Space]
 	public List<string> appliedBuffItemList = new List<string>();
 
@@ -83,11 +83,11 @@ public class Inventory : ScriptableObject
 
 	public IEnumerator TryApplyBuff(string itemCode, Action<MyPlayerPacketData> onSuccess)
 	{
-		bool bResult = ApplyBuffLast(itemCode);
+		bool bResult = TryRemoveItem(itemCode);
 		if (bResult == false)
 			yield break;
 
-		bResult = TryRemoveItem(itemCode);
+		bResult = ApplyBuffLast(itemCode);
 		if (bResult == false)
 			yield break;
 

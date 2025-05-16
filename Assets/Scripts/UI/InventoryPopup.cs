@@ -352,10 +352,19 @@ public class InventoryPopup : BoardGamePopup
 	{
 		if (itemTable.IsBuffItem(currentItemCode))
 		{
-			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter($"버프 아이템 {currentItemCode}이 사용되었습니다.",
-			onClickConfirm: () =>
+			StartCoroutine(inventory.TryApplyBuff(currentItemCode, (d) =>
 			{
-				StartCoroutine(inventory.TryApplyBuff(currentItemCode, null));
+				UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter($"버프 아이템 {currentItemCode}이 사용되었습니다."));
+
+				int currentItemCount = inventory.GetHasCount(currentItemCode);
+				if (currentItemCount <= 0)
+				{
+					hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
+					scrollContent.UpdateContents();
+
+					currentItemCode = hasItemList.FirstOrDefault().Key;
+					itemObjectView.SetItem(currentItemCode);
+				}
 			}));
 		}
 		else if (itemTable.IsFieldItem(currentItemCode) || itemTable.IsDeBuffItem(currentItemCode))
