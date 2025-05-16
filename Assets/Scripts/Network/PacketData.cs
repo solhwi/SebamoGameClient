@@ -42,7 +42,7 @@ public class MyPlayerPacketData : PacketData
 
 		data.hasItems = inventory.hasItems.Keys.ToArray();
 		data.hasItemCounts = inventory.hasItems.Values.ToArray();
-		data.appliedBuffItems = inventory.appliedBuffItems.ToArray();
+		data.appliedBuffItems = inventory.appliedBuffItemList.ToArray();
 
 		return data;
 	}

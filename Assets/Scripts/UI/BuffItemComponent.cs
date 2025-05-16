@@ -60,7 +60,7 @@ public class BuffItemComponent : MonoBehaviour, IBoardGameSubscriber
 		if (isUpdateBuffItem == false)
 			return;
 
-		if (inventory.appliedBuffItems.Count > 0)
+		if (inventory.appliedBuffItemList.Count > 0)
 		{
 			highLightObj.SetActive(true);
 			noBuffTextObj.SetActive(false);
@@ -73,13 +73,13 @@ public class BuffItemComponent : MonoBehaviour, IBoardGameSubscriber
 
 		for (int i = 0; i < buffItemIcons.Count; i++)
 		{
-			if (inventory.appliedBuffItems.Count <= i)
+			if (inventory.appliedBuffItemList.Count <= i)
 			{
 				buffItemIcons[i].gameObject.SetActive(false);
 			}
 			else
 			{
-				string buffItemCode = inventory.appliedBuffItems.ElementAt(i);
+				string buffItemCode = inventory.appliedBuffItemList.ElementAt(i);
 				buffItemIcons[i].SetBuffItemData(buffItemCode);
 
 				buffItemIcons[i].gameObject.SetActive(true);
