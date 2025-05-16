@@ -24,7 +24,7 @@ MonoBehaviour:
   otherPlayerPacketDatas:
   - type: 0
     playerGroup: Exp
-    playerName: "\uC194\uD718"
+    playerName: "\uB3D9\uD604"
     playerTileOrder: 13
     hasDiceCount: 3
     profileComment: 
@@ -40,7 +40,7 @@ MonoBehaviour:
     - Frame_01
   - type: 0
     playerGroup: Exp
-    playerName: "\uC194\uD718"
+    playerName: "\uC0C1\uD6C8"
     playerTileOrder: 13
     hasDiceCount: 3
     profileComment: 
@@ -56,7 +56,7 @@ MonoBehaviour:
     - Frame_01
   - type: 0
     playerGroup: Exp
-    playerName: "\uC194\uD718"
+    playerName: "\uC9C0\uD64D"
     playerTileOrder: 13
     hasDiceCount: 3
     profileComment: 
@@ -72,7 +72,7 @@ MonoBehaviour:
     - Frame_01
   - type: 0
     playerGroup: Exp
-    playerName: "\uC194\uD718"
+    playerName: "\uAC15\uC6B1"
     playerTileOrder: 13
     hasDiceCount: 3
     profileComment: 
@@ -88,7 +88,7 @@ MonoBehaviour:
     - Frame_01
   - type: 0
     playerGroup: Exp
-    playerName: "\uC194\uD718"
+    playerName: "\uC9C0\uD604"
     playerTileOrder: 13
     hasDiceCount: 3
     profileComment: 

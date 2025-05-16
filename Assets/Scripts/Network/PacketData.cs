@@ -73,6 +73,20 @@ public class PlayerPacketData : PacketData, IEquatable<PlayerPacketData>
 
 		return playerGroup == other.playerGroup && playerName == other.playerName;
 	}
+
+	public PlayerPacketData Clone()
+	{
+		var data = new PlayerPacketData();
+		data.appliedProfileItems = appliedProfileItems;
+		data.playerTileOrder = playerTileOrder;
+		data.playerGroup = playerGroup;
+		data.equippedItems = equippedItems;
+		data.profileComment = profileComment;
+		data.hasDiceCount = hasDiceCount;
+		data.playerName = playerName;
+		data.type = type;
+		return data;
+	}
 }
 
 [System.Serializable]

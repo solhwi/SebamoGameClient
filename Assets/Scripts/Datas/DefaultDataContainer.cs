@@ -1,8 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
+
+[System.Serializable]
+public class PlayerSaveData
+{
+	public MyPlayerPacketData data;
+	public List<string> nameList;
+}
 
 [CreateAssetMenu(fileName = "DefaultDataContainer")]
 public class DefaultDataContainer : ScriptableObject
@@ -52,13 +60,16 @@ public class DefaultDataContainer : ScriptableObject
 	[ContextMenu("데이터 불러오기")]
 	public void Load()
 	{
-		var myData = LoadPlayerData();
-		playerDataContainer.SetMyPacketData(myData);
+		var loadData = LoadPlayerData();
+		playerDataContainer.SetMyPacketData(loadData.data);
 
 		List<PlayerPacketData> otherDatas = new List<PlayerPacketData>();
-		for (int i = 0; i <  otherPlayerCount; i++)
+		for (int i = 0; i < otherPlayerCount; i++)
 		{
-			otherDatas.Add(myData.playerData);
+			var data = loadData.data.playerData.Clone();
+
+			data.playerName = loadData.nameList[i];
+			otherDatas.Add(data);
 		}
 		playerDataContainer.SetOtherPacketData(otherDatas);
 
@@ -75,8 +86,13 @@ public class DefaultDataContainer : ScriptableObject
 	private void SavePlayerData()
 	{
 		var data = MyPlayerPacketData.Create(playerDataContainer, inventory);
+		var nameList = playerDataContainer.otherPlayerPacketDatas.Select(d => d.playerName).ToList();
 
-		string jsonData = JsonUtility.ToJson(data);
+		var saveData = new PlayerSaveData();
+		saveData.data = data;
+		saveData.nameList = nameList;
+
+		string jsonData = JsonUtility.ToJson(saveData);
 		File.WriteAllText(defaultPlayerDataPath, jsonData);
 	}
 
@@ -88,10 +104,10 @@ public class DefaultDataContainer : ScriptableObject
 		File.WriteAllText(defaultDataPath, jsonData);
 	}
 
-	private MyPlayerPacketData LoadPlayerData()
+	private PlayerSaveData LoadPlayerData()
 	{
 		string jsonData = File.ReadAllText(defaultPlayerDataPath);
-		return JsonUtility.FromJson<MyPlayerPacketData>(jsonData);
+		return JsonUtility.FromJson<PlayerSaveData>(jsonData);
 	}
 
 	private TilePacketData LoadTileData()
