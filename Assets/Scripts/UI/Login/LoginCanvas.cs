@@ -12,7 +12,7 @@ public class LoginCanvas : BoardGameCanvasBase
 	[SerializeField] private AuthDataTable authDataTable;
 
 	[SerializeField] private GameObject currentGroupTextObj = null;
-	[SerializeField] private TextMeshProUGUI currentGroupText = null;
+	[SerializeField] private Text currentGroupText = null;
 
 	[SerializeField] private GameObject loginButtonobj = null;
 	[SerializeField] private GameObject startButtonObj = null;

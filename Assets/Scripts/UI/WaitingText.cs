@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class WaitingText : MonoBehaviour
 {
-	[SerializeField] private TextMeshProUGUI waitingText;
+	[SerializeField] private Text waitingText;
 
 	[SerializeField] private string waitingAddString = ".";
 	[SerializeField] private int maxAddStringCount = 1;

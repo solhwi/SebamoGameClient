@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GroupSelectScrollItem : MonoBehaviour
 {
-	[SerializeField] private TextMeshProUGUI groupText;
+	[SerializeField] private Text groupText;
 
 	private AuthData authData = null;
 	private Action<AuthData> onClick;
