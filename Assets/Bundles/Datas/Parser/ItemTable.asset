@@ -13,10 +13,6 @@ MonoBehaviour:
   m_Name: ItemTable
   m_EditorClassIdentifier: 
   shopItemDataList:
-  - key: UnityChanAccessory
-    isEquipment: 1
-    price: 30000
-    shopItemDescription: "\uC5BC\uB9C8 \uC804\uAE4C\uC9C0 \uC81C\uAC00 \uC4F0\uB358\\n\uBA38\uB9AC\uB760\uC5D0\uC694."
   - key: GreatSword
     isEquipment: 1
     price: 50000
@@ -25,7 +21,27 @@ MonoBehaviour:
   - key: TwinDagger
     isEquipment: 1
     price: 50000
-    shopItemDescription: "\uBE14\uB799 \uD551\uD06C \uC778 \uC720\uC5B4 \uC5D0\uB9AC\uC544"
+    shopItemDescription: "\uC791\uACE0 \uB0A0\uB835\uD55C \uC30D\uAC80\uC774\uC5D0\uC694."
+  - key: Axe
+    isEquipment: 1
+    price: 50000
+    shopItemDescription: "\uB3C4\uB07C"
+  - key: PickAx
+    isEquipment: 1
+    price: 50000
+    shopItemDescription: "\uACE1\uAD2D\uC774"
+  - key: Shovel
+    isEquipment: 1
+    price: 50000
+    shopItemDescription: "\uC0BD"
+  - key: Umbrella
+    isEquipment: 1
+    price: 50000
+    shopItemDescription: "\uC6B0\uC0B0"
+  - key: Net
+    isEquipment: 1
+    price: 50000
+    shopItemDescription: "\uC7A0\uC790\uB9AC\uCC44"
   - key: UnityChanBody
     isEquipment: 1
     price: 30000
@@ -33,13 +49,76 @@ MonoBehaviour:
   - key: YucoBody
     isEquipment: 1
     price: 30000
-    shopItemDescription: "\uBBF8\uC0AC\uD0A4\uB294 \uB9E4\uC77C \uC774\uAC83\uB9CC
-      \uC785\uB354\uB77C\uACE0\uC694."
+    shopItemDescription: "\uC11C\uB298\uD560 \uB54C\uB294 \uAC89\uC637\uC744 \uAC78\uCE58\uB294
+      \uAC83\uB3C4 \uC88B\uC8E0."
   - key: MisakiBody
     isEquipment: 1
     price: 30000
-    shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
-      \uB2E4\uB140\uC694."
+    shopItemDescription: "\uD3B8\uD558\uACE0 \uAC00\uBCBC\uC6B4 \uC637\uC774\uC8E0!"
+  - key: UnityChanFace
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uB610\uB837\uD55C \uC5BC\uAD74"
+  - key: YucoFace
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uBA4D\uD55C \uC5BC\uAD74"
+  - key: MisakiFace
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uC0C1\uB0E5\uD55C \uC5BC\uAD74"
+  - key: UnityChanEye
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uD478\uB978 \uB208"
+  - key: YucoEye
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uCC28\uBD84\uD55C \uB208"
+  - key: MisakiEye
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uB9D1\uC740 \uB208"
+  - key: UnityChanHair
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uC591\uAC08\uB798 \uD5E4\uC5B4"
+  - key: YucoHair
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uC20F\uCEF7 \uD5E4\uC5B4"
+  - key: MisakiHair
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uBC18\uBB36\uC74C \uD5E4\uC5B4"
+  - key: UnityChanAccessory
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uC5BC\uB9C8 \uC804\uAE4C\uC9C0 \uC81C\uAC00 \uC4F0\uB358\\n\uBA38\uB9AC\uB760\uC608\uC694."
+  - key: YucoAccessory
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uACE0\uC591\uC774 \uBA38\uB9AC\uB760"
+  - key: MisakiAccessory
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uB9AC\uBCF8 \uD5E4\uC5B4\uD540"
+  - key: Frame_01
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uD06C\uB9AC\uC2A4\uB9C8\uC2A4 \uD504\uB808\uC784"
+  - key: Frame_02
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uBC15\uC950 \uD504\uB808\uC784"
+  - key: Profile_01
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uAE08\uBC1C \uC18C\uB140 \uD504\uB85C\uD544"
+  - key: Profile_02
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uBE0C\uB8E8\uB137 \uC18C\uB140 \uD504\uB85C\uD544"
   - key: Barricade
     isEquipment: 0
     price: 100
@@ -51,19 +130,35 @@ MonoBehaviour:
     shopItemDescription: "\uB354 \uBA40\uB9AC \uAC08 \uC218 \uC788\uC8E0!"
   shopItemDataDictionary:
     m_keys:
-    - UnityChanAccessory
     - GreatSword
     - TwinDagger
+    - Axe
+    - PickAx
+    - Shovel
+    - Umbrella
+    - Net
     - UnityChanBody
     - YucoBody
     - MisakiBody
+    - UnityChanFace
+    - YucoFace
+    - MisakiFace
+    - UnityChanEye
+    - YucoEye
+    - MisakiEye
+    - UnityChanHair
+    - YucoHair
+    - MisakiHair
+    - UnityChanAccessory
+    - YucoAccessory
+    - MisakiAccessory
+    - Frame_01
+    - Frame_02
+    - Profile_01
+    - Profile_02
     - Barricade
     - DoubleDiceBuff
     m_values:
-    - key: UnityChanAccessory
-      isEquipment: 1
-      price: 30000
-      shopItemDescription: "\uC5BC\uB9C8 \uC804\uAE4C\uC9C0 \uC81C\uAC00 \uC4F0\uB358\\n\uBA38\uB9AC\uB760\uC5D0\uC694."
     - key: GreatSword
       isEquipment: 1
       price: 50000
@@ -72,7 +167,27 @@ MonoBehaviour:
     - key: TwinDagger
       isEquipment: 1
       price: 50000
-      shopItemDescription: "\uBE14\uB799 \uD551\uD06C \uC778 \uC720\uC5B4 \uC5D0\uB9AC\uC544"
+      shopItemDescription: "\uC791\uACE0 \uB0A0\uB835\uD55C \uC30D\uAC80\uC774\uC5D0\uC694."
+    - key: Axe
+      isEquipment: 1
+      price: 50000
+      shopItemDescription: "\uB3C4\uB07C"
+    - key: PickAx
+      isEquipment: 1
+      price: 50000
+      shopItemDescription: "\uACE1\uAD2D\uC774"
+    - key: Shovel
+      isEquipment: 1
+      price: 50000
+      shopItemDescription: "\uC0BD"
+    - key: Umbrella
+      isEquipment: 1
+      price: 50000
+      shopItemDescription: "\uC6B0\uC0B0"
+    - key: Net
+      isEquipment: 1
+      price: 50000
+      shopItemDescription: "\uC7A0\uC790\uB9AC\uCC44"
     - key: UnityChanBody
       isEquipment: 1
       price: 30000
@@ -80,13 +195,76 @@ MonoBehaviour:
     - key: YucoBody
       isEquipment: 1
       price: 30000
-      shopItemDescription: "\uBBF8\uC0AC\uD0A4\uB294 \uB9E4\uC77C \uC774\uAC83\uB9CC
-        \uC785\uB354\uB77C\uACE0\uC694."
+      shopItemDescription: "\uC11C\uB298\uD560 \uB54C\uB294 \uAC89\uC637\uC744 \uAC78\uCE58\uB294
+        \uAC83\uB3C4 \uC88B\uC8E0."
     - key: MisakiBody
       isEquipment: 1
       price: 30000
-      shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
-        \uB2E4\uB140\uC694."
+      shopItemDescription: "\uD3B8\uD558\uACE0 \uAC00\uBCBC\uC6B4 \uC637\uC774\uC8E0!"
+    - key: UnityChanFace
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uB610\uB837\uD55C \uC5BC\uAD74"
+    - key: YucoFace
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uBA4D\uD55C \uC5BC\uAD74"
+    - key: MisakiFace
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uC0C1\uB0E5\uD55C \uC5BC\uAD74"
+    - key: UnityChanEye
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uD478\uB978 \uB208"
+    - key: YucoEye
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uCC28\uBD84\uD55C \uB208"
+    - key: MisakiEye
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uB9D1\uC740 \uB208"
+    - key: UnityChanHair
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uC591\uAC08\uB798 \uD5E4\uC5B4"
+    - key: YucoHair
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uC20F\uCEF7 \uD5E4\uC5B4"
+    - key: MisakiHair
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uBC18\uBB36\uC74C \uD5E4\uC5B4"
+    - key: UnityChanAccessory
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uC5BC\uB9C8 \uC804\uAE4C\uC9C0 \uC81C\uAC00 \uC4F0\uB358\\n\uBA38\uB9AC\uB760\uC608\uC694."
+    - key: YucoAccessory
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uACE0\uC591\uC774 \uBA38\uB9AC\uB760"
+    - key: MisakiAccessory
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uB9AC\uBCF8 \uD5E4\uC5B4\uD540"
+    - key: Frame_01
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uD06C\uB9AC\uC2A4\uB9C8\uC2A4 \uD504\uB808\uC784"
+    - key: Frame_02
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uBC15\uC950 \uD504\uB808\uC784"
+    - key: Profile_01
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uAE08\uBC1C \uC18C\uB140 \uD504\uB85C\uD544"
+    - key: Profile_02
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uBE0C\uB8E8\uB137 \uC18C\uB140 \uD504\uB85C\uD544"
     - key: Barricade
       isEquipment: 0
       price: 100
@@ -249,88 +427,116 @@ MonoBehaviour:
     iconAssetPath: Sprites/ItemIcon/Prop_A.png
     itemName: "\uD478\uB978 \uC6D0\uD55C\uC758 \uC18C\uB4DC"
     itemDescription: "\uC774\uB984 \uBAA8\uB97C \uD574\uC801\uC758 \uC6D0\uD55C\uC774
-      \uB2F4\uAE34 \uAC80 "
+      \uB2F4\uAE34 \uAC80."
     sellPrice: 1000
   - key: TwinDagger
     iconAssetPath: Sprites/ItemIcon/Prop_B.png
-    itemName: "\uD551\uD06C \uBCA0\uB188 \uB2E8\uAC80"
-    itemDescription: "\uD14C\uC774\uC2A4\uD2B8 \uB313 \uD551\uD06C \uBCA0\uB188"
+    itemName: "\uD551\uD06C \uBCA0\uB188 \uB300\uAC70"
+    itemDescription: "\uB0A0\uC5D0 \uB3C5\uC774 \uBC1C\uB9B0 \uB2E8\uAC80 \uB450
+      \uC790\uB8E8."
+    sellPrice: 1000
+  - key: Axe
+    iconAssetPath: Sprites/ItemIcon/Prop_C.png
+    itemName: "\uB3C4\uB07C"
+    itemDescription: "\uB3C4\uB07C"
+    sellPrice: 1000
+  - key: PickAx
+    iconAssetPath: Sprites/ItemIcon/Prop_D.png
+    itemName: "\uACE1\uAD2D\uC774"
+    itemDescription: "\uACE1\uAD2D\uC774"
+    sellPrice: 1000
+  - key: Shovel
+    iconAssetPath: Sprites/ItemIcon/Prop_E.png
+    itemName: "\uC0BD"
+    itemDescription: "\uC0BD"
+    sellPrice: 1000
+  - key: Umbrella
+    iconAssetPath: Sprites/ItemIcon/Prop_F.png
+    itemName: "\uC6B0\uC0B0"
+    itemDescription: "\uC6B0\uC0B0"
+    sellPrice: 1000
+  - key: Net
+    iconAssetPath: Sprites/ItemIcon/Prop_G.png
+    itemName: "\uC7A0\uC790\uB9AC\uCC44"
+    itemDescription: "\uC7A0\uC790\uB9AC\uCC44"
     sellPrice: 1000
   - key: UnityChanBody
     iconAssetPath: Sprites/ItemIcon/Costume_A.png
-    itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uBC14\uB514"
-    itemDescription: "\uC720\uB2C8\uD2F0\uC9F1\uC774 \uC88B\uC544\uD558\uB294 \uC637"
+    itemName: "\uCE90\uC8FC\uC5BC \uC14B\uC5C5"
+    itemDescription: "\uC608\uC05C\uB370 \uD3B8\uD558\uAE30\uAE4C\uC9C0 \uD558\uB2E4."
     sellPrice: 1000
   - key: YucoBody
     iconAssetPath: Sprites/ItemIcon/Costume_B.png
-    itemName: "\uC720\uCF54 \uBC14\uB514"
-    itemDescription: "\uC720\uCF54\uAC00 \uB9E4\uC77C \uC785\uB294 \uC637"
+    itemName: "\uC5EC\uB984 \uC138\uC77C\uB7EC"
+    itemDescription: "\uC2DC\uC6D0\uD55C \uC138\uC77C\uB7EC \uC2A4\uD0C0\uC77C. \uC5B4\uB514\uC120\uAC00
+      \uBC14\uB2E4 \uB0B4\uC74C\uC774 \uB098\uB294 \uAC83 \uAC19\uAE30\uB3C4\u2026"
     sellPrice: 1000
   - key: MisakiBody
     iconAssetPath: Sprites/ItemIcon/Costume_C.png
-    itemName: "\uBBF8\uC0AC\uD0A4 \uBC14\uB514"
-    itemDescription: "\uBBF8\uC0AC\uD0A4\uAC00 \uB9E4\uC77C \uC785\uB294 \uC637"
+    itemName: "\uCE74\uB514\uAC74 \uC138\uC77C\uB7EC"
+    itemDescription: "\uBC14\uB78C \uBD88 \uB54C\uB294 \uCE74\uB514\uAC74 \uD55C
+      \uC7A5!"
     sellPrice: 1000
   - key: UnityChanFace
     iconAssetPath: Sprites/ItemIcon/Face_A.png
-    itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uD398\uC774\uC2A4"
-    itemDescription: "\uC720\uB2C8\uD2F0\uC9F1\uC758 \uD65C\uAE30\uCC2C \uD45C\uC815!"
+    itemName: "\uB610\uB837\uD55C \uC5BC\uAD74"
+    itemDescription: "\uC544\uC8FC \uB618\uB9DD\uD55C \uD45C\uC815."
     sellPrice: 1000
   - key: YucoFace
     iconAssetPath: Sprites/ItemIcon/Face_B.png
-    itemName: "\uC720\uCF54 \uD398\uC774\uC2A4"
+    itemName: "\uBA4D\uD55C \uC5BC\uAD74"
     itemDescription: "\uBB34\uC2A8 \uC0DD\uAC01\uC744 \uD558\uB294\uC9C0 \uC54C \uC218
-      \uC5C6\uB294 \uD45C\uC815"
+      \uC5C6\uB294 \uD45C\uC815."
     sellPrice: 1000
   - key: MisakiFace
     iconAssetPath: Sprites/ItemIcon/Face_C.png
-    itemName: "\uBBF8\uC0AC\uD0A4 \uD398\uC774\uC2A4"
-    itemDescription: "\uC0C1\uB0E5\uD55C \uD45C\uC815"
+    itemName: "\uC0C1\uB0E5\uD55C \uC5BC\uAD74"
+    itemDescription: "\uCC28\uBD84\uD55C \uD45C\uC815."
     sellPrice: 1000
   - key: UnityChanEye
     iconAssetPath: Sprites/ItemIcon/Eye_A.png
-    itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uB208"
-    itemDescription: "\uB9D1\uACE0 \uD478\uB978 \uB208"
+    itemName: "\uD478\uB978 \uB208"
+    itemDescription: "\uC624\uBB18\uD55C \uBE5B\uC758 \uD478\uB978 \uB208."
     sellPrice: 1000
   - key: YucoEye
     iconAssetPath: Sprites/ItemIcon/Eye_B.png
-    itemName: "\uC720\uCF54 \uB208"
-    itemDescription: "\uCC28\uBD84\uD55C \uB208"
+    itemName: "\uCC28\uBD84\uD55C \uB208"
+    itemDescription: "\uAE4A\uACE0 \uCC28\uBD84\uD55C \uB208."
     sellPrice: 1000
   - key: MisakiEye
     iconAssetPath: Sprites/ItemIcon/Eye_C.png
-    itemName: "\uBBF8\uC0AC\uD0A4 \uB208"
-    itemDescription: "\uB9D1\uACE0 \uAE4A\uC740 \uB208"
+    itemName: "\uB9D1\uC740 \uB208"
+    itemDescription: "\uAE68\uB057\uD558\uAC8C \uB9D1\uAC8C \uC790\uC2E0\uC788\uAC8C!"
     sellPrice: 1000
   - key: UnityChanHair
     iconAssetPath: Sprites/ItemIcon/Hair_A.png
-    itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uD5E4\uC5B4"
-    itemDescription: "\uADC0\uC5EC\uC6B4 \uC591\uAC08\uB798"
+    itemName: "\uC591\uAC08\uB798 \uD5E4\uC5B4"
+    itemDescription: "\uADC0\uC5EC\uC6B4 \uC591\uAC08\uB798."
     sellPrice: 1000
   - key: YucoHair
     iconAssetPath: Sprites/ItemIcon/Hair_B.png
-    itemName: "\uC720\uCF54 \uD5E4\uC5B4"
-    itemDescription: "\uCC28\uBD84\uD55C \uC20F\uCEF7"
+    itemName: "\uC20F\uCEF7 \uD5E4\uC5B4"
+    itemDescription: "\uCC28\uBD84\uD55C \uC20F\uCEF7."
     sellPrice: 1000
   - key: MisakiHair
     iconAssetPath: Sprites/ItemIcon/Hair_C.png
-    itemName: "\uBBF8\uC0AC\uD0A4 \uD5E4\uC5B4"
-    itemDescription: "\uB2E8\uC815\uD55C \uBC18\uBB36\uC74C"
+    itemName: "\uBC18\uBB36\uC74C \uD5E4\uC5B4"
+    itemDescription: "\uB2E8\uC815\uD55C \uBC18\uBB36\uC74C."
     sellPrice: 1000
   - key: UnityChanAccessory
     iconAssetPath: Sprites/ItemIcon/Acc_A.png
     itemName: "\uB178\uB780 \uBA38\uB9AC\uB760"
-    itemDescription: "\uC720\uB2C8\uD2F0 \uCA29\uC774 \uC4F0\uB358 \uB178\uB780 \uBA38\uB9AC\uB048"
+    itemDescription: "\uC5B4\uB5BB\uAC8C \uB5A0 \uC788\uB294\uC9C0\uB294 \uBE44\uBC00\uC785\uB2C8\uB2E4."
     sellPrice: 1000
   - key: YucoAccessory
     iconAssetPath: Sprites/ItemIcon/Acc_B.png
     itemName: "\uACE0\uC591\uC774 \uBA38\uB9AC\uB760"
-    itemDescription: "\uADC0\uAC00 \uB124 \uAC1C\uAC00 \uB41C\uB2E4"
+    itemDescription: "\uADC0\uAC00 \uB124 \uAC1C\uAC00 \uB41C\uB2E4."
     sellPrice: 1000
   - key: MisakiAccessory
     iconAssetPath: Sprites/ItemIcon/Acc_C.png
     itemName: "\uB9AC\uBCF8 \uD5E4\uC5B4\uD540"
-    itemDescription: "\uD328\uC158 \uD3EC\uC778\uD2B8"
+    itemDescription: "\uD551\uD06C \uD328\uC158 \uD3EC\uC778\uD2B8!"
     sellPrice: 1000
   - key: Frame_01
     iconAssetPath: Sprites/Profile/Frame_01.png
@@ -341,17 +547,17 @@ MonoBehaviour:
     iconAssetPath: Sprites/Profile/Frame_02.png
     itemName: "\uBC15\uC950 \uD504\uB808\uC784"
     itemDescription: "\uC73C\uC2A4\uC2A4\uD55C \uBD84\uC704\uAE30\uB97C \uC904 \uC218
-      \uC788\uB294 \uD504\uB808\uC784"
+      \uC788\uB294 \uD504\uB808\uC784."
     sellPrice: 1000
   - key: Profile_01
     iconAssetPath: Sprites/Profile/Profile_01.png
-    itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uD504\uB85C\uD544"
-    itemDescription: "\uC720\uB2C8\uD2F0\uC9F1\uC758 \uCD08\uC0C1\uD654"
+    itemName: "\uAE08\uBC1C \uC18C\uB140 \uD504\uB85C\uD544"
+    itemDescription: "\uCF8C\uD65C\uD55C \uAE08\uBC1C \uC18C\uB140\uC758 \uCD08\uC0C1\uD654."
     sellPrice: 1000
   - key: Profile_02
     iconAssetPath: Sprites/Profile/Profile_02.png
-    itemName: "\uBBF8\uC0AC\uD0A4 \uD504\uB85C\uD544"
-    itemDescription: "\uBBF8\uC0AC\uD0A4\uC758 \uCD08\uC0C1\uD654"
+    itemName: "\uBE0C\uB8E8\uB137 \uC18C\uB140 \uD504\uB85C\uD544"
+    itemDescription: "\uC0C1\uB0E5\uD55C \uBE0C\uB8E8\uB137 \uC18C\uB140\uC758 \uCD08\uC0C1\uD654."
     sellPrice: 1000
   - key: Barricade
     iconAssetPath: Sprites/SpecialItem/Barricade.png
@@ -361,38 +567,46 @@ MonoBehaviour:
     sellPrice: 1000
   - key: MinusDiceBuff
     iconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
-    itemName: "\uC8FC\uC0AC\uC704 \uC74C\uC218 \uBC84\uD504"
-    itemDescription: "\uB4A4\uB85C\uB3C4 \uAC78\uC744 \uC218 \uC788\uC5B4\uC694"
+    itemName: "\uC0C1\uD55C \uC2AC\uB77C\uC784"
+    itemDescription: "\uC824\uB9AC\uAC00 \uC544\uB2C8\uB77C \uC2AC\uB77C\uC784! \uB4A4\uB85C
+      \uAC77\uAC8C \uB429\uB2C8\uB2E4."
     sellPrice: 1000
   - key: DoubleDiceBuff
     iconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
-    itemName: "\uC8FC\uC0AC\uC704 \uB450 \uBC30 \uBC84\uD504"
-    itemDescription: "\uB450 \uBC30\uB85C \uAC78\uC744 \uC218 \uC788\uC5B4\uC694"
+    itemName: "x2 \uD638\uBC15"
+    itemDescription: "\uC5B4\uCA50\uC9C0 \uD798\uC774 \uB098\uC11C \uB450 \uBC30\uB85C
+      \uAC78\uC744 \uC218 \uC788\uC5B4\uC694!"
     sellPrice: 1000
   - key: HalfDiceBuff
     iconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
-    itemName: "\uC8FC\uC0AC\uC704 \uBC18\uAC10 \uBC84\uD504"
-    itemDescription: "\uBC18\uBC16\uC5D0 \uBABB \uAC78\uC5B4\uC694"
+    itemName: "/2 \uD638\uBC15"
+    itemDescription: "\uC5B4\uCA50\uC9C0 \uD798\uC774 \uBE60\uC838\uC11C \uBC18\uBC16\uC5D0
+      \uBABB \uAC78\uC5B4\uC694\u2026"
     sellPrice: 1000
   - key: DrunkBuff
     iconAssetPath: Sprites/SpecialItem/DrunkBuff.png
-    itemName: DrunkBuff
+    itemName: "\uC2F8\uAD6C\uB824 \uC640\uC778"
     itemDescription: "\uD5E4\uB871\uD5E4\uB871\u2026 1 \uB610\uB294 6!"
     sellPrice: 1000
   - key: OddBuff
     iconAssetPath: Sprites/SpecialItem/OddBuff.png
-    itemName: "\uD640\uC218 \uC8FC\uC0AC\uC704 \uBC84\uD504"
+    itemName: "135 \uBB3C\uC57D"
     itemDescription: "\uC624\uC9C1 \uD640\uC218\uB9CC!"
     sellPrice: 1000
   - key: EvenBuff
     iconAssetPath: Sprites/SpecialItem/EvenBuff.png
-    itemName: "\uC9DD\uC218 \uC8FC\uC0AC\uC704 \uBC84\uD504"
+    itemName: "246 \uBB3C\uC57D"
     itemDescription: "\uC624\uC9C1 \uC9DD\uC218\uB9CC!"
     sellPrice: 1000
   itemToolTipDataDictionary:
     m_keys:
     - GreatSword
     - TwinDagger
+    - Axe
+    - PickAx
+    - Shovel
+    - Umbrella
+    - Net
     - UnityChanBody
     - YucoBody
     - MisakiBody
@@ -424,89 +638,117 @@ MonoBehaviour:
       iconAssetPath: Sprites/ItemIcon/Prop_A.png
       itemName: "\uD478\uB978 \uC6D0\uD55C\uC758 \uC18C\uB4DC"
       itemDescription: "\uC774\uB984 \uBAA8\uB97C \uD574\uC801\uC758 \uC6D0\uD55C\uC774
-        \uB2F4\uAE34 \uAC80 "
+        \uB2F4\uAE34 \uAC80."
       sellPrice: 1000
     - key: TwinDagger
       iconAssetPath: Sprites/ItemIcon/Prop_B.png
-      itemName: "\uD551\uD06C \uBCA0\uB188 \uB2E8\uAC80"
-      itemDescription: "\uD14C\uC774\uC2A4\uD2B8 \uB313 \uD551\uD06C \uBCA0\uB188"
+      itemName: "\uD551\uD06C \uBCA0\uB188 \uB300\uAC70"
+      itemDescription: "\uB0A0\uC5D0 \uB3C5\uC774 \uBC1C\uB9B0 \uB2E8\uAC80 \uB450
+        \uC790\uB8E8."
+      sellPrice: 1000
+    - key: Axe
+      iconAssetPath: Sprites/ItemIcon/Prop_C.png
+      itemName: "\uB3C4\uB07C"
+      itemDescription: "\uB3C4\uB07C"
+      sellPrice: 1000
+    - key: PickAx
+      iconAssetPath: Sprites/ItemIcon/Prop_D.png
+      itemName: "\uACE1\uAD2D\uC774"
+      itemDescription: "\uACE1\uAD2D\uC774"
+      sellPrice: 1000
+    - key: Shovel
+      iconAssetPath: Sprites/ItemIcon/Prop_E.png
+      itemName: "\uC0BD"
+      itemDescription: "\uC0BD"
+      sellPrice: 1000
+    - key: Umbrella
+      iconAssetPath: Sprites/ItemIcon/Prop_F.png
+      itemName: "\uC6B0\uC0B0"
+      itemDescription: "\uC6B0\uC0B0"
+      sellPrice: 1000
+    - key: Net
+      iconAssetPath: Sprites/ItemIcon/Prop_G.png
+      itemName: "\uC7A0\uC790\uB9AC\uCC44"
+      itemDescription: "\uC7A0\uC790\uB9AC\uCC44"
       sellPrice: 1000
     - key: UnityChanBody
       iconAssetPath: Sprites/ItemIcon/Costume_A.png
-      itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uBC14\uB514"
-      itemDescription: "\uC720\uB2C8\uD2F0\uC9F1\uC774 \uC88B\uC544\uD558\uB294 \uC637"
+      itemName: "\uCE90\uC8FC\uC5BC \uC14B\uC5C5"
+      itemDescription: "\uC608\uC05C\uB370 \uD3B8\uD558\uAE30\uAE4C\uC9C0 \uD558\uB2E4."
       sellPrice: 1000
     - key: YucoBody
       iconAssetPath: Sprites/ItemIcon/Costume_B.png
-      itemName: "\uC720\uCF54 \uBC14\uB514"
-      itemDescription: "\uC720\uCF54\uAC00 \uB9E4\uC77C \uC785\uB294 \uC637"
+      itemName: "\uC5EC\uB984 \uC138\uC77C\uB7EC"
+      itemDescription: "\uC2DC\uC6D0\uD55C \uC138\uC77C\uB7EC \uC2A4\uD0C0\uC77C.
+        \uC5B4\uB514\uC120\uAC00 \uBC14\uB2E4 \uB0B4\uC74C\uC774 \uB098\uB294 \uAC83
+        \uAC19\uAE30\uB3C4\u2026"
       sellPrice: 1000
     - key: MisakiBody
       iconAssetPath: Sprites/ItemIcon/Costume_C.png
-      itemName: "\uBBF8\uC0AC\uD0A4 \uBC14\uB514"
-      itemDescription: "\uBBF8\uC0AC\uD0A4\uAC00 \uB9E4\uC77C \uC785\uB294 \uC637"
+      itemName: "\uCE74\uB514\uAC74 \uC138\uC77C\uB7EC"
+      itemDescription: "\uBC14\uB78C \uBD88 \uB54C\uB294 \uCE74\uB514\uAC74 \uD55C
+        \uC7A5!"
       sellPrice: 1000
     - key: UnityChanFace
       iconAssetPath: Sprites/ItemIcon/Face_A.png
-      itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uD398\uC774\uC2A4"
-      itemDescription: "\uC720\uB2C8\uD2F0\uC9F1\uC758 \uD65C\uAE30\uCC2C \uD45C\uC815!"
+      itemName: "\uB610\uB837\uD55C \uC5BC\uAD74"
+      itemDescription: "\uC544\uC8FC \uB618\uB9DD\uD55C \uD45C\uC815."
       sellPrice: 1000
     - key: YucoFace
       iconAssetPath: Sprites/ItemIcon/Face_B.png
-      itemName: "\uC720\uCF54 \uD398\uC774\uC2A4"
+      itemName: "\uBA4D\uD55C \uC5BC\uAD74"
       itemDescription: "\uBB34\uC2A8 \uC0DD\uAC01\uC744 \uD558\uB294\uC9C0 \uC54C
-        \uC218 \uC5C6\uB294 \uD45C\uC815"
+        \uC218 \uC5C6\uB294 \uD45C\uC815."
       sellPrice: 1000
     - key: MisakiFace
       iconAssetPath: Sprites/ItemIcon/Face_C.png
-      itemName: "\uBBF8\uC0AC\uD0A4 \uD398\uC774\uC2A4"
-      itemDescription: "\uC0C1\uB0E5\uD55C \uD45C\uC815"
+      itemName: "\uC0C1\uB0E5\uD55C \uC5BC\uAD74"
+      itemDescription: "\uCC28\uBD84\uD55C \uD45C\uC815."
       sellPrice: 1000
     - key: UnityChanEye
       iconAssetPath: Sprites/ItemIcon/Eye_A.png
-      itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uB208"
-      itemDescription: "\uB9D1\uACE0 \uD478\uB978 \uB208"
+      itemName: "\uD478\uB978 \uB208"
+      itemDescription: "\uC624\uBB18\uD55C \uBE5B\uC758 \uD478\uB978 \uB208."
       sellPrice: 1000
     - key: YucoEye
       iconAssetPath: Sprites/ItemIcon/Eye_B.png
-      itemName: "\uC720\uCF54 \uB208"
-      itemDescription: "\uCC28\uBD84\uD55C \uB208"
+      itemName: "\uCC28\uBD84\uD55C \uB208"
+      itemDescription: "\uAE4A\uACE0 \uCC28\uBD84\uD55C \uB208."
       sellPrice: 1000
     - key: MisakiEye
       iconAssetPath: Sprites/ItemIcon/Eye_C.png
-      itemName: "\uBBF8\uC0AC\uD0A4 \uB208"
-      itemDescription: "\uB9D1\uACE0 \uAE4A\uC740 \uB208"
+      itemName: "\uB9D1\uC740 \uB208"
+      itemDescription: "\uAE68\uB057\uD558\uAC8C \uB9D1\uAC8C \uC790\uC2E0\uC788\uAC8C!"
       sellPrice: 1000
     - key: UnityChanHair
       iconAssetPath: Sprites/ItemIcon/Hair_A.png
-      itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uD5E4\uC5B4"
-      itemDescription: "\uADC0\uC5EC\uC6B4 \uC591\uAC08\uB798"
+      itemName: "\uC591\uAC08\uB798 \uD5E4\uC5B4"
+      itemDescription: "\uADC0\uC5EC\uC6B4 \uC591\uAC08\uB798."
       sellPrice: 1000
     - key: YucoHair
       iconAssetPath: Sprites/ItemIcon/Hair_B.png
-      itemName: "\uC720\uCF54 \uD5E4\uC5B4"
-      itemDescription: "\uCC28\uBD84\uD55C \uC20F\uCEF7"
+      itemName: "\uC20F\uCEF7 \uD5E4\uC5B4"
+      itemDescription: "\uCC28\uBD84\uD55C \uC20F\uCEF7."
       sellPrice: 1000
     - key: MisakiHair
       iconAssetPath: Sprites/ItemIcon/Hair_C.png
-      itemName: "\uBBF8\uC0AC\uD0A4 \uD5E4\uC5B4"
-      itemDescription: "\uB2E8\uC815\uD55C \uBC18\uBB36\uC74C"
+      itemName: "\uBC18\uBB36\uC74C \uD5E4\uC5B4"
+      itemDescription: "\uB2E8\uC815\uD55C \uBC18\uBB36\uC74C."
       sellPrice: 1000
     - key: UnityChanAccessory
       iconAssetPath: Sprites/ItemIcon/Acc_A.png
       itemName: "\uB178\uB780 \uBA38\uB9AC\uB760"
-      itemDescription: "\uC720\uB2C8\uD2F0 \uCA29\uC774 \uC4F0\uB358 \uB178\uB780
-        \uBA38\uB9AC\uB048"
+      itemDescription: "\uC5B4\uB5BB\uAC8C \uB5A0 \uC788\uB294\uC9C0\uB294 \uBE44\uBC00\uC785\uB2C8\uB2E4."
       sellPrice: 1000
     - key: YucoAccessory
       iconAssetPath: Sprites/ItemIcon/Acc_B.png
       itemName: "\uACE0\uC591\uC774 \uBA38\uB9AC\uB760"
-      itemDescription: "\uADC0\uAC00 \uB124 \uAC1C\uAC00 \uB41C\uB2E4"
+      itemDescription: "\uADC0\uAC00 \uB124 \uAC1C\uAC00 \uB41C\uB2E4."
       sellPrice: 1000
     - key: MisakiAccessory
       iconAssetPath: Sprites/ItemIcon/Acc_C.png
       itemName: "\uB9AC\uBCF8 \uD5E4\uC5B4\uD540"
-      itemDescription: "\uD328\uC158 \uD3EC\uC778\uD2B8"
+      itemDescription: "\uD551\uD06C \uD328\uC158 \uD3EC\uC778\uD2B8!"
       sellPrice: 1000
     - key: Frame_01
       iconAssetPath: Sprites/Profile/Frame_01.png
@@ -517,17 +759,18 @@ MonoBehaviour:
       iconAssetPath: Sprites/Profile/Frame_02.png
       itemName: "\uBC15\uC950 \uD504\uB808\uC784"
       itemDescription: "\uC73C\uC2A4\uC2A4\uD55C \uBD84\uC704\uAE30\uB97C \uC904
-        \uC218 \uC788\uB294 \uD504\uB808\uC784"
+        \uC218 \uC788\uB294 \uD504\uB808\uC784."
       sellPrice: 1000
     - key: Profile_01
       iconAssetPath: Sprites/Profile/Profile_01.png
-      itemName: "\uC720\uB2C8\uD2F0\uC9F1 \uD504\uB85C\uD544"
-      itemDescription: "\uC720\uB2C8\uD2F0\uC9F1\uC758 \uCD08\uC0C1\uD654"
+      itemName: "\uAE08\uBC1C \uC18C\uB140 \uD504\uB85C\uD544"
+      itemDescription: "\uCF8C\uD65C\uD55C \uAE08\uBC1C \uC18C\uB140\uC758 \uCD08\uC0C1\uD654."
       sellPrice: 1000
     - key: Profile_02
       iconAssetPath: Sprites/Profile/Profile_02.png
-      itemName: "\uBBF8\uC0AC\uD0A4 \uD504\uB85C\uD544"
-      itemDescription: "\uBBF8\uC0AC\uD0A4\uC758 \uCD08\uC0C1\uD654"
+      itemName: "\uBE0C\uB8E8\uB137 \uC18C\uB140 \uD504\uB85C\uD544"
+      itemDescription: "\uC0C1\uB0E5\uD55C \uBE0C\uB8E8\uB137 \uC18C\uB140\uC758
+        \uCD08\uC0C1\uD654."
       sellPrice: 1000
     - key: Barricade
       iconAssetPath: Sprites/SpecialItem/Barricade.png
@@ -537,32 +780,35 @@ MonoBehaviour:
       sellPrice: 1000
     - key: MinusDiceBuff
       iconAssetPath: Sprites/SpecialItem/MinusDiceBuff.png
-      itemName: "\uC8FC\uC0AC\uC704 \uC74C\uC218 \uBC84\uD504"
-      itemDescription: "\uB4A4\uB85C\uB3C4 \uAC78\uC744 \uC218 \uC788\uC5B4\uC694"
+      itemName: "\uC0C1\uD55C \uC2AC\uB77C\uC784"
+      itemDescription: "\uC824\uB9AC\uAC00 \uC544\uB2C8\uB77C \uC2AC\uB77C\uC784!
+        \uB4A4\uB85C \uAC77\uAC8C \uB429\uB2C8\uB2E4."
       sellPrice: 1000
     - key: DoubleDiceBuff
       iconAssetPath: Sprites/SpecialItem/DoubleDiceBuff.png
-      itemName: "\uC8FC\uC0AC\uC704 \uB450 \uBC30 \uBC84\uD504"
-      itemDescription: "\uB450 \uBC30\uB85C \uAC78\uC744 \uC218 \uC788\uC5B4\uC694"
+      itemName: "x2 \uD638\uBC15"
+      itemDescription: "\uC5B4\uCA50\uC9C0 \uD798\uC774 \uB098\uC11C \uB450 \uBC30\uB85C
+        \uAC78\uC744 \uC218 \uC788\uC5B4\uC694!"
       sellPrice: 1000
     - key: HalfDiceBuff
       iconAssetPath: Sprites/SpecialItem/HalfDiceBuff.png
-      itemName: "\uC8FC\uC0AC\uC704 \uBC18\uAC10 \uBC84\uD504"
-      itemDescription: "\uBC18\uBC16\uC5D0 \uBABB \uAC78\uC5B4\uC694"
+      itemName: "/2 \uD638\uBC15"
+      itemDescription: "\uC5B4\uCA50\uC9C0 \uD798\uC774 \uBE60\uC838\uC11C \uBC18\uBC16\uC5D0
+        \uBABB \uAC78\uC5B4\uC694\u2026"
       sellPrice: 1000
     - key: DrunkBuff
       iconAssetPath: Sprites/SpecialItem/DrunkBuff.png
-      itemName: DrunkBuff
+      itemName: "\uC2F8\uAD6C\uB824 \uC640\uC778"
       itemDescription: "\uD5E4\uB871\uD5E4\uB871\u2026 1 \uB610\uB294 6!"
       sellPrice: 1000
     - key: OddBuff
       iconAssetPath: Sprites/SpecialItem/OddBuff.png
-      itemName: "\uD640\uC218 \uC8FC\uC0AC\uC704 \uBC84\uD504"
+      itemName: "135 \uBB3C\uC57D"
       itemDescription: "\uC624\uC9C1 \uD640\uC218\uB9CC!"
       sellPrice: 1000
     - key: EvenBuff
       iconAssetPath: Sprites/SpecialItem/EvenBuff.png
-      itemName: "\uC9DD\uC218 \uC8FC\uC0AC\uC704 \uBC84\uD504"
+      itemName: "246 \uBB3C\uC57D"
       itemDescription: "\uC624\uC9C1 \uC9DD\uC218\uB9CC!"
       sellPrice: 1000
   fieldItemDataList:
@@ -801,10 +1047,6 @@ MonoBehaviour:
     - key: Profile_02
       isFrame: 0
   sortedShopItemList:
-  - key: UnityChanAccessory
-    isEquipment: 1
-    price: 30000
-    shopItemDescription: "\uC5BC\uB9C8 \uC804\uAE4C\uC9C0 \uC81C\uAC00 \uC4F0\uB358\\n\uBA38\uB9AC\uB760\uC5D0\uC694."
   - key: GreatSword
     isEquipment: 1
     price: 50000
@@ -813,7 +1055,27 @@ MonoBehaviour:
   - key: TwinDagger
     isEquipment: 1
     price: 50000
-    shopItemDescription: "\uBE14\uB799 \uD551\uD06C \uC778 \uC720\uC5B4 \uC5D0\uB9AC\uC544"
+    shopItemDescription: "\uC791\uACE0 \uB0A0\uB835\uD55C \uC30D\uAC80\uC774\uC5D0\uC694."
+  - key: Axe
+    isEquipment: 1
+    price: 50000
+    shopItemDescription: "\uB3C4\uB07C"
+  - key: PickAx
+    isEquipment: 1
+    price: 50000
+    shopItemDescription: "\uACE1\uAD2D\uC774"
+  - key: Shovel
+    isEquipment: 1
+    price: 50000
+    shopItemDescription: "\uC0BD"
+  - key: Umbrella
+    isEquipment: 1
+    price: 50000
+    shopItemDescription: "\uC6B0\uC0B0"
+  - key: Net
+    isEquipment: 1
+    price: 50000
+    shopItemDescription: "\uC7A0\uC790\uB9AC\uCC44"
   - key: UnityChanBody
     isEquipment: 1
     price: 30000
@@ -821,13 +1083,76 @@ MonoBehaviour:
   - key: YucoBody
     isEquipment: 1
     price: 30000
-    shopItemDescription: "\uBBF8\uC0AC\uD0A4\uB294 \uB9E4\uC77C \uC774\uAC83\uB9CC
-      \uC785\uB354\uB77C\uACE0\uC694."
+    shopItemDescription: "\uC11C\uB298\uD560 \uB54C\uB294 \uAC89\uC637\uC744 \uAC78\uCE58\uB294
+      \uAC83\uB3C4 \uC88B\uC8E0."
   - key: MisakiBody
     isEquipment: 1
     price: 30000
-    shopItemDescription: "\uC720\uCF54\uB294 \uD56D\uC0C1 \uAC89\uC637\uC744 \uC785\uACE0
-      \uB2E4\uB140\uC694."
+    shopItemDescription: "\uD3B8\uD558\uACE0 \uAC00\uBCBC\uC6B4 \uC637\uC774\uC8E0!"
+  - key: UnityChanFace
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uB610\uB837\uD55C \uC5BC\uAD74"
+  - key: YucoFace
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uBA4D\uD55C \uC5BC\uAD74"
+  - key: MisakiFace
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uC0C1\uB0E5\uD55C \uC5BC\uAD74"
+  - key: UnityChanEye
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uD478\uB978 \uB208"
+  - key: YucoEye
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uCC28\uBD84\uD55C \uB208"
+  - key: MisakiEye
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uB9D1\uC740 \uB208"
+  - key: UnityChanHair
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uC591\uAC08\uB798 \uD5E4\uC5B4"
+  - key: YucoHair
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uC20F\uCEF7 \uD5E4\uC5B4"
+  - key: MisakiHair
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uBC18\uBB36\uC74C \uD5E4\uC5B4"
+  - key: UnityChanAccessory
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uC5BC\uB9C8 \uC804\uAE4C\uC9C0 \uC81C\uAC00 \uC4F0\uB358\\n\uBA38\uB9AC\uB760\uC608\uC694."
+  - key: YucoAccessory
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uACE0\uC591\uC774 \uBA38\uB9AC\uB760"
+  - key: MisakiAccessory
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uB9AC\uBCF8 \uD5E4\uC5B4\uD540"
+  - key: Frame_01
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uD06C\uB9AC\uC2A4\uB9C8\uC2A4 \uD504\uB808\uC784"
+  - key: Frame_02
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uBC15\uC950 \uD504\uB808\uC784"
+  - key: Profile_01
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uAE08\uBC1C \uC18C\uB140 \uD504\uB85C\uD544"
+  - key: Profile_02
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uBE0C\uB8E8\uB137 \uC18C\uB140 \uD504\uB85C\uD544"
   - key: Barricade
     isEquipment: 0
     price: 100
