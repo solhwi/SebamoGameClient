@@ -13,6 +13,7 @@ public class CoinTextComponent : MonoBehaviour, IBoardGameSubscriber
 	[SerializeField] private float coinEffectSpeedRate = 1.0f;
 
 	private int prevCoinCount = 0;
+	private bool isUpdate = true;
 
 	public IEnumerator OnDoTileAction(int currentOrder, int nextOrder)
 	{
@@ -22,6 +23,7 @@ public class CoinTextComponent : MonoBehaviour, IBoardGameSubscriber
 	public void OnEndTurn()
 	{
 		SetCoinText();
+		isUpdate = true;
 	}
 
 	public IEnumerator OnGetItem(FieldItem fieldItem, int currentOrder, int nextOrder)
@@ -30,11 +32,6 @@ public class CoinTextComponent : MonoBehaviour, IBoardGameSubscriber
 	}
 
 	public IEnumerator OnMove(int currentOrder, int nextOrder, int diceCount)
-	{
-		yield break;
-	}
-
-	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, float nextBonusMultiplyCount)
 	{
 		int currentCoinCount = inventory.GetHasCoinCount();
 
@@ -52,15 +49,29 @@ public class CoinTextComponent : MonoBehaviour, IBoardGameSubscriber
 		SetCoinText();
 	}
 
+	public IEnumerator OnRollDice(int diceCount, int nextBonusAddCount, float nextBonusMultiplyCount)
+	{
+		yield break;
+	}
+
 	public void OnStartTurn()
 	{
 		SetCoinText();
+		isUpdate = false;
 	}
 
 	private void Start()
     {
 		BoardGameManager.Instance?.Subscribe(this);
 		SetCoinText();
+	}
+
+	private void Update()
+	{
+		if (isUpdate)
+		{
+			SetCoinText();
+		}
 	}
 
 	private void SetCoinText()

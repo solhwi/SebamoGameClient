@@ -17,7 +17,20 @@ public enum GroupType
 
 public class HttpNetworkManager : Singleton<HttpNetworkManager>
 {
-	[SerializeField] private string BaseURL = "http://localhost:8001";
+	private string BaseURL
+	{
+		get
+		{
+			if (isLocalMode)
+			{
+				return "http://localhost:8001";
+			}
+			else
+			{
+				return "http://3.38.92.175:8001";
+			}
+		}
+	}
 
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Inventory inventory;
@@ -29,6 +42,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	[HideInInspector] public bool IsConnected = false;
 
 	[SerializeField] public bool isOfflineMode = false;
+	[SerializeField] public bool isLocalMode = false;
 
 	private float t = 0.0f;
 
