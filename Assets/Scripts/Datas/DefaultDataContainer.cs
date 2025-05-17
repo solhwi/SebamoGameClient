@@ -5,13 +5,6 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-[System.Serializable]
-public class PlayerSaveData
-{
-	public MyPlayerPacketData data;
-	public List<string> nameList;
-}
-
 [CreateAssetMenu(fileName = "DefaultDataContainer")]
 public class DefaultDataContainer : ScriptableObject
 {
