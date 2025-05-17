@@ -76,7 +76,10 @@ public class PlayerDataContainer : ScriptableObject
 	[Range(-6, 6)]
 	public float NextBonusMultiplyDiceCount = 1.0f;
 
-	public NextDiceChangeBuffType nextDiceBuffType = NextDiceChangeBuffType.None;
+	[Header("[주사위 눈 하나 당 획득하는 골드의 양]")]
+	public int AddGoldCountByDiceCount = 100;
+
+	public NextDiceChangeBuffType nextDiceBuffType { get; private set; }
 
 #if UNITY_EDITOR
 	[MenuItem("Tools/캐릭터 위치 초기화")]

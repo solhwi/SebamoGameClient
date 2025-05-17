@@ -631,7 +631,7 @@ MonoBehaviour:
   reconnectCount: 5
   updateFrequency: 60
   IsConnected: 0
-  isOfflineMode: 1
+  isOfflineMode: 0
 --- !u!1 &1320128352665547306
 GameObject:
   m_ObjectHideFlags: 0

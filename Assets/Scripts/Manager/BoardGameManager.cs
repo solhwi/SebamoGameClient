@@ -239,7 +239,14 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	public void OnClickRollDice()
 	{
-		TryChangeState(GameState.RollDice);
+		if (playerDataContainer.hasDiceCount > 0 || isDiceDebugMode)
+		{
+			TryChangeState(GameState.RollDice);
+		}
+		else
+		{
+			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter("주사위 개수가 부족합니다."));
+		}
 	}
 
 	private void TryChangeState(GameState newState, StateData data = null)
@@ -399,6 +406,8 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		// 주사위 굴리기
 		int currentOrder = playerDataContainer.currentTileOrder;
 		int diceCount = GetNextDiceCount();
+
+		inventory.TryAddItem(ItemTable.Coin, playerDataContainer.AddGoldCountByDiceCount * diceCount);
 
 		int bonusAddDiceCount = playerDataContainer.NextBonusAddDiceCount;
 		float bonusMultiplyDiceCount = playerDataContainer.NextBonusMultiplyDiceCount;
