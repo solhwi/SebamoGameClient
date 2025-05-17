@@ -391,6 +391,11 @@ public class BoardGameManager : Singleton<BoardGameManager>
 			buffItem.TryUse(playerDataContainer);
 		}
 
+		if (isDiceDebugMode == false)
+		{
+			playerDataContainer.UseDice();
+		}
+
 		// 주사위 굴리기
 		int currentOrder = playerDataContainer.currentTileOrder;
 		int diceCount = GetNextDiceCount();

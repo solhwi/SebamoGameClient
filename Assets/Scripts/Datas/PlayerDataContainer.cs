@@ -123,6 +123,11 @@ public class PlayerDataContainer : ScriptableObject
 		nextDiceBuffType = NextDiceChangeBuffType.None;
 	}
 
+	public void UseDice()
+	{
+		hasDiceCount = hasDiceCount > 0 ? hasDiceCount - 1 : 0;
+	}
+
 	public bool IsMine(string group, string name)
 	{
 		return playerGroup == group && playerName == name;
