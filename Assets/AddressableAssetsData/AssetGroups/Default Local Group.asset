@@ -326,7 +326,8 @@ MonoBehaviour:
   - m_GUID: 9a3b1fd91b62f524eac2e1562c9969b5
     m_Address: Assets/Bundles/Sprites/DiceButton.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8e043661962ef149970978e6f5baaef
     m_Address: Assets/Bundles/Sprites/EquipBackground.png
@@ -4142,7 +4143,8 @@ MonoBehaviour:
   - m_GUID: 7840d900dc0a4ed4dbcd26e23f064dd8
     m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr smoke cloud x4 ab.mat
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Character
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d716ca3122c94e408d5c2393be4780d
     m_Address: Assets/Bundles/Cartoon FX Remaster Graphics/cfxr screen distortion
