@@ -273,7 +273,39 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		});
 	}
 
-	private IEnumerator PostRoutine(string url, string data, Action<string> onGet)
+	private IEnumerator PostRoutine(string url, string data, Action<string> onPost)
+	{
+		for (int i = 0; i < reconnectCount; i++)
+		{
+			var www = MakeRequest(url, data, onPost);
+			yield return www.SendWebRequest();
+
+			if (www.error == null)
+			{
+				if (UIManager.Instance != null)
+				{
+					UIManager.Instance.TryCloseWaitPopup(WaitingPopup.Type.Network);
+				}
+
+				onPost?.Invoke(www.downloadHandler.text);
+				break;
+			}
+			else if (i == reconnectCount)
+			{
+				onPost?.Invoke(www.error);
+				break;
+			}
+			else
+			{
+				if (UIManager.Instance != null)
+				{
+					UIManager.Instance.TryOpenWaitPopup(new WaitingPopup.Parameter(WaitingPopup.Type.Network));
+				}
+			}
+		}
+	}
+
+	private UnityWebRequest MakeRequest(string url, string data, Action<string> onGet)
 	{
 		UnityWebRequest www = UnityWebRequest.PostWwwForm(url, data);
 
@@ -282,19 +314,14 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 		//json 헤더 추가
 		www.SetRequestHeader("Content-Type", "application/json");
-		yield return OnRequest(www, onGet);
+		return www;
 	}
 
 	private IEnumerator GetRoutine(string url, Action<string> onGet)
 	{
-		UnityWebRequest www = UnityWebRequest.Get(url);
-		yield return OnRequest(www, onGet);
-	}
-
-	private IEnumerator OnRequest(UnityWebRequest www, Action<string> onGet)
-	{
 		for (int i = 0; i < reconnectCount; i++)
 		{
+			var www = UnityWebRequest.Get(url);
 			yield return www.SendWebRequest();
 
 			if (www.error == null)
@@ -307,6 +334,11 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 				onGet?.Invoke(www.downloadHandler.text);
 				break;
 			}
+			else if (i == reconnectCount)
+			{
+				onGet?.Invoke(www.error);
+				break;
+			}
 			else
 			{
 				if (UIManager.Instance != null)
@@ -316,6 +348,5 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 			}
 		}
 
-		onGet?.Invoke(www.error);
 	}
 }
