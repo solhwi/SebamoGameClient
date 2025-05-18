@@ -30,12 +30,10 @@ public class RankingBoard : MonoBehaviour
 	[SerializeField] private Image rankingToggleImage = null;
 	[SerializeField] private Sprite[] rankingImages = null;
 
-	private TileSortingComparer tileSortingComparer = null;
 	private List<PlayerPacketData> playerDatas = new List<PlayerPacketData>();
 
 	private void Awake()
 	{
-		tileSortingComparer = new TileSortingComparer(tileDataContainer);
 		playerDatas.Clear();
 	}
 
@@ -53,6 +51,9 @@ public class RankingBoard : MonoBehaviour
 
 	private void Update()
 	{
+		if (playerDataContainer == null)
+			return;
+
 		if (IsDirtyPlayerTileIndex(out var currentPlayerDatas) == false)
 			return;
 
@@ -81,7 +82,16 @@ public class RankingBoard : MonoBehaviour
 	
 	private bool IsDirtyPlayerTileIndex(out List<PlayerPacketData> playerDatas)
 	{
-		playerDatas = playerDataContainer.GetAllPlayerData()?.OrderByDescending(d => d.playerTileOrder, tileSortingComparer).ToList();
+		playerDatas = new List<PlayerPacketData>();
+
+		if (playerDataContainer == null)
+			return false;
+
+		var allPlayerData = playerDataContainer.GetAllPlayerData();
+		if (allPlayerData == null || allPlayerData.Any() == false)
+			return false;
+
+		playerDatas = allPlayerData.OrderByDescending(d => d.playerTileOrder).ToList();
 
 		if (this.playerDatas.Count != playerDatas.Count)
 		{
