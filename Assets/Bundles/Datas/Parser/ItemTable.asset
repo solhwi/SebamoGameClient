@@ -126,6 +126,26 @@ MonoBehaviour:
     isEquipment: 1
     price: 30000
     shopItemDescription: "\uAC08\uC0C9\uC73C\uB85C \uC5FC\uC0C9\uD560\uAE4C\u2026"
+  - key: Profile_03
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uB204\uAC00 \uADF8\uB9B0 \uAC78\uAE4C\uC694? \uADC0\uC5FD\uB2E4!"
+  - key: Profile_04
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uB204\uAC00 \uADF8\uB838\uC744\uAE4C\uC694? \uADC0\uC5FD\uB124\uC694!"
+  - key: Profile_05
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uC800\uB791 \uB2EE\uC558\uB2E4\uB2C8\uAE4C\uC694!"
+  - key: Profile_06
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uC5ED\uC2DC \uAC08\uC0C9\uC73C\uB85C \uC5FC\uC0C9\uD574\uC57C\uACA0\uC5B4\uC694."
+  - key: Profile_07
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uC774\uAC70 \uC800 \uB9DE\uC8E0!"
   - key: Barricade
     isEquipment: 0
     price: 100
@@ -163,6 +183,11 @@ MonoBehaviour:
     - Frame_02
     - Profile_01
     - Profile_02
+    - Profile_03
+    - Profile_04
+    - Profile_05
+    - Profile_06
+    - Profile_07
     - Barricade
     - DoubleDiceBuff
     m_values:
@@ -280,6 +305,26 @@ MonoBehaviour:
       isEquipment: 1
       price: 30000
       shopItemDescription: "\uAC08\uC0C9\uC73C\uB85C \uC5FC\uC0C9\uD560\uAE4C\u2026"
+    - key: Profile_03
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uB204\uAC00 \uADF8\uB9B0 \uAC78\uAE4C\uC694? \uADC0\uC5FD\uB2E4!"
+    - key: Profile_04
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uB204\uAC00 \uADF8\uB838\uC744\uAE4C\uC694? \uADC0\uC5FD\uB124\uC694!"
+    - key: Profile_05
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uC800\uB791 \uB2EE\uC558\uB2E4\uB2C8\uAE4C\uC694!"
+    - key: Profile_06
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uC5ED\uC2DC \uAC08\uC0C9\uC73C\uB85C \uC5FC\uC0C9\uD574\uC57C\uACA0\uC5B4\uC694."
+    - key: Profile_07
+      isEquipment: 1
+      price: 30000
+      shopItemDescription: "\uC774\uAC70 \uC800 \uB9DE\uC8E0!"
     - key: Barricade
       isEquipment: 0
       price: 100
@@ -577,6 +622,33 @@ MonoBehaviour:
     itemName: "\uBE0C\uB8E8\uB137 \uC18C\uB140 \uD504\uB85C\uD544"
     itemDescription: "\uC0C1\uB0E5\uD55C \uBE0C\uB8E8\uB137 \uC18C\uB140\uC758 \uCD08\uC0C1\uD654."
     sellPrice: 1000
+  - key: Profile_03
+    iconAssetPath: Sprites/Profile/Profile_03.png
+    itemName: "\uAE08\uBC1C \uC18C\uB140 \uB099\uC11C \uD504\uB85C\uD544"
+    itemDescription: "\uCF8C\uD65C\uD55C \uAE08\uBC1C \uC18C\uB140\uB97C \uB099\uC11C\uD55C
+      \uADF8\uB9BC."
+    sellPrice: 1000
+  - key: Profile_04
+    iconAssetPath: Sprites/Profile/Profile_04.png
+    itemName: "\uACE0\uC591\uC774 \uC18C\uB140 \uB099\uC11C \uD504\uB85C\uD544"
+    itemDescription: "\uC0C1\uB0E5\uD55C \uBE0C\uB8E8\uB137 \uC18C\uB140\uB97C \uB099\uC11C\uD55C
+      \uADF8\uB9BC."
+    sellPrice: 1000
+  - key: Profile_05
+    iconAssetPath: Sprites/Profile/Profile_05.png
+    itemName: "\uAE08\uBC1C \uC18C\uB140 \uD504\uB85C\uD544 2"
+    itemDescription: "\uCF8C\uD65C\uD55C \uAE08\uBC1C \uC18C\uB140\uC758 \uCD08\uC0C1\uD654."
+    sellPrice: 1000
+  - key: Profile_06
+    iconAssetPath: Sprites/Profile/Profile_06.png
+    itemName: "\uBE0C\uB8E8\uB137 \uC18C\uB140 \uD504\uB85C\uD544 2"
+    itemDescription: "\uC0C1\uB0E5\uD55C \uBE0C\uB8E8\uB137 \uC18C\uB140\uC758 \uCD08\uC0C1\uD654."
+    sellPrice: 1000
+  - key: Profile_07
+    iconAssetPath: Sprites/Profile/Profile_07.png
+    itemName: "\uAE08\uBC1C \uC18C\uB140 \uD504\uB85C\uD544 3"
+    itemDescription: "\uCF8C\uD65C\uD55C \uAE08\uBC1C \uC18C\uB140\uC758 \uCD08\uC0C1\uD654."
+    sellPrice: 1000
   - key: Barricade
     iconAssetPath: Sprites/SpecialItem/Barricade.png
     itemName: "\uBC14\uB098\uB098"
@@ -644,6 +716,11 @@ MonoBehaviour:
     - Frame_02
     - Profile_01
     - Profile_02
+    - Profile_03
+    - Profile_04
+    - Profile_05
+    - Profile_06
+    - Profile_07
     - Barricade
     - MinusDiceBuff
     - DoubleDiceBuff
@@ -792,6 +869,34 @@ MonoBehaviour:
       itemName: "\uBE0C\uB8E8\uB137 \uC18C\uB140 \uD504\uB85C\uD544"
       itemDescription: "\uC0C1\uB0E5\uD55C \uBE0C\uB8E8\uB137 \uC18C\uB140\uC758
         \uCD08\uC0C1\uD654."
+      sellPrice: 1000
+    - key: Profile_03
+      iconAssetPath: Sprites/Profile/Profile_03.png
+      itemName: "\uAE08\uBC1C \uC18C\uB140 \uB099\uC11C \uD504\uB85C\uD544"
+      itemDescription: "\uCF8C\uD65C\uD55C \uAE08\uBC1C \uC18C\uB140\uB97C \uB099\uC11C\uD55C
+        \uADF8\uB9BC."
+      sellPrice: 1000
+    - key: Profile_04
+      iconAssetPath: Sprites/Profile/Profile_04.png
+      itemName: "\uACE0\uC591\uC774 \uC18C\uB140 \uB099\uC11C \uD504\uB85C\uD544"
+      itemDescription: "\uC0C1\uB0E5\uD55C \uBE0C\uB8E8\uB137 \uC18C\uB140\uB97C
+        \uB099\uC11C\uD55C \uADF8\uB9BC."
+      sellPrice: 1000
+    - key: Profile_05
+      iconAssetPath: Sprites/Profile/Profile_05.png
+      itemName: "\uAE08\uBC1C \uC18C\uB140 \uD504\uB85C\uD544 2"
+      itemDescription: "\uCF8C\uD65C\uD55C \uAE08\uBC1C \uC18C\uB140\uC758 \uCD08\uC0C1\uD654."
+      sellPrice: 1000
+    - key: Profile_06
+      iconAssetPath: Sprites/Profile/Profile_06.png
+      itemName: "\uBE0C\uB8E8\uB137 \uC18C\uB140 \uD504\uB85C\uD544 2"
+      itemDescription: "\uC0C1\uB0E5\uD55C \uBE0C\uB8E8\uB137 \uC18C\uB140\uC758
+        \uCD08\uC0C1\uD654."
+      sellPrice: 1000
+    - key: Profile_07
+      iconAssetPath: Sprites/Profile/Profile_07.png
+      itemName: "\uAE08\uBC1C \uC18C\uB140 \uD504\uB85C\uD544 3"
+      itemDescription: "\uCF8C\uD65C\uD55C \uAE08\uBC1C \uC18C\uB140\uC758 \uCD08\uC0C1\uD654."
       sellPrice: 1000
     - key: Barricade
       iconAssetPath: Sprites/SpecialItem/Barricade.png
@@ -1052,12 +1157,27 @@ MonoBehaviour:
     isFrame: 0
   - key: Profile_02
     isFrame: 0
+  - key: Profile_03
+    isFrame: 0
+  - key: Profile_04
+    isFrame: 0
+  - key: Profile_05
+    isFrame: 0
+  - key: Profile_06
+    isFrame: 0
+  - key: Profile_07
+    isFrame: 0
   profileItemDataDictionary:
     m_keys:
     - Frame_01
     - Frame_02
     - Profile_01
     - Profile_02
+    - Profile_03
+    - Profile_04
+    - Profile_05
+    - Profile_06
+    - Profile_07
     m_values:
     - key: Frame_01
       isFrame: 1
@@ -1066,6 +1186,16 @@ MonoBehaviour:
     - key: Profile_01
       isFrame: 0
     - key: Profile_02
+      isFrame: 0
+    - key: Profile_03
+      isFrame: 0
+    - key: Profile_04
+      isFrame: 0
+    - key: Profile_05
+      isFrame: 0
+    - key: Profile_06
+      isFrame: 0
+    - key: Profile_07
       isFrame: 0
   sortedShopItemList:
   - key: GreatSword
@@ -1181,6 +1311,26 @@ MonoBehaviour:
     isEquipment: 1
     price: 30000
     shopItemDescription: "\uAC08\uC0C9\uC73C\uB85C \uC5FC\uC0C9\uD560\uAE4C\u2026"
+  - key: Profile_03
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uB204\uAC00 \uADF8\uB9B0 \uAC78\uAE4C\uC694? \uADC0\uC5FD\uB2E4!"
+  - key: Profile_04
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uB204\uAC00 \uADF8\uB838\uC744\uAE4C\uC694? \uADC0\uC5FD\uB124\uC694!"
+  - key: Profile_05
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uC800\uB791 \uB2EE\uC558\uB2E4\uB2C8\uAE4C\uC694!"
+  - key: Profile_06
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uC5ED\uC2DC \uAC08\uC0C9\uC73C\uB85C \uC5FC\uC0C9\uD574\uC57C\uACA0\uC5B4\uC694."
+  - key: Profile_07
+    isEquipment: 1
+    price: 30000
+    shopItemDescription: "\uC774\uAC70 \uC800 \uB9DE\uC8E0!"
   - key: Barricade
     isEquipment: 0
     price: 100
