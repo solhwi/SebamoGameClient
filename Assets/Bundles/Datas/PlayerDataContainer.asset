@@ -17,93 +17,14 @@ MonoBehaviour:
   tileDataContainer: {fileID: 11400000, guid: 6bff3bcc2db60844cb56ca069bb23b8c, type: 2}
   playerGroup: Exp
   playerName: "\uC194\uD718"
-  hasDiceCount: 3
-  currentTileOrder: 360
+  hasDiceCount: 0
+  currentTileOrder: 0
   profileComment: 
   moveTimeByOneTile: 1
-  otherPlayerPacketDatas:
-  - type: 0
-    playerGroup: Exp
-    playerName: "\uB3D9\uD604"
-    playerTileOrder: 13
-    hasDiceCount: 3
-    profileComment: 
-    equippedItems:
-    - YucoBody
-    - UnityChanHair
-    - UnityChanEye
-    - UnityChanFace
-    - MisakiAccessory
-    - GreatSword
-    appliedProfileItems:
-    - Profile_02
-    - Frame_01
-  - type: 0
-    playerGroup: Exp
-    playerName: "\uC0C1\uD6C8"
-    playerTileOrder: 13
-    hasDiceCount: 3
-    profileComment: 
-    equippedItems:
-    - YucoBody
-    - UnityChanHair
-    - UnityChanEye
-    - UnityChanFace
-    - MisakiAccessory
-    - GreatSword
-    appliedProfileItems:
-    - Profile_02
-    - Frame_01
-  - type: 0
-    playerGroup: Exp
-    playerName: "\uC9C0\uD64D"
-    playerTileOrder: 13
-    hasDiceCount: 3
-    profileComment: 
-    equippedItems:
-    - YucoBody
-    - UnityChanHair
-    - UnityChanEye
-    - UnityChanFace
-    - MisakiAccessory
-    - GreatSword
-    appliedProfileItems:
-    - Profile_02
-    - Frame_01
-  - type: 0
-    playerGroup: Exp
-    playerName: "\uAC15\uC6B1"
-    playerTileOrder: 13
-    hasDiceCount: 3
-    profileComment: 
-    equippedItems:
-    - YucoBody
-    - UnityChanHair
-    - UnityChanEye
-    - UnityChanFace
-    - MisakiAccessory
-    - GreatSword
-    appliedProfileItems:
-    - Profile_02
-    - Frame_01
-  - type: 0
-    playerGroup: Exp
-    playerName: "\uC9C0\uD604"
-    playerTileOrder: 13
-    hasDiceCount: 3
-    profileComment: 
-    equippedItems:
-    - YucoBody
-    - UnityChanHair
-    - UnityChanEye
-    - UnityChanFace
-    - MisakiAccessory
-    - GreatSword
-    appliedProfileItems:
-    - Profile_02
-    - Frame_01
+  otherPlayerPacketDatas: []
   MaxDiceCount: 10
   NextDiceCount: 3
   NextBonusAddDiceCount: 0
   NextBonusMultiplyDiceCount: 1
   nextDiceBuffType: -1
+  AddGoldCountByDiceCount: 100

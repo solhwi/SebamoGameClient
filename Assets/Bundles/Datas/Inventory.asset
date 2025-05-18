@@ -25,26 +25,15 @@ MonoBehaviour:
     - Coin
     - Profile_01
     - Frame_01
-    - Profile_02
-    - Frame_02
-    - MisakiBody
-    - YucoHair
-    - YucoEye
-    - YucoFace
-    - YucoAccessory
-    - MisakiEye
-    - UnityChanHair
-    - UnityChanBody
-    - MisakiFace
-    - UnityChanAccessory
-    m_values: 01000000010000000100000001000000010000000100000001000000a08601000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+    m_values: 02000000020000000200000002000000020000000100000001000000000000000100000001000000
   equippedItems:
   - YucoBody
-  - UnityChanHair
-  - UnityChanEye
-  - UnityChanFace
-  - MisakiAccessory
+  - MisakiHair
+  - YucoEye
+  - MisakiFace
+  - YucoAccessory
   - GreatSword
+  appliedBuffItemList: []
   appliedProfileItems:
   - Profile_02
   - Frame_01
