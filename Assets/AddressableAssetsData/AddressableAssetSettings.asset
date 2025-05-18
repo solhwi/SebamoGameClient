@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 8037ee078051559458c43fa8cc857b37
   m_currentHash:
     serializedVersion: 2
-    Hash: 85fc3e5e79adb64eff72ecde4073313d
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -64,9 +64,9 @@ MonoBehaviour:
       - m_Id: 322f612bb286e1e4b884f8b8c6b31c02
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: 2d42f48a64ba9804aad484f09050aaad
-        m_Value: 'ServerData/[BuildTarget]'
+        m_Value: D:/Work/SebamoClient/BundleBuilds
       - m_Id: d52f4233706df9d42a17c0acfbb2a9ce
-        m_Value: 'http://[PrivateIpAddress]:[HostingServicePort]'
+        m_Value: https://cypherssupporter.s3.ap-northeast-2.amazonaws.com/SebamoBundle/Android
     m_ProfileEntryNames:
     - m_Id: e1da3aa275a2cd748a0bf5b9f2851239
       m_Name: BuildTarget
