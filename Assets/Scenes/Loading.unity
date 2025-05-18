@@ -577,7 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardGameCanvas: {fileID: 0}
-  isDownLoadAsset: 0
+  isDownLoadAsset: 1
 --- !u!4 &2110501418
 Transform:
   m_ObjectHideFlags: 0
@@ -624,7 +624,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDontDestroyOnLoad: 1
-  BaseURL: http://3.38.92.175:8001
   playerDataContainer: {fileID: 11400000, guid: 20813611d34aad442b183577b8e1ab42, type: 2}
   inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
   tileDataContainer: {fileID: 11400000, guid: 6bff3bcc2db60844cb56ca069bb23b8c, type: 2}
@@ -632,6 +631,7 @@ MonoBehaviour:
   updateFrequency: 60
   IsConnected: 0
   isOfflineMode: 0
+  isLocalMode: 0
 --- !u!1 &1320128352665547306
 GameObject:
   m_ObjectHideFlags: 0
