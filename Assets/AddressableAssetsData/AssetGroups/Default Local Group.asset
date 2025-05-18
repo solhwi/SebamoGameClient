@@ -8771,27 +8771,32 @@ MonoBehaviour:
   - m_GUID: 38e4fceacaa493a419915e316bfaa1a8
     m_Address: Assets/Bundles/Sprites/Profile/Profile_03.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aeb321df4696dcc42b2db4c81c02246d
     m_Address: Assets/Bundles/Sprites/Profile/Profile_04.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8f608c8b736a6ab478a2b9e403b59f85
     m_Address: Assets/Bundles/Sprites/Profile/Profile_07.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8233db528f16a534bba0f32e4c02fad7
     m_Address: Assets/Bundles/Sprites/Profile/Profile_06.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2193d16ec7111534791b880542dc2f67
     m_Address: Assets/Bundles/Sprites/Profile/Profile_05.png
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0cf4cec20434bb14c93e9a6780056d24, type: 2}
