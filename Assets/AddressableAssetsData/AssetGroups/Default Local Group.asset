@@ -8033,6 +8033,31 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 693e7ba6b68392a408fe3e6b0f8220ed
+    m_Address: Assets/Bundles/Sprites/ItemIcon/Prop_C.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32d2f3ce67666594d9fa7eeed40157e5
+    m_Address: Assets/Bundles/Sprites/ItemIcon/Prop_D.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a15ed998a91e9aa41b3710b3384d5259
+    m_Address: Assets/Bundles/Sprites/ItemIcon/Prop_E.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20d87885184e17f43814c5e1497ec3d6
+    m_Address: Assets/Bundles/Sprites/ItemIcon/Prop_F.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40a9cdd9e6cfdcb42acc31130b50527c
+    m_Address: Assets/Bundles/Sprites/ItemIcon/Prop_G.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0cf4cec20434bb14c93e9a6780056d24, type: 2}
   m_SchemaSet:
