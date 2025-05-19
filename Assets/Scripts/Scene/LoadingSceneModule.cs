@@ -54,7 +54,7 @@ public class LoadingSceneModule : SceneModuleBase
 
 			yield return ResourceManager.Instance.DownLoadAssets((p) =>
 			{
-				preLoadPopup.SetDescription("Downloading Resources", p * downLoadSize);
+				preLoadPopup.SetDescription("리소스 다운로드 중", p * downLoadSize);
 			});
 		}
 		else
@@ -64,11 +64,11 @@ public class LoadingSceneModule : SceneModuleBase
 
 		yield return null;
 
-		preLoadPopup.SetWaitDescription("Preparing Resources");
+		preLoadPopup.SetWaitDescription("리소스 준비 중");
 
 		yield return ResourceManager.Instance.PreLoadAssets();
 
-		preLoadPopup.SetWaitDescription("Caching Resources");
+		preLoadPopup.SetWaitDescription("중요 리소스 캐싱 중");
 
 		yield return SoundManager.Instance.PreLoadSound();
 		yield return BoardGameManager.Instance.PreLoadCharacter();
