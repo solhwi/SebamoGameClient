@@ -9,9 +9,6 @@ public class CoinTextComponent : MonoBehaviour, IBoardGameSubscriber
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private Text coinText;
 
-	[SerializeField] private float coinEffectTime = 1.0f;
-	[SerializeField] private float coinEffectSpeedRate = 1.0f;
-
 	private int prevCoinCount = 0;
 	private bool isUpdate = true;
 

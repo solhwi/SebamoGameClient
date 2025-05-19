@@ -47,7 +47,7 @@ public class BoardGamePopup : MonoBehaviour
 		transform.SetParent(rootCanvas.transform);
 
 		canvas.overrideSorting = true;
-		canvas.sortingOrder = rootCanvas.sortingOrder + sortingOrder;
+		canvas.sortingOrder = rootCanvas.sortingOrder + sortingOrder * (int)UIManager.CanvasGroup.Popup;
 
 		if (openTime > 0.0f)
 		{

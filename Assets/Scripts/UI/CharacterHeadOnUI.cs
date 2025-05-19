@@ -17,7 +17,11 @@ public class CharacterHeadOnUI : MonoBehaviour
 	{
 		canvas = GetComponent<Canvas>();
 		canvas.renderMode = RenderMode.WorldSpace;
-		canvas.sortingOrder = 1000 + (int)PopupType.Max;
+	}
+
+	private void Awake()
+	{
+		canvas.sortingOrder = (int)UIManager.CanvasGroup.HeadOnUI;
 	}
 
 	public void TrySetActive(bool isActive)

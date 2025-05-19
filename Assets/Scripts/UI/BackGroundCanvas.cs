@@ -11,6 +11,8 @@ public class BackGroundCanvas : MonoBehaviour, IBoardGameSubscriber
 	[SerializeField] private RawImage backGroundFrontImage = null;
 	[SerializeField] private RawImage backGroundBackImage = null;
 
+	[SerializeField] private Canvas canvas = null;
+
 	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private TileDataContainer tileDataContainer;
 
@@ -25,6 +27,7 @@ public class BackGroundCanvas : MonoBehaviour, IBoardGameSubscriber
 			BoardGameManager.Instance.Subscribe(this);
 		}
 
+		canvas.worldCamera = Camera.main;
 		SetBackGround(playerDataContainer.currentTileOrder);
 	}
 

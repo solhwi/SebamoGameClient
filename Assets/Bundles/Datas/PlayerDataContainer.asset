@@ -16,7 +16,7 @@ MonoBehaviour:
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
   tileDataContainer: {fileID: 11400000, guid: 6bff3bcc2db60844cb56ca069bb23b8c, type: 2}
   playerGroup: Exp
-  playerName: "\uC194\uD718"
+  playerName: "\uC9C0\uD604"
   hasDiceCount: 0
   currentTileOrder: 0
   profileComment: 

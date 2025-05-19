@@ -30,6 +30,47 @@ public class CameraController : Singleton<CameraController>
 		initialFOV = virtualCamera.m_Lens.Orthographic ? virtualCamera.m_Lens.OrthographicSize : virtualCamera.m_Lens.FieldOfView;
 	}
 
+	private void Start()
+	{
+		// 세로 해상도 기준 (1080x1920 → 9:16)
+		float targetAspect = 9f / 16f;
+
+		// 현재 디바이스 화면 비율
+		float windowAspect = (float)Screen.width / (float)Screen.height;
+
+		// 스케일 비율
+		float scaleWidth = windowAspect / targetAspect;
+
+		Camera cam = Camera.main;
+
+		if (scaleWidth < 1.0f)
+		{
+			// 좌우에 블랙 레터박스 (pillarbox)
+			Rect rect = cam.rect;
+
+			rect.width = scaleWidth;
+			rect.height = 1.0f;
+			rect.x = (1.0f - scaleWidth) / 2.0f;
+			rect.y = 0;
+
+			cam.rect = rect;
+		}
+		else
+		{
+			// 위아래에 블랙 레터박스 (letterbox)
+			float scaleHeight = 1.0f / scaleWidth;
+
+			Rect rect = cam.rect;
+
+			rect.width = 1.0f;
+			rect.height = scaleHeight;
+			rect.x = 0;
+			rect.y = (1.0f - scaleHeight) / 2.0f;
+
+			cam.rect = rect;
+		}
+	}
+
 	private void LateUpdate()
 	{
 		if (isFollowingTarget == false)

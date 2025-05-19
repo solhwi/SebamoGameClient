@@ -21,6 +21,14 @@ public enum PopupType
 
 public class UIManager : Singleton<UIManager>
 {
+	public enum CanvasGroup
+	{
+		BackGround = -1,
+		Canvas = 1000,
+		HeadOnUI = 1008,
+		Popup = 2000,
+	}
+
 	[System.Serializable]
 	public class PopupRefDictionary : SerializableDictionary<PopupType, AssetReferenceGameObject> { }
 	[SerializeField] private PopupRefDictionary popupRefDictionary = new PopupRefDictionary();
@@ -40,6 +48,7 @@ public class UIManager : Singleton<UIManager>
 		base.OnAwakeInstance();
 
 		popupRootCanvas = GetComponentInChildren<Canvas>();
+		popupRootCanvas.worldCamera = Camera.main;
 	}
 
 	public IEnumerator PreLoadPopup()
@@ -73,7 +82,7 @@ public class UIManager : Singleton<UIManager>
 				{
 					if (newPopup != null)
 					{
-						newPopup.Open(popupRootCanvas, popupStack.Count);
+						newPopup.Open(popupRootCanvas, popupStack.Count + 1);
 						newPopup.OnOpen(parameter);
 						popupStack.Push(newPopup);
 
@@ -86,7 +95,7 @@ public class UIManager : Singleton<UIManager>
 		{
 			if (newPopup != null && newPopup.IsOpen == false)
 			{
-				newPopup.Open(popupRootCanvas, popupStack.Count);
+				newPopup.Open(popupRootCanvas, popupStack.Count + 1);
 				newPopup.OnOpen(parameter);
 				popupStack.Push(newPopup);
 			}
