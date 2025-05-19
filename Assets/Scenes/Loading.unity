@@ -577,7 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardGameCanvas: {fileID: 0}
-  isDownLoadAsset: 1
+  isDownLoadAsset: 0
 --- !u!4 &2110501418
 Transform:
   m_ObjectHideFlags: 0
@@ -630,7 +630,7 @@ MonoBehaviour:
   reconnectCount: 5
   updateFrequency: 60
   IsConnected: 0
-  isOfflineMode: 1
+  isOfflineMode: 0
   isLocalMode: 0
 --- !u!1 &1320128352665547306
 GameObject:
@@ -808,8 +808,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDontDestroyOnLoad: 0
   virtualCamera: {fileID: 4155894962007408808}
-  cameraMoveSpeed: 1
-  cameraZoomSpeed: 1
+  cameraMoveSpeed: 0.2
+  cameraZoomSpeed: 0.2
   dampingVec: {x: 0.5, y: 0.5}
   minFOV: 5
   maxFOV: 10
@@ -829,8 +829,8 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
-  m_ScreenMatchMode: 1
-  m_MatchWidthOrHeight: 1
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

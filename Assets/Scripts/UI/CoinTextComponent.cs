@@ -35,11 +35,10 @@ public class CoinTextComponent : MonoBehaviour, IBoardGameSubscriber
 	{
 		int currentCoinCount = inventory.GetHasCoinCount();
 
-		float t = 0.0f;
-		while (t < coinEffectTime)
+		int count = prevCoinCount;
+		while (count < currentCoinCount)
 		{
-			t += Time.deltaTime * coinEffectSpeedRate;
-			int count = (int)Mathf.Lerp(prevCoinCount, currentCoinCount, t);
+			count += 10;
 
 			yield return null;
 

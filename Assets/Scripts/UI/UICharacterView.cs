@@ -74,7 +74,7 @@ public class UICharacterView : CharacterView, IBeginDragHandler, IEndDragHandler
 				originObj.transform.Rotate(Vector3.down * deltaPos.x * rotateSpeed * Time.deltaTime);
 			}
 #else
-			if (Input.touchCount == 0)
+			if (Input.touchCount == 1)
 			{
 				Touch touch1 = Input.GetTouch(0);
 				Vector2 deltaPos = touch1.deltaPosition;

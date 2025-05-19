@@ -14,26 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
   hasItems:
-    m_keys:
-    - YucoBody
-    - MisakiHair
-    - UnityChanEye
-    - UnityChanFace
-    - MisakiAccessory
-    - GreatSword
-    - TwinDagger
-    - Coin
-    - Profile_01
-    - Frame_01
-    m_values: 02000000020000000200000002000000020000000100000001000000000000000100000001000000
-  equippedItems:
-  - YucoBody
-  - MisakiHair
-  - YucoEye
-  - MisakiFace
-  - YucoAccessory
-  - GreatSword
+    m_keys: []
+    m_values: 
+  equippedItems: []
   appliedBuffItemList: []
-  appliedProfileItems:
-  - Profile_02
-  - Frame_01
+  appliedProfileItems: []
