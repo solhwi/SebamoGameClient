@@ -74,6 +74,63 @@ public partial class ItemTable
 		}
 	}
 
+	public int Compare(string itemCode1, string itemCode2)
+	{
+		int order1 = -1;
+		int order2 = -1;
+
+		if (propItemDataDictionary.ContainsKey(itemCode1))
+		{
+			order1 = (int)CharacterPartsType.Max;
+		}
+		else if (partsItemDataDictionary.TryGetValue(itemCode1, out var itemData))
+		{
+			order1 = (int)itemData.partsType;
+		}
+		else if (profileItemDataDictionary.TryGetValue(itemCode1, out var profileItemData))
+		{
+			order1 = profileItemData.isFrame + (int)CharacterPartsType.Max;
+		}
+		else if (fieldItemDataDictionary.TryGetValue(itemCode1, out var fieldItemData))
+		{
+			order1 = (int)CharacterPartsType.Max + 2;
+		}
+		else if (buffItemDataDictionary.TryGetValue(itemCode1, out var buffItemData))
+		{
+			order1 = (int)CharacterPartsType.Max + 3;
+		}
+
+		if (propItemDataDictionary.ContainsKey(itemCode2))
+		{
+			order2 = (int)CharacterPartsType.Max;
+		}
+		else if (partsItemDataDictionary.TryGetValue(itemCode2, out var itemData))
+		{
+			order2 = (int)itemData.partsType;
+		}
+		else if (profileItemDataDictionary.TryGetValue(itemCode2, out var profileItemData))
+		{
+			order2 = profileItemData.isFrame + (int)CharacterPartsType.Max;
+		}
+		else if (fieldItemDataDictionary.TryGetValue(itemCode2, out var fieldItemData))
+		{
+			order2 = (int)CharacterPartsType.Max + 2;
+		}
+		else if (buffItemDataDictionary.TryGetValue(itemCode2, out var buffItemData))
+		{
+			order2 = (int)CharacterPartsType.Max + 3;
+		}
+
+		if (order1 == order2)
+		{
+			return 0;
+		}
+		else
+		{
+			return order1 > order2 ? 1 : -1;
+		}
+	}
+
 	public string GetItemNPCDescription(string itemCode)
 	{
 		if (itemCode == null || itemCode == string.Empty)

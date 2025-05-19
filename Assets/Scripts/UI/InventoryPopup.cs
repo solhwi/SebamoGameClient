@@ -3,70 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
-
-public class ItemSortingComparer : IComparer<string>
-{
-	private ItemTable itemTable;
-
-	public ItemSortingComparer(ItemTable itemTable)
-	{
-		this.itemTable = itemTable;
-	}
-
-	public int Compare(string itemCode1, string itemCode2)
-	{
-		int order1 = -1;
-		int order2 = -1;
-
-		if (itemTable.propItemDataDictionary.ContainsKey(itemCode1))
-		{
-			order1 = (int)CharacterPartsType.Max;
-		}
-		else if (itemTable.partsItemDataDictionary.TryGetValue(itemCode1, out var itemData))
-		{
-			order1 = (int)itemData.partsType;
-		}
-		else if(itemTable.profileItemDataDictionary.TryGetValue(itemCode1, out var profileItemData))
-		{
-			order1 = profileItemData.isFrame + (int)CharacterPartsType.Max;
-		}
-		else if (itemTable.fieldItemDataDictionary.TryGetValue(itemCode1, out var fieldItemData))
-		{
-			order1 = (int)CharacterPartsType.Max + 2;
-		}
-		else if (itemTable.buffItemDataDictionary.TryGetValue(itemCode1, out var buffItemData))
-		{
-			order1 = (int)CharacterPartsType.Max + 3;
-		}
-
-		if (itemTable.propItemDataDictionary.ContainsKey(itemCode2))
-		{
-			order2 = (int)CharacterPartsType.Max;
-		}
-		else if (itemTable.partsItemDataDictionary.TryGetValue(itemCode2, out var itemData))
-		{
-			order2 = (int)itemData.partsType;
-		}
-		else if (itemTable.profileItemDataDictionary.TryGetValue(itemCode2, out var profileItemData))
-		{
-			order2 = profileItemData.isFrame + (int)CharacterPartsType.Max;
-		}
-		else if (itemTable.fieldItemDataDictionary.TryGetValue(itemCode2, out var fieldItemData))
-		{
-			order2 = (int)CharacterPartsType.Max + 2;
-		}
-		else if (itemTable.buffItemDataDictionary.TryGetValue(itemCode2, out var buffItemData))
-		{
-			order2 = (int)CharacterPartsType.Max + 3;
-		}
-
-		return order1 >= order2 ? 1 : -1;
-	}
-
-}
 
 public class InventoryPopup : BoardGamePopup
 {
@@ -111,8 +50,6 @@ public class InventoryPopup : BoardGamePopup
 	[SerializeField] private EquipmentBoard equipmentBoard;
 	[SerializeField] private EquipmentBoard profileEquipmentBoard;
 
-	private ItemSortingComparer sortingComparer = null;
-
 	private List<KeyValuePair<string, int>> hasItemList = new List<KeyValuePair<string, int>>();
 	private TabType currentTabType;
 
@@ -141,7 +78,6 @@ public class InventoryPopup : BoardGamePopup
 		itemObjectView.Initialize();
 
 		currentItemCode = string.Empty;
-		sortingComparer = new ItemSortingComparer(itemTable);
 
 		scrollContent.onChangedTab += OnChangedTab;
 		scrollContent.onUpdateContents += OnUpdateContents;
@@ -193,14 +129,14 @@ public class InventoryPopup : BoardGamePopup
 	{
 		currentTabType = (TabType)tabType;
 
-		hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
+		hasItemList = GetSortingHasItems(currentTabType).ToList();
 
 		if (currentTabType == TabType.Replace)
 		{
 			currentItemCode = hasItemList.FirstOrDefault().Key;
 			itemObjectView.SetItem(currentItemCode);
 
-			hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
+			hasItemList = GetSortingHasItems(currentTabType).ToList();
 		}
 		else
 		{
@@ -276,7 +212,7 @@ public class InventoryPopup : BoardGamePopup
 			currentItemCode = itemCode;
 			itemObjectView.SetItem(currentItemCode);
 
-			hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
+			hasItemList = GetSortingHasItems(currentTabType).ToList();
 			scrollContent.UpdateContents();
 		}
 		else
@@ -289,7 +225,7 @@ public class InventoryPopup : BoardGamePopup
 					uiCharacterView.DoIdle(0.3f);
 				}
 
-				hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
+				hasItemList = GetSortingHasItems(currentTabType).ToList();
 				scrollContent.UpdateContents();
 			}));
 		}
@@ -311,7 +247,7 @@ public class InventoryPopup : BoardGamePopup
 			int price = itemTable.GetItemSellPrice(itemCode);
 			inventory.TryAddItem(ItemTable.Coin, price * count);
 
-			hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
+			hasItemList = GetSortingHasItems(currentTabType).ToList();
 			scrollContent.UpdateContents();
 		}
 
@@ -334,7 +270,7 @@ public class InventoryPopup : BoardGamePopup
 				uiCharacterView.RefreshCharacter();
 				uiCharacterView.DoIdle(0.3f);
 
-				hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
+				hasItemList = GetSortingHasItems(currentTabType).ToList();
 				scrollContent.UpdateContents();
 			}));
 		}
@@ -359,7 +295,7 @@ public class InventoryPopup : BoardGamePopup
 				int currentItemCount = inventory.GetHasCount(currentItemCode);
 				if (currentItemCount <= 0)
 				{
-					hasItemList = GetHasItems(currentTabType).OrderByDescending(p => p.Key, sortingComparer).ToList();
+					hasItemList = GetSortingHasItems(currentTabType).ToList();
 					scrollContent.UpdateContents();
 
 					currentItemCode = hasItemList.FirstOrDefault().Key;
@@ -376,6 +312,18 @@ public class InventoryPopup : BoardGamePopup
 	private int GetHasItemCount(int tabType)
 	{
 		return GetHasItems((TabType)tabType).Count();
+	}
+
+	private IEnumerable<KeyValuePair<string, int>> GetSortingHasItems(TabType tabType)
+	{
+		var hasItems = GetHasItems(tabType).ToList();
+
+		if (itemTable != null)
+		{
+			hasItems.Sort((a, b) => itemTable.Compare(a.Key, b.Key));
+		}
+
+		return hasItems;
 	}
 
 	private IEnumerable<KeyValuePair<string, int>> GetHasItems(TabType tabType)
