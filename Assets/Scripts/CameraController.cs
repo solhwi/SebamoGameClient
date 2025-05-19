@@ -32,22 +32,23 @@ public class CameraController : Singleton<CameraController>
 
 	private void Start()
 	{
-		// 세로 해상도 기준 (1080x1920 → 9:16)
+		// 기준 비율: 1080 x 1920 (9:16)
 		float targetAspect = 9f / 16f;
 
 		// 현재 디바이스 화면 비율
 		float windowAspect = (float)Screen.width / (float)Screen.height;
 
-		// 스케일 비율
-		float scaleWidth = windowAspect / targetAspect;
+		// 비율 차이 계산
+		float scaleHeight = windowAspect / targetAspect;
 
 		Camera cam = Camera.main;
 
-		if (scaleWidth < 1.0f)
+		if (scaleHeight > 1.0f)
 		{
-			// 좌우에 블랙 레터박스 (pillarbox)
-			Rect rect = cam.rect;
+			// 디바이스가 더 넓음 → 좌우에 블랙바 추가 (pillarbox)
+			float scaleWidth = 1.0f / scaleHeight;
 
+			Rect rect = cam.rect;
 			rect.width = scaleWidth;
 			rect.height = 1.0f;
 			rect.x = (1.0f - scaleWidth) / 2.0f;
@@ -57,11 +58,8 @@ public class CameraController : Singleton<CameraController>
 		}
 		else
 		{
-			// 위아래에 블랙 레터박스 (letterbox)
-			float scaleHeight = 1.0f / scaleWidth;
-
+			// 디바이스가 더 길음 → 위/아래에 블랙바 추가 (letterbox)
 			Rect rect = cam.rect;
-
 			rect.width = 1.0f;
 			rect.height = scaleHeight;
 			rect.x = 0;
