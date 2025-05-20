@@ -196,9 +196,6 @@ public class CharacterDataContainer : ScriptableObject
 		switch (partsType)
 		{
 			case CharacterPartsType.Eye:
-				assetGuid = characterEyeMaterialRefs[(int)characterType].AssetGUID;
-				break;
-
 			case CharacterPartsType.RightEye:
 				assetGuid = characterEyeMaterialRefs[(int)characterType].AssetGUID;
 				break;

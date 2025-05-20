@@ -86,7 +86,13 @@ public class CharacterDataSetter : MonoBehaviour
 			var leftEyeRenderer = leftEye.GetComponentInChildren<MeshRenderer>();
 			if (leftEyeRenderer != null)
 			{
-				leftEyeRenderer.material = GetMaterial(CharacterPartsType.Eye);
+				leftEyeRenderer.enabled = true;
+
+				var sharedMaterial = GetMaterial(CharacterPartsType.Eye);
+				if (sharedMaterial != null)
+				{
+					leftEyeRenderer.material = new Material(sharedMaterial);
+				}
 			}
 		}
 		
@@ -102,7 +108,12 @@ public class CharacterDataSetter : MonoBehaviour
 			var rightEyeRenderer = rightEye.GetComponentInChildren<MeshRenderer>();
 			if (rightEyeRenderer != null)
 			{
-				rightEyeRenderer.material = GetMaterial(CharacterPartsType.Eye);
+				rightEyeRenderer.enabled = true;
+				var sharedMaterial = GetMaterial(CharacterPartsType.Eye);
+				if (sharedMaterial != null)
+				{
+					rightEyeRenderer.material = new Material(sharedMaterial);
+				}
 			}
 		}
 
