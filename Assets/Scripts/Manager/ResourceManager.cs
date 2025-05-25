@@ -8,6 +8,19 @@ using System.IO;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Linq;
 
+public static class ResourceHelper
+{
+	public static PlayerDataContainer playerDataContainer(this MonoBehaviour owner)
+	{
+		return ResourceManager.Instance.GetPlayerDataContainer();
+	}
+
+	public static T Get<T>(this AssetReferenceT<T> assetReference) where T : Object
+	{
+		return ResourceManager.Instance.Load<T>(assetReference);
+	}
+}
+
 public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
 	[SerializeField] protected bool IsDontDestroyOnLoad = false;
@@ -73,14 +86,42 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 
 public class ResourceManager : Singleton<ResourceManager>
 {
-	[SerializeField] private ItemTable itemTable;
-	[SerializeField] private CharacterDataContainer characterDataContainer;
-	[SerializeField] private NPCResourceLoader npcPreLoader;
-	[SerializeField] private TileDataContainer tileDataContainer;
+	[SerializeField] private AssetReferenceT<PlayerDataContainer> playerDataContainerRef;
+	[SerializeField] private AssetReferenceT<Inventory> inventoryRef;
+	[SerializeField] private AssetReferenceT<ItemTable> itemTableRef;
+	[SerializeField] private AssetReferenceT<CharacterDataContainer> characterDataContainerRef;
+	[SerializeField] private AssetReferenceT<NPCResourceLoader> npcPreLoaderRef;
+	[SerializeField] private AssetReferenceT<TileDataContainer> tileDataContainerRef;
 
 	[SerializeField] private List<AssetLabelReference> labelRefs = new List<AssetLabelReference>();
 
 	private Dictionary<string, AsyncOperationHandle> cachedObjectHandleDictionary = new Dictionary<string, AsyncOperationHandle>();
+
+
+	public PlayerDataContainer GetPlayerDataContainer()
+	{
+		return Load<PlayerDataContainer>(playerDataContainerRef);
+	}
+
+	public ItemTable GetItemTable()
+	{
+		return Load<ItemTable>(itemTableRef);
+	}
+
+	public Inventory GetInventory()
+	{
+		return Load<Inventory>(inventoryRef);
+	}
+
+	public CharacterDataContainer GetCharacterDataContainer()
+	{
+		return Load<CharacterDataContainer>(characterDataContainerRef);
+	}
+
+	public TileDataContainer GetTileDataContainer()
+	{
+		return Load<TileDataContainer>(tileDataContainerRef);
+	}
 
 	/// <summary>
 	/// 메가바이트 단위로 돌려준다.
@@ -122,10 +163,11 @@ public class ResourceManager : Singleton<ResourceManager>
 
 	public IEnumerator PreLoadAssets()
 	{
-		yield return itemTable.PreLoadTableAssets();
-		yield return characterDataContainer.PreLoadCharacterParts();
-		yield return npcPreLoader.PreLoadNPC();
-		yield return tileDataContainer.PreLoad();
+		yield return LoadAsync<PlayerDataContainer>(playerDataContainerRef);
+		yield return LoadAsync<ItemTable>(itemTableRef, (o) => { o.PreLoadTableAssets(); });
+		yield return LoadAsync<CharacterDataContainer>(characterDataContainerRef, (o) => { o.PreLoadCharacterParts(); });
+		yield return LoadAsync<NPCResourceLoader>(npcPreLoaderRef, (o) => { o.PreLoadNPC(); });
+		yield return LoadAsync<TileDataContainer>(tileDataContainerRef, (o) => { o.PreLoad(); });
 	}
 
 	public T Load<T>(AssetReference reference) where T : UnityEngine.Object
