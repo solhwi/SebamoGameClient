@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 [CreateAssetMenu(fileName = "AudioClipContainer")]
-public class AudioClipContainer : ScriptableObject
+public class AudioClipContainer : DataContainer<AudioClipContainer>
 {
 	[System.Serializable]
 	public class BGMAudioDictionary : SerializableDictionary<BGMType, AssetReferenceT<AudioClip>> { }
@@ -15,7 +15,7 @@ public class AudioClipContainer : ScriptableObject
 	[SerializeField] private SFXAudioDictionary sfxAudioClipDictionary = new SFXAudioDictionary();
 
 
-	public IEnumerator PreLoadSound()
+	public override IEnumerator Preload()
 	{
 		foreach (var clipRef in bgmAudioClipDictionary.Values)
 		{

@@ -70,7 +70,6 @@ public class LoadingSceneModule : SceneModuleBase
 
 		preLoadPopup.SetWaitDescription("중요 리소스 캐싱 중");
 
-		yield return SoundManager.Instance.PreLoadSound();
 		yield return BoardGameManager.Instance.PreLoadCharacter();
 		yield return UIManager.Instance.PreLoadPopup();
 		yield return ObjectCameraManager.Instance.PreLoadObjectCamera();

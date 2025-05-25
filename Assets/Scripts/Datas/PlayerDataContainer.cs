@@ -8,7 +8,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerDataContainer")]
-public class PlayerDataContainer : ScriptableObject
+public class PlayerDataContainer : DataContainer<PlayerDataContainer>
 {
 	[SerializeField] private Inventory inventory;
 	[SerializeField] private ItemTable itemTable;

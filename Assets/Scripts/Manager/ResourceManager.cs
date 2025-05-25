@@ -10,11 +10,6 @@ using System.Linq;
 
 public static class ResourceHelper
 {
-	public static PlayerDataContainer playerDataContainer(this MonoBehaviour owner)
-	{
-		return ResourceManager.Instance.GetPlayerDataContainer();
-	}
-
 	public static T Get<T>(this AssetReferenceT<T> assetReference) where T : Object
 	{
 		return ResourceManager.Instance.Load<T>(assetReference);
@@ -86,42 +81,11 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 
 public class ResourceManager : Singleton<ResourceManager>
 {
-	[SerializeField] private AssetReferenceT<PlayerDataContainer> playerDataContainerRef;
-	[SerializeField] private AssetReferenceT<Inventory> inventoryRef;
-	[SerializeField] private AssetReferenceT<ItemTable> itemTableRef;
-	[SerializeField] private AssetReferenceT<CharacterDataContainer> characterDataContainerRef;
-	[SerializeField] private AssetReferenceT<NPCResourceLoader> npcPreLoaderRef;
-	[SerializeField] private AssetReferenceT<TileDataContainer> tileDataContainerRef;
+	[SerializeField] private List<AssetReferenceT<DataContainer>> dataContainers = new List<AssetReferenceT<DataContainer>>();
 
 	[SerializeField] private List<AssetLabelReference> labelRefs = new List<AssetLabelReference>();
 
 	private Dictionary<string, AsyncOperationHandle> cachedObjectHandleDictionary = new Dictionary<string, AsyncOperationHandle>();
-
-
-	public PlayerDataContainer GetPlayerDataContainer()
-	{
-		return Load<PlayerDataContainer>(playerDataContainerRef);
-	}
-
-	public ItemTable GetItemTable()
-	{
-		return Load<ItemTable>(itemTableRef);
-	}
-
-	public Inventory GetInventory()
-	{
-		return Load<Inventory>(inventoryRef);
-	}
-
-	public CharacterDataContainer GetCharacterDataContainer()
-	{
-		return Load<CharacterDataContainer>(characterDataContainerRef);
-	}
-
-	public TileDataContainer GetTileDataContainer()
-	{
-		return Load<TileDataContainer>(tileDataContainerRef);
-	}
 
 	/// <summary>
 	/// 메가바이트 단위로 돌려준다.
@@ -163,11 +127,17 @@ public class ResourceManager : Singleton<ResourceManager>
 
 	public IEnumerator PreLoadAssets()
 	{
-		yield return LoadAsync<PlayerDataContainer>(playerDataContainerRef);
-		yield return LoadAsync<ItemTable>(itemTableRef, (o) => { o.PreLoadTableAssets(); });
-		yield return LoadAsync<CharacterDataContainer>(characterDataContainerRef, (o) => { o.PreLoadCharacterParts(); });
-		yield return LoadAsync<NPCResourceLoader>(npcPreLoaderRef, (o) => { o.PreLoadNPC(); });
-		yield return LoadAsync<TileDataContainer>(tileDataContainerRef, (o) => { o.PreLoad(); });
+		foreach (var container in dataContainers)
+		{
+			DataContainer result = null;
+
+			yield return LoadAsync<DataContainer>(container, (c) => 
+			{ 
+				result = c; 
+			});
+
+			yield return result.Preload();
+		}
 	}
 
 	public T Load<T>(AssetReference reference) where T : UnityEngine.Object

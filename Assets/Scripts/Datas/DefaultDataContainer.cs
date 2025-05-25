@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DefaultDataContainer")]
-public class DefaultDataContainer : ScriptableObject
+public class DefaultDataContainer : DataContainer<DefaultDataContainer>
 {
 #if UNITY_EDITOR
 

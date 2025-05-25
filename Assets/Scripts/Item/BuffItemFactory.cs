@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BuffItemFactory")]
-public class BuffItemFactory : ScriptableObject
+public class BuffItemFactory : DataContainer<BuffItemFactory>
 {
 	[SerializeField] private Inventory inventory = null;
 	[SerializeField] private ItemTable itemTable = null;

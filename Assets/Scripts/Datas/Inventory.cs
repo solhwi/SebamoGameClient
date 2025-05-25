@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Inventory")]
-public class Inventory : ScriptableObject
+public class Inventory : DataContainer<Inventory>
 {
 	[SerializeField] private ItemTable itemTable;
 

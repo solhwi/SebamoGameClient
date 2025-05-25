@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "FieldItemFactory")]
-public class FieldItemFactory : ScriptableObject
+public class FieldItemFactory : DataContainer<FieldItemFactory>
 {
 	[SerializeField] private Inventory inventory = null;
 	[SerializeField] private ItemTable itemTable = null;

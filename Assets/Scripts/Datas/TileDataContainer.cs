@@ -15,7 +15,7 @@ public class TileBackGroundData
 }
 
 [CreateAssetMenu(fileName = "TileDataContainer")]
-public class TileDataContainer : ScriptableObject
+public class TileDataContainer : DataContainer<TileDataContainer>
 {
 	public List<TileBackGroundData> backGroundDataList = new List<TileBackGroundData>();
 

@@ -38,7 +38,7 @@ public enum PropType
 
 
 [CreateAssetMenu(fileName = "CharacterDataContainer")]
-public class CharacterDataContainer : ScriptableObject
+public class CharacterDataContainer : DataContainer<CharacterDataContainer>
 {
 	[Header("[0 : UnityChan, 1 : Yuco, 2 : Misaki]")]
 	[Space]
@@ -69,7 +69,7 @@ public class CharacterDataContainer : ScriptableObject
 
 	[SerializeField] private AssetReferenceT<Material>[] characterEyeMaterialRefs = new AssetReferenceT<Material>[(int)CharacterType.Max];
 
-	public IEnumerator PreLoadCharacterParts()
+	public override IEnumerator Preload()
 	{
 		foreach (var reference in characterBodyPrefabRefs)
 		{

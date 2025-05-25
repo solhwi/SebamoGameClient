@@ -26,11 +26,6 @@ public class SoundManager : Singleton<SoundManager>
 	private Coroutine bgmCoroutine = null;
 	private BGMType currentBgmType = BGMType.None;
 
-	public IEnumerator PreLoadSound()
-	{
-		yield return clipContainer.PreLoadSound();
-	}
-
 	protected override void OnAwakeInstance()
 	{
 		base.OnAwakeInstance();
