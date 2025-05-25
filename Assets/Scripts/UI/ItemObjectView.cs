@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemObjectView : ObjectView
 {
-	[SerializeField] private FieldItemFactory fieldItemFactory;
+	
 	[SerializeField] private ItemIcon itemIcon = null;
 
 	private FieldItem currentFieldItem = null;
@@ -61,7 +61,7 @@ public class ItemObjectView : ObjectView
 			currentFieldItem.Destroy();
 		}
 
-		currentFieldItem = fieldItemFactory.Make(currentItemCode);
+		currentFieldItem = FieldItemFactory.Instance.Make(currentItemCode);
 		if (currentFieldItem != null)
 		{
 			originObj = currentFieldItem.Create(cameraArm, spawnLocalPos, spawnLocalRot);

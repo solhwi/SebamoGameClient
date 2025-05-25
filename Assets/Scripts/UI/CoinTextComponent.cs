@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class CoinTextComponent : MonoBehaviour, IBoardGameSubscriber
 {
-	[SerializeField] private Inventory inventory;
 	[SerializeField] private Text coinText;
 
 	private int prevCoinCount = 0;
@@ -30,7 +29,7 @@ public class CoinTextComponent : MonoBehaviour, IBoardGameSubscriber
 
 	public IEnumerator OnMove(int currentOrder, int nextOrder, int diceCount)
 	{
-		int currentCoinCount = inventory.GetHasCoinCount();
+		int currentCoinCount = Inventory.Instance.GetHasCoinCount();
 
 		int count = prevCoinCount;
 		while (count < currentCoinCount)
@@ -72,7 +71,7 @@ public class CoinTextComponent : MonoBehaviour, IBoardGameSubscriber
 
 	private void SetCoinText()
 	{
-		prevCoinCount = inventory.GetHasCoinCount();
+		prevCoinCount = Inventory.Instance.GetHasCoinCount();
 		coinText.text = prevCoinCount.ToString("n0");
 	}
 

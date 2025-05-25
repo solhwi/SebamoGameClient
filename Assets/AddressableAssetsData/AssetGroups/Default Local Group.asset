@@ -8111,6 +8111,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e72012eaba8ee5c468e7157d437eaf2b
+    m_Address: Assets/Bundles/Datas/Parser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Data
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3972404818780e343b1a07d3ea393591
+    m_Address: Assets/Bundles/Datas/Parser/ItemTable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Data
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 225a821cf6156f7499e04d719d98df6b
+    m_Address: Assets/Bundles/Datas/Parser/AuthDataTable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Data
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0cf4cec20434bb14c93e9a6780056d24, type: 2}
   m_SchemaSet:

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 /// </summary>
 [Serializable]
 [ScriptParserAttribute("ItemTable.asset")]
-public partial class ItemTable : ScriptParser
+public partial class ItemTable : ScriptParser<ItemTable>
 {
 	public override void Parser()
 	{

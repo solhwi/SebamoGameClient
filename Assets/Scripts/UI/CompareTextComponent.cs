@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class CompareTextComponent : MonoBehaviour
 {
-	[SerializeField] private Inventory inventory;
 	[SerializeField] private Text beforeText;
 	[SerializeField] private Text afterText;
 
@@ -15,7 +14,7 @@ public class CompareTextComponent : MonoBehaviour
 
 	public void Set(string itemCode, int diffCount)
 	{
-		beforeCount = inventory.GetHasCount(itemCode);
+		beforeCount = Inventory.Instance.GetHasCount(itemCode);
 		afterCount = beforeCount + diffCount;
 
 		beforeText.text = beforeCount.ToString();

@@ -16,9 +16,7 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		}
 	}
 
-	[SerializeField] private FieldItemFactory fieldItemFactory;
-
-	[SerializeField] private PlayerDataContainer playerDataContainer;
+	
 
 	private ReplaceFieldItem currentReplaceItem;
 	private ReplaceFieldItem currentDummyReplaceItem;
@@ -65,7 +63,7 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 		if (currentReplaceItem == null)
 			return;
 
-		if (currentReplaceItem.IsReplaceable(playerDataContainer, currentTileOrder) == false)
+		if (currentReplaceItem.IsReplaceable(currentTileOrder) == false)
 			return;
 
 		StartCoroutine(currentReplaceItem.Replace(currentTileOrder, (d) =>
@@ -112,7 +110,7 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 			int tileOrder = TileDataManager.Instance.GetTileOrder(tileIndex);
 
 			// 설치 가능한 위치에 클릭을 했다면
-			if (currentReplaceItem != null && currentReplaceItem.IsReplaceable(playerDataContainer, tileOrder))
+			if (currentReplaceItem != null && currentReplaceItem.IsReplaceable(tileOrder))
 			{
 				currentTileOrder = tileOrder;
 
@@ -124,7 +122,7 @@ public class BatchModePopup : BoardGamePopup, IBeginDragHandler, IDragHandler, I
 				}
 
 				// 새 더미 생성
-				currentDummyReplaceItem = fieldItemFactory.Make<ReplaceFieldItem>(currentReplaceItem.fieldItemCode);
+				currentDummyReplaceItem = FieldItemFactory.Instance.Make<ReplaceFieldItem>(currentReplaceItem.fieldItemCode);
 
 				if (currentDummyReplaceItem != null)
 				{

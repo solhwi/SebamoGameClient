@@ -24,7 +24,6 @@ public enum NextDiceChangeBuffType
 
 public abstract class FieldItem
 {
-	protected Inventory inventory = null;
 	protected ItemTable.FieldItemData rawData = null;
 
 	private GameObject obj;
@@ -33,9 +32,8 @@ public abstract class FieldItem
 	public string fieldItemCode { get; protected set; }
 	public FieldActionType fieldActionType => rawData.actionType;
 
-	public FieldItem(Inventory inventory, ItemTable.FieldItemData rawData)
+	public FieldItem(ItemTable.FieldItemData rawData)
 	{
-		this.inventory = inventory;
 		this.rawData = rawData;
 
 		fieldItemCode = rawData.key;
@@ -73,7 +71,7 @@ public abstract class FieldItem
 	// 아이템 사용 후 반드시 서버와 동기화를 해야 하나, 이 곳에서 하면 통신을 너무 자주 하게 되어 밖으로 뺌
 	// 이 경우 Use Process에서 실패한다하여 되감거나 다른 처리룰 해줄 방법은 없음
 	// 그냥 실행한다.
-	public virtual bool Use(PlayerDataContainer playerDataContainer, int tileOrder)
+	public virtual bool Use(int tileOrder)
 	{
 		return TileDataManager.Instance.TrySetTileItem(tileOrder, null);
 	}
@@ -104,19 +102,19 @@ public abstract class DropFieldItem : FieldItem
 {
 	protected int dropCount;
 
-	protected DropFieldItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
+	protected DropFieldItem(ItemTable.FieldItemData rawData) : base(rawData)
 	{
 
 	}
 
-	public override bool Use(PlayerDataContainer playerDataContainer, int tileOrder)
+	public override bool Use(int tileOrder)
 	{
 		for (int i = 0; i < dropCount; i++)
 		{
-			inventory.TryAddItem(fieldItemCode);
+			Inventory.Instance.TryAddItem(fieldItemCode);
 		}
 
-		base.Use(playerDataContainer,tileOrder);
+		base.Use(tileOrder);
 
 		return true;
 	}
@@ -126,7 +124,7 @@ public abstract class ReplaceFieldItem : FieldItem
 {
 	public readonly int[] ranges = new int[2];
 
-	protected ReplaceFieldItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
+	protected ReplaceFieldItem(ItemTable.FieldItemData rawData) : base(rawData)
 	{
 		ranges = ItemTable.ParseRangeData(rawData.actionParameter);
 	}
@@ -145,10 +143,10 @@ public abstract class ReplaceFieldItem : FieldItem
 		return obj;
 	}
 
-	public bool IsReplaceable( PlayerDataContainer playerDataContainer, int tileOrder)
+	public bool IsReplaceable(int tileOrder)
 	{
-		int min = playerDataContainer.currentTileOrder + ranges[0];
-		int max = playerDataContainer.currentTileOrder + ranges[1];
+		int min = PlayerDataContainer.Instance.currentTileOrder + ranges[0];
+		int max = PlayerDataContainer.Instance.currentTileOrder + ranges[1];
 
 		min = Math.Max(0, min);
 		max = Math.Min(max, TileDataManager.Instance.tileBoardDatas.Length - 1);
@@ -169,7 +167,7 @@ public abstract class ReplaceFieldItem : FieldItem
 		if (TileDataManager.Instance.IsSpecialTile(tileOrder))
 			yield break;
 
-		bool bResult = inventory.TryRemoveItem(fieldItemCode);
+		bool bResult = Inventory.Instance.TryRemoveItem(fieldItemCode);
 		if (bResult == false)
 			yield break;
 
@@ -183,7 +181,7 @@ public abstract class ReplaceFieldItem : FieldItem
 
 public class NormalFieldItem : DropFieldItem
 {
-	public NormalFieldItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
+	public NormalFieldItem(ItemTable.FieldItemData rawData) : base(rawData)
 	{
 		string[] columns = rawData.actionParameter.Split(':');
 
@@ -194,7 +192,7 @@ public class NormalFieldItem : DropFieldItem
 
 public class RandomFieldItem : DropFieldItem
 {
-	public RandomFieldItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
+	public RandomFieldItem(ItemTable.FieldItemData rawData) : base(rawData)
 	{
 		var dropRecipeDictionary = ItemTable.ParseDropRecipeData(rawData.actionParameter);
 		fieldItemCode = ItemTable.GetFieldItemCode(dropRecipeDictionary);
@@ -206,23 +204,23 @@ public class BananaItem : ReplaceFieldItem
 {
 	public readonly int count = 0;
 
-	public BananaItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
+	public BananaItem(ItemTable.FieldItemData rawData) : base(rawData)
 	{
 		count = ItemTable.ParseCountData(rawData.actionParameter);
 	}
 
-	public override bool Use(PlayerDataContainer playerDataContainer, int tileOrder)
+	public override bool Use(int tileOrder)
 	{
 		int nextOrder = TileDataManager.Instance.GetNextOrder(tileOrder, count, out var item);
 		if (item != null)
 		{
-			item.Use(playerDataContainer, nextOrder);
+			item.Use(nextOrder);
 		}
 
-		bool isSuccess = playerDataContainer.SaveCurrentOrder(nextOrder);
+		bool isSuccess = PlayerDataContainer.Instance.SaveCurrentOrder(nextOrder);
 		if (isSuccess)
 		{
-			base.Use(playerDataContainer, tileOrder);
+			base.Use(tileOrder);
 		}
 
 		return true;
@@ -231,7 +229,7 @@ public class BananaItem : ReplaceFieldItem
 
 public class BarricadeItem : ReplaceFieldItem
 {
-	public BarricadeItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
+	public BarricadeItem(ItemTable.FieldItemData rawData) : base(rawData)
 	{
 
 	}
@@ -250,7 +248,7 @@ public class NextDiceOperationBuffFieldItem : ReplaceFieldItem
 	MathType mathType; 
 	float count = 0;
 
-	public NextDiceOperationBuffFieldItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
+	public NextDiceOperationBuffFieldItem(ItemTable.FieldItemData rawData) : base(rawData)
 	{
 		string[] columns = rawData.actionParameter.Split('/');
 
@@ -260,11 +258,11 @@ public class NextDiceOperationBuffFieldItem : ReplaceFieldItem
 		count = pair.Value;
 	}
 
-	public override bool Use(PlayerDataContainer playerDataContainer, int tileOrder)
+	public override bool Use(int tileOrder)
 	{
-		base.Use(playerDataContainer, tileOrder);
+		base.Use(tileOrder);
 
-		return inventory.ApplyBuffFirst(fieldItemCode);
+		return Inventory.Instance.ApplyBuffFirst(fieldItemCode);
 	}
 
 	public override IEnumerator ChangeState(CharacterAnimationController controller)
@@ -295,7 +293,7 @@ public class NextDiceChangeBuffFieldItem : ReplaceFieldItem
 {
 	NextDiceChangeBuffType nextDiceBuffType = NextDiceChangeBuffType.None;
 
-	public NextDiceChangeBuffFieldItem(Inventory inventory, ItemTable.FieldItemData rawData) : base(inventory, rawData)
+	public NextDiceChangeBuffFieldItem(ItemTable.FieldItemData rawData) : base(rawData)
 	{
 		string[] columns = rawData.actionParameter.Split('/');
 
@@ -305,11 +303,11 @@ public class NextDiceChangeBuffFieldItem : ReplaceFieldItem
 		}
 	}
 
-	public override bool Use(PlayerDataContainer playerDataContainer, int tileOrder)
+	public override bool Use(int tileOrder)
 	{
-		base.Use(playerDataContainer, tileOrder);
+		base.Use(tileOrder);
 
-		return inventory.ApplyBuffFirst(fieldItemCode);
+		return Inventory.Instance.ApplyBuffFirst(fieldItemCode);
 	}
 
 	public override IEnumerator ChangeState(CharacterAnimationController controller)

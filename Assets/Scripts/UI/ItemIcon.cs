@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class ItemIcon : MonoBehaviour
 {
 	[SerializeField] private PressEventTrigger eventTrigger;
-	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private Image itemImage;
 
 	private Action<string> onClickItem;
@@ -46,7 +45,7 @@ public class ItemIcon : MonoBehaviour
 	public void SetItemData(ItemTable.ShopItemData itemData)
 	{
 		itemCode = itemData.key;
-		itemImage.sprite = itemTable.GetItemToolTipIconSprite(itemCode);
+		itemImage.sprite = ItemTable.Instance.GetItemToolTipIconSprite(itemCode);
 	}
 
 	public void SetBuffItemData(string itemCode)
@@ -55,7 +54,7 @@ public class ItemIcon : MonoBehaviour
 			return;
 
 		this.itemCode = itemCode;
-		itemImage.sprite = itemTable.GetBuffItemIconSprite(itemCode);
+		itemImage.sprite = ItemTable.Instance.GetBuffItemIconSprite(itemCode);
 	}
 
 	public void SetItemData(string itemCode, int itemCount = 1)
@@ -64,7 +63,7 @@ public class ItemIcon : MonoBehaviour
 			return;
 
 		this.itemCode = itemCode;
-		itemImage.sprite = itemTable.GetItemToolTipIconSprite(itemCode);
+		itemImage.sprite = ItemTable.Instance.GetItemToolTipIconSprite(itemCode);
 	}
 
 	public void SetItemClickCallback(Action<string> callback)

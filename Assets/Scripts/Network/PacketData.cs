@@ -29,27 +29,27 @@ public class MyPlayerPacketData : PacketData
 
 	public string[] appliedBuffItems; // 적용 중인 버프 아이템
 
-	public static MyPlayerPacketData Create(PlayerDataContainer playerDataContainer, Inventory inventory)
+	public static MyPlayerPacketData Create()
 	{
 		var data = new MyPlayerPacketData();
 
 		data.type = (int)PacketType.My;
-		data.playerGroup = playerDataContainer.playerGroup;
-		data.playerName = playerDataContainer.playerName;
+		data.playerGroup = PlayerDataContainer.Instance.playerGroup;
+		data.playerName = PlayerDataContainer.Instance.playerName;
 
 		data.playerData = new PlayerPacketData();
 
-		data.playerData.playerName = playerDataContainer.playerName;
-		data.playerData.playerGroup = playerDataContainer.playerGroup;
-		data.playerData.hasDiceCount = playerDataContainer.hasDiceCount;
-		data.playerData.playerTileOrder = playerDataContainer.currentTileOrder;
+		data.playerData.playerName = PlayerDataContainer.Instance.playerName;
+		data.playerData.playerGroup = PlayerDataContainer.Instance.playerGroup;
+		data.playerData.hasDiceCount = PlayerDataContainer.Instance.hasDiceCount;
+		data.playerData.playerTileOrder = PlayerDataContainer.Instance.currentTileOrder;
 
-		data.playerData.equippedItems = playerDataContainer.equippedItems;
-		data.playerData.appliedProfileItems = playerDataContainer.appliedProfileItems;
+		data.playerData.equippedItems = PlayerDataContainer.Instance.equippedItems;
+		data.playerData.appliedProfileItems = PlayerDataContainer.Instance.appliedProfileItems;
 
-		data.hasItems = inventory.hasItems.Keys.ToArray();
-		data.hasItemCounts = inventory.hasItems.Values.ToArray();
-		data.appliedBuffItems = inventory.appliedBuffItemList.ToArray();
+		data.hasItems = Inventory.Instance.hasItems.Keys.ToArray();
+		data.hasItemCounts = Inventory.Instance.hasItems.Values.ToArray();
+		data.appliedBuffItems = Inventory.Instance.appliedBuffItemList.ToArray();
 
 		return data;
 	}
@@ -107,11 +107,11 @@ public class TilePacketData : PacketData
 	public int[] tileItemIndexes = null;
 	public string[] tileItemCodes = null;
 
-	public static TilePacketData Create(PlayerDataContainer playerDataContainer, string[] tileItems)
+	public static TilePacketData Create(string[] tileItems)
 	{
 		var data = new TilePacketData();
-		data.playerGroup = playerDataContainer.playerGroup;
-		data.playerName = playerDataContainer.playerName;
+		data.playerGroup = PlayerDataContainer.Instance.playerGroup;
+		data.playerName = PlayerDataContainer.Instance.playerName;
 		data.type = (int)PacketType.Tile;
 
 		List<int> indexes = new List<int>();

@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class DiceTextComponent : MonoBehaviour
 {
-	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Text diceText;
 
 	void Update()
 	{
-		diceText.text = playerDataContainer.hasDiceCount.ToString("n0");
+		diceText.text = PlayerDataContainer.Instance.hasDiceCount.ToString("n0");
 	}
 }

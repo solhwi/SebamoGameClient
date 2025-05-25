@@ -43,7 +43,7 @@ public class TileDataContainer : DataContainer<TileDataContainer>
 
 	private Dictionary<int, int> orderToTileIndexMap = new Dictionary<int, int>();
 
-	public IEnumerator PreLoad()
+	public override IEnumerator Preload()
 	{
 		foreach (var data in backGroundDataList)
 		{

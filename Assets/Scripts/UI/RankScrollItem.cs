@@ -8,7 +8,6 @@ public class RankScrollItem : MonoBehaviour
 	[SerializeField] private Text rankText;
 	[SerializeField] private ProfileSetter profileSetter;
 	[SerializeField] private PressEventTrigger trigger;
-	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Text playerNameText;
 	[SerializeField] private GameObject goalInObj;
 
@@ -28,7 +27,7 @@ public class RankScrollItem : MonoBehaviour
 
 	private void Update()
 	{
-		bool isEnded = playerDataContainer.IsEnded(playerGroup, playerName);
+		bool isEnded = PlayerDataContainer.Instance.IsEnded(playerGroup, playerName);
 		goalInObj.SetActive(isEnded);
 	}
 
@@ -56,9 +55,9 @@ public class RankScrollItem : MonoBehaviour
 
 	public void OnPress(float time)
 	{
-		if (playerDataContainer.IsMine(playerGroup, playerName))
+		if (PlayerDataContainer.Instance.IsMine(playerGroup, playerName))
 		{
-			UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, playerDataContainer.profileComment));
+			UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, PlayerDataContainer.Instance.profileComment));
 		}
 		else
 		{

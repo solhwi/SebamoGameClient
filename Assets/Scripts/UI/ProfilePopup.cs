@@ -19,9 +19,7 @@ public class ProfilePopup : BoardGamePopup
 		}
 	}
 
-	private bool IsMine => playerDataContainer.IsMine(playerGroup, playerName);
-
-	[SerializeField] private PlayerDataContainer playerDataContainer;
+	private bool IsMine => PlayerDataContainer.Instance.IsMine(playerGroup, playerName);
 
 	[SerializeField] private ProfileSetter profileSetter;
 	[SerializeField] private Text playerGroupText;
@@ -98,7 +96,7 @@ public class ProfilePopup : BoardGamePopup
 	public void OnEndEdit()
 	{
 		playerComment = playerCommentField.text;
-		playerDataContainer.profileComment = playerComment;
+		PlayerDataContainer.Instance.profileComment = playerComment;
 
 		isEditing = false;
 	}

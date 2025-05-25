@@ -9,11 +9,6 @@ using UnityEngine;
 public class DefaultDataContainer : DataContainer<DefaultDataContainer>
 {
 #if UNITY_EDITOR
-
-	[SerializeField] private Inventory inventory;
-	[SerializeField] private PlayerDataContainer playerDataContainer;
-	[SerializeField] private TileDataContainer tileDataContainer;
-
 	[Header("불러올 타 플레이어의 수")]
 	[Space]
 	[SerializeField] private int otherPlayerCount = 5;
@@ -26,21 +21,21 @@ public class DefaultDataContainer : DataContainer<DefaultDataContainer>
 	{
 		var data = MakeMyFakeFacketData();
 
-		playerDataContainer.SetMyPacketData(data);
+		PlayerDataContainer.Instance.SetMyPacketData(data);
 
 		var otherData = MakeOtherFakePacketData();
 
-		playerDataContainer.SetOtherPacketData(otherData.playerDatas);
+		PlayerDataContainer.Instance.SetOtherPacketData(otherData.playerDatas);
 
-		tileDataContainer.SetTileItemPacketData(null);
+		TileDataContainer.Instance.SetTileItemPacketData(null);
 
-		EditorUtility.SetDirty(playerDataContainer);
-		EditorUtility.SetDirty(inventory);
-		EditorUtility.SetDirty(tileDataContainer);
+		EditorUtility.SetDirty(PlayerDataContainer.Instance);
+		EditorUtility.SetDirty(Inventory.Instance);
+		EditorUtility.SetDirty(TileDataContainer.Instance);
 
-		AssetDatabase.SaveAssetIfDirty(playerDataContainer);
-		AssetDatabase.SaveAssetIfDirty(inventory);
-		AssetDatabase.SaveAssetIfDirty(tileDataContainer);
+		AssetDatabase.SaveAssetIfDirty(PlayerDataContainer.Instance);
+		AssetDatabase.SaveAssetIfDirty(Inventory.Instance);
+		AssetDatabase.SaveAssetIfDirty(TileDataContainer.Instance);
 	}
 
 	[ContextMenu("데이터 저장")]
@@ -54,7 +49,7 @@ public class DefaultDataContainer : DataContainer<DefaultDataContainer>
 	public void Load()
 	{
 		var loadData = LoadPlayerData();
-		playerDataContainer.SetMyPacketData(loadData.data);
+		PlayerDataContainer.Instance.SetMyPacketData(loadData.data);
 
 		List<PlayerPacketData> otherDatas = new List<PlayerPacketData>();
 		for (int i = 0; i < otherPlayerCount; i++)
@@ -64,22 +59,22 @@ public class DefaultDataContainer : DataContainer<DefaultDataContainer>
 			data.playerName = loadData.nameList[i];
 			otherDatas.Add(data);
 		}
-		playerDataContainer.SetOtherPacketData(otherDatas);
+		PlayerDataContainer.Instance.SetOtherPacketData(otherDatas);
 
 		var tileData = LoadTileData();
-		tileDataContainer.SetTileItemPacketData(tileData);
+		TileDataContainer.Instance.SetTileItemPacketData(tileData);
 
-		EditorUtility.SetDirty(playerDataContainer);
-		EditorUtility.SetDirty(inventory);
-		EditorUtility.SetDirty(tileDataContainer);
+		EditorUtility.SetDirty(PlayerDataContainer.Instance);
+		EditorUtility.SetDirty(Inventory.Instance);
+		EditorUtility.SetDirty(TileDataContainer.Instance);
 
 		AssetDatabase.SaveAssets();
 	}
 
 	private void SavePlayerData()
 	{
-		var data = MyPlayerPacketData.Create(playerDataContainer, inventory);
-		var nameList = playerDataContainer.otherPlayerPacketDatas.Select(d => d.playerName).ToList();
+		var data = MyPlayerPacketData.Create();
+		var nameList = PlayerDataContainer.Instance.otherPlayerPacketDatas.Select(d => d.playerName).ToList();
 
 		var saveData = new PlayerSaveData();
 		saveData.data = data;
@@ -91,7 +86,7 @@ public class DefaultDataContainer : DataContainer<DefaultDataContainer>
 
 	private void SaveTileData()
 	{
-		var data = TilePacketData.Create(playerDataContainer, tileDataContainer.tileItems);
+		var data = TilePacketData.Create(TileDataContainer.Instance.tileItems);
 
 		string jsonData = JsonUtility.ToJson(data);
 		File.WriteAllText(defaultDataPath, jsonData);

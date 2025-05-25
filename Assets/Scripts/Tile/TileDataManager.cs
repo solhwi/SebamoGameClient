@@ -106,10 +106,7 @@ public class TileDataManager : Singleton<TileDataManager>
 	[SerializeField] private Tilemap floorTileMap;
 	[SerializeField] private Tilemap selectTileMap;
 
-	[SerializeField] private Grid tileGrid;
-	[SerializeField] private TileDataContainer dataContainer;
-	[SerializeField] private ItemTable itemTable;
-	[SerializeField] private FieldItemFactory fieldItemFactory;
+	[SerializeField] private Grid tileGrid;	
 
 	[SerializeField] private TileBase selectTile;
 	[SerializeField] private TileBase unSelectTile;
@@ -154,10 +151,10 @@ public class TileDataManager : Singleton<TileDataManager>
 	public bool IsAlreadyReplaced(int tileOrder)
 	{
 		int index = GetTileIndexByOrder(tileOrder);
-		if (index < 0 || dataContainer.tileItems.Length <= index)
+		if (index < 0 || TileDataContainer.Instance.tileItems.Length <= index)
 			return true;
 
-		return dataContainer.tileItems[index] != null && dataContainer.tileItems[index] != string.Empty;
+		return TileDataContainer.Instance.tileItems[index] != null && TileDataContainer.Instance.tileItems[index] != string.Empty;
 	}
 
 	public bool IsSpecialTile(int tileOrder)
@@ -171,7 +168,7 @@ public class TileDataManager : Singleton<TileDataManager>
 			return false;
 
 		int index = GetTileIndexByOrder(tileOrder);
-		bool isSuccess = dataContainer.TrySetTileItem(index, fieldItem?.fieldItemCode ?? string.Empty);
+		bool isSuccess = TileDataContainer.Instance.TrySetTileItem(index, fieldItem?.fieldItemCode ?? string.Empty);
 		if (isSuccess == false)
 			return false;
 
@@ -233,21 +230,21 @@ public class TileDataManager : Singleton<TileDataManager>
 
 	public int GetTileOrder(int tileIndex)
 	{
-		if (dataContainer.tileOrders.Length <= tileIndex)
+		if (TileDataContainer.Instance.tileOrders.Length <= tileIndex)
 			return -1;
 
-		return dataContainer.tileOrders[tileIndex];
+		return TileDataContainer.Instance.tileOrders[tileIndex];
 	}
 
 	public IEnumerator PrepareTile()
 	{
-		for (int i = 0; i < dataContainer.tileItems.Length; i++)
+		for (int i = 0; i < TileDataContainer.Instance.tileItems.Length; i++)
 		{
-			var itemCode = dataContainer.tileItems[i];
+			var itemCode = TileDataContainer.Instance.tileItems[i];
 			if (itemCode == string.Empty)
 				continue;
 
-			var fieldItem = fieldItemFactory.Make(itemCode);
+			var fieldItem = FieldItemFactory.Instance.Make(itemCode);
 			if (fieldItem == null)
 				continue;
 
@@ -325,7 +322,7 @@ public class TileDataManager : Singleton<TileDataManager>
 		if (fieldItemDictionary.TryGetValue(tileIndex, out var data))
 			return data;
 
-		var fieldItem = fieldItemFactory.Make(itemCode);
+		var fieldItem = FieldItemFactory.Instance.Make(itemCode);
 		fieldItemDictionary[tileIndex] = fieldItem;
 
 		return fieldItem;
@@ -360,10 +357,10 @@ public class TileDataManager : Singleton<TileDataManager>
 	public string GetCurrentTileItemCode(int currentOrder)
 	{
 		int tileIndex = GetTileIndexByOrder(currentOrder);
-		if (tileIndex < 0 || tileIndex >= dataContainer.tileItems.Length)
+		if (tileIndex < 0 || tileIndex >= TileDataContainer.Instance.tileItems.Length)
 			return string.Empty;
 
-		return dataContainer.tileItems[tileIndex];
+		return TileDataContainer.Instance.tileItems[tileIndex];
 	}
 
 	/// <summary>
@@ -406,10 +403,10 @@ public class TileDataManager : Singleton<TileDataManager>
 	/// <returns></returns>
 	public int GetTileIndexByOrder(int currentOrder)
 	{
-		if (dataContainer == null)
+		if (TileDataContainer.Instance == null)
 			return -1;
 
-		return dataContainer.GetTileIndexByOrder(currentOrder);
+		return TileDataContainer.Instance.GetTileIndexByOrder(currentOrder);
 	}
 
 	/// <summary>

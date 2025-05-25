@@ -35,7 +35,14 @@ public class ScriptAssetInfo
 	public ScriptParserAttribute Attribute { get; set; }
 }
 
-public abstract class ScriptParser : ScriptableObject
+public interface IScriptParser
+{
+	// 기본 Parser, List, Dictionary를 만들어 줌
+	public void Parser();
+	public void RuntimeParser();
+}
+
+public abstract class ScriptParser<T> : DataContainer<T>, IScriptParser where T : DataContainer
 {
 	// 기본 Parser, List, Dictionary를 만들어 줌
 	public abstract void Parser();

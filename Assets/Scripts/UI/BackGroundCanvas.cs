@@ -13,8 +13,7 @@ public class BackGroundCanvas : MonoBehaviour, IBoardGameSubscriber
 
 	[SerializeField] private Canvas canvas = null;
 
-	[SerializeField] private PlayerDataContainer playerDataContainer;
-	[SerializeField] private TileDataContainer tileDataContainer;
+	
 
 	[SerializeField] private float fadeTime = 1.0f;
 
@@ -28,7 +27,7 @@ public class BackGroundCanvas : MonoBehaviour, IBoardGameSubscriber
 		}
 
 		canvas.worldCamera = Camera.main;
-		SetBackGround(playerDataContainer.currentTileOrder);
+		SetBackGround(PlayerDataContainer.Instance.currentTileOrder);
 	}
 
 	private void OnDestroy()
@@ -51,13 +50,13 @@ public class BackGroundCanvas : MonoBehaviour, IBoardGameSubscriber
 
 	private void SetBackGround(int currentOrder)
 	{
-		backGroundFrontImage.texture = tileDataContainer.GetBackGroundResource(currentOrder);
+		backGroundFrontImage.texture = TileDataContainer.Instance.GetBackGroundResource(currentOrder);
 	}
 
 	private IEnumerator FadeBackGround(int nextOrder)
 	{
 		// 다음 이미지가 앞 이미지와 같다면 패스
-		var nextBackGround = tileDataContainer.GetBackGroundResource(nextOrder);
+		var nextBackGround = TileDataContainer.Instance.GetBackGroundResource(nextOrder);
 		if (nextBackGround == backGroundFrontImage.texture)
 			yield break;
 

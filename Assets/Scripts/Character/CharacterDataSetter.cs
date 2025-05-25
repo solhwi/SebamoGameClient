@@ -50,10 +50,7 @@ public static class TransformExtension
 /// </summary>
 public class CharacterDataSetter : MonoBehaviour
 {
-	[SerializeField] private CharacterDataContainer characterDataContainer = null;
-	[SerializeField] private PlayerDataContainer playerDataContainer = null;
 	[SerializeField] private CharacterAnimationController animationController = null;
-
 	[SerializeField] private Transform bodyRoot = null;
 
 	private List<GameObject> partsObjList = new List<GameObject>();
@@ -213,13 +210,13 @@ public class CharacterDataSetter : MonoBehaviour
 		}
 
 		// 소품
-		foreach (var propType in playerDataContainer.GetEquippedPropType(playerGroup, playerName))
+		foreach (var propType in PlayerDataContainer.Instance.GetEquippedPropType(playerGroup, playerName))
 		{
 			if (propType == PropType.Max)
 				continue;
 
 			Transform propTransform = GetPropTransform(propType);
-			var propPrefab = characterDataContainer.GetPropObject(propType);
+			var propPrefab = CharacterDataContainer.Instance.GetPropObject(propType);
 			if (propPrefab != null)
 			{
 				var propObj = Instantiate(propPrefab, propTransform);
@@ -262,29 +259,29 @@ public class CharacterDataSetter : MonoBehaviour
 
 	private GameObject GetParts(CharacterPartsType partsType)
 	{
-		CharacterType characterType = playerDataContainer.GetCurrentPartsCharacterType(playerGroup, playerName, partsType);
+		CharacterType characterType = PlayerDataContainer.Instance.GetCurrentPartsCharacterType(playerGroup, playerName, partsType);
 		if (characterType == CharacterType.Max)
 			return null;
 
-		return characterDataContainer.GetPartsObject(characterType, partsType);
+		return CharacterDataContainer.Instance.GetPartsObject(characterType, partsType);
 	}
 
 	private Mesh GetMesh(CharacterPartsType partsType)
 	{
-		CharacterType characterType = playerDataContainer.GetCurrentPartsCharacterType(playerGroup, playerName, partsType);
+		CharacterType characterType = PlayerDataContainer.Instance.GetCurrentPartsCharacterType(playerGroup, playerName, partsType);
 		if (characterType == CharacterType.Max)
 			return null;
 
-		return characterDataContainer.GetMesh(characterType, partsType);
+		return CharacterDataContainer.Instance.GetMesh(characterType, partsType);
 	}
 
 	private Material GetMaterial(CharacterPartsType partsType)
 	{
-		CharacterType characterType = playerDataContainer.GetCurrentPartsCharacterType(playerGroup, playerName, partsType);
+		CharacterType characterType = PlayerDataContainer.Instance.GetCurrentPartsCharacterType(playerGroup, playerName, partsType);
 		if (characterType == CharacterType.Max)
 			return null;
 
-		return characterDataContainer.GetMaterial(characterType, partsType);
+		return CharacterDataContainer.Instance.GetMaterial(characterType, partsType);
 	}
 
 }

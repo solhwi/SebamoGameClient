@@ -15,8 +15,7 @@ public class ShopPopup : BoardGamePopup
 		Normal = 1,
 	}
 
-	[SerializeField] private Inventory inventory;
-	[SerializeField] private ItemTable itemTable;
+	
 	[SerializeField] private UINpcView npcView;
 	[SerializeField] private ScrollContent scrollContent;
 	[SerializeField] private Text npcText;
@@ -43,7 +42,7 @@ public class ShopPopup : BoardGamePopup
 			myCharacter.gameObject.SetActive(false);
 		}
 
-		normalItemIndex = itemTable.sortedShopItemList.FindIndex(i => i.isEquipment == 0);
+		normalItemIndex = ItemTable.Instance.sortedShopItemList.FindIndex(i => i.isEquipment == 0);
 
 		npcView.Initialize();
 		npcText.text = npcDefaultText;
@@ -82,7 +81,7 @@ public class ShopPopup : BoardGamePopup
 
 	public void OnUpdateContents(int index, GameObject contentsObj)
 	{
-		if (index < 0 || itemTable.sortedShopItemList.Count <= index)
+		if (index < 0 || ItemTable.Instance.sortedShopItemList.Count <= index)
 			return;
 
 		if (contentsObj == null)
@@ -92,7 +91,7 @@ public class ShopPopup : BoardGamePopup
 		if (shopScrollItem == null)
 			return;
 
-		var shopItemData = itemTable.sortedShopItemList[index];
+		var shopItemData = ItemTable.Instance.sortedShopItemList[index];
 		shopScrollItem.SetItemData(shopItemData);
 		shopScrollItem.SetItemClickCallback(OnClickItem);
 		shopScrollItem.SetItemClickCallback(OnBuyItem);
@@ -103,7 +102,7 @@ public class ShopPopup : BoardGamePopup
 
 	private void OnClickItem(string itemCode)
 	{
-		npcText.text = itemTable.GetItemNPCDescription(itemCode);
+		npcText.text = ItemTable.Instance.GetItemNPCDescription(itemCode);
 
 		foreach (var shopItem in shopItems)
 		{
@@ -113,7 +112,7 @@ public class ShopPopup : BoardGamePopup
 
 	public int GetItemCount(int tabType)
 	{
-		return itemTable.sortedShopItemList.Count;
+		return ItemTable.Instance.sortedShopItemList.Count;
 	}
 
 	private void Update()
@@ -154,12 +153,12 @@ public class ShopPopup : BoardGamePopup
 
 	private IEnumerator OnBuyItem(string itemCode, int buyCount)
 	{
-		int price = itemTable.GetItemBuyPrice(itemCode);
+		int price = ItemTable.Instance.GetItemBuyPrice(itemCode);
 
-		bool isSuccess = inventory.TryRemoveItem(ItemTable.Coin, price * buyCount);
+		bool isSuccess = Inventory.Instance.TryRemoveItem(ItemTable.Coin, price * buyCount);
 		if (isSuccess)
 		{
-			isSuccess = inventory.TryAddItem(itemCode, buyCount);
+			isSuccess = Inventory.Instance.TryAddItem(itemCode, buyCount);
 			if (isSuccess)
 			{
 				yield return HttpNetworkManager.Instance.TryPostMyPlayerData((d) =>

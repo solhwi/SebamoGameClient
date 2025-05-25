@@ -14,8 +14,7 @@ public class ProfileSetter : MonoBehaviour
 {
 	[SerializeField] private PressEventTrigger eventTrigger;
 
-	[SerializeField] private PlayerDataContainer playerDataContainer;
-	[SerializeField] private ItemTable itemTable;
+	
 	[SerializeField] private Image[] profileImage = new Image[(int)ProfileType.Max];
 
 	[SerializeField] private bool isClickable = false;
@@ -28,7 +27,7 @@ public class ProfileSetter : MonoBehaviour
 	private void Awake()
 	{
 		eventTrigger.onEndPress += OnPress;
-		SetPlayerData(playerDataContainer.playerGroup, playerDataContainer.playerName, playerDataContainer.profileComment);
+		SetPlayerData(PlayerDataContainer.Instance.playerGroup, PlayerDataContainer.Instance.playerName, PlayerDataContainer.Instance.profileComment);
 	}
 
 	private void OnDestroy()
@@ -55,7 +54,7 @@ public class ProfileSetter : MonoBehaviour
 	{
 		int type = (int)profileType;
 
-		var playerData = playerDataContainer.GetPlayerData(playerGroup, playerName);
+		var playerData = PlayerDataContainer.Instance.GetPlayerData(playerGroup, playerName);
 		if (playerData == null)
 			return;
 
@@ -66,7 +65,7 @@ public class ProfileSetter : MonoBehaviour
 			return;
 
 		string itemCode = playerData.appliedProfileItems[type];
-		profileImage[type].sprite = itemTable.GetItemToolTipIconSprite(itemCode);
+		profileImage[type].sprite = ItemTable.Instance.GetItemToolTipIconSprite(itemCode);
 	}
 
 	public void OnClick()
@@ -74,9 +73,9 @@ public class ProfileSetter : MonoBehaviour
 		if (isClickable == false)
 			return;
 
-		if (playerDataContainer.IsMine(playerGroup, playerName))
+		if (PlayerDataContainer.Instance.IsMine(playerGroup, playerName))
 		{
-			UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, playerDataContainer.profileComment));
+			UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, PlayerDataContainer.Instance.profileComment));
 		}
 		else
 		{
@@ -90,9 +89,9 @@ public class ProfileSetter : MonoBehaviour
 		if (isPressable == false)
 			return;
 
-		if (playerDataContainer.IsMine(playerGroup, playerName))
+		if (PlayerDataContainer.Instance.IsMine(playerGroup, playerName))
 		{
-			UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, playerDataContainer.profileComment));
+			UIManager.Instance.TryOpen(PopupType.Profile, new ProfilePopup.Parameter(playerGroup, playerName, PlayerDataContainer.Instance.profileComment));
 		}
 		else
 		{

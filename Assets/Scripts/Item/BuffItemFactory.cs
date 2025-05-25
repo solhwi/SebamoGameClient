@@ -5,18 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BuffItemFactory")]
 public class BuffItemFactory : DataContainer<BuffItemFactory>
 {
-	[SerializeField] private Inventory inventory = null;
-	[SerializeField] private ItemTable itemTable = null;
-
 	public BuffItem Make(ItemTable.BuffItemData data)
 	{
 		switch (data.actionType)
 		{
 			case BuffActionType.NextDiceOperationBuff:
-				return new NextDiceOperationBuffItem(inventory, data);
+				return new NextDiceOperationBuffItem(data);
 
 			case BuffActionType.NextDiceChangeBuff:
-				return new NextDiceChangeBuffItem(inventory, data);
+				return new NextDiceChangeBuffItem(data);
 		}
 
 		return null;
@@ -24,7 +21,7 @@ public class BuffItemFactory : DataContainer<BuffItemFactory>
 
 	public BuffItem Make(string itemCode)
 	{
-		if (itemTable.buffItemDataDictionary.TryGetValue(itemCode, out var buffItemData))
+		if (ItemTable.Instance.buffItemDataDictionary.TryGetValue(itemCode, out var buffItemData))
 		{
 			return Make(buffItemData);
 		}

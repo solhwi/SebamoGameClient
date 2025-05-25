@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 4
+  m_ObjectHideFlags: 8
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -52,12 +52,12 @@ MonoBehaviour:
   - key: YucoBody
     isEquipment: 1
     price: 30000
-    shopItemDescription: "\uC11C\uB298\uD560 \uB54C\uB294 \uAC89\uC637\uC744 \uAC78\uCE58\uB294
-      \uAC83\uB3C4 \uC88B\uC8E0."
+    shopItemDescription: "\uD3B8\uD558\uACE0 \uAC00\uBCBC\uC6B4 \uC637\uC774\uC8E0!"
   - key: MisakiBody
     isEquipment: 1
     price: 30000
-    shopItemDescription: "\uD3B8\uD558\uACE0 \uAC00\uBCBC\uC6B4 \uC637\uC774\uC8E0!"
+    shopItemDescription: "\uC11C\uB298\uD560 \uB54C\uB294 \uAC89\uC637\uC744 \uAC78\uCE58\uB294
+      \uAC83\uB3C4 \uC88B\uC8E0."
   - key: UnityChanFace
     isEquipment: 1
     price: 30000
@@ -230,12 +230,12 @@ MonoBehaviour:
     - key: YucoBody
       isEquipment: 1
       price: 30000
-      shopItemDescription: "\uC11C\uB298\uD560 \uB54C\uB294 \uAC89\uC637\uC744 \uAC78\uCE58\uB294
-        \uAC83\uB3C4 \uC88B\uC8E0."
+      shopItemDescription: "\uD3B8\uD558\uACE0 \uAC00\uBCBC\uC6B4 \uC637\uC774\uC8E0!"
     - key: MisakiBody
       isEquipment: 1
       price: 30000
-      shopItemDescription: "\uD3B8\uD558\uACE0 \uAC00\uBCBC\uC6B4 \uC637\uC774\uC8E0!"
+      shopItemDescription: "\uC11C\uB298\uD560 \uB54C\uB294 \uAC89\uC637\uC744 \uAC78\uCE58\uB294
+        \uAC83\uB3C4 \uC88B\uC8E0."
     - key: UnityChanFace
       isEquipment: 1
       price: 30000
@@ -1237,12 +1237,12 @@ MonoBehaviour:
   - key: YucoBody
     isEquipment: 1
     price: 30000
-    shopItemDescription: "\uC11C\uB298\uD560 \uB54C\uB294 \uAC89\uC637\uC744 \uAC78\uCE58\uB294
-      \uAC83\uB3C4 \uC88B\uC8E0."
+    shopItemDescription: "\uD3B8\uD558\uACE0 \uAC00\uBCBC\uC6B4 \uC637\uC774\uC8E0!"
   - key: MisakiBody
     isEquipment: 1
     price: 30000
-    shopItemDescription: "\uD3B8\uD558\uACE0 \uAC00\uBCBC\uC6B4 \uC637\uC774\uC8E0!"
+    shopItemDescription: "\uC11C\uB298\uD560 \uB54C\uB294 \uAC89\uC637\uC744 \uAC78\uCE58\uB294
+      \uAC83\uB3C4 \uC88B\uC8E0."
   - key: UnityChanFace
     isEquipment: 1
     price: 30000

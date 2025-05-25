@@ -52,9 +52,6 @@ public class ToolTipStringDictionary : SerializableDictionary<ToolTipType, strin
 
 public class ItemToolTipPopup : BoardGamePopup
 {
-	[SerializeField] private Inventory inventory;
-	[SerializeField] private ItemTable itemTable;
-
 	[SerializeField] private Text titleText;
 	[SerializeField] private Image itemIconImage;
 	[SerializeField] private Text itemNameText;
@@ -107,7 +104,7 @@ public class ItemToolTipPopup : BoardGamePopup
 				currentItemCode = data.key;
 				currentItemPrice = data.price;
 
-				int hasCoinCount = inventory.GetHasCoinCount();
+				int hasCoinCount = Inventory.Instance.GetHasCoinCount();
 				maxSelectableCount = hasCoinCount / data.price;
 
 				onClickConfirm = shopBuyParameter.onClickBuy;
@@ -122,9 +119,9 @@ public class ItemToolTipPopup : BoardGamePopup
 		{
 			currentToolTipType = ToolTipType.Sell;
 			currentItemCode = sellParameter.itemCode;
-			currentItemPrice = itemTable.GetItemSellPrice(currentItemCode);
+			currentItemPrice = ItemTable.Instance.GetItemSellPrice(currentItemCode);
 
-			maxSelectableCount = inventory.GetHasCount(currentItemCode);
+			maxSelectableCount = Inventory.Instance.GetHasCount(currentItemCode);
 			onClickConfirm = sellParameter.onClickSell;
 		}
 		else
@@ -192,9 +189,9 @@ public class ItemToolTipPopup : BoardGamePopup
 				break;
 		}
 
-		itemIconImage.sprite = itemTable.GetItemToolTipIconSprite(currentItemCode);
-		itemNameText.text = itemTable.GetItemName(currentItemCode);
-		itemDescriptionText.text = itemTable.GetItemDescription(currentItemCode);
+		itemIconImage.sprite = ItemTable.Instance.GetItemToolTipIconSprite(currentItemCode);
+		itemNameText.text = ItemTable.Instance.GetItemName(currentItemCode);
+		itemDescriptionText.text = ItemTable.Instance.GetItemDescription(currentItemCode);
 
 		itemCountText.text = selectedCount.ToString("n0");
 	}

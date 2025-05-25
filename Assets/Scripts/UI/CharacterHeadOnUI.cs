@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CharacterHeadOnUI : MonoBehaviour
 {
-	[SerializeField] private PlayerDataContainer playerDataContainer;
 	[SerializeField] private Canvas canvas;
 	[SerializeField] private Text characterNameText;
 	[SerializeField] private Image characterArrowImage;
@@ -27,7 +26,7 @@ public class CharacterHeadOnUI : MonoBehaviour
 	public void TrySetActive(bool isActive)
 	{
 		bool useOption = PlayerConfig.useOptionUserName;
-		bool isMine = playerDataContainer.IsMine(playerGroup, playerName);
+		bool isMine = PlayerDataContainer.Instance.IsMine(playerGroup, playerName);
 
 		gameObject.SetActive(isActive && (isMine || useOption));
 	}
@@ -44,7 +43,7 @@ public class CharacterHeadOnUI : MonoBehaviour
 
 		characterNameText.text = playerName;
 
-		bool isMine = playerDataContainer.IsMine(playerGroup, playerName);
+		bool isMine = PlayerDataContainer.Instance.IsMine(playerGroup, playerName);
 
 		characterNameText.gameObject.SetActive(!isMine);
 		characterArrowImage.gameObject.SetActive(isMine);

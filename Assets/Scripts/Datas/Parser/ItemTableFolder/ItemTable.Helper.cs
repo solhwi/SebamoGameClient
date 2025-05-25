@@ -58,7 +58,7 @@ public partial class ItemTable
 		}
 	}
 
-	public IEnumerator PreLoadTableAssets()
+	public override IEnumerator Preload()
 	{
 		foreach (string path in GetPreLoadTableDataPath())
 		{

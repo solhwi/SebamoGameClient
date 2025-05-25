@@ -28,11 +28,10 @@ public class InventoryPopup : BoardGamePopup
 		Replace,
 	}
 
-	[SerializeField] private ItemTable itemTable;
-	[SerializeField] private Inventory inventory;
-	[SerializeField] private PlayerDataContainer playerDataContainer;
+	
+	
 
-	[SerializeField] private FieldItemFactory fieldItemFactory;
+	
 
 	[SerializeField] private CharacterView uiCharacterView;
 	[SerializeField] private ItemObjectView itemObjectView;
@@ -217,9 +216,9 @@ public class InventoryPopup : BoardGamePopup
 		}
 		else
 		{
-			StartCoroutine(inventory.TryEquipOn(itemCode, (d) =>
+			StartCoroutine(Inventory.Instance.TryEquipOn(itemCode, (d) =>
 			{
-				if (itemTable.IsEquipmentItem(itemCode))
+				if (ItemTable.Instance.IsEquipmentItem(itemCode))
 				{
 					uiCharacterView.RefreshCharacter();
 					uiCharacterView.DoIdle(0.3f);
@@ -241,11 +240,11 @@ public class InventoryPopup : BoardGamePopup
 
 	private IEnumerator OnClickSell(string itemCode, int count)
 	{
-		bool isSuccess = inventory.TryRemoveItem(itemCode, count);
+		bool isSuccess = Inventory.Instance.TryRemoveItem(itemCode, count);
 		if (isSuccess)
 		{
-			int price = itemTable.GetItemSellPrice(itemCode);
-			inventory.TryAddItem(ItemTable.Coin, price * count);
+			int price = ItemTable.Instance.GetItemSellPrice(itemCode);
+			Inventory.Instance.TryAddItem(ItemTable.Coin, price * count);
 
 			hasItemList = GetSortingHasItems(currentTabType).ToList();
 			scrollContent.UpdateContents();
@@ -259,13 +258,13 @@ public class InventoryPopup : BoardGamePopup
 		if (itemCode == null || itemCode == string.Empty)
 			return;
 
-		if (itemTable.IsEnableEquipOffItem(itemCode) == false)
+		if (ItemTable.Instance.IsEnableEquipOffItem(itemCode) == false)
 		{
 			Debug.Log($"해당 아이템 [{itemCode}]는 벗을 수 없는 아이템입니다.");
 		}
 		else
 		{
-			StartCoroutine(inventory.TryEquipOff(itemCode, (d) =>
+			StartCoroutine(Inventory.Instance.TryEquipOff(itemCode, (d) =>
 			{
 				uiCharacterView.RefreshCharacter();
 				uiCharacterView.DoIdle(0.3f);
@@ -286,13 +285,13 @@ public class InventoryPopup : BoardGamePopup
 
 	public void OnClickUseItem()
 	{
-		if (itemTable.IsBuffItem(currentItemCode))
+		if (ItemTable.Instance.IsBuffItem(currentItemCode))
 		{
-			StartCoroutine(inventory.TryApplyBuff(currentItemCode, (d) =>
+			StartCoroutine(Inventory.Instance.TryApplyBuff(currentItemCode, (d) =>
 			{
 				UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter($"버프 아이템 {currentItemCode}이 사용되었습니다."));
 
-				int currentItemCount = inventory.GetHasCount(currentItemCode);
+				int currentItemCount = Inventory.Instance.GetHasCount(currentItemCode);
 				if (currentItemCount <= 0)
 				{
 					hasItemList = GetSortingHasItems(currentTabType).ToList();
@@ -303,7 +302,7 @@ public class InventoryPopup : BoardGamePopup
 				}
 			}));
 		}
-		else if (itemTable.IsFieldItem(currentItemCode) || itemTable.IsDeBuffItem(currentItemCode))
+		else if (ItemTable.Instance.IsFieldItem(currentItemCode) || ItemTable.Instance.IsDeBuffItem(currentItemCode))
 		{
 			BoardGameManager.Instance.StartReplaceMode(currentItemCode);
 		}
@@ -318,9 +317,9 @@ public class InventoryPopup : BoardGamePopup
 	{
 		var hasItems = GetHasItems(tabType).ToList();
 
-		if (itemTable != null)
+		if (ItemTable.Instance != null)
 		{
-			hasItems.Sort((a, b) => itemTable.Compare(a.Key, b.Key));
+			hasItems.Sort((a, b) => ItemTable.Instance.Compare(a.Key, b.Key));
 		}
 
 		return hasItems;
@@ -332,14 +331,14 @@ public class InventoryPopup : BoardGamePopup
 		{
 			case TabType.Props:
 
-				foreach (var iterator in inventory.hasItems)
+				foreach (var iterator in Inventory.Instance.hasItems)
 				{
 					var itemCode = iterator.Key;
 
-					if (inventory.IsEquippedItem(itemCode))
+					if (Inventory.Instance.IsEquippedItem(itemCode))
 						continue;
 
-					if (itemTable.IsAvatarItem(itemCode))
+					if (ItemTable.Instance.IsAvatarItem(itemCode))
 					{
 						yield return iterator;
 					}
@@ -349,13 +348,13 @@ public class InventoryPopup : BoardGamePopup
 
 			case TabType.Parts:
 
-				foreach (var iterator in inventory.hasItems)
+				foreach (var iterator in Inventory.Instance.hasItems)
 				{
 					var itemCode = iterator.Key;
-					if (inventory.IsEquippedItem(itemCode))
+					if (Inventory.Instance.IsEquippedItem(itemCode))
 						continue;
 
-					if (itemTable.IsBeautyItem(itemCode))
+					if (ItemTable.Instance.IsBeautyItem(itemCode))
 					{
 						yield return iterator;
 					}
@@ -365,13 +364,13 @@ public class InventoryPopup : BoardGamePopup
 
 			case TabType.Profile:
 
-				foreach (var iterator in inventory.hasItems)
+				foreach (var iterator in Inventory.Instance.hasItems)
 				{
 					var itemCode = iterator.Key;
-					if (inventory.IsEquippedItem(itemCode))
+					if (Inventory.Instance.IsEquippedItem(itemCode))
 						continue;
 
-					if (itemTable.IsProfileItem(itemCode))
+					if (ItemTable.Instance.IsProfileItem(itemCode))
 					{
 						yield return iterator;
 					}
@@ -381,13 +380,13 @@ public class InventoryPopup : BoardGamePopup
 
 			case TabType.Replace:
 
-				foreach (var iterator in inventory.hasItems)
+				foreach (var iterator in Inventory.Instance.hasItems)
 				{
 					var itemCode = iterator.Key;
 					if (currentItemCode == itemCode)
 						continue;
 
-					if (itemTable.IsFieldItem(itemCode) || itemTable.IsBuffItem(itemCode) || itemTable.IsDeBuffItem(itemCode))
+					if (ItemTable.Instance.IsFieldItem(itemCode) || ItemTable.Instance.IsBuffItem(itemCode) || ItemTable.Instance.IsDeBuffItem(itemCode))
 					{
 						yield return iterator;
 					}

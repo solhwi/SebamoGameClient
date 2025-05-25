@@ -10,7 +10,6 @@ public class TileItemSettingWindow : TileEditorWindow
 	private static string selectedItemCode = string.Empty;
 	private static int selectedToggleIndex = 0;
 
-	protected static ItemTable itemTable;
 	protected const string ItemTablePath = "Assets/Bundles/Datas/Parser/ItemTable.asset";
 
 	[MenuItem("Tools/타일 아이템 배치 도우미 %#S")]
@@ -21,8 +20,7 @@ public class TileItemSettingWindow : TileEditorWindow
 		InitializeTileData();
 		InitializeTileItems();
 
-		itemTable = AssetDatabase.LoadAssetAtPath<ItemTable>(ItemTablePath);
-		if (itemTable == null)
+		if (ItemTable.Instance == null)
 		{
 			Debug.LogError($"{ItemTablePath}에 아이템 테이블 없음");
 			return;
@@ -38,14 +36,14 @@ public class TileItemSettingWindow : TileEditorWindow
 
 	private static void InitializeTileItems()
 	{
-		if (tileDataContainer.tileItems == null || tileDataContainer.tileItems.Length != boardTileDatas.Count)
+		if (TileDataContainer.Instance.tileItems == null || TileDataContainer.Instance.tileItems.Length != boardTileDatas.Count)
 		{
 			tileItems = new string[boardTileDatas.Count];
 			ClearTileItemData();
 		}
 		else
 		{
-			tileItems = tileDataContainer.tileItems.ToArray();
+			tileItems = TileDataContainer.Instance.tileItems.ToArray();
 		}
 	}
 
@@ -59,7 +57,7 @@ public class TileItemSettingWindow : TileEditorWindow
 
 	protected override void SaveData()
 	{
-		tileDataContainer.SetTileItems(tileItems);
+		TileDataContainer.Instance.SetTileItems(tileItems);
 
 		base.SaveData();
 	}
@@ -79,9 +77,9 @@ public class TileItemSettingWindow : TileEditorWindow
 
 		DrawAxis(Axis.Vertical, () =>
 		{
-			for (int i = 0; i < itemTable.fieldItemDataList.Count; i++)
+			for (int i = 0; i < ItemTable.Instance.fieldItemDataList.Count; i++)
 			{
-				var dropItemData = itemTable.fieldItemDataList[i];
+				var dropItemData = ItemTable.Instance.fieldItemDataList[i];
 				bool isToggleOn = DrawToggle(80, 30, selectedToggleIndex == i, dropItemData.key);
 				if (isToggleOn)
 				{

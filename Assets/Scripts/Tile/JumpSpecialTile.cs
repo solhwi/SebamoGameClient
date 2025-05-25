@@ -18,15 +18,15 @@ public class JumpSpecialTile : SpecialTileBase
 
 	public override void DoAction()
 	{
-		int currentOrder = playerDataContainer.currentTileOrder;
+		int currentOrder = PlayerDataContainer.Instance.currentTileOrder;
 
 		int nextOrder = TileDataManager.Instance.GetNextOrder(currentOrder, count, out var item);
 		if (item != null)
 		{
-			item.Use(playerDataContainer, nextOrder);
+			item.Use(nextOrder);
 		}
 
-		playerDataContainer.SaveCurrentOrder(nextOrder);
+		PlayerDataContainer.Instance.SaveCurrentOrder(nextOrder);
 	}
 		
 	public override IEnumerator OnDoTileAction(int currentOrder, int nextOrder)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public enum CharacterState
 {
@@ -46,9 +47,9 @@ public enum CharacterStateType
 
 public class CharacterAnimationController : MonoBehaviour
 {
-	[SerializeField] private PlayerDataContainer playerDataContainer = null;
-	[SerializeField] private RuntimeAnimatorController controller = null;
-	
+	[SerializeField] private AssetReferenceT<RuntimeAnimatorController> controllerRef = null;
+	private RuntimeAnimatorController controller = null;
+
 	private float crossFadeTime = 0.0f;
 
 	public Animator Animator
@@ -72,6 +73,14 @@ public class CharacterAnimationController : MonoBehaviour
 	private string playerGroup = string.Empty;
 	private string playerName = string.Empty;
 
+	public IEnumerator Preload()
+	{
+		yield return ResourceManager.Instance.LoadAsync<RuntimeAnimatorController>(controllerRef, (c) =>
+		{
+			controller = c;
+		});
+	}
+
 	public void SetPlayerData(string playerGroup, string playerName)
 	{
 		this.playerGroup = playerGroup;
@@ -89,7 +98,7 @@ public class CharacterAnimationController : MonoBehaviour
 
 		currentStateType = CharacterStateType.Idle;
 
-		var propType = playerDataContainer.GetEquippedPropType(playerGroup, playerName).FirstOrDefault();
+		var propType = PlayerDataContainer.Instance.GetEquippedPropType(playerGroup, playerName).FirstOrDefault();
 		if (propType == PropType.GreatSword)
 		{
 			ChangeState(CharacterStateType.Idle, CharacterState.Idle_GreatSword);
@@ -122,7 +131,7 @@ public class CharacterAnimationController : MonoBehaviour
 
 		currentStateType = CharacterStateType.Run;
 
-		var propType = playerDataContainer.GetEquippedPropType(playerGroup, playerName).FirstOrDefault();
+		var propType = PlayerDataContainer.Instance.GetEquippedPropType(playerGroup, playerName).FirstOrDefault();
 		if (propType == PropType.GreatSword)
 		{
 			ChangeState(CharacterStateType.Run, CharacterState.Run_GreatSword);
@@ -153,7 +162,7 @@ public class CharacterAnimationController : MonoBehaviour
 	{
 		currentStateType = CharacterStateType.Attack;
 
-		var propType = playerDataContainer.GetEquippedPropType(playerGroup, playerName).FirstOrDefault();
+		var propType = PlayerDataContainer.Instance.GetEquippedPropType(playerGroup, playerName).FirstOrDefault();
 		if (propType == PropType.GreatSword)
 		{
 			ChangeState(CharacterStateType.Attack, CharacterState.Attack_GreatSword);

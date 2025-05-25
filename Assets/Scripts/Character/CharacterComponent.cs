@@ -5,7 +5,6 @@ using UnityEngine;
 public class CharacterComponent : MonoBehaviour 
 {
 	[SerializeField] protected CharacterView characterView = null;
-	[SerializeField] protected PlayerDataContainer playerDataContainer = null;
 
 	public void SetPlayerData(string playerGroup, string playerName)
 	{
@@ -30,7 +29,7 @@ public class CharacterComponent : MonoBehaviour
 			ProcessFlip(startPos, tile.tilePlayerPosition);
 
 			float t = 0.0f;
-			float moveTime = playerDataContainer.moveTimeByOneTile;
+			float moveTime = PlayerDataContainer.Instance.moveTimeByOneTile;
 			while (t < moveTime)
 			{
 				t += Time.deltaTime * speedRate;

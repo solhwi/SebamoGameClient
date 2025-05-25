@@ -11,7 +11,6 @@ public enum TileType
 
 public class TileDataSetter : MonoBehaviour
 {
-    [SerializeField] private TileDataContainer tileDataContainer = null;
 	[SerializeField] private TileType tileType = TileType.Dimetric;
 
 	[SerializeField] private Grid grid = null;
@@ -45,40 +44,40 @@ public class TileDataSetter : MonoBehaviour
 	private void SetCameraData()
 	{
 		Camera.main.transparencySortMode = TransparencySortMode.CustomAxis;
-		Camera.main.transparencySortAxis = tileDataContainer.transparencySortAxis;
+		Camera.main.transparencySortAxis = TileDataContainer.Instance.transparencySortAxis;
 	}
 
 	private void SetGridData()
 	{
-		grid.cellGap = tileDataContainer.gridCellGap;
-		grid.cellSize = tileDataContainer.GetGridCellSize(tileType);
-		grid.cellLayout = tileDataContainer.layOutType;
-		grid.cellSwizzle = tileDataContainer.SwizzleType;
+		grid.cellGap = TileDataContainer.Instance.gridCellGap;
+		grid.cellSize = TileDataContainer.Instance.GetGridCellSize(tileType);
+		grid.cellLayout = TileDataContainer.Instance.layOutType;
+		grid.cellSwizzle = TileDataContainer.Instance.SwizzleType;
 	}
 
 	private void SetTileData()
 	{
-		tileMap.tileAnchor = tileDataContainer.GetTileAnchor(tileType);
+		tileMap.tileAnchor = TileDataContainer.Instance.GetTileAnchor(tileType);
 
 		foreach (var sub in subTileMaps)
 		{
-			sub.tileAnchor = tileDataContainer.GetTileAnchor(tileType);
+			sub.tileAnchor = TileDataContainer.Instance.GetTileAnchor(tileType);
 		}
 
-		tileMap.orientation = tileDataContainer.OrientationType;
-		tileMap.animationFrameRate = tileDataContainer.tileAnimationFrameRate;
+		tileMap.orientation = TileDataContainer.Instance.OrientationType;
+		tileMap.animationFrameRate = TileDataContainer.Instance.tileAnimationFrameRate;
 	}
 
 	private void SetTileMapRendererData()
 	{
-		tileMapRenderer.sortOrder = tileDataContainer.sortingOrderType;
-		tileMapRenderer.mode = tileDataContainer.tileRenderMode;
+		tileMapRenderer.sortOrder = TileDataContainer.Instance.sortingOrderType;
+		tileMapRenderer.mode = TileDataContainer.Instance.tileRenderMode;
 		tileMapRenderer.sortingOrder = (int)LayerConfig.Tile;
 
 		foreach (var sub in subTileMapRenderers)
 		{
-			sub.sortOrder = tileDataContainer.sortingOrderType;
-			sub.mode = tileDataContainer.tileRenderMode;
+			sub.sortOrder = TileDataContainer.Instance.sortingOrderType;
+			sub.mode = TileDataContainer.Instance.tileRenderMode;
 			sub.sortingOrder = (int)LayerConfig.Tile;
 		}
 	}

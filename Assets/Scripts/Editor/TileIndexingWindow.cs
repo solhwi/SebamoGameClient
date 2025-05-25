@@ -23,14 +23,14 @@ public class TileIndexingWindow : TileEditorWindow
 
 	private static void InitializeTileOrder()
 	{
-		if (tileDataContainer.tileOrders == null || tileDataContainer.tileOrders.Length != boardTileDatas.Count)
+		if (TileDataContainer.Instance.tileOrders == null || TileDataContainer.Instance.tileOrders.Length != boardTileDatas.Count)
 		{
 			tileOrders = new int[boardTileDatas.Count];
 			ClearTileOrderData();
 		}
 		else
 		{
-			tileOrders = tileDataContainer.tileOrders.ToArray();
+			tileOrders = TileDataContainer.Instance.tileOrders.ToArray();
 		}
 	}
 	
@@ -44,7 +44,7 @@ public class TileIndexingWindow : TileEditorWindow
 
 	protected override void SaveData()
 	{
-		tileDataContainer.SetTileOrder(tileOrders);
+		TileDataContainer.Instance.SetTileOrder(tileOrders);
 
 		base.SaveData();
 	}

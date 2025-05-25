@@ -84,6 +84,11 @@ public class CharacterView : ObjectView
 		}
 
 		characterAnimationController = originObj.GetComponentInChildren<CharacterAnimationController>();
+		if (characterAnimationController != null)
+		{
+			yield return characterAnimationController.Preload();
+			characterAnimationController.DoIdle();
+		}
 
 		// 애니메이터가 달려있는 곳이 제어할 위치
 		var characterOrigin = originObj.GetComponentInChildren<Animator>();
@@ -91,8 +96,6 @@ public class CharacterView : ObjectView
 		{
 			originCharacterTransform = characterOrigin.transform;
 		}
-
-		characterAnimationController.DoIdle();
 	}
 
 	public void SetPlayerData(string playerGroup, string playerName)

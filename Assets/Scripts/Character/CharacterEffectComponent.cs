@@ -11,10 +11,8 @@ public class EffectData
 
 public class CharacterEffectComponent : MonoBehaviour, IBoardGameSubscriber
 {
-	[SerializeField] private PlayerDataContainer playerDataContainer = null;
-
-	[SerializeField] private Inventory inventory;
-	[SerializeField] private BuffItemFactory buffItemFactory;
+	
+	
 
 	[SerializeField] protected CharacterView characterView = null;
 
@@ -66,7 +64,7 @@ public class CharacterEffectComponent : MonoBehaviour, IBoardGameSubscriber
 	{
 		DestroyEffect();
 
-		if (playerDataContainer.IsMeEnded)
+		if (PlayerDataContainer.Instance.IsMeEnded)
 		{
 			foreach (var data in goalEffectDataList)
 			{
@@ -83,9 +81,9 @@ public class CharacterEffectComponent : MonoBehaviour, IBoardGameSubscriber
 		}
 		else
 		{
-			string buffItemCode = inventory.GetUsableBuffItemCode();
+			string buffItemCode = Inventory.Instance.GetUsableBuffItemCode();
 
-			currentBuffItem = buffItemFactory.Make(buffItemCode);
+			currentBuffItem = BuffItemFactory.Instance.Make(buffItemCode);
 			if (currentBuffItem != null)
 			{
 				currentBuffItem.CreateEffect(characterView.originCharacterTransform);

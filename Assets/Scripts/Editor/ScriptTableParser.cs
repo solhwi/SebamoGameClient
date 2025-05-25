@@ -27,7 +27,7 @@ public class ScriptableObjectHelper
 			AssetDatabase.CreateAsset(asset, fullAssetPath);
 		}
 
-		asset.hideFlags = HideFlags.DontSaveInEditor;
+		asset.hideFlags = HideFlags.NotEditable;
 		return asset;
 	}
 }
@@ -81,7 +81,7 @@ public class ScriptParserEditor : AssetPostprocessor
 
 		builder.Append("[Serializable]\n");
 		builder.Append($"[ScriptParserAttribute(\"{tableName}.asset\")]\n");
-		builder.Append($"public partial class {tableName} : ScriptParser\n");
+		builder.Append($"public partial class {tableName} : ScriptParser<{tableName}>\n");
 		builder.Append("{\n");
 
 		builder.Append("\tpublic override void Parser()\n");
@@ -361,11 +361,11 @@ public class ScriptParserEditor : AssetPostprocessor
 			assetField.SetValue(asset, entities);
 		}
 
-		ScriptParser parser = asset as ScriptParser;
+		var parser = asset as IScriptParser;
 		parser?.Parser();
 		parser?.RuntimeParser();
 
-		EditorUtility.SetDirty(parser);
+		EditorUtility.SetDirty(parser as UnityEngine.Object);
 	}
 }
 #endif

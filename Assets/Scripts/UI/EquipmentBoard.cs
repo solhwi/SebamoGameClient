@@ -11,9 +11,6 @@ public class EquipmentBoard : MonoBehaviour
 		Profile,
 	}
 
-	[SerializeField] private Inventory inventory;
-	[SerializeField] private ItemTable itemTable;
-
 	[SerializeField] private BoardType boardType;
 
 	[SerializeField] private List<ItemIcon> equippedItemIcons = new List<ItemIcon>();
@@ -33,7 +30,7 @@ public class EquipmentBoard : MonoBehaviour
 
 				for (int i = 0; i < equippedItemIcons.Count; i++)
 				{
-					string itemCode = inventory.equippedItems[i];
+					string itemCode = Inventory.Instance.equippedItems[i];
 					equippedItemIcons[i].SetItemData(itemCode);
 					equippedItemIcons[i].SetItemClickCallback(onClickItem);
 				}
@@ -44,7 +41,7 @@ public class EquipmentBoard : MonoBehaviour
 
 				for (int i = 0; i < equippedItemIcons.Count; i++)
 				{
-					string itemCode = inventory.appliedProfileItems[i];
+					string itemCode = Inventory.Instance.appliedProfileItems[i];
 					equippedItemIcons[i].SetItemData(itemCode);
 					equippedItemIcons[i].SetItemClickCallback(onClickItem);
 				}

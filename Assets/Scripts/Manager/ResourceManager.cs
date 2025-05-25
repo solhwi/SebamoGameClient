@@ -7,6 +7,7 @@ using UnityEngine.AddressableAssets;
 using System.IO;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Linq;
+using UnityEditor;
 
 public static class ResourceHelper
 {
@@ -82,7 +83,6 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 public class ResourceManager : Singleton<ResourceManager>
 {
 	[SerializeField] private List<AssetReferenceT<DataContainer>> dataContainers = new List<AssetReferenceT<DataContainer>>();
-
 	[SerializeField] private List<AssetLabelReference> labelRefs = new List<AssetLabelReference>();
 
 	private Dictionary<string, AsyncOperationHandle> cachedObjectHandleDictionary = new Dictionary<string, AsyncOperationHandle>();
@@ -140,6 +140,24 @@ public class ResourceManager : Singleton<ResourceManager>
 		}
 	}
 
+	public T LoadData<T>( ) where T : DataContainer
+	{
+		foreach (var containerRef in dataContainers)
+		{
+			var c = containerRef.Get();
+			if (c == null)
+				continue;
+
+			if (c.GetType() != typeof(T))
+				continue;
+
+			return c as T;
+		}
+
+		return null;
+	}
+
+
 	public T Load<T>(AssetReference reference) where T : UnityEngine.Object
 	{
 		return Load<T>(reference.AssetGUID);
@@ -147,6 +165,12 @@ public class ResourceManager : Singleton<ResourceManager>
 
 	public T Load<T>(string path) where T : UnityEngine.Object
 	{
+#if UNITY_EDITOR
+		if (Application.isPlaying == false)
+		{
+			return AssetDatabase.LoadAssetAtPath<T>(path);
+		}
+#endif
 		if (cachedObjectHandleDictionary.ContainsKey(path) == false)
 		{
 			Debug.LogError($"{path}에 프리로드가 필요합니다.");

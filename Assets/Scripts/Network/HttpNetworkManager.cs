@@ -32,10 +32,6 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		}
 	}
 
-	[SerializeField] private PlayerDataContainer playerDataContainer;
-	[SerializeField] private Inventory inventory;
-	[SerializeField] private TileDataContainer tileDataContainer;
-
 	[SerializeField] private int reconnectCount = 5;
 	[SerializeField] private float updateFrequency = 60.0f;
 
@@ -51,8 +47,8 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	public void TryConnect(string group, string name)
 	{
-		playerDataContainer.playerGroup = group;
-		playerDataContainer.playerName = name;
+		PlayerDataContainer.Instance.playerGroup = group;
+		PlayerDataContainer.Instance.playerName = name;
 
 		if (isOfflineMode)
 		{
@@ -130,7 +126,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	{
 		yield return TryGet<MyPlayerPacketData>("My", (data) =>
 		{
-			playerDataContainer.SetMyPacketData(data);
+			PlayerDataContainer.Instance.SetMyPacketData(data);
 			onSuccess?.Invoke(data);
 		}, onFailed);
 	}
@@ -140,13 +136,13 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 	{
 		if (isOfflineMode)
 		{
-			onSuccess?.Invoke(playerDataContainer.otherPlayerPacketDatas.ToArray());
+			onSuccess?.Invoke(PlayerDataContainer.Instance.otherPlayerPacketDatas.ToArray());
 			yield break;
 		}
 
 		yield return TryGet<PlayerPacketDataCollection>("Other", (otherDatas) =>
 		{
-			playerDataContainer.SetOtherPacketData(otherDatas.playerDatas);
+			PlayerDataContainer.Instance.SetOtherPacketData(otherDatas.playerDatas);
 			onSuccess?.Invoke(otherDatas.playerDatas);
 		}, onFailed);
 	}
@@ -166,7 +162,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		var sendData = MakePlayerPacketData();
 		yield return TryPost<MyPlayerPacketData>(sendData, (receiveData) =>
 		{
-			playerDataContainer.SetMyPacketData(receiveData);
+			PlayerDataContainer.Instance.SetMyPacketData(receiveData);
 			onSuccess?.Invoke(receiveData);
 		}, onFailed);
 	}
@@ -181,7 +177,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 		yield return TryGet<TilePacketData>("Tile", (receiveData) =>
 		{
-			tileDataContainer.SetTileItemPacketData(receiveData);
+			TileDataContainer.Instance.SetTileItemPacketData(receiveData);
 			onSuccess?.Invoke(receiveData);
 		}, onFailed);
 	}
@@ -200,25 +196,25 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		var sendData = MakeTilePacketData();
 		yield return TryPost<TilePacketData>(sendData, (receiveData) =>
 		{
-			tileDataContainer.SetTileItemPacketData(receiveData);
+			TileDataContainer.Instance.SetTileItemPacketData(receiveData);
 			onSuccess?.Invoke(receiveData);
 		}, onFailed);
 	}
 
 	private MyPlayerPacketData MakePlayerPacketData()
 	{
-		return MyPlayerPacketData.Create(playerDataContainer, inventory);
+		return MyPlayerPacketData.Create();
 	}
 
 	private TilePacketData MakeTilePacketData()
 	{
-		return TilePacketData.Create(playerDataContainer, tileDataContainer.tileItems);
+		return TilePacketData.Create(TileDataContainer.Instance.tileItems);
 	}
 
 	public IEnumerator TryGet<T>(string urlParameter, Action<T> onGetSuccess, Action<string> OnGetFailed)
 	{
-		string group = playerDataContainer.playerGroup;
-		string name = playerDataContainer.playerName;
+		string group = PlayerDataContainer.Instance.playerGroup;
+		string name = PlayerDataContainer.Instance.playerName;
 
 		yield return GetRoutine($"{BaseURL}/{group}?p1={name}&p2={urlParameter}", (responseJsonData) =>
 		{

@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class ShopScrollItem : MonoBehaviour
 {
-	[SerializeField] private ItemTable itemTable;
 	[SerializeField] private Image backGroundImage = null;
 	[SerializeField] private ItemIcon itemIcon = null;
 	[SerializeField] private Text itemNameText = null;
@@ -29,7 +28,7 @@ public class ShopScrollItem : MonoBehaviour
 		myShopItemData = itemData;
 		itemIcon.SetItemData(itemData);
 		itemPriceText.text = string.Format(priceTextFormat, itemData.price);
-		itemNameText.text = itemTable.GetItemName(itemData.key);
+		itemNameText.text = ItemTable.Instance.GetItemName(itemData.key);
 	}
 
 	public void SetItemClickCallback(Action<string> onClick)

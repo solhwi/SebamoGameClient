@@ -7,7 +7,7 @@ using System.Collections.Generic;
 /// </summary>
 [Serializable]
 [ScriptParserAttribute("AuthDataTable.asset")]
-public partial class AuthDataTable : ScriptParser
+public partial class AuthDataTable : ScriptParser<AuthDataTable>
 {
 	public override void Parser()
 	{

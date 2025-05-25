@@ -24,7 +24,7 @@ public class TeleportSpecialTile : SpecialTileBase
 
 	public override void DoAction()
 	{
-		playerDataContainer.AddCurrentOrder(count);
+		PlayerDataContainer.Instance.AddCurrentOrder(count);
 	}
 
 	public override IEnumerator OnDoTileAction(int currentOrder, int nextOrder)

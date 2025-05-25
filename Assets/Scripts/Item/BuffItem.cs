@@ -12,24 +12,22 @@ public enum BuffActionType
 
 public class BuffItem
 {
-	private Inventory inventory;
 	private ItemTable.BuffItemData data;
 
 	public readonly string itemCode = string.Empty;
 
 	private GameObject effectObj;
 
-	public BuffItem(Inventory inventory, ItemTable.BuffItemData data)
+	public BuffItem(ItemTable.BuffItemData data)
 	{
-		this.inventory = inventory;
 		this.data = data;
 
 		itemCode = data.key;
 	}
 
-	public virtual bool TryUse(PlayerDataContainer playerDataContainer)
+	public virtual bool TryUse()
 	{
-		return inventory.TryUseBuff(itemCode);
+		return Inventory.Instance.TryUseBuff(itemCode);
 	}
 
 	public virtual void CreateEffect(Transform owner)
@@ -54,7 +52,7 @@ public class NextDiceOperationBuffItem : BuffItem
 	public readonly MathType mathType;
 	public readonly float count;
 
-	public NextDiceOperationBuffItem(Inventory inventory, ItemTable.BuffItemData data) : base(inventory, data)
+	public NextDiceOperationBuffItem(ItemTable.BuffItemData data) : base(data)
 	{
 		var pair = ItemTable.ParseBuffData(data.actionParameter);
 
@@ -62,18 +60,18 @@ public class NextDiceOperationBuffItem : BuffItem
 		count = pair.Value;
 	}
 
-	public override bool TryUse(PlayerDataContainer playerDataContainer)
+	public override bool TryUse()
 	{
-		bool b = base.TryUse(playerDataContainer);
+		bool b = base.TryUse();
 		if (b)
 		{
 			if (mathType == MathType.Add)
 			{
-				playerDataContainer.NextBonusAddDiceCount = (int)count;
+				PlayerDataContainer.Instance.NextBonusAddDiceCount = (int)count;
 			}
 			else if (mathType == MathType.Mul)
 			{
-				playerDataContainer.NextBonusMultiplyDiceCount = count;
+				PlayerDataContainer.Instance.NextBonusMultiplyDiceCount = count;
 			}
 		}
 
@@ -84,7 +82,7 @@ public class NextDiceOperationBuffItem : BuffItem
 public class NextDiceChangeBuffItem : BuffItem
 {
 	private NextDiceChangeBuffType nextDiceBuffType;
-	public NextDiceChangeBuffItem(Inventory inventory, ItemTable.BuffItemData data) : base(inventory, data)
+	public NextDiceChangeBuffItem(ItemTable.BuffItemData data) : base(data)
 	{
 		if (System.Enum.TryParse<NextDiceChangeBuffType>(data.actionParameter, out var buffType))
 		{
@@ -92,10 +90,10 @@ public class NextDiceChangeBuffItem : BuffItem
 		}
 	}
 
-	public override bool TryUse(PlayerDataContainer playerDataContainer)
+	public override bool TryUse()
 	{
-		playerDataContainer.nextDiceBuffType = nextDiceBuffType;
+		PlayerDataContainer.Instance.nextDiceBuffType = nextDiceBuffType;
 
-		return base.TryUse(playerDataContainer);
+		return base.TryUse();
 	}
 }

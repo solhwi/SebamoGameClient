@@ -5,30 +5,27 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "FieldItemFactory")]
 public class FieldItemFactory : DataContainer<FieldItemFactory>
 {
-	[SerializeField] private Inventory inventory = null;
-	[SerializeField] private ItemTable itemTable = null;
-
 	private FieldItem Make(ItemTable.FieldItemData data)
 	{
 		switch (data.actionType)
 		{
 			case FieldActionType.Random:
-				return new RandomFieldItem(inventory, data);
+				return new RandomFieldItem(data);
 
 			case FieldActionType.Banana:
-				return new BananaItem(inventory, data);
+				return new BananaItem(data);
 
 			case FieldActionType.Barricade:
-				return new BarricadeItem(inventory, data);
+				return new BarricadeItem(data);
 
 			case FieldActionType.NextDiceOperationBuff:
-				return new NextDiceOperationBuffFieldItem(inventory, data);
+				return new NextDiceOperationBuffFieldItem(data);
 
 			case FieldActionType.NextDiceChangeBuff:
-				return new NextDiceChangeBuffFieldItem(inventory, data);
+				return new NextDiceChangeBuffFieldItem(data);
 		}
 
-		return new NormalFieldItem(inventory, data);
+		return new NormalFieldItem(data);
 	}
 
 	public FieldItem Make(string itemCode)
@@ -36,7 +33,7 @@ public class FieldItemFactory : DataContainer<FieldItemFactory>
 		if (itemCode == null)
 			return null;
 
-		if (itemTable.fieldItemDataDictionary.TryGetValue(itemCode, out var data))
+		if (ItemTable.Instance.fieldItemDataDictionary.TryGetValue(itemCode, out var data))
 		{
 			return Make(data);
 		}
@@ -49,7 +46,7 @@ public class FieldItemFactory : DataContainer<FieldItemFactory>
 		if (itemCode == null)
 			return null;
 
-		if (itemTable.fieldItemDataDictionary.TryGetValue(itemCode, out var data))
+		if (ItemTable.Instance.fieldItemDataDictionary.TryGetValue(itemCode, out var data))
 		{
 			return Make(data) as T;
 		}

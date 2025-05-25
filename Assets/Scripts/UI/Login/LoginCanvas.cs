@@ -8,9 +8,6 @@ using UnityEngine.UI;
 
 public class LoginCanvas : BoardGameCanvasBase
 {
-	[SerializeField] private PlayerDataContainer playerDataContainer;
-	[SerializeField] private AuthDataTable authDataTable;
-
 	[SerializeField] private GameObject currentGroupTextObj = null;
 	[SerializeField] private Text currentGroupText = null;
 
@@ -63,7 +60,7 @@ public class LoginCanvas : BoardGameCanvasBase
 
 	private void OnLoginSuccess(string address)
 	{
-		authDataList = authDataTable.GetAllAuthData(address).ToList();
+		authDataList = AuthDataTable.Instance.GetAllAuthData(address).ToList();
 		if (authDataList.Count > 1)
 		{
 			UIManager.Instance.TryOpen(PopupType.GroupSelect, new GroupSelectPopup.Param(authDataList, OnAuthSuccess));

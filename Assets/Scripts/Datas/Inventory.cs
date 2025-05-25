@@ -7,8 +7,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Inventory")]
 public class Inventory : DataContainer<Inventory>
 {
-	[SerializeField] private ItemTable itemTable;
-
 	[System.Serializable]
 	public class HasItemDataDictionary : SerializableDictionary<string, int> { }
 
@@ -105,7 +103,7 @@ public class Inventory : DataContainer<Inventory>
 
 	private bool RemoveItem(string itemCode, int count = 1)
 	{
-		if (itemTable.IsValidItem(itemCode) == false)
+		if (ItemTable.Instance.IsValidItem(itemCode) == false)
 			return false;
 
 		if (hasItems.ContainsKey(itemCode) == false)
@@ -130,7 +128,7 @@ public class Inventory : DataContainer<Inventory>
 
 	private bool AddItem(string itemCode, int count = 1)
 	{
-		if (itemTable.IsValidItem(itemCode) == false)
+		if (ItemTable.Instance.IsValidItem(itemCode) == false)
 			return false;
 
 		if (hasItems.ContainsKey(itemCode))
@@ -211,7 +209,7 @@ public class Inventory : DataContainer<Inventory>
 
 	public bool EquipOffItem(string itemCode)
 	{
-		if (itemTable.IsValidItem(itemCode) == false)
+		if (ItemTable.Instance.IsValidItem(itemCode) == false)
 			return false;
 
 		if (hasItems.ContainsKey(itemCode) == false)
@@ -238,21 +236,21 @@ public class Inventory : DataContainer<Inventory>
 
 	private bool EquipOnItem(string itemCode)
 	{
-		if (itemTable.IsValidItem(itemCode) == false)
+		if (ItemTable.Instance.IsValidItem(itemCode) == false)
 			return false;
 
 		if (hasItems.ContainsKey(itemCode) == false)
 			return false;
 
-		if (itemTable.IsProfileItem(itemCode))
+		if (ItemTable.Instance.IsProfileItem(itemCode))
 		{
-			if (itemTable.profileItemDataDictionary.TryGetValue(itemCode, out var profileItemData))
+			if (ItemTable.Instance.profileItemDataDictionary.TryGetValue(itemCode, out var profileItemData))
 			{
 				int index = profileItemData.isFrame;
 				appliedProfileItems[index] = itemCode;
 			}
 		}
-		else if (itemTable.IsPropItem(itemCode))
+		else if (ItemTable.Instance.IsPropItem(itemCode))
 		{
 			int index = 5;
 			if (index >= 0 && index < equippedItems.Length)
@@ -262,7 +260,7 @@ public class Inventory : DataContainer<Inventory>
 		}
 		else
 		{
-			var partsType = itemTable.GetItemPartsType(itemCode);
+			var partsType = ItemTable.Instance.GetItemPartsType(itemCode);
 			int index = GetIndexFromPartsType(partsType);
 
 			if (index >= 0 && index < 5)

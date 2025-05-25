@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 public class DataContainer : ScriptableObject
@@ -15,7 +16,15 @@ public class DataContainer<T> : DataContainer where T : DataContainer
 	{
 		get
 		{
-			return ResourceManager.Instance.Load<T>($"Assets/Bundle/Datas/{typeof(T)}.asset");
+			if (instance == null)
+			{
+				instance = ResourceManager.Instance.LoadData<T>();
+				return instance;
+			}
+
+			return instance;
 		}
 	}
+
+	private static T instance = null;
 }

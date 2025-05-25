@@ -10,10 +10,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerDataContainer")]
 public class PlayerDataContainer : DataContainer<PlayerDataContainer>
 {
-	[SerializeField] private Inventory inventory;
-	[SerializeField] private ItemTable itemTable;
-	[SerializeField] private TileDataContainer tileDataContainer;
-
 	[Header("[현재 플레이어 그룹]")]
 	public string playerGroup;
 
@@ -33,7 +29,7 @@ public class PlayerDataContainer : DataContainer<PlayerDataContainer>
 	{
 		get
 		{
-			return inventory.equippedItems;
+			return Inventory.Instance.equippedItems;
 		}
 	}
 
@@ -41,7 +37,7 @@ public class PlayerDataContainer : DataContainer<PlayerDataContainer>
 	{
 		get
 		{
-			return inventory.appliedProfileItems;
+			return Inventory.Instance.appliedProfileItems;
 		}
 	}
 
@@ -53,7 +49,7 @@ public class PlayerDataContainer : DataContainer<PlayerDataContainer>
 		}
 	}
 
-	public int LastTileOrder => tileDataContainer.tileOrders.Length - 1;
+	public int LastTileOrder => TileDataContainer.Instance.tileOrders.Length - 1;
 
 	[Header("[타일 당 이동 시간]")]
 	public float moveTimeByOneTile = 1.0f;
@@ -99,7 +95,7 @@ public class PlayerDataContainer : DataContainer<PlayerDataContainer>
 
 	public bool SaveCurrentOrder(int currentTileOrder)
 	{
-		if (tileDataContainer.tileOrders.Length > currentTileOrder)
+		if (TileDataContainer.Instance.tileOrders.Length > currentTileOrder)
 		{
 			this.currentTileOrder = currentTileOrder;
 		}
@@ -109,7 +105,7 @@ public class PlayerDataContainer : DataContainer<PlayerDataContainer>
 		}
 		else
 		{
-			this.currentTileOrder = tileDataContainer.tileOrders.Length - 1;
+			this.currentTileOrder = TileDataContainer.Instance.tileOrders.Length - 1;
 		}
 
 		return true;
@@ -148,7 +144,7 @@ public class PlayerDataContainer : DataContainer<PlayerDataContainer>
 		currentTileOrder = myData.playerData.playerTileOrder;
 		profileComment = myData.playerData.profileComment;
 
-		inventory.SetMyPacketData(myData);
+		Inventory.Instance.SetMyPacketData(myData);
 	}
 
 	public void SetOtherPacketData(IEnumerable<PlayerPacketData> playerDatas)
@@ -208,7 +204,7 @@ public class PlayerDataContainer : DataContainer<PlayerDataContainer>
 			return CharacterType.Max;
 
 		string itemCode = data.equippedItems[index];
-		return itemTable.GetPartsCharacterType(itemCode);
+		return ItemTable.Instance.GetPartsCharacterType(itemCode);
 	}
 
 	public IEnumerable<PropType> GetEquippedPropType(string group, string name)
@@ -227,7 +223,7 @@ public class PlayerDataContainer : DataContainer<PlayerDataContainer>
 
 		string itemCode = data.equippedItems[index];
 
-		var propType = itemTable.GetItemPropType(itemCode);
+		var propType = ItemTable.Instance.GetItemPropType(itemCode);
 		if (propType == PropType.TwinDagger_L)
 		{
 			yield return PropType.TwinDagger_L;

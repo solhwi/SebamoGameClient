@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class BuffItemComponent : MonoBehaviour, IBoardGameSubscriber
 {
-	[SerializeField] private Inventory inventory;
 	[SerializeField] private List<ItemIcon> buffItemIcons = new List<ItemIcon>();
 
 	[SerializeField] private GameObject highLightObj = null;
@@ -60,7 +59,7 @@ public class BuffItemComponent : MonoBehaviour, IBoardGameSubscriber
 		if (isUpdateBuffItem == false)
 			return;
 
-		if (inventory.appliedBuffItemList.Count > 0)
+		if (Inventory.Instance.appliedBuffItemList.Count > 0)
 		{
 			highLightObj.SetActive(true);
 			noBuffTextObj.SetActive(false);
@@ -73,13 +72,13 @@ public class BuffItemComponent : MonoBehaviour, IBoardGameSubscriber
 
 		for (int i = 0; i < buffItemIcons.Count; i++)
 		{
-			if (inventory.appliedBuffItemList.Count <= i)
+			if (Inventory.Instance.appliedBuffItemList.Count <= i)
 			{
 				buffItemIcons[i].gameObject.SetActive(false);
 			}
 			else
 			{
-				string buffItemCode = inventory.appliedBuffItemList.ElementAt(i);
+				string buffItemCode = Inventory.Instance.appliedBuffItemList.ElementAt(i);
 				buffItemIcons[i].SetBuffItemData(buffItemCode);
 
 				buffItemIcons[i].gameObject.SetActive(true);

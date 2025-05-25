@@ -17,7 +17,6 @@ public enum SpecialTileType
 public abstract class SpecialTileBase : Tile
 {
 	[SerializeField] public SpecialTileType specialTileType;
-	[SerializeField] protected PlayerDataContainer playerDataContainer;
 
 	public virtual void DoAction()
 	{
@@ -31,8 +30,5 @@ public abstract class SpecialTileBase : Tile
 
 	protected virtual void Reset()
 	{
-#if UNITY_EDITOR
-		playerDataContainer = AssetDatabase.LoadAssetAtPath<PlayerDataContainer>("Assets/Bundles/Datas/PlayerDataContainer.asset");
-#endif
 	}
 }

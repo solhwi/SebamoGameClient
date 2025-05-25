@@ -5,27 +5,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TileSortingComparer : IComparer<int>
-{
-	private TileDataContainer tileDataContainer;
-
-	public TileSortingComparer(TileDataContainer tileDataContainer)
-	{
-		this.tileDataContainer = tileDataContainer;
-	}
-
-	public int Compare(int tileOrder1, int tileOrder2)
-	{
-		return tileOrder1 > tileOrder2 ? 1 : -1;
-	}
-
-}
-
 public class RankingBoard : MonoBehaviour
 {
-	[SerializeField] private TileDataContainer tileDataContainer;
 	[SerializeField] private ScrollContent scrollContent;
-	[SerializeField] private PlayerDataContainer playerDataContainer;
 
 	[SerializeField] private Image rankingToggleImage = null;
 	[SerializeField] private Sprite[] rankingImages = null;
@@ -51,7 +33,7 @@ public class RankingBoard : MonoBehaviour
 
 	private void Update()
 	{
-		if (playerDataContainer == null)
+		if (PlayerDataContainer.Instance == null)
 			return;
 
 		if (IsDirtyPlayerTileIndex(out var currentPlayerDatas) == false)
@@ -60,7 +42,7 @@ public class RankingBoard : MonoBehaviour
 		playerDatas.Clear();
 		playerDatas.AddRange(currentPlayerDatas);
 
-		int myPlayerIndex = playerDatas.FindIndex(p => playerDataContainer.IsMine(p.playerGroup, p.playerName));
+		int myPlayerIndex = playerDatas.FindIndex(p => PlayerDataContainer.Instance.IsMine(p.playerGroup, p.playerName));
 		myPlayerIndex = Math.Clamp(myPlayerIndex, 0, rankingImages.Length - 1);
 
 		rankingToggleImage.sprite = rankingImages[myPlayerIndex];
@@ -84,10 +66,10 @@ public class RankingBoard : MonoBehaviour
 	{
 		playerDatas = new List<PlayerPacketData>();
 
-		if (playerDataContainer == null)
+		if (PlayerDataContainer.Instance == null)
 			return false;
 
-		var allPlayerData = playerDataContainer.GetAllPlayerData();
+		var allPlayerData = PlayerDataContainer.Instance.GetAllPlayerData();
 		if (allPlayerData == null || allPlayerData.Any() == false)
 			return false;
 

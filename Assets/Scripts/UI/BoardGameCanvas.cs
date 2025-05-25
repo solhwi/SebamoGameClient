@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBeginDragHandler, IDragHandler
 {
-	[SerializeField] private PlayerDataContainer playerDataContainer;
-	[SerializeField] private Inventory inventory;
+	
 
 	[SerializeField] private DiceView diceView = null; 
 	[SerializeField] private ProfileSetter profileSetter;
@@ -25,7 +24,7 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 		}
 
 		diceView.Initialize();
-		diceButtonGoalObj.SetActive(playerDataContainer.IsMeEnded);
+		diceButtonGoalObj.SetActive(PlayerDataContainer.Instance.IsMeEnded);
 	}
 
 	protected override void OnClose()
@@ -37,12 +36,12 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 	}
 	public void OnStartTurn()
 	{
-		diceButtonGoalObj.SetActive(playerDataContainer.IsMeEnded);
+		diceButtonGoalObj.SetActive(PlayerDataContainer.Instance.IsMeEnded);
 	}
 
 	public void OnEndTurn()
 	{
-		diceButtonGoalObj.SetActive(playerDataContainer.IsMeEnded);
+		diceButtonGoalObj.SetActive(PlayerDataContainer.Instance.IsMeEnded);
 	}
 
 	public IEnumerator OnDoTileAction(int currentOrder, int nextOrder)
@@ -70,7 +69,7 @@ public class BoardGameCanvas : BoardGameCanvasBase, IBoardGameSubscriber, IBegin
 
 	public void OnClickRollDice()
 	{
-		if (playerDataContainer.IsMeEnded == false)
+		if (PlayerDataContainer.Instance.IsMeEnded == false)
 		{
 			CameraController.Instance.ResetTarget();
 			CameraController.Instance.SetFollow(true);
