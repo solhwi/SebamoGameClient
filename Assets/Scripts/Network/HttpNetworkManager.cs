@@ -27,7 +27,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 			}
 			else
 			{
-				return "http://3.36.213.118:8001";
+				return "http://3.138.156.227:8001";
 			}
 		}
 	}
