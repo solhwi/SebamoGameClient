@@ -121,8 +121,7 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 		}
 	}
 
-	// 최초 1회
-	private IEnumerator TryGetMyPlayerData(Action<MyPlayerPacketData> onSuccess, Action<string> onFailed = null)
+	public IEnumerator TryGetMyPlayerData(Action<MyPlayerPacketData> onSuccess, Action<string> onFailed = null)
 	{
 		yield return TryGet<MyPlayerPacketData>("My", (data) =>
 		{

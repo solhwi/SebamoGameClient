@@ -238,10 +238,6 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		{
 			TryChangeState(GameState.RollDice);
 		}
-		else
-		{
-			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter("주사위 개수가 부족합니다."));
-		}
 	}
 
 	private void TryChangeState(GameState newState, StateData data = null)
@@ -319,27 +315,64 @@ public class BoardGameManager : Singleton<BoardGameManager>
 
 	private IEnumerator ProcessRollDice()
 	{
-		bool isSuccess = false;
+		// 내 데이터 불러오기
+		bool isMyGetSuccess = false;
 
-		// 서버와 타일 데이터 동기화
-		yield return HttpNetworkManager.Instance.TryGetOtherPlayerDatas((d) =>
+		yield return HttpNetworkManager.Instance.TryGetMyPlayerData((d) =>
 		{
-			isSuccess = true;
+			isMyGetSuccess = true;
+		}, (error) =>
+		{
+			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter(error));
 		});
 
-		if (isSuccess == false)
+		if (isMyGetSuccess == false)
+		{
+			TryChangeState(GameState.None);
 			yield break;
+		}
+
+		// 주사위 개수 확인
+		if (PlayerDataContainer.Instance.hasDiceCount <= 0)
+		{
+			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter("주사위 개수가 부족합니다."));
+			TryChangeState(GameState.None);
+			yield break;
+		}
+
+		// 남의 데이터 불러오기
+		bool isOtherGetSuccess = false;
+
+		yield return HttpNetworkManager.Instance.TryGetOtherPlayerDatas((d) =>
+		{
+			isOtherGetSuccess = true;
+		}, (error) =>
+		{
+			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter(error));
+		});
+
+		if (isOtherGetSuccess == false)
+		{
+			TryChangeState(GameState.None);
+			yield break;
+		}
+
+		// 타일 데이터 불러오기
+		bool isTileGetSuccess = false;
 
 		yield return HttpNetworkManager.Instance.TryGetTileData((d) =>
 		{
-			isSuccess = true;
-		}, (s) =>
+			isTileGetSuccess = true;
+		}, (error) =>
 		{
-			isSuccess = false;
+			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter(error));
 		});
 
-		if (isSuccess == false)
+		if (isTileGetSuccess == false)
+		{
+			TryChangeState(GameState.None);
 			yield break;
+		}
 
 		// 시작 전 노티
 		foreach (var subscriber in subscribers)
@@ -350,28 +383,39 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		// 버프를 포함한 데이터 세팅
 		ProcessData();
 
-		// 서버에 내 정보, 타일 데이터 동기화
+		// 서버에 내 정보 동기화
+		bool isMyPostSuccess = false;
+
 		yield return HttpNetworkManager.Instance.TryPostMyPlayerData((d) =>
 		{
-			isSuccess = true;
-		}, (s) =>
+			isMyPostSuccess = true;
+		}, (error) =>
 		{
-			isSuccess = false;
+			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter(error));
 		});
 
-		if (isSuccess == false)
+		if (isMyPostSuccess == false)
+		{
+			TryChangeState(GameState.None);
 			yield break;
+		}
+
+		// 서버에 타일 정보 동기화
+		bool isTilePostSuccess = false;
 
 		yield return HttpNetworkManager.Instance.TryPostTileData((d) =>
 		{
-			isSuccess = true;
-		}, (s) =>
+			isTilePostSuccess = true;
+		}, (error) =>
 		{
-			isSuccess = false;
+			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter(error));
 		});
 
-		if (isSuccess == false)
+		if (isTilePostSuccess == false)
+		{
+			TryChangeState(GameState.None);
 			yield break;
+		}
 
 		// 주사위 굴리기 연출 시작
 		foreach (var subscriber in subscribers)
