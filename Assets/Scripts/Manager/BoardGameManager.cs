@@ -333,7 +333,7 @@ public class BoardGameManager : Singleton<BoardGameManager>
 		}
 
 		// 주사위 개수 확인
-		if (PlayerDataContainer.Instance.hasDiceCount <= 0)
+		if (PlayerDataContainer.Instance.hasDiceCount <= 0 || isDiceDebugMode)
 		{
 			UIManager.Instance.TryOpen(PopupType.Notify, new NotifyPopup.Parameter("주사위 개수가 부족합니다."));
 			TryChangeState(GameState.None);
