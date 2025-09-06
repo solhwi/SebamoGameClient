@@ -123,6 +123,12 @@ public class HttpNetworkManager : Singleton<HttpNetworkManager>
 
 	public IEnumerator TryGetMyPlayerData(Action<MyPlayerPacketData> onSuccess, Action<string> onFailed = null)
 	{
+		if (isOfflineMode)
+		{
+			onSuccess?.Invoke(null);
+			yield break;
+		}
+
 		yield return TryGet<MyPlayerPacketData>("My", (data) =>
 		{
 			PlayerDataContainer.Instance.SetMyPacketData(data);
