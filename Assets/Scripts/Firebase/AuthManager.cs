@@ -17,10 +17,10 @@ public class AuthManager : Singleton<AuthManager>
 		onLoginSuccess = onSuccess;
 		onLoginFailed = onFailed;
 
-#if !UNITY_EDITOR && UNITY_WEBGL
-		FirebaseAuth.SignInWithGoogle(gameObject.name, "OnLoginSuccess", "OnLoginFailed");
-#else
+#if UNITY_EDITOR
 		OnLoginSuccess(guestEmailAddress);
+#elif UNITY_WEBGL
+		FirebaseAuth.SignInWithGoogle(gameObject.name, "OnLoginSuccess", "OnLoginFailed");
 #endif
 	}
 
