@@ -12,16 +12,93 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5010f4fc3e47a4cb59944dfaf5a81a, type: 3}
   m_Name: PlayerDataContainer
   m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: 8ec70d7cb2ca4714f9e3f4c36d3e6260, type: 2}
-  itemTable: {fileID: 11400000, guid: 3972404818780e343b1a07d3ea393591, type: 2}
-  tileDataContainer: {fileID: 11400000, guid: 6bff3bcc2db60844cb56ca069bb23b8c, type: 2}
   playerGroup: Exp
   playerName: "\uC9C0\uD604"
-  hasDiceCount: 0
-  currentTileOrder: 0
+  hasDiceCount: 3
+  currentTileOrder: 79
   profileComment: 
   moveTimeByOneTile: 1
-  otherPlayerPacketDatas: []
+  otherPlayerPacketDatas:
+  - type: 0
+    playerGroup: Exp
+    playerName: "\uB3D9\uD604"
+    playerTileOrder: 74
+    hasDiceCount: 3
+    profileComment: 
+    equippedItems:
+    - YucoBody
+    - MisakiHair
+    - UnityChanEye
+    - UnityChanFace
+    - MisakiAccessory
+    - TwinDagger
+    appliedProfileItems:
+    - Profile_01
+    - Frame_01
+  - type: 0
+    playerGroup: Exp
+    playerName: "\uC0C1\uD6C8"
+    playerTileOrder: 76
+    hasDiceCount: 3
+    profileComment: 
+    equippedItems:
+    - YucoBody
+    - MisakiHair
+    - UnityChanEye
+    - UnityChanFace
+    - MisakiAccessory
+    - TwinDagger
+    appliedProfileItems:
+    - Profile_01
+    - Frame_01
+  - type: 0
+    playerGroup: Exp
+    playerName: "\uC9C0\uD64D"
+    playerTileOrder: 76
+    hasDiceCount: 3
+    profileComment: 
+    equippedItems:
+    - YucoBody
+    - MisakiHair
+    - UnityChanEye
+    - UnityChanFace
+    - MisakiAccessory
+    - TwinDagger
+    appliedProfileItems:
+    - Profile_01
+    - Frame_01
+  - type: 0
+    playerGroup: Exp
+    playerName: "\uC194"
+    playerTileOrder: 76
+    hasDiceCount: 3
+    profileComment: 
+    equippedItems:
+    - YucoBody
+    - MisakiHair
+    - UnityChanEye
+    - UnityChanFace
+    - MisakiAccessory
+    - TwinDagger
+    appliedProfileItems:
+    - Profile_01
+    - Frame_01
+  - type: 0
+    playerGroup: Exp
+    playerName: "\uAC15\uC6B1"
+    playerTileOrder: 76
+    hasDiceCount: 3
+    profileComment: 
+    equippedItems:
+    - YucoBody
+    - MisakiHair
+    - UnityChanEye
+    - UnityChanFace
+    - MisakiAccessory
+    - TwinDagger
+    appliedProfileItems:
+    - Profile_01
+    - Frame_01
   MaxDiceCount: 10
   NextDiceCount: 3
   NextBonusAddDiceCount: 0
